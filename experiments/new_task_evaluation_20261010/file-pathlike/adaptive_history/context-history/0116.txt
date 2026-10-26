@@ -1,0 +1,1 @@
+The output keeps getting truncated in the middle. Let me read the file directly with sed to a temp file and view specific lines.

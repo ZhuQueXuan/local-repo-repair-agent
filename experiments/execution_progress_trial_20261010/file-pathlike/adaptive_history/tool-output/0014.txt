@@ -1,0 +1,21 @@
+      * Avoiding overwriting an existing, valid file with a partially
+        written one.
+      * Providing a reasonable guarantee that a part file only has one
+        writer at a time.
+      * Optional recovery of partial data in failure cases.
+
+    .. _context manager: https://docs.python.org/2/reference/compound_stmts.html#with
+    .. _umask: https://en.wikipedia.org/wiki/Umask
+
+    """
+    _default_file_perms = RW_PERMS
+
+    # TODO: option to abort if target file modify date has changed since start?
+    def __init__(self, dest_path, **kwargs):
+        self.dest_path = dest_path
+        self.overwrite = kwargs.pop('overwrite', True)
+        self.file_perms = kwargs.pop('file_perms', None)
+        self.overwrite_part = kwargs.pop('overwrite_part', False)
+        self.part_filename = kwargs.pop('part_file', None)
+        self.rm_part_on_exc = kwargs.pop('rm_part_on_exc', True)
+       

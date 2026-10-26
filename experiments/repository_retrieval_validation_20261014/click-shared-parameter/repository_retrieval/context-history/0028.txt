@@ -1,0 +1,1 @@
+Let me see the full `argument` function including its docstring, and check the `option` docstring for the "re-use the same cls" comment.

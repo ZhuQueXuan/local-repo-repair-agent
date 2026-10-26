@@ -1,0 +1,411 @@
+{
+  "status": "four_predeclared_runs_completed",
+  "offline_unittest": {
+    "command": ".venv/Scripts/python.exe -B -m unittest discover -s scripts -p test_*.py -v",
+    "tests": 77,
+    "new_tests": 16,
+    "exit_code": 0,
+    "scope": "Observed successful tool execution; no model requests."
+  },
+  "disabled_state_equivalence": "Six fixed actions including a source change produced identical facts and pinned messages to round-13 archived TaskState.",
+  "freeze": {
+    "manifest": "configs/execution_progress_trial_20261010.freeze.json",
+    "sha256": "5b1bc9908fc03c11553504a06f4bfa1641bc346eac168204bb68739f13080514",
+    "verified_files": 310
+  },
+  "paid_runs_started": 4,
+  "new_api_requests": 167,
+  "new_cost_cny": "1.094736",
+  "shared_ledger_byte_identical": false,
+  "offline_preflight": {
+    "task_id": "boltons-file-pathlike-383",
+    "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155147_819996\\repo",
+    "git_root_verified": true,
+    "pipefail_verified": true,
+    "variant": "execution_progress",
+    "tool_output_budget": {
+      "max_output_bytes": 1024
+    },
+    "context_budget": {
+      "target_bytes": 12288,
+      "keep_recent_tool_outputs": 4,
+      "compact_completed_exchanges": true,
+      "retained_audit_entries": 3,
+      "compact_to_target": true
+    },
+    "archive_assistant_content": true,
+    "task_state": {
+      "guard_enabled": true,
+      "repeated_read_threshold": 3,
+      "blocked_read_threshold": 3,
+      "include_previews_in_requests": false,
+      "progress_policy": {
+        "stagnation_actions": 8
+      },
+      "implementation_prefix": "boltons/",
+      "validation_commands": {
+        "targeted": "python -B -m pytest tests/test_fileutils.py -q -p no:cacheprovider",
+        "issue": "python -B -m unittest discover -s task_checks -v"
+      }
+    },
+    "external_model_requests": 0,
+    "budget": {
+      "max_requests": null,
+      "max_total_cost_cny": null,
+      "accounted_cost_and_reservations_cny": 6.586268,
+      "remaining_cny": null,
+      "blocked": false
+    },
+    "evaluation_freeze": {
+      "manifest": "configs/execution_progress_trial_20261010.freeze.json",
+      "sha256": "5b1bc9908fc03c11553504a06f4bfa1641bc346eac168204bb68739f13080514",
+      "verified_files": 310
+    }
+  },
+  "approval_limit": "Earlier approval rejection resolved by direct current-chat human confirmation. No bypass or retry of model runs.",
+  "scope": "Single-agent advisory mechanism; offline replay is not new repair success. The two tasks are development/regression now.",
+  "current_chat_direct_approval": "用户回复：授权四次运行。此后执行权限获准。",
+  "cases": [
+    {
+      "task": "omd-copy",
+      "variant": "adaptive_history",
+      "exit_status": "Submitted",
+      "provider_failure": null,
+      "requests": 27,
+      "estimated_cost_cny": 0.18857000000000004,
+      "elapsed_seconds": 35.75,
+      "changed_files": [
+        "boltons/dictutils.py"
+      ],
+      "unexpected_changes": [],
+      "checks_and_description_unchanged": true,
+      "repair_verified": true,
+      "patch_replay_passed": true,
+      "new_full_suite_failures": [],
+      "first_implementation_change_sequence": 22,
+      "first_stagnation_feedback_sequence": null,
+      "feedback_actions": 0,
+      "stagnation_feedback_actions": 0,
+      "phase_transitions": [],
+      "executed_actions": 27,
+      "blocked_reads": 0,
+      "most_frequent_commands": [
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\" && pwd && git log --oneline -1 && ls && echo \"---\" && grep -rn \"OrderedMultiDict\" --include=*.py -l | head -20",
+          1
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && grep -n \"class OrderedMultiDict\\|def copy\\|def __copy__\\|def __deepcopy__\\|def __reduce__\\|def __getstate__\\|def __setstate__\\|def __init__\\|_map\\|_items\\|_order\" boltons/dictutils.py | head -60",
+          1
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && sed -n '86,300p' boltons/dictutils.py",
+          1
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && sed -n '160,300p' boltons/dictutils.py",
+          1
+        ]
+      ],
+      "maximum_actual_request_bytes": 12274,
+      "issue_checks": {
+        "tests_run": 9,
+        "subtests_run": 13,
+        "passed": 9,
+        "failed_test_methods": [],
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true
+      },
+      "upstream_targeted": {
+        "tests_run": 27,
+        "passed": 27,
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true,
+        "returncode": 0
+      },
+      "full_upstream_suite": {
+        "tests_run": 423,
+        "passed": 423,
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true,
+        "returncode": 0
+      }
+    },
+    {
+      "task": "omd-copy",
+      "variant": "execution_progress",
+      "exit_status": "Submitted",
+      "provider_failure": null,
+      "requests": 41,
+      "estimated_cost_cny": 0.27010600000000007,
+      "elapsed_seconds": 46.937,
+      "changed_files": [
+        "boltons/dictutils.py"
+      ],
+      "unexpected_changes": [],
+      "checks_and_description_unchanged": true,
+      "repair_verified": true,
+      "patch_replay_passed": true,
+      "new_full_suite_failures": [],
+      "first_implementation_change_sequence": 33,
+      "first_stagnation_feedback_sequence": 8,
+      "feedback_actions": 41,
+      "stagnation_feedback_actions": 25,
+      "phase_transitions": [
+        {
+          "sequence": 1,
+          "phase": "diagnose_and_repair",
+          "current_validation": {
+            "targeted": "not_run",
+            "issue": "not_run"
+          },
+          "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate."
+        },
+        {
+          "sequence": 33,
+          "phase": "validate_changes",
+          "current_validation": {
+            "targeted": "not_run",
+            "issue": "not_run"
+          },
+          "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits."
+        },
+        {
+          "sequence": 39,
+          "phase": "review_and_submit",
+          "current_validation": {
+            "targeted": "passed",
+            "issue": "passed"
+          },
+          "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance."
+        }
+      ],
+      "executed_actions": 41,
+      "blocked_reads": 0,
+      "most_frequent_commands": [
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && sed -n '160,200p' boltons/dictutils.py",
+          2
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && sed -n '1100,1120p' boltons/dictutils.py",
+          2
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && sed -n '160,186p' boltons/dictutils.py",
+          2
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\" && pwd && git log --oneline -1 && ls && echo \"---\" && grep -rn \"class OrderedMultiDict\" --include=*.py . | head -20",
+          1
+        ]
+      ],
+      "maximum_actual_request_bytes": 12483,
+      "issue_checks": {
+        "tests_run": 9,
+        "subtests_run": 13,
+        "passed": 9,
+        "failed_test_methods": [],
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true
+      },
+      "upstream_targeted": {
+        "tests_run": 27,
+        "passed": 27,
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true,
+        "returncode": 0
+      },
+      "full_upstream_suite": {
+        "tests_run": 423,
+        "passed": 423,
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true,
+        "returncode": 0
+      }
+    },
+    {
+      "task": "file-pathlike",
+      "variant": "adaptive_history",
+      "exit_status": "Submitted",
+      "provider_failure": null,
+      "requests": 57,
+      "estimated_cost_cny": 0.36763,
+      "elapsed_seconds": 64.078,
+      "changed_files": [
+        "boltons/fileutils.py"
+      ],
+      "unexpected_changes": [],
+      "checks_and_description_unchanged": true,
+      "repair_verified": true,
+      "patch_replay_passed": true,
+      "new_full_suite_failures": [],
+      "first_implementation_change_sequence": 52,
+      "first_stagnation_feedback_sequence": null,
+      "feedback_actions": 0,
+      "stagnation_feedback_actions": 0,
+      "phase_transitions": [],
+      "executed_actions": 57,
+      "blocked_reads": 0,
+      "most_frequent_commands": [
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && sed -n '355,400p' boltons/fileutils.py | head -c 1600",
+          2
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && sed -n '492,560p' boltons/fileutils.py | head -c 2200",
+          2
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && sed -n '520,545p' boltons/fileutils.py | head -c 1200",
+          2
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\" && pwd && ls && echo \"---\" && git log --oneline -3",
+          1
+        ]
+      ],
+      "maximum_actual_request_bytes": 12266,
+      "issue_checks": {
+        "tests_run": 10,
+        "subtests_run": 0,
+        "passed": 10,
+        "failed_test_methods": [],
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true
+      },
+      "upstream_targeted": {
+        "tests_run": 6,
+        "passed": 6,
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true,
+        "returncode": 0
+      },
+      "full_upstream_suite": {
+        "tests_run": 423,
+        "passed": 423,
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true,
+        "returncode": 0
+      }
+    },
+    {
+      "task": "file-pathlike",
+      "variant": "execution_progress",
+      "exit_status": "Submitted",
+      "provider_failure": null,
+      "requests": 42,
+      "estimated_cost_cny": 0.26842999999999995,
+      "elapsed_seconds": 44.515,
+      "changed_files": [
+        "boltons/fileutils.py"
+      ],
+      "unexpected_changes": [],
+      "checks_and_description_unchanged": true,
+      "repair_verified": true,
+      "patch_replay_passed": true,
+      "new_full_suite_failures": [],
+      "first_implementation_change_sequence": 35,
+      "first_stagnation_feedback_sequence": 8,
+      "feedback_actions": 42,
+      "stagnation_feedback_actions": 27,
+      "phase_transitions": [
+        {
+          "sequence": 1,
+          "phase": "diagnose_and_repair",
+          "current_validation": {
+            "targeted": "not_run",
+            "issue": "not_run"
+          },
+          "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate."
+        },
+        {
+          "sequence": 35,
+          "phase": "validate_changes",
+          "current_validation": {
+            "targeted": "not_run",
+            "issue": "not_run"
+          },
+          "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits."
+        },
+        {
+          "sequence": 38,
+          "phase": "review_and_submit",
+          "current_validation": {
+            "targeted": "passed",
+            "issue": "passed"
+          },
+          "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance."
+        }
+      ],
+      "executed_actions": 42,
+      "blocked_reads": 0,
+      "most_frequent_commands": [
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\" && pwd && ls && echo \"---\" && git log --oneline -1",
+          1
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && grep -rn \"def atomic_save\\|class AtomicSaver\\|def iter_find_files\" boltons/ | head -20",
+          1
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && sed -n '240,420p' boltons/fileutils.py",
+          1
+        ],
+        [
+          "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && sed -n '248,340p' boltons/fileutils.py",
+          1
+        ]
+      ],
+      "maximum_actual_request_bytes": 12315,
+      "issue_checks": {
+        "tests_run": 10,
+        "subtests_run": 0,
+        "passed": 10,
+        "failed_test_methods": [],
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true
+      },
+      "upstream_targeted": {
+        "tests_run": 6,
+        "passed": 6,
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true,
+        "returncode": 0
+      },
+      "full_upstream_suite": {
+        "tests_run": 423,
+        "passed": 423,
+        "failures": [],
+        "errors": [],
+        "skipped": [],
+        "successful": true,
+        "returncode": 0
+      }
+    }
+  ],
+  "interpretation": "Two public development/regression tasks, one run per variant, checks visible. Off/on comparison includes extra feedback and its context footprint. No broad success-rate or stable cost-reduction conclusion."
+}

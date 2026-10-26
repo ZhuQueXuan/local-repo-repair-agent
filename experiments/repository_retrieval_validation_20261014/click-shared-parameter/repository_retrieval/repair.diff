@@ -1,0 +1,15 @@
+--- a/src/click/decorators.py
++++ b/src/click/decorators.py
+@@ -283,8 +283,10 @@
+     """
+ 
+     def decorator(f: FC) -> FC:
+-        ArgumentClass = attrs.pop("cls", None) or Argument
+-        _param_memo(f, ArgumentClass(param_decls, **attrs))
++        # Issue 926, copy attrs, so pre-defined arguments can re-use the same cls=
++        argument_attrs = attrs.copy()
++        ArgumentClass = argument_attrs.pop("cls", None) or Argument
++        _param_memo(f, ArgumentClass(param_decls, **argument_attrs))
+         return f
+ 
+     return decorator

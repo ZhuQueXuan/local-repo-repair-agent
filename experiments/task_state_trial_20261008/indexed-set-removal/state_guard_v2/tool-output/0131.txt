@@ -1,0 +1,13 @@
+    def iter_slice(self, start, stop, step=None):
+        "iterate over a slice of the set"
+        iterable = self
+        if start is not None:
+            start = self._get_real_index(start)
+        if stop is not None:
+            stop = self._get_real_index(stop)
+        if step is not None and step < 0:
+            step = -step
+            iterable = reversed(self)
+        return islice(iterable, start, stop, step)
+
+    # list operations

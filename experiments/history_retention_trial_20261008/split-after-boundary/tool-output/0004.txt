@@ -1,0 +1,23 @@
+        yield list(iterable)
+        return
+
+    buf = []
+    it = iter(iterable)
+    for item in it:
+        buf.append(item)
+        if pred(item) and buf:
+            yield buf
+            if maxsplit == 1:
+                yield list(it)
+                return
+            buf = []
+            maxsplit -= 1
+    if buf:
+        yield buf
+
+
+def split_when(iterable, pred, maxsplit=-1):
+    """Split *iterable* into pieces based on the output of *pred*.
+    *pred* should be a function that takes successive pairs of items and
+    returns ``True`` if the iterable should be split in between them.
+

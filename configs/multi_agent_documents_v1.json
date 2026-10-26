@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "feedback_windows": 1,
+  "parent_seconds": 1800,
+  "role_seconds": {
+    "consulting": 120,
+    "repairing": 300,
+    "reviewing": 120,
+    "revising": 180,
+    "final_review": 90
+  },
+  "document_mode": "readonly_baseline_documents_v1"
+}

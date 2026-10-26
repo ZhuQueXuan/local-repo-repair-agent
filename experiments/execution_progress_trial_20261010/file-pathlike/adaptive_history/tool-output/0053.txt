@@ -1,0 +1,7 @@
+str ok hello
+path ok world
+pathlike ok plike
+files: ['out.txt', 'out2.txt', 'out3.txt']
+str dir: ['D:\\myDocu\\project_postg\\shixi_project\\temp\\tmp19c0b4_b\\sub\\a.py']
+path dir: ['D:\\myDocu\\project_postg\\shixi_project\\temp\\tmp19c0b4_b\\sub\\a.py']
+pathlike dir: ['D:\\myDocu\\project_postg\\shixi_project\\temp\\tmp19c0b4_b\\sub\\a.py']

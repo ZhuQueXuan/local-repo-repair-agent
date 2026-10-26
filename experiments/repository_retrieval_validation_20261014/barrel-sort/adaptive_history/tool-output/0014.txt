@@ -1,0 +1,17 @@
+108:    def _translate_index(self, index):
+121:    def _balance_list(self, list_idx):
+135:    def insert(self, index, item):
+147:    def append(self, item):
+150:    def extend(self, iterable):
+153:    def pop(self, *a):
+223:    def __iter__(self):
+229:    def __len__(self):
+232:    def __contains__(self, item):
+238:    def __getitem__(self, index):
+252:    def __delitem__(self, index):
+265:    def __setitem__(self, index, item):
+298:    def __repr__(self):
+301:    def sort(self):
+314:    def reverse(self):
+319:    def count(self, item):
+322:    def index(self, item):

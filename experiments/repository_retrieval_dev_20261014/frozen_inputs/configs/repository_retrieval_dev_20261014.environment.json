@@ -1,0 +1,18 @@
+{
+  "python": "3.10.6",
+  "platform": "Windows / Git Bash",
+  "packages": {
+    "mini-swe-agent": "2.4.6",
+    "litellm": "1.104.0",
+    "openai": "2.54.0",
+    "httpx": "0.28.1",
+    "pytest": "8.3.5",
+    "pytest-mock": "3.14.0",
+    "urllib3": "2.8.0",
+    "charset-normalizer": "3.5.2",
+    "idna": "3.20",
+    "certifi": "2026.7.22"
+  },
+  "json_backend": "stdlib json; simplejson not installed",
+  "task_max_seconds": 300
+}

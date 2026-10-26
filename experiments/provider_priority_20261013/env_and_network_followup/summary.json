@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-13",
+  "offline_checks": 93,
+  "added_field_checks": 3,
+  "primary_config_fields": [
+    "BUPT_API_KEY",
+    "BUPT_API_BASE_URL",
+    "BUPT_CHAT_MODEL"
+  ],
+  "resolved_primary_public": {
+    "name": "bupt_gateway",
+    "api_base": "https://myai.bupt.edu.cn/llm-gw/v1",
+    "model": "deepseek-v4-flash",
+    "cost_status": "unknown_platform_price"
+  },
+  "quote_normalization_kept_all_parsed_values_equal": true,
+  "effective_httpx_proxy": {
+    "host": "127.0.0.1",
+    "port": 7897,
+    "scheme": "http"
+  },
+  "browser_original_platform_url": "http://10.3.68.122:30088/apikeys",
+  "browser_public_api_url": "https://myai.bupt.edu.cn/llm-gw/v1/models",
+  "browser_public_api_error": "ERR_CONNECTION_CLOSED",
+  "browser_internal_unauthenticated_path": "ERR_BLOCKED_BY_CLIENT; no server result; no API key sent",
+  "system_curl_direct": "TLS handshake failure; HTTP 000",
+  "system_curl_proxy": "Connection aborted; HTTP 000",
+  "new_model_api_attempts": 0,
+  "shared_ledger_unchanged": true,
+  "interpretation": "Screenshot URL/model and SDK path match. Quotes do not change parsed values. Browser-accessible internal webpage is a different endpoint from the currently failing public API domain. Key authentication remains unverified. System proxy/TLS protections were not changed."
+}

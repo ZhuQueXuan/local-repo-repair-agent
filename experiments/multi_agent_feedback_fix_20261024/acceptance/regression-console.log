@@ -1,0 +1,5 @@
+Running native; log: D:\myDocu\project_postg\shixi_project\temp\regression\20261024_172326_975a250b\native.log
+{"scope": "native", "exit_code": 0, "command": ["D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe", "-B", "D:\\myDocu\\project_postg\\shixi_project\\scripts\\run_regression.py", "--upstream-child", "D:\\myDocu\\project_postg\\shixi_project\\temp\\regression\\20261024_172326_975a250b\\native", "--upstream-profile", "native"], "counts": {"passed": 301}, "deselected": 41, "guard_violations": 0}
+Running project; log: D:\myDocu\project_postg\shixi_project\temp\regression\20261024_172326_975a250b\project.log
+{"scope": "project", "exit_code": 0, "command": ["D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe", "-B", "-m", "unittest", "discover", "-s", "scripts", "-p", "test_*.py", "-v"], "tests_run": 289, "skipped": 1}
+Summary: D:\myDocu\project_postg\shixi_project\temp\regression\20261024_172326_975a250b\summary.json

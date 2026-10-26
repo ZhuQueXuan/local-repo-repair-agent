@@ -1,0 +1,9 @@
+68:class IndexedSet(MutableSet):
+240:    def remove(self, item):
+392:    def iter_slice(self, start, stop, step=None):
+405:    def __getitem__(self, index):
+411:            iter_slice = self.iter_slice(start, stop, step)
+412:            return self.from_iterable(iter_slice)
+422:    def pop(self, index=None):
+626:    def remove(self, item):
+632:    def pop(self):

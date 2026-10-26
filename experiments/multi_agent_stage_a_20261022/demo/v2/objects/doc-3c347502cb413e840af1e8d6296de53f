@@ -1,0 +1,6 @@
+--- a/pkg/main.py
++++ b/pkg/main.py
+@@ -1,2 +1,2 @@
+ def total(values):
+-    return sum(values) / len(values)
++    return sum(values)

@@ -1,0 +1,11 @@
+204:    def __len__(self):
+207:    def __contains__(self, item):
+210:    def __iter__(self):
+392:    def iter_slice(self, start, stop, step=None):
+405:    def __getitem__(self, index):
+411:            iter_slice = self.iter_slice(start, stop, step)
+412:            return self.from_iterable(iter_slice)
+462:    def index(self, val):
+614:    def __contains__(self, item):
+955:    def __len__(self):
+960:    def __iter__(self):

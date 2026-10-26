@@ -1,0 +1,30 @@
+134:class ParameterSource(enum.Enum):
+260:    def __init__(
+432:    def to_info_dict(self) -> t.Dict[str, t.Any]:
+844:    def __init__(
+861:    def to_info_dict(self, ctx: Context) -> t.Dict[str, t.Any]:
+1175:    def __init__(
+1207:    def to_info_dict(self, ctx: Context) -> t.Dict[str, t.Any]:
+1470:    def __init__(
+1508:    def to_info_dict(self, ctx: Context) -> t.Dict[str, t.Any]:
+1786:    def __init__(
+1931:    def __init__(
+1976:class Parameter:
+2052:    def __init__(
+2137:    def to_info_dict(self) -> t.Dict[str, t.Any]:
+2162:    def _parse_decls(
+2174:    def make_metavar(self) -> str:
+2189:    def get_default(
+2195:    def get_default(
+2200:    def get_default(
+2409:class Option(Parameter):
+2471:    def __init__(
+2586:    def to_info_dict(self) -> t.Dict[str, t.Any]:
+2598:    def _parse_decls(
+2799:    def get_default(
+2805:    def get_default(
+2810:    def get_default(
+2925:class Argument(Parameter):
+2935:    def __init__(
+2962:    def make_metavar(self) -> str:
+2974:    def _parse_decls(

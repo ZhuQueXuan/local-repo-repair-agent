@@ -1,0 +1,437 @@
+test_actual_child_process_exit_is_reconciled_without_runner (test_collaboration.CoordinatorTests) ... ok
+test_approve_branch_skips_revision_and_final_review (test_collaboration.CoordinatorTests) ... ok
+test_cancel_after_role_output_does_not_commit_success_or_start_review (test_collaboration.CoordinatorTests) ... ok
+test_cancellation_at_every_role_boundary_prevents_next_work (test_collaboration.CoordinatorTests) ... ok
+test_crash_at_each_checkpoint_is_observed_without_replay (test_collaboration.CoordinatorTests) ... ok
+test_deadline_stops_after_cooperative_callback_without_next_role (test_collaboration.CoordinatorTests) ... ok
+test_feedback_path_persists_all_outputs_and_unique_role_costs (test_collaboration.CoordinatorTests) ... ok
+test_insufficient_evidence_ends_without_silent_approval (test_collaboration.CoordinatorTests) ... ok
+test_registered_snapshot_and_records_detect_tampering (test_collaboration.CoordinatorTests) ... ok
+test_rejection_and_final_disagreement_do_not_open_second_revision (test_collaboration.CoordinatorTests) ... ok
+test_reopening_finished_run_never_calls_runner (test_collaboration.CoordinatorTests) ... ok
+test_role_failure_is_persisted_and_arbitrary_exception_text_not_exposed (test_collaboration.CoordinatorTests) ... ok
+test_single_worker_lock_rejects_second_coordinator (test_collaboration.CoordinatorTests) ... ok
+test_unanswered_feedback_is_not_converted_to_final_approval (test_collaboration.CoordinatorTests) ... ok
+test_acceptance_is_not_an_independent_resolution (test_collaboration_protocol.ProtocolTests) ... ok
+test_altered_span_with_plausible_hash_is_not_issued_evidence (test_collaboration_protocol.ProtocolTests) ... ok
+test_approve_does_not_override_major_findings (test_collaboration_protocol.ProtocolTests) ... ok
+test_canonical_encoding_is_stable_and_disallows_nan (test_collaboration_protocol.ProtocolTests) ... ok
+test_handoff_rejects_wrong_run_recipient_patch_and_document_scope (test_collaboration_protocol.ProtocolTests) ... ok
+test_insufficient_evidence_is_valid_with_an_explicit_gap (test_collaboration_protocol.ProtocolTests) ... ok
+test_missing_or_wrong_source_evidence_is_not_actionable (test_collaboration_protocol.ProtocolTests) ... ok
+test_model_claim_cannot_become_program_test_or_only_finding_evidence (test_collaboration_protocol.ProtocolTests) ... ok
+test_no_findings_and_style_only_cannot_request_changes (test_collaboration_protocol.ProtocolTests) ... ok
+test_portable_paths_reject_traversal_devices_ads_and_aliases (test_collaboration_protocol.ProtocolTests) ... ok
+test_rejection_needs_evidence_but_unverified_can_stop (test_collaboration_protocol.ProtocolTests) ... ok
+test_requirement_ids_come_from_original_issue (test_collaboration_protocol.ProtocolTests) ... ok
+test_response_cannot_use_another_task_candidate_or_unknown_finding (test_collaboration_protocol.ProtocolTests) ... ok
+test_roles_are_not_limited_to_repairer_and_reviewer (test_collaboration_protocol.ProtocolTests) ... ok
+test_roundtrip_candidate_and_nested_models_are_immutable (test_collaboration_protocol.ProtocolTests) ... ok
+test_stale_or_missing_program_report_is_rejected (test_collaboration_protocol.ProtocolTests) ... ok
+test_stale_review_cannot_approve_new_candidate (test_collaboration_protocol.ProtocolTests) ... ok
+test_unknown_fields_versions_and_scalar_coercion_are_rejected (test_collaboration_protocol.ProtocolTests) ... ok
+test_valid_handoff_and_review_preserve_versions (test_collaboration_protocol.ProtocolTests) ... ok
+test_attribution_is_atomic_with_ticket_and_does_not_change_legacy_entries (test_collaboration_store.AttributionTests) ... ok
+test_billed_response_after_cancel_stays_accounted (test_collaboration_store.AttributionTests) ... ok
+test_cancel_before_reserve_or_dispatch_prevents_new_work (test_collaboration_store.AttributionTests) ... ok
+test_crash_between_reserve_and_event_keeps_owner_and_prevents_resend (test_collaboration_store.AttributionTests) ... ok
+test_duplicate_dispatch_is_rejected_before_another_transport (test_collaboration_store.AttributionTests) ... ok
+test_failed_first_and_successful_fallback_count_both_tickets (test_collaboration_store.AttributionTests) ... ok
+test_invalid_attribution_and_usage_are_rejected_before_ledger_write (test_collaboration_store.AttributionTests) ... ok
+test_plain_legacy_reservation_still_has_original_shape (test_collaboration_store.AttributionTests) ... ok
+test_second_provider_not_allowed_before_first_outcome (test_collaboration_store.AttributionTests) ... ok
+test_unpriced_receipt_keeps_complete_cost_unknown (test_collaboration_store.AttributionTests) ... ok
+test_duplicate_concurrent_claim_has_one_winner (test_collaboration_store.StoreTests) ... ok
+test_first_candidate_must_match_frozen_parent_inputs (test_collaboration_store.StoreTests) ... ok
+test_logical_request_idempotency_checks_input_and_terminal_state (test_collaboration_store.StoreTests) ... ok
+test_migration_lock_prevents_competing_schema_writer (test_collaboration_store.StoreTests) ... ok
+test_old_database_migration_preserves_rows_and_saves_consistent_backup (test_collaboration_store.StoreTests) ... ok
+test_parent_idempotency_includes_policy_mode_task_and_profile (test_collaboration_store.StoreTests) ... ok
+test_prepared_request_blocks_role_completion (test_collaboration_store.StoreTests) ... ok
+test_queued_cancellation_skips_all_roles_and_cannot_be_claimed (test_collaboration_store.StoreTests) ... ok
+test_role_cannot_finish_without_registered_candidate (test_collaboration_store.StoreTests) ... ok
+test_same_request_key_cannot_change_synthetic_input (test_collaboration_store.StoreTests) ... ok
+test_shared_repair_session_and_distinct_review_sessions_persist (test_collaboration_store.StoreTests) ... ok
+test_stage_b_refuses_production_database (test_collaboration_store.StoreTests) ... ok
+test_unsupported_schema_is_not_rebuilt (test_collaboration_store.StoreTests) ... ok
+test_wrong_phase_stale_revision_and_cancelled_claim_are_rejected (test_collaboration_store.StoreTests) ... ok
+test_below_threshold_returns_identical_prepared_messages (test_context_budget.ContextTests) ... ok
+test_compaction_keeps_unfinished_calls_and_assistant_reasoning (test_context_budget.ContextTests) ... ok
+test_completed_exchange_compaction_preserves_tool_call_protocol (test_context_budget.ContextTests) ... ok
+test_error_status_and_traceable_reference_survive_projection (test_context_budget.ContextTests) ... ok
+test_long_runs_keep_a_bounded_audit_excerpt_and_all_archives (test_context_budget.ContextTests) ... ok
+test_minimal_compaction_reserves_state_space (test_context_budget.ContextTests) ... ok
+test_minimal_compaction_retains_more_history_than_eager_compaction (test_context_budget.ContextTests) ... ok
+test_old_assistant_text_is_compacted_only_after_archiving (test_context_budget.ContextTests) ... ok
+test_original_task_is_never_shortened_even_if_it_cannot_fit (test_context_budget.ContextTests) ... ok
+test_outputs_without_archive_metadata_are_never_discarded (test_context_budget.ContextTests) ... ok
+test_projection_meets_target_and_keeps_goal_actions_and_recent_outputs (test_context_budget.ContextTests) ... ok
+test_projection_records_before_after_and_exact_archives (test_context_budget.ContextTests) ... ok
+test_saved_history_and_full_logs_are_not_rewritten (test_context_budget.ContextTests) ... ok
+test_authorized_top_up_preserves_spending_and_pending_reservations (test_deepseek_budget.BudgetTests) ... ok
+test_closed_batches_and_large_context_still_stop_before_transport (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_fifteen_yuan_boundary_still_stops_before_transport (test_deepseek_budget.BudgetTests) ... ok
+test_insufficient_money_stops_before_transport (test_deepseek_budget.BudgetTests) ... ok
+test_last_call_cannot_cross_five_yuan (test_deepseek_budget.BudgetTests) ... ok
+test_missing_or_corrupt_ledger_does_not_reset_budget (test_deepseek_budget.BudgetTests) ... ok
+test_missing_usage_retains_reservation_and_prevents_model_retry (test_deepseek_budget.BudgetTests) ... ok
+test_model_with_large_attempt_counter_still_calls_and_settles (test_deepseek_budget.BudgetTests) ... ok
+test_more_than_fifty_small_calls_and_restart_preserves_total (test_deepseek_budget.BudgetTests) ... ok
+test_other_api_failures_are_not_mislabeled_as_empty_balance (test_deepseek_budget.BudgetTests) ... ok
+test_provider_balance_failure_is_explicit_redacted_and_not_retried (test_deepseek_budget.BudgetTests) ... ok
+test_uncapped_accounting_preserves_history_and_exceeds_old_limit (test_deepseek_budget.BudgetTests) ... ok
+test_uncapped_mode_preserves_unknown_entries_and_legacy_monetary_flag (test_deepseek_budget.BudgetTests) ... ok
+test_unexpected_provider_charge_is_recorded_and_blocks_next_request (test_deepseek_budget.BudgetTests) ... ok
+test_unknown_or_crashed_request_keeps_its_reservation (test_deepseek_budget.BudgetTests) ... ok
+test_upstream_zero_cost_limit_allows_query_after_high_spending (test_deepseek_budget.BudgetTests) ... ok
+test_changed_candidate (test_evaluation_freeze.FreezeTests) ... ok
+test_escape_paths_and_empty_manifest (test_evaluation_freeze.FreezeTests) ... ok
+test_rewritten_manifest (test_evaluation_freeze.FreezeTests) ... ok
+test_unchanged_inputs (test_evaluation_freeze.FreezeTests) ... ok
+test_exit_zero_or_printed_claim_does_not_count (test_execution_progress.ProgressTests) ... ok
+test_failed_exit_despite_ok_or_timeout_is_unknown (test_execution_progress.ProgressTests) ... ok
+test_failure_updates_plan_and_has_evidence (test_execution_progress.ProgressTests) ... ok
+test_fake_runner_inside_echo_and_ambiguous_chains_are_declined (test_execution_progress.ProgressTests) ... ok
+test_fixed_historical_actions_get_advice_before_late_repair (test_execution_progress.ProgressTests) ... ok
+test_integration_ignores_temp_and_protected_changes_and_bounds_request (test_execution_progress.ProgressTests) ... ok
+test_invalid_configuration (test_execution_progress.ProgressTests) ... ok
+test_no_test_or_all_skipped_does_not_count (test_execution_progress.ProgressTests) ... ok
+test_only_current_required_scopes_allow_review_advice (test_execution_progress.ProgressTests) ... ok
+test_pytest_failure (test_execution_progress.ProgressTests) ... ok
+test_repeated_tests_with_new_timing_do_not_reset (test_execution_progress.ProgressTests) ... ok
+test_same_status_different_failure_is_new_evidence (test_execution_progress.ProgressTests) ... ok
+test_shell_prefix_redirection_tail_and_flags (test_execution_progress.ProgressTests) ... ok
+test_source_edit_changes_plan_and_invalidates_passes (test_execution_progress.ProgressTests) ... ok
+test_varied_reads_and_notes_cannot_reset_stagnation (test_execution_progress.ProgressTests) ... ok
+test_wrong_or_filtered_test_selection_does_not_satisfy_scope (test_execution_progress.ProgressTests) ... ok
+test_exported_patch_applies_to_lf_source_on_windows (test_patch_replay.PatchReplayTests) ... ok
+test_bad_request_does_not_switch_or_repeat (test_provider_priority.PriorityTests) ... ok
+test_both_keys_absent_from_config_errors_and_provider_repr (test_provider_priority.PriorityTests) ... ok
+test_both_unavailable_stop_after_two_attempts (test_provider_priority.PriorityTests) ... ok
+test_context_guard_precedes_all_transport_and_reservations (test_provider_priority.PriorityTests) ... ok
+test_missing_primary_url_or_model_is_a_clear_configuration_error (test_provider_priority.PriorityTests) ... ok
+test_missing_usage_does_not_retry_or_fallback (test_provider_priority.PriorityTests) ... ok
+test_new_run_tries_primary_again_without_resetting_old_accounting (test_provider_priority.PriorityTests) ... ok
+test_no_primary_credential_preserves_official_only_compatibility (test_provider_priority.PriorityTests) ... ok
+test_primary_auth_failure_falls_back_once_and_sticks_for_run (test_provider_priority.PriorityTests) ... ok
+test_primary_omits_unsupported_thinking_and_backup_preserves_its_setting (test_provider_priority.PriorityTests) ... ok
+test_primary_success_never_calls_backup_and_price_stays_unknown (test_provider_priority.PriorityTests) ... ok
+test_primary_url_and_model_come_from_env_fields (test_provider_priority.PriorityTests) ... ok
+test_quota_permission_rate_server_errors_switch (test_provider_priority.PriorityTests) ... ok
+test_timeout_can_switch_without_claiming_key_is_invalid (test_provider_priority.PriorityTests) ... ok
+test_unapproved_primary_url_or_model_is_rejected (test_provider_priority.PriorityTests) ... ok
+test_unknown_pricing_cannot_evade_finite_budget (test_provider_priority.PriorityTests) ... ok
+test_unsafe_backup_url_rejected_before_transport (test_provider_priority.PriorityTests) ... ok
+test_bounded_message_with_multibyte_quoted_source (test_repository_retrieval.RetrievalTests) ... ok
+test_camel_and_underscore_tokens (test_repository_retrieval.RetrievalTests) ... ok
+test_checks_env_answers_and_new_files_are_excluded (test_repository_retrieval.RetrievalTests) ... ok
+test_context_reservation_keeps_goal_state_and_tool_pairs (test_repository_retrieval.RetrievalTests) ... ok
+test_deterministic_search_and_empty_query (test_repository_retrieval.RetrievalTests) ... ok
+test_different_files_get_coverage_before_second_symbol (test_repository_retrieval.RetrievalTests) ... ok
+test_disabled_does_not_add_retrieval_message (test_repository_retrieval.RetrievalTests) ... ok
+test_file_size_cap_is_explicit (test_repository_retrieval.RetrievalTests) ... ok
+test_half_written_syntax_remains_searchable (test_repository_retrieval.RetrievalTests) ... ok
+test_invalid_policy_is_rejected (test_repository_retrieval.RetrievalTests) ... ok
+test_missing_file_drops_old_hits (test_repository_retrieval.RetrievalTests) ... ok
+test_no_import_or_source_execution (test_repository_retrieval.RetrievalTests) ... ok
+test_parent_and_absolute_paths_are_rejected (test_repository_retrieval.RetrievalTests) ... ok
+test_refresh_detects_same_size_rewrite (test_repository_retrieval.RetrievalTests) ... ok
+test_relative_import_neighbors_are_hints (test_repository_retrieval.RetrievalTests) ... ok
+test_symbol_path_line_and_hash_are_real (test_repository_retrieval.RetrievalTests) ... ok
+test_default_always_matches_old_payload_exactly (test_retrieval_delivery.DeliveryTests) ... ok
+test_first_full_then_reference_only_after_ack (test_retrieval_delivery.DeliveryTests) ... ok
+test_http_error_does_not_acknowledge (test_retrieval_delivery.DeliveryTests) ... ok
+test_invalid_delivery_policy_rejected (test_retrieval_delivery.DeliveryTests) ... ok
+test_multibyte_messages_remain_bounded_after_ack (test_retrieval_delivery.DeliveryTests) ... ok
+test_preview_never_acknowledges_or_replaces_pending (test_retrieval_delivery.DeliveryTests) ... ok
+test_reference_reservation_preserves_history_and_current_goal (test_retrieval_delivery.DeliveryTests) ... ok
+test_search_and_index_implementation_unchanged (test_retrieval_delivery.DeliveryTests) ... ok
+test_small_empty_payload_does_not_grow_into_reference (test_retrieval_delivery.DeliveryTests) ... ok
+test_snapshot_recovers_exact_selected_source (test_retrieval_delivery.DeliveryTests) ... ok
+test_source_change_resends_full_and_keeps_old_snapshot (test_retrieval_delivery.DeliveryTests) ... ok
+test_successful_response_acknowledges_exact_pending_projection (test_retrieval_delivery.DeliveryTests) ... ok
+test_tampered_snapshot_stops_before_reference (test_retrieval_delivery.DeliveryTests) ... ok
+test_absolute_paths_traversal_unc_and_ads_are_not_document_ids (test_review_tools.ReviewToolsTests) ... ok
+test_all_six_tools_operate_and_do_not_change_snapshots_or_work (test_review_tools.ReviewToolsTests) ... ok
+test_caller_and_snapshot_versions_are_bound (test_review_tools.ReviewToolsTests) ... ok
+test_cancel_during_submission_does_not_commit_review (test_review_tools.ReviewToolsTests) ... ok
+test_cancellation_prevents_tool_access_and_review_submission (test_review_tools.ReviewToolsTests) ... ok
+test_case_collisions_and_private_manifest_files_are_rejected (test_review_tools.ReviewToolsTests) ... ok
+test_changed_snapshot_manifest_is_not_rehashed_as_valid (test_review_tools.ReviewToolsTests) ... ok
+test_changed_snapshot_permanently_blocks_review (test_review_tools.ReviewToolsTests) ... ok
+test_execution_and_write_tools_are_rejected_before_any_spawn (test_review_tools.ReviewToolsTests) ... ok
+test_existing_real_task_manifest_can_be_sealed_without_model (test_review_tools.ReviewToolsTests) ... ok
+test_extra_fields_and_nested_actions_do_not_bypass_dispatch (test_review_tools.ReviewToolsTests) ... ok
+test_handoff_limits_docs_reports_and_capabilities (test_review_tools.ReviewToolsTests) ... ok
+test_hardlinks_are_not_exported_as_snapshot_objects (test_review_tools.ReviewToolsTests) ... ERROR
+test_invalid_finding_does_not_register_a_review (test_review_tools.ReviewToolsTests) ... ok
+test_missing_snapshot_object_stops_with_no_review (test_review_tools.ReviewToolsTests) ... ok
+test_multi_page_search_and_file_list_are_explicitly_bounded (test_review_tools.ReviewToolsTests) ... ok
+test_new_files_changed_tests_issue_and_baseline_are_rejected (test_review_tools.ReviewToolsTests) ... ok
+test_no_newline_patch_replays_with_real_git (test_review_tools.ReviewToolsTests) ... ok
+test_read_limits_and_long_line_do_not_create_fake_complete_evidence (test_review_tools.ReviewToolsTests) ... ok
+test_read_returns_exact_bytes_lines_and_hashes (test_review_tools.ReviewToolsTests) ... ok
+test_real_directory_link_cannot_escape_source_or_output (test_review_tools.ReviewToolsTests) ... skipped 'Windows junction creation unavailable; reparse check separately covered'
+test_real_file_symlink_is_not_read (test_review_tools.ReviewToolsTests) ... skipped 'File symlink permission unavailable; real directory junction tested separately'
+test_reparse_attribute_is_rejected_without_following (test_review_tools.ReviewToolsTests) ... ok
+test_same_document_id_in_another_run_does_not_grant_access (test_review_tools.ReviewToolsTests) ... ok
+test_search_is_literal_not_regex_or_executable (test_review_tools.ReviewToolsTests) ... ok
+test_snapshot_refuses_reusing_an_existing_output_directory (test_review_tools.ReviewToolsTests) ... ok
+test_submission_is_idempotent_and_conflicting_content_is_rejected (test_review_tools.ReviewToolsTests) ... ok
+test_unknown_reports_stay_unavailable (test_review_tools.ReviewToolsTests) ... ok
+test_v1_snapshot_remains_v1_after_real_worktree_changes (test_review_tools.ReviewToolsTests) ... ok
+test_method_and_subtest_counts_are_separate (test_task_evaluation.EvaluationCountingTests) ... ok
+test_legacy_root_layout_is_preserved (test_task_import_root.ImportRootTests) ... ok
+test_parent_absolute_and_missing_roots_are_rejected (test_task_import_root.ImportRootTests) ... ok
+test_src_layout_uses_this_checkout (test_task_import_root.ImportRootTests) ... ok
+test_api_requires_local_token_and_origin (test_task_service.ApiTests) ... ERROR
+test_artifact_route_does_not_read_private_or_arbitrary_files (test_task_service.ApiTests) ... ERROR
+test_create_cancel_query_roundtrip (test_task_service.ApiTests) ... ERROR
+test_z_shutdown_refuses_pending_work_and_can_stop_when_idle (test_task_service.ApiTests) ... ERROR
+test_cancel_after_billed_response_prevents_next_action (test_task_service.StoreTests) ... ok
+test_cancel_also_blocks_a_new_fallback_reservation (test_task_service.StoreTests) ... ok
+test_cancel_before_shell_execute_blocks_the_shell (test_task_service.StoreTests) ... ok
+test_cancel_claimed_is_a_request_until_worker_ends (test_task_service.StoreTests) ... ok
+test_cancel_queued_never_claims (test_task_service.StoreTests) ... ok
+test_collector_recovery_does_not_fabricate_exact_elapsed_time (test_task_service.StoreTests) ... ok
+test_events_have_persistent_order_and_actor (test_task_service.StoreTests) ... ok
+test_fixed_task_and_strategy_allowlists (test_task_service.StoreTests) ... ok
+test_grader_timeout_leaves_terminal_record_and_no_model_spend (test_task_service.StoreTests) ... ok
+test_historical_correct_patch_can_have_failed_agent_flow (test_task_service.StoreTests) ... ok
+test_idempotent_creation_and_mismatched_reuse (test_task_service.StoreTests) ... ok
+test_lock_rejects_second_owner_and_releases (test_task_service.StoreTests) ... ok
+test_missing_historical_fields_stay_unknown (test_task_service.StoreTests) ... ok
+test_new_implementation_file_is_explicitly_rejected (test_task_service.StoreTests) ... ok
+test_patch_collection_failure_preserves_record_without_reexecuting_model (test_task_service.StoreTests) ... ok
+test_preparation_error_is_persisted_without_model_requests (test_task_service.StoreTests) ... ok
+test_real_shell_timeout_returns_a_recorded_failure (test_task_service.StoreTests) ... ok
+test_restart_marks_interrupted_and_does_not_requeue (test_task_service.StoreTests) ... ok
+test_terminal_runs_and_history_are_not_reexecuted (test_task_service.StoreTests) ... ok
+test_cooperative_stop_exits_the_loop_before_any_model_request (test_task_state.StateTests) ... ok
+test_disabled_guard_does_not_limit_many_requests (test_task_state.StateTests) ... ok
+test_environment_returns_blocked_observations_then_agent_exit (test_task_state.StateTests) ... ok
+test_historical_274_call_loop_is_detected_without_api (test_task_state.StateTests) ... ok
+test_lean_request_keeps_notes_and_references_without_duplicate_previews (test_task_state.StateTests) ... ok
+test_new_read_does_not_reset_source_progress_guard (test_task_state.StateTests) ... ok
+test_normalized_windows_git_prefix_detected (test_task_state.StateTests) ... ok
+test_notes_are_bounded_and_unverified (test_task_state.StateTests) ... ok
+test_pinned_message_and_evidence_have_a_finite_size (test_task_state.StateTests) ... ok
+test_pinned_state_survives_projection_without_changing_history (test_task_state.StateTests) ... ok
+test_same_command_with_changed_output_does_not_accumulate (test_task_state.StateTests) ... ok
+test_same_output_different_exit_code_resets_read_count (test_task_state.StateTests) ... ok
+test_same_read_warns_then_blocks_then_stops (test_task_state.StateTests) ... ok
+test_source_edit_resets_guard_and_tracks_changes (test_task_state.StateTests) ... ok
+test_successful_split_trace_does_not_trigger_read_guard (test_task_state.StateTests) ... ok
+test_tests_and_writes_are_not_blocked (test_task_state.StateTests) ... ok
+test_unknown_or_external_reads_not_blocked (test_task_state.StateTests) ... ok
+test_archive_does_not_overwrite_previous_output (test_tool_output_budget.ToolOutputTests) ... ok
+test_exact_boundary_and_one_byte_over (test_tool_output_budget.ToolOutputTests) ... ok
+test_long_failure_keeps_head_tail_full_file_and_exit_status (test_tool_output_budget.ToolOutputTests) ... ok
+test_middle_content_can_be_retrieved_without_loss (test_tool_output_budget.ToolOutputTests) ... ok
+test_same_historical_actions_fit_before_previous_stop (test_tool_output_budget.ToolOutputTests) ... ok
+test_short_output_and_status_are_unchanged (test_tool_output_budget.ToolOutputTests) ... ok
+test_submission_marker_is_not_hidden (test_tool_output_budget.ToolOutputTests) ... ok
+test_timeout_and_original_extra_fields_survive (test_tool_output_budget.ToolOutputTests) ... ok
+test_utf8_byte_cap_with_multibyte_text (test_tool_output_budget.ToolOutputTests) ... ok
+
+======================================================================
+ERROR: test_hardlinks_are_not_exported_as_snapshot_objects (test_review_tools.ReviewToolsTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_tools.py", line 247, in test_hardlinks_are_not_exported_as_snapshot_objects
+    os.link(target, alias)
+PermissionError: [WinError 5] 拒绝访问。: 'D:\\myDocu\\project_postg\\shixi_project\\temp\\multi_agent_stage_a_20261022\\tests\\0048d20b78314b3aa25294e199da3f3f\\work\\pkg\\main.py' -> 'D:\\myDocu\\project_postg\\shixi_project\\temp\\multi_agent_stage_a_20261022\\tests\\0048d20b78314b3aa25294e199da3f3f\\hardlink.py'
+
+======================================================================
+ERROR: test_api_requires_local_token_and_origin (test_task_service.ApiTests) (headers={'X-Task-Token': 'wrong'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "D:\python\python3.10.6\lib\http\client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "D:\python\python3.10.6\lib\http\client.py", line 975, in send
+    self.connect()
+  File "D:\python\python3.10.6\lib\http\client.py", line 941, in connect
+    self.sock = self._create_connection(
+  File "D:\python\python3.10.6\lib\socket.py", line 845, in create_connection
+    raise err
+  File "D:\python\python3.10.6\lib\socket.py", line 833, in create_connection
+    sock.connect(sa)
+PermissionError: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_task_service.py", line 238, in test_api_requires_local_token_and_origin
+    self.request("/api/runs", headers=headers)
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_task_service.py", line 233, in request
+    return urllib.request.urlopen(request, timeout=5)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。>
+
+======================================================================
+ERROR: test_api_requires_local_token_and_origin (test_task_service.ApiTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_task_service.py", line 239, in test_api_requires_local_token_and_origin
+    self.assertEqual(error.exception.code, 403)
+AttributeError: '_AssertRaisesContext' object has no attribute 'exception'
+
+======================================================================
+ERROR: test_artifact_route_does_not_read_private_or_arbitrary_files (test_task_service.ApiTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "D:\python\python3.10.6\lib\http\client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "D:\python\python3.10.6\lib\http\client.py", line 975, in send
+    self.connect()
+  File "D:\python\python3.10.6\lib\http\client.py", line 941, in connect
+    self.sock = self._create_connection(
+  File "D:\python\python3.10.6\lib\socket.py", line 845, in create_connection
+    raise err
+  File "D:\python\python3.10.6\lib\socket.py", line 833, in create_connection
+    sock.connect(sa)
+PermissionError: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_task_service.py", line 253, in test_artifact_route_does_not_read_private_or_arbitrary_files
+    self.request("/api/runs/" + row["id"] + "/artifacts/blocked")
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_task_service.py", line 233, in request
+    return urllib.request.urlopen(request, timeout=5)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。>
+
+======================================================================
+ERROR: test_create_cancel_query_roundtrip (test_task_service.ApiTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "D:\python\python3.10.6\lib\http\client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "D:\python\python3.10.6\lib\http\client.py", line 975, in send
+    self.connect()
+  File "D:\python\python3.10.6\lib\http\client.py", line 941, in connect
+    self.sock = self._create_connection(
+  File "D:\python\python3.10.6\lib\socket.py", line 845, in create_connection
+    raise err
+  File "D:\python\python3.10.6\lib\socket.py", line 833, in create_connection
+    sock.connect(sa)
+PermissionError: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_task_service.py", line 242, in test_create_cancel_query_roundtrip
+    with self.request("/api/runs", {"task": "barrel-sort", "profile": "raw", "mode": "live", "request_key": uuid.uuid4().hex}) as response:
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_task_service.py", line 233, in request
+    return urllib.request.urlopen(request, timeout=5)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。>
+
+======================================================================
+ERROR: test_z_shutdown_refuses_pending_work_and_can_stop_when_idle (test_task_service.ApiTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "D:\python\python3.10.6\lib\http\client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "D:\python\python3.10.6\lib\http\client.py", line 975, in send
+    self.connect()
+  File "D:\python\python3.10.6\lib\http\client.py", line 941, in connect
+    self.sock = self._create_connection(
+  File "D:\python\python3.10.6\lib\socket.py", line 845, in create_connection
+    raise err
+  File "D:\python\python3.10.6\lib\socket.py", line 833, in create_connection
+    sock.connect(sa)
+PermissionError: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_task_service.py", line 259, in test_z_shutdown_refuses_pending_work_and_can_stop_when_idle
+    self.request("/api/shutdown", {})
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_task_service.py", line 233, in request
+    return urllib.request.urlopen(request, timeout=5)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。>
+
+----------------------------------------------------------------------
+Ran 236 tests in 25.982s
+
+FAILED (errors=6, skipped=2)

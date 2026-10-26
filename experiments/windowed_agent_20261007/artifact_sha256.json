@@ -1,0 +1,18 @@
+{
+  "baseline.json": "078f5fd7a6e2c8a38fd95cbb23d26d4215312d9d951a20699062a5c5c676b426",
+  "preflight.json": "f9b75317606eb1e6cb234fe1aba9c8a81dac9c71a7e04fdbf8ebf482fdc645f8",
+  "run_config.json": "7e37e75811f4505733256386df42373f31afab5d0d518ed51c74c88618f10217",
+  "trajectory.json": "a9d6716e601a20c766e7df0baa2ba7a696bf1d6d440e58cfe9e221e36962208b",
+  "verification.json": "52eba39015976877bb35797bcca0e4d4bdcd6917fa482e41dfddfb086ae24b33",
+  "patch_verification.json": "91ead35b0d6f7492c6fcda5ef527eb5c25d312b3659004a19587bfe9f6303be5",
+  "summary.json": "5350dc4991442497d3ae6f3e435643f251154545a52fe0ed81d6e347b014ffa3",
+  "repair.diff": "570b9456e44928404b07ecdf0f076687c007613806e4be0011c2a654ce7ef92e",
+  "ledger.json": "ccd782d05c12d85d111313383865b7694aca34e54d7c0ca48f7a36c86aeeed0c",
+  "runner_at_execution.py": "6116ccd098cc8583c5ec9ce10d58a39d9d36ec0be385800ae74a1dbb237f18c2",
+  "adapter_at_execution.py": "01620607943a36f9cf06eb10de49553cf9df7923cb9eebdfde1bdd6363da252b",
+  "runner_after_collection_fix.py": "c2774caf988d9b4d590c72fd1d5253d51289653e503c3f9427824290021d2b96",
+  "evaluator_at_verification.py": "e9f4bff512dc3a53f0e0fa0b5585d749d5130005a0d90243e047c5ac054a9d48",
+  "task_manifest_at_execution.json": "be5d542924ac085031006ceb86fd6f36675566abca2f4bc22bb553b04bd15c74",
+  "checks_at_evaluation.py": "c26b3c889e4a741b14e271a73164f331edfcf8b7e44f021b04b5e474f90b40c2",
+  "task_input.md": "9fc712fd473e448abb4efab49836fea50350fbf7ab79a9e231a005bd39dded70"
+}

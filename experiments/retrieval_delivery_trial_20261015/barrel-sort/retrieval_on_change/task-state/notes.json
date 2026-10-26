@@ -1,0 +1,1 @@
+{"hypothesis":"BarrelList.sort multi-list branch cleared self.lists then assigned index 0, causing IndexError on empty list.","next_action":"Fixed by slice-assigning self.lists[:] = [tmp_sorted]; both suites pass."}

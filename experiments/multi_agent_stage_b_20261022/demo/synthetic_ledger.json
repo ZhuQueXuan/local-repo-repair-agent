@@ -1,0 +1,75 @@
+{
+  "blocked": false,
+  "historical_estimated_cost_cny": "0",
+  "historical_unknown_charge_reservation_cny": "0",
+  "requests": {
+    "cb0feb3098c34b8ab71fe664791350fb": {
+      "status": "settled",
+      "amount_cny": "0.001",
+      "provider": "synthetic",
+      "attribution": {
+        "run_id": "8e72501f14324d0fb30515b6b0718427",
+        "role_run_id": "9a605fc10ce347ab891f34a7c6a439a6",
+        "session_id": "da26cb39cc9b4c4ca3425d6bf50f072e",
+        "logical_request_id": "5bcb61b15c9040b4ab0aac4b592467bb",
+        "attempt_ordinal": 1
+      },
+      "usage": {
+        "prompt_tokens": 10,
+        "completion_tokens": 2,
+        "response_model": "synthetic-no-model"
+      }
+    },
+    "e9f615fdd7214b23b88fe8344a83d8aa": {
+      "status": "settled",
+      "amount_cny": "0.001",
+      "provider": "synthetic",
+      "attribution": {
+        "run_id": "8e72501f14324d0fb30515b6b0718427",
+        "role_run_id": "d6aeb630996f420eb2efc00c3c974d83",
+        "session_id": "6e3d9900a3a94254ab96ac7f19ba18b3",
+        "logical_request_id": "4b01251d483d4753b3c4184f99957ba7",
+        "attempt_ordinal": 1
+      },
+      "usage": {
+        "prompt_tokens": 10,
+        "completion_tokens": 2,
+        "response_model": "synthetic-no-model"
+      }
+    },
+    "9d346184b77340d3abad7c99559eca91": {
+      "status": "settled",
+      "amount_cny": "0.001",
+      "provider": "synthetic",
+      "attribution": {
+        "run_id": "8e72501f14324d0fb30515b6b0718427",
+        "role_run_id": "989738de182b461c9b1bd9cefd270d01",
+        "session_id": "da26cb39cc9b4c4ca3425d6bf50f072e",
+        "logical_request_id": "6a65792f2434492db220c4c471b0839e",
+        "attempt_ordinal": 1
+      },
+      "usage": {
+        "prompt_tokens": 10,
+        "completion_tokens": 2,
+        "response_model": "synthetic-no-model"
+      }
+    },
+    "808bfb4b3afc4f448977a16a0ee6d369": {
+      "status": "settled",
+      "amount_cny": "0.001",
+      "provider": "synthetic",
+      "attribution": {
+        "run_id": "8e72501f14324d0fb30515b6b0718427",
+        "role_run_id": "82c968a679f545599bf3c1faf2839687",
+        "session_id": "709d53ae4d54467697a7fe8b1a1ce755",
+        "logical_request_id": "77067bafc3c04258ada9f9d538737257",
+        "attempt_ordinal": 1
+      },
+      "usage": {
+        "prompt_tokens": 10,
+        "completion_tokens": 2,
+        "response_model": "synthetic-no-model"
+      }
+    }
+  }
+}

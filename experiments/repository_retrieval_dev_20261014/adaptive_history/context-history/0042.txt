@@ -1,0 +1,1 @@
+Reproduced. Now let me check the test_checks expectations and the compat JSONDecodeError signature.

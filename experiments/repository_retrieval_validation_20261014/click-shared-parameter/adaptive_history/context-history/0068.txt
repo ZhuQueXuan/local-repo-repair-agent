@@ -1,0 +1,1 @@
+Found it. `argument` uses `attrs.pop("cls", ...)` which mutates the shared `attrs` dict, so on the second use `cls` is gone and it falls back to `Argument`. `option` already copies. Let me confirm the issue and check the `type` handling too.

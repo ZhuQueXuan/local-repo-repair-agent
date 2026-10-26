@@ -1,0 +1,18 @@
+/d/myDocu/project_postg/shixi_project/tasks/file-pathlike/temp/run_20261010_155835_894056/repo
+CHANGELOG.md
+LICENSE
+README.md
+TASK.md
+TODO.rst
+boltons
+docs
+misc
+pyproject.toml
+requirements-test.txt
+setup.cfg
+task_checks
+temp
+tests
+tox.ini
+---
+4794bd8 Frozen task baseline

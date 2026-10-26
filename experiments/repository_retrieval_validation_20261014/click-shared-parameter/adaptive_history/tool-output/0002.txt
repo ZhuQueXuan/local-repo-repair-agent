@@ -1,0 +1,62 @@
+__init__.py
+_compat.py
+_termui_impl.py
+_textwrap.py
+_winconsole.py
+core.py
+decorators.py
+exceptions.py
+formatting.py
+globals.py
+parser.py
+py.typed
+shell_completion.py
+termui.py
+testing.py
+types.py
+utils.py
+---
+134:class ParameterSource(enum.Enum):
+1976:class Parameter:
+---
+260:    def __init__(
+844:    def __init__(
+1175:    def __init__(
+1470:    def __init__(
+1786:    def __init__(
+1931:    def __init__(
+2052:    def __init__(
+2075:        self.type = types.convert_type(type, default)
+2080:            if self.type.is_composite:
+2081:                nargs = self.type.arity
+2097:            if self.type.is_composite and nargs != self.type.arity:
+2099:                    f"'nargs' must be {self.type.arity} (or None) for"
+2100:                    f" type {self.type!r}, but it was {nargs}."
+2151:            "type": self.type.to_info_dict(),
+2178:        metavar = self.type.get_metavar(self)
+2181:            metavar = self.type.name.upper()
+2189:    def get_default(
+2195:    def get_default(
+2200:    def get_default(
+2256:    def type_cast_value(self, ctx: Context, value: t.Any) -> t.Any:
+2274:        if self.nargs == 1 or self.type.is_composite:
+2276:                self.type, param=self, ctx=ctx
+2281:                return tuple(self.type(x, self, ctx) for x in check_iter(value))
+2299:                return tuple(self.type(x, self, ctx) for x in value)
+2316:        value = self.type_cast_value(ctx, value)
+2348:            rv = self.type.split_envvar_value(rv)
+2406:        return self.type.shell_complete(ctx, self, incomplete)
+2471:    def __init__(
+2541:            self.type = types.convert_type(None, flag_value)
+2544:        self.is_bool_flag = is_flag and isinstance(self.type, types.BoolParamType)
+2551:                self.type = types.IntRange(min=0)
+2780:            isinstance(self.type, types._NumberRangeBase)
+2782:            and not (self.count and self.type.min == 0 and self.type.max is None)
+2784:            range_str = self.type._describe_range()
+2799:    def get_default(
+2805:    def get_default(
+2810:    def get_default(
+2845:            type=self.type,
+2880:            rv = self.type.split_envvar_value(rv)
+2935:    def __init__(
+2965:        var = self.type.get_metavar(self)

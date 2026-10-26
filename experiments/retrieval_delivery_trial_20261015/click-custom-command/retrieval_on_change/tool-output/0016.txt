@@ -1,0 +1,13 @@
+            Added the :attr:`group_class` attribute.
+        """
+        from .decorators import group
+
+        func: t.Optional[t.Callable] = None
+
+        if args and callable(args[0]):
+            assert (
+                len(args) == 1 and not kwargs
+            ), "Use 'group(**kwargs)(callable)' to provide arguments."
+            (func,) = args
+            args = ()
+

@@ -1,0 +1,97 @@
+test_actual_full_feedback_preserves_session_versions_and_replay (test_collaboration_diagnostic.DiagnosticTests) ... ERROR
+test_fixed_selection_and_idempotency_do_not_change_normal_policy (test_collaboration_diagnostic.DiagnosticTests) ... ERROR
+test_grader_uses_temp_scratch_then_copies_artifact (test_collaboration_diagnostic.DiagnosticTests) ... ERROR
+test_independent_process_checks_bad_and_fixed_candidates_and_import (test_collaboration_diagnostic.DiagnosticTests) ... ERROR
+test_initial_model_mutation_stops_without_restoring_or_retrying (test_collaboration_diagnostic.DiagnosticTests) ... ERROR
+test_real_verdict_is_not_forced_and_approve_starts_no_revision (test_collaboration_diagnostic.DiagnosticTests) ... ERROR
+test_report_requires_additional_checks_even_when_old_checks_pass (test_collaboration_diagnostic.DiagnosticTests) ... ERROR
+test_seed_exact_guard_and_confirmation_detect_later_edits (test_collaboration_diagnostic.DiagnosticTests) ... ERROR
+
+======================================================================
+ERROR: test_actual_full_feedback_preserves_session_versions_and_replay (test_collaboration_diagnostic.DiagnosticTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 176, in test_actual_full_feedback_preserves_session_versions_and_replay
+    self.exercise()
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 113, in exercise
+    runner = self.runner()
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 29, in runner
+    parent = self.parent()
+TypeError: 'dict' object is not callable
+
+======================================================================
+ERROR: test_fixed_selection_and_idempotency_do_not_change_normal_policy (test_collaboration_diagnostic.DiagnosticTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 36, in test_fixed_selection_and_idempotency_do_not_change_normal_policy
+    parent = self.parent()
+TypeError: 'dict' object is not callable
+
+======================================================================
+ERROR: test_grader_uses_temp_scratch_then_copies_artifact (test_collaboration_diagnostic.DiagnosticTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 100, in test_grader_uses_temp_scratch_then_copies_artifact
+    runner = self.runner()
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 29, in runner
+    parent = self.parent()
+TypeError: 'dict' object is not callable
+
+======================================================================
+ERROR: test_independent_process_checks_bad_and_fixed_candidates_and_import (test_collaboration_diagnostic.DiagnosticTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 72, in test_independent_process_checks_bad_and_fixed_candidates_and_import
+    seed_candidate(work)
+  File "D:\myDocu\project_postg\shixi_project\scripts\collaboration_diagnostic.py", line 33, in seed_candidate
+    raise ProtocolError("diagnostic_seed_source_mismatch")
+collaboration_protocol.ProtocolError: diagnostic_seed_source_mismatch
+
+======================================================================
+ERROR: test_initial_model_mutation_stops_without_restoring_or_retrying (test_collaboration_diagnostic.DiagnosticTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 182, in test_initial_model_mutation_stops_without_restoring_or_retrying
+    self.exercise(mutate=True)
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 113, in exercise
+    runner = self.runner()
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 29, in runner
+    parent = self.parent()
+TypeError: 'dict' object is not callable
+
+======================================================================
+ERROR: test_real_verdict_is_not_forced_and_approve_starts_no_revision (test_collaboration_diagnostic.DiagnosticTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 179, in test_real_verdict_is_not_forced_and_approve_starts_no_revision
+    self.exercise(approve=True)
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 113, in exercise
+    runner = self.runner()
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 29, in runner
+    parent = self.parent()
+TypeError: 'dict' object is not callable
+
+======================================================================
+ERROR: test_report_requires_additional_checks_even_when_old_checks_pass (test_collaboration_diagnostic.DiagnosticTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 88, in test_report_requires_additional_checks_even_when_old_checks_pass
+    runner = self.runner()
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 29, in runner
+    parent = self.parent()
+TypeError: 'dict' object is not callable
+
+======================================================================
+ERROR: test_seed_exact_guard_and_confirmation_detect_later_edits (test_collaboration_diagnostic.DiagnosticTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 60, in test_seed_exact_guard_and_confirmation_detect_later_edits
+    metadata = seed_candidate(work)
+  File "D:\myDocu\project_postg\shixi_project\scripts\collaboration_diagnostic.py", line 33, in seed_candidate
+    raise ProtocolError("diagnostic_seed_source_mismatch")
+collaboration_protocol.ProtocolError: diagnostic_seed_source_mismatch
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.424s
+
+FAILED (errors=8)

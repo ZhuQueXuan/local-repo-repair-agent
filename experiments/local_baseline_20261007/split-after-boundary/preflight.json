@@ -1,0 +1,14 @@
+{
+  "task_id": "more-itertools-split-after-658",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\split-after-boundary\\temp\\run_20261007_213614_551055\\repo",
+  "git_root_verified": true,
+  "pipefail_verified": true,
+  "external_model_requests": 0,
+  "budget": {
+    "max_requests": null,
+    "max_total_cost_cny": 5.0,
+    "accounted_cost_and_reservations_cny": 0.268968,
+    "remaining_cny": 4.731032,
+    "blocked": false
+  }
+}

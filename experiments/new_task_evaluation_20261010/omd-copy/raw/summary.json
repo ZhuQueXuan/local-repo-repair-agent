@@ -1,0 +1,126 @@
+{
+  "task_id": "boltons-omd-copy-410",
+  "variant": "raw",
+  "exit_status": "LimitsExceeded",
+  "limit_kind": "context_bytes",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\temp\\run_20261010_143929_897576\\repo",
+  "requests": 8,
+  "estimated_cost_cny": 0.043554,
+  "usage": [
+    {
+      "prompt_tokens": 593,
+      "completion_tokens": 82,
+      "estimated_cost_cny": 0.001842,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 797,
+      "completion_tokens": 87,
+      "estimated_cost_cny": 0.00229,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 965,
+      "completion_tokens": 85,
+      "estimated_cost_cny": 0.00261,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1825,
+      "completion_tokens": 112,
+      "estimated_cost_cny": 0.004546,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2555,
+      "completion_tokens": 64,
+      "estimated_cost_cny": 0.005622,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3536,
+      "completion_tokens": 143,
+      "estimated_cost_cny": 0.008216,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3734,
+      "completion_tokens": 169,
+      "estimated_cost_cny": 0.00882,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 4064,
+      "completion_tokens": 185,
+      "estimated_cost_cny": 0.009608,
+      "response_model": "deepseek-flash"
+    }
+  ],
+  "request_measurements": [
+    {
+      "next_request": 1,
+      "message_utf8_bytes": 1590,
+      "http_attempted": true
+    },
+    {
+      "next_request": 2,
+      "message_utf8_bytes": 2456,
+      "http_attempted": true
+    },
+    {
+      "next_request": 3,
+      "message_utf8_bytes": 3234,
+      "http_attempted": true
+    },
+    {
+      "next_request": 4,
+      "message_utf8_bytes": 6532,
+      "http_attempted": true
+    },
+    {
+      "next_request": 5,
+      "message_utf8_bytes": 9434,
+      "http_attempted": true
+    },
+    {
+      "next_request": 6,
+      "message_utf8_bytes": 13577,
+      "http_attempted": true
+    },
+    {
+      "next_request": 7,
+      "message_utf8_bytes": 14420,
+      "http_attempted": true
+    },
+    {
+      "next_request": 8,
+      "message_utf8_bytes": 15623,
+      "http_attempted": true
+    },
+    {
+      "next_request": 9,
+      "message_utf8_bytes": 18167,
+      "http_attempted": false
+    }
+  ],
+  "tool_output_statistics": null,
+  "context_projections": null,
+  "task_state": null,
+  "pinned_state_requests": null,
+  "elapsed_seconds": 11.641,
+  "changed_files": [],
+  "unexpected_changes": [],
+  "checks_and_description_unchanged": true,
+  "task_tests_passed": false,
+  "new_full_suite_failures": [],
+  "patch_replay_passed": false,
+  "repair_verified": false,
+  "shared_budget": {
+    "max_requests": null,
+    "max_total_cost_cny": 15.0,
+    "accounted_cost_and_reservations_cny": 5.2419,
+    "remaining_cny": 9.7581,
+    "blocked": false
+  },
+  "scope": "Public new-task evaluation, held out from this project strategy tuning only. Visible checks; not SWE-bench, private tests, or guaranteed absent from model training."
+}

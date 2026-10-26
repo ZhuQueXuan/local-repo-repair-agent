@@ -1,0 +1,1 @@
+The harness truncates even small outputs. Let me use a Python script that prints only a few lines at a time.

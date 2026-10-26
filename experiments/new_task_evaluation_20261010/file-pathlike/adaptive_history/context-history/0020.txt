@@ -1,0 +1,1 @@
+The tool truncates output regardless. Let me use grep to find the key lines with line numbers, which produces compact output.

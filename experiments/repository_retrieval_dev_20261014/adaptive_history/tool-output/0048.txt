@@ -1,0 +1,27 @@
+"""Independent public-behavior checks; no HTTP or model requests."""
+import pickle
+import unittest
+import requests
+
+
+def response_with(content, encoding="utf-8"):
+    response = requests.Response()
+    response._content = content
+    response.encoding = encoding
+    response.status_code = 200
+    return response
+
+
+class JsonPickleChecks(unittest.TestCase):
+    def assert_roundtrip(self, original, protocol):
+        restored = pickle.loads(pickle.dumps(original, protocol=protocol))
+        self.assertIs(type(restored), type(original))
+        for field in ["msg", "doc", "pos", "lineno", "colno", "args"]:
+            self.assertEqual(getattr(restored, field), getattr(original, field))
+        self.assertEqual(str(restored), str(original))
+
+    def test_direct_exception_all_pickle_protocols(self):
+        for protocol in range(pickle.HIGHEST_PROTOCOL + 1):
+            with self.subTest(protocol=protocol):
+                self.assert_roundtrip(requests.exceptions.JSONDecodeError("Extra data", '{"a": 1}{"b": 2}', 8), protocol)
+

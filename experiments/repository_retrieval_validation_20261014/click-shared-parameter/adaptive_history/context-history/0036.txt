@@ -1,0 +1,1 @@
+Now let me look at `convert_type` fully to understand the bug. The issue is likely that when a `ParamType` instance is passed, it's returned as-is (shared), and then mutated. Let me check the beginning of convert_type.

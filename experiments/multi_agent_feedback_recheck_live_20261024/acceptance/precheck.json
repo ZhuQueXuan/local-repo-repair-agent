@@ -1,0 +1,12 @@
+{
+  "tested_runtime_inputs": 93,
+  "original_production_rows": 43,
+  "pending": 0,
+  "task_inputs": {
+    "tasks/split-after-boundary/manifest.json": "5f77fb85ba104336bfc432aed50a31fa46a89c91ff527385dde1b8552a86f982",
+    "tasks/split-after-boundary/issue.md": "ec2e4d6ca9a82b4fd89b32d5a3431a4ab145246e8008ec9077ba902dcf02b42e",
+    "tasks/split-after-boundary/checks/test_behavior.py": "daf73cc320ecb75242151e41beaea502f6728efcbf474b741ddef65c4665f571"
+  },
+  "code_changed_this_run": false,
+  "scope": "One new fixed seeded-falsey diagnostic identity after offline fixes. No restart of old identities; no selecting reruns."
+}

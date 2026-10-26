@@ -1,0 +1,18 @@
+test_actual_red_green_and_upstream_in_isolated_child (test_evaluation_preparation.PreparationTests) ... ok
+test_current_snapshot_text_reader_limitation_remains_explicit (test_evaluation_preparation.PreparationTests) ... ok
+test_duplicate_slot_unknown_task_or_missing_variant_is_rejected (test_evaluation_preparation.PreparationTests) ... ok
+test_evaluator_material_cannot_be_added_to_public_packet (test_evaluation_preparation.PreparationTests) ... ok
+test_omitting_private_inputs_from_freeze_is_rejected (test_evaluation_preparation.PreparationTests) ... ok
+test_plan_has_six_tasks_three_repos_fifteen_unique_no_paid_authority (test_evaluation_preparation.PreparationTests) ... ok
+test_private_mutation_is_rejected_before_child_execution (test_evaluation_preparation.PreparationTests) ... ok
+test_public_check_and_binary_tampering_are_rejected (test_evaluation_preparation.PreparationTests) ... ok
+test_public_copy_omits_withheld_reference_and_full_manifest (test_evaluation_preparation.PreparationTests) ... ok
+test_pytest_subprocess_has_its_own_network_guard (test_evaluation_preparation.PreparationTests) ... ok
+test_reference_cannot_change_upstream_tests_or_ignore_wrong_base (test_evaluation_preparation.PreparationTests) ... ok
+test_traversal_and_non_temp_qualification_paths_are_rejected (test_evaluation_preparation.PreparationTests) ... ok
+test_unfrozen_packet_never_claims_verified (test_evaluation_preparation.PreparationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 4.817s
+
+OK

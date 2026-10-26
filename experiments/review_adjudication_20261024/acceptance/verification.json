@@ -1,0 +1,19 @@
+{
+  "new_implementation_files": [
+    "scripts/review_adjudication.py",
+    "scripts/adjudication_demo.py",
+    "scripts/test_review_adjudication.py"
+  ],
+  "changed_existing_runtime_config_data": [],
+  "unchanged_existing_files": 93,
+  "unchanged_production_records": 43,
+  "shared_ledger_byte_unchanged": true,
+  "new_model_requests": 0,
+  "previous_archives_verified": {
+    "multi_agent_feedback_diagnostic_offline_20261024": 90,
+    "multi_agent_feedback_diagnostic_live_20261024": 50,
+    "multi_agent_feedback_fix_20261024": 57
+  },
+  "formal_worker_panel_adjudication_integration": false,
+  "runtime_scope": "trusted offline registered probes only, not OS sandbox or natural-language truth judgement"
+}

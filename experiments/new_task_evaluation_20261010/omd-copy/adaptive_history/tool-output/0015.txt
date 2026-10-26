@@ -1,0 +1,35 @@
+    def update_extend(self, E, **F):
+        """Add items from a dictionary, iterable, and/or keyword
+        arguments without overwriting existing items present in the
+        dictionary. Like :meth:`update`, but adds to existing keys
+        instead of overwriting them.
+        """
+        if E is self:
+            iterator = iter(E.items())
+        elif isinstance(E, OrderedMultiDict):
+            iterator = E.iteritems(multi=True)
+        elif hasattr(E, 'keys'):
+            iterator = ((k, E[k]) for k in E.keys())
+        else:
+            iterator = E
+
+        self_add = self.add
+        for k, v in iterator:
+            self_add(k, v)
+
+    def __setitem__(self, k, v):
+        if super().__contains__(k):
+            self._remove_all(k)
+        self._insert(k, v)
+        super().__setitem__(k, [v])
+
+    def __getitem__(self, k):
+        return super().__getitem__(k)[-1]
+
+    def __delitem__(self, k):
+        super().__delitem__(k)
+        self._remove_all(k)
+
+    def __eq__(self, other):
+        if self is other:
+            return True

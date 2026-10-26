@@ -1,0 +1,3 @@
+Confirmed. `argument()` does `attrs.pop("cls", None)` directly on the shared `attrs` dict, mutating it. `option()` already copies (Issue 926). The fix is to make `argument()` copy `attrs` too.
+
+Let me apply the fix.

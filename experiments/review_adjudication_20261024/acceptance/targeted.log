@@ -1,0 +1,261 @@
+test_already_reported_failure_is_not_a_new_finding (test_review_adjudication.AdjudicationTests) ... ERROR
+test_altered_claim_or_unknown_check_cannot_reuse_a_binding (test_review_adjudication.AdjudicationTests) ... ERROR
+test_changed_source_without_behavioral_gain_is_not_improvement (test_review_adjudication.AdjudicationTests) ... ERROR
+test_check_errors_and_timeouts_remain_unresolved (test_review_adjudication.AdjudicationTests) ... ERROR
+test_cross_run_lineage_is_rejected_even_for_identical_code (test_review_adjudication.AdjudicationTests) ... ERROR
+test_different_revision_summaries_are_not_silently_combined (test_review_adjudication.AdjudicationTests) ... ERROR
+test_fixing_a_finding_does_not_hide_a_new_regression (test_review_adjudication.AdjudicationTests) ... ERROR
+test_frozen_probe_is_not_polluted_by_later_original_edits (test_review_adjudication.AdjudicationTests) ... ERROR
+test_model_or_json_receipt_is_not_program_issued (test_review_adjudication.AdjudicationTests) ... ERROR
+test_no_mapping_or_receipt_never_confirms_on_model_confidence (test_review_adjudication.AdjudicationTests) ... ERROR
+test_old_receipt_cannot_be_applied_to_target_candidate (test_review_adjudication.AdjudicationTests) ... ERROR
+test_real_process_confirms_refutes_leaves_unknown_and_deduplicates (test_review_adjudication.AdjudicationTests) ... ERROR
+test_same_candidate_is_unchanged_and_probe_runs_only_once (test_review_adjudication.AdjudicationTests) ... ERROR
+test_store_requires_temp_and_probe_hash_is_checked (test_review_adjudication.AdjudicationTests) ... ERROR
+test_suggested_model_code_is_not_executed (test_review_adjudication.AdjudicationTests) ... ERROR
+test_tampered_receipt_or_decision_is_rejected (test_review_adjudication.AdjudicationTests) ... ERROR
+
+======================================================================
+ERROR: test_already_reported_failure_is_not_a_new_finding (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_altered_claim_or_unknown_check_cannot_reuse_a_binding (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_changed_source_without_behavioral_gain_is_not_improvement (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_check_errors_and_timeouts_remain_unresolved (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_cross_run_lineage_is_rejected_even_for_identical_code (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_different_revision_summaries_are_not_silently_combined (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_fixing_a_finding_does_not_hide_a_new_regression (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_frozen_probe_is_not_polluted_by_later_original_edits (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_model_or_json_receipt_is_not_program_issued (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_no_mapping_or_receipt_never_confirms_on_model_confidence (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_old_receipt_cannot_be_applied_to_target_candidate (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_real_process_confirms_refutes_leaves_unknown_and_deduplicates (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_same_candidate_is_unchanged_and_probe_runs_only_once (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_store_requires_temp_and_probe_hash_is_checked (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_suggested_model_code_is_not_executed (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+======================================================================
+ERROR: test_tampered_receipt_or_decision_is_rejected (test_review_adjudication.AdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_adjudication.py", line 14, in setUp
+    self.f = AdjudicationFixture()
+  File "D:\myDocu\project_postg\shixi_project\scripts\adjudication_demo.py", line 49, in __init__
+    handoff = Handoff(handoff_id="handoff", run_id=self.run_id, from_role_run_id=c.producer_role_run_id,
+  File "D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Handoff
+questions
+  Field required [type=missing, input_value={'handoff_id': 'handoff',...13e840af1e8d6296de53f')}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.685s
+
+FAILED (errors=16)

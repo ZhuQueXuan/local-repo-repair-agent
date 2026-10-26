@@ -1,0 +1,362 @@
+{
+  "date": "2026-10-15",
+  "complete": true,
+  "rows": [
+    {
+      "task": "click-custom-command",
+      "variant": "repository_retrieval",
+      "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_click-custom-command_repository_retrieval_121355_053563",
+      "exit_status": "Submitted",
+      "limit_kind": null,
+      "normal_submission": true,
+      "repair_verified": true,
+      "requests": 36,
+      "successful_model_responses": 35,
+      "first_implementation_edit_action": 30,
+      "first_explicit_target_read_action": 8,
+      "prompt_tokens": 127695,
+      "completion_tokens": 3943,
+      "known_price_estimate_cny": 0.286934,
+      "complete_cost_estimate_cny": null,
+      "elapsed_seconds": 103.687,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "issue_total": 6,
+      "issue_passed": 6,
+      "targeted_passed": 9,
+      "extended_total": 264,
+      "extended_passed": 262,
+      "baseline_extended_failure_ids": [
+        "tests.test_arguments.test_bytes_args"
+      ],
+      "new_extended_failure_ids": [],
+      "patch_replay_passed": true,
+      "protected_inputs_unchanged": true,
+      "changed_files": [
+        "src/click/core.py"
+      ],
+      "unexpected_changes": [],
+      "blocked_reads": 0,
+      "unattempted_request_projections": 0,
+      "retrieval_projection_bytes": 107415,
+      "retrieval_full_projection_bytes": 107415,
+      "full_projections": 35,
+      "reference_projections": 0,
+      "retrieval_delivery_receipts": 35,
+      "initial_selected_hits": [
+        {
+          "path": "src/click/decorators.py",
+          "symbol": "group",
+          "start": 244
+        },
+        {
+          "path": "src/click/core.py",
+          "symbol": "Command",
+          "start": 1133
+        },
+        {
+          "path": "src/click/types.py",
+          "symbol": "Path",
+          "start": 753
+        },
+        {
+          "path": "src/click/utils.py",
+          "symbol": "KeepOpenFile",
+          "start": 185
+        }
+      ],
+      "initial_contains_diagnostic_file": true,
+      "max_retrieval_message_bytes": 3069,
+      "projection_count_including_preflight": 36,
+      "changed_implementation_reindexed": true
+    },
+    {
+      "task": "click-custom-command",
+      "variant": "retrieval_on_change",
+      "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_click-custom-command_retrieval_on_change_121549_366907",
+      "exit_status": "Submitted",
+      "limit_kind": null,
+      "normal_submission": true,
+      "repair_verified": true,
+      "requests": 36,
+      "successful_model_responses": 35,
+      "first_implementation_edit_action": 29,
+      "first_explicit_target_read_action": 10,
+      "prompt_tokens": 108470,
+      "completion_tokens": 3789,
+      "known_price_estimate_cny": 0.247252,
+      "complete_cost_estimate_cny": null,
+      "elapsed_seconds": 100.859,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "issue_total": 6,
+      "issue_passed": 6,
+      "targeted_passed": 9,
+      "extended_total": 264,
+      "extended_passed": 262,
+      "baseline_extended_failure_ids": [
+        "tests.test_arguments.test_bytes_args"
+      ],
+      "new_extended_failure_ids": [],
+      "patch_replay_passed": true,
+      "protected_inputs_unchanged": true,
+      "changed_files": [
+        "src/click/core.py"
+      ],
+      "unexpected_changes": [],
+      "blocked_reads": 0,
+      "unattempted_request_projections": 0,
+      "retrieval_projection_bytes": 47322,
+      "retrieval_full_projection_bytes": 107415,
+      "full_projections": 2,
+      "reference_projections": 33,
+      "retrieval_delivery_receipts": 35,
+      "initial_selected_hits": [
+        {
+          "path": "src/click/decorators.py",
+          "symbol": "group",
+          "start": 244
+        },
+        {
+          "path": "src/click/core.py",
+          "symbol": "Command",
+          "start": 1133
+        },
+        {
+          "path": "src/click/types.py",
+          "symbol": "Path",
+          "start": 753
+        },
+        {
+          "path": "src/click/utils.py",
+          "symbol": "KeepOpenFile",
+          "start": 185
+        }
+      ],
+      "initial_contains_diagnostic_file": true,
+      "max_retrieval_message_bytes": 3069,
+      "projection_count_including_preflight": 36,
+      "changed_implementation_reindexed": true
+    },
+    {
+      "task": "barrel-sort",
+      "variant": "repository_retrieval",
+      "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_barrel-sort_repository_retrieval_121740_831727",
+      "exit_status": "LimitsExceeded",
+      "limit_kind": "context_bytes",
+      "normal_submission": false,
+      "repair_verified": true,
+      "requests": 96,
+      "successful_model_responses": 95,
+      "first_implementation_edit_action": 89,
+      "first_explicit_target_read_action": 1,
+      "prompt_tokens": 326312,
+      "completion_tokens": 11266,
+      "known_price_estimate_cny": 0.742752,
+      "complete_cost_estimate_cny": null,
+      "elapsed_seconds": 277.187,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "issue_total": 5,
+      "issue_passed": 5,
+      "targeted_passed": 2,
+      "extended_total": 78,
+      "extended_passed": 78,
+      "baseline_extended_failure_ids": [],
+      "new_extended_failure_ids": [],
+      "patch_replay_passed": true,
+      "protected_inputs_unchanged": true,
+      "changed_files": [
+        "boltons/listutils.py"
+      ],
+      "unexpected_changes": [],
+      "blocked_reads": 1,
+      "unattempted_request_projections": 1,
+      "retrieval_projection_bytes": 240005,
+      "retrieval_full_projection_bytes": 240005,
+      "full_projections": 96,
+      "reference_projections": 0,
+      "retrieval_delivery_receipts": 95,
+      "initial_selected_hits": [
+        {
+          "path": "boltons/setutils.py",
+          "symbol": "IndexedSet.sort",
+          "start": 452
+        },
+        {
+          "path": "boltons/listutils.py",
+          "symbol": "BarrelList.sort",
+          "start": 301
+        },
+        {
+          "path": "boltons/tableutils.py",
+          "symbol": "ListInputType",
+          "start": 167
+        },
+        {
+          "path": "boltons/cacheutils.py",
+          "symbol": "ThresholdCounter.values",
+          "start": 779
+        }
+      ],
+      "initial_contains_diagnostic_file": true,
+      "max_retrieval_message_bytes": 2501,
+      "projection_count_including_preflight": 97,
+      "changed_implementation_reindexed": true
+    },
+    {
+      "task": "barrel-sort",
+      "variant": "retrieval_on_change",
+      "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_barrel-sort_retrieval_on_change_122228_601498",
+      "exit_status": "Submitted",
+      "limit_kind": null,
+      "normal_submission": true,
+      "repair_verified": true,
+      "requests": 19,
+      "successful_model_responses": 18,
+      "first_implementation_edit_action": 11,
+      "first_explicit_target_read_action": 1,
+      "prompt_tokens": 54817,
+      "completion_tokens": 3040,
+      "known_price_estimate_cny": 0.133954,
+      "complete_cost_estimate_cny": null,
+      "elapsed_seconds": 58.578,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "issue_total": 5,
+      "issue_passed": 5,
+      "targeted_passed": 2,
+      "extended_total": 78,
+      "extended_passed": 78,
+      "baseline_extended_failure_ids": [],
+      "new_extended_failure_ids": [],
+      "patch_replay_passed": true,
+      "protected_inputs_unchanged": true,
+      "changed_files": [
+        "boltons/listutils.py"
+      ],
+      "unexpected_changes": [],
+      "blocked_reads": 0,
+      "unattempted_request_projections": 0,
+      "retrieval_projection_bytes": 25625,
+      "retrieval_full_projection_bytes": 45006,
+      "full_projections": 2,
+      "reference_projections": 16,
+      "retrieval_delivery_receipts": 18,
+      "initial_selected_hits": [
+        {
+          "path": "boltons/setutils.py",
+          "symbol": "IndexedSet.sort",
+          "start": 452
+        },
+        {
+          "path": "boltons/listutils.py",
+          "symbol": "BarrelList.sort",
+          "start": 301
+        },
+        {
+          "path": "boltons/tableutils.py",
+          "symbol": "ListInputType",
+          "start": 167
+        },
+        {
+          "path": "boltons/cacheutils.py",
+          "symbol": "ThresholdCounter.values",
+          "start": 779
+        }
+      ],
+      "initial_contains_diagnostic_file": true,
+      "max_retrieval_message_bytes": 2501,
+      "projection_count_including_preflight": 19,
+      "changed_implementation_reindexed": true
+    }
+  ],
+  "pairs": [
+    {
+      "task": "click-custom-command",
+      "same_served_models_and_providers": true,
+      "repair_verified_off_on": [
+        true,
+        true
+      ],
+      "successful_responses_off_on": [
+        35,
+        35
+      ],
+      "first_edit_off_on": [
+        30,
+        29
+      ],
+      "prompt_tokens_off_on": [
+        127695,
+        108470
+      ]
+    },
+    {
+      "task": "barrel-sort",
+      "same_served_models_and_providers": true,
+      "repair_verified_off_on": [
+        true,
+        true
+      ],
+      "successful_responses_off_on": [
+        95,
+        18
+      ],
+      "first_edit_off_on": [
+        89,
+        11
+      ],
+      "prompt_tokens_off_on": [
+        326312,
+        54817
+      ]
+    }
+  ],
+  "scope": "Four declared development/regression runs, always/on_change once per task, no tuning or retries after results. Only snippet delivery differs; search/ranking, history/state and checks unchanged. Public tasks/checks previously evaluated, no held-out or broad success-rate claim. Same 300s wall time, providers and uncapped shared ledger.",
+  "read_metric_limit": "Earliest successful recorded executed command containing an explicit diagnostic path and a cat/sed/grep/rg/head/tail command or read_text/read_bytes. This is a limited observable proxy, not exact first understanding or localization accuracy. Broad searches or aliases may be missed.",
+  "total_api_attempts": 187,
+  "successful_model_responses": 183,
+  "known_price_estimate_cny": 1.410892,
+  "unknown_charge_or_price_placeholders_cny": 0.4,
+  "complete_cost_estimate_cny": null,
+  "added_ledger_status_counts": {
+    "settled": 183,
+    "reserved": 4,
+    "unpriced": 0
+  },
+  "prior_ledger_entries_unchanged": true,
+  "budget_at_end": {
+    "max_requests": null,
+    "max_total_cost_cny": null,
+    "accounted_cost_and_reservations_cny": 12.316166,
+    "known_price_estimate_cny": 10.716166,
+    "unpriced_usage_requests": 0,
+    "remaining_cny": null,
+    "blocked": false
+  },
+  "evaluation_freeze": {
+    "manifest": "configs/retrieval_delivery_trial_20261015.freeze.json",
+    "sha256": "74a67e0c47609ed453e39434f5573bd9f7ffba41b7faeee8cfb1efbc341c67fa",
+    "verified_files": 350
+  },
+  "offline_checks": 127,
+  "search_ranking_ast_unchanged": true,
+  "limitation": "One run per variant and task; public issues/checks and both tasks reused for development/regression, no held-out claim. Selected upstream subsets, no SWE-bench or broad accuracy claim. Initial file hit is not exact symbol localization. Retain optional retrieval; inspect per-task cost regressions."
+}

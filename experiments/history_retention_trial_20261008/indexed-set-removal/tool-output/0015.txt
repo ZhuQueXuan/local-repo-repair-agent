@@ -1,0 +1,50 @@
+371             if val in self:
+372                 self.discard(val)
+373             else:
+374                 self.add(val)
+375 
+376     def __ior__(self, *others):
+377         self.update(*others)
+378         return self
+379 
+380     def __iand__(self, *others):
+381         self.intersection_update(*others)
+382         return self
+383 
+384     def __isub__(self, *others):
+385         self.difference_update(*others)
+386         return self
+387 
+388     def __ixor__(self, *others):
+389         self.symmetric_difference_update(*others)
+390         return self
+391 
+392     def iter_slice(self, start, stop, step=None):
+393         "iterate over a slice of the set"
+394         iterable = self
+395         if start is not None:
+396             start = self._get_real_index(start)
+397         if stop is not None:
+398             stop = self._get_real_index(stop)
+399         if step is not None and step < 0:
+400             step = -step
+401             iterable = reversed(self)
+402         return islice(iterable, start, stop, step)
+403 
+404     # list operations
+405     def __getitem__(self, index):
+406         try:
+407             start, stop, step = index.start, index.stop, index.step
+408         except AttributeError:
+409             index = operator.index(index)
+410         else:
+411             iter_slice = self.iter_slice(start, stop, step)
+412             return self.from_iterable(iter_slice)
+413         if index < 0:
+414             index += len(self)
+415         real_index = self._get_real_index(index)
+416         try:
+417             ret = self.item_list[real_index]
+418         except IndexError:
+419             raise IndexError('IndexedSet index out of range')
+420         return ret

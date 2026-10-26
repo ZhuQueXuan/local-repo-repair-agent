@@ -1,0 +1,24 @@
+/d/myDocu/project_postg/shixi_project/tasks/barrel-sort/temp/run_20261014_220643_589216/repo
+total 110
+drwxr-xr-x 1 刘文轩 197609     0 Oct 14 22:06 .
+drwxr-xr-x 1 刘文轩 197609     0 Oct 14 22:06 ..
+drwxr-xr-x 1 刘文轩 197609     0 Oct 14 22:06 .git
+drwxr-xr-x 1 刘文轩 197609     0 Oct 14 22:06 .github
+-rw-r--r-- 1 刘文轩 197609   450 Oct  7 21:29 .gitignore
+-rw-r--r-- 1 刘文轩 197609   665 Oct  7 21:29 .readthedocs.yaml
+-rw-r--r-- 1 刘文轩 197609 62312 Oct  7 21:29 CHANGELOG.md
+-rw-r--r-- 1 刘文轩 197609  1497 Oct  7 21:29 LICENSE
+-rw-r--r-- 1 刘文轩 197609  5455 Oct  7 21:29 README.md
+-rw-r--r-- 1 刘文轩 197609   640 Oct 14 22:00 TASK.md
+-rw-r--r-- 1 刘文轩 197609  2583 Oct  7 21:29 TODO.rst
+drwxr-xr-x 1 刘文轩 197609     0 Oct 14 22:06 boltons
+drwxr-xr-x 1 刘文轩 197609     0 Oct 14 22:06 docs
+drwxr-xr-x 1 刘文轩 197609     0 Oct 14 22:06 misc
+-rw-r--r-- 1 刘文轩 197609  2133 Oct  7 21:29 pyproject.toml
+-rw-r--r-- 1 刘文轩 197609   127 Oct  7 21:29 requirements-test.txt
+-rw-r--r-- 1 刘文轩 197609    37 Oct  7 21:29 setup.cfg
+drwxr-xr-x 1 刘文轩 197609     0 Oct 14 21:53 task_checks
+drwxr-xr-x 1 刘文轩 197609     0 Oct 14 22:06 temp
+drwxr-xr-x 1 刘文轩 197609     0 Oct 14 22:06 tests
+-rw-r--r-- 1 刘文轩 197609   215 Oct  7 21:29 tox.ini
+fc26d76 Frozen task baseline

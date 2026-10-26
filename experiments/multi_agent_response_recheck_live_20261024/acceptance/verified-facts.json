@@ -1,0 +1,176 @@
+{
+  "run_id": "d3173d4153e544ccbf0eb066834848f8",
+  "status": "finished",
+  "repair_result": "passed",
+  "review_verdict": "approve",
+  "collaboration_result": "completed",
+  "roles": {
+    "repairing": "succeeded",
+    "reviewing": "succeeded",
+    "revising": "succeeded",
+    "final_review": "succeeded"
+  },
+  "same_original_history_and_session": true,
+  "completed_initial_submit_receipt": 1,
+  "revision_exit": "Submitted",
+  "registered_candidates": 2,
+  "registered_responses": 2,
+  "checks": {
+    "repairing-verification": {
+      "issue": 10,
+      "targeted": 4,
+      "diagnostic": 2,
+      "full_passed": 659,
+      "full_run": 660,
+      "remaining_failures": [
+        "test_more.TimeLimitedTests.test_zero_limit"
+      ],
+      "protected_tests_unchanged": true
+    },
+    "revising-verification": {
+      "issue": 10,
+      "targeted": 4,
+      "diagnostic": 6,
+      "full_passed": 659,
+      "full_run": 660,
+      "remaining_failures": [
+        "test_more.TimeLimitedTests.test_zero_limit"
+      ],
+      "protected_tests_unchanged": true
+    },
+    "patch-replay": {
+      "issue": 10,
+      "targeted": 4,
+      "diagnostic": 6,
+      "full_passed": 659,
+      "full_run": 660,
+      "remaining_failures": [
+        "test_more.TimeLimitedTests.test_zero_limit"
+      ],
+      "protected_tests_unchanged": true
+    }
+  },
+  "shared_old_requests_unchanged": true,
+  "new_tickets": 21,
+  "providers": {
+    "bupt_gateway": 1,
+    "deepseek_official": 20
+  },
+  "old_payloads_unchanged": 44,
+  "production_rows": 45,
+  "frozen_input_count": 168,
+  "all_frozen_inputs_currently_unchanged": true,
+  "root_pytest_cache_exists": false,
+  "usage": {
+    "attempts": 21,
+    "by_role": {
+      "0032012ddde64ee99ef09206f4b58861": {
+        "attempts": 5,
+        "complete_cost_estimate_cny": 0.064812,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 1438,
+        "known_price_estimate_cny": 0.064812,
+        "known_prompt_tokens": 26654,
+        "logical_requests": 5,
+        "tickets": [
+          "b5f58461558b45da8aa59b748f83c28e",
+          "bac0103f3e1b4144a8d6c2e1fc7502dd",
+          "d1e9a261123a466e8eacb71da3054e84",
+          "e2e4a407023b4c389f859871630aa62d",
+          "ee3db24c34ee48a4b3c3f89ba37faad7"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      },
+      "30b6996ed4ef49f4a88821b13eff0286": {
+        "attempts": 9,
+        "complete_cost_estimate_cny": 0.060276,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 1012,
+        "known_price_estimate_cny": 0.060276,
+        "known_prompt_tokens": 26090,
+        "logical_requests": 9,
+        "tickets": [
+          "3fa76ae39666475eafc2abf9504152e7",
+          "40ebb54b49e4441dbc9f895aab9c1184",
+          "5eaca7472b7c4217b3f6ee03ee0d83c3",
+          "96433f57299648bbbb65bd22b038a7ab",
+          "9b872aa3fbfe4a1f83b57af2a8ea692c",
+          "ae99f5c48a884b8aad3acc08fec6d661",
+          "c9d62a51e56343b29f9852afca104959",
+          "cccaef905df64cd0b04661bdee3d7a38",
+          "fc3c3ff91a974f78a366723232941aa0"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      },
+      "9367886a02b54896999c8f910558793f": {
+        "attempts": 2,
+        "complete_cost_estimate_cny": null,
+        "has_unknown_usage": true,
+        "known_completion_tokens": 50,
+        "known_price_estimate_cny": 0.002244,
+        "known_prompt_tokens": 922,
+        "logical_requests": 1,
+        "tickets": [
+          "6ec7eadac3624db7a4bf4d8572d4d474",
+          "cd3084c9dcb04d38878061d2370aea09"
+        ],
+        "unknown_cost_attempts": 1,
+        "unknown_placeholder_cny": 0.1
+      },
+      "df90ed8f029a40178e8c26eaab54e313": {
+        "attempts": 5,
+        "complete_cost_estimate_cny": 0.05051,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 1229,
+        "known_price_estimate_cny": 0.05051,
+        "known_prompt_tokens": 20339,
+        "logical_requests": 5,
+        "tickets": [
+          "1e99955db7b04f8d844185a187c10146",
+          "576db3b223d54252948c9c741ed6ae85",
+          "8503b3e7575041a294254ea5a93437c7",
+          "a06a19f531c94214b5070c9c716e548e",
+          "fa045dd80ba94e6185312d60aa81ce79"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      }
+    },
+    "complete_cost_estimate_cny": null,
+    "cost_scope": "Known-price estimates plus unknown placeholders; not confirmed charges or platform balance.",
+    "has_unknown_usage": true,
+    "known_completion_tokens": 3729,
+    "known_price_estimate_cny": 0.177842,
+    "known_prompt_tokens": 74005,
+    "logical_requests": 20,
+    "tickets": [
+      "1e99955db7b04f8d844185a187c10146",
+      "3fa76ae39666475eafc2abf9504152e7",
+      "40ebb54b49e4441dbc9f895aab9c1184",
+      "576db3b223d54252948c9c741ed6ae85",
+      "5eaca7472b7c4217b3f6ee03ee0d83c3",
+      "6ec7eadac3624db7a4bf4d8572d4d474",
+      "8503b3e7575041a294254ea5a93437c7",
+      "96433f57299648bbbb65bd22b038a7ab",
+      "9b872aa3fbfe4a1f83b57af2a8ea692c",
+      "a06a19f531c94214b5070c9c716e548e",
+      "ae99f5c48a884b8aad3acc08fec6d661",
+      "b5f58461558b45da8aa59b748f83c28e",
+      "bac0103f3e1b4144a8d6c2e1fc7502dd",
+      "c9d62a51e56343b29f9852afca104959",
+      "cccaef905df64cd0b04661bdee3d7a38",
+      "cd3084c9dcb04d38878061d2370aea09",
+      "d1e9a261123a466e8eacb71da3054e84",
+      "e2e4a407023b4c389f859871630aa62d",
+      "ee3db24c34ee48a4b3c3f89ba37faad7",
+      "fa045dd80ba94e6185312d60aa81ce79",
+      "fc3c3ff91a974f78a366723232941aa0"
+    ],
+    "total_elapsed_seconds": 47.75,
+    "unknown_cost_attempts": 1,
+    "unknown_placeholder_cny": 0.1
+  },
+  "scope": "One actual manual-candidate diagnostic completed all four phases and clean replay. Development integration evidence only, not effectiveness evidence."
+}

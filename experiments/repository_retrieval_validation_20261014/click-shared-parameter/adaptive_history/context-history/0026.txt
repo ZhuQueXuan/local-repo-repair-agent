@@ -1,0 +1,1 @@
+Now let me look at the middle of convert_type (lines 1000-1030) to see the full logic.

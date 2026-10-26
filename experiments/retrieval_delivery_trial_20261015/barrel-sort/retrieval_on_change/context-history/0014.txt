@@ -1,0 +1,1 @@
+Now let me look at the full `sort` method (lines 301-320) and understand why my repro didn't fail. Maybe `_size_factor` is huge so it stays in one list.

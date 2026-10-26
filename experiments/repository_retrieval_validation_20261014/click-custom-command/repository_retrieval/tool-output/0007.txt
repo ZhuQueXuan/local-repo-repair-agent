@@ -1,0 +1,21 @@
+    name: t.Union[str, t.Callable[..., t.Any], None] = None, **attrs: t.Any
+) -> t.Union[Group, t.Callable[[F], Group]]:
+    """Creates a new :class:`Group` with a function as callback.  This
+    works otherwise the same as :func:`command` just that the `cls`
+    parameter is set to :class:`Group`.
+
+    .. versionchanged:: 8.1
+        This decorator can be applied without parentheses.
+    """
+    if attrs.get("cls") is None:
+        attrs["cls"] = Group
+
+    if callable(name):
+        grp: t.Callable[[F], Group] = t.cast(Group, command(**attrs))
+        return grp(name)
+
+    return t.cast(Group, command(name, **attrs))
+
+
+def _param_memo(f: FC, param: Parameter) -> None:
+    if isinstance(f, Command):

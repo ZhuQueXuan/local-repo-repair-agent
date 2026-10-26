@@ -1,0 +1,1 @@
+{"edits":[{"expected_occurrences":1,"new":"(self.opts if default_value else self.secondary_opts)[0]","old":"(self.opts if self.default else self.secondary_opts)[0]","path":"src/click/core.py"}],"scope":"Developer-reviewed minimal reference adapted to this frozen baseline; never model input.","source":"https://github.com/pallets/click/issues/2632"}

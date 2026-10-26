@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\tasks\barrel-sort\temp\run_20261014_220744_785188\repo\temp\repro4.py", line 7, in <module>
+    r = bl.sort()
+  File "D:\myDocu\project_postg\shixi_project\tasks\barrel-sort\temp\run_20261014_220744_785188\repo\boltons\listutils.py", line 311, in sort
+    self.lists[0] = tmp_sorted
+IndexError: list assignment index out of range
+num lists: 1
+num lists after insert: 15

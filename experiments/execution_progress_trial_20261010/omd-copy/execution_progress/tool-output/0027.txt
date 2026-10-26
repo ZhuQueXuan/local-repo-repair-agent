@@ -1,0 +1,45 @@
+    def copy(self):
+        "Return a shallow copy of the dictionary."
+        return self.__class__(self.iteritems(multi=True))
+
+    @classmethod
+    def fromkeys(cls, keys, default=None):
+        """Create a dictionary from a list of keys, with all the values
+        set to *default*, or ``None`` if *default* is not set.
+        """
+        return cls([(k, default) for k in keys])
+
+---438---
+    def iteritems(self, multi=False):
+        """Iterate over the OMD's items in insertion order. By default,
+        yields only the most-recently inserted value for each key. Set
+        *multi* to ``True`` to get all inserted items.
+        """
+        root = self.root
+        curr = root[NEXT]
+        if multi:
+            while curr is not root:
+                yield curr[KEY], curr[VALUE]
+                curr = curr[NEXT]
+        else:
+            for key in self.iterkeys():
+                yield key, self[key]
+
+    def iterkeys(self, multi=False):
+        """Iterate over the OMD's keys in insertion order. By default, yields
+        each key once, according to the most recent insertion. Set
+        *multi* to ``True`` to get all keys, including duplicates, in
+        insertion order.
+        """
+        root = self.root
+        curr = root[NEXT]
+        if multi:
+            while curr is not root:
+                yield curr[KEY]
+                curr = curr[NEXT]
+        else:
+            yielded = set()
+            yielded_add = yielded.add
+            while curr is not root:
+                k = curr[KEY]
+                if k not in yielded:

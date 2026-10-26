@@ -1,0 +1,230 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.6, pytest-8.3.5, pluggy-1.6.0 -- D:\myDocu\project_postg\shixi_project\.venv\Scripts\python.exe
+rootdir: D:\myDocu\project_postg\shixi_project\mini-swe-agent
+configfile: pyproject.toml
+plugins: mock-3.14.0
+collecting ... collected 176 items
+
+tests/agents/test_default.py::test_successful_completion[text] PASSED    [  0%]
+tests/agents/test_default.py::test_successful_completion[toolcall] PASSED [  1%]
+tests/agents/test_default.py::test_successful_completion[response_api] PASSED [  1%]
+tests/agents/test_default.py::test_step_limit_enforcement[text] PASSED   [  2%]
+tests/agents/test_default.py::test_step_limit_enforcement[toolcall] PASSED [  2%]
+tests/agents/test_default.py::test_step_limit_enforcement[response_api] PASSED [  3%]
+tests/agents/test_default.py::test_cost_limit_enforcement[text] PASSED   [  3%]
+tests/agents/test_default.py::test_cost_limit_enforcement[toolcall] PASSED [  4%]
+tests/agents/test_default.py::test_cost_limit_enforcement[response_api] PASSED [  5%]
+tests/agents/test_default.py::test_timeout_handling[text] PASSED         [  5%]
+tests/agents/test_default.py::test_timeout_handling[toolcall] PASSED     [  6%]
+tests/agents/test_default.py::test_timeout_handling[response_api] PASSED [  6%]
+tests/agents/test_default.py::test_timeout_captures_partial_output[text] PASSED [  7%]
+tests/agents/test_default.py::test_timeout_captures_partial_output[toolcall] PASSED [  7%]
+tests/agents/test_default.py::test_timeout_captures_partial_output[response_api] PASSED [  8%]
+tests/agents/test_default.py::test_multiple_steps_before_completion[text] PASSED [  9%]
+tests/agents/test_default.py::test_multiple_steps_before_completion[toolcall] PASSED [  9%]
+tests/agents/test_default.py::test_multiple_steps_before_completion[response_api] PASSED [ 10%]
+tests/agents/test_default.py::test_custom_config[text] PASSED            [ 10%]
+tests/agents/test_default.py::test_custom_config[toolcall] PASSED        [ 11%]
+tests/agents/test_default.py::test_custom_config[response_api] PASSED    [ 11%]
+tests/agents/test_default.py::test_render_template_model_stats[text] PASSED [ 12%]
+tests/agents/test_default.py::test_render_template_model_stats[toolcall] PASSED [ 13%]
+tests/agents/test_default.py::test_render_template_model_stats[response_api] PASSED [ 13%]
+tests/agents/test_default.py::test_messages_include_timestamps[text] PASSED [ 14%]
+tests/agents/test_default.py::test_messages_include_timestamps[toolcall] PASSED [ 14%]
+tests/agents/test_default.py::test_messages_include_timestamps[response_api] PASSED [ 15%]
+tests/agents/test_default.py::test_message_history_tracking[text] PASSED [ 15%]
+tests/agents/test_default.py::test_message_history_tracking[toolcall] PASSED [ 16%]
+tests/agents/test_default.py::test_message_history_tracking[response_api] PASSED [ 17%]
+tests/agents/test_default.py::test_step_adds_messages[text] PASSED       [ 17%]
+tests/agents/test_default.py::test_step_adds_messages[toolcall] PASSED   [ 18%]
+tests/agents/test_default.py::test_step_adds_messages[response_api] PASSED [ 18%]
+tests/agents/test_default.py::test_observations_captured[text] PASSED    [ 19%]
+tests/agents/test_default.py::test_observations_captured[toolcall] PASSED [ 19%]
+tests/agents/test_default.py::test_observations_captured[response_api] PASSED [ 20%]
+tests/agents/test_default.py::test_wall_time_limit_enforcement[text] PASSED [ 21%]
+tests/agents/test_default.py::test_wall_time_limit_enforcement[toolcall] PASSED [ 21%]
+tests/agents/test_default.py::test_wall_time_limit_enforcement[response_api] PASSED [ 22%]
+tests/agents/test_default.py::test_wall_time_limit_template_vars[text] PASSED [ 22%]
+tests/agents/test_default.py::test_wall_time_limit_template_vars[toolcall] PASSED [ 23%]
+tests/agents/test_default.py::test_wall_time_limit_template_vars[response_api] PASSED [ 23%]
+tests/agents/test_default.py::test_empty_actions_handling[text] PASSED   [ 24%]
+tests/agents/test_default.py::test_empty_actions_handling[toolcall] PASSED [ 25%]
+tests/agents/test_default.py::test_empty_actions_handling[response_api] PASSED [ 25%]
+tests/agents/test_default.py::test_repeated_format_errors_terminate_cleanly PASSED [ 26%]
+tests/agents/test_default.py::test_format_error_counter_resets_on_success PASSED [ 26%]
+tests/agents/test_default.py::test_format_errors_count_against_cost_limit PASSED [ 27%]
+tests/agents/test_interactive.py::test_successful_completion_with_confirmation[text] PASSED [ 27%]
+tests/agents/test_interactive.py::test_successful_completion_with_confirmation[toolcall] PASSED [ 28%]
+tests/agents/test_interactive.py::test_successful_completion_with_confirmation[response_api] PASSED [ 28%]
+tests/agents/test_interactive.py::test_action_rejection_and_recovery[text] PASSED [ 29%]
+tests/agents/test_interactive.py::test_action_rejection_and_recovery[toolcall] PASSED [ 30%]
+tests/agents/test_interactive.py::test_action_rejection_and_recovery[response_api] PASSED [ 30%]
+tests/agents/test_interactive.py::test_yolo_mode_activation[text] PASSED [ 31%]
+tests/agents/test_interactive.py::test_yolo_mode_activation[toolcall] PASSED [ 31%]
+tests/agents/test_interactive.py::test_yolo_mode_activation[response_api] PASSED [ 32%]
+tests/agents/test_interactive.py::test_help_command[text] PASSED         [ 32%]
+tests/agents/test_interactive.py::test_help_command[toolcall] PASSED     [ 33%]
+tests/agents/test_interactive.py::test_help_command[response_api] PASSED [ 34%]
+tests/agents/test_interactive.py::test_whitelisted_actions_skip_confirmation[text] PASSED [ 34%]
+tests/agents/test_interactive.py::test_whitelisted_actions_skip_confirmation[toolcall] PASSED [ 35%]
+tests/agents/test_interactive.py::test_whitelisted_actions_skip_confirmation[response_api] PASSED [ 35%]
+tests/agents/test_interactive.py::test_interruption_handling_with_message[text] PASSED [ 36%]
+tests/agents/test_interactive.py::test_interruption_handling_with_message[toolcall] PASSED [ 36%]
+tests/agents/test_interactive.py::test_interruption_handling_with_message[response_api] PASSED [ 37%]
+tests/agents/test_interactive.py::test_interruption_handling_empty_message[text] PASSED [ 38%]
+tests/agents/test_interactive.py::test_interruption_handling_empty_message[toolcall] PASSED [ 38%]
+tests/agents/test_interactive.py::test_interruption_handling_empty_message[response_api] PASSED [ 39%]
+tests/agents/test_interactive.py::test_multiple_confirmations_and_commands[text] PASSED [ 39%]
+tests/agents/test_interactive.py::test_multiple_confirmations_and_commands[toolcall] PASSED [ 40%]
+tests/agents/test_interactive.py::test_multiple_confirmations_and_commands[response_api] PASSED [ 40%]
+tests/agents/test_interactive.py::test_non_whitelisted_action_requires_confirmation[text] PASSED [ 41%]
+tests/agents/test_interactive.py::test_non_whitelisted_action_requires_confirmation[toolcall] PASSED [ 42%]
+tests/agents/test_interactive.py::test_non_whitelisted_action_requires_confirmation[response_api] PASSED [ 42%]
+tests/agents/test_interactive.py::test_human_mode_basic_functionality[text] PASSED [ 43%]
+tests/agents/test_interactive.py::test_human_mode_basic_functionality[toolcall] PASSED [ 43%]
+tests/agents/test_interactive.py::test_human_mode_basic_functionality[response_api] PASSED [ 44%]
+tests/agents/test_interactive.py::test_human_mode_switch_to_yolo[text] PASSED [ 44%]
+tests/agents/test_interactive.py::test_human_mode_switch_to_yolo[toolcall] PASSED [ 45%]
+tests/agents/test_interactive.py::test_human_mode_switch_to_yolo[response_api] PASSED [ 46%]
+tests/agents/test_interactive.py::test_human_mode_switch_to_confirm[text] PASSED [ 46%]
+tests/agents/test_interactive.py::test_human_mode_switch_to_confirm[toolcall] PASSED [ 47%]
+tests/agents/test_interactive.py::test_human_mode_switch_to_confirm[response_api] PASSED [ 47%]
+tests/agents/test_interactive.py::test_confirmation_mode_switch_to_human_with_rejection[text] PASSED [ 48%]
+tests/agents/test_interactive.py::test_confirmation_mode_switch_to_human_with_rejection[toolcall] PASSED [ 48%]
+tests/agents/test_interactive.py::test_confirmation_mode_switch_to_human_with_rejection[response_api] PASSED [ 49%]
+tests/agents/test_interactive.py::test_confirmation_mode_switch_to_yolo_and_continue[text] PASSED [ 50%]
+tests/agents/test_interactive.py::test_confirmation_mode_switch_to_yolo_and_continue[toolcall] PASSED [ 50%]
+tests/agents/test_interactive.py::test_confirmation_mode_switch_to_yolo_and_continue[response_api] PASSED [ 51%]
+tests/agents/test_interactive.py::test_mode_switch_during_keyboard_interrupt[text] PASSED [ 51%]
+tests/agents/test_interactive.py::test_mode_switch_during_keyboard_interrupt[toolcall] PASSED [ 52%]
+tests/agents/test_interactive.py::test_mode_switch_during_keyboard_interrupt[response_api] PASSED [ 52%]
+tests/agents/test_interactive.py::test_already_in_mode_behavior[text] PASSED [ 53%]
+tests/agents/test_interactive.py::test_already_in_mode_behavior[toolcall] PASSED [ 53%]
+tests/agents/test_interactive.py::test_already_in_mode_behavior[response_api] PASSED [ 54%]
+tests/agents/test_interactive.py::test_all_mode_transitions_yolo_to_others[text] PASSED [ 55%]
+tests/agents/test_interactive.py::test_all_mode_transitions_yolo_to_others[toolcall] PASSED [ 55%]
+tests/agents/test_interactive.py::test_all_mode_transitions_yolo_to_others[response_api] PASSED [ 56%]
+tests/agents/test_interactive.py::test_all_mode_transitions_confirm_to_human[text] PASSED [ 56%]
+tests/agents/test_interactive.py::test_all_mode_transitions_confirm_to_human[toolcall] PASSED [ 57%]
+tests/agents/test_interactive.py::test_all_mode_transitions_confirm_to_human[response_api] PASSED [ 57%]
+tests/agents/test_interactive.py::test_help_command_from_different_contexts[text] PASSED [ 58%]
+tests/agents/test_interactive.py::test_help_command_from_different_contexts[toolcall] PASSED [ 59%]
+tests/agents/test_interactive.py::test_help_command_from_different_contexts[response_api] PASSED [ 59%]
+tests/agents/test_interactive.py::test_help_command_from_human_mode[text] PASSED [ 60%]
+tests/agents/test_interactive.py::test_help_command_from_human_mode[toolcall] PASSED [ 60%]
+tests/agents/test_interactive.py::test_help_command_from_human_mode[response_api] PASSED [ 61%]
+tests/agents/test_interactive.py::test_complex_mode_switching_sequence[text] PASSED [ 61%]
+tests/agents/test_interactive.py::test_complex_mode_switching_sequence[toolcall] PASSED [ 62%]
+tests/agents/test_interactive.py::test_complex_mode_switching_sequence[response_api] PASSED [ 63%]
+tests/agents/test_interactive.py::test_limits_exceeded_with_user_continuation[text] PASSED [ 63%]
+tests/agents/test_interactive.py::test_limits_exceeded_with_user_continuation[toolcall] PASSED [ 64%]
+tests/agents/test_interactive.py::test_limits_exceeded_with_user_continuation[response_api] PASSED [ 64%]
+tests/agents/test_interactive.py::test_limits_exceeded_multiple_times_with_continuation[text] PASSED [ 65%]
+tests/agents/test_interactive.py::test_limits_exceeded_multiple_times_with_continuation[toolcall] PASSED [ 65%]
+tests/agents/test_interactive.py::test_limits_exceeded_multiple_times_with_continuation[response_api] PASSED [ 66%]
+tests/agents/test_interactive.py::test_limits_exceeded_non_interactive_stops_cleanly[text] PASSED [ 67%]
+tests/agents/test_interactive.py::test_limits_exceeded_non_interactive_stops_cleanly[toolcall] PASSED [ 67%]
+tests/agents/test_interactive.py::test_limits_exceeded_non_interactive_stops_cleanly[response_api] PASSED [ 68%]
+tests/agents/test_interactive.py::test_time_exceeded_never_prompts[text] PASSED [ 68%]
+tests/agents/test_interactive.py::test_time_exceeded_never_prompts[toolcall] PASSED [ 69%]
+tests/agents/test_interactive.py::test_time_exceeded_never_prompts[response_api] PASSED [ 69%]
+tests/agents/test_interactive.py::test_continue_after_completion_with_new_task[text] PASSED [ 70%]
+tests/agents/test_interactive.py::test_continue_after_completion_with_new_task[toolcall] PASSED [ 71%]
+tests/agents/test_interactive.py::test_continue_after_completion_with_new_task[response_api] PASSED [ 71%]
+tests/agents/test_interactive.py::test_continue_after_completion_without_new_task[text] PASSED [ 72%]
+tests/agents/test_interactive.py::test_continue_after_completion_without_new_task[toolcall] PASSED [ 72%]
+tests/agents/test_interactive.py::test_continue_after_completion_without_new_task[response_api] PASSED [ 73%]
+tests/agents/test_interactive.py::test_continue_after_completion_multiple_cycles[text] PASSED [ 73%]
+tests/agents/test_interactive.py::test_continue_after_completion_multiple_cycles[toolcall] PASSED [ 74%]
+tests/agents/test_interactive.py::test_continue_after_completion_multiple_cycles[response_api] PASSED [ 75%]
+tests/agents/test_interactive.py::test_continue_after_completion_in_yolo_mode[text] PASSED [ 75%]
+tests/agents/test_interactive.py::test_continue_after_completion_in_yolo_mode[toolcall] PASSED [ 76%]
+tests/agents/test_interactive.py::test_continue_after_completion_in_yolo_mode[response_api] PASSED [ 76%]
+tests/agents/test_interactive.py::test_confirm_exit_enabled_asks_for_confirmation[text] PASSED [ 77%]
+tests/agents/test_interactive.py::test_confirm_exit_enabled_asks_for_confirmation[toolcall] PASSED [ 77%]
+tests/agents/test_interactive.py::test_confirm_exit_enabled_asks_for_confirmation[response_api] PASSED [ 78%]
+tests/agents/test_interactive.py::test_confirm_exit_disabled_exits_immediately[text] PASSED [ 78%]
+tests/agents/test_interactive.py::test_confirm_exit_disabled_exits_immediately[toolcall] PASSED [ 79%]
+tests/agents/test_interactive.py::test_confirm_exit_disabled_exits_immediately[response_api] PASSED [ 80%]
+tests/agents/test_interactive.py::test_confirm_exit_with_new_task_continues_execution[text] PASSED [ 80%]
+tests/agents/test_interactive.py::test_confirm_exit_with_new_task_continues_execution[toolcall] PASSED [ 81%]
+tests/agents/test_interactive.py::test_confirm_exit_with_new_task_continues_execution[response_api] PASSED [ 81%]
+tests/agents/test_interactive.py::test_confirm_exit_config_field_defaults[text] PASSED [ 82%]
+tests/agents/test_interactive.py::test_confirm_exit_config_field_defaults[toolcall] PASSED [ 82%]
+tests/agents/test_interactive.py::test_confirm_exit_config_field_defaults[response_api] PASSED [ 83%]
+tests/agents/test_interactive.py::test_confirm_exit_config_field_can_be_set[text] PASSED [ 84%]
+tests/agents/test_interactive.py::test_confirm_exit_config_field_can_be_set[toolcall] PASSED [ 84%]
+tests/agents/test_interactive.py::test_confirm_exit_config_field_can_be_set[response_api] PASSED [ 85%]
+tests/agents/test_interactive.py::test_submission_help_then_human_mode[text] PASSED [ 85%]
+tests/agents/test_interactive.py::test_submission_help_then_human_mode[toolcall] PASSED [ 86%]
+tests/agents/test_interactive.py::test_submission_help_then_human_mode[response_api] PASSED [ 86%]
+tests/agents/test_interactive.py::test_submission_enter_quits[text] PASSED [ 87%]
+tests/agents/test_interactive.py::test_submission_enter_quits[toolcall] PASSED [ 88%]
+tests/agents/test_interactive.py::test_submission_enter_quits[response_api] PASSED [ 88%]
+tests/environments/test_local.py::test_local_environment_config_defaults PASSED [ 89%]
+tests/environments/test_local.py::test_local_environment_basic_execution PASSED [ 89%]
+tests/environments/test_local.py::test_local_environment_set_env_variables FAILED [ 90%]
+tests/environments/test_local.py::test_local_environment_existing_env_variables FAILED [ 90%]
+tests/environments/test_local.py::test_local_environment_env_variable_override FAILED [ 91%]
+tests/environments/test_local.py::test_local_environment_custom_cwd FAILED [ 92%]
+tests/environments/test_local.py::test_local_environment_cwd_parameter_override FAILED [ 92%]
+tests/environments/test_local.py::test_local_environment_default_cwd FAILED [ 93%]
+tests/environments/test_local.py::test_local_environment_command_failure PASSED [ 93%]
+tests/environments/test_local.py::test_local_environment_nonexistent_command PASSED [ 94%]
+tests/environments/test_local.py::test_local_environment_stderr_capture PASSED [ 94%]
+tests/environments/test_local.py::test_local_environment_timeout PASSED  [ 95%]
+tests/environments/test_local.py::test_local_environment_timeout_kills_child_process SKIPPED [ 96%]
+tests/environments/test_local.py::test_local_environment_custom_timeout PASSED [ 96%]
+tests/environments/test_local.py::test_local_environment_return_codes[echo 'test'-0] PASSED [ 97%]
+tests/environments/test_local.py::test_local_environment_return_codes[exit 1-1] PASSED [ 97%]
+tests/environments/test_local.py::test_local_environment_return_codes[exit 42-42] PASSED [ 98%]
+tests/environments/test_local.py::test_local_environment_multiline_output PASSED [ 98%]
+tests/environments/test_local.py::test_local_environment_file_operations PASSED [ 99%]
+tests/environments/test_local.py::test_local_environment_shell_features PASSED [100%]
+
+================================== FAILURES ===================================
+__________________ test_local_environment_set_env_variables ___________________
+tests\environments\test_local.py:40: in test_local_environment_set_env_variables
+    assert "test_value" in result["output"]
+E   AssertionError: assert 'test_value' in '\n'
+________________ test_local_environment_existing_env_variables ________________
+tests\environments\test_local.py:56: in test_local_environment_existing_env_variables
+    assert "existing_value new_value" in result["output"]
+E   AssertionError: assert 'existing_value new_value' in '\n'
+________________ test_local_environment_env_variable_override _________________
+tests\environments\test_local.py:66: in test_local_environment_env_variable_override
+    assert "override_value" in result["output"]
+E   AssertionError: assert 'override_value' in '\n'
+______________________ test_local_environment_custom_cwd ______________________
+tests\environments\test_local.py:76: in test_local_environment_custom_cwd
+    assert temp_dir in result["output"]
+E   AssertionError: assert 'D:\\myDocu\\project_postg\\shixi_project\\temp\\regression\\20261024_200852_45fa13d2\\adapter\\scratch\\tmp9uitj8m5' in '/tmp/regression/20261024_200852_45fa13d2/adapter/scratch/tmp9uitj8m5\n'
+________________ test_local_environment_cwd_parameter_override ________________
+tests\environments\test_local.py:87: in test_local_environment_cwd_parameter_override
+    assert temp_dir2 in result["output"]
+E   AssertionError: assert 'D:\\myDocu\\project_postg\\shixi_project\\temp\\regression\\20261024_200852_45fa13d2\\adapter\\scratch\\tmp_nucw8t3' in '/tmp/regression/20261024_200852_45fa13d2/adapter/scratch/tmp_nucw8t3\n'
+_____________________ test_local_environment_default_cwd ______________________
+tests\environments\test_local.py:97: in test_local_environment_default_cwd
+    assert current_dir in result["output"]
+E   AssertionError: assert 'D:\\myDocu\\project_postg\\shixi_project\\mini-swe-agent' in '/d/myDocu/project_postg/shixi_project/mini-swe-agent\n'
+============================== warnings summary ===============================
+..\.venv\lib\site-packages\_pytest\config\__init__.py:1441
+  D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\_pytest\config\__init__.py:1441: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+..\.venv\lib\site-packages\_pytest\config\__init__.py:1441
+  D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\_pytest\config\__init__.py:1441: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: D:\myDocu\project_postg\shixi_project\temp\regression\20261024_200852_45fa13d2\adapter\upstream_junit.xml -
+=========================== short test summary info ===========================
+FAILED tests/environments/test_local.py::test_local_environment_set_env_variables
+FAILED tests/environments/test_local.py::test_local_environment_existing_env_variables
+FAILED tests/environments/test_local.py::test_local_environment_env_variable_override
+FAILED tests/environments/test_local.py::test_local_environment_custom_cwd - ...
+FAILED tests/environments/test_local.py::test_local_environment_cwd_parameter_override
+FAILED tests/environments/test_local.py::test_local_environment_default_cwd
+============ 6 failed, 169 passed, 1 skipped, 2 warnings in 38.80s ============

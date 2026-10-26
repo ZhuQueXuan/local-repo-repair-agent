@@ -1,0 +1,1 @@
+The tool truncates output. Let me write to a temp file and read in small chunks.

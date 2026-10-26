@@ -1,0 +1,23 @@
+{
+  "scripts/harness_checkpoints.py": "bb8455c2808dea908d66634182ab642a9e2514569c6a9192055a2cd8f449c478",
+  "scripts/task_service_store.py": "4dfc673080ae7a0f2e173784935a458a46c0b97d124114dc74a03e139f67aee9",
+  "scripts/collaboration_store.py": "88765e78137c5408132f7f70811b6872172fc0d11431e10dcfe4476d12bf02d6",
+  "scripts/collaboration.py": "9719e2e945c3e75def21590d3186a7de56620fd4ae73f79af73ad4403851be64",
+  "scripts/collaboration_live.py": "40210b1b1d87e9bea7dec840c14b55d192a5edade5002c123b6c77454a06b593",
+  "scripts/collaboration_panel.py": "520e3c9bcd8ce34fd5bb0e16b947b8e3a7c38830de669d331be3eb013cfacb93",
+  "scripts/task_service.py": "0ce4036dc5d1835f2e641c6facc9f56db25fd31f568444cb652573f571fbcf69",
+  "scripts/task_service_worker.py": "c0f354834f6667bb559233fc56555cdbfb9e99c2c7bb100364c85331400c0369",
+  "scripts/task_cards.py": "9e2f5b2d9d3700de5634dd6189a40090b567b8ecc305cbd3391f5213147cb1ca",
+  "scripts/document_agent_demo.py": "eb540b05dd8a8cea68ec5ee31ec72e10b4705334b0593cc982bf0ceb557b11dc",
+  "scripts/checkpoint_panel.js": "29d4666c2bb80bc2ca161f99eec15e253ada3ae654e2b1cfc76df9678115e354",
+  "scripts/task_panel.html": "3135c18c3c2a122c19a0992697936b32126c4ae466dae7fda27e14f91acafd10",
+  "scripts/collaboration_panel.js": "12368862b2e89d3567867b4f6cd5e14267627575da31d63ebc9deaca78f1e6db",
+  "Project/37_过程_Harness阶段暂停与检查点续做.md": "d6d7f97a0bc5599627c357b307d32f39c9e446b0721e6bfe43311781e8b76f13",
+  "Project/36_过程_Harness任务卡与运行中要求补充.md": "a35b68a8d74556ff2f19033b653fbf77cf880303a7c13d8f403a64736d730a64",
+  "Project/35_调研_Agent_Harness主流方案与项目演进建议.md": "4a4b32f5936626a6c045b18a6264008e8efcc0aeaa9314d2b5b258654d26d766",
+  "Project/00_项目现状与快速接手.md": "e44298a61cfea38ca640f485ad6a1d2d7eaeb491bdc553cc48eadccbd8c52dd9",
+  "Project/项目开发流水账.md": "47953eb8e7daa493d12fc225ecb2978e446bfd20b700d50f33c8f3d233017243",
+  "AGENTS.md": "be8d921613434a626a5e1291a378e8418389acd14febbb8396db61e894fd36ee",
+  "README.md": "9b58dfd3e8c66c21cda8f5b91dc594c3500f3cf9167f56cc8f0f5243611a16da",
+  "job/AGENTS.md": "1bb25ef53e1ffec97421b3b3f49959f8810120f93d7ac7ef645d0921a89eae72"
+}

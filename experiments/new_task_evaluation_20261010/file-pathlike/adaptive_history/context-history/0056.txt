@@ -1,0 +1,1 @@
+The bug: `dest_path + '.part'` uses the original (possibly PathLike) `dest_path` instead of the normalized `self.dest_path`. Let me check `iter_find_files`.

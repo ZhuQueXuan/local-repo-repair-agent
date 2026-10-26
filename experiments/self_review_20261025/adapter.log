@@ -1,0 +1,3 @@
+Running adapter; log: D:\myDocu\project_postg\shixi_project\temp\regression\20261025_160635_5298fc95\adapter.log
+{"scope": "adapter", "exit_code": 1, "command": ["D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe", "-B", "D:\\myDocu\\project_postg\\shixi_project\\scripts\\run_regression.py", "--upstream-child", "D:\\myDocu\\project_postg\\shixi_project\\temp\\regression\\20261025_160635_5298fc95\\adapter", "--upstream-profile", "adapter"], "counts": {"passed": 169, "failed": 6, "skipped": 1}, "deselected": 0, "guard_violations": 0}
+Summary: D:\myDocu\project_postg\shixi_project\temp\regression\20261025_160635_5298fc95\summary.json

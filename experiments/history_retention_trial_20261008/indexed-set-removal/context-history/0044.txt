@@ -1,0 +1,1 @@
+Now let me reproduce the bug and understand the negative-step behavior that must be preserved:

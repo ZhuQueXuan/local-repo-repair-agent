@@ -1,0 +1,103 @@
+"""Persistent project-wide budget. All amounts use decimal CNY, not floats."""
+from contextlib import contextmanager
+from decimal import Decimal
+import json
+import os
+from pathlib import Path
+import uuid
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def load_budget_config():
+    return json.loads((ROOT / "configs" / "deepseek_budget.json").read_text(encoding="utf-8"))
+
+
+class BudgetExhausted(RuntimeError):
+    pass
+
+
+class SharedBudget:
+    def __init__(self, config, *, ledger_path=None, temp_dir=None):
+        self.config = config
+        self.path = Path(ledger_path) if ledger_path else ROOT / config["ledger_path"]
+        self.temp = Path(temp_dir) if temp_dir else ROOT / "temp"
+        self.limit = Decimal(config["max_total_cost_cny"])
+        self.reservation = Decimal(config["reservation_per_attempt_cny"])
+        if config["max_requests"] is not None or self.limit <= 0 or self.reservation <= 0:
+            raise ValueError("Expected a positive monetary budget without a request-count cap.")
+
+    @contextmanager
+    def _locked(self):
+        # A crash releases this OS lock; it does not release persisted reservations.
+        self.temp.mkdir(parents=True, exist_ok=True)
+        with (self.temp / "deepseek_budget.lock").open("a+b") as lock:
+            if lock.tell() == 0:
+                lock.write(b"0")
+                lock.flush()
+            lock.seek(0)
+            if os.name == "nt":
+                import msvcrt
+                msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+            try:
+                # Missing/corrupt accounting must never silently create a fresh allowance.
+                data = json.loads(self.path.read_text(encoding="utf-8"))
+                yield data
+            finally:
+                lock.seek(0)
+                if os.name == "nt":
+                    msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
+                else:
+                    fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
+
+    @staticmethod
+    def _used(data):
+        values = [data["historical_estimated_cost_cny"], data["historical_unknown_charge_reservation_cny"]]
+        values += [row["amount_cny"] for row in data["requests"].values()]
+        amounts = [Decimal(value) for value in values]
+        if any(not amount.is_finite() or amount < 0 for amount in amounts):
+            raise ValueError("Invalid budget ledger amount.")
+        return sum(amounts, Decimal("0"))
+
+    def _save(self, data):
+        temporary = self.temp / ("budget_" + uuid.uuid4().hex + ".json")
+        with temporary.open("x", encoding="utf-8") as output:
+            json.dump(data, output, ensure_ascii=False, indent=2)
+            output.flush()
+            os.fsync(output.fileno())
+        temporary.replace(self.path)
+
+    def snapshot(self):
+        with self._locked() as data:
+            used = self._used(data)
+            return {"max_requests": None, "max_total_cost_cny": float(self.limit),
+                    "accounted_cost_and_reservations_cny": float(used),
+                    "remaining_cny": float(max(Decimal("0"), self.limit - used)),
+                    "blocked": bool(data["blocked"])}
+
+    def reserve(self):
+        with self._locked() as data:
+            if data["blocked"] or self._used(data) + self.reservation > self.limit:
+                raise BudgetExhausted("Insufficient shared CNY budget for the next request.")
+            ticket = uuid.uuid4().hex
+            data["requests"][ticket] = {"status": "reserved", "amount_cny": str(self.reservation)}
+            self._save(data)  # Must complete before the HTTP call.
+            return ticket
+
+    def settle(self, ticket, cost):
+        cost = Decimal(str(cost))
+        if not cost.is_finite() or cost < 0:
+            raise ValueError("Invalid response cost; retain reservation.")
+        with self._locked() as data:
+            row = data["requests"][ticket]
+            if row["status"] != "reserved":
+                raise RuntimeError("Request already settled.")
+            exceeded = cost > Decimal(row["amount_cny"])
+            row.update(status="settled", amount_cny=str(cost))
+            data["blocked"] = data["blocked"] or exceeded or self._used(data) > self.limit
+            self._save(data)
+            if data["blocked"]:
+                raise BudgetExhausted("Provider usage exceeded reservation; further requests blocked.")

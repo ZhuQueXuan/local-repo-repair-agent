@@ -1,0 +1,4 @@
+1841:        if self.command_class and kwargs.get("cls") is None:
+1842:            kwargs["cls"] = self.command_class
+1901:        if self.group_class is not None and kwargs.get("cls") is None:
+1905:                kwargs["cls"] = self.group_class

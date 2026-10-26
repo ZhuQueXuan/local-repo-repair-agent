@@ -1,0 +1,33 @@
+        self._balance_list(0)
+        return
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}({list(self)!r})'
+
+    def sort(self):
+        # poor pythonist's mergesort, it's faster than sorted(self)
+        # when the lists' average length is greater than 512.
+        if len(self.lists) == 1:
+            self.lists[0].sort()
+        else:
+            for li in self.lists:
+                li.sort()
+            tmp_sorted = sorted(chain.from_iterable(self.lists))
+            del self.lists[:]
+            self.lists[0] = tmp_sorted
+            self._balance_list(0)
+
+    def reverse(self):
+        for cur in self.lists:
+            cur.reverse()
+        self.lists.reverse()
+
+    def count(self, item):
+        return sum([cur.count(item) for cur in self.lists])
+===
+104:    def _cur_size_limit(self):
+121:    def _balance_list(self, list_idx):
+125:        size_limit = self._cur_size_limit
+135:    def insert(self, index, item):
+147:    def append(self, item):
+150:    def extend(self, iterable):

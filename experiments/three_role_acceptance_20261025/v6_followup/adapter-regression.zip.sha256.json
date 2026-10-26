@@ -1,0 +1,10 @@
+{
+  "adapter/scratch/tmpkapji_b1/test.txt": "a1fff0ffefb9eace7230c24e50731f0a91c62f9cefdfe77121c2f607125dffae",
+  "adapter/upstream_junit.xml": "f26e10ac7dc9f144229352b073e98dcab1fa9f8e6adc4673db94c5ee0871ee33",
+  "adapter/upstream_results.json": "08c7f69e2fba914b795189f431b179e52e486bf9c22047762f0c98815709006c",
+  "adapter.log": "df95d0467489fd81bea060eeced0c63d867b5fc4afc6441ae2acfec98fbe4917",
+  "inventory.json": "71107729ba531a3d61ee2b98763901aa3f4d2b983738fd1554f0f5a000b6bdc8",
+  "protected_after.json": "81bdcb07a3eb3e89b11140970a7ba58668e6a2b456ed64e66d2a33bc16a2c86a",
+  "protected_before.json": "81bdcb07a3eb3e89b11140970a7ba58668e6a2b456ed64e66d2a33bc16a2c86a",
+  "summary.json": "1779dcec0fe4eaa127a7658b7ba27d33b4dd858a072ad78a15e3c58f3455e3ca"
+}

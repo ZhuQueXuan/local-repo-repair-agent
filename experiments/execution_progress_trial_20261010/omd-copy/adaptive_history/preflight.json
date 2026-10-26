@@ -1,0 +1,37 @@
+{
+  "task_id": "boltons-omd-copy-410",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\temp\\run_20261010_155501_876820\\repo",
+  "git_root_verified": true,
+  "pipefail_verified": true,
+  "variant": "adaptive_history",
+  "tool_output_budget": {
+    "max_output_bytes": 1024
+  },
+  "context_budget": {
+    "target_bytes": 12288,
+    "keep_recent_tool_outputs": 4,
+    "compact_completed_exchanges": true,
+    "retained_audit_entries": 3,
+    "compact_to_target": true
+  },
+  "archive_assistant_content": true,
+  "task_state": {
+    "guard_enabled": true,
+    "repeated_read_threshold": 3,
+    "blocked_read_threshold": 3,
+    "include_previews_in_requests": false
+  },
+  "external_model_requests": 0,
+  "budget": {
+    "max_requests": null,
+    "max_total_cost_cny": null,
+    "accounted_cost_and_reservations_cny": 6.586268,
+    "remaining_cny": null,
+    "blocked": false
+  },
+  "evaluation_freeze": {
+    "manifest": "configs/execution_progress_trial_20261010.freeze.json",
+    "sha256": "5b1bc9908fc03c11553504a06f4bfa1641bc346eac168204bb68739f13080514",
+    "verified_files": 310
+  }
+}

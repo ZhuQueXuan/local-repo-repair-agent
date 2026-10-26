@@ -1,0 +1,18 @@
+{
+  "task_id": "boltons-indexed-set-removal-423",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\indexed-set-removal\\temp\\run_20261007_220138_107754\\repo",
+  "git_root_verified": true,
+  "pipefail_verified": true,
+  "variant": "bounded",
+  "tool_output_budget": {
+    "max_output_bytes": 1024
+  },
+  "external_model_requests": 0,
+  "budget": {
+    "max_requests": null,
+    "max_total_cost_cny": 5.0,
+    "accounted_cost_and_reservations_cny": 0.38963,
+    "remaining_cny": 4.61037,
+    "blocked": false
+  }
+}

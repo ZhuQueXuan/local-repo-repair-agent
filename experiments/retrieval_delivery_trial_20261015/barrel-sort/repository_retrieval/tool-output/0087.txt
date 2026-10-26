@@ -1,0 +1,2 @@
+num lists: 3
+ERROR IndexError list assignment index out of range

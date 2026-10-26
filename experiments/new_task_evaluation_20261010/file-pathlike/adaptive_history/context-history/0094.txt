@@ -1,0 +1,1 @@
+Now I have the iter_find_files implementation. The issue is `directory.split(os.path.sep)` fails for Path objects. Let me look at the AtomicSaver/atomic_save code.

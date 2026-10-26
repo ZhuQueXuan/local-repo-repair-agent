@@ -1,0 +1,109 @@
+{
+  "old_payloads_byte_identical": 45,
+  "current_formal_rows": 49,
+  "old_ledger_requests_unchanged": 1756,
+  "new_ledger_requests": 138,
+  "attempts": 138,
+  "logical_requests": 134,
+  "known_price_estimate_cny": 1.244044,
+  "unknown_cost_attempts": 5,
+  "unknown_placeholder_cny": 0.5,
+  "complete_cost_estimate_cny": null,
+  "all_new_run_ids": [
+    "6b3068c4e13c40bd8e9358dcc72d3e1b",
+    "c30617e5d664484ea58f7c8a565f1cd3",
+    "d947f28c4c70453ab0feac1629ae1996",
+    "de35b7ada1df4de2b2fea7a480f49b14"
+  ],
+  "all_new_runs_terminal": true,
+  "three_role_live_acceptance_passed": false,
+  "new_comparison_runs": 0,
+  "browser_clicks_verified": false,
+  "final_review_context_fix_live_verified": false,
+  "next_real_dispatch_block": "Automatic approval review could not complete due to account usage limit; no v4 identity dispatched.",
+  "javascript_qualification": {
+    "baseline": {
+      "public_passed": 0,
+      "public_total": 2,
+      "developer_regression_passed": 4,
+      "developer_regression_total": 4,
+      "withheld_passed": 0,
+      "withheld_total": 4
+    },
+    "reference": {
+      "public_passed": 2,
+      "public_total": 2,
+      "developer_regression_passed": 4,
+      "developer_regression_total": 4,
+      "withheld_passed": 4,
+      "withheld_total": 4
+    },
+    "node_version": "v24.21.0",
+    "scope": "Adapted JavaScript release fixture and developer-authored native-Node regression checks, not an upstream Mocha suite or model result."
+  },
+  "offline_failure_replays": {
+    "document-failure-replay.json": {
+      "run_id": "de35b7ada1df4de2b2fea7a480f49b14",
+      "old_api_bytes": 24315,
+      "new_api_bytes": 14242,
+      "guard_bytes_unchanged": 16384,
+      "original_trajectory_unchanged": true,
+      "external_model_calls": 0,
+      "projections": [
+        {
+          "before_bytes": 24315,
+          "after_bytes": 14242,
+          "archived_pairs": 10,
+          "sha256": "81f88e74b2139377f8bb5aff043a72beecaa8ff3f2b1cdd0843a1e1fc7b0c2a5"
+        }
+      ]
+    },
+    "cycle-replay-result.json": {
+      "external_model_calls": 0,
+      "old_trajectory_unchanged": true,
+      "original_attempts": 104,
+      "reason": "document_repeated_evidence_limit",
+      "replayed_tool_actions_before_stop": 14,
+      "run_id": "d947f28c4c70453ab0feac1629ae1996"
+    },
+    "review-failure-replay.json": {
+      "run_id": "6b3068c4e13c40bd8e9358dcc72d3e1b",
+      "old_api_bytes": 17214,
+      "new_api_bytes": 13418,
+      "guard_unchanged": 16384,
+      "original_task_and_latest_receipt_unchanged": true,
+      "old_trajectory_unchanged": true,
+      "external_model_calls": 0
+    }
+  },
+  "final_regression": {
+    "default_directory": "temp\\regression\\20261025_211130_dd197ba2",
+    "native_passed": 301,
+    "project_tests_run": 401,
+    "project_passed": 400,
+    "project_skipped": 1,
+    "project_seconds": 246.342,
+    "protected_files_unchanged": true,
+    "adapter_directory": "temp\\regression\\20261025_211556_14c0b9e7",
+    "adapter_counts": {
+      "passed": 169,
+      "failed": 6,
+      "skipped": 1
+    },
+    "adapter_same_six_failures": [
+      "tests/environments/test_local.py::test_local_environment_custom_cwd",
+      "tests/environments/test_local.py::test_local_environment_cwd_parameter_override",
+      "tests/environments/test_local.py::test_local_environment_default_cwd",
+      "tests/environments/test_local.py::test_local_environment_env_variable_override",
+      "tests/environments/test_local.py::test_local_environment_existing_env_variables",
+      "tests/environments/test_local.py::test_local_environment_set_env_variables"
+    ],
+    "adapter_guard_violations": []
+  },
+  "real_run_frozen_input_files_verified": {
+    "c30617e5d664484ea58f7c8a565f1cd3": 184,
+    "de35b7ada1df4de2b2fea7a480f49b14": 183,
+    "d947f28c4c70453ab0feac1629ae1996": 184,
+    "6b3068c4e13c40bd8e9358dcc72d3e1b": 184
+  }
+}

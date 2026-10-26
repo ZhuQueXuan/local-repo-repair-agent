@@ -1,0 +1,28 @@
+                len(args) == 1 and not kwargs
+            ), "Use 'command(**kwargs)(callable)' to provide arguments."
+            (func,) = args
+            args = ()
+
+        def decorator(f: t.Callable[..., t.Any]) -> Command:
+            cmd: Command = command(*args, **kwargs)(f)
+            self.add_command(cmd)
+            return cmd
+
+        if func is not None:
+            return decorator(func)
+
+        return decorator
+
+    @t.overload
+    def group(self, __func: t.Callable[..., t.Any]) -> "Group":
+        ...
+
+    @t.overload
+    def group(
+        self, *args: t.Any, **kwargs: t.Any
+    ) -> t.Callable[[t.Callable[..., t.Any]], "Group"]:
+        ...
+
+    def group(
+        self, *args: t.Any, **kwargs: t.Any
+    ) -> t.Union[t.Callable[[t.Callable[..., t.Any]], "Group"], "Group"]:

@@ -1,0 +1,1 @@
+Confirmed. The `argument` decorator at line 286 does `attrs.pop("cls", None)` directly on the shared `attrs` dict, mutating it. The `option` decorator at line 306-307 already copies (`option_attrs = attrs.copy()`), so it's fine. Let me write my notes and reproduce.

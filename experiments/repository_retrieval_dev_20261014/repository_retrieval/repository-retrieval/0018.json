@@ -1,0 +1,385 @@
+{
+  "indexed_files": 18,
+  "query_terms": [
+    "about",
+    "again",
+    "application",
+    "arguments",
+    "based",
+    "behavior",
+    "being",
+    "but",
+    "caller",
+    "calling",
+    "caught",
+    "compatibility",
+    "constructed",
+    "constructor",
+    "decode",
+    "decoding",
+    "delivered",
+    "directly",
+    "document",
+    "exception",
+    "exceptions",
+    "existing",
+    "fails",
+    "failure",
+    "focused",
+    "implementation",
+    "instances",
+    "invalid",
+    "json",
+    "keep",
+    "library",
+    "loading",
+    "make",
+    "message",
+    "missing",
+    "normally",
+    "original",
+    "pickle",
+    "position",
+    "preserve",
+    "preserving",
+    "prevent",
+    "process",
+    "repair",
+    "requests",
+    "response",
+    "round",
+    "serialization",
+    "serializing",
+    "survive",
+    "trip",
+    "type",
+    "valid",
+    "well",
+    "work",
+    "worker"
+  ],
+  "hits": [
+    {
+      "path": "requests/exceptions.py",
+      "symbol": "JSONDecodeError",
+      "start": 31,
+      "end": 42,
+      "matched_terms": [
+        "decode",
+        "invalid",
+        "json"
+      ],
+      "import_neighbors": [
+        "requests/models.py"
+      ],
+      "score": 21.5634,
+      "sha256": "0e1bde1417255634d1c6145db95a4ef866cc60c203da09a374b7cd12a36923f5",
+      "snippet": [
+        {
+          "line": 31,
+          "text": "class JSONDecodeError(InvalidJSONError, CompatJSONDecodeError):"
+        },
+        {
+          "line": 32,
+          "text": "    \"\"\"Couldn't decode the text into json\"\"\""
+        },
+        {
+          "line": 33,
+          "text": ""
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "requests/models.py",
+      "symbol": "Response.json",
+      "start": 944,
+      "end": 975,
+      "matched_terms": [
+        "arguments",
+        "but",
+        "decode",
+        "decoding",
+        "exceptions",
+        "fails",
+        "json",
+        "make",
+        "requests",
+        "response",
+        "valid"
+      ],
+      "import_neighbors": [
+        "requests/exceptions.py"
+      ],
+      "score": 18.0791,
+      "sha256": "f8394a8b4a2bf2014033a573bada1b5efbc15bfdb0ac9b8e17935f9dd4c875d0",
+      "snippet": [
+        {
+          "line": 947,
+          "text": "        :param \\*\\*kwargs: Optional arguments that ``json.loads`` takes."
+        },
+        {
+          "line": 948,
+          "text": "        :raises requests.exceptions.JSONDecodeError: If the response body does not"
+        },
+        {
+          "line": 949,
+          "text": "            contain valid json."
+        },
+        {
+          "line": 950,
+          "text": "        \"\"\""
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "requests/utils.py",
+      "symbol": "stream_decode_response_unicode",
+      "start": 563,
+      "end": 577,
+      "matched_terms": [
+        "decode",
+        "response"
+      ],
+      "import_neighbors": [
+        "requests/exceptions.py",
+        "requests/models.py"
+      ],
+      "score": 11.1591,
+      "sha256": "eacc765f7708540f018163a0f28771172fbf95b5831444d4f072387d4e119aac",
+      "snippet": [
+        {
+          "line": 563,
+          "text": "def stream_decode_response_unicode(iterator, r):"
+        },
+        {
+          "line": 564,
+          "text": "    \"\"\"Stream decodes an iterator.\"\"\""
+        },
+        {
+          "line": 565,
+          "text": ""
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "requests/cookies.py",
+      "symbol": "MockResponse",
+      "start": 103,
+      "end": 121,
+      "matched_terms": [
+        "message",
+        "response"
+      ],
+      "import_neighbors": [
+        "requests/models.py"
+      ],
+      "score": 8.6795,
+      "sha256": "903de43447028fe9b16ed7f97c9b12693f3a786a046290f75f4092829ce5ec13",
+      "snippet": [
+        {
+          "line": 110,
+          "text": "    def __init__(self, headers):"
+        },
+        {
+          "line": 111,
+          "text": "        \"\"\"Make a MockResponse for `cookielib` to read."
+        },
+        {
+          "line": 112,
+          "text": ""
+        },
+        {
+          "line": 113,
+          "text": "        :param headers: a httplib.HTTPMessage or analogous carrying the headers"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "requests/adapters.py",
+      "symbol": "HTTPAdapter.build_response",
+      "start": 294,
+      "end": 329,
+      "matched_terms": [
+        "decode",
+        "make",
+        "requests",
+        "response"
+      ],
+      "import_neighbors": [
+        "requests/exceptions.py",
+        "requests/models.py"
+      ],
+      "score": 8.348,
+      "sha256": "bff1668d4e4a67bea4f98b6d4a1658079469ac8ce184bf18df3816f69e1e050f",
+      "snippet": [
+        {
+          "line": 294,
+          "text": "    def build_response(self, req, resp):"
+        },
+        {
+          "line": 295,
+          "text": "        \"\"\"Builds a :class:`Response <requests.Response>` object from a urllib3"
+        },
+        {
+          "line": 296,
+          "text": "        response. This should not be called from user code, and is only exposed"
+        },
+        {
+          "line": 297,
+          "text": "        for use when subclassing the"
+        }
+      ],
+      "syntax_fallback": false
+    }
+  ],
+  "refreshed_files": [],
+  "removed_from_index": [],
+  "skipped": [],
+  "message_utf8_bytes": 2902,
+  "selected_hits": [
+    {
+      "path": "requests/exceptions.py",
+      "symbol": "JSONDecodeError",
+      "start": 31,
+      "end": 42,
+      "matched_terms": [
+        "decode",
+        "invalid",
+        "json"
+      ],
+      "import_neighbors": [
+        "requests/models.py"
+      ],
+      "score": 21.5634,
+      "sha256": "0e1bde1417255634d1c6145db95a4ef866cc60c203da09a374b7cd12a36923f5",
+      "snippet": [
+        {
+          "line": 31,
+          "text": "class JSONDecodeError(InvalidJSONError, CompatJSONDecodeError):"
+        },
+        {
+          "line": 32,
+          "text": "    \"\"\"Couldn't decode the text into json\"\"\""
+        },
+        {
+          "line": 33,
+          "text": ""
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "requests/models.py",
+      "symbol": "Response.json",
+      "start": 944,
+      "end": 975,
+      "matched_terms": [
+        "arguments",
+        "but",
+        "decode",
+        "decoding",
+        "exceptions",
+        "fails",
+        "json",
+        "make",
+        "requests",
+        "response",
+        "valid"
+      ],
+      "import_neighbors": [
+        "requests/exceptions.py"
+      ],
+      "score": 18.0791,
+      "sha256": "f8394a8b4a2bf2014033a573bada1b5efbc15bfdb0ac9b8e17935f9dd4c875d0",
+      "snippet": [
+        {
+          "line": 947,
+          "text": "        :param \\*\\*kwargs: Optional arguments that ``json.loads`` takes."
+        },
+        {
+          "line": 948,
+          "text": "        :raises requests.exceptions.JSONDecodeError: If the response body does not"
+        },
+        {
+          "line": 949,
+          "text": "            contain valid json."
+        },
+        {
+          "line": 950,
+          "text": "        \"\"\""
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "requests/utils.py",
+      "symbol": "stream_decode_response_unicode",
+      "start": 563,
+      "end": 577,
+      "matched_terms": [
+        "decode",
+        "response"
+      ],
+      "import_neighbors": [
+        "requests/exceptions.py",
+        "requests/models.py"
+      ],
+      "score": 11.1591,
+      "sha256": "eacc765f7708540f018163a0f28771172fbf95b5831444d4f072387d4e119aac",
+      "snippet": [
+        {
+          "line": 563,
+          "text": "def stream_decode_response_unicode(iterator, r):"
+        },
+        {
+          "line": 564,
+          "text": "    \"\"\"Stream decodes an iterator.\"\"\""
+        },
+        {
+          "line": 565,
+          "text": ""
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "requests/cookies.py",
+      "symbol": "MockResponse",
+      "start": 103,
+      "end": 121,
+      "matched_terms": [
+        "message",
+        "response"
+      ],
+      "import_neighbors": [
+        "requests/models.py"
+      ],
+      "score": 8.6795,
+      "sha256": "903de43447028fe9b16ed7f97c9b12693f3a786a046290f75f4092829ce5ec13",
+      "snippet": [
+        {
+          "line": 110,
+          "text": "    def __init__(self, headers):"
+        },
+        {
+          "line": 111,
+          "text": "        \"\"\"Make a MockResponse for `cookielib` to read."
+        },
+        {
+          "line": 112,
+          "text": ""
+        },
+        {
+          "line": 113,
+          "text": "        :param headers: a httplib.HTTPMessage or analogous carrying the headers"
+        }
+      ],
+      "syntax_fallback": false
+    }
+  ],
+  "projection": 18
+}

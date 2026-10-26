@@ -1,0 +1,17 @@
+{
+  "stage": "B: offline persistence, mock orchestration and synthetic attribution only",
+  "tests_run": 236,
+  "passed": 235,
+  "skipped": 1,
+  "skip_reason": "Windows file symlink creation permission; actual hardlink and junction tests passed.",
+  "new_stage_b_tests": 38,
+  "new_stage_b_tests_passed": 38,
+  "real_model_requests": 0,
+  "production_ledger_and_database_unchanged": true,
+  "unchanged_original_files": 69,
+  "changed_original_files": [
+    "scripts/deepseek_budget.py"
+  ],
+  "demo_reopen_did_not_rerun": true,
+  "demo_accounting_is_invented_not_api_charges": true
+}

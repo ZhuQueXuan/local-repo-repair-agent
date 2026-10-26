@@ -1,0 +1,33 @@
+{
+  "run": {
+    "id": "d3173d4153e544ccbf0eb066834848f8",
+    "status": "finished",
+    "stage": "done",
+    "reason": "Model collaboration ended; repair acceptance is from independent checks and clean patch replay.",
+    "repair_result": "passed",
+    "review_verdict": "approve"
+  },
+  "roles": [
+    {
+      "phase": "repairing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "phase": "reviewing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "phase": "revising",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "phase": "final_review",
+      "status": "succeeded",
+      "reason": null
+    }
+  ],
+  "receipts_attached": true
+}

@@ -1,0 +1,9 @@
+{
+  "run_id": "f39175da50354f87a7cf5386c0b16b3a",
+  "scope": "One authorized new code-version integration recheck. Repair/replay passed; collaboration failed at malformed response evidence_ids, final review skipped. No rerun or old failure override.",
+  "original_run_entries_verified": 202,
+  "run_zip_entries": 203,
+  "registered_candidates": 2,
+  "actual_fee_scope": "Known estimate 0.149226 CNY plus unknown 0.10 placeholder; complete fees unknown.",
+  "browser_scope": "Existing task-service API and worker; final browser click not claimed."
+}

@@ -1,0 +1,15 @@
+{
+  "live_submission.json": "628f9a2f81de4646a961566630e10c9791003dfa178200e0eb7ffef3930e15c6",
+  "offline_checks.log": "0c473e3f11cfb25854ad4625938fd278f87b1420da58b6de33d69b6e5dea06d5",
+  "process_qualification.json": "691bda32b451ead1e4638a43d23db9618d512bcd3d3c006e30e82091f0eef066",
+  "runs_snapshot.sqlite3": "db5462f9ccc6b710d4e348baeaf42ea38042eddccdfa14ff98e0f36e0ee42af0",
+  "summary.json": "200883bd96a8f3838909d7fce5616fc10ec136a2f19611f85409a994185f0d4e",
+  "task_panel.png": "94d35e4c77e5d671553ee450a976e1cc946b6be6b8260899c7184dd7fe2c1d19",
+  "final_source/launcher.cmd": "a3e4bd45b13639a9939cba6f3ce97e49d239fc46f01e5a7654a2bcbca77b33bc",
+  "final_source/launch_task_panel.pyw": "de40e97ed990d84f0a3443f33ccfdd66e6d6b8d3afd16e3b24711c654a629ca2",
+  "final_source/task_panel.html": "2c90fe4dd0b911e39b255e14e3dae69a9d63a6ff21222e42846a8c91560f9443",
+  "final_source/task_service.py": "eff57ec58dba7fe81fc30d35da2d5cdfaba95b58557945890ad29b26676055da",
+  "final_source/task_service_store.py": "21b85c3721e5e82ac208c559e9ac0518fe4b2834ac2691ac158e7fc98cea6c84",
+  "final_source/task_service_worker.py": "7897f0b105f78da82625a0129ae86346c440c6c02199c3bbba7a07d8f929f66a",
+  "final_source/test_task_service.py": "da5ef640e45c50129d255989463c74ed4a21284c6323e8d5248af1a6cca808eb"
+}

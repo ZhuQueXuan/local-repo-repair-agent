@@ -1,0 +1,16 @@
+
+        if ret.__class__ is FrozenHashError:
+            raise ret
+
+        return ret
+
+    def __copy__(self):
+        return self  # immutable types don't copy, see tuple's behavior
+
+    # block everything else
+    def _raise_frozen_typeerror(self, *a, **kw):
+        "raises a TypeError, because FrozenDicts are immutable"
+        raise TypeError('%s object is immutable' % self.__class__.__name__)
+
+    __ior__ = __setitem__ = __delitem__ = update = _raise_frozen_typeerror
+    setdefault = pop = popitem = clear = _raise_frozen_typeerror

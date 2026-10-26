@@ -1,0 +1,27 @@
+118:        def __init__(self, attribute, offset):
+155:    def __init__(self, user='', group='', other=''):
+248:def atomic_save(dest_path, **kwargs):
+261:    return AtomicSaver(dest_path, **kwargs)
+344:        dest_path (str): The path where the completed file will be
+357:            to *dest_path* + ``.part``. Note that this argument is
+388:    def __init__(self, dest_path, **kwargs):
+389:        self.dest_path = dest_path
+400:        self.dest_path = os.path.abspath(self.dest_path)
+401:        self.dest_dir = os.path.dirname(self.dest_path)
+403:            self.part_path = dest_path + '.part'
+405:            self.part_path = os.path.join(self.dest_dir, self.part_filename)
+411:    def _open_part_file(self):
+417:                stat_res = os.stat(self.dest_path)
+424:        fd = os.open(self.part_path, self.open_flags, file_perms)
+428:        # if default perms are overridden by the user or previous dest_path
+432:                os.chmod(self.part_path, file_perms)
+438:    def setup(self):
+452:        if os.path.lexists(self.dest_path):
+456:                              self.dest_path)
+457:        if self.overwrite_part and os.path.lexists(self.part_path):
+458:            os.unlink(self.part_path)
+475:                    os.unlink(self.part_path)
+480:            atomic_rename(self.part_path, self.dest_path,
+485:                    os.unlink(self.part_path)
+492:def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):
+618:    def __init__(self, path, mode='r', buffering=None):

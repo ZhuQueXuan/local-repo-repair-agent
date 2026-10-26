@@ -1,0 +1,1 @@
+Now I can see the `command` method. Let me look at the `group` method body (lines 1888-1930).

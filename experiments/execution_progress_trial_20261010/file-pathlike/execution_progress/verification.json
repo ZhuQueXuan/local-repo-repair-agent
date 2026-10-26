@@ -1,0 +1,41 @@
+{
+  "task_id": "boltons-file-pathlike-383",
+  "repo": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155835_894056\\repo",
+  "imported_package": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155835_894056\\repo\\boltons\\__init__.py",
+  "issue_checks": {
+    "tests_run": 10,
+    "subtests_run": 0,
+    "passed": 10,
+    "failed_test_methods": [],
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.022s\n\nOK\n"
+  },
+  "upstream_targeted": {
+    "tests_run": 6,
+    "passed": 6,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0,
+    "output": "......                                                                   [100%]\n============================== warnings summary ===============================\ntests\\conftest.py:8\n  D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155835_894056\\repo\\tests\\conftest.py:8: PytestRemovedIn9Warning: The (path: py.path.local) argument is deprecated, please use (collection_path: pathlib.Path)\n  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path\n    def pytest_ignore_collect(path, config):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: D:\\myDocu\\project_postg\\shixi_project\\temp\\execution_progress_trial_20261010_file-pathlike_execution_progress_155836_504652\\upstream.xml -\n6 passed, 1 warning in 0.11s\n"
+  },
+  "protected_tests_unchanged": true,
+  "changed_protected_tests": [],
+  "task_tests_passed": true,
+  "scope": "Public new-task evaluation, held out from this project strategy tuning only. Visible checks; not SWE-bench, private tests, or guaranteed absent from model training.",
+  "external_model_requests": 0,
+  "full_upstream_suite": {
+    "tests_run": 423,
+    "passed": 423,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0,
+    "output": "........................................................................ [ 17%]\n........................................................................ [ 34%]\n........................................................................ [ 51%]\n........................................................................ [ 68%]\n........................................................................ [ 85%]\n...............................................................          [100%]\n============================== warnings summary ===============================\ntests\\conftest.py:8\n  D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155835_894056\\repo\\tests\\conftest.py:8: PytestRemovedIn9Warning: The (path: py.path.local) argument is deprecated, please use (collection_path: pathlib.Path)\n  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path\n    def pytest_ignore_collect(path, config):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: D:\\myDocu\\project_postg\\shixi_project\\temp\\execution_progress_trial_20261010_file-pathlike_execution_progress_155836_504652\\full.xml -\n423 passed, 1 warning in 4.67s\n"
+  }
+}

@@ -1,0 +1,16 @@
+    func: t.Optional[t.Callable[..., t.Any]] = None
+
+    if callable(name):
+        func = name
+        name = None
+        assert cls is None, "Use 'command(cls=cls)(callable)' to specify a class."
+        assert not attrs, "Use 'command(**kwargs)(callable)' to provide arguments."
+
+    if cls is None:
+        cls = Command
+
+    def decorator(f: t.Callable[..., t.Any]) -> Command:
+        if isinstance(f, Command):
+            raise TypeError("Attempted to convert a callback into a command twice.")
+
+        attr_params = attrs.pop("params", None)

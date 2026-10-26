@@ -1,0 +1,1 @@
+The tool output is being truncated by the harness. Let me use a different approach to read specific lines.

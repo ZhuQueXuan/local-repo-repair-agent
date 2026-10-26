@@ -1,0 +1,1 @@
+The issue is likely with `simplejson`'s JSONDecodeError, which has a different `__reduce__`/pickle behavior. Let me check the task_checks to understand what's expected.

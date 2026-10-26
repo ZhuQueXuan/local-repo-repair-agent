@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-23",
+  "upstream_native": {
+    "passed": 301,
+    "deselected": 41,
+    "test_files": 28
+  },
+  "project_extensions": {
+    "tests_run": 236,
+    "passed": 235,
+    "skipped": 1
+  },
+  "adapter_diagnostic": {
+    "passed": 168,
+    "failed": 7,
+    "skipped": 1,
+    "default_agent_and_interactive_cases_passed": 156
+  },
+  "adapter_failure_nodes": [
+    "tests/environments/test_local.py::test_local_environment_set_env_variables",
+    "tests/environments/test_local.py::test_local_environment_existing_env_variables",
+    "tests/environments/test_local.py::test_local_environment_env_variable_override",
+    "tests/environments/test_local.py::test_local_environment_custom_cwd",
+    "tests/environments/test_local.py::test_local_environment_cwd_parameter_override",
+    "tests/environments/test_local.py::test_local_environment_default_cwd",
+    "tests/environments/test_local.py::test_local_environment_timeout"
+  ],
+  "unmodified_baseline_runtime_config_data_files": 1369,
+  "changed_existing_files": [
+    "scripts/test_deepseek_budget.py"
+  ],
+  "protected_files_during_final_run": 1509,
+  "model_requests": 0,
+  "new_dependencies_installed": false,
+  "default_command_exit_code": 0,
+  "both_profiles_diagnostic_exit_code": 1,
+  "limits": [
+    "Not the entire upstream suite; container/cloud/paid API tests were not run.",
+    "Adapter profile substitutes only the environment binding and constructor setup; it is not an upstream-native result.",
+    "Seven adapter differences remain actual failures; no xfail or passing substitution was applied.",
+    "One real symlink check skipped due to Windows permissions; async inspector/CLI installation cases are excluded with reasons.",
+    "Headless prompt session and retained temporary directories change test infrastructure, not agent/model assertions.",
+    "Native log retains optional asyncio configuration warnings, upstream deprecation warning and an interpreter-exit ProactorEventLoop message.",
+    "Guards protect this Python test process, not an OS sandbox or arbitrary child programs. Audited subprocess commands do not call models."
+  ]
+}

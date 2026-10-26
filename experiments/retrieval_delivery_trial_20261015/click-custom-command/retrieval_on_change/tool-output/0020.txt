@@ -1,0 +1,26 @@
+    ) -> t.Union[t.Callable[[t.Callable[..., t.Any]], "Group"], "Group"]:
+        """A shortcut decorator for declaring and attaching a group to
+        the group. This takes the same arguments as :func:`group` and
+        immediately registers the created group with this group by
+        calling :meth:`add_command`.
+
+        To customize the group class used, set the :attr:`group_class`
+        attribute.
+
+        .. versionchanged:: 8.1
+            This decorator can be applied without parentheses.
+
+        .. versionchanged:: 8.0
+            Added the :attr:`group_class` attribute.
+        """
+        from .decorators import group
+
+        func: t.Optional[t.Callable] = None
+
+        if args and callable(args[0]):
+            assert (
+                len(args) == 1 and not kwargs
+            ), "Use 'group(**kwargs)(callable)' to provide arguments."
+            (func,) = args
+            args = ()
+

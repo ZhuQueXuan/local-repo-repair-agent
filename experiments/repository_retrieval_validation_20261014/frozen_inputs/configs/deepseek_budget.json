@@ -1,0 +1,13 @@
+{
+  "max_requests": null,
+  "max_total_cost_cny": null,
+  "reservation_per_attempt_cny": "0.10",
+  "max_messages_utf8_bytes": 16384,
+  "max_output_tokens": 2048,
+  "max_prompt_tokens": 36864,
+  "conservative_input_cny_per_million": "2",
+  "conservative_output_cny_per_million": "8",
+  "ledger_path": "data/deepseek_budget.json",
+  "pricing_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "notes": "On 2026-10-10 the user removed the project monetary cap and authorized normal task-related API usage until the provider balance or service is unavailable. Keep cumulative usage and unknown-request accounting; notify the user on provider failures. No request-count or Agent step cap. Time, context, and stagnation protections remain."
+}

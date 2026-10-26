@@ -1,0 +1,3 @@
+Now I understand the bug. `iter_slice` calls `_get_real_index` on both start and stop, which maps apparent indices to real indices in `item_list`. But `islice` operates on the iterable `self` (which yields apparent items, skipping dead ones). So the start/stop should be apparent indices, not real indices.
+
+Let me confirm by reproducing:

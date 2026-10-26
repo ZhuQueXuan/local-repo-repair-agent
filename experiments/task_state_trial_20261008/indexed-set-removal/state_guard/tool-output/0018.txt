@@ -1,0 +1,49 @@
+392:     def iter_slice(self, start, stop, step=None):
+393:         "iterate over a slice of the set"
+394:         iterable = self
+395:         if start is not None:
+396:             start = self._get_real_index(start)
+397:         if stop is not None:
+398:             stop = self._get_real_index(stop)
+399:         if step is not None and step < 0:
+400:             step = -step
+401:             iterable = reversed(self)
+402:         return islice(iterable, start, stop, step)
+403: 
+404:     # list operations
+405:     def __getitem__(self, index):
+406:         try:
+407:             start, stop, step = index.start, index.stop, index.step
+408:         except AttributeError:
+409:             index = operator.index(index)
+410:         else:
+411:             iter_slice = self.iter_slice(start, stop, step)
+412:             return self.from_iterable(iter_slice)
+413:         if index < 0:
+414:             index += len(self)
+415:         real_index = self._get_real_index(index)
+416:         try:
+417:             ret = self.item_list[real_index]
+418:         except IndexError:
+419:             raise IndexError('IndexedSet index out of range')
+420:         return ret
+421: 
+422:     def pop(self, index=None):
+423:         "pop(index) -> remove the item at a given index (-1 by default)"
+424:         item_index_map = self.item_index_map
+425:         len_self = len(item_index_map)
+426:         if index is None or index == -1 or index == len_self - 1:
+427:             ret = self.item_list.pop()
+428:             del item_index_map[ret]
+429:         else:
+430:             real_index = self._get_real_index(index)
+431:             ret = self.item_list[real_index]
+432:             self.item_list[real_index] = _MISSING
+433:             del item_index_map[ret]
+434:             self._add_dead(real_index)
+435:         self._cull()
+436:         return ret
+437: 
+438:     def count(self, val):
+439:         "count(val) -> count number of instances of value (0 or 1)"
+440:         if val in self.item_index_map:

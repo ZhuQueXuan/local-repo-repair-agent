@@ -1,0 +1,41 @@
+    _size_factor = 1520
+    "This size factor is the result of tuning using the tune() function below."
+
+    def __init__(self, iterable=None):
+        self.lists = [[]]
+        if iterable:
+            self.extend(iterable)
+
+    @property
+    def _cur_size_limit(self):
+        len_self, size_factor = len(self), self._size_factor
+        return int(round(size_factor * math_log(len_self + 2, 2)))
+
+    def _translate_index(self, index):
+        if index < 0:
+            index += len(self)
+        rel_idx, lists = index, self.lists
+        for list_idx in range(len(lists)):
+            len_list = len(lists[list_idx])
+            if rel_idx < len_list:
+                break
+            rel_idx -= len_list
+        if rel_idx < 0:
+            return None, None
+        return list_idx, rel_idx
+
+    def _balance_list(self, list_idx):
+        if list_idx < 0:
+            list_idx += len(self.lists)
+        cur_list, len_self = self.lists[list_idx], len(self)
+        size_limit = self._cur_size_limit
+        if len(cur_list) > size_limit:
+            half_limit = size_limit // 2
+            while len(cur_list) > half_limit:
+                next_list_idx = list_idx + 1
+                self.lists.insert(next_list_idx, cur_list[-half_limit:])
+                del cur_list[-half_limit:]
+            return True
+        return False
+
+    def insert(self, index, item):

@@ -1,0 +1,45 @@
+296         return
+297 
+298     def __repr__(self):
+299         return f'{self.__class__.__name__}({list(self)!r})'
+300 
+301     def sort(self):
+302         # poor pythonist's mergesort, it's faster than sorted(self)
+303         # when the lists' average length is greater than 512.
+304         if len(self.lists) == 1:
+305             self.lists[0].sort()
+306         else:
+307             for li in self.lists:
+308                 li.sort()
+309             tmp_sorted = sorted(chain.from_iterable(self.lists))
+310             del self.lists[:]
+311             self.lists[0] = tmp_sorted
+312             self._balance_list(0)
+313 
+314     def reverse(self):
+315         for cur in self.lists:
+316             cur.reverse()
+317         self.lists.reverse()
+318 
+319     def count(self, item):
+320         return sum([cur.count(item) for cur in self.lists])
+321 
+322     def index(self, item):
+323         len_accum = 0
+324         for cur in self.lists:
+325             try:
+326                 rel_idx = cur.index(item)
+327                 return len_accum + rel_idx
+328             except ValueError:
+329                 len_accum += len(cur)
+330         raise ValueError(f'{item!r} is not in list')
+331 
+332 
+333 BList = BarrelList
+334 
+335 
+336 class SplayList(list):
+337     """Like a `splay tree`_, the SplayList facilitates moving higher
+338     utility items closer to the front of the list for faster access.
+339 
+340     .. _splay tree: https://en.wikipedia.org/wiki/Splay_tree

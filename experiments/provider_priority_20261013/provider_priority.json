@@ -1,0 +1,24 @@
+{
+  "primary": {
+    "name": "bupt_gateway",
+    "api_base": "https://myai.bupt.edu.cn/llm-gw/v1",
+    "model": "deepseek-v4-flash",
+    "credential_env": "BUPT_API_KEY",
+    "pricing": null
+  },
+  "fallback": {
+    "name": "deepseek_official",
+    "credential_env": "DEEPSEEK_API_KEY",
+    "endpoint_env": "DEEPSEEK_API_BASE_URL",
+    "model_env": "DEEPSEEK_CHAT_MODEL",
+    "pricing": "existing_conservative_deepseek_flash_policy"
+  },
+  "policy": {
+    "try_each_provider_at_most_once_per_query": true,
+    "stick_to_fallback_until_run_ends": true,
+    "start_new_run_with_primary": true,
+    "failover_http_statuses": [401, 402, 403, 404, 429, 500, 502, 503, 504],
+    "failover_connection_or_timeout": true,
+    "unpriced_requests": "Record token usage and retain an explicitly unknown-cost placeholder; do not apply official pricing or claim zero actual cost. Allowed only when project monetary cap is null."
+  }
+}

@@ -1,0 +1,1 @@
+Now let me reproduce the bug with a shared custom Argument decorator across two commands.

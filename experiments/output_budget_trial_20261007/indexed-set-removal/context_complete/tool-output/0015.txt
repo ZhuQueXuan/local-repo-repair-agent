@@ -1,0 +1,61 @@
+    def __len__(self):
+        return len(self.item_index_map)
+
+    def __contains__(self, item):
+        return item in self.item_index_map
+
+    def __iter__(self):
+        return (item for item in self.item_list if item is not _MISSING)
+
+    def __reversed__(self):
+        item_list = self.item_list
+        return (item for item in reversed(item_list) if item is not _MISSING)
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}({list(self)!r})'
+
+    def __eq__(self, other):
+        if isinstance(other, IndexedSet):
+            return len(self) == len(other) and list(self) == list(other)
+        try:
+            return set(self) == set(other)
+        except TypeError:
+            return False
+
+    @classmethod
+    def from_iterable(cls, it):
+        "from_iterable(it) -> create a set from an iterable"
+=====
+    def __ixor__(self, *others):
+        self.symmetric_difference_update(*others)
+        return self
+
+    def iter_slice(self, start, stop, step=None):
+        "iterate over a slice of the set"
+        iterable = self
+        if start is not None:
+            start = self._get_real_index(start)
+        if stop is not None:
+            stop = self._get_real_index(stop)
+        if step is not None and step < 0:
+            step = -step
+            iterable = reversed(self)
+        return islice(iterable, start, stop, step)
+
+    # list operations
+    def __getitem__(self, index):
+        try:
+            start, stop, step = index.start, index.stop, index.step
+        except AttributeError:
+            index = operator.index(index)
+        else:
+            iter_slice = self.iter_slice(start, stop, step)
+            return self.from_iterable(iter_slice)
+        if index < 0:
+            index += len(self)
+        real_index = self._get_real_index(index)
+        try:
+            ret = self.item_list[real_index]
+        except IndexError:
+            raise IndexError('IndexedSet index out of range')
+        return ret

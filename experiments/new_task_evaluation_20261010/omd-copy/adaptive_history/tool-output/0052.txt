@@ -1,0 +1,21 @@
+    def __repr__(self):
+        cn = self.__class__.__name__
+        return f'{cn}({dict.__repr__(self)})'
+
+    def __reduce_ex__(self, protocol):
+        return type(self), (dict(self),)
+
+    def __hash__(self):
+        try:
+            ret = self._hash
+        except AttributeError:
+            try:
+                ret = self._hash = hash(frozenset(self.items()))
+            except Exception as e:
+                ret = self._hash = FrozenHashError(e)
+
+        if ret.__class__ is FrozenHashError:
+            raise ret
+
+        return ret
+

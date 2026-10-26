@@ -1,0 +1,1 @@
+{"origin":"manual_seed","path":"more_itertools/more.py","profile":"seeded_falsey_remainder_v1","scope":"Manual known-defect candidate, disclosed falsey-remainder checks; real-model feedback wiring only, not discovery or effectiveness evidence.","seed_sha256":"075185b8cef4260c4ff705b9ff631b5335f0de74c0e7a089b18576583074b870"}

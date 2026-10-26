@@ -1,0 +1,16 @@
+118:        def __init__(self, attribute, offset):
+155:    def __init__(self, user='', group='', other=''):
+248:def atomic_save(dest_path, **kwargs):
+388:    def __init__(self, dest_path, **kwargs):
+389:        self.dest_path = dest_path
+393:        self.part_filename = kwargs.pop('part_file', None)
+400:        self.dest_path = os.path.abspath(self.dest_path)
+401:        self.dest_dir = os.path.dirname(self.dest_path)
+402:        if not self.part_filename:
+405:            self.part_path = os.path.join(self.dest_dir, self.part_filename)
+417:                stat_res = os.stat(self.dest_path)
+452:        if os.path.lexists(self.dest_path):
+456:                              self.dest_path)
+480:            atomic_rename(self.part_path, self.dest_path,
+492:def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):
+618:    def __init__(self, path, mode='r', buffering=None):

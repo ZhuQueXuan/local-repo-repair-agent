@@ -1,0 +1,11 @@
+265:    def copy(self):
+306:    def update_extend(self, E, **F):
+338:    def __eq__(self, other):
+438:    def iteritems(self, multi=False):
+484:    def todict(self, multi=False):
+719:    def iteritems(self, multi=False):
+852:    def copy(self):
+995:    def iteritems(self):
+1012:    def __eq__(self, other):
+1089:    def __reduce_ex__(self, protocol):
+1106:    def __copy__(self):

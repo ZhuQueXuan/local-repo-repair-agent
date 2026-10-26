@@ -1,0 +1,15 @@
+test_empty_input (test_behavior.SplitBoundaryTests) ... ok
+test_generator_at_end (test_behavior.SplitBoundaryTests) ... ok
+test_limit_at_final_element (test_behavior.SplitBoundaryTests) ... ok
+test_no_match (test_behavior.SplitBoundaryTests) ... ok
+test_none_is_valid_data (test_behavior.SplitBoundaryTests) ... ok
+test_nonempty_remainder (test_behavior.SplitBoundaryTests) ... ok
+test_one_item_at_limit (test_behavior.SplitBoundaryTests) ... ok
+test_second_split_at_end (test_behavior.SplitBoundaryTests) ... ok
+test_unlimited_and_unused_limit (test_behavior.SplitBoundaryTests) ... ok
+test_zero_splits_contract (test_behavior.SplitBoundaryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.000s
+
+OK

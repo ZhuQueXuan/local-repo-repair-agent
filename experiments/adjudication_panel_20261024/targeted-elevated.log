@@ -1,0 +1,15 @@
+test_additive_migration_has_backup_and_read_only_projection_no_migration (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_http_read_only_auth_scope_and_integrity (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_original_review_and_new_version_have_separate_decisions (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_proof_and_its_manifest_cannot_be_replaced_together (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_real_archived_versions_and_scope_not_model_votes (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_registered_proof_has_complete_receipt_bytes_and_cross_run_is_denied (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_restart_and_duplicate_do_not_reexecute_or_rewrite_outcomes (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_result_and_sql_row_tamper_fail_closed (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_unregistered_new_claims_remain_unknown_even_with_pass_fail_checks (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_untrusted_candidate_modification_blocks_old_decision_projection (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 24.288s
+
+OK

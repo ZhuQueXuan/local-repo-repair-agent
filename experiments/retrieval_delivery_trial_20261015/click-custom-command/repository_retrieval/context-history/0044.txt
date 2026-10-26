@@ -1,0 +1,1 @@
+Now let me look at the `command` method's beginning (around 1830-1861) to see how it handles `cls`/`command_class`.

@@ -1,0 +1,61 @@
+140:         if not ded:
+141:             return
+142:         items, ii_map = self.item_list, self.item_index_map
+143:         if not ii_map:
+144:             del items[:]
+145:             del ded[:]
+146:         elif len(ded) > 384:
+147:             self._compact()
+148:         elif self._dead_index_count > (len(items) / _COMPACTION_FACTOR):
+149:             self._compact()
+150:         elif items[-1] is _MISSING:  # get rid of dead right hand side
+151:             num_dead = 1
+152:             while items[-(num_dead + 1)] is _MISSING:
+153:                 num_dead += 1
+154:             if ded and ded[-1][1] == len(items):
+155:                 del ded[-1]
+156:             del items[-num_dead:]
+157: 
+158:     def _get_real_index(self, index):
+159:         if index < 0:
+160:             index += len(self)
+161:         if not self.dead_indices:
+162:             return index
+163:         real_index = index
+164:         for d_start, d_stop in self.dead_indices:
+165:             if real_index < d_start:
+166:                 break
+167:             real_index += d_stop - d_start
+168:         return real_index
+169: 
+170:     def _get_apparent_index(self, index):
+171:         if index < 0:
+172:             index += len(self)
+173:         if not self.dead_indices:
+174:             return index
+175:         apparent_index = index
+176:         for d_start, d_stop in self.dead_indices:
+177:             if index < d_start:
+178:                 break
+179:             apparent_index -= d_stop - d_start
+180:         return apparent_index
+181: 
+182:     def _add_dead(self, start, stop=None):
+183:         # TODO: does not handle when the new interval subsumes
+184:         # multiple existing intervals
+185:         dints = self.dead_indices
+186:         if stop is None:
+187:             stop = start + 1
+188:         cand_int = [start, stop]
+189:         if not dints:
+190:             dints.append(cand_int)
+191:             return
+192:         int_idx = bisect_left(dints, cand_int)
+193:         dint = dints[int_idx - 1]
+194:         d_start, d_stop = dint
+195:         if start <= d_start <= stop:
+196:             dint[0] = start
+197:         elif start <= d_stop <= stop:
+198:             dint[1] = stop
+199:         else:
+200:             dints.insert(int_idx, cand_int)

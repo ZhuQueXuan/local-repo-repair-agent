@@ -1,0 +1,1 @@
+The file has 61 lines but sed shows nothing for 394-412 — because the file only has 61 lines (line numbers are embedded in text). Let me read the actual source directly with python.

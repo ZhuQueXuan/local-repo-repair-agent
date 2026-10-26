@@ -1,0 +1,1 @@
+{"hypothesis":"BarrelList.sort emptied self.lists then assigned index 0, causing IndexError for multi-list (large) containers; fixed by appending the merged sorted list.","next_action":"done"}

@@ -1,0 +1,71 @@
+{
+  "demo": "D:\\myDocu\\project_postg\\shixi_project\\temp\\review_adjudication_20261024\\fixtures\\73d5a3ce2a0a4611937cd8b9631ee7e1\\demonstration.json",
+  "examples": {
+    "harmful": {
+      "summary": {
+        "already_reported_confirmed_groups": 0,
+        "confirmed": 2,
+        "distinct_confirmed_groups": 1,
+        "duplicate_findings": 1,
+        "findings": 4,
+        "new_confirmed_groups_within_scope": 1,
+        "refuted": 1,
+        "scope": "Program-checked declared cases and trusted mappings only; no general success-rate or autonomous-discovery claim.",
+        "unresolved": 1
+      },
+      "first_decision": {
+        "verdict": "confirmed",
+        "resolution": "resolved_on_checked_cases",
+        "impact": "harmful_on_checked_cases",
+        "improved_checks": [
+          "negative"
+        ],
+        "regressed_checks": [
+          "empty"
+        ]
+      }
+    },
+    "improved": {
+      "summary": {
+        "already_reported_confirmed_groups": 0,
+        "confirmed": 2,
+        "distinct_confirmed_groups": 1,
+        "duplicate_findings": 1,
+        "findings": 4,
+        "new_confirmed_groups_within_scope": 1,
+        "refuted": 1,
+        "scope": "Program-checked declared cases and trusted mappings only; no general success-rate or autonomous-discovery claim.",
+        "unresolved": 1
+      },
+      "first_decision": {
+        "verdict": "confirmed",
+        "resolution": "resolved_on_checked_cases",
+        "impact": "improved_on_checked_cases",
+        "improved_checks": [
+          "negative"
+        ],
+        "regressed_checks": []
+      }
+    },
+    "no-demonstrated-benefit": {
+      "summary": {
+        "already_reported_confirmed_groups": 0,
+        "confirmed": 2,
+        "distinct_confirmed_groups": 1,
+        "duplicate_findings": 1,
+        "findings": 4,
+        "new_confirmed_groups_within_scope": 1,
+        "refuted": 1,
+        "scope": "Program-checked declared cases and trusted mappings only; no general success-rate or autonomous-discovery claim.",
+        "unresolved": 1
+      },
+      "first_decision": {
+        "verdict": "confirmed",
+        "resolution": "not_resolved",
+        "impact": "changed_without_checked_improvement",
+        "improved_checks": [],
+        "regressed_checks": []
+      }
+    }
+  }
+}

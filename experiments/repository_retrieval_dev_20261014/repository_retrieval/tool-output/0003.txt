@@ -1,0 +1,34 @@
+class JSONDecodeError(InvalidJSONError, CompatJSONDecodeError):
+    """Couldn't decode the text into json"""
+
+    def __init__(self, *args, **kwargs):
+        """
+        Construct the JSONDecodeError instance first with all
+        args. Then use it's args to construct the IOError so that
+        the json specific args aren't used as IOError specific args
+        and the error message from JSONDecodeError is preserved.
+        """
+        CompatJSONDecodeError.__init__(self, *args)
+        InvalidJSONError.__init__(self, *self.args, **kwargs)
+
+
+class HTTPError(RequestException):
+    """An HTTP error occurred."""
+
+
+class ConnectionError(RequestException):
+    """A Connection error occurred."""
+
+
+class ProxyError(ConnectionError):
+    """A proxy error occurred."""
+
+=== compat ===
+30:# json/simplejson module import resolution
+31:has_simplejson = False
+33:    import simplejson as json
+35:    has_simplejson = True
+37:    import json
+39:if has_simplejson:
+40:    from simplejson import JSONDecodeError
+42:    from json import JSONDecodeError

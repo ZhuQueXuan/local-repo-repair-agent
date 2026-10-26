@@ -1,0 +1,1 @@
+The output is being truncated. Let me read the file directly with cat to a temp file and view specific ranges.

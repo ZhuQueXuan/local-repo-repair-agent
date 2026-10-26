@@ -1,0 +1,21 @@
+{
+  "batch_id": "history_retention_trial_20261008",
+  "tasks": ["indexed-set-removal", "split-after-boundary"],
+  "agent": "StatefulAgent based on upstream DefaultAgent 2.4.6",
+  "mini_commit": "04d809ceab9df28f9adaed044884180159172930",
+  "wall_time_limit_seconds": 300,
+  "model_temperature": 0,
+  "budget_policy": "configs/deepseek_budget.json",
+  "environment": "Windows Python 3.10.6; Git Bash; independent Git baseline; pipefail",
+  "variants": {
+    "adaptive_history": {
+      "tool_output_budget": {"max_output_bytes": 1024},
+      "context_budget": {"target_bytes": 12288, "keep_recent_tool_outputs": 4,
+        "compact_completed_exchanges": true, "retained_audit_entries": 3, "compact_to_target": true},
+      "archive_assistant_content": true,
+      "task_state": {"guard_enabled": true, "repeated_read_threshold": 3, "blocked_read_threshold": 3,
+        "include_previews_in_requests": false}
+    }
+  },
+  "scope": "Adaptive development: minimal prefix compaction and four recent exchanges, lean pinned state. Multiple knobs changed; not an isolated causal ablation or held-out benchmark."
+}

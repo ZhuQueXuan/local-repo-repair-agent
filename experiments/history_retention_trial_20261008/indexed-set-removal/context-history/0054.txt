@@ -1,0 +1,5 @@
+Now I understand the structure. `self` iterates over apparent items (skipping `_MISSING`). `_get_real_index` maps apparent→real. The bug: `iter_slice` converts start/stop to real indices but then iterates over `self` (apparent). 
+
+The fix: for positive steps, don't convert to real indices — just use apparent indices directly with `islice(self, start, stop, step)`. For negative steps, preserve existing behavior (which uses `reversed(self)` and negated step, with real-index conversion).
+
+Let me verify the negative-step behavior is what's expected to be preserved. The current negative-step output `values[::-1]` gives `[9,8,7,6,5,4,3,1,0]` which is correct. Let me check `__getitem__` to see how it dispatches to iter_slice:

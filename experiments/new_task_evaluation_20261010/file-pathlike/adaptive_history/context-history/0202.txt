@@ -1,0 +1,1 @@
+Confirmed. Line 403 uses raw `dest_path + '.part'`. Let me reproduce.

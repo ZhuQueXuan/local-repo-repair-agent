@@ -1,0 +1,21 @@
+
+    .. _context manager: https://docs.python.org/2/reference/compound_stmts.html#with
+    .. _umask: https://en.wikipedia.org/wiki/Umask
+
+    """
+    _default_file_perms = RW_PERMS
+
+    # TODO: option to abort if target file modify date has changed since start?
+    def __init__(self, dest_path, **kwargs):
+        self.dest_path = dest_path
+        self.overwrite = kwargs.pop('overwrite', True)
+        self.file_perms = kwargs.pop('file_perms', None)
+        self.overwrite_part = kwargs.pop('overwrite_part', False)
+        self.part_filename = kwargs.pop('part_file', None)
+        self.rm_part_on_exc = kwargs.pop('rm_part_on_exc', True)
+        self.text_mode = kwargs.pop('text_mode', False)
+        self.buffering = kwargs.pop('buffering', -1)
+        if kwargs:
+            raise TypeError(f'unexpected kwargs: {kwargs.keys()!r}')
+
+        self.dest_path = os.path.abspath(self.dest_path)

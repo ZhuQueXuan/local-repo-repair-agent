@@ -1,0 +1,1 @@
+There's already a partial fix in the working tree. Let me see the full current __init__ and the iter_find_files function to verify completeness.

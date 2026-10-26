@@ -1,0 +1,1 @@
+The tool output is being truncated in the middle. Let me use a different approach to view the exact lines.

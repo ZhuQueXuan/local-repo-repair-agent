@@ -1,0 +1,42 @@
+    def __getitem__(self, index):
+        try:
+            start, stop, step = index.start, index.stop, index.step
+        except AttributeError:
+            index = operator.index(index)
+        else:
+            iter_slice = self.iter_slice(start, stop, step)
+            return self.from_iterable(iter_slice)
+        if index < 0:
+            index += len(self)
+        real_index = self._get_real_index(index)
+        try:
+            ret = self.item_list[real_index]
+        except IndexError:
+            raise IndexError('IndexedSet index out of range')
+        return ret
+
+    def pop(self, index=None):
+---get_real_index---
+50:    _MISSING = make_sentinel(var_name='_MISSING')
+52:    _MISSING = object()
+138:    def _cull(self):
+150:        elif items[-1] is _MISSING:  # get rid of dead right hand side
+152:            while items[-(num_dead + 1)] is _MISSING:
+158:    def _get_real_index(self, index):
+182:    def _add_dead(self, start, stop=None):
+204:    def __len__(self):
+210:    def __iter__(self):
+211:        return (item for item in self.item_list if item is not _MISSING)
+215:        return (item for item in reversed(item_list) if item is not _MISSING)
+246:        self.item_list[didx] = _MISSING
+247:        self._add_dead(didx)
+248:        self._cull()
+396:            start = self._get_real_index(start)
+398:            stop = self._get_real_index(stop)
+415:        real_index = self._get_real_index(index)
+430:            real_index = self._get_real_index(index)
+432:            self.item_list[real_index] = _MISSING
+434:            self._add_dead(real_index)
+435:        self._cull()
+955:    def __len__(self):
+960:    def __iter__(self):

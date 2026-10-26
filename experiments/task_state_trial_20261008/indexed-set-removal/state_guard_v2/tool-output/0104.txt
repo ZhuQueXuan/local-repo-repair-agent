@@ -1,0 +1,36 @@
+        if start is not None:
+            start = self._get_real_index(start)
+        if stop is not None:
+            stop = self._get_real_index(stop)
+        if step is not None and step < 0:
+            step = -step
+            iterable = reversed(self)
+        return islice(iterable, start, stop, step)
+
+    # list operations
+    def __getitem__(self, index):
+        try:
+            start, stop, step = index.start, index.stop, index.step
+        except AttributeError:
+            index = operator.index(index)
+        else:
+            iter_slice = self.iter_slice(start, stop, step)
+            return self.from_iterable(iter_slice)
+        if index < 0:
+            index += len(self)
+        real_index = self._get_real_index(index)
+        try:
+            ret = self.item_list[real_index]
+        except IndexError:
+            raise IndexError('IndexedSet index out of range')
+        return ret
+
+    def pop(self, index=None):
+        "pop(index) -> remove the item at a given index (-1 by default)"
+        item_index_map = self.item_index_map
+        len_self = len(item_index_map)
+        if index is None or index == -1 or index == len_self - 1:
+            ret = self.item_list.pop()
+            del item_index_map[ret]
+        else:
+            real_index = self._get_real_index(index)

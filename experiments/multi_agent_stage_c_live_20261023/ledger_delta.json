@@ -1,0 +1,278 @@
+{
+  "4fe22da20c6644b58d4b226190f2cd2d": {
+    "status": "reserved",
+    "amount_cny": "0.10",
+    "provider": "bupt_gateway",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "8c9ee224296f4f75b3e864674144fb41",
+      "session_id": "1b68afc157d4413bae599a911ca4a7da",
+      "logical_request_id": "3f73097890d249a3a1ae5c701147e4ab",
+      "attempt_ordinal": 1
+    },
+    "outcome": "provider_error",
+    "failure": {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500,
+      "notice": "bupt_gateway：API请求失败，尚不能判断是网络还是服务问题。",
+      "failover_eligible": true
+    },
+    "amount_status": "unknown_charge_placeholder"
+  },
+  "902b5927dab340268ae67bb2f89e324c": {
+    "status": "settled",
+    "amount_cny": "0.002122",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "8c9ee224296f4f75b3e864674144fb41",
+      "session_id": "1b68afc157d4413bae599a911ca4a7da",
+      "logical_request_id": "3f73097890d249a3a1ae5c701147e4ab",
+      "attempt_ordinal": 2
+    },
+    "usage": {
+      "prompt_tokens": 841,
+      "completion_tokens": 55,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "a3e79237a98c47e29671c647567a9e82": {
+    "status": "settled",
+    "amount_cny": "0.003062",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "8c9ee224296f4f75b3e864674144fb41",
+      "session_id": "1b68afc157d4413bae599a911ca4a7da",
+      "logical_request_id": "0fa9dacb990d4208a664c5985601522d",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 1323,
+      "completion_tokens": 52,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "b26c64ab6e0543749486712cb604c58f": {
+    "status": "settled",
+    "amount_cny": "0.005462",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "8c9ee224296f4f75b3e864674144fb41",
+      "session_id": "1b68afc157d4413bae599a911ca4a7da",
+      "logical_request_id": "3b78c2555b5d4201a71bd621a0a1a0fd",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 1595,
+      "completion_tokens": 284,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "34596d1c19e84fb0b5e05ab8094acb50": {
+    "status": "settled",
+    "amount_cny": "0.004428",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "8c9ee224296f4f75b3e864674144fb41",
+      "session_id": "1b68afc157d4413bae599a911ca4a7da",
+      "logical_request_id": "c6754518bfac47ebb91d450e7dd83192",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 2010,
+      "completion_tokens": 51,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "ad75c91ae36c43a19952c89bab87e9af": {
+    "status": "settled",
+    "amount_cny": "0.004636",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "8c9ee224296f4f75b3e864674144fb41",
+      "session_id": "1b68afc157d4413bae599a911ca4a7da",
+      "logical_request_id": "025a8b95eb8247d682dae3bb3c0b7829",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 2110,
+      "completion_tokens": 52,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "2d051d6427394af4b79dc71b1908aaff": {
+    "status": "settled",
+    "amount_cny": "0.005446",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "8c9ee224296f4f75b3e864674144fb41",
+      "session_id": "1b68afc157d4413bae599a911ca4a7da",
+      "logical_request_id": "f1e3582682724882b5b0dbcd7845de01",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 2191,
+      "completion_tokens": 133,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "5bf8d213f5504d1f88b123d7c93312f6": {
+    "status": "settled",
+    "amount_cny": "0.006646",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "8c9ee224296f4f75b3e864674144fb41",
+      "session_id": "1b68afc157d4413bae599a911ca4a7da",
+      "logical_request_id": "6b8d85c25bf44ef0a0e75288fe11cdb1",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 2463,
+      "completion_tokens": 215,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "9885318dc34c47bb8a8462867216cb50": {
+    "status": "settled",
+    "amount_cny": "0.006282",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "8c9ee224296f4f75b3e864674144fb41",
+      "session_id": "1b68afc157d4413bae599a911ca4a7da",
+      "logical_request_id": "e1c4cfe531ce4af585b3a7fee2e8f8f9",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 2817,
+      "completion_tokens": 81,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "02f5a55eb2e94cef814093d9e1d86da3": {
+    "status": "settled",
+    "amount_cny": "0.006278",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "8c9ee224296f4f75b3e864674144fb41",
+      "session_id": "1b68afc157d4413bae599a911ca4a7da",
+      "logical_request_id": "a6d263857fe04e95a8c2668526a9b965",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 2939,
+      "completion_tokens": 50,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "1587b197a2ce464a874ca0c8bb86e0cb": {
+    "status": "settled",
+    "amount_cny": "0.007738",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "69946284625d438eb2aead482a006108",
+      "session_id": "b5634b9031cf47238efe9145bf0fbc20",
+      "logical_request_id": "6ab1664f7e9e4674a3256b317aa29acd",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 3125,
+      "completion_tokens": 186,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "ee2bd3a87ffa4338b83b5a50362aa079": {
+    "status": "settled",
+    "amount_cny": "0.00777",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "69946284625d438eb2aead482a006108",
+      "session_id": "b5634b9031cf47238efe9145bf0fbc20",
+      "logical_request_id": "70116d298dcb477aab62a4f9244b2bb9",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 3141,
+      "completion_tokens": 186,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "554def35f10b48269e36fe2dbd18c7b6": {
+    "status": "settled",
+    "amount_cny": "0.006784",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "69946284625d438eb2aead482a006108",
+      "session_id": "b5634b9031cf47238efe9145bf0fbc20",
+      "logical_request_id": "a758e20adf6a4ac8b5c778bd51d5136b",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 3156,
+      "completion_tokens": 59,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "9a14f651809b47c1a786b6ba4b2eee00": {
+    "status": "settled",
+    "amount_cny": "0.008604",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "69946284625d438eb2aead482a006108",
+      "session_id": "b5634b9031cf47238efe9145bf0fbc20",
+      "logical_request_id": "c1be6b6094e340bc82129b5392ea26c2",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 3786,
+      "completion_tokens": 129,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "ad858255efe749d48f22eda4d0bff471": {
+    "status": "settled",
+    "amount_cny": "0.01014",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "69946284625d438eb2aead482a006108",
+      "session_id": "b5634b9031cf47238efe9145bf0fbc20",
+      "logical_request_id": "8dbec8509182419b95606c02a7f92570",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 4906,
+      "completion_tokens": 41,
+      "response_model": "deepseek-flash"
+    }
+  },
+  "9aa4fdc59b324b569c48e5ec6c6e7ebc": {
+    "status": "settled",
+    "amount_cny": "0.016504",
+    "provider": "deepseek_official",
+    "attribution": {
+      "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+      "role_run_id": "69946284625d438eb2aead482a006108",
+      "session_id": "b5634b9031cf47238efe9145bf0fbc20",
+      "logical_request_id": "8552ad76187d4788a7f2102bbebf57e7",
+      "attempt_ordinal": 1
+    },
+    "usage": {
+      "prompt_tokens": 5488,
+      "completion_tokens": 691,
+      "response_model": "deepseek-flash"
+    }
+  }
+}

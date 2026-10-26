@@ -1,0 +1,11 @@
+104:    def _cur_size_limit(self):
+121:    def _balance_list(self, list_idx):
+125:        size_limit = self._cur_size_limit
+135:    def insert(self, index, item):
+138:            self._balance_list(0)
+144:            self._balance_list(list_idx)
+167:            self._balance_list(list_idx)
+194:            self._balance_list(0)
+277:            self._balance_list(0)
+295:        self._balance_list(0)
+312:            self._balance_list(0)

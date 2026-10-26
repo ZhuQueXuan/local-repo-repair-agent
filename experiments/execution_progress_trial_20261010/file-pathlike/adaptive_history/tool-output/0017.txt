@@ -1,0 +1,7 @@
+248:def atomic_save(dest_path, **kwargs):
+438:    def setup(self):
+462:    def __enter__(self):
+466:    def __exit__(self, exc_type, exc_val, exc_tb):
+492:def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):
+685:    def __enter__(self):
+690:    def __exit__(self, exc_type, exc_val, exc_tb):

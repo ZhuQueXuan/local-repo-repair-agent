@@ -1,0 +1,25 @@
+test_interrupted_identity_is_not_automatically_resumed (test_self_review.SelfReviewContractTests) ... ok
+test_irreducible_context_hits_original_guard_before_reserving_cost (test_self_review.SelfReviewContractTests) ... ok
+test_no_fabricated_submit_receipt_from_exit_text (test_self_review.SelfReviewContractTests) ... ok
+test_non_json_historical_bash_output_projects_without_json_parsing (test_self_review.SelfReviewContractTests) ... ok
+test_panel_creation_idempotency_and_existing_dual_sessions_unchanged (test_self_review.SelfReviewContractTests) ... ok
+test_policy_keeps_phase_limits_and_rejects_ambiguous_modes (test_self_review.SelfReviewContractTests) ... ok
+test_projection_keeps_current_phase_when_format_correction_follows_it (test_self_review.SelfReviewContractTests) ... ok
+test_wrong_session_or_missing_completed_history_is_rejected (test_self_review.SelfReviewContractTests) ... ok
+D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\_internal\_generate_schema.py:1480: UserWarning: Item 'summary' on TypedDict class 'ChatCompletionReasoningItem' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+  warnings.warn(
+test_approve_and_insufficient_branches_do_not_force_another_edit (test_self_review.SelfReviewIntegrationTests) ... ok
+test_author_and_self_check_history_survives_all_transitions (test_self_review.SelfReviewIntegrationTests) ... ok
+test_cancel_at_self_check_starts_no_self_check_request (test_self_review.SelfReviewIntegrationTests) ... ok
+test_complete_four_phase_chain_with_real_checks_and_replay (test_self_review.SelfReviewIntegrationTests) ... ok
+test_historical_tool_calls_all_have_real_matching_receipts (test_self_review.SelfReviewIntegrationTests) ... ok
+test_one_logical_session_with_distinct_capability_and_fee_ids (test_self_review.SelfReviewIntegrationTests) ... ok
+test_panel_identifies_synthetic_self_check_and_uses_its_temp_ledger (test_self_review.SelfReviewIntegrationTests) ... ok
+test_provider_failure_keeps_candidate_and_unknown_cost (test_self_review.SelfReviewIntegrationTests) ... ok
+test_read_only_phases_cannot_execute_the_returned_bash_calls (test_self_review.SelfReviewIntegrationTests) ... ok
+test_submission_and_completed_review_tampering_cannot_advance (test_self_review.SelfReviewIntegrationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 67.271s
+
+OK

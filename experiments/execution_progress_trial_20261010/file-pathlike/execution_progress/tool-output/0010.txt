@@ -1,0 +1,61 @@
+360             created in the same directory as the destination path.
+361         overwrite_part (bool): Whether to overwrite the *part_file*,
+362             should it exist at setup time. Defaults to ``False``,
+363             which results in an :exc:`OSError` being raised on
+364             pre-existing part files. Be careful of setting this to
+365             ``True`` in situations when multiple threads or processes
+366             could be writing to the same part file.
+367         rm_part_on_exc (bool): Remove *part_file* on exception cases.
+368             Defaults to ``True``, but ``False`` can be useful for
+369             recovery in some cases. Note that resumption is not
+370             automatic and by default an :exc:`OSError` is raised if
+371             the *part_file* exists.
+372 
+373     Practically, the AtomicSaver serves a few purposes:
+374 
+375       * Avoiding overwriting an existing, valid file with a partially
+376         written one.
+377       * Providing a reasonable guarantee that a part file only has one
+378         writer at a time.
+379       * Optional recovery of partial data in failure cases.
+380 
+381     .. _context manager: https://docs.python.org/2/reference/compound_stmts.html#with
+382     .. _umask: https://en.wikipedia.org/wiki/Umask
+383 
+384     """
+385     _default_file_perms = RW_PERMS
+386 
+387     # TODO: option to abort if target file modify date has changed since start?
+388     def __init__(self, dest_path, **kwargs):
+389         self.dest_path = dest_path
+390         self.overwrite = kwargs.pop('overwrite', True)
+391         self.file_perms = kwargs.pop('file_perms', None)
+392         self.overwrite_part = kwargs.pop('overwrite_part', False)
+393         self.part_filename = kwargs.pop('part_file', None)
+394         self.rm_part_on_exc = kwargs.pop('rm_part_on_exc', True)
+395         self.text_mode = kwargs.pop('text_mode', False)
+396         self.buffering = kwargs.pop('buffering', -1)
+397         if kwargs:
+398             raise TypeError(f'unexpected kwargs: {kwargs.keys()!r}')
+399 
+400         self.dest_path = os.path.abspath(self.dest_path)
+401         self.dest_dir = os.path.dirname(self.dest_path)
+402         if not self.part_filename:
+403             self.part_path = dest_path + '.part'
+404         else:
+405             self.part_path = os.path.join(self.dest_dir, self.part_filename)
+406         self.mode = 'w+' if self.text_mode else 'w+b'
+407         self.open_flags = _TEXT_OPENFLAGS if self.text_mode else _BIN_OPENFLAGS
+408 
+409         self.part_file = None
+410 
+411     def _open_part_file(self):
+412         do_chmod = True
+413         file_perms = self.file_perms
+414         if file_perms is None:
+415             try:
+416                 # try to copy from file being replaced
+417                 stat_res = os.stat(self.dest_path)
+418                 file_perms = stat.S_IMODE(stat_res.st_mode)
+419             except OSError:
+420                 # default if no destination file exists

@@ -1,0 +1,3 @@
+reduce_ex (<function __newobj__ at 0x00000236B8D77D00>, (<class 'boltons.dictutils.OrderedMultiDict'>,), [('a', 1), ('a', 2)], None, <list_iterator object at 0x00000236B90CACB0>)
+reduce (<function _reconstructor at 0x00000236B8D77BE0>, (<class 'boltons.dictutils.OrderedMultiDict'>, <class 'dict'>, {'a': 2}), [('a', 1), ('a', 2)])
+getstate [('a', 1), ('a', 2)]

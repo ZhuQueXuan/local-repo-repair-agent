@@ -1,0 +1,12 @@
+--- a/requests/exceptions.py
++++ b/requests/exceptions.py
+@@ -40,6 +40,9 @@
+         """
+         CompatJSONDecodeError.__init__(self, *args)
+         InvalidJSONError.__init__(self, *self.args, **kwargs)
++
++    def __reduce__(self):
++        return self.__class__, (self.msg, self.doc, self.pos)
+ 
+ 
+ class HTTPError(RequestException):

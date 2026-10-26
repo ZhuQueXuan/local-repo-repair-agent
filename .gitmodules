@@ -1,0 +1,6 @@
+[submodule "mini-swe-agent"]
+	path = mini-swe-agent
+	url = https://github.com/SWE-agent/mini-swe-agent.git
+[submodule "windowed-empty-source"]
+	path = tasks/windowed-empty/repo
+	url = https://github.com/more-itertools/more-itertools.git

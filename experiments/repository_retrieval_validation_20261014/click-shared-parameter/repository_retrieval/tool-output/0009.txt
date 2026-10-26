@@ -1,0 +1,29 @@
+284 
+285     def decorator(f: FC) -> FC:
+286         ArgumentClass = attrs.pop("cls", None) or Argument
+287         _param_memo(f, ArgumentClass(param_decls, **attrs))
+288         return f
+289 
+290     return decorator
+291 
+292 
+293 def option(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:
+294     """Attaches an option to the command.  All positional arguments are
+295     passed as parameter declarations to :class:`Option`; all keyword
+296     arguments are forwarded unchanged (except ``cls``).
+297     This is equivalent to creating an :class:`Option` instance manually
+298     and attaching it to the :attr:`Command.params` list.
+299 
+300     :param cls: the option class to instantiate.  This defaults to
+301                 :class:`Option`.
+302     """
+303 
+304     def decorator(f: FC) -> FC:
+305         # Issue 926, copy attrs, so pre-defined options can re-use the same cls=
+306         option_attrs = attrs.copy()
+307         OptionClass = option_attrs.pop("cls", None) or Option
+308         _param_memo(f, OptionClass(param_decls, **option_attrs))
+309         return f
+310 
+311     return decorator
+312 

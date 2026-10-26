@@ -1,0 +1,1 @@
+The harness truncates middle of output. Let me read the file directly with a Python script that writes to a temp file, then read that file in pieces.

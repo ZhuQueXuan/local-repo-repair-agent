@@ -1,0 +1,40 @@
+29:    -   The :attr:`name` class attribute must be set.
+43:    #: the descriptive name of this type
+44:    name: str
+63:        # The class name without the "ParamType" suffix.
+64:        param_type = type(self).__name__.partition("ParamType")[0]
+67:        # Custom subclasses might not remember to set a name.
+68:        if hasattr(self, "name"):
+69:            name = self.name
+71:            name = param_type
+73:        return {"param_type": param_type, "name": name}
+165:        self.name = func.__name__
+188:    name = "text"
+200:    name = "text"
+242:    name = "choice"
+258:        if param.required and param.param_type_name == "argument":
+353:    name = "datetime"
+410:                    value=value, number_type=self.name
+500:        return f"<{type(self).__name__} {self._describe_range()}{clamp}>"
+504:    name = "integer"
+526:    name = "integer range"
+538:    name = "float"
+561:    name = "float range"
+589:    name = "boolean"
+614:    name = "uuid"
+664:    name = "filename"
+755:    returns the filename instead of an open file. Various checks can be
+811:            self.name = _("file")
+813:            self.name = _("directory")
+815:            self.name = _("path")
+861:                    _("{name} {filename!r} does not exist.").format(
+862:                        name=self.name.title(), filename=os.fsdecode(value)
+870:                    _("{name} {filename!r} is a file.").format(
+871:                        name=self.name.title(), filename=os.fsdecode(value)
+878:                    _("{name} '{filename}' is a directory.").format(
+879:                        name=self.name.title(), filename=os.fsdecode(value)
+887:                    _("{name} {filename!r} is not readable.").format(
+888:                        name=self.name.title(), filename=os.fsdecode(value)
+896:                    _("{name} {filename!r} is not writable.").format(
+897:                        name=self.name.title(), filename=os.fsdecode(value)
+905:                    _("{name} {filename!r} is not executable.").format(

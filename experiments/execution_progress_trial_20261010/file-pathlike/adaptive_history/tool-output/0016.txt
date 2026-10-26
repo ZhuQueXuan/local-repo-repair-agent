@@ -1,0 +1,37 @@
+        the ``setup()`` method creates the temporary file in the same
+        directory as the destination file.
+
+        ``setup()`` tests for a writable directory with rename permissions
+        early, as the part file may not be written to immediately (not
+        using :func:`os.access` because of the potential issues of
+        effective vs. real privileges).
+
+        If the caller is not using the :class:`AtomicSaver` as a
+        context manager, this method should be called explicitly
+        before writing.
+        """
+        if os.path.lexists(self.dest_path):
+            if not self.overwrite:
+                raise OSError(errno.EEXIST,
+                              'Overwrite disabled and file already exists',
+                              self.dest_path)
+        if self.overwrite_part and os.path.lexists(self.part_path):
+            os.unlink(self.part_path)
+        self._open_part_file()
+        return
+
+    def __enter__(self):
+        self.setup()
+        return self.part_file
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.part_file:
+            # Ensure data is flushed and synced to disk before closing
+            self.part_file.flush()
+            os.fsync(self.part_file.fileno())
+            self.part_file.close()
+        if exc_type:
+            if self.rm_part_on_exc:
+                try:
+                    os.unlink(self.part_path)
+  

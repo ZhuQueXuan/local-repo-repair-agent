@@ -1,0 +1,41 @@
+
+    def atomic_rename(src, dst, overwrite=False):
+        "Rename *src* to *dst*, replacing *dst* if *overwrite is True"
+        if overwrite:
+            replace(src, dst)
+        else:
+            os.rename(src, dst)
+        return
+else:
+    # wrapper func for cross compat + docs
+    def replace(src, dst):
+        # os.replace does the same thing on unix
+        return os.rename(src, dst)
+
+    def atomic_rename(src, dst, overwrite=False):
+        "Rename *src* to *dst*, replacing *dst* if *overwrite is True"
+        if overwrite:
+            os.rename(src, dst)
+        else:
+            os.link(src, dst)
+            os.unlink(src)
+        return
+
+
+_atomic_rename = atomic_rename  # backwards compat
+
+replace.__doc__ = """Similar to :func:`os.replace` in Python 3.3+,
+this function will atomically create or replace the file at path
+*dst* with the file at path *src*.
+
+On Windows, this function uses the ReplaceFile API for maximum
+possible atomicity on a range of filesystems.
+"""
+
+
+class AtomicSaver:
+    """``AtomicSaver`` is a configurable `context manager`_ that provides
+    a writable :class:`file` which will be moved into place as long as
+    no exceptions are raised within the context manager's block. These
+    "part files" are created in the same directory as the destination
+    path to ensure atomic move operations (i.e., no cross-filesystem

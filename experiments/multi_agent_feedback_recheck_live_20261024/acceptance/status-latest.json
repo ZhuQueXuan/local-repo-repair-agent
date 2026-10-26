@@ -1,0 +1,33 @@
+{
+  "run": {
+    "id": "f39175da50354f87a7cf5386c0b16b3a",
+    "status": "failed",
+    "stage": "done",
+    "reason": "Stage failure: ValidationError; previous legal candidate and its actual independent assessment are retained.",
+    "repair_result": "passed",
+    "review_verdict": "unavailable"
+  },
+  "roles": [
+    {
+      "phase": "repairing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "phase": "reviewing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "phase": "revising",
+      "status": "failed",
+      "reason": "Stage failure: ValidationError"
+    },
+    {
+      "phase": "final_review",
+      "status": "skipped",
+      "reason": "Stage failure: ValidationError"
+    }
+  ],
+  "receipts_attached": true
+}

@@ -1,0 +1,1 @@
+The output keeps getting truncated. Let me read the raw file directly with a narrower range.

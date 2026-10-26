@@ -1,0 +1,51 @@
+
+    def decorator(f: t.Callable[..., t.Any]) -> Command:
+        if isinstance(f, Command):
+            raise TypeError("Attempted to convert a callback into a command twice.")
+
+        attr_params = attrs.pop("params", None)
+        params = attr_params if attr_params is not None else []
+
+        try:
+            decorator_params = f.__click_params__  # type: ignore
+        except AttributeError:
+            pass
+        else:
+            del f.__click_params__  # type: ignore
+            params.extend(reversed(decorator_params))
+
+        if attrs.get("help") is None:
+            attrs["help"] = f.__doc__
+
+        cmd = cls(  # type: ignore[misc]
+            name=name or f.__name__.lower().replace("_", "-"),  # type: ignore[arg-type]
+            callback=f,
+            params=params,
+            **attrs,
+        )
+        cmd.__doc__ = f.__doc__
+        return cmd
+
+    if func is not None:
+        return decorator(func)
+
+    return decorator
+
+
+@t.overload
+def group(
+    __func: t.Callable[..., t.Any],
+) -> Group:
+    ...
+
+
+@t.overload
+def group(
+    name: t.Optional[str] = None,
+    **attrs: t.Any,
+) -> t.Callable[[F], Group]:
+    ...
+
+
+def group(
+    name: t.Union[str, t.Callable[..., t.Any], None] = None, **attrs: t.Any

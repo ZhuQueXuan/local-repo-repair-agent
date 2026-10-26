@@ -1,0 +1,26 @@
+
+    def _balance_list(self, list_idx):
+        if list_idx < 0:
+            list_idx += len(self.lists)
+        cur_list, len_self = self.lists[list_idx], len(self)
+        size_limit = self._cur_size_limit
+        if len(cur_list) > size_limit:
+            half_limit = size_limit // 2
+            while len(cur_list) > half_limit:
+                next_list_idx = list_idx + 1
+                self.lists.insert(next_list_idx, cur_list[-half_limit:])
+                del cur_list[-half_limit:]
+            return True
+        return False
+
+    def insert(self, index, item):
+        if len(self.lists) == 1:
+            self.lists[0].insert(index, item)
+            self._balance_list(0)
+        else:
+            list_idx, rel_idx = self._translate_index(index)
+            if list_idx is None:
+                raise IndexError()
+            self.lists[list_idx].insert(rel_idx, item)
+            self._balance_list(list_idx)
+        return

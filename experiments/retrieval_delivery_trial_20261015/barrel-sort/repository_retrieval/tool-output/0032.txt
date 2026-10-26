@@ -1,0 +1,7 @@
+98:    def __init__(self, iterable=None):
+104:    def _cur_size_limit(self):
+121:    def _balance_list(self, list_idx):
+125:        size_limit = self._cur_size_limit
+135:    def insert(self, index, item):
+147:    def append(self, item):
+150:    def extend(self, iterable):

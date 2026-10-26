@@ -1,0 +1,23 @@
+/d/myDocu/project_postg/shixi_project/tasks/click-custom-command/temp/run_20261014_220504_179164/repo
+CHANGES.rst
+CODE_OF_CONDUCT.md
+CONTRIBUTING.rst
+LICENSE.rst
+MANIFEST.in
+README.rst
+TASK.md
+artwork
+docs
+examples
+requirements
+setup.cfg
+setup.py
+src
+task_checks
+temp
+tests
+tox.ini
+---
+click
+---
+1c440f5 Frozen task baseline

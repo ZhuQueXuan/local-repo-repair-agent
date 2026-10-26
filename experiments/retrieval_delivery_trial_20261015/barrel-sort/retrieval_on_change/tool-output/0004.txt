@@ -1,0 +1,40 @@
+99:        self.lists = [[]]
+111:        rel_idx, lists = index, self.lists
+123:            list_idx += len(self.lists)
+124:        cur_list, len_self = self.lists[list_idx], len(self)
+130:                self.lists.insert(next_list_idx, cur_list[-half_limit:])
+136:        if len(self.lists) == 1:
+137:            self.lists[0].insert(index, item)
+143:            self.lists[list_idx].insert(rel_idx, item)
+148:        self.lists[-1].append(item)
+151:        self.lists[-1].extend(iterable)
+154:        lists = self.lists
+156:            return self.lists[0].pop()
+172:        # start_list_idx, stop_list_idx = 0, len(self.lists)
+193:            self.lists[0][:] = new_list
+208:            del self.lists[start_list_idx][start_rel_idx:stop_rel_idx]
+210:            del self.lists[start_list_idx + 1:stop_list_idx]
+211:            del self.lists[start_list_idx][start_rel_idx:]
+212:            del self.lists[stop_list_idx][:stop_rel_idx]
+224:        return chain.from_iterable(self.lists)
+227:        return chain.from_iterable(reversed(l) for l in reversed(self.lists))
+230:        return sum([len(l) for l in self.lists])
+233:        for cur in self.lists:
+250:        return self.lists[list_idx][rel_idx]
+263:        del self.lists[list_idx][rel_idx]
+271:            if len(self.lists) == 1:
+272:                self.lists[0][index] = item
+276:                self.lists[:] = [tmp]
+282:        self.lists[list_idx][rel_idx] = item
+289:        if len(self.lists) == 1:
+290:            self.lists[0][start:stop] = sequence
+294:            self.lists[:] = [tmp]
+304:        if len(self.lists) == 1:
+305:            self.lists[0].sort()
+307:            for li in self.lists:
+309:            tmp_sorted = sorted(chain.from_iterable(self.lists))
+310:            del self.lists[:]
+311:            self.lists[0] = tmp_sorted
+315:        for cur in self.lists:
+317:        self.lists.reverse()
+320:        return sum([cur.count(item) for cur in self.lists])

@@ -1,0 +1,18 @@
+        self.type = types.convert_type(type, default)
+
+        # Default nargs to what the type tells us if we have that
+        # information available.
+        if nargs is None:
+            if self.type.is_composite:
+                nargs = self.type.arity
+            else:
+                nargs = 1
+
+        self.required = required
+        self.callback = callback
+        self.nargs = nargs
+        self.multiple = multiple
+        self.expose_value = expose_value
+        self.default = default
+        self.is_eager = is_eager
+        self.metavar = metavar

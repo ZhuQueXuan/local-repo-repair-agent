@@ -1,0 +1,37 @@
+{
+  "task_id": "boltons-file-pathlike-383",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_144325_236692\\repo",
+  "git_root_verified": true,
+  "pipefail_verified": true,
+  "variant": "adaptive_history",
+  "tool_output_budget": {
+    "max_output_bytes": 1024
+  },
+  "context_budget": {
+    "target_bytes": 12288,
+    "keep_recent_tool_outputs": 4,
+    "compact_completed_exchanges": true,
+    "retained_audit_entries": 3,
+    "compact_to_target": true
+  },
+  "archive_assistant_content": true,
+  "task_state": {
+    "guard_enabled": true,
+    "repeated_read_threshold": 3,
+    "blocked_read_threshold": 3,
+    "include_previews_in_requests": false
+  },
+  "external_model_requests": 0,
+  "budget": {
+    "max_requests": null,
+    "max_total_cost_cny": 15.0,
+    "accounted_cost_and_reservations_cny": 5.742262,
+    "remaining_cny": 9.257738,
+    "blocked": false
+  },
+  "evaluation_freeze": {
+    "manifest": "configs/new_task_evaluation_20261010.freeze.json",
+    "sha256": "ff73958007958ce5899b6ff98c4ecc59e2a0cad1dda94380ab9c23de70e50840",
+    "verified_files": 307
+  }
+}

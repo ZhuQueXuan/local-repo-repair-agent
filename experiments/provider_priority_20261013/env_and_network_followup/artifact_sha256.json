@@ -1,0 +1,8 @@
+{
+  "network_diagnosis.json": "de55c65f4299556c899a4bba89d4aa698a5000d44fd515a2d4441b0986aadb3f",
+  "offline_checks.log": "b597caaeca3701576105b8c69d0ca1548568812c1eae11b41de20bb23430992e",
+  "provider_priority.json": "47724cc0683a3a807715e51983e97bfe7346b1cd720febce925d840e2d026072",
+  "provider_priority.py": "1090562f72045fd53b1353a8aeae786971da4da808f8bfdc72ff4fbba0b43c5e",
+  "summary.json": "e5a3017cd2b3e889a09f3ea487bedeaa01e235833e1cbff19f198fad564ad574",
+  "test_provider_priority.py": "4a24ff83bc9bb6d4106a6772ac47c3ec8604f600241b16defdd5a768b8e1e718"
+}

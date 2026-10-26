@@ -1,0 +1,1 @@
+{"hypothesis": "AtomicSaver.__init__ uses raw dest_path in `dest_path + '.part'` (fails for Path/PathLike); iter_find_files uses directory.split(os.path.sep) (fails for Path). Fix: coerce via os.fspath in both.", "next_action": "Apply os.fspath coercion in AtomicSaver.__init__ and iter_find_files, then run tests."}

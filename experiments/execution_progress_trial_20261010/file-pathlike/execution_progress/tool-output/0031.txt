@@ -1,0 +1,26 @@
+
+    .. _glob: https://en.wikipedia.org/wiki/Glob_%28programming%29
+
+    """
+    if isinstance(patterns, str):
+        patterns = [patterns]
+    pats_re = re.compile('|'.join([fnmatch.translate(p) for p in patterns]))
+
+    if not ignored:
+        ignored = []
+    elif isinstance(ignored, str):
+        ignored = [ignored]
+    ign_re = re.compile('|'.join([fnmatch.translate(p) for p in ignored]))
+    start_depth = len(directory.split(os.path.sep))
+    for root, dirs, files in os.walk(directory):
+        if max_depth is not None and (len(root.split(os.path.sep)) - start_depth) > max_depth:
+            continue
+        if include_dirs:
+            for basename in dirs:
+                if pats_re.match(basename):
+                    if ignored and ign_re.match(basename):
+                        continue
+                    filename = os.path.join(root, basename)
+                    yield filename
+
+        for basename in files:

@@ -1,0 +1,10 @@
+{
+  "adapter/scratch/tmphrd82xcd/test.txt": "a1fff0ffefb9eace7230c24e50731f0a91c62f9cefdfe77121c2f607125dffae",
+  "adapter/upstream_junit.xml": "22392bbfa33160e7f4ddcc2d1c13081153f8f37bf5c7308b517104a77c403bf5",
+  "adapter/upstream_results.json": "3f671b30be656c2d07438e74d56344bf8a5f34601d9af6e6f8e6887e09f7269b",
+  "adapter.log": "87fb6a44dfe07baa6869bde1fc464cb1d4919f1e57e21e56d1725a2f1ae4caa1",
+  "inventory.json": "71107729ba531a3d61ee2b98763901aa3f4d2b983738fd1554f0f5a000b6bdc8",
+  "protected_after.json": "a04fbb0fc73280271b351dd975a891ea9ad672fa0308825a82caecf639cd729c",
+  "protected_before.json": "a04fbb0fc73280271b351dd975a891ea9ad672fa0308825a82caecf639cd729c",
+  "summary.json": "4857a3c1007194ddf663141025cb413f43695a699bef532551dacb9add06778c"
+}

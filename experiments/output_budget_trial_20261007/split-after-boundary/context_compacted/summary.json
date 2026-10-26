@@ -1,0 +1,256 @@
+{
+  "task_id": "more-itertools-split-after-658",
+  "variant": "context_compacted",
+  "exit_status": "Submitted",
+  "limit_kind": null,
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\split-after-boundary\\temp\\run_20261007_222121_378843\\repo",
+  "requests": 11,
+  "estimated_cost_cny": 0.057284,
+  "usage": [
+    {
+      "prompt_tokens": 646,
+      "completion_tokens": 90,
+      "estimated_cost_cny": 0.002012,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 870,
+      "completion_tokens": 66,
+      "estimated_cost_cny": 0.002268,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1280,
+      "completion_tokens": 66,
+      "estimated_cost_cny": 0.003088,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1639,
+      "completion_tokens": 66,
+      "estimated_cost_cny": 0.003806,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1969,
+      "completion_tokens": 264,
+      "estimated_cost_cny": 0.00605,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2307,
+      "completion_tokens": 222,
+      "estimated_cost_cny": 0.00639,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2557,
+      "completion_tokens": 270,
+      "estimated_cost_cny": 0.007274,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2910,
+      "completion_tokens": 82,
+      "estimated_cost_cny": 0.006476,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3099,
+      "completion_tokens": 71,
+      "estimated_cost_cny": 0.006766,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2626,
+      "completion_tokens": 71,
+      "estimated_cost_cny": 0.00582,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2871,
+      "completion_tokens": 199,
+      "estimated_cost_cny": 0.007334,
+      "response_model": "deepseek-flash"
+    }
+  ],
+  "request_measurements": [
+    {
+      "next_request": 1,
+      "message_utf8_bytes": 1689,
+      "http_attempted": true
+    },
+    {
+      "next_request": 2,
+      "message_utf8_bytes": 2621,
+      "http_attempted": true
+    },
+    {
+      "next_request": 3,
+      "message_utf8_bytes": 4165,
+      "http_attempted": true
+    },
+    {
+      "next_request": 4,
+      "message_utf8_bytes": 5717,
+      "http_attempted": true
+    },
+    {
+      "next_request": 5,
+      "message_utf8_bytes": 7040,
+      "http_attempted": true
+    },
+    {
+      "next_request": 6,
+      "message_utf8_bytes": 8208,
+      "http_attempted": true
+    },
+    {
+      "next_request": 7,
+      "message_utf8_bytes": 9452,
+      "http_attempted": true
+    },
+    {
+      "next_request": 8,
+      "message_utf8_bytes": 10612,
+      "http_attempted": true
+    },
+    {
+      "next_request": 9,
+      "message_utf8_bytes": 11518,
+      "http_attempted": true
+    },
+    {
+      "next_request": 10,
+      "message_utf8_bytes": 9622,
+      "http_attempted": true
+    },
+    {
+      "next_request": 11,
+      "message_utf8_bytes": 10727,
+      "http_attempted": true
+    }
+  ],
+  "tool_output_statistics": {
+    "observations": 11,
+    "truncated_observations": 2,
+    "raw_output_bytes": 6580,
+    "visible_output_bytes": 4984,
+    "max_visible_output_bytes": 1024,
+    "per_output_budget_bytes": 1024
+  },
+  "context_projections": [
+    {
+      "before_bytes": 1689,
+      "after_bytes": 1689,
+      "target_bytes": 12288,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 2621,
+      "after_bytes": 2621,
+      "target_bytes": 12288,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 4165,
+      "after_bytes": 4165,
+      "target_bytes": 12288,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 5717,
+      "after_bytes": 5717,
+      "target_bytes": 12288,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 7040,
+      "after_bytes": 7040,
+      "target_bytes": 12288,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 8208,
+      "after_bytes": 8208,
+      "target_bytes": 12288,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 9452,
+      "after_bytes": 9452,
+      "target_bytes": 12288,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 10612,
+      "after_bytes": 10612,
+      "target_bytes": 12288,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 11518,
+      "after_bytes": 11518,
+      "target_bytes": 12288,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 12796,
+      "after_bytes": 9622,
+      "target_bytes": 12288,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 13901,
+      "after_bytes": 10727,
+      "target_bytes": 12288,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        }
+      ]
+    }
+  ],
+  "elapsed_seconds": 14.015,
+  "changed_files": [
+    "more_itertools/more.py"
+  ],
+  "unexpected_changes": [],
+  "checks_and_description_unchanged": true,
+  "task_tests_passed": true,
+  "new_full_suite_failures": [],
+  "patch_replay_passed": true,
+  "repair_verified": true,
+  "shared_budget": {
+    "max_requests": null,
+    "max_total_cost_cny": 5.0,
+    "accounted_cost_and_reservations_cny": 2.057514,
+    "remaining_cny": 2.942486,
+    "blocked": false
+  },
+  "scope": "Public historical development task; not SWE-bench or a held-out benchmark. Memorization possible."
+}

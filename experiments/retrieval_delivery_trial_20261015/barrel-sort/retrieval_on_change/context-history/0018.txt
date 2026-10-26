@@ -1,0 +1,1 @@
+Still one list. The `_size_factor` is 1520, so the limit is large. I need a much bigger input to force multiple lists. Let me check `_cur_size_limit` and force splitting.

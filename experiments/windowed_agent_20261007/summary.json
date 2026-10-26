@@ -1,0 +1,98 @@
+{
+  "batch_id": "windowed_first_20261007",
+  "task_id": "more-itertools-windowed-empty-462",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\windowed-empty\\temp\\run_20261007_204029_209742\\repo",
+  "base_commit": "484401f5a056243be2508e2a6af598f7e4e99782",
+  "exit_status": "Submitted",
+  "requests": 9,
+  "usage": [
+    {
+      "prompt_tokens": 648,
+      "completion_tokens": 89,
+      "estimated_cost_cny": 0.002008,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 876,
+      "completion_tokens": 64,
+      "estimated_cost_cny": 0.002264,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1805,
+      "completion_tokens": 279,
+      "estimated_cost_cny": 0.005842,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2229,
+      "completion_tokens": 226,
+      "estimated_cost_cny": 0.006266,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2501,
+      "completion_tokens": 251,
+      "estimated_cost_cny": 0.00701,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2881,
+      "completion_tokens": 83,
+      "estimated_cost_cny": 0.006426,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3185,
+      "completion_tokens": 71,
+      "estimated_cost_cny": 0.006938,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3510,
+      "completion_tokens": 78,
+      "estimated_cost_cny": 0.007644,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3741,
+      "completion_tokens": 201,
+      "estimated_cost_cny": 0.00909,
+      "response_model": "deepseek-flash"
+    }
+  ],
+  "prompt_tokens": 21376,
+  "completion_tokens": 1342,
+  "estimated_cost_cny": 0.053488,
+  "reserved_cost_cny": 0.9,
+  "elapsed_seconds_estimate": 14.697,
+  "elapsed_source": "Approximate run duration from result-file timestamps; monotonic timer lost at postprocessing interruption.",
+  "changed_files": [
+    "more_itertools/more.py"
+  ],
+  "non_source_changes": [],
+  "extra_files_outside_temp": [],
+  "protected_tests_unchanged": true,
+  "issue_checks_unchanged": true,
+  "issue_description_unchanged": true,
+  "frozen_source_unchanged": true,
+  "old_ledger_unchanged": true,
+  "task_tests_passed": true,
+  "task_tests": 16,
+  "full_suite_tests": 660,
+  "full_suite_passed": 659,
+  "full_suite_failures": [
+    "test_more.TimeLimitedTests.test_zero_limit"
+  ],
+  "full_suite_errors": [],
+  "new_full_suite_failures": [],
+  "repair_verified": true,
+  "collection_issue": {
+    "type": "AssertionError",
+    "cause": "Git metadata was included in the extra-source-file check.",
+    "fixed_in_runner": true,
+    "recovered_without_new_model_requests": true
+  },
+  "scope": "One historical selected Windows task; not SWE-bench or proof of general improvement.",
+  "patch_reproduced_on_fresh_copy": true
+}

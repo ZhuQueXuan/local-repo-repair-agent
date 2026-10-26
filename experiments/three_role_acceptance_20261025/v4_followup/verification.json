@@ -1,0 +1,122 @@
+{
+  "run_id": "e023e166a7384b43a274945a53327dcd",
+  "status": "failed",
+  "reason": "Stage failure: ProtocolError",
+  "old_payloads_byte_identical": 49,
+  "current_formal_rows": 50,
+  "old_ledger_requests_unchanged": 1894,
+  "new_ledger_requests": 6,
+  "metrics": {
+    "attempts": 6,
+    "by_role": {
+      "a0f4da6faca547319bc8cfa98fbf8201": {
+        "attempts": 6,
+        "complete_cost_estimate_cny": null,
+        "has_unknown_usage": true,
+        "known_completion_tokens": 3241,
+        "known_price_estimate_cny": 0.067806,
+        "known_prompt_tokens": 20939,
+        "logical_requests": 5,
+        "tickets": [
+          "2c4c1dd515394b5e804bcb11f99843e4",
+          "50b86efe972f43ada4ecf7b83b526d6f",
+          "69596fd4a3f94a9bbc9ef55cd9209152",
+          "9275c59965534ea080e7363a379aea54",
+          "b2a2fdcbe43948bd8c35c6a27dab553b",
+          "d2d86b28249d4308a71fabe1dd0194df"
+        ],
+        "unknown_cost_attempts": 1,
+        "unknown_placeholder_cny": 0.1
+      }
+    },
+    "complete_cost_estimate_cny": null,
+    "cost_scope": "Known-price estimates plus unknown placeholders; not confirmed charges or platform balance.",
+    "has_unknown_usage": true,
+    "known_completion_tokens": 3241,
+    "known_price_estimate_cny": 0.067806,
+    "known_prompt_tokens": 20939,
+    "logical_requests": 5,
+    "tickets": [
+      "2c4c1dd515394b5e804bcb11f99843e4",
+      "50b86efe972f43ada4ecf7b83b526d6f",
+      "69596fd4a3f94a9bbc9ef55cd9209152",
+      "9275c59965534ea080e7363a379aea54",
+      "b2a2fdcbe43948bd8c35c6a27dab553b",
+      "d2d86b28249d4308a71fabe1dd0194df"
+    ],
+    "total_elapsed_seconds": 18.593,
+    "unknown_cost_attempts": 1,
+    "unknown_placeholder_cny": 0.1
+  },
+  "frozen_input_files_verified": 184,
+  "browser_read_only_checks": {
+    "browser": "Edge extension",
+    "url": "http://127.0.0.1:8765/",
+    "selectedRun": "e023e166a7384b43a274945a53327dcd",
+    "documentQuestionVisible": true,
+    "collaborationHint": "文档查阅者先回答一个明确问题并提供原文 → 修复者 → 独立审查 → 至多一次返工/复核。文档说明不代替测试，缺资料明确返回未知；全部角色计费。这是实验功能，实际完成情况和失败原因按各次运行展示，尚无新题效果比较结论。",
+    "status": "三角色：文档查阅 → 修复 → 审查（实验）；完成情况见各角色状态。 协作：not_completed；审查不可用 最终候选：尚无最终验收版本",
+    "consultation": "尚无文档查阅结果；不补造依据。",
+    "candidate": "候选尚未封存；不能展示其他运行的补丁。",
+    "priorRunConsultationOpened": true,
+    "priorRunCandidateAndAssessmentRead": true,
+    "roleFilterSelected": "文档查阅者",
+    "createdNewTaskViaBrowser": false
+  },
+  "offline_actual_failure_correction": {
+    "corrected_status": "answered",
+    "external_model_calls": 0,
+    "old_trajectory_unchanged": true,
+    "original_sha256": "32e71f3b39c1ba6675c6faea45109154069554bb229a31579653b1e1f2212d2a",
+    "rejection": {
+      "correction": "The COMPLETE handoff includes your answer, question, metadata and ALL selected exact excerpts. Keep only essential evidence_ids, shorten the answer/unknowns, or read narrower line ranges to obtain smaller issued evidence. Then resubmit alone within the original deadline. Do not change version bindings or invent citations.",
+      "error_type": "DocumentHandoffTooLarge",
+      "limit_bytes": 6144,
+      "payload_bytes": 7561,
+      "reason": "document_handoff_too_large",
+      "status": "rejected"
+    },
+    "run_id": "e023e166a7384b43a274945a53327dcd",
+    "same_version_bindings": true,
+    "scope": "Actual rejected draft, followed by a scripted manual correction; NOT a live-model success.",
+    "scripted_actions": 3
+  },
+  "new_fix_live_verified": false,
+  "new_comparison_runs": 0,
+  "extra_real_identities_after_v4": 0,
+  "approval": "Explicit user confirmation for this v4 and external content/destinations/accounting; rejection resolved before dispatch.",
+  "regression": {
+    "directories": {
+      "default": "temp\\regression\\20261025_222643_977bc391",
+      "adapter": "temp\\regression\\20261025_223126_40f62046"
+    },
+    "native_passed": 301,
+    "project_tests_run": 403,
+    "project_passed": 402,
+    "project_skipped": 1,
+    "project_seconds": 264.243,
+    "adapter_counts": {
+      "passed": 169,
+      "failed": 6,
+      "skipped": 1
+    },
+    "adapter_same_six_failures": [
+      "tests/environments/test_local.py::test_local_environment_custom_cwd",
+      "tests/environments/test_local.py::test_local_environment_cwd_parameter_override",
+      "tests/environments/test_local.py::test_local_environment_default_cwd",
+      "tests/environments/test_local.py::test_local_environment_env_variable_override",
+      "tests/environments/test_local.py::test_local_environment_existing_env_variables",
+      "tests/environments/test_local.py::test_local_environment_set_env_variables"
+    ],
+    "protected_files_unchanged": true,
+    "first_failure_log_preserved": "temp/regression/20261025_221956_f1686c12/project.log",
+    "first_failure": "test_deadline_stops_after_cooperative_callback_without_next_role: real 1ms allowance expired before callback; fixture now advances controlled clock after callback."
+  },
+  "next_identity_preparation": {
+    "directory": "temp\\multi_agent_finish_20261025\\handoff_feedback_v5b",
+    "frozen_files": 142,
+    "current_code_matches": true,
+    "dispatched": false,
+    "new_external_authorization_required": true
+  }
+}

@@ -1,0 +1,14 @@
+diff --git a/boltons/listutils.py b/boltons/listutils.py
+index 06b9da2..50355e0 100644
+--- a/boltons/listutils.py
++++ b/boltons/listutils.py
+@@ -307,8 +307,7 @@ class BarrelList(list):
+             for li in self.lists:
+                 li.sort()
+             tmp_sorted = sorted(chain.from_iterable(self.lists))
+-            del self.lists[:]
+-            self.lists[0] = tmp_sorted
++            self.lists[:] = [tmp_sorted]
+             self._balance_list(0)
+ 
+     def reverse(self):

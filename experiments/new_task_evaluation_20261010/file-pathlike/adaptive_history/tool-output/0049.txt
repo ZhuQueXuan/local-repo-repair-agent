@@ -1,0 +1,11 @@
+    """
+    return AtomicSaver(dest_path, **kwargs)
+
+
+def path_to_unicode(path):
+    if isinstance(path, str):
+        return path
+    encoding = sys.getfilesystemencoding() or sys.getdefaultencoding()
+    return path.decode(encoding)
+
+

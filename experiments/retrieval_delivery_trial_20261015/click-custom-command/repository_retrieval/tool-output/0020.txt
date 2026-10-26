@@ -1,0 +1,50 @@
+1886 
+1887         .. versionchanged:: 8.0
+1888             Added the :attr:`group_class` attribute.
+1889         """
+1890         from .decorators import group
+1891 
+1892         func: t.Optional[t.Callable] = None
+1893 
+1894         if args and callable(args[0]):
+1895             assert (
+1896                 len(args) == 1 and not kwargs
+1897             ), "Use 'group(**kwargs)(callable)' to provide arguments."
+1898             (func,) = args
+1899             args = ()
+1900 
+1901         if self.group_class is not None and kwargs.get("cls") is None:
+1902             if self.group_class is type:
+1903                 kwargs["cls"] = type(self)
+1904             else:
+1905                 kwargs["cls"] = self.group_class
+1906 
+1907         def decorator(f: t.Callable[..., t.Any]) -> "Group":
+1908             cmd: Group = group(*args, **kwargs)(f)
+1909             self.add_command(cmd)
+1910             return cmd
+1911 
+1912         if func is not None:
+1913             return decorator(func)
+1914 
+1915         return decorator
+1916 
+1917     def get_command(self, ctx: Context, cmd_name: str) -> t.Optional[Command]:
+1918         return self.commands.get(cmd_name)
+1919 
+1920     def list_commands(self, ctx: Context) -> t.List[str]:
+1921         return sorted(self.commands)
+1922 
+1923 
+1924 class CommandCollection(MultiCommand):
+1925     """A command collection is a multi command that merges multiple multi
+1926     commands together into one.  This is a straightforward implementation
+1927     that accepts a list of different multi commands as sources and
+1928     provides all the commands for each of them.
+1929     """
+1930 
+1931     def __init__(
+1932         self,
+1933         name: t.Optional[str] = None,
+1934         sources: t.Optional[t.List[MultiCommand]] = None,
+1935         **attrs: t.Any,

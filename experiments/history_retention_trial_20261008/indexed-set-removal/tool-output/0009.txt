@@ -1,0 +1,32 @@
+204     def __len__(self):
+205         return len(self.item_index_map)
+206 
+207     def __contains__(self, item):
+208         return item in self.item_index_map
+209 
+210     def __iter__(self):
+211         return (item for item in self.item_list if item is not _MISSING)
+212 
+213     def __reversed__(self):
+214         item_list = self.item_list
+215         return (item for item in reversed(item_list) if item is not _MISSING)
+216 
+217     def __repr__(self):
+218         return f'{self.__class__.__name__}({list(self)!r})'
+219 
+220     def __eq__(self, other):
+221         if isinstance(other, IndexedSet):
+222             return len(self) == len(other) and list(self) == list(other)
+223         try:
+224             return set(self) == set(other)
+225         except TypeError:
+226             return False
+227 
+228     @classmethod
+229     def from_iterable(cls, it):
+230         "from_iterable(it) -> create a set from an iterable"
+231         return cls(it)
+232 
+233     # set operations
+234     def add(self, item):
+235         "add(item) -> add item to the set"

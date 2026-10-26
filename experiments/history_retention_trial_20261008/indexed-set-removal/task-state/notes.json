@@ -1,0 +1,1 @@
+{"hypothesis": "iter_slice converts apparent start/stop to real indices but then iterates over self (apparent items), so positive-step slices are wrong after removals. Fix: for positive step, use apparent indices directly with islice(self,...); keep negative-step path unchanged.", "next_action": "Edit iter_slice to only convert indices for negative step."}

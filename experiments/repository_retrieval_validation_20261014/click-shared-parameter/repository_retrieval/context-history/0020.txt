@@ -1,0 +1,1 @@
+Now I can see the code. The bug: `attrs.pop("cls", None)` mutates the shared `attrs` dict. When the decorator is reused across commands, the first call pops `cls`, so subsequent calls get `None` and fall back to the built-in class. Let me confirm and check the `argument` version too.

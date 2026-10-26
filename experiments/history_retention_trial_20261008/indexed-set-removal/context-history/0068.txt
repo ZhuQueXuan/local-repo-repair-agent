@@ -1,0 +1,1 @@
+For the positive-step path, I need to normalize negative start/stop to non-negative apparent indices (matching list slicing semantics). Let me update:

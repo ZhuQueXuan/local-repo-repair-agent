@@ -1,0 +1,23 @@
+{
+  "acceptance-collaboration.json": "00b578e68e5767e53ac01d3d801eecba26cc0f02dcea6919a75964497e79b2e0",
+  "acceptance-dispatched.json": "f996268fe7d1b4e758b270b0884dba29c6fb4098dd7e3f8ae89d53b04fb01621",
+  "acceptance-parent.json": "91a62efd8f2c693cc1dfd3b5dd976f2164c3abdd3672fbab419eb9448c2e3649",
+  "acceptance-result.json": "d67bfdcf7f9a0c29931dadaa1298c4aaf1263f3d6a78b55be53fd0b233fab633",
+  "adapter-verification.json": "3ef376a4175cf775d68f059e4ad835f6629923ba6b6e778ed5be352d9cd1c3c2",
+  "before-real-acceptance.sqlite3": "eb5e37e18ca2b1a50b7e085612b82ccbdd95b68d91ee6d132ffddcc187f30f78",
+  "before-real-ledger.json": "f9e6527c5a7b246a79c52a6c6bc6cb06d3be625577d425fefff9ecbb68036093",
+  "before-real-payloads.json": "5c8b6277926d23cff2c7291fdc5bac2c24f145a57b5e3b35cc53963c366addbf",
+  "browser-current-failure.jpg": "53a4e9908d7751d6c2964fc2cbf2d9e5f82ab8d30d679c7bf02d89f5701471cb",
+  "browser-verification.json": "ad502a0500e23c67d4ac87bc224458663b68c56fa5269f7296b6ac4810b674c2",
+  "candidate-snapshot-register.json": "bf45dfa478737986e253b36494aae9c6535d998c0ae6a08b8fd0937517561ca8",
+  "final-formal-store.sqlite3": "627e6b4a06df6a92a4abd9a0df2d4331dc4e36659f2b1d3d7dc9933aa74cac08",
+  "final-parent.json": "d67bfdcf7f9a0c29931dadaa1298c4aaf1263f3d6a78b55be53fd0b233fab633",
+  "final-shared-ledger.json": "a15dc9e393cf5dfa04c265c386cc2c2eb1f7714a539234335b78857d4d50a51d",
+  "offline-cycle-trajectory.json": "984cf4946412620ca10d407c25fed2574b4749a17478431aee0e16bd3706ff54",
+  "offline-finalize-results.json": "5c961d1a46d822c3bac95f262cfc43ffaf539818988394aedde9557569df0a56",
+  "offline-replay-result.json": "3c82cdb87ccec099c015918d86134f092a8cae4089c606cd1e7293e4de7ef806",
+  "restored-panel.json": "620eb8f278eea5d3e7c770b0bf850b370927ff5e6784d98878f52d2c2bb467ef",
+  "restored-panel.log": "f77f1c9a4d608821d2888c0e2c1f038d64c2895e04dc7a44dfbd954589229e90",
+  "three-role-acceptance-plan.json": "19a3b8c9e1f3253c5c01b3c554b3e797de1811c36412285148d188161173cc15",
+  "verification.json": "8314ef55b0e613d3207fccb911047e7fc31417741b1ea50af44f56730dd63687"
+}

@@ -1,0 +1,21 @@
+        if kwargs:
+            raise TypeError(f'unexpected kwargs: {kwargs.keys()!r}')
+
+        self.dest_path = os.path.abspath(self.dest_path)
+        self.dest_dir = os.path.dirname(self.dest_path)
+        if not self.part_filename:
+            self.part_path = dest_path + '.part'
+        else:
+            self.part_path = os.path.join(self.dest_dir, self.part_filename)
+        self.mode = 'w+' if self.text_mode else 'w+b'
+        self.open_flags = _TEXT_OPENFLAGS if self.text_mode else _BIN_OPENFLAGS
+
+        self.part_file = None
+
+    def _open_part_file(self):
+        do_chmod = True
+        file_perms = self.file_perms
+        if file_perms is None:
+            try:
+                # try to copy from file being replaced
+                stat_res = os.stat(self.dest_path)

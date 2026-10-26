@@ -1,0 +1,8 @@
+{
+  "url": "https://github.com/mahmoud/boltons/pull/455",
+  "title": "Pass encoding through to unquote in parse_qsl",
+  "body": "Same shape as #454, in `urlutils` this time. `parse_qsl` takes `encoding` and never passes it to `unquote`, so every query string is decoded as utf-8 whatever you ask for.\n\n```python\n>>> parse_qsl('k=%E9', encoding='latin-1')\n[('k', '�')]\n```\n\n`%E9` is `é` in latin-1 and not valid utf-8, so the byte is replaced instead of decoded. With the argument threaded through it comes back as `[('k', 'é')]`.\n\nThe module's own `unquote` already takes `encoding`. So it is two call sites and no new machinery, on keys as well as values, since a key can carry an encoded byte too.\n\nNothing changes by default: `DEFAULT_ENCODING` is `'utf8'` and `unquote` defaults to `'utf-8'`, which is the same codec.\n\nTest is `test_parse_qsl_encoding`, covering the latin-1 case and the unchanged default. Keys too. Suite goes 470 to 473 and `--doctest-modules` is 153 passing. Reverting `urlutils.py` fails that one test and nothing else.\n",
+  "base_commit": "967864f89791509f9eb36b22b4579d36b72a6df2",
+  "merge_commit": "d45cc414e33aa4e08a73e0993574df4397e2e9db",
+  "accessed_date": "2026-10-25"
+}

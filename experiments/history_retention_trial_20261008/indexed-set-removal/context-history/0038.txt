@@ -1,0 +1,3 @@
+Now I understand the bug fully. `iter_slice` converts `start`/`stop` to real indices via `_get_real_index`, but then applies them to `islice(iterable, ...)` where `iterable` is `self` (yielding apparent items). The conversion is wrong for positive steps.
+
+Let me check `_get_real_index` and `_get_apparent_index`:

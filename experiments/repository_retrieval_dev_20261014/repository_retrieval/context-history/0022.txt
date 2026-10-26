@@ -1,0 +1,1 @@
+Roundtrip works with stdlib json. So the failure must be with `simplejson` as the compat backend, OR the issue is about the `args`/message. Let me check the compat module and whether simplejson is installed.

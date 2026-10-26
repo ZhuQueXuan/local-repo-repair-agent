@@ -1,0 +1,1 @@
+The middle is being omitted. Let me read the file directly with a Python script that prints to a temp file, then read that.

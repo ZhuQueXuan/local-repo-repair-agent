@@ -1,0 +1,413 @@
+{
+  "indexed_files": 16,
+  "query_terms": [
+    "after",
+    "all",
+    "assertion",
+    "behave",
+    "call",
+    "callback",
+    "called",
+    "change",
+    "class",
+    "code",
+    "command",
+    "commands",
+    "common",
+    "concise",
+    "configured",
+    "consistently",
+    "construction",
+    "customization",
+    "decorator",
+    "during",
+    "equivalent",
+    "execute",
+    "explicit",
+    "extension",
+    "form",
+    "forms",
+    "group",
+    "groups",
+    "implementation",
+    "investigate",
+    "itself",
+    "keep",
+    "make",
+    "must",
+    "nested",
+    "no",
+    "ordinary",
+    "overrides",
+    "own",
+    "parent",
+    "parentheses",
+    "path",
+    "preserve",
+    "registered",
+    "registration",
+    "rejects",
+    "respect",
+    "same",
+    "so",
+    "supplies",
+    "support",
+    "two",
+    "use",
+    "valid",
+    "while",
+    "working",
+    "works"
+  ],
+  "hits": [
+    {
+      "path": "src/click/decorators.py",
+      "symbol": "group",
+      "start": 244,
+      "end": 261,
+      "matched_terms": [
+        "callback",
+        "class",
+        "command",
+        "decorator",
+        "group",
+        "parentheses",
+        "same",
+        "works"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 14.8775,
+      "sha256": "ca8df3bf38149b9abb8790978f257aab787f3c902251a7a6d7bf335f07565052",
+      "snippet": [
+        {
+          "line": 246,
+          "text": ") -> t.Union[Group, t.Callable[[F], Group]]:"
+        },
+        {
+          "line": 247,
+          "text": "    \"\"\"Creates a new :class:`Group` with a function as callback.  This"
+        },
+        {
+          "line": 248,
+          "text": "    works otherwise the same as :func:`command` just that the `cls`"
+        },
+        {
+          "line": 249,
+          "text": "    parameter is set to :class:`Group`."
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/core.py",
+      "symbol": "Command",
+      "start": 1133,
+      "end": 1439,
+      "matched_terms": [
+        "after",
+        "all",
+        "callback",
+        "class",
+        "command",
+        "commands",
+        "decorator",
+        "group",
+        "nested",
+        "no",
+        "overrides",
+        "parent",
+        "use"
+      ],
+      "import_neighbors": [
+        "src/click/decorators.py"
+      ],
+      "score": 14.6065,
+      "sha256": "9b3f3b6d810acc8a0d6046b9e8114088e267bedd58d0bfa2ef00f8fd979c89e1",
+      "snippet": [
+        {
+          "line": 1137,
+          "text": ""
+        },
+        {
+          "line": 1138,
+          "text": "    :param name: the name of the command to use unless a group overrides it."
+        },
+        {
+          "line": 1139,
+          "text": "    :param context_settings: an optional dictionary with defaults that are"
+        },
+        {
+          "line": 1140,
+          "text": "                             passed to the context object."
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/types.py",
+      "symbol": "Path",
+      "start": 753,
+      "end": 930,
+      "matched_terms": [
+        "all",
+        "class",
+        "keep",
+        "make",
+        "path",
+        "use",
+        "valid"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 12.18,
+      "sha256": "ac46f56994902aaddc8823268e91b652f6bdbe4e3df1744bed386b70ad8646cb",
+      "snippet": [
+        {
+          "line": 753,
+          "text": "class Path(ParamType):"
+        },
+        {
+          "line": 754,
+          "text": "    \"\"\"The ``Path`` type is similar to the :class:`File` type, but"
+        },
+        {
+          "line": 755,
+          "text": "    returns the filename instead of an open file. Various checks can be"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/utils.py",
+      "symbol": "KeepOpenFile",
+      "start": 185,
+      "end": 202,
+      "matched_terms": [
+        "class",
+        "keep"
+      ],
+      "import_neighbors": [
+        "src/click/decorators.py",
+        "src/click/core.py"
+      ],
+      "score": 5.6107,
+      "sha256": "df70fa13ba681ff9eb281fb1afe5320c45e7c4e702890ab1b912edaea795bfaa",
+      "snippet": [
+        {
+          "line": 185,
+          "text": "class KeepOpenFile:"
+        },
+        {
+          "line": 186,
+          "text": "    def __init__(self, file: t.IO) -> None:"
+        },
+        {
+          "line": 187,
+          "text": "        self._file = file"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/shell_completion.py",
+      "symbol": "get_completion_class",
+      "start": 417,
+      "end": 424,
+      "matched_terms": [
+        "class",
+        "registered"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 5.3658,
+      "sha256": "a8ea7f05e0bd7ac10e4992b2bb91bb448c4451a2ec5d45fe9936fb841d6be106",
+      "snippet": [
+        {
+          "line": 417,
+          "text": "def get_completion_class(shell: str) -> t.Optional[t.Type[ShellComplete]]:"
+        },
+        {
+          "line": 418,
+          "text": "    \"\"\"Look up a registered :class:`ShellComplete` subclass by the name"
+        },
+        {
+          "line": 419,
+          "text": "    provided by the completion instruction environment variable. If the"
+        },
+        {
+          "line": 420,
+          "text": "    name isn't registered, returns ``None``."
+        }
+      ],
+      "syntax_fallback": false
+    }
+  ],
+  "refreshed_files": [],
+  "removed_from_index": [],
+  "skipped": [],
+  "message_utf8_bytes": 1248,
+  "full_message_utf8_bytes": 3069,
+  "selected_hits": [
+    {
+      "path": "src/click/decorators.py",
+      "symbol": "group",
+      "start": 244,
+      "end": 261,
+      "matched_terms": [
+        "callback",
+        "class",
+        "command",
+        "decorator",
+        "group",
+        "parentheses",
+        "same",
+        "works"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 14.8775,
+      "sha256": "ca8df3bf38149b9abb8790978f257aab787f3c902251a7a6d7bf335f07565052",
+      "snippet": [
+        {
+          "line": 246,
+          "text": ") -> t.Union[Group, t.Callable[[F], Group]]:"
+        },
+        {
+          "line": 247,
+          "text": "    \"\"\"Creates a new :class:`Group` with a function as callback.  This"
+        },
+        {
+          "line": 248,
+          "text": "    works otherwise the same as :func:`command` just that the `cls`"
+        },
+        {
+          "line": 249,
+          "text": "    parameter is set to :class:`Group`."
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/core.py",
+      "symbol": "Command",
+      "start": 1133,
+      "end": 1439,
+      "matched_terms": [
+        "after",
+        "all",
+        "callback",
+        "class",
+        "command",
+        "commands",
+        "decorator",
+        "group",
+        "nested",
+        "no",
+        "overrides",
+        "parent",
+        "use"
+      ],
+      "import_neighbors": [
+        "src/click/decorators.py"
+      ],
+      "score": 14.6065,
+      "sha256": "9b3f3b6d810acc8a0d6046b9e8114088e267bedd58d0bfa2ef00f8fd979c89e1",
+      "snippet": [
+        {
+          "line": 1137,
+          "text": ""
+        },
+        {
+          "line": 1138,
+          "text": "    :param name: the name of the command to use unless a group overrides it."
+        },
+        {
+          "line": 1139,
+          "text": "    :param context_settings: an optional dictionary with defaults that are"
+        },
+        {
+          "line": 1140,
+          "text": "                             passed to the context object."
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/types.py",
+      "symbol": "Path",
+      "start": 753,
+      "end": 930,
+      "matched_terms": [
+        "all",
+        "class",
+        "keep",
+        "make",
+        "path",
+        "use",
+        "valid"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 12.18,
+      "sha256": "ac46f56994902aaddc8823268e91b652f6bdbe4e3df1744bed386b70ad8646cb",
+      "snippet": [
+        {
+          "line": 753,
+          "text": "class Path(ParamType):"
+        },
+        {
+          "line": 754,
+          "text": "    \"\"\"The ``Path`` type is similar to the :class:`File` type, but"
+        },
+        {
+          "line": 755,
+          "text": "    returns the filename instead of an open file. Various checks can be"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/utils.py",
+      "symbol": "KeepOpenFile",
+      "start": 185,
+      "end": 202,
+      "matched_terms": [
+        "class",
+        "keep"
+      ],
+      "import_neighbors": [
+        "src/click/decorators.py",
+        "src/click/core.py"
+      ],
+      "score": 5.6107,
+      "sha256": "df70fa13ba681ff9eb281fb1afe5320c45e7c4e702890ab1b912edaea795bfaa",
+      "snippet": [
+        {
+          "line": 185,
+          "text": "class KeepOpenFile:"
+        },
+        {
+          "line": 186,
+          "text": "    def __init__(self, file: t.IO) -> None:"
+        },
+        {
+          "line": 187,
+          "text": "        self._file = file"
+        }
+      ],
+      "syntax_fallback": false
+    }
+  ],
+  "projection": 11,
+  "preview": false,
+  "delivery_mode": "reference",
+  "delivery_reason": "selected_evidence_unchanged",
+  "snapshot": "temp/repository-retrieval/selected_5c0b0f951974c42aa3f71797dc8a2646026fbd172c109aabc84bc08653188ac0.json",
+  "snapshot_sha256": "5c0b0f951974c42aa3f71797dc8a2646026fbd172c109aabc84bc08653188ac0"
+}

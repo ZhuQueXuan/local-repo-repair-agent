@@ -1,0 +1,17 @@
+CHANGELOG.md
+LICENSE
+README.md
+TASK.md
+TODO.rst
+boltons
+docs
+misc
+pyproject.toml
+requirements-test.txt
+setup.cfg
+task_checks
+temp
+tests
+tox.ini
+/d/myDocu/project_postg/shixi_project/.venv/Scripts/python
+D:\myDocu\project_postg\shixi_project\.venv\Scripts\python.exe

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\run_task_batch.py", line 294, in <module>
+    main()
+  File "D:\myDocu\project_postg\shixi_project\scripts\run_task_batch.py", line 161, in main
+    baseline = evaluate(args.task, work, results / "baseline.json")
+  File "D:\myDocu\project_postg\shixi_project\scripts\run_task_batch.py", line 119, in evaluate
+    raise RuntimeError("Independent evaluation did not produce a report: exit " + str(result.returncode))
+RuntimeError: Independent evaluation did not produce a report: exit 1

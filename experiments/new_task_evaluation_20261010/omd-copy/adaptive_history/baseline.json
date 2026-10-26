@@ -1,0 +1,59 @@
+{
+  "task_id": "boltons-omd-copy-410",
+  "repo": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\temp\\run_20261010_144044_127082\\repo",
+  "imported_package": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\temp\\run_20261010_144044_127082\\repo\\boltons\\__init__.py",
+  "issue_checks": {
+    "tests_run": 9,
+    "subtests_run": 13,
+    "passed": 2,
+    "failed_test_methods": [
+      "frozen_behavior_checks.CopyBehavior.test_copy_container_is_independent",
+      "frozen_behavior_checks.CopyBehavior.test_deep_preserves_all_pairs",
+      "frozen_behavior_checks.CopyBehavior.test_deep_self_reference",
+      "frozen_behavior_checks.CopyBehavior.test_deep_values_independent_and_alias_preserved",
+      "frozen_behavior_checks.CopyBehavior.test_shallow_preserves_all_pairs",
+      "frozen_behavior_checks.CopyBehavior.test_shallow_shares_values",
+      "frozen_behavior_checks.CopyBehavior.test_subclass_preserved"
+    ],
+    "failures": [
+      "frozen_behavior_checks.CopyBehavior.test_copy_container_is_independent (copier='copy')",
+      "frozen_behavior_checks.CopyBehavior.test_copy_container_is_independent (copier='deepcopy')",
+      "frozen_behavior_checks.CopyBehavior.test_deep_preserves_all_pairs",
+      "frozen_behavior_checks.CopyBehavior.test_deep_self_reference",
+      "frozen_behavior_checks.CopyBehavior.test_deep_values_independent_and_alias_preserved",
+      "frozen_behavior_checks.CopyBehavior.test_shallow_preserves_all_pairs (pairs=[('a', 1), ('b', 2), ('a', 3), ('a', 3)])",
+      "frozen_behavior_checks.CopyBehavior.test_shallow_shares_values",
+      "frozen_behavior_checks.CopyBehavior.test_subclass_preserved (copier='copy')",
+      "frozen_behavior_checks.CopyBehavior.test_subclass_preserved (copier='deepcopy')"
+    ],
+    "errors": [],
+    "skipped": [],
+    "successful": false,
+    "output": "FFF..F\n======================================================================\nFAIL: test_copy_container_is_independent (frozen_behavior_checks.CopyBehavior) (copier='copy')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\checks\\test_behavior.py\", line 38, in test_copy_container_is_independent\n    self.assertEqual(copied.getlist('a'), [1, 3, 4])\nAssertionError: Lists differ: [3, 4] != [1, 3, 4]\n\nFirst differing element 0:\n3\n1\n\nSecond list contains 1 additional elements.\nFirst extra element 2:\n4\n\n- [3, 4]\n+ [1, 3, 4]\n?  +++\n\n\n======================================================================\nFAIL: test_copy_container_is_independent (frozen_behavior_checks.CopyBehavior) (copier='deepcopy')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\checks\\test_behavior.py\", line 38, in test_copy_container_is_independent\n    self.assertEqual(copied.getlist('a'), [1, 3, 4])\nAssertionError: Lists differ: [3, 4] != [1, 3, 4]\n\nFirst differing element 0:\n3\n1\n\nSecond list contains 1 additional elements.\nFirst extra element 2:\n4\n\n- [3, 4]\n+ [1, 3, 4]\n?  +++\n\n\n======================================================================\nFAIL: test_deep_preserves_all_pairs (frozen_behavior_checks.CopyBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\checks\\test_behavior.py\", line 19, in test_deep_preserves_all_pairs\n    self.assertEqual(list(copy.deepcopy(OMD(pairs)).items(multi=True)), pairs)\nAssertionError: Lists differ: [('a', 3), ('b', 2)] != [('a', 1), ('b', 2), ('a', 3)]\n\nFirst differing element 0:\n('a', 3)\n('a', 1)\n\nSecond list contains 1 additional elements.\nFirst extra element 2:\n('a', 3)\n\n- [('a', 3), ('b', 2)]\n?        ^\n\n+ [('a', 1), ('b', 2), ('a', 3)]\n?        ^           ++++++++++\n\n\n======================================================================\nFAIL: test_deep_self_reference (frozen_behavior_checks.CopyBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\checks\\test_behavior.py\", line 56, in test_deep_self_reference\n    self.assertEqual(copied.getlist('a'), [1, 2])\nAssertionError: Lists differ: [2] != [1, 2]\n\nFirst differing element 0:\n2\n1\n\nSecond list contains 1 additional elements.\nFirst extra element 1:\n2\n\n- [2]\n+ [1, 2]\n\n======================================================================\nFAIL: test_deep_values_independent_and_alias_preserved (frozen_behavior_checks.CopyBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\checks\\test_behavior.py\", line 45, in test_deep_values_independent_and_alias_preserved\n    self.assertIs(first, copied['b'])\nAssertionError: {'nested': [2]} is not {'nested': [1]}\n\n======================================================================\nFAIL: test_shallow_preserves_all_pairs (frozen_behavior_checks.CopyBehavior) (pairs=[('a', 1), ('b', 2), ('a', 3), ('a', 3)])\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\checks\\test_behavior.py\", line 14, in test_shallow_preserves_all_pairs\n    self.assertEqual(list(copied.items(multi=True)), pairs)\nAssertionError: Lists differ: [('a', 3), ('b', 2)] != [('a', 1), ('b', 2), ('a', 3), ('a', 3)]\n\nFirst differing element 0:\n('a', 3)\n('a', 1)\n\nSecond list contains 2 additional elements.\nFirst extra element 2:\n('a', 3)\n\n- [('a', 3), ('b', 2)]\n+ [('a', 1), ('b', 2), ('a', 3), ('a', 3)]\n\n======================================================================\nFAIL: test_shallow_shares_values (frozen_behavior_checks.CopyBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\checks\\test_behavior.py\", line 25, in test_shallow_shares_values\n    self.assertIs(copied.getlist('a')[0], shared)\nAssertionError: [2] is not [1]\n\n======================================================================\nFAIL: test_subclass_preserved (frozen_behavior_checks.CopyBehavior) (copier='copy')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\checks\\test_behavior.py\", line 65, in test_subclass_preserved\n    self.assertEqual(copied.getlist('a'), [1, 2])\nAssertionError: Lists differ: [2] != [1, 2]\n\nFirst differing element 0:\n2\n1\n\nSecond list contains 1 additional elements.\nFirst extra element 1:\n2\n\n- [2]\n+ [1, 2]\n\n======================================================================\nFAIL: test_subclass_preserved (frozen_behavior_checks.CopyBehavior) (copier='deepcopy')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\checks\\test_behavior.py\", line 65, in test_subclass_preserved\n    self.assertEqual(copied.getlist('a'), [1, 2])\nAssertionError: Lists differ: [2] != [1, 2]\n\nFirst differing element 0:\n2\n1\n\nSecond list contains 1 additional elements.\nFirst extra element 1:\n2\n\n- [2]\n+ [1, 2]\n\n----------------------------------------------------------------------\nRan 9 tests in 0.002s\n\nFAILED (failures=9)\n"
+  },
+  "upstream_targeted": {
+    "tests_run": 27,
+    "passed": 27,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0,
+    "output": "...........................                                              [100%]\n============================== warnings summary ===============================\ntests\\conftest.py:8\n  D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\temp\\run_20261010_144044_127082\\repo\\tests\\conftest.py:8: PytestRemovedIn9Warning: The (path: py.path.local) argument is deprecated, please use (collection_path: pathlib.Path)\n  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path\n    def pytest_ignore_collect(path, config):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: D:\\myDocu\\project_postg\\shixi_project\\temp\\new_task_evaluation_20261010_omd-copy_adaptive_history_144044_715180\\upstream.xml -\n27 passed, 1 warning in 0.11s\n"
+  },
+  "protected_tests_unchanged": true,
+  "changed_protected_tests": [],
+  "task_tests_passed": false,
+  "scope": "Public new-task evaluation, held out from this project strategy tuning only. Visible checks; not SWE-bench, private tests, or guaranteed absent from model training.",
+  "external_model_requests": 0,
+  "full_upstream_suite": {
+    "tests_run": 423,
+    "passed": 423,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0,
+    "output": "........................................................................ [ 17%]\n........................................................................ [ 34%]\n........................................................................ [ 51%]\n........................................................................ [ 68%]\n........................................................................ [ 85%]\n...............................................................          [100%]\n============================== warnings summary ===============================\ntests\\conftest.py:8\n  D:\\myDocu\\project_postg\\shixi_project\\tasks\\omd-copy\\temp\\run_20261010_144044_127082\\repo\\tests\\conftest.py:8: PytestRemovedIn9Warning: The (path: py.path.local) argument is deprecated, please use (collection_path: pathlib.Path)\n  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path\n    def pytest_ignore_collect(path, config):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: D:\\myDocu\\project_postg\\shixi_project\\temp\\new_task_evaluation_20261010_omd-copy_adaptive_history_144044_715180\\full.xml -\n423 passed, 1 warning in 4.78s\n"
+  }
+}

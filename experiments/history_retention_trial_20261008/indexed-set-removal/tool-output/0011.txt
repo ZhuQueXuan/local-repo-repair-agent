@@ -1,0 +1,16 @@
+410         else:
+411             iter_slice = self.iter_slice(start, stop, step)
+412             return self.from_iterable(iter_slice)
+413         if index < 0:
+414             index += len(self)
+415         real_index = self._get_real_index(index)
+416         try:
+417             ret = self.item_list[real_index]
+418         except IndexError:
+419             raise IndexError('IndexedSet index out of range')
+420         return ret
+421 
+422     def pop(self, index=None):
+423         "pop(index) -> remove the item at a given index (-1 by default)"
+424         item_index_map = self.item_index_map
+425         len_self = len(item_index_map)

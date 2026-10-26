@@ -1,0 +1,28 @@
+158     def _get_real_index(self, index):
+159         if index < 0:
+160             index += len(self)
+161         if not self.dead_indices:
+162             return index
+163         real_index = index
+164         for d_start, d_stop in self.dead_indices:
+165             if real_index < d_start:
+166                 break
+167             real_index += d_stop - d_start
+168         return real_index
+169 
+170     def _get_apparent_index(self, index):
+171         if index < 0:
+172             index += len(self)
+173         if not self.dead_indices:
+174             return index
+175         apparent_index = index
+176         for d_start, d_stop in self.dead_indices:
+177             if index < d_start:
+178                 break
+179             apparent_index -= d_stop - d_start
+180         return apparent_index
+181 
+182     def _add_dead(self, start, stop=None):
+183         # TODO: does not handle when the new interval subsumes
+184         # multiple existing intervals
+185         dints = self.dead_indices

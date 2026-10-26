@@ -1,0 +1,1 @@
+So `atomic_save(dest_path, **kwargs)` — content is written via the context manager. Let me redo the reproduction correctly.

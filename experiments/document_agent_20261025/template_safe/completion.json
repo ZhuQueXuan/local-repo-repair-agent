@@ -1,0 +1,19 @@
+{
+  "status": "offline_implementation_complete",
+  "runtime_matches_archived_code": true,
+  "frozen_final_demonstration_matches_current_runtime": true,
+  "panel_restored": "http://127.0.0.1:8765/",
+  "new_formal_runs": 0,
+  "external_model_calls": 0,
+  "browser_clicks_verified": false,
+  "formal_rows_unchanged": 45,
+  "database_bytes_unchanged": true,
+  "shared_ledger_bytes_unchanged": true,
+  "regression_native_passed": 301,
+  "regression_project_passed": 391,
+  "regression_project_permission_skip": 1,
+  "adapter_passed": 169,
+  "adapter_existing_failed": 6,
+  "adapter_skip": 1,
+  "new_checks_passed": 32
+}

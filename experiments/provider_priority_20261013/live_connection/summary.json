@@ -1,0 +1,70 @@
+[
+  {
+    "probe": "primary_with_fallback",
+    "live_requests_enabled": true,
+    "configured_priority": [
+      {
+        "name": "bupt_gateway",
+        "api_base": "https://myai.bupt.edu.cn/llm-gw/v1",
+        "model": "deepseek-v4-flash",
+        "cost_status": "unknown_platform_price"
+      },
+      {
+        "name": "deepseek_official",
+        "api_base": "https://api.deepseek.com",
+        "model": "deepseek-flash",
+        "cost_status": "conservative_estimate"
+      }
+    ],
+    "status": "api_and_toolcall_verified",
+    "actions_parsed": 1,
+    "response_model": "deepseek-flash",
+    "requests": 2,
+    "usage": [
+      {
+        "prompt_tokens": 305,
+        "completion_tokens": 41,
+        "provider": "deepseek_official",
+        "estimated_cost_cny": 0.000938
+      }
+    ],
+    "provider_routing": {
+      "priority": [
+        {
+          "name": "bupt_gateway",
+          "api_base": "https://myai.bupt.edu.cn/llm-gw/v1",
+          "model": "deepseek-v4-flash",
+          "cost_status": "unknown_platform_price"
+        },
+        {
+          "name": "deepseek_official",
+          "api_base": "https://api.deepseek.com",
+          "model": "deepseek-flash",
+          "cost_status": "conservative_estimate"
+        }
+      ],
+      "active_provider": "deepseek_official",
+      "switches": [
+        {
+          "from": "bupt_gateway",
+          "to": "deepseek_official",
+          "reason": "request_failed",
+          "attempt": 1
+        }
+      ],
+      "unpriced_successful_requests": 0,
+      "cost_estimate_complete": false,
+      "known_price_estimate_cny": 0.000938,
+      "cost_scope": "Known-price successful requests only; unpriced/failed charges are unknown."
+    },
+    "shared_budget": {
+      "max_requests": null,
+      "max_total_cost_cny": null,
+      "accounted_cost_and_reservations_cny": 7.781942,
+      "known_price_estimate_cny": 7.381942,
+      "unpriced_usage_requests": 0,
+      "remaining_cny": null,
+      "blocked": false
+    }
+  }
+]

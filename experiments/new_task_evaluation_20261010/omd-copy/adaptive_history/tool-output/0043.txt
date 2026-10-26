@@ -1,0 +1,90 @@
+# Copyright (c) 2013, Mahmoud Hashemi
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#
+#    * Redistributions in binary form must reproduce the above
+#      copyright notice, this list of conditions and the following
+#      disclaimer in the documentation and/or other materials provided
+#      with the distribution.
+#
+#    * The names of the contributors may not be used to endorse or
+#      promote products derived from this software without specific
+#      prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+"""Python has a very powerful mapping type at its core: the :class:`dict`
+type. While versatile and featureful, the :class:`dict` prioritizes
+simplicity and performance. As a result, it does not retain the order
+of item insertion [1]_, nor does it store multiple values per key. It
+is a fast, unordered 1:1 mapping.
+
+The :class:`OrderedMultiDict` contrasts to the built-in :class:`dict`,
+as a relatively maximalist, ordered 1:n subtype of
+:class:`dict`. Virtually every feature of :class:`dict` has been
+retooled to be intuitive in the face of this added
+complexity. Additional methods have been added, such as
+:class:`collections.Counter`-like functionality.
+
+A prime advantage of the :class:`OrderedMultiDict` (OMD) is its
+non-destructive nature. Data can be added to an :class:`OMD` without being
+rearranged or overwritten. The property can allow the developer to
+work more freely with the data, as well as make more assumptions about
+where input data will end up in the output, all without any extra
+work.
+
+One great example of this is the :meth:`OMD.inverted()` method, which
+returns a new OMD with the values as keys and the keys as values. All
+the data and the respective order is still represented in the inverted
+form, all from an operation which would be outright wrong and reckless
+with a built-in :class:`dict` or :class:`collections.OrderedDict`.
+
+The OMD has been performance tuned to be suitable for a wide range of
+usages, including as a basic unordered MultiDict. Special
+thanks to `Mark Williams`_ for all his help.
+
+.. [1] As of 2015, `basic dicts on PyPy are ordered
+   <http://morepypy.blogspot.com/2015/01/faster-more-memory-efficient-and-more.html>`_,
+   and as of December 2017, `basic dicts in CPython 3 are now ordered
+   <https://mail.python.org/pipermail/python-dev/2017-December/151283.html>`_, as
+   well.
+.. _Mark Williams: https://github.com/markrwilliams
+
+"""
+
+from collections.abc import KeysView, ValuesView, ItemsView
+from itertools import zip_longest
+
+try:
+    from .typeutils import make_sentinel
+    _MISSING = make_sentinel(var_name='_MISSING')
+except ImportError:
+    _MISSING = object()
+
+
+PREV, NEXT, KEY, VALUE, SPREV, SNEXT = range(6)
+
+
+__all__ = ['MultiDict', 'OMD', 'OrderedMultiDict', 'OneToOne', 'ManyToMany', 'subdict', 'FrozenDict']
+
+
+class OrderedMultiDict(dict):
+    """A MultiDict is a dictionary that can have multiple values per key
+    and the OrderedMultiDict (OMD) is a MultiDict that retains
+    original insertion order. Common use cases include:
+

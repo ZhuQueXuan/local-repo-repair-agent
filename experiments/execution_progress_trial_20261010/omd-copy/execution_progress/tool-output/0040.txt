@@ -1,0 +1,32 @@
+ M boltons/dictutils.py
+?? temp/
+---DIFF---
+diff --git a/boltons/dictutils.py b/boltons/dictutils.py
+index f913f29..6778724 100644
+--- a/boltons/dictutils.py
++++ b/boltons/dictutils.py
+@@ -67,6 +67,7 @@ thanks to `Mark Williams`_ for all his help.
+ 
+ """
+ 
++import copy
+ from collections.abc import KeysView, ValuesView, ItemsView
+ from itertools import zip_longest
+ 
+@@ -266,6 +267,16 @@ class OrderedMultiDict(dict):
+         "Return a shallow copy of the dictionary."
+         return self.__class__(self.iteritems(multi=True))
+ 
++    def __copy__(self):
++        return self.copy()
++
++    def __deepcopy__(self, memo):
++        ret = self.__class__()
++        memo[id(self)] = ret
++        for k, v in self.iteritems(multi=True):
++            ret.add(copy.deepcopy(k, memo), copy.deepcopy(v, memo))
++        return ret
++
+     @classmethod
+     def fromkeys(cls, keys, default=None):
+         """Create a dictionary from a list of keys, with all the values

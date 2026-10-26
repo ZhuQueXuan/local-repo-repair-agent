@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-23",
+  "run_id": "4891bcbc29c9439cb41439f13a203f3a",
+  "task": "split-after-boundary",
+  "authorization": "User explicitly confirmed destinations, public task/code/diff/test payload and uncapped shared accounting scope after earlier pre-execution rejection. Exactly one new identity executed.",
+  "status": "finished",
+  "repair_result": "passed",
+  "review_verdict": "approve",
+  "role_statuses": [
+    "succeeded",
+    "succeeded",
+    "skipped",
+    "skipped"
+  ],
+  "branch": "Initial candidate approved; revision and final review skipped. No real revision was exercised.",
+  "checks": {
+    "baseline": {
+      "issue": 5,
+      "targeted": 4,
+      "full_passed": 659,
+      "full_run": 660,
+      "full_failed": [
+        "test_more.TimeLimitedTests.test_zero_limit"
+      ],
+      "protected_tests_unchanged": true
+    },
+    "repairing-verification": {
+      "issue": 10,
+      "targeted": 4,
+      "full_passed": 659,
+      "full_run": 660,
+      "full_failed": [
+        "test_more.TimeLimitedTests.test_zero_limit"
+      ],
+      "protected_tests_unchanged": true
+    },
+    "patch-replay": {
+      "issue": 10,
+      "targeted": 4,
+      "full_passed": 659,
+      "full_run": 660,
+      "full_failed": [
+        "test_more.TimeLimitedTests.test_zero_limit"
+      ],
+      "protected_tests_unchanged": true
+    }
+  },
+  "usage": {
+    "attempts": 16,
+    "by_role": {
+      "69946284625d438eb2aead482a006108": {
+        "attempts": 6,
+        "complete_cost_estimate_cny": 0.05754,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 1292,
+        "known_price_estimate_cny": 0.05754,
+        "known_prompt_tokens": 23602,
+        "logical_requests": 6,
+        "tickets": [
+          "1587b197a2ce464a874ca0c8bb86e0cb",
+          "554def35f10b48269e36fe2dbd18c7b6",
+          "9a14f651809b47c1a786b6ba4b2eee00",
+          "9aa4fdc59b324b569c48e5ec6c6e7ebc",
+          "ad858255efe749d48f22eda4d0bff471",
+          "ee2bd3a87ffa4338b83b5a50362aa079"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      },
+      "8c9ee224296f4f75b3e864674144fb41": {
+        "attempts": 10,
+        "complete_cost_estimate_cny": null,
+        "has_unknown_usage": true,
+        "known_completion_tokens": 973,
+        "known_price_estimate_cny": 0.044362,
+        "known_prompt_tokens": 18289,
+        "logical_requests": 9,
+        "tickets": [
+          "02f5a55eb2e94cef814093d9e1d86da3",
+          "2d051d6427394af4b79dc71b1908aaff",
+          "34596d1c19e84fb0b5e05ab8094acb50",
+          "4fe22da20c6644b58d4b226190f2cd2d",
+          "5bf8d213f5504d1f88b123d7c93312f6",
+          "902b5927dab340268ae67bb2f89e324c",
+          "9885318dc34c47bb8a8462867216cb50",
+          "a3e79237a98c47e29671c647567a9e82",
+          "ad75c91ae36c43a19952c89bab87e9af",
+          "b26c64ab6e0543749486712cb604c58f"
+        ],
+        "unknown_cost_attempts": 1,
+        "unknown_placeholder_cny": 0.1
+      }
+    },
+    "complete_cost_estimate_cny": null,
+    "cost_scope": "Known-price estimates plus unknown placeholders; not confirmed charges or platform balance.",
+    "has_unknown_usage": true,
+    "known_completion_tokens": 2265,
+    "known_price_estimate_cny": 0.101902,
+    "known_prompt_tokens": 41891,
+    "logical_requests": 15,
+    "tickets": [
+      "02f5a55eb2e94cef814093d9e1d86da3",
+      "1587b197a2ce464a874ca0c8bb86e0cb",
+      "2d051d6427394af4b79dc71b1908aaff",
+      "34596d1c19e84fb0b5e05ab8094acb50",
+      "4fe22da20c6644b58d4b226190f2cd2d",
+      "554def35f10b48269e36fe2dbd18c7b6",
+      "5bf8d213f5504d1f88b123d7c93312f6",
+      "902b5927dab340268ae67bb2f89e324c",
+      "9885318dc34c47bb8a8462867216cb50",
+      "9a14f651809b47c1a786b6ba4b2eee00",
+      "9aa4fdc59b324b569c48e5ec6c6e7ebc",
+      "a3e79237a98c47e29671c647567a9e82",
+      "ad75c91ae36c43a19952c89bab87e9af",
+      "ad858255efe749d48f22eda4d0bff471",
+      "b26c64ab6e0543749486712cb604c58f",
+      "ee2bd3a87ffa4338b83b5a50362aa079"
+    ],
+    "unknown_cost_attempts": 1,
+    "unknown_placeholder_cny": 0.1
+  },
+  "old_ledger_entries_preserved": true,
+  "production_task_database_migrated": false,
+  "protected_changes": [
+    "data/deepseek_budget.json"
+  ],
+  "frozen_inputs_verified": 156,
+  "run_artifacts_verified": 179,
+  "credential_scan_clean": true,
+  "sqlite_integrity": "ok",
+  "review_format_errors": 2,
+  "review_evidence_count": 3,
+  "limitations": [
+    "One previously used public development task. Not a new-task, S/D comparison or SWE-bench result.",
+    "Gateway attempt failed with connection/request error (SDK status 500); authentication, balance and actual charge remain unknown. Parent then stayed on official fallback.",
+    "Known-price estimates are not confirmed charges; 0.10 CNY is an unknown placeholder, not an additional measured charge or a total cost.",
+    "Reviewer produced two rejected format errors before valid calls; those billed responses remain in usage but invalid raw response bodies are not retained in the current trajectory.",
+    "ProgramReport extended_passed means acceptance against baseline, not all upstream tests passing. Reviewer overgeneralized it as extended checks passing. Raw baseline/replay retain the existing timing failure; clarify summaries before panel rollout.",
+    "Review approve validates provenance, not the truth of each finding. No additional defect discovered or revision benefit established.",
+    "Real revision/final-review branch, billed in-flight cancellation and worker kill remain untested. Existing offline fixtures cover feedback and degradation.",
+    "Collaboration database is still temp-only; archive is evidence, not a resume entry point. Default single-agent panel unchanged. Six adapter differences and one permission skip remain."
+  ]
+}

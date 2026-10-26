@@ -1,0 +1,14 @@
+{
+  "browser": "Edge extension",
+  "url": "http://127.0.0.1:8765/",
+  "selectedRun": "e023e166a7384b43a274945a53327dcd",
+  "documentQuestionVisible": true,
+  "collaborationHint": "文档查阅者先回答一个明确问题并提供原文 → 修复者 → 独立审查 → 至多一次返工/复核。文档说明不代替测试，缺资料明确返回未知；全部角色计费。这是实验功能，实际完成情况和失败原因按各次运行展示，尚无新题效果比较结论。",
+  "status": "三角色：文档查阅 → 修复 → 审查（实验）；完成情况见各角色状态。 协作：not_completed；审查不可用 最终候选：尚无最终验收版本",
+  "consultation": "尚无文档查阅结果；不补造依据。",
+  "candidate": "候选尚未封存；不能展示其他运行的补丁。",
+  "priorRunConsultationOpened": true,
+  "priorRunCandidateAndAssessmentRead": true,
+  "roleFilterSelected": "文档查阅者",
+  "createdNewTaskViaBrowser": false
+}

@@ -1,0 +1,1 @@
+The harness truncates even 35 lines. Let me use a Python script to print with explicit line numbers, in very small chunks.

@@ -1,0 +1,1 @@
+Repeated read blocked: this same source read returned identical output 3 times with unchanged source. Full output: temp/tool-output/0057.txt. Use a narrower line range, reproduce a hypothesis, or edit and test. Update temp/task-state/notes.json with your hypothesis and next_action. This is not a total-request limit.

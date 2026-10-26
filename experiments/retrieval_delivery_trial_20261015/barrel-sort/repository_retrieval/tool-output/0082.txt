@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+AttributeError: can't set attribute '_cur_size_limit'
+lists 1

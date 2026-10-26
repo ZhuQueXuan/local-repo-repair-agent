@@ -1,0 +1,10 @@
+{
+  "changed_existing": [
+    "scripts/collaboration_live.py",
+    "scripts/collaboration_panel.js",
+    "scripts/collaboration_panel.py",
+    "scripts/collaboration_store.py",
+    "scripts/task_panel.html"
+  ],
+  "shared_ledger_unchanged": true
+}

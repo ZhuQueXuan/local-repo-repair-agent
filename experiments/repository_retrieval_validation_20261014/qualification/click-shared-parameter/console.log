@@ -1,0 +1,46 @@
+{
+  "task_id": "click-shared-parameter",
+  "repo": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\click-shared-parameter\\temp\\run_20261014_220039_686412\\repo",
+  "imported_package": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\click-shared-parameter\\temp\\run_20261014_220039_686412\\repo\\src\\click\\__init__.py",
+  "issue_checks": {
+    "tests_run": 5,
+    "subtests_run": 0,
+    "passed": 4,
+    "failed_test_methods": [
+      "frozen_behavior_checks.SharedParameterChecks.test_argument_custom_type_survives_reuse"
+    ],
+    "failures": [],
+    "errors": [
+      "frozen_behavior_checks.SharedParameterChecks.test_argument_custom_type_survives_reuse"
+    ],
+    "skipped": [],
+    "successful": false
+  },
+  "upstream_targeted": {
+    "tests_run": 115,
+    "passed": 115,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0
+  },
+  "protected_tests_unchanged": true,
+  "changed_protected_tests": [],
+  "task_tests_passed": false,
+  "scope": "Public new-task validation of unchanged retrieval v1; no private-held-out claim; task checks visible to Agent. Click shares one repo/base across two tasks, selected upstream subset only. Barrel uses previously seen boltons base and full existing local suite. Symptom-only issue descriptions omit internal repair paths; checks expose public API. No reference patch indexed.",
+  "external_model_requests": 0,
+  "full_upstream_suite": {
+    "tests_run": 264,
+    "passed": 262,
+    "failures": [
+      "tests.test_arguments.test_bytes_args"
+    ],
+    "errors": [
+      "tests.test_arguments.test_bytes_args"
+    ],
+    "skipped": [],
+    "successful": false,
+    "returncode": 1
+  }
+}

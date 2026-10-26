@@ -1,0 +1,1 @@
+Both work in this environment. Let me check the compat module and the actual json.JSONDecodeError behavior, since the issue may depend on the Python version's json module.

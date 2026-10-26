@@ -1,0 +1,12 @@
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\run_task_batch.py", line 319, in <module>
+    main()
+  File "D:\myDocu\project_postg\shixi_project\scripts\run_task_batch.py", line 281, in main
+    subprocess.run(["git", "-C", str(replay), "apply", "--", str(patch_path)], check=True, capture_output=True)
+  File "D:\python\python3.10.6\lib\subprocess.py", line 524, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', '-C', 'D:\\myDocu\\project_postg\\shixi_project\\tasks\\requests-json-pickle\\temp\\run_20261014_213616_991575\\repo', 'apply', '--', 'D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_dev_20261014_requests-json-pickle_repository_retrieval_213519_862990\\repair.diff']' returned non-zero exit status 1.

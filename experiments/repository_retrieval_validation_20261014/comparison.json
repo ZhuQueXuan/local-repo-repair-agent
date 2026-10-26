@@ -1,0 +1,395 @@
+{
+  "date": "2026-10-14",
+  "complete": true,
+  "rows": [
+    {
+      "task": "click-shared-parameter",
+      "variant": "adaptive_history",
+      "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-shared-parameter_adaptive_history_220305_068221",
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "requests": 45,
+      "successful_model_responses": 44,
+      "first_implementation_edit_action": 37,
+      "first_explicit_target_read_action": 31,
+      "prompt_tokens": 122761,
+      "completion_tokens": 4481,
+      "known_price_estimate_cny": 0.28137,
+      "complete_cost_estimate_cny": null,
+      "elapsed_seconds": 58.985,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "issue_total": 5,
+      "issue_passed": 5,
+      "targeted_passed": 115,
+      "extended_total": 264,
+      "extended_passed": 262,
+      "baseline_extended_failure_ids": [
+        "tests.test_arguments.test_bytes_args"
+      ],
+      "new_extended_failure_ids": [],
+      "patch_replay_passed": true,
+      "protected_inputs_unchanged": true,
+      "changed_files": [
+        "src/click/decorators.py"
+      ],
+      "unexpected_changes": [],
+      "blocked_reads": 0
+    },
+    {
+      "task": "click-shared-parameter",
+      "variant": "repository_retrieval",
+      "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-shared-parameter_repository_retrieval_220418_065090",
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "requests": 22,
+      "successful_model_responses": 21,
+      "first_implementation_edit_action": 16,
+      "first_explicit_target_read_action": 2,
+      "prompt_tokens": 71635,
+      "completion_tokens": 2902,
+      "known_price_estimate_cny": 0.166486,
+      "complete_cost_estimate_cny": null,
+      "elapsed_seconds": 32.766,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "issue_total": 5,
+      "issue_passed": 5,
+      "targeted_passed": 115,
+      "extended_total": 264,
+      "extended_passed": 262,
+      "baseline_extended_failure_ids": [
+        "tests.test_arguments.test_bytes_args"
+      ],
+      "new_extended_failure_ids": [],
+      "patch_replay_passed": true,
+      "protected_inputs_unchanged": true,
+      "changed_files": [
+        "src/click/decorators.py"
+      ],
+      "unexpected_changes": [],
+      "blocked_reads": 0,
+      "initial_selected_hits": [
+        {
+          "path": "src/click/core.py",
+          "symbol": "Parameter",
+          "start": 1976
+        },
+        {
+          "path": "src/click/decorators.py",
+          "symbol": "option",
+          "start": 293
+        },
+        {
+          "path": "src/click/parser.py",
+          "symbol": "Argument",
+          "start": 213
+        }
+      ],
+      "initial_contains_diagnostic_file": true,
+      "max_retrieval_message_bytes": 2605,
+      "projection_count_including_preflight": 22,
+      "changed_implementation_reindexed": true
+    },
+    {
+      "task": "click-custom-command",
+      "variant": "adaptive_history",
+      "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-custom-command_adaptive_history_220504_944069",
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "requests": 26,
+      "successful_model_responses": 25,
+      "first_implementation_edit_action": 19,
+      "first_explicit_target_read_action": 10,
+      "prompt_tokens": 66449,
+      "completion_tokens": 3196,
+      "known_price_estimate_cny": 0.158466,
+      "complete_cost_estimate_cny": null,
+      "elapsed_seconds": 36.344,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "issue_total": 6,
+      "issue_passed": 6,
+      "targeted_passed": 9,
+      "extended_total": 264,
+      "extended_passed": 262,
+      "baseline_extended_failure_ids": [
+        "tests.test_arguments.test_bytes_args"
+      ],
+      "new_extended_failure_ids": [],
+      "patch_replay_passed": true,
+      "protected_inputs_unchanged": true,
+      "changed_files": [
+        "src/click/core.py"
+      ],
+      "unexpected_changes": [],
+      "blocked_reads": 0
+    },
+    {
+      "task": "click-custom-command",
+      "variant": "repository_retrieval",
+      "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-custom-command_repository_retrieval_220554_159090",
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "requests": 26,
+      "successful_model_responses": 25,
+      "first_implementation_edit_action": 19,
+      "first_explicit_target_read_action": 10,
+      "prompt_tokens": 89819,
+      "completion_tokens": 2874,
+      "known_price_estimate_cny": 0.20263,
+      "complete_cost_estimate_cny": null,
+      "elapsed_seconds": 37.0,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "issue_total": 6,
+      "issue_passed": 6,
+      "targeted_passed": 9,
+      "extended_total": 264,
+      "extended_passed": 262,
+      "baseline_extended_failure_ids": [
+        "tests.test_arguments.test_bytes_args"
+      ],
+      "new_extended_failure_ids": [],
+      "patch_replay_passed": true,
+      "protected_inputs_unchanged": true,
+      "changed_files": [
+        "src/click/core.py"
+      ],
+      "unexpected_changes": [],
+      "blocked_reads": 0,
+      "initial_selected_hits": [
+        {
+          "path": "src/click/decorators.py",
+          "symbol": "group",
+          "start": 244
+        },
+        {
+          "path": "src/click/core.py",
+          "symbol": "Command",
+          "start": 1133
+        },
+        {
+          "path": "src/click/types.py",
+          "symbol": "Path",
+          "start": 753
+        },
+        {
+          "path": "src/click/utils.py",
+          "symbol": "KeepOpenFile",
+          "start": 185
+        }
+      ],
+      "initial_contains_diagnostic_file": true,
+      "max_retrieval_message_bytes": 3069,
+      "projection_count_including_preflight": 26,
+      "changed_implementation_reindexed": true
+    },
+    {
+      "task": "barrel-sort",
+      "variant": "adaptive_history",
+      "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_barrel-sort_adaptive_history_220644_221339",
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "requests": 41,
+      "successful_model_responses": 40,
+      "first_implementation_edit_action": 33,
+      "first_explicit_target_read_action": 3,
+      "prompt_tokens": 114981,
+      "completion_tokens": 4182,
+      "known_price_estimate_cny": 0.263418,
+      "complete_cost_estimate_cny": null,
+      "elapsed_seconds": 50.187,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "issue_total": 5,
+      "issue_passed": 5,
+      "targeted_passed": 2,
+      "extended_total": 78,
+      "extended_passed": 78,
+      "baseline_extended_failure_ids": [],
+      "new_extended_failure_ids": [],
+      "patch_replay_passed": true,
+      "protected_inputs_unchanged": true,
+      "changed_files": [
+        "boltons/listutils.py"
+      ],
+      "unexpected_changes": [],
+      "blocked_reads": 0
+    },
+    {
+      "task": "barrel-sort",
+      "variant": "repository_retrieval",
+      "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_barrel-sort_repository_retrieval_220745_359430",
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "requests": 26,
+      "successful_model_responses": 25,
+      "first_implementation_edit_action": 19,
+      "first_explicit_target_read_action": 1,
+      "prompt_tokens": 83596,
+      "completion_tokens": 3460,
+      "known_price_estimate_cny": 0.194872,
+      "complete_cost_estimate_cny": null,
+      "elapsed_seconds": 37.297,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "issue_total": 5,
+      "issue_passed": 5,
+      "targeted_passed": 2,
+      "extended_total": 78,
+      "extended_passed": 78,
+      "baseline_extended_failure_ids": [],
+      "new_extended_failure_ids": [],
+      "patch_replay_passed": true,
+      "protected_inputs_unchanged": true,
+      "changed_files": [
+        "boltons/listutils.py"
+      ],
+      "unexpected_changes": [],
+      "blocked_reads": 0,
+      "initial_selected_hits": [
+        {
+          "path": "boltons/setutils.py",
+          "symbol": "IndexedSet.sort",
+          "start": 452
+        },
+        {
+          "path": "boltons/listutils.py",
+          "symbol": "BarrelList.sort",
+          "start": 301
+        },
+        {
+          "path": "boltons/tableutils.py",
+          "symbol": "ListInputType",
+          "start": 167
+        },
+        {
+          "path": "boltons/cacheutils.py",
+          "symbol": "ThresholdCounter.values",
+          "start": 779
+        }
+      ],
+      "initial_contains_diagnostic_file": true,
+      "max_retrieval_message_bytes": 2501,
+      "projection_count_including_preflight": 26,
+      "changed_implementation_reindexed": true
+    }
+  ],
+  "pairs": [
+    {
+      "task": "click-shared-parameter",
+      "same_served_models_and_providers": true,
+      "repair_verified_off_on": [
+        true,
+        true
+      ],
+      "successful_responses_off_on": [
+        44,
+        21
+      ],
+      "first_edit_off_on": [
+        37,
+        16
+      ],
+      "prompt_tokens_off_on": [
+        122761,
+        71635
+      ]
+    },
+    {
+      "task": "click-custom-command",
+      "same_served_models_and_providers": true,
+      "repair_verified_off_on": [
+        true,
+        true
+      ],
+      "successful_responses_off_on": [
+        25,
+        25
+      ],
+      "first_edit_off_on": [
+        19,
+        19
+      ],
+      "prompt_tokens_off_on": [
+        66449,
+        89819
+      ]
+    },
+    {
+      "task": "barrel-sort",
+      "same_served_models_and_providers": true,
+      "repair_verified_off_on": [
+        true,
+        true
+      ],
+      "successful_responses_off_on": [
+        40,
+        25
+      ],
+      "first_edit_off_on": [
+        33,
+        19
+      ],
+      "prompt_tokens_off_on": [
+        114981,
+        83596
+      ]
+    }
+  ],
+  "scope": "Three public new-task pairs, off/on once per task, no result-driven tuning or retries. Unchanged retrieval v1. Same history/state, 300-second wall time, provider priority and shared uncapped ledger. Compare actual served provider/model and count failed attempts separately. Not SWE-bench or broad generalization.",
+  "read_metric_limit": "Earliest successful recorded executed command containing an explicit diagnostic path and a cat/sed/grep/rg/head/tail command or read_text/read_bytes. This is a limited observable proxy, not exact first understanding or localization accuracy. Broad searches or aliases may be missed.",
+  "total_api_attempts": 186,
+  "successful_model_responses": 180,
+  "known_price_estimate_cny": 1.267242,
+  "unknown_charge_or_price_placeholders_cny": 0.6,
+  "complete_cost_estimate_cny": null,
+  "added_ledger_status_counts": {
+    "settled": 180,
+    "reserved": 6,
+    "unpriced": 0
+  },
+  "prior_ledger_entries_unchanged": true,
+  "budget_at_end": {
+    "max_requests": null,
+    "max_total_cost_cny": null,
+    "accounted_cost_and_reservations_cny": 10.505274,
+    "known_price_estimate_cny": 9.305274,
+    "unpriced_usage_requests": 0,
+    "remaining_cny": null,
+    "blocked": false
+  },
+  "evaluation_freeze": {
+    "manifest": "configs/repository_retrieval_validation_20261014.freeze.json",
+    "sha256": "9a28105b598beda864827ad59f5493255afd976592b75b7b50001403c2bbb96b",
+    "verified_files": 487
+  },
+  "offline_checks": 114,
+  "retrieval_v1_unchanged": true,
+  "limitation": "One run per variant and task; public issues/checks; two correlated Click tasks and previously seen boltons repo. Selected upstream subsets, no SWE-bench or broad accuracy claim. Initial file hit is not exact symbol localization. Retain optional retrieval; inspect per-task cost regressions."
+}

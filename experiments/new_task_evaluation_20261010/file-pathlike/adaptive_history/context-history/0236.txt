@@ -1,0 +1,1 @@
+Interesting — it already works? Maybe the checkout already has a partial fix, or the issue is with the default temporary filename. Let me test without text_mode and with explicit temp filename, and check the current implementation.

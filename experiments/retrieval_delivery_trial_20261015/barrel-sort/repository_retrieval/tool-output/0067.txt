@@ -1,0 +1,4 @@
+lists before 1
+lists after append 1
+lists after insert 1
+ok 2002

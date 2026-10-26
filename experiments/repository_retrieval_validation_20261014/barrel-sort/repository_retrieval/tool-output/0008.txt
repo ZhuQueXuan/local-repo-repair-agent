@@ -1,0 +1,2 @@
+small sort returns: None -> [1, 2, 3]
+large sort returns: None len: 1001 sorted: True

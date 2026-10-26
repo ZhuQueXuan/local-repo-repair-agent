@@ -1,0 +1,8 @@
+{
+  "task": "split-after-boundary",
+  "profile": "adaptive_history",
+  "mode": "live",
+  "collaboration_mode": "dual_review_diagnostic",
+  "policy_version": 1,
+  "request_key": "deac668c7646412e8f3ce622b36682da"
+}

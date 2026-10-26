@@ -1,0 +1,1 @@
+Now let me verify the `group` method handles the same case correctly (it injects after the check already). Let me check the full group method and run the reproduction.

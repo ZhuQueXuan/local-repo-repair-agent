@@ -1,0 +1,31 @@
+test_actual_reviewer_loop_submits_validated_versioned_report (test_collaboration_runtime.RuntimeTests) ... ok
+test_baseline_failure_is_visible_even_when_repair_is_accepted (test_collaboration_runtime.RuntimeTests) ... ok
+test_cancel_after_receipt_preserves_tokens_and_prevents_actions (test_collaboration_runtime.RuntimeTests) ... D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\_internal\_generate_schema.py:1480: UserWarning: Item 'summary' on TypedDict class 'ChatCompletionReasoningItem' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+  warnings.warn(
+ok
+test_cancel_before_request_has_no_ticket (test_collaboration_runtime.RuntimeTests) ... ok
+test_cancel_on_primary_error_prevents_backup_reservation (test_collaboration_runtime.RuntimeTests) ... ok
+test_credential_in_invalid_response_is_blocked_before_audit_is_saved (test_collaboration_runtime.RuntimeTests) ... ok
+test_credentials_in_billed_response_are_not_persisted_as_trajectory (test_collaboration_runtime.RuntimeTests) ... ok
+test_deadline_reaches_network_timeout_and_prevents_late_request (test_collaboration_runtime.RuntimeTests) ... ok
+test_duplicate_logical_identity_never_dispatches_again (test_collaboration_runtime.RuntimeTests) ... ok
+test_interrupted_live_identity_never_reenters_runner (test_collaboration_runtime.RuntimeTests) ... ok
+test_large_failure_summary_stays_parseable_and_marks_omitted_names (test_collaboration_runtime.RuntimeTests) ... ok
+test_live_metadata_cannot_resurrect_or_rewrite_terminal_status (test_collaboration_runtime.RuntimeTests) ... ok
+test_malformed_response_is_accounted_without_a_transport_retry (test_collaboration_runtime.RuntimeTests) ... ok
+test_multiple_tool_rejection_is_saved_and_only_later_valid_call_dispatches (test_collaboration_runtime.RuntimeTests) ... ok
+test_owned_grader_timeout_stops_process_and_starts_no_model (test_collaboration_runtime.RuntimeTests) ... ok
+test_parent_fallback_is_shared_with_new_and_reused_models (test_collaboration_runtime.RuntimeTests) ... ok
+test_real_files_and_grader_complete_feedback_with_scripted_transport (test_collaboration_runtime.RuntimeTests) ... ok
+test_rejection_preview_is_bounded_with_digest_and_raw_response_retained (test_collaboration_runtime.RuntimeTests) ... ok
+test_repair_continuation_closes_real_submit_without_reexecuting_it (test_collaboration_runtime.RuntimeTests) ... ok
+test_repeated_same_evidence_does_not_continue_indefinitely (test_collaboration_runtime.RuntimeTests) ... ok
+test_reply_projection_keeps_real_tool_ids_without_mutating_raw_history (test_collaboration_runtime.RuntimeTests) ... ok
+test_review_provider_failure_preserves_accepted_patch_without_more_roles (test_collaboration_runtime.RuntimeTests) ... ok
+test_review_wire_has_only_six_tools_and_no_shell (test_collaboration_runtime.RuntimeTests) ... ok
+test_unproven_submission_cannot_resume (test_collaboration_runtime.RuntimeTests) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 28.004s
+
+OK

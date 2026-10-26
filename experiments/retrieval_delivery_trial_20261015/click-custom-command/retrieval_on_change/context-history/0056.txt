@@ -1,0 +1,1 @@
+Confirmed: in `group`, the callable check happens before `cls` injection; in `command`, `cls` is injected before the check, so `kwargs` is non-empty and the assert fires. Let me fix `command` by moving the injection after the callable extraction.

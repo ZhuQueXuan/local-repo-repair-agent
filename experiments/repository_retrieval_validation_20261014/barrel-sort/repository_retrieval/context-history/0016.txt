@@ -1,0 +1,1 @@
+The cwd isn't on sys.path when running a script in temp/. Let me set PYTHONPATH.

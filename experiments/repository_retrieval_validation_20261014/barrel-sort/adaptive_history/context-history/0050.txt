@@ -1,0 +1,1 @@
+Reproduced at n=50000. Let me look at `_balance_list`.

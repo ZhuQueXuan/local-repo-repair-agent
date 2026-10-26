@@ -1,0 +1,86 @@
+{
+  "agent": "StatefulAgent based on upstream DefaultAgent 2.4.6",
+  "mini_commit": "04d809ceab9df28f9adaed044884180159172930",
+  "wall_time_limit_seconds": 300,
+  "model_temperature": 0,
+  "budget_policy": "configs/deepseek_budget.json",
+  "batch_id": "repository_retrieval_validation_20261014",
+  "tasks": [
+    "click-shared-parameter",
+    "click-custom-command",
+    "barrel-sort"
+  ],
+  "freeze_manifest": "configs/repository_retrieval_validation_20261014.freeze.json",
+  "variants": {
+    "adaptive_history": {
+      "tool_output_budget": {
+        "max_output_bytes": 1024
+      },
+      "context_budget": {
+        "target_bytes": 12288,
+        "keep_recent_tool_outputs": 4,
+        "compact_completed_exchanges": true,
+        "retained_audit_entries": 3,
+        "compact_to_target": true
+      },
+      "archive_assistant_content": true,
+      "task_state": {
+        "guard_enabled": true,
+        "repeated_read_threshold": 3,
+        "blocked_read_threshold": 3,
+        "include_previews_in_requests": false
+      }
+    },
+    "repository_retrieval": {
+      "tool_output_budget": {
+        "max_output_bytes": 1024
+      },
+      "context_budget": {
+        "target_bytes": 12288,
+        "keep_recent_tool_outputs": 4,
+        "compact_completed_exchanges": true,
+        "retained_audit_entries": 3,
+        "compact_to_target": true
+      },
+      "archive_assistant_content": true,
+      "task_state": {
+        "guard_enabled": true,
+        "repeated_read_threshold": 3,
+        "blocked_read_threshold": 3,
+        "include_previews_in_requests": false
+      },
+      "repository_retrieval": {
+        "max_message_bytes": 3072,
+        "max_results": 5
+      }
+    }
+  },
+  "run_order": [
+    {
+      "task": "click-shared-parameter",
+      "variant": "adaptive_history"
+    },
+    {
+      "task": "click-shared-parameter",
+      "variant": "repository_retrieval"
+    },
+    {
+      "task": "click-custom-command",
+      "variant": "adaptive_history"
+    },
+    {
+      "task": "click-custom-command",
+      "variant": "repository_retrieval"
+    },
+    {
+      "task": "barrel-sort",
+      "variant": "adaptive_history"
+    },
+    {
+      "task": "barrel-sort",
+      "variant": "repository_retrieval"
+    }
+  ],
+  "scope": "Three public new-task pairs, off/on once per task, no result-driven tuning or retries. Unchanged retrieval v1. Same history/state, 300-second wall time, provider priority and shared uncapped ledger. Compare actual served provider/model and count failed attempts separately. Not SWE-bench or broad generalization.",
+  "selection_notes": "Click reusable parameter setup (#2294), custom group registration (#2416), boltons large-list sorting (26.0.0 changelog). Descriptions omit repair function/file hints, so weaker direct symbol cues than Requests JSON exception task. Cross-module investigation is a selection hypothesis, not a multi-file-repair guarantee. Two Click tasks are correlated and boltons repo was seen previously."
+}

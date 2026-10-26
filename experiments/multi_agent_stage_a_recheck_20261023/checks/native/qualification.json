@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-23",
+  "scope": "Recheck existing A; no implementation or default strategy changes",
+  "checks": [
+    {
+      "name": "protocol",
+      "command": [
+        "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_collaboration_protocol.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tests_run": 19,
+      "skipped": 0
+    },
+    {
+      "name": "review_tools",
+      "command": [
+        "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_review_tools.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tests_run": 29,
+      "skipped": 1
+    },
+    {
+      "name": "demo",
+      "command": [
+        "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/collaboration_demo.py"
+      ],
+      "exit_code": 0,
+      "tests_run": null,
+      "skipped": 0,
+      "summary_path": "temp/multi_agent_stage_a_20261022/demo_64249a0837574c03ad7d546ecc89d921/summary.json",
+      "summary": {
+        "baseline_passed": 0,
+        "bash_denied": true,
+        "candidate_v1": "candidate-e8a9741bf5fe33ac16110feeec1f7c47",
+        "candidate_v2": "candidate-6d9d8a56fef562e586e9c349f84513f7",
+        "checks_per_version": 3,
+        "model_effectiveness_demonstrated": false,
+        "model_requests": 0,
+        "run_id": "synthetic-311d910cb4354672b01c0c198be58a2c",
+        "scope": "Offline synthetic mechanism demonstration. Reviews and source revisions are scripted; test cases execute in separate Python processes.",
+        "stale_review_rejected": true,
+        "v1_passed": 2,
+        "v1_stays_unchanged": true,
+        "v2_passed": 3
+      }
+    },
+    {
+      "name": "all_tests",
+      "command": [
+        "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tests_run": 236,
+      "skipped": 1
+    }
+  ],
+  "protected_files": 1370,
+  "changed_protected_files": [],
+  "historical_sealed_entries": 35,
+  "historical_mismatches": [],
+  "stage_a_current_scripts_match": {
+    "inputs/collaboration_demo.py": true,
+    "inputs/collaboration_protocol.py": true,
+    "inputs/review_tools.py": true,
+    "inputs/test_collaboration_protocol.py": true,
+    "inputs/test_review_tools.py": true
+  },
+  "model_requests": 0
+}

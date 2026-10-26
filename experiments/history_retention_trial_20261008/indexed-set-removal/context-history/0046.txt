@@ -1,0 +1,1 @@
+Bug reproduced. Now let me look at the full `iter_slice` implementation:

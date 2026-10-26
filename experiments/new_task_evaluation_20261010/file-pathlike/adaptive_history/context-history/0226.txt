@@ -1,0 +1,1 @@
+Now let me reproduce with pathlib.Path and a custom PathLike.

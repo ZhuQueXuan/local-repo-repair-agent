@@ -1,0 +1,24 @@
+{
+  "existing_runtime_files_changed": [
+    "scripts/collaboration_live.py",
+    "scripts/collaboration_runtime.py",
+    "scripts/run_deepseek_smoke.py",
+    "scripts/test_collaboration_diagnostic.py"
+  ],
+  "new_runtime_files": [
+    "scripts/collaboration_feedback.py",
+    "scripts/test_collaboration_feedback.py"
+  ],
+  "production_records_unchanged": 43,
+  "shared_ledger_byte_unchanged": true,
+  "real_model_requests_this_fix": 0,
+  "hard_message_guard_unchanged": 16384,
+  "previous_archives_verified": {
+    "multi_agent_feedback_diagnostic_offline_20261024": 90,
+    "multi_agent_feedback_diagnostic_live_20261024": 50
+  },
+  "wire_replay_fixture": "temp\\multi_agent_stage_b_20261022\\tests\\908be17a65ce48efa0e1397a53f7fc49\\actual-wire-replay.json",
+  "old_bytes": 16807,
+  "new_bytes": 13154,
+  "normal_policy_unchanged": true
+}

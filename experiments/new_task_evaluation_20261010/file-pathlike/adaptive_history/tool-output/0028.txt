@@ -1,0 +1,1 @@
+492:def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):

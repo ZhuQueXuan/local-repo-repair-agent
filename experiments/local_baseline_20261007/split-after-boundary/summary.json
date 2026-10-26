@@ -1,0 +1,81 @@
+{
+  "task_id": "more-itertools-split-after-658",
+  "exit_status": "Submitted",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\split-after-boundary\\temp\\run_20261007_213614_551055\\repo",
+  "requests": 9,
+  "estimated_cost_cny": 0.047827999999999996,
+  "usage": [
+    {
+      "prompt_tokens": 646,
+      "completion_tokens": 90,
+      "estimated_cost_cny": 0.002012,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 870,
+      "completion_tokens": 66,
+      "estimated_cost_cny": 0.002268,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1665,
+      "completion_tokens": 212,
+      "estimated_cost_cny": 0.005026,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1931,
+      "completion_tokens": 228,
+      "estimated_cost_cny": 0.005686,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2187,
+      "completion_tokens": 266,
+      "estimated_cost_cny": 0.006502,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2533,
+      "completion_tokens": 82,
+      "estimated_cost_cny": 0.005722,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2722,
+      "completion_tokens": 71,
+      "estimated_cost_cny": 0.006012,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3007,
+      "completion_tokens": 71,
+      "estimated_cost_cny": 0.006582,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3249,
+      "completion_tokens": 190,
+      "estimated_cost_cny": 0.008018,
+      "response_model": "deepseek-flash"
+    }
+  ],
+  "elapsed_seconds": 12.391,
+  "changed_files": [
+    "more_itertools/more.py"
+  ],
+  "unexpected_changes": [],
+  "checks_and_description_unchanged": true,
+  "task_tests_passed": true,
+  "new_full_suite_failures": [],
+  "patch_replay_passed": true,
+  "repair_verified": true,
+  "shared_budget": {
+    "max_requests": null,
+    "max_total_cost_cny": 5.0,
+    "accounted_cost_and_reservations_cny": 0.316796,
+    "remaining_cny": 4.683204,
+    "blocked": false
+  },
+  "scope": "Public historical development task; not SWE-bench or a held-out benchmark. Memorization possible."
+}

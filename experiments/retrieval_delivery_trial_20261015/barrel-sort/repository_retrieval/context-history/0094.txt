@@ -1,0 +1,1 @@
+Hmm, that worked. The issue must be that `_balance_list` splits into multiple lists. Let me check `_balance_list` and force multiple lists:

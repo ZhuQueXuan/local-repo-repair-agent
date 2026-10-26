@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "network_blocked_before_resolution": true,
+    "private_config_not_read": true,
+    "outside_write_blocked": true,
+    "directory_deletion_blocked": true,
+    "temporary_directory_retained": true
+  },
+  "recorded_denials": [
+    {
+      "event": "socket.getaddrinfo"
+    },
+    {
+      "event": "write_or_private_read_outside_scratch"
+    },
+    {
+      "event": "write_or_private_read_outside_scratch"
+    },
+    {
+      "event": "os.rmdir"
+    }
+  ]
+}

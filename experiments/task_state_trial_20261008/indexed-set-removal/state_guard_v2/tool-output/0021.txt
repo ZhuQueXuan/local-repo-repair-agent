@@ -1,0 +1,16 @@
+158:    def _get_real_index(self, index):
+170:    def _get_apparent_index(self, index):
+204:    def __len__(self):
+210:    def __iter__(self):
+234:    def add(self, item):
+240:    def remove(self, item):
+250:    def discard(self, item):
+392:    def iter_slice(self, start, stop, step=None):
+405:    def __getitem__(self, index):
+422:    def pop(self, index=None):
+619:    def add(self, item):
+626:    def remove(self, item):
+632:    def pop(self):
+735:    def discard(self, items):
+955:    def __len__(self):
+960:    def __iter__(self):

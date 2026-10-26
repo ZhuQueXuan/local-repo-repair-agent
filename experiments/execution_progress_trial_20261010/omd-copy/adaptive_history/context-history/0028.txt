@@ -1,0 +1,3 @@
+`__getstate__`/`__setstate__` are correct. The problem is the 5th element of `__reduce_ex__`: the dict items iterator. `copy._reconstruct` applies it via `y[key] = value` (dict update), which dedupes. 
+
+The fix: add `__reduce__` (or override `__reduce_ex__`) so the dict-items iterator isn't included, OR add `__copy__`/`__deepcopy__`. The cleanest fix preserving pickle behavior is to define `__reduce__` returning the state-based form without the dict iterator. Let me check how pickle currently works and what `copy` does.

@@ -1,0 +1,21 @@
+    99999
+    >>> len(blist.lists)  # how many underlying lists
+    8
+    >>> slice_idx = blist.lists[0][-1]
+    >>> blist[slice_idx:slice_idx + 2]
+    BarrelList([11637, 11638])
+
+    Slicing is supported and works just fine across list borders,
+    returning another instance of the BarrelList.
+
+    .. _blist module available on PyPI: https://pypi.python.org/pypi/blist
+    .. _B-trees: https://en.wikipedia.org/wiki/B-tree
+
+    """
+
+    _size_factor = 1520
+    "This size factor is the result of tuning using the tune() function below."
+
+    def __init__(self, iterable=None):
+        self.lists = [[]]
+        if iterable:

@@ -1,0 +1,83 @@
+{
+  "agent": "StatefulAgent based on upstream DefaultAgent 2.4.6",
+  "mini_commit": "04d809ceab9df28f9adaed044884180159172930",
+  "wall_time_limit_seconds": 300,
+  "model_temperature": 0,
+  "budget_policy": "configs/deepseek_budget.json",
+  "batch_id": "retrieval_delivery_trial_20261015",
+  "tasks": [
+    "click-custom-command",
+    "barrel-sort"
+  ],
+  "freeze_manifest": "configs/retrieval_delivery_trial_20261015.freeze.json",
+  "variants": {
+    "repository_retrieval": {
+      "tool_output_budget": {
+        "max_output_bytes": 1024
+      },
+      "context_budget": {
+        "target_bytes": 12288,
+        "keep_recent_tool_outputs": 4,
+        "compact_completed_exchanges": true,
+        "retained_audit_entries": 3,
+        "compact_to_target": true
+      },
+      "archive_assistant_content": true,
+      "task_state": {
+        "guard_enabled": true,
+        "repeated_read_threshold": 3,
+        "blocked_read_threshold": 3,
+        "include_previews_in_requests": false
+      },
+      "repository_retrieval": {
+        "max_message_bytes": 3072,
+        "max_results": 5,
+        "delivery_policy": "always"
+      }
+    },
+    "retrieval_on_change": {
+      "tool_output_budget": {
+        "max_output_bytes": 1024
+      },
+      "context_budget": {
+        "target_bytes": 12288,
+        "keep_recent_tool_outputs": 4,
+        "compact_completed_exchanges": true,
+        "retained_audit_entries": 3,
+        "compact_to_target": true
+      },
+      "archive_assistant_content": true,
+      "task_state": {
+        "guard_enabled": true,
+        "repeated_read_threshold": 3,
+        "blocked_read_threshold": 3,
+        "include_previews_in_requests": false
+      },
+      "repository_retrieval": {
+        "max_message_bytes": 3072,
+        "max_results": 5,
+        "delivery_policy": "on_change"
+      }
+    }
+  },
+  "run_order": [
+    {
+      "task": "click-custom-command",
+      "variant": "repository_retrieval"
+    },
+    {
+      "task": "click-custom-command",
+      "variant": "retrieval_on_change"
+    },
+    {
+      "task": "barrel-sort",
+      "variant": "repository_retrieval"
+    },
+    {
+      "task": "barrel-sort",
+      "variant": "retrieval_on_change"
+    }
+  ],
+  "scope": "Four declared development/regression runs, always/on_change once per task, no tuning or retries after results. Only snippet delivery differs; search/ranking, history/state and checks unchanged. Public tasks/checks previously evaluated, no held-out or broad success-rate claim. Same 300s wall time, providers and uncapped shared ledger.",
+  "selection_notes": "Click custom-command was the previous token-overhead case; barrel-sort was a previous retrieval-benefit case. They are development/regression tasks now. Preserve every outcome and evaluate total input as well as retrieval projection bytes."
+}

@@ -1,0 +1,16 @@
+{
+  "exit_status": "ExternalStop",
+  "reason": "First guard missed the git-root fallback prefix; repeated unchanged reads without edits or working notes. Stopped by the collaborator to avoid further spending.",
+  "process_id": 188004,
+  "recorded_responses": 257,
+  "http_attempts": 258,
+  "unsettled_attempts": 1,
+  "reservation_retained_cny": "0.10",
+  "trajectory_preserved_as_last_saved": true,
+  "recovery_model_requests": 0,
+  "missing_data": [
+    "in-memory request_measurements",
+    "in-memory context_projections",
+    "final unsaved model response"
+  ]
+}

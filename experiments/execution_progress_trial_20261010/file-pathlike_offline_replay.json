@@ -1,0 +1,4373 @@
+[
+  {
+    "sequence": 1,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 1,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 2,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 2,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 3,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 3,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 4,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 4,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 5,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 5,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 6,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 6,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 7,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 7,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 8,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 8,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 9,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 9,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 10,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 10,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 11,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 11,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 12,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 12,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 13,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 13,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 14,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 14,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 15,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 15,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 16,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 16,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 17,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 17,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 18,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 18,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 19,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 19,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 20,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 20,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 21,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 21,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 22,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 22,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 23,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 23,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 24,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 24,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 25,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 25,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 26,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 26,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 27,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 27,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 28,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 28,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 29,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 29,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 30,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 30,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 31,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 31,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 32,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 32,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 33,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 33,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 34,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 34,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 35,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 35,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 36,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 36,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 37,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 37,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 38,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 38,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 39,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 39,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 40,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 40,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 41,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 41,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 42,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 42,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 43,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 43,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 44,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 44,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 45,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 45,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 46,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 46,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 47,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 47,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 48,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 48,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 49,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 49,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 50,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 50,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 51,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 51,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 52,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 52,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 53,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 53,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 54,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 54,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 55,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 55,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 56,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 56,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 57,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 57,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 58,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 58,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 59,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 59,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 60,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 60,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 61,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 61,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 62,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 62,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 63,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 63,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 64,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 64,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 65,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 65,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 66,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 66,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 67,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 67,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 68,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 68,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 69,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 69,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 70,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 70,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 71,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 71,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 72,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 72,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 73,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 73,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 74,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 74,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 75,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 75,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 76,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 76,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 77,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 77,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 78,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 78,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 79,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 79,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 80,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 80,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 81,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 81,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 82,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 82,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 83,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 83,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 84,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 84,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 85,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 85,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 86,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 86,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 87,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 87,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 88,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 88,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 89,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 89,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 90,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 90,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 91,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 91,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 92,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 92,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 93,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 93,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 94,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 94,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 95,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 95,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 96,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 96,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 97,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 97,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 98,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 98,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 99,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 99,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 100,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 100,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 83,
+      "output_path": "temp/tool-output/0083.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 101,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 101,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 101,
+      "output_path": "temp/tool-output/0101.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 102,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 102,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 101,
+      "output_path": "temp/tool-output/0101.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 103,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 103,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 103,
+      "output_path": "temp/tool-output/0103.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 104,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 104,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 103,
+      "output_path": "temp/tool-output/0103.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 105,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 105,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 103,
+      "output_path": "temp/tool-output/0103.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 106,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 106,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 103,
+      "output_path": "temp/tool-output/0103.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 107,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 107,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 103,
+      "output_path": "temp/tool-output/0103.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 108,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 108,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 103,
+      "output_path": "temp/tool-output/0103.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 109,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 109,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 103,
+      "output_path": "temp/tool-output/0103.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 110,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 110,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 103,
+      "output_path": "temp/tool-output/0103.txt",
+      "returncode": 1
+    },
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 111,
+    "implementation_changed": true,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 3,
+    "actions_without_source_or_new_validation": 0,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 103,
+      "output_path": "temp/tool-output/0103.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 112,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 3,
+    "actions_without_source_or_new_validation": 1,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 103,
+      "output_path": "temp/tool-output/0103.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 113,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 3,
+    "actions_without_source_or_new_validation": 2,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 113,
+      "output_path": "temp/tool-output/0113.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 114,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 3,
+    "actions_without_source_or_new_validation": 3,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 115,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 3,
+    "actions_without_source_or_new_validation": 4,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 116,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 3,
+    "actions_without_source_or_new_validation": 5,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 117,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 3,
+    "actions_without_source_or_new_validation": 6,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 118,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 3,
+    "actions_without_source_or_new_validation": 7,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 119,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 4,
+    "actions_without_source_or_new_validation": 8,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 120,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 4,
+    "actions_without_source_or_new_validation": 9,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 121,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 4,
+    "actions_without_source_or_new_validation": 10,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 122,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 4,
+    "actions_without_source_or_new_validation": 11,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 123,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 4,
+    "actions_without_source_or_new_validation": 12,
+    "stagnation_feedback": true,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 124,
+    "implementation_changed": false,
+    "new_validation_result": true,
+    "phase": "validate_changes",
+    "plan_version": 5,
+    "actions_without_source_or_new_validation": 0,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "passed",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Run the declared checks for the current source revision: issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 125,
+    "implementation_changed": false,
+    "new_validation_result": true,
+    "phase": "review_and_submit",
+    "plan_version": 6,
+    "actions_without_source_or_new_validation": 0,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "passed",
+      "issue": "passed"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 126,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "review_and_submit",
+    "plan_version": 6,
+    "actions_without_source_or_new_validation": 1,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "passed",
+      "issue": "passed"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 127,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "review_and_submit",
+    "plan_version": 6,
+    "actions_without_source_or_new_validation": 2,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 111,
+    "current_validation": {
+      "targeted": "passed",
+      "issue": "passed"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 124,
+        "output_path": "temp/tool-output/0124.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+        "sequence": 125,
+        "output_path": "temp/tool-output/0125.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": {
+      "sequence": 114,
+      "output_path": "temp/tool-output/0114.txt",
+      "returncode": 1
+    },
+    "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance.",
+    "status": "program-derived advisory; no independent acceptance"
+  }
+]

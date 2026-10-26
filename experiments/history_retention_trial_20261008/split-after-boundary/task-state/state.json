@@ -1,0 +1,32 @@
+{
+  "source_revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+  "changed_files": [
+    "more_itertools/more.py"
+  ],
+  "executed_actions": 11,
+  "blocked_reads": 0,
+  "guard_enabled": true,
+  "warning": "",
+  "model_notes": {
+    "status": "model-authored, unverified",
+    "hypothesis": "split_after yielded an empty tail when maxsplit==1 and predicate matched the final element; fixed by only yielding the tail if nonempty.",
+    "next_action": "done"
+  },
+  "last_model_intent_unverified": "Both test suites pass. Let me record notes and finalize.",
+  "recent_distinct_evidence": [
+    {
+      "command": "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && python -B -m unittest discover -s task_checks -v 2>&1 | tail -30",
+      "returncode": 0,
+      "output_path": "temp/tool-output/0010.txt",
+      "preview": "test_empty_input (test_behavior.SplitBoundaryTests) ... ok\ntest_generator_at_end (test_behavior.SplitBoundaryTests) ... ok\ntest_limit_at_final_element (test_behavior.SplitBoundaryTests) ... ok\ntest_no_match (test_behavior.SplitBoundaryTests) ... ok\ntest_none_is_valid_data (test_behavior.SplitBoundaryTests) ... ok\ntest_nonempty_remainder (test_behavior.SplitBoundaryTests) ... ok\ntest_one_item_at_limit (test_behavior.SplitBoundaryTests) ... ok\ntest_second_split_at_end (test_behavior.SplitBoundaryTests) ... ok…"
+    },
+    {
+      "command": "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && mkdir -p temp/task-state && printf '%s' '{\"hypothesis\":\"split_after yielded an empty tail when maxsplit==1 and predicate matched the fi…",
+      "returncode": 0,
+      "output_path": "temp/tool-output/0011.txt",
+      "preview": "COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT\n"
+    }
+  ],
+  "evidence_log": "temp/task-state/events.jsonl",
+  "validation": "Command exit codes are observations; independent repair acceptance occurs outside the Agent."
+}

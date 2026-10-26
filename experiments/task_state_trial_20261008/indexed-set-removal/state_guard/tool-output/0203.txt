@@ -1,0 +1,19 @@
+125:    def _compact(self):
+138:    def _cull(self):
+158:    def _get_real_index(self, index):
+182:    def _add_dead(self, start, stop=None):
+204:    def __len__(self):
+207:    def __contains__(self, item):
+210:    def __iter__(self):
+392:    def iter_slice(self, start, stop, step=None):
+396:            start = self._get_real_index(start)
+398:            stop = self._get_real_index(stop)
+405:    def __getitem__(self, index):
+411:            iter_slice = self.iter_slice(start, stop, step)
+412:            return self.from_iterable(iter_slice)
+415:        real_index = self._get_real_index(index)
+430:            real_index = self._get_real_index(index)
+462:    def index(self, val):
+614:    def __contains__(self, item):
+955:    def __len__(self):
+960:    def __iter__(self):

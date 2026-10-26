@@ -1,0 +1,3 @@
+atomic_save Path FAIL: TypeError unsupported operand type(s) for +: 'WindowsPath' and 'str'
+atomic_save PathLike FAIL: TypeError unsupported operand type(s) for +: 'P' and 'str'
+iter_find_files Path FAIL: AttributeError 'WindowsPath' object has no attribute 'split'

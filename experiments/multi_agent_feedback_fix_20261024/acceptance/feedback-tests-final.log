@@ -1,0 +1,15 @@
+test_actual_16807_byte_failure_projects_below_unchanged_guard (test_collaboration_feedback.FeedbackTests) ... D:\myDocu\project_postg\shixi_project\.venv\lib\site-packages\pydantic\_internal\_generate_schema.py:1480: UserWarning: Item 'summary' on TypedDict class 'ChatCompletionReasoningItem' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+  warnings.warn(
+ok
+test_irreducible_input_still_stops_before_network_or_accounting (test_collaboration_feedback.FeedbackTests) ... ok
+test_long_review_is_saved_once_with_complete_ids_version_and_digest (test_collaboration_feedback.FeedbackTests) ... ok
+test_old_evidence_cannot_reject_a_true_old_defect_after_revision (test_collaboration_feedback.FeedbackTests) ... ok
+test_pytest_cache_moves_to_temp_without_loosening_source_manifest (test_collaboration_feedback.FeedbackTests) ... ok
+test_role_child_environment_does_not_forward_parent_secrets (test_collaboration_feedback.FeedbackTests) ... ok
+test_small_request_is_identical_to_existing_projection (test_collaboration_feedback.FeedbackTests) ... ok
+test_tampered_feedback_file_cannot_be_silently_replaced (test_collaboration_feedback.FeedbackTests) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.890s
+
+OK

@@ -1,0 +1,29 @@
+[
+  {
+    "source": "historical_274",
+    "recorded_actions": 274,
+    "stop_before_action": 36,
+    "executed_observations": 33,
+    "blocked_reads": 3,
+    "model_requests": 0,
+    "scope": "Fixed commands/outputs replay with unchanged source fixture; no model repair or live recovery claim."
+  },
+  {
+    "source": "state_v2_151",
+    "recorded_actions": 151,
+    "stop_before_action": 70,
+    "executed_observations": 67,
+    "blocked_reads": 3,
+    "model_requests": 0,
+    "scope": "Fixed commands/outputs replay with unchanged source fixture; no model repair or live recovery claim."
+  },
+  {
+    "source": "successful_split_11",
+    "recorded_actions": 11,
+    "stop_before_action": null,
+    "executed_observations": 11,
+    "blocked_reads": 0,
+    "model_requests": 0,
+    "scope": "Fixed commands/outputs replay with unchanged source fixture; no model repair or live recovery claim."
+  }
+]

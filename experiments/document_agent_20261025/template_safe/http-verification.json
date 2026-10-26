@@ -1,0 +1,11 @@
+{
+  "run_id": "4d7060e911904258ba1365ae33cbaa4d",
+  "get_requests": 6,
+  "writes_rejected": true,
+  "database_bytes_unchanged": true,
+  "roles": 5,
+  "consultations": 1,
+  "usage_attempts": 10,
+  "browser_clicks_verified": false,
+  "limit": "Browser automation disabled in Work settings; HTTP verification only."
+}

@@ -1,0 +1,31 @@
+            assert (
+                len(args) == 1 and not kwargs
+            ), "Use 'group(**kwargs)(callable)' to provide arguments."
+            (func,) = args
+            args = ()
+
+        if self.group_class is not None and kwargs.get("cls") is None:
+            if self.group_class is type:
+                kwargs["cls"] = type(self)
+            else:
+                kwargs["cls"] = self.group_class
+
+        def decorator(f: t.Callable[..., t.Any]) -> "Group":
+            cmd: Group = group(*args, **kwargs)(f)
+            self.add_command(cmd)
+            return cmd
+
+        if func is not None:
+            return decorator(func)
+
+        return decorator
+
+    def get_command(self, ctx: Context, cmd_name: str) -> t.Optional[Command]:
+        return self.commands.get(cmd_name)
+
+    def list_commands(self, ctx: Context) -> t.List[str]:
+        return sorted(self.commands)
+
+
+class CommandCollection(MultiCommand):
+    """A command collection is a multi command that merges multiple multi

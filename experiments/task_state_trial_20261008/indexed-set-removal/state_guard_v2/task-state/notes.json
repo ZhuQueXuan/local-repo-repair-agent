@@ -1,0 +1,1 @@
+{"hypothesis": "iter_slice uses _get_real_index which maps logical index to physical index but slicing logic mishandles dead indices, causing off-by-N after removals. Need to rewrite positive-step slicing to iterate over live items.", "next_action": "Reproduce the bug with a small script, then inspect iter_slice and __getitem__ to design fix."}

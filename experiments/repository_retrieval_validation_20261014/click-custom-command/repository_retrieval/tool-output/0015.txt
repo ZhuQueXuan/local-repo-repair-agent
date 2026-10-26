@@ -1,0 +1,25 @@
+            Added the :attr:`group_class` attribute.
+        """
+        from .decorators import group
+
+        func: t.Optional[t.Callable] = None
+
+        if args and callable(args[0]):
+            assert (
+                len(args) == 1 and not kwargs
+            ), "Use 'group(**kwargs)(callable)' to provide arguments."
+            (func,) = args
+            args = ()
+
+        if self.group_class is not None and kwargs.get("cls") is None:
+            if self.group_class is type:
+                kwargs["cls"] = type(self)
+            else:
+                kwargs["cls"] = self.group_class
+
+        def decorator(f: t.Callable[..., t.Any]) -> "Group":
+            cmd: Group = group(*args, **kwargs)(f)
+            self.add_command(cmd)
+            return cmd
+
+        if func is not None:

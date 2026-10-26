@@ -1,0 +1,11 @@
+{
+  "tests_run": 198,
+  "passed": 197,
+  "skipped": 1,
+  "skip_reason": "File symlink creation not permitted on this Windows host; real hardlink and directory junction tests passed.",
+  "pre_existing_runtime_config_and_shared_ledger_unchanged": true,
+  "checked_existing_files": 64,
+  "model_requests": 0,
+  "stage": "A only; no model, scheduler or production database integration",
+  "demo_scope": "Scripted synthetic review/revision with separately executed arithmetic tests, not model effectiveness."
+}

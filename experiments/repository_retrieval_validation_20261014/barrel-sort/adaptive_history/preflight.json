@@ -1,0 +1,67 @@
+{
+  "task_id": "barrel-sort",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261014_220643_589216\\repo",
+  "git_root_verified": true,
+  "pipefail_verified": true,
+  "variant": "adaptive_history",
+  "tool_output_budget": {
+    "max_output_bytes": 1024
+  },
+  "context_budget": {
+    "target_bytes": 12288,
+    "keep_recent_tool_outputs": 4,
+    "compact_completed_exchanges": true,
+    "retained_audit_entries": 3,
+    "compact_to_target": true
+  },
+  "archive_assistant_content": true,
+  "task_state": {
+    "guard_enabled": true,
+    "repeated_read_threshold": 3,
+    "blocked_read_threshold": 3,
+    "include_previews_in_requests": false
+  },
+  "external_model_requests": 0,
+  "budget": {
+    "max_requests": null,
+    "max_total_cost_cny": null,
+    "accounted_cost_and_reservations_cny": 9.846984,
+    "known_price_estimate_cny": 8.846984,
+    "unpriced_usage_requests": 0,
+    "remaining_cny": null,
+    "blocked": false
+  },
+  "evaluation_freeze": {
+    "manifest": "configs/repository_retrieval_validation_20261014.freeze.json",
+    "sha256": "9a28105b598beda864827ad59f5493255afd976592b75b7b50001403c2bbb96b",
+    "verified_files": 487
+  },
+  "provider_routing": {
+    "priority": [
+      {
+        "name": "bupt_gateway",
+        "api_base": "https://myai.bupt.edu.cn/llm-gw/v1",
+        "model": "deepseek-v4-flash",
+        "supports_thinking_control": false,
+        "cost_status": "unknown_platform_price"
+      },
+      {
+        "name": "deepseek_official",
+        "api_base": "https://api.deepseek.com",
+        "model": "deepseek-flash",
+        "supports_thinking_control": true,
+        "cost_status": "conservative_estimate"
+      }
+    ],
+    "active_provider": "bupt_gateway",
+    "switches": [],
+    "unpriced_successful_requests": 0,
+    "cost_estimate_complete": true,
+    "known_price_estimate_cny": 0.0,
+    "cost_scope": "Known-price successful requests only; unpriced/failed charges are unknown."
+  },
+  "task_package_import_verified": true,
+  "python_import_root": null,
+  "repository_retrieval": null,
+  "retrieval_preview": null
+}

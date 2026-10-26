@@ -1,0 +1,16 @@
+    ...         fo.write('bye')
+    ... except ZeroDivisionError:
+    ...     pass  # at least our file.txt didn't get overwritten
+
+    See the :class:`AtomicSaver` documentation for details.
+    """
+    return AtomicSaver(dest_path, **kwargs)
+
+
+def path_to_unicode(path):
+    if isinstance(path, str):
+        return path
+    encoding = sys.getfilesystemencoding() or sys.getdefaultencoding()
+    return path.decode(encoding)
+
+

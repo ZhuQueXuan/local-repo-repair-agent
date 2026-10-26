@@ -1,0 +1,8 @@
+45:from itertools import chain, islice
+210:    def __iter__(self):
+392:    def iter_slice(self, start, stop, step=None):
+402:        return islice(iterable, start, stop, step)
+405:    def __getitem__(self, index):
+411:            iter_slice = self.iter_slice(start, stop, step)
+412:            return self.from_iterable(iter_slice)
+960:    def __iter__(self):

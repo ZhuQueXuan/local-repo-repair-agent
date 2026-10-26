@@ -1,0 +1,24 @@
+test_acceptance_is_not_an_independent_resolution (test_collaboration_protocol.ProtocolTests) ... ok
+test_altered_span_with_plausible_hash_is_not_issued_evidence (test_collaboration_protocol.ProtocolTests) ... ok
+test_approve_does_not_override_major_findings (test_collaboration_protocol.ProtocolTests) ... ok
+test_canonical_encoding_is_stable_and_disallows_nan (test_collaboration_protocol.ProtocolTests) ... ok
+test_handoff_rejects_wrong_run_recipient_patch_and_document_scope (test_collaboration_protocol.ProtocolTests) ... ok
+test_insufficient_evidence_is_valid_with_an_explicit_gap (test_collaboration_protocol.ProtocolTests) ... ok
+test_missing_or_wrong_source_evidence_is_not_actionable (test_collaboration_protocol.ProtocolTests) ... ok
+test_model_claim_cannot_become_program_test_or_only_finding_evidence (test_collaboration_protocol.ProtocolTests) ... ok
+test_no_findings_and_style_only_cannot_request_changes (test_collaboration_protocol.ProtocolTests) ... ok
+test_portable_paths_reject_traversal_devices_ads_and_aliases (test_collaboration_protocol.ProtocolTests) ... ok
+test_rejection_needs_evidence_but_unverified_can_stop (test_collaboration_protocol.ProtocolTests) ... ok
+test_requirement_ids_come_from_original_issue (test_collaboration_protocol.ProtocolTests) ... ok
+test_response_cannot_use_another_task_candidate_or_unknown_finding (test_collaboration_protocol.ProtocolTests) ... ok
+test_roles_are_not_limited_to_repairer_and_reviewer (test_collaboration_protocol.ProtocolTests) ... ok
+test_roundtrip_candidate_and_nested_models_are_immutable (test_collaboration_protocol.ProtocolTests) ... ok
+test_stale_or_missing_program_report_is_rejected (test_collaboration_protocol.ProtocolTests) ... ok
+test_stale_review_cannot_approve_new_candidate (test_collaboration_protocol.ProtocolTests) ... ok
+test_unknown_fields_versions_and_scalar_coercion_are_rejected (test_collaboration_protocol.ProtocolTests) ... ok
+test_valid_handoff_and_review_preserve_versions (test_collaboration_protocol.ProtocolTests) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 1.939s
+
+OK

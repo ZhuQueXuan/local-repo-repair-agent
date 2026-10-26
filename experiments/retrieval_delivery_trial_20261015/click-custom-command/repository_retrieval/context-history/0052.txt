@@ -1,0 +1,1 @@
+Reproduced. Now let me check the `group` method in core.py to mirror its ordering, and check the nested group case.

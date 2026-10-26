@@ -1,0 +1,18 @@
+{
+  "adapter-regression.zip": "d3aaa1088189d4326af8341c68c313bd1b480cebe788b7a4c3f7a4250e6a479c",
+  "adapter-regression.zip.sha256.json": "4964934db311dcb6b46e8d1e87ac86984c6556f885aa740b969c20148d87ffda",
+  "default-regression.zip": "bbfd186b20c349fb7066f983ca053a6928a474ffa07a71ca75fbab1e8bb885c8",
+  "default-regression.zip.sha256.json": "3c72fa0289f5603ecd7dc86f466395c32a94e92719a3d253bba7d8019e44a05d",
+  "documentation.zip": "577600daa5dadd20d4c9f079b87c605a3473a899f36f739611e70a1643ba25b8",
+  "documentation.zip.sha256.json": "8f14444bbf592fbe41de10214645d4983f4b28ad8f1ba14a2d296372c51a9580",
+  "four-real-failures.zip": "20769cabdc47b67ebadf8d3d183595f0c3d3614e6ca736583bf74a580eb0d575",
+  "four-real-failures.zip.sha256.json": "517448812b5e9624b450d5d3f67f4b6fbebcdd30ce135d13215ebbd5bc166008",
+  "javascript-task.zip": "057f743e4f67777baa3e1c6b7b8275b2d939a4731efee195e4bffcbdeba6886e",
+  "javascript-task.zip.sha256.json": "432ae9c0602d8e576b5992ee17685ef6e3acfbc5f21bec21e8fead0e82145183",
+  "process-and-accounting.zip": "62688e1bd7b613f9e329338a979838f452a07239da14c8a308be0771ec02e454",
+  "process-and-accounting.zip.sha256.json": "270f8048d60a1aa900755c034a3879354d264cd354a96fd1ccf5c8e94763882b",
+  "README.json": "63498cb30ec04949fe351eb8a0cc0feb92fd7f203a5d2d9a5713813cea098c7b",
+  "runtime-code.zip": "ffaf5036f504a5b743cc3265b64d3dde1e17da98073685b56bb071e54dc7bc9b",
+  "runtime-code.zip.sha256.json": "703009e8374a323e50d94bb9e4ed97b17010296a166bb59552bd362530d5af1b",
+  "verification.json": "7c12476db2d653bebd1033026a7dd492014b129ef24579b238f947af82b13111"
+}

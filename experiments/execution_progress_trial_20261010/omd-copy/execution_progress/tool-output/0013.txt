@@ -1,0 +1,17 @@
+160:    def __new__(cls, *a, **kw):
+165:    def __init__(self, *args, **kwargs):
+176:    def __getstate__(self):
+179:    def __setstate__(self, state):
+183:    def _clear_ll(self):
+192:    def _insert(self, k, v):
+265:    def copy(self):
+306:    def update_extend(self, E, **F):
+438:    def iteritems(self, multi=False):
+654:    def _clear_ll(self):
+666:    def _insert(self, k, v):
+719:    def iteritems(self, multi=False):
+781:    def __init__(self, *a, **kw):
+852:    def copy(self):
+910:    def __init__(self, items=None):
+995:    def iteritems(self):
+1106:    def __copy__(self):

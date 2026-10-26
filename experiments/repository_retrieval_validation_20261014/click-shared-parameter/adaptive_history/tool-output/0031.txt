@@ -1,0 +1,13 @@
+src/click/decorators.py:204:            decorator_params = f.__click_params__  # type: ignore
+src/click/decorators.py:208:            del f.__click_params__  # type: ignore
+src/click/decorators.py:264:def _param_memo(f: FC, param: Parameter) -> None:
+src/click/decorators.py:268:        if not hasattr(f, "__click_params__"):
+src/click/decorators.py:269:            f.__click_params__ = []  # type: ignore
+src/click/decorators.py:271:        f.__click_params__.append(param)  # type: ignore
+src/click/decorators.py:274:def argument(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:
+src/click/decorators.py:287:        _param_memo(f, ArgumentClass(param_decls, **attrs))
+src/click/decorators.py:293:def option(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:
+src/click/decorators.py:308:        _param_memo(f, OptionClass(param_decls, **option_attrs))
+src/click/core.py:2162:    def _parse_decls(
+src/click/core.py:2598:    def _parse_decls(
+src/click/core.py:2974:    def _parse_decls(

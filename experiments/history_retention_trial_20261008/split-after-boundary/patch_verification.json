@@ -1,0 +1,47 @@
+{
+  "task_id": "more-itertools-split-after-658",
+  "repo": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\split-after-boundary\\temp\\run_20261008_155350_652015\\repo",
+  "imported_package": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\split-after-boundary\\temp\\run_20261008_155350_652015\\repo\\more_itertools\\__init__.py",
+  "issue_checks": {
+    "tests_run": 10,
+    "subtests_run": 0,
+    "passed": 10,
+    "failed_test_methods": [],
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.000s\n\nOK\n"
+  },
+  "upstream_targeted": {
+    "tests_run": 4,
+    "subtests_run": 0,
+    "passed": 4,
+    "failed_test_methods": [],
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+  },
+  "protected_tests_unchanged": true,
+  "changed_protected_tests": [],
+  "task_tests_passed": true,
+  "scope": "Public historical development task; not SWE-bench or a held-out benchmark. Memorization possible.",
+  "external_model_requests": 0,
+  "full_upstream_suite": {
+    "tests_run": 660,
+    "subtests_run": 2163,
+    "passed": 659,
+    "failed_test_methods": [
+      "test_more.TimeLimitedTests.test_zero_limit"
+    ],
+    "failures": [
+      "test_more.TimeLimitedTests.test_zero_limit"
+    ],
+    "errors": [],
+    "skipped": [],
+    "successful": false,
+    "output": "...................................................................................................................................................................................................................................................................................................................................................................................................................F................................................................................................................................................................................................................................................................\n======================================================================\nFAIL: test_zero_limit (test_more.TimeLimitedTests)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\split-after-boundary\\temp\\run_20261008_155350_652015\\repo\\tests\\test_more.py\", line 3963, in test_zero_limit\n    self.assertEqual(actual, expected)\nAssertionError: Lists differ: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,[664455 chars]6515] != []\n\nFirst list contains 96516 additional elements.\nFirst extra element 0:\n0\n\nDiff is 954055 characters long. Set self.maxDiff to None to see it.\n\n----------------------------------------------------------------------\nRan 660 tests in 1.193s\n\nFAILED (failures=1)\n"
+  }
+}

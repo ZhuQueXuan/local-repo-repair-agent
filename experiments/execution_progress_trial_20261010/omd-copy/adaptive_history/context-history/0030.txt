@@ -1,0 +1,3 @@
+Interesting — `__reduce__` (protocol 0/1) returns `_reconstructor` with a dict `{'a': 2}` plus state. Pickle works because `__setstate__` overwrites via `update_extend`. But `copy.copy` uses `__reduce_ex__(4)` which gives the `__newobj__` form with the dict-items iterator as 5th element, and `copy._reconstruct` applies that iterator with `y[key]=value`, deduping.
+
+The cleanest fix: define `__reduce__` to return a form without the dict-items iterator. Let me write the fix.

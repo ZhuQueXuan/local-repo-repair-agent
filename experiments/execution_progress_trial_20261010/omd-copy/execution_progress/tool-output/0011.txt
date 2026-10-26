@@ -1,0 +1,17 @@
+    def __new__(cls, *a, **kw):
+        ret = super().__new__(cls)
+        ret._clear_ll()
+        return ret 
+    
+    def __init__(self, *args, **kwargs):
+        if len(args) > 1:
+            raise TypeError('%s expected at most 1 argument, got %s'
+                            % (self.__class__.__name__, len(args)))
+        super().__init__()
+
+        if args:
+            self.update_extend(args[0])
+        if kwargs:
+            self.update(kwargs)
+
+    def __getstate__(self):

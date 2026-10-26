@@ -1,0 +1,1 @@
+Now I understand the `command` decorator. The issue is about group registration. Let me look at the group's `command` method.

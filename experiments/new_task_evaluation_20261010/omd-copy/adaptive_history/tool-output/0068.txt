@@ -1,0 +1,9 @@
+165:    def __init__(self, *args, **kwargs):
+176:    def __getstate__(self):
+179:    def __setstate__(self, state):
+265:    def copy(self):
+781:    def __init__(self, *a, **kw):
+852:    def copy(self):
+910:    def __init__(self, items=None):
+1089:    def __reduce_ex__(self, protocol):
+1106:    def __copy__(self):

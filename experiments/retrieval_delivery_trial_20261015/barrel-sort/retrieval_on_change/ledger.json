@@ -1,0 +1,100 @@
+{
+  "attempts": 19,
+  "provider_attempts": [
+    {
+      "attempt": 1,
+      "provider": "bupt_gateway"
+    },
+    {
+      "attempt": 2,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 3,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 4,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 5,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 6,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 7,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 8,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 9,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 10,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 11,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 12,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 13,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 14,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 15,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 16,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 17,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 18,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 19,
+      "provider": "deepseek_official"
+    }
+  ],
+  "provider_errors": [
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500,
+      "notice": "bupt_gateway\uff1aAPI\u8bf7\u6c42\u5931\u8d25\uff0c\u5c1a\u4e0d\u80fd\u5224\u65ad\u662f\u7f51\u7edc\u8fd8\u662f\u670d\u52a1\u95ee\u9898\u3002",
+      "failover_eligible": true
+    }
+  ],
+  "provider_switches": [
+    {
+      "from": "bupt_gateway",
+      "to": "deepseek_official",
+      "reason": "request_failed",
+      "attempt": 1
+    }
+  ],
+  "completed": true,
+  "note": "This run ended. Shared total budget remains cumulative."
+}

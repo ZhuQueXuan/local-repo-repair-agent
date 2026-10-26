@@ -1,0 +1,17 @@
+{
+  "counts": {
+    "passed": 169,
+    "failed": 6,
+    "skipped": 1
+  },
+  "same_failed_nodeids": true,
+  "failed_nodeids": [
+    "tests/environments/test_local.py::test_local_environment_custom_cwd",
+    "tests/environments/test_local.py::test_local_environment_cwd_parameter_override",
+    "tests/environments/test_local.py::test_local_environment_default_cwd",
+    "tests/environments/test_local.py::test_local_environment_env_variable_override",
+    "tests/environments/test_local.py::test_local_environment_existing_env_variables",
+    "tests/environments/test_local.py::test_local_environment_set_env_variables"
+  ],
+  "reference": "D:\\myDocu\\project_postg\\shixi_project\\temp\\regression\\20261025_160635_5298fc95"
+}

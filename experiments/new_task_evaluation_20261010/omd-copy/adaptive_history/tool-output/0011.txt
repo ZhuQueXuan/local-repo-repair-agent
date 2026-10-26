@@ -1,0 +1,25 @@
+    def __getstate__(self):
+        return list(self.iteritems(multi=True))
+
+    def __setstate__(self, state):
+        self.clear()
+        self.update_extend(state)
+
+    def _clear_ll(self):
+        try:
+            _map = self._map
+        except AttributeError:
+            _map = self._map = {}
+            self.root = []
+        _map.clear()
+        self.root[:] = [self.root, self.root, None]
+
+    def _insert(self, k, v):
+        root = self.root
+        cells = self._map.setdefault(k, [])
+        last = root[PREV]
+        cell = [last, root, k, v]
+        last[NEXT] = root[PREV] = cell
+        cells.append(cell)
+
+    def add(self, k, v):

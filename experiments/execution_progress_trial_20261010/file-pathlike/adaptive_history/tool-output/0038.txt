@@ -1,0 +1,37 @@
+def path_to_unicode(path):
+    if isinstance(path, str):
+        return path
+    encoding = sys.getfilesystemencoding() or sys.getdefaultencoding()
+    return path.decode(encoding)
+
+
+if os.name == 'nt':
+    import ctypes
+    from ctypes import c_wchar_p
+    from ctypes.wintypes import DWORD, LPVOID
+
+    _ReplaceFile = ctypes.windll.kernel32.ReplaceFile
+    _ReplaceFile.argtypes = [c_wchar_p, c_wchar_p, c_wchar_p,
+                             DWORD, LPVOID, LPVOID]
+
+    def replace(src, dst):
+        # argument names match stdlib docs, docstring below
+        try:
+            # ReplaceFile fails if the dest file does not exist, so
+            # first try to rename it into position
+            os.rename(src, dst)
+            return
+        except OSError as we:
+            if we.errno == errno.EEXIST:
+                pass  # continue with the ReplaceFile logic below
+            else:
+                raise
+
+        src = path_to_unicode(src)
+        dst = path_to_unicode(dst)
+        res = _ReplaceFile(c_wchar_p(dst), c_wchar_p(src),
+                           None, 0, None, None)
+        if not res:
+            raise OSError(f'failed to replace {dst!r} with {src!r}')
+        return
+

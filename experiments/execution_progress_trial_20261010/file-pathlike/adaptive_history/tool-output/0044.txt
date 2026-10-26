@@ -1,0 +1,25 @@
+    def __init__(self, dest_path, **kwargs):
+        self.dest_path = dest_path
+        self.overwrite = kwargs.pop('overwrite', True)
+        self.file_perms = kwargs.pop('file_perms', None)
+        self.overwrite_part = kwargs.pop('overwrite_part', False)
+        self.part_filename = kwargs.pop('part_file', None)
+        self.rm_part_on_exc = kwargs.pop('rm_part_on_exc', True)
+        self.text_mode = kwargs.pop('text_mode', False)
+        self.buffering = kwargs.pop('buffering', -1)
+        if kwargs:
+            raise TypeError(f'unexpected kwargs: {kwargs.keys()!r}')
+
+        self.dest_path = os.path.abspath(self.dest_path)
+        self.dest_dir = os.path.dirname(self.dest_path)
+        if not self.part_filename:
+            self.part_path = dest_path + '.part'
+        else:
+            self.part_path = os.path.join(self.dest_dir, self.part_filename)
+        self.mode = 'w+' if self.text_mode else 'w+b'
+        self.open_flags = _TEXT_OPENFLAGS if self.text_mode else _BIN_OPENFLAGS
+
+        self.part_file = None
+
+    def _open_part_file(self):
+        do_chmod = True

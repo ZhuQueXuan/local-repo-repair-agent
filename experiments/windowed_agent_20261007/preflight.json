@@ -1,0 +1,13 @@
+{
+  "batch_id": "windowed_first_20261007",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\windowed-empty\\temp\\run_20261007_204029_209742\\repo",
+  "result_dir": "D:\\myDocu\\project_postg\\shixi_project\\temp\\windowed_first_20261007_204029_291413",
+  "baseline_issue_failures": 5,
+  "virtualenv_python": "verified",
+  "credentials_in_model_config": false,
+  "request_and_context_guards": "passed",
+  "old_ledger_unchanged": true,
+  "requests": 0,
+  "max_requests": 10,
+  "max_reserved_cost_cny": 1
+}

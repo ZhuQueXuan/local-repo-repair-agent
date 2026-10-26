@@ -1,0 +1,49 @@
+{
+  "task": "click-shared-parameter",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\click-shared-parameter\\temp\\run_20261014_215906_806990\\repo",
+  "issue_total": 5,
+  "issue_passed": 4,
+  "upstream_targeted": 115,
+  "upstream_targeted_ok": true,
+  "extended_total": 264,
+  "extended_passed": 262,
+  "extended_skipped": 0,
+  "extended_failures": [
+    "tests.test_arguments.test_bytes_args",
+    "tests.test_arguments.test_bytes_args"
+  ],
+  "qualified": true
+}
+{
+  "task": "click-custom-command",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\click-custom-command\\temp\\run_20261014_215910_482240\\repo",
+  "issue_total": 6,
+  "issue_passed": 5,
+  "upstream_targeted": 9,
+  "upstream_targeted_ok": true,
+  "extended_total": 264,
+  "extended_passed": 262,
+  "extended_skipped": 0,
+  "extended_failures": [
+    "tests.test_arguments.test_bytes_args",
+    "tests.test_arguments.test_bytes_args"
+  ],
+  "qualified": true
+}
+{
+  "task": "barrel-sort",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261014_215913_891195\\repo",
+  "issue_total": 5,
+  "issue_passed": 5,
+  "upstream_targeted": 2,
+  "upstream_targeted_ok": true,
+  "extended_total": 78,
+  "extended_passed": 78,
+  "extended_skipped": 0,
+  "extended_failures": [],
+  "qualified": false
+}
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\temp\qualify_retrieval_tasks_18.py", line 38, in <module>
+    assert all(row["qualified"] for row in rows)
+AssertionError

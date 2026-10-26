@@ -1,0 +1,121 @@
+    """
+    def __init__(self, other=None):
+        self.item_index_map = dict()
+        self.item_list = []
+        self.dead_indices = []
+        self._compactions = 0
+        self._c_max_size = 0
+        if other:
+            self.update(other)
+
+    # internal functions
+    @property
+    def _dead_index_count(self):
+        return len(self.item_list) - len(self.item_index_map)
+
+    def _compact(self):
+        if not self.dead_indices:
+            return
+        self._compactions += 1
+        dead_index_count = self._dead_index_count
+        items, index_map = self.item_list, self.item_index_map
+        self._c_max_size = max(self._c_max_size, len(items))
+        for i, item in enumerate(self):
+            items[i] = item
+            index_map[item] = i
+        del items[-dead_index_count:]
+        del self.dead_indices[:]
+
+    def _cull(self):
+        ded = self.dead_indices
+        if not ded:
+            return
+        items, ii_map = self.item_list, self.item_index_map
+        if not ii_map:
+            del items[:]
+            del ded[:]
+        elif len(ded) > 384:
+            self._compact()
+        elif self._dead_index_count > (len(items) / _COMPACTION_FACTOR):
+            self._compact()
+        elif items[-1] is _MISSING:  # get rid of dead right hand side
+            num_dead = 1
+            while items[-(num_dead + 1)] is _MISSING:
+                num_dead += 1
+            if ded and ded[-1][1] == len(items):
+                del ded[-1]
+            del items[-num_dead:]
+
+    def _get_real_index(self, index):
+        if index < 0:
+            index += len(self)
+        if not self.dead_indices:
+            return index
+        real_index = index
+        for d_start, d_stop in self.dead_indices:
+            if real_index < d_start:
+                break
+            real_index += d_stop - d_start
+        return real_index
+
+    def _get_apparent_index(self, index):
+        if index < 0:
+            index += len(self)
+        if not self.dead_indices:
+            return index
+        apparent_index = index
+        for d_start, d_stop in self.dead_indices:
+            if index < d_start:
+                break
+            apparent_index -= d_stop - d_start
+        return apparent_index
+
+    def _add_dead(self, start, stop=None):
+        # TODO: does not handle when the new interval subsumes
+        # multiple existing intervals
+        dints = self.dead_indices
+        if stop is None:
+            stop = start + 1
+        cand_int = [start, stop]
+        if not dints:
+            dints.append(cand_int)
+            return
+        int_idx = bisect_left(dints, cand_int)
+        dint = dints[int_idx - 1]
+        d_start, d_stop = dint
+        if start <= d_start <= stop:
+            dint[0] = start
+        elif start <= d_stop <= stop:
+            dint[1] = stop
+        else:
+            dints.insert(int_idx, cand_int)
+        return
+
+    # common operations (shared by set and list)
+    def __len__(self):
+        return len(self.item_index_map)
+
+    def __contains__(self, item):
+        return item in self.item_index_map
+
+    def __iter__(self):
+        return (item for item in self.item_list if item is not _MISSING)
+
+    def __reversed__(self):
+        item_list = self.item_list
+        return (item for item in reversed(item_list) if item is not _MISSING)
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}({list(self)!r})'
+
+    def __eq__(self, other):
+        if isinstance(other, IndexedSet):
+            return len(self) == len(other) and list(self) == list(other)
+        try:
+            return set(self) == set(other)
+        except TypeError:
+            return False
+
+    @classmethod
+    def from_iterable(cls, it):
+        "from_iterable(it) -> create a set from an iterable"

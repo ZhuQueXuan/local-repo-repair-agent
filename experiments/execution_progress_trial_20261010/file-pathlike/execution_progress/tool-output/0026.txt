@@ -1,0 +1,24 @@
+439         """Called on context manager entry (the :keyword:`with` statement),
+440         the ``setup()`` method creates the temporary file in the same
+441         directory as the destination file.
+442 
+443         ``setup()`` tests for a writable directory with rename permissions
+444         early, as the part file may not be written to immediately (not
+445         using :func:`os.access` because of the potential issues of
+446         effective vs. real privileges).
+447 
+448         If the caller is not using the :class:`AtomicSaver` as a
+449         context manager, this method should be called explicitly
+450         before writing.
+451         """
+452         if os.path.lexists(self.dest_path):
+453             if not self.overwrite:
+454                 raise OSError(errno.EEXIST,
+455                               'Overwrite disabled and file already exists',
+456                               self.dest_path)
+457         if self.overwrite_part and os.path.lexists(self.part_path):
+458             os.unlink(self.part_path)
+459         self._open_part_file()
+460         return
+461 
+462     def __enter__(self):

@@ -1,0 +1,37 @@
+    path to ensure atomic move operations (i.e., no cross-filesystem
+    moves occur).
+
+    Args:
+        dest_path (str): The path where the completed file will be
+            written.
+        overwrite (bool): Whether to overwrite the destination file if
+            it exists at completion time. Defaults to ``True``.
+        file_perms (int): Integer representation of file permissions
+            for the newly-created file. Defaults are, when the
+            destination path already exists, to copy the permissions
+            from the previous file, or if the file did not exist, to
+            respect the user's configured `umask`_, usually resulting
+            in octal 0644 or 0664.
+        text_mode (bool): Whether to open the destination file in text
+            mode (i.e., ``'w'`` not ``'wb'``). Defaults to ``False`` (``wb``).
+        part_file (str): Name of the temporary *part_file*. Defaults
+            to *dest_path* + ``.part``. Note that this argument is
+            just the filename, and not the full path of the part
+            file. To guarantee atomic saves, part files are always
+            created in the same directory as the destination path.
+=====
+            raise TypeError(f'unexpected kwargs: {kwargs.keys()!r}')
+
+        self.dest_path = os.path.abspath(self.dest_path)
+        self.dest_dir = os.path.dirname(self.dest_path)
+        if not self.part_filename:
+            self.part_path = dest_path + '.part'
+        else:
+            self.part_path = os.path.join(self.dest_dir, self.part_filename)
+        self.mode = 'w+' if self.text_mode else 'w+b'
+        self.open_flags = _TEXT_OPENFLAGS if self.text_mode else _BIN_OPENFLAGS
+
+        self.part_file = None
+
+    def _open_part_file(self):
+        do_chmod = True

@@ -1,0 +1,57 @@
+256 
+257     if callable(name):
+258         grp: t.Callable[[F], Group] = t.cast(Group, command(**attrs))
+259         return grp(name)
+260 
+261     return t.cast(Group, command(name, **attrs))
+262 
+263 
+264 def _param_memo(f: FC, param: Parameter) -> None:
+265     if isinstance(f, Command):
+266         f.params.append(param)
+267     else:
+268         if not hasattr(f, "__click_params__"):
+269             f.__click_params__ = []  # type: ignore
+270 
+271         f.__click_params__.append(param)  # type: ignore
+272 
+273 
+274 def argument(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:
+275     """Attaches an argument to the command.  All positional arguments are
+276     passed as parameter declarations to :class:`Argument`; all keyword
+277     arguments are forwarded unchanged (except ``cls``).
+278     This is equivalent to creating an :class:`Argument` instance manually
+279     and attaching it to the :attr:`Command.params` list.
+280 
+281     :param cls: the argument class to instantiate.  This defaults to
+282                 :class:`Argument`.
+283     """
+284 
+285     def decorator(f: FC) -> FC:
+286         ArgumentClass = attrs.pop("cls", None) or Argument
+287         _param_memo(f, ArgumentClass(param_decls, **attrs))
+288         return f
+289 
+290     return decorator
+291 
+292 
+293 def option(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:
+294     """Attaches an option to the command.  All positional arguments are
+295     passed as parameter declarations to :class:`Option`; all keyword
+296     arguments are forwarded unchanged (except ``cls``).
+297     This is equivalent to creating an :class:`Option` instance manually
+298     and attaching it to the :attr:`Command.params` list.
+299 
+300     :param cls: the option class to instantiate.  This defaults to
+301                 :class:`Option`.
+302     """
+303 
+304     def decorator(f: FC) -> FC:
+305         # Issue 926, copy attrs, so pre-defined options can re-use the same cls=
+306         option_attrs = attrs.copy()
+307         OptionClass = option_attrs.pop("cls", None) or Option
+308         _param_memo(f, OptionClass(param_decls, **option_attrs))
+309         return f
+310 
+311     return decorator
+312 

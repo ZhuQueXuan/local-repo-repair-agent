@@ -1,0 +1,10 @@
+158:    def _get_real_index(self, index):
+170:    def _get_apparent_index(self, index):
+207:    def __contains__(self, item):
+210:    def __iter__(self):
+213:    def __reversed__(self):
+392:    def iter_slice(self, start, stop, step=None):
+405:    def __getitem__(self, index):
+462:    def index(self, val):
+614:    def __contains__(self, item):
+960:    def __iter__(self):

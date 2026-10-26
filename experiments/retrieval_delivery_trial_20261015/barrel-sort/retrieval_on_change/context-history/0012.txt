@@ -1,0 +1,1 @@
+`BarrelList` subclasses `list`. So `del self.lists[:]` empties the internal list, then `self.lists[0] = tmp_sorted` should IndexError. But my repro passed. Let me check `_balance_list` — maybe it's called before, or maybe `lists` is being reassigned. Let me look at lines 99-135.

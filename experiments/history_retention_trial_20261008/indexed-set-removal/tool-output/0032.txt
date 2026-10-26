@@ -1,0 +1,30 @@
+404             iterable = reversed(self)
+405         return islice(iterable, start, stop, step)
+406 
+407     # list operations
+408     def __getitem__(self, index):
+409         try:
+410             start, stop, step = index.start, index.stop, index.step
+411         except AttributeError:
+412             index = operator.index(index)
+413         else:
+414             iter_slice = self.iter_slice(start, stop, step)
+415             return self.from_iterable(iter_slice)
+416         if index < 0:
+417             index += len(self)
+418         real_index = self._get_real_index(index)
+419         try:
+420             ret = self.item_list[real_index]
+421         except IndexError:
+422             raise IndexError('IndexedSet index out of range')
+423         return ret
+424 
+425     def pop(self, index=None):
+---
+158     def _get_real_index(self, index):
+170     def _get_apparent_index(self, index):
+400                 start = self._get_real_index(start)
+402                 stop = self._get_real_index(stop)
+418         real_index = self._get_real_index(index)
+433             real_index = self._get_real_index(index)
+468             return self._get_apparent_index(self.item_index_map[val])

@@ -1,0 +1,1 @@
+Confirmed. In `command`, the `cls` injection happens before the callable check, so `kwargs` is non-empty and the assertion fails. In `group`, the injection happens after the callable check, so it works. Let me write my notes and reproduce.

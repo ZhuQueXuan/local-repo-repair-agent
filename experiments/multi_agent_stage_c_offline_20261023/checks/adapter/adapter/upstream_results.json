@@ -1,0 +1,1247 @@
+{
+  "profile": "adapter",
+  "exit_code": 1,
+  "selected": [
+    "tests/agents/test_default.py::test_successful_completion[text]",
+    "tests/agents/test_default.py::test_successful_completion[toolcall]",
+    "tests/agents/test_default.py::test_successful_completion[response_api]",
+    "tests/agents/test_default.py::test_step_limit_enforcement[text]",
+    "tests/agents/test_default.py::test_step_limit_enforcement[toolcall]",
+    "tests/agents/test_default.py::test_step_limit_enforcement[response_api]",
+    "tests/agents/test_default.py::test_cost_limit_enforcement[text]",
+    "tests/agents/test_default.py::test_cost_limit_enforcement[toolcall]",
+    "tests/agents/test_default.py::test_cost_limit_enforcement[response_api]",
+    "tests/agents/test_default.py::test_timeout_handling[text]",
+    "tests/agents/test_default.py::test_timeout_handling[toolcall]",
+    "tests/agents/test_default.py::test_timeout_handling[response_api]",
+    "tests/agents/test_default.py::test_timeout_captures_partial_output[text]",
+    "tests/agents/test_default.py::test_timeout_captures_partial_output[toolcall]",
+    "tests/agents/test_default.py::test_timeout_captures_partial_output[response_api]",
+    "tests/agents/test_default.py::test_multiple_steps_before_completion[text]",
+    "tests/agents/test_default.py::test_multiple_steps_before_completion[toolcall]",
+    "tests/agents/test_default.py::test_multiple_steps_before_completion[response_api]",
+    "tests/agents/test_default.py::test_custom_config[text]",
+    "tests/agents/test_default.py::test_custom_config[toolcall]",
+    "tests/agents/test_default.py::test_custom_config[response_api]",
+    "tests/agents/test_default.py::test_render_template_model_stats[text]",
+    "tests/agents/test_default.py::test_render_template_model_stats[toolcall]",
+    "tests/agents/test_default.py::test_render_template_model_stats[response_api]",
+    "tests/agents/test_default.py::test_messages_include_timestamps[text]",
+    "tests/agents/test_default.py::test_messages_include_timestamps[toolcall]",
+    "tests/agents/test_default.py::test_messages_include_timestamps[response_api]",
+    "tests/agents/test_default.py::test_message_history_tracking[text]",
+    "tests/agents/test_default.py::test_message_history_tracking[toolcall]",
+    "tests/agents/test_default.py::test_message_history_tracking[response_api]",
+    "tests/agents/test_default.py::test_step_adds_messages[text]",
+    "tests/agents/test_default.py::test_step_adds_messages[toolcall]",
+    "tests/agents/test_default.py::test_step_adds_messages[response_api]",
+    "tests/agents/test_default.py::test_observations_captured[text]",
+    "tests/agents/test_default.py::test_observations_captured[toolcall]",
+    "tests/agents/test_default.py::test_observations_captured[response_api]",
+    "tests/agents/test_default.py::test_wall_time_limit_enforcement[text]",
+    "tests/agents/test_default.py::test_wall_time_limit_enforcement[toolcall]",
+    "tests/agents/test_default.py::test_wall_time_limit_enforcement[response_api]",
+    "tests/agents/test_default.py::test_wall_time_limit_template_vars[text]",
+    "tests/agents/test_default.py::test_wall_time_limit_template_vars[toolcall]",
+    "tests/agents/test_default.py::test_wall_time_limit_template_vars[response_api]",
+    "tests/agents/test_default.py::test_empty_actions_handling[text]",
+    "tests/agents/test_default.py::test_empty_actions_handling[toolcall]",
+    "tests/agents/test_default.py::test_empty_actions_handling[response_api]",
+    "tests/agents/test_default.py::test_repeated_format_errors_terminate_cleanly",
+    "tests/agents/test_default.py::test_format_error_counter_resets_on_success",
+    "tests/agents/test_default.py::test_format_errors_count_against_cost_limit",
+    "tests/agents/test_interactive.py::test_successful_completion_with_confirmation[text]",
+    "tests/agents/test_interactive.py::test_successful_completion_with_confirmation[toolcall]",
+    "tests/agents/test_interactive.py::test_successful_completion_with_confirmation[response_api]",
+    "tests/agents/test_interactive.py::test_action_rejection_and_recovery[text]",
+    "tests/agents/test_interactive.py::test_action_rejection_and_recovery[toolcall]",
+    "tests/agents/test_interactive.py::test_action_rejection_and_recovery[response_api]",
+    "tests/agents/test_interactive.py::test_yolo_mode_activation[text]",
+    "tests/agents/test_interactive.py::test_yolo_mode_activation[toolcall]",
+    "tests/agents/test_interactive.py::test_yolo_mode_activation[response_api]",
+    "tests/agents/test_interactive.py::test_help_command[text]",
+    "tests/agents/test_interactive.py::test_help_command[toolcall]",
+    "tests/agents/test_interactive.py::test_help_command[response_api]",
+    "tests/agents/test_interactive.py::test_whitelisted_actions_skip_confirmation[text]",
+    "tests/agents/test_interactive.py::test_whitelisted_actions_skip_confirmation[toolcall]",
+    "tests/agents/test_interactive.py::test_whitelisted_actions_skip_confirmation[response_api]",
+    "tests/agents/test_interactive.py::test_interruption_handling_with_message[text]",
+    "tests/agents/test_interactive.py::test_interruption_handling_with_message[toolcall]",
+    "tests/agents/test_interactive.py::test_interruption_handling_with_message[response_api]",
+    "tests/agents/test_interactive.py::test_interruption_handling_empty_message[text]",
+    "tests/agents/test_interactive.py::test_interruption_handling_empty_message[toolcall]",
+    "tests/agents/test_interactive.py::test_interruption_handling_empty_message[response_api]",
+    "tests/agents/test_interactive.py::test_multiple_confirmations_and_commands[text]",
+    "tests/agents/test_interactive.py::test_multiple_confirmations_and_commands[toolcall]",
+    "tests/agents/test_interactive.py::test_multiple_confirmations_and_commands[response_api]",
+    "tests/agents/test_interactive.py::test_non_whitelisted_action_requires_confirmation[text]",
+    "tests/agents/test_interactive.py::test_non_whitelisted_action_requires_confirmation[toolcall]",
+    "tests/agents/test_interactive.py::test_non_whitelisted_action_requires_confirmation[response_api]",
+    "tests/agents/test_interactive.py::test_human_mode_basic_functionality[text]",
+    "tests/agents/test_interactive.py::test_human_mode_basic_functionality[toolcall]",
+    "tests/agents/test_interactive.py::test_human_mode_basic_functionality[response_api]",
+    "tests/agents/test_interactive.py::test_human_mode_switch_to_yolo[text]",
+    "tests/agents/test_interactive.py::test_human_mode_switch_to_yolo[toolcall]",
+    "tests/agents/test_interactive.py::test_human_mode_switch_to_yolo[response_api]",
+    "tests/agents/test_interactive.py::test_human_mode_switch_to_confirm[text]",
+    "tests/agents/test_interactive.py::test_human_mode_switch_to_confirm[toolcall]",
+    "tests/agents/test_interactive.py::test_human_mode_switch_to_confirm[response_api]",
+    "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_human_with_rejection[text]",
+    "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_human_with_rejection[toolcall]",
+    "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_human_with_rejection[response_api]",
+    "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_yolo_and_continue[text]",
+    "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_yolo_and_continue[toolcall]",
+    "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_yolo_and_continue[response_api]",
+    "tests/agents/test_interactive.py::test_mode_switch_during_keyboard_interrupt[text]",
+    "tests/agents/test_interactive.py::test_mode_switch_during_keyboard_interrupt[toolcall]",
+    "tests/agents/test_interactive.py::test_mode_switch_during_keyboard_interrupt[response_api]",
+    "tests/agents/test_interactive.py::test_already_in_mode_behavior[text]",
+    "tests/agents/test_interactive.py::test_already_in_mode_behavior[toolcall]",
+    "tests/agents/test_interactive.py::test_already_in_mode_behavior[response_api]",
+    "tests/agents/test_interactive.py::test_all_mode_transitions_yolo_to_others[text]",
+    "tests/agents/test_interactive.py::test_all_mode_transitions_yolo_to_others[toolcall]",
+    "tests/agents/test_interactive.py::test_all_mode_transitions_yolo_to_others[response_api]",
+    "tests/agents/test_interactive.py::test_all_mode_transitions_confirm_to_human[text]",
+    "tests/agents/test_interactive.py::test_all_mode_transitions_confirm_to_human[toolcall]",
+    "tests/agents/test_interactive.py::test_all_mode_transitions_confirm_to_human[response_api]",
+    "tests/agents/test_interactive.py::test_help_command_from_different_contexts[text]",
+    "tests/agents/test_interactive.py::test_help_command_from_different_contexts[toolcall]",
+    "tests/agents/test_interactive.py::test_help_command_from_different_contexts[response_api]",
+    "tests/agents/test_interactive.py::test_help_command_from_human_mode[text]",
+    "tests/agents/test_interactive.py::test_help_command_from_human_mode[toolcall]",
+    "tests/agents/test_interactive.py::test_help_command_from_human_mode[response_api]",
+    "tests/agents/test_interactive.py::test_complex_mode_switching_sequence[text]",
+    "tests/agents/test_interactive.py::test_complex_mode_switching_sequence[toolcall]",
+    "tests/agents/test_interactive.py::test_complex_mode_switching_sequence[response_api]",
+    "tests/agents/test_interactive.py::test_limits_exceeded_with_user_continuation[text]",
+    "tests/agents/test_interactive.py::test_limits_exceeded_with_user_continuation[toolcall]",
+    "tests/agents/test_interactive.py::test_limits_exceeded_with_user_continuation[response_api]",
+    "tests/agents/test_interactive.py::test_limits_exceeded_multiple_times_with_continuation[text]",
+    "tests/agents/test_interactive.py::test_limits_exceeded_multiple_times_with_continuation[toolcall]",
+    "tests/agents/test_interactive.py::test_limits_exceeded_multiple_times_with_continuation[response_api]",
+    "tests/agents/test_interactive.py::test_limits_exceeded_non_interactive_stops_cleanly[text]",
+    "tests/agents/test_interactive.py::test_limits_exceeded_non_interactive_stops_cleanly[toolcall]",
+    "tests/agents/test_interactive.py::test_limits_exceeded_non_interactive_stops_cleanly[response_api]",
+    "tests/agents/test_interactive.py::test_time_exceeded_never_prompts[text]",
+    "tests/agents/test_interactive.py::test_time_exceeded_never_prompts[toolcall]",
+    "tests/agents/test_interactive.py::test_time_exceeded_never_prompts[response_api]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_with_new_task[text]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_with_new_task[toolcall]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_with_new_task[response_api]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_without_new_task[text]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_without_new_task[toolcall]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_without_new_task[response_api]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_multiple_cycles[text]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_multiple_cycles[toolcall]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_multiple_cycles[response_api]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_in_yolo_mode[text]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_in_yolo_mode[toolcall]",
+    "tests/agents/test_interactive.py::test_continue_after_completion_in_yolo_mode[response_api]",
+    "tests/agents/test_interactive.py::test_confirm_exit_enabled_asks_for_confirmation[text]",
+    "tests/agents/test_interactive.py::test_confirm_exit_enabled_asks_for_confirmation[toolcall]",
+    "tests/agents/test_interactive.py::test_confirm_exit_enabled_asks_for_confirmation[response_api]",
+    "tests/agents/test_interactive.py::test_confirm_exit_disabled_exits_immediately[text]",
+    "tests/agents/test_interactive.py::test_confirm_exit_disabled_exits_immediately[toolcall]",
+    "tests/agents/test_interactive.py::test_confirm_exit_disabled_exits_immediately[response_api]",
+    "tests/agents/test_interactive.py::test_confirm_exit_with_new_task_continues_execution[text]",
+    "tests/agents/test_interactive.py::test_confirm_exit_with_new_task_continues_execution[toolcall]",
+    "tests/agents/test_interactive.py::test_confirm_exit_with_new_task_continues_execution[response_api]",
+    "tests/agents/test_interactive.py::test_confirm_exit_config_field_defaults[text]",
+    "tests/agents/test_interactive.py::test_confirm_exit_config_field_defaults[toolcall]",
+    "tests/agents/test_interactive.py::test_confirm_exit_config_field_defaults[response_api]",
+    "tests/agents/test_interactive.py::test_confirm_exit_config_field_can_be_set[text]",
+    "tests/agents/test_interactive.py::test_confirm_exit_config_field_can_be_set[toolcall]",
+    "tests/agents/test_interactive.py::test_confirm_exit_config_field_can_be_set[response_api]",
+    "tests/agents/test_interactive.py::test_submission_help_then_human_mode[text]",
+    "tests/agents/test_interactive.py::test_submission_help_then_human_mode[toolcall]",
+    "tests/agents/test_interactive.py::test_submission_help_then_human_mode[response_api]",
+    "tests/agents/test_interactive.py::test_submission_enter_quits[text]",
+    "tests/agents/test_interactive.py::test_submission_enter_quits[toolcall]",
+    "tests/agents/test_interactive.py::test_submission_enter_quits[response_api]",
+    "tests/environments/test_local.py::test_local_environment_config_defaults",
+    "tests/environments/test_local.py::test_local_environment_basic_execution",
+    "tests/environments/test_local.py::test_local_environment_set_env_variables",
+    "tests/environments/test_local.py::test_local_environment_existing_env_variables",
+    "tests/environments/test_local.py::test_local_environment_env_variable_override",
+    "tests/environments/test_local.py::test_local_environment_custom_cwd",
+    "tests/environments/test_local.py::test_local_environment_cwd_parameter_override",
+    "tests/environments/test_local.py::test_local_environment_default_cwd",
+    "tests/environments/test_local.py::test_local_environment_command_failure",
+    "tests/environments/test_local.py::test_local_environment_nonexistent_command",
+    "tests/environments/test_local.py::test_local_environment_stderr_capture",
+    "tests/environments/test_local.py::test_local_environment_timeout",
+    "tests/environments/test_local.py::test_local_environment_timeout_kills_child_process",
+    "tests/environments/test_local.py::test_local_environment_custom_timeout",
+    "tests/environments/test_local.py::test_local_environment_return_codes[echo 'test'-0]",
+    "tests/environments/test_local.py::test_local_environment_return_codes[exit 1-1]",
+    "tests/environments/test_local.py::test_local_environment_return_codes[exit 42-42]",
+    "tests/environments/test_local.py::test_local_environment_multiline_output",
+    "tests/environments/test_local.py::test_local_environment_file_operations",
+    "tests/environments/test_local.py::test_local_environment_shell_features"
+  ],
+  "deselected": [],
+  "counts": {
+    "passed": 169,
+    "failed": 6,
+    "skipped": 1
+  },
+  "reports": [
+    {
+      "nodeid": "tests/agents/test_default.py::test_successful_completion[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_successful_completion[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_successful_completion[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_step_limit_enforcement[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_step_limit_enforcement[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_step_limit_enforcement[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_cost_limit_enforcement[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_cost_limit_enforcement[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_cost_limit_enforcement[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_timeout_handling[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_timeout_handling[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_timeout_handling[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_timeout_captures_partial_output[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_timeout_captures_partial_output[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_timeout_captures_partial_output[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_multiple_steps_before_completion[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_multiple_steps_before_completion[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_multiple_steps_before_completion[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_custom_config[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_custom_config[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_custom_config[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_render_template_model_stats[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_render_template_model_stats[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_render_template_model_stats[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_messages_include_timestamps[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_messages_include_timestamps[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_messages_include_timestamps[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_message_history_tracking[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_message_history_tracking[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_message_history_tracking[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_step_adds_messages[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_step_adds_messages[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_step_adds_messages[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_observations_captured[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_observations_captured[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_observations_captured[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_wall_time_limit_enforcement[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_wall_time_limit_enforcement[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_wall_time_limit_enforcement[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_wall_time_limit_template_vars[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_wall_time_limit_template_vars[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_wall_time_limit_template_vars[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_empty_actions_handling[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_empty_actions_handling[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_empty_actions_handling[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_repeated_format_errors_terminate_cleanly",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_format_error_counter_resets_on_success",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_default.py::test_format_errors_count_against_cost_limit",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_successful_completion_with_confirmation[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_successful_completion_with_confirmation[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_successful_completion_with_confirmation[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_action_rejection_and_recovery[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_action_rejection_and_recovery[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_action_rejection_and_recovery[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_yolo_mode_activation[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_yolo_mode_activation[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_yolo_mode_activation[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_help_command[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_help_command[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_help_command[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_whitelisted_actions_skip_confirmation[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_whitelisted_actions_skip_confirmation[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_whitelisted_actions_skip_confirmation[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_interruption_handling_with_message[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_interruption_handling_with_message[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_interruption_handling_with_message[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_interruption_handling_empty_message[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_interruption_handling_empty_message[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_interruption_handling_empty_message[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_multiple_confirmations_and_commands[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_multiple_confirmations_and_commands[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_multiple_confirmations_and_commands[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_non_whitelisted_action_requires_confirmation[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_non_whitelisted_action_requires_confirmation[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_non_whitelisted_action_requires_confirmation[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_human_mode_basic_functionality[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_human_mode_basic_functionality[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_human_mode_basic_functionality[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_human_mode_switch_to_yolo[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_human_mode_switch_to_yolo[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_human_mode_switch_to_yolo[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_human_mode_switch_to_confirm[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_human_mode_switch_to_confirm[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_human_mode_switch_to_confirm[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_human_with_rejection[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_human_with_rejection[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_human_with_rejection[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_yolo_and_continue[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_yolo_and_continue[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirmation_mode_switch_to_yolo_and_continue[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_mode_switch_during_keyboard_interrupt[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_mode_switch_during_keyboard_interrupt[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_mode_switch_during_keyboard_interrupt[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_already_in_mode_behavior[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_already_in_mode_behavior[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_already_in_mode_behavior[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_all_mode_transitions_yolo_to_others[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_all_mode_transitions_yolo_to_others[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_all_mode_transitions_yolo_to_others[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_all_mode_transitions_confirm_to_human[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_all_mode_transitions_confirm_to_human[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_all_mode_transitions_confirm_to_human[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_help_command_from_different_contexts[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_help_command_from_different_contexts[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_help_command_from_different_contexts[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_help_command_from_human_mode[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_help_command_from_human_mode[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_help_command_from_human_mode[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_complex_mode_switching_sequence[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_complex_mode_switching_sequence[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_complex_mode_switching_sequence[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_limits_exceeded_with_user_continuation[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_limits_exceeded_with_user_continuation[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_limits_exceeded_with_user_continuation[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_limits_exceeded_multiple_times_with_continuation[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_limits_exceeded_multiple_times_with_continuation[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_limits_exceeded_multiple_times_with_continuation[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_limits_exceeded_non_interactive_stops_cleanly[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_limits_exceeded_non_interactive_stops_cleanly[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_limits_exceeded_non_interactive_stops_cleanly[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_time_exceeded_never_prompts[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_time_exceeded_never_prompts[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_time_exceeded_never_prompts[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_with_new_task[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_with_new_task[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_with_new_task[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_without_new_task[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_without_new_task[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_without_new_task[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_multiple_cycles[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_multiple_cycles[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_multiple_cycles[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_in_yolo_mode[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_in_yolo_mode[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_continue_after_completion_in_yolo_mode[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_enabled_asks_for_confirmation[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_enabled_asks_for_confirmation[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_enabled_asks_for_confirmation[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_disabled_exits_immediately[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_disabled_exits_immediately[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_disabled_exits_immediately[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_with_new_task_continues_execution[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_with_new_task_continues_execution[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_with_new_task_continues_execution[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_config_field_defaults[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_config_field_defaults[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_config_field_defaults[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_config_field_can_be_set[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_config_field_can_be_set[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_confirm_exit_config_field_can_be_set[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_submission_help_then_human_mode[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_submission_help_then_human_mode[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_submission_help_then_human_mode[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_submission_enter_quits[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_submission_enter_quits[toolcall]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_interactive.py::test_submission_enter_quits[response_api]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_config_defaults",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_basic_execution",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_set_env_variables",
+      "phase": "call",
+      "outcome": "failed",
+      "detail": "tests\\environments\\test_local.py:40: in test_local_environment_set_env_variables\n    assert \"test_value\" in result[\"output\"]\nE   AssertionError: assert 'test_value' in '\\n'"
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_existing_env_variables",
+      "phase": "call",
+      "outcome": "failed",
+      "detail": "tests\\environments\\test_local.py:56: in test_local_environment_existing_env_variables\n    assert \"existing_value new_value\" in result[\"output\"]\nE   AssertionError: assert 'existing_value new_value' in '\\n'"
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_env_variable_override",
+      "phase": "call",
+      "outcome": "failed",
+      "detail": "tests\\environments\\test_local.py:66: in test_local_environment_env_variable_override\n    assert \"override_value\" in result[\"output\"]\nE   AssertionError: assert 'override_value' in '\\n'"
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_custom_cwd",
+      "phase": "call",
+      "outcome": "failed",
+      "detail": "tests\\environments\\test_local.py:76: in test_local_environment_custom_cwd\n    assert temp_dir in result[\"output\"]\nE   AssertionError: assert 'D:\\\\myDocu\\\\project_postg\\\\shixi_project\\\\temp\\\\regression\\\\20261023_161438_f96bfea5\\\\adapter\\\\scratch\\\\tmpy5_abavh' in '/tmp/regression/20261023_161438_f96bfea5/adapter/scratch/tmpy5_abavh\\n'"
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_cwd_parameter_override",
+      "phase": "call",
+      "outcome": "failed",
+      "detail": "tests\\environments\\test_local.py:87: in test_local_environment_cwd_parameter_override\n    assert temp_dir2 in result[\"output\"]\nE   AssertionError: assert 'D:\\\\myDocu\\\\project_postg\\\\shixi_project\\\\temp\\\\regression\\\\20261023_161438_f96bfea5\\\\adapter\\\\scratch\\\\tmper6rlvzg' in '/tmp/regression/20261023_161438_f96bfea5/adapter/scratch/tmper6rlvzg\\n'"
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_default_cwd",
+      "phase": "call",
+      "outcome": "failed",
+      "detail": "tests\\environments\\test_local.py:97: in test_local_environment_default_cwd\n    assert current_dir in result[\"output\"]\nE   AssertionError: assert 'D:\\\\myDocu\\\\project_postg\\\\shixi_project\\\\mini-swe-agent' in '/d/myDocu/project_postg/shixi_project/mini-swe-agent\\n'"
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_command_failure",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_nonexistent_command",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_stderr_capture",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_timeout",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_timeout_kills_child_process",
+      "phase": "setup",
+      "outcome": "skipped",
+      "detail": "('D:\\\\myDocu\\\\project_postg\\\\shixi_project\\\\mini-swe-agent\\\\tests\\\\environments\\\\test_local.py', 137, 'Skipped: process groups are POSIX-specific')"
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_custom_timeout",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_return_codes[echo 'test'-0]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_return_codes[exit 1-1]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_return_codes[exit 42-42]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_multiline_output",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_file_operations",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_local.py::test_local_environment_shell_features",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    }
+  ],
+  "guard_violations": []
+}

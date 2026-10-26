@@ -1,0 +1,3 @@
+boltons/fileutils.py:248:def atomic_save(dest_path, **kwargs):
+boltons/fileutils.py:335:class AtomicSaver:
+boltons/fileutils.py:492:def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):

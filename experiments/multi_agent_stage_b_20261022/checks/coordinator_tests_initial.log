@@ -1,0 +1,29 @@
+test_actual_child_process_exit_is_reconciled_without_runner (test_collaboration.CoordinatorTests) ... ERROR
+test_approve_branch_skips_revision_and_final_review (test_collaboration.CoordinatorTests) ... ok
+test_cancellation_at_every_role_boundary_prevents_next_work (test_collaboration.CoordinatorTests) ... ok
+test_crash_at_each_checkpoint_is_observed_without_replay (test_collaboration.CoordinatorTests) ... ok
+test_deadline_stops_after_cooperative_callback_without_next_role (test_collaboration.CoordinatorTests) ... ok
+test_feedback_path_persists_all_outputs_and_unique_role_costs (test_collaboration.CoordinatorTests) ... ok
+test_insufficient_evidence_ends_without_silent_approval (test_collaboration.CoordinatorTests) ... ok
+test_registered_snapshot_and_records_detect_tampering (test_collaboration.CoordinatorTests) ... ok
+test_rejection_and_final_disagreement_do_not_open_second_revision (test_collaboration.CoordinatorTests) ... ok
+test_reopening_finished_run_never_calls_runner (test_collaboration.CoordinatorTests) ... ok
+test_role_failure_is_persisted_and_arbitrary_exception_text_not_exposed (test_collaboration.CoordinatorTests) ... ok
+test_single_worker_lock_rejects_second_coordinator (test_collaboration.CoordinatorTests) ... ok
+
+======================================================================
+ERROR: test_actual_child_process_exit_is_reconciled_without_runner (test_collaboration.CoordinatorTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration.py", line 105, in test_actual_child_process_exit_is_reconciled_without_runner
+    store, parent = make_store()
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_store.py", line 19, in make_store
+    store = CollaborationStore(ROOT / "temp/multi_agent_stage_b_20261022/tests" / uuid.uuid4().hex)
+  File "D:\myDocu\project_postg\shixi_project\scripts\collaboration_store.py", line 38, in __init__
+    raise ValueError("Stage B is temp-only; production integration is not enabled.")
+ValueError: Stage B is temp-only; production integration is not enabled.
+
+----------------------------------------------------------------------
+Ran 12 tests in 12.425s
+
+FAILED (errors=1)

@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-18",
+  "offline_checks_passed": 150,
+  "old_artifacts": {
+    "history_retention_trial_20261008": {
+      "count": 141,
+      "mismatches": []
+    },
+    "new_task_evaluation_20261010": {
+      "count": 373,
+      "mismatches": []
+    },
+    "execution_progress_trial_20261010": {
+      "count": 400,
+      "mismatches": []
+    },
+    "repository_retrieval_dev_20261014": {
+      "count": 433,
+      "mismatches": []
+    },
+    "repository_retrieval_validation_20261014": {
+      "count": 1033,
+      "mismatches": []
+    },
+    "retrieval_delivery_trial_20261015": {
+      "count": 939,
+      "mismatches": []
+    }
+  },
+  "current_old_freeze": {
+    "manifest": "configs/retrieval_delivery_trial_20261015.freeze.json",
+    "sha256": "74a67e0c47609ed453e39434f5573bd9f7ffba41b7faeee8cfb1efbc341c67fa",
+    "verified_files": 350
+  },
+  "live_run": {
+    "id": "03bf3963add44401bd6c92881c513615",
+    "task": "split-after-boundary",
+    "profile": "adaptive_history",
+    "status": "finished",
+    "agent_exit": "Submitted",
+    "repair_result": "passed",
+    "metrics": {
+      "requests": 11,
+      "successful_responses": 10,
+      "prompt_tokens": 22660,
+      "completion_tokens": 1247,
+      "known_price_estimate_cny": 0.055296,
+      "complete_cost_estimate_cny": null,
+      "unknown_attempts": 1,
+      "unknown_placeholder_cny": 0.1,
+      "provider_routing": {
+        "priority": [
+          {
+            "name": "bupt_gateway",
+            "api_base": "https://myai.bupt.edu.cn/llm-gw/v1",
+            "model": "deepseek-v4-flash",
+            "supports_thinking_control": false,
+            "cost_status": "unknown_platform_price"
+          },
+          {
+            "name": "deepseek_official",
+            "api_base": "https://api.deepseek.com",
+            "model": "deepseek-flash",
+            "supports_thinking_control": true,
+            "cost_status": "conservative_estimate"
+          }
+        ],
+        "active_provider": "deepseek_official",
+        "switches": [
+          {
+            "from": "bupt_gateway",
+            "to": "deepseek_official",
+            "reason": "request_failed",
+            "attempt": 1
+          }
+        ],
+        "unpriced_successful_requests": 0,
+        "cost_estimate_complete": false,
+        "known_price_estimate_cny": 0.055296,
+        "cost_scope": "Known-price successful requests only; unpriced/failed charges are unknown."
+      },
+      "cost_scope": "已知价格成功请求保守估算；未知占位不是已确认收费或平台余额",
+      "total_elapsed_seconds": 22.625
+    }
+  },
+  "live_artifact_hash_count": 163,
+  "live_frozen_input_count": 139,
+  "live_input_snapshot_unchanged": true,
+  "post_live_source_differences": [
+    "scripts/start_task_service.ps1",
+    "scripts/task_panel.html",
+    "scripts/task_service.py",
+    "scripts/task_service_worker.py",
+    "scripts/test_task_service.py",
+    "启动任务面板.cmd"
+  ],
+  "live_checks": {
+    "baseline.json": {
+      "issue": {
+        "tests_run": 10,
+        "passed": 5,
+        "successful": false
+      },
+      "targeted": {
+        "tests_run": 4,
+        "passed": 4,
+        "successful": true
+      },
+      "extended": {
+        "tests_run": 660,
+        "passed": 659,
+        "failures": [
+          "test_more.TimeLimitedTests.test_zero_limit"
+        ],
+        "errors": []
+      }
+    },
+    "verification.json": {
+      "issue": {
+        "tests_run": 10,
+        "passed": 10,
+        "successful": true
+      },
+      "targeted": {
+        "tests_run": 4,
+        "passed": 4,
+        "successful": true
+      },
+      "extended": {
+        "tests_run": 660,
+        "passed": 659,
+        "failures": [
+          "test_more.TimeLimitedTests.test_zero_limit"
+        ],
+        "errors": []
+      }
+    },
+    "patch_verification.json": {
+      "issue": {
+        "tests_run": 10,
+        "passed": 10,
+        "successful": true
+      },
+      "targeted": {
+        "tests_run": 4,
+        "passed": 4,
+        "successful": true
+      },
+      "extended": {
+        "tests_run": 660,
+        "passed": 659,
+        "failures": [
+          "test_more.TimeLimitedTests.test_zero_limit"
+        ],
+        "errors": []
+      }
+    }
+  },
+  "historical_ledger_rows_preserved": true,
+  "added_shared_rows": 11,
+  "every_new_shared_ticket_linked_to_run": true,
+  "new_runs": [
+    {
+      "id": "f40969016dcb476c9a8902be0f283835",
+      "kind": "replay",
+      "status": "finished",
+      "repair_result": "passed"
+    },
+    {
+      "id": "03bf3963add44401bd6c92881c513615",
+      "kind": "live",
+      "status": "finished",
+      "repair_result": "passed"
+    },
+    {
+      "id": "43b22b91df0149d3b8225dd161b3a66e",
+      "kind": "replay",
+      "status": "finished",
+      "repair_result": "passed"
+    },
+    {
+      "id": "ff0ce1f308d247ffb8a6161b4cfbc1a9",
+      "kind": "replay",
+      "status": "interrupted",
+      "repair_result": "unknown"
+    },
+    {
+      "id": "53d7764f4ed340478f90fc2560e6bf1d",
+      "kind": "replay",
+      "status": "cancelled",
+      "repair_result": "not_run"
+    },
+    {
+      "id": "4528e77f09474eda90744a4bdc43abe9",
+      "kind": "replay",
+      "status": "cancelled",
+      "repair_result": "not_run"
+    },
+    {
+      "id": "6c55b0cce4294510ba49e7b88b69dfdd",
+      "kind": "replay",
+      "status": "finished",
+      "repair_result": "passed"
+    },
+    {
+      "id": "f1aad4fbcaa84f6e82ec270a3ec5520b",
+      "kind": "replay",
+      "status": "failed",
+      "repair_result": "unknown"
+    }
+  ],
+  "history_count": 33,
+  "remaining_scope": [
+    "user-operated acceptance",
+    "clean-machine setup",
+    "paid in-flight cancellation",
+    "multi-agent",
+    "new-task efficacy evaluation"
+  ]
+}

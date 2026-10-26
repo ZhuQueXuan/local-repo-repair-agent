@@ -1,0 +1,1 @@
+I see the bug: `self.part_path = dest_path + '.part'` uses the original `dest_path` (which could be a Path), not the abspath string. Let me read the rest of `__enter__` and the `atomic_save` function.

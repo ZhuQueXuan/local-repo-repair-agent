@@ -1,0 +1,12 @@
+{
+  "classification": "adapter_context_bytes_limit",
+  "message_utf8_bytes_before_next_request": 16784,
+  "limit_utf8_bytes": 16384,
+  "successful_paid_responses": 6,
+  "next_request_sent": false,
+  "source_changes": [],
+  "shared_budget_exhausted": false,
+  "observations": "Relevant implementation found and bug reproduced; repeated code and check reads accumulated before any edit.",
+  "scope": "Failure of this local configuration; does not prove DeepSeek cannot solve the issue.",
+  "candidate_next_experiment": "Bound tool output with retrievable full output; keep model, task, checks and 16 KB limit fixed."
+}

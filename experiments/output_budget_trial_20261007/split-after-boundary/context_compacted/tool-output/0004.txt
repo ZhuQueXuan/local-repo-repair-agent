@@ -1,0 +1,26 @@
+
+    buf = []
+    it = iter(iterable)
+    for item in it:
+        buf.append(item)
+        if pred(item) and buf:
+            yield buf
+            if maxsplit == 1:
+                yield list(it)
+                return
+            buf = []
+            maxsplit -= 1
+    if buf:
+        yield buf
+
+
+def split_when(iterable, pred, maxsplit=-1):
+    """Split *iterable* into pieces based on the output of *pred*.
+    *pred* should be a function that takes successive pairs of items and
+    returns ``True`` if the iterable should be split in between them.
+
+    For example, to find runs of increasing numbers, split the iterable when
+    element ``i`` is larger than element ``i + 1``:
+
+        >>> list(split_when([1, 2, 3, 3, 2, 5, 2, 4, 2], lambda x, y: x > y))
+        [[1, 2, 3, 3], [2, 5], [2, 4], [2]]

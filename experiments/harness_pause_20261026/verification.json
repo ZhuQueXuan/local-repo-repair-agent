@@ -1,0 +1,143 @@
+{
+  "protected_old_files_hash_verified": 5374,
+  "changed_old_protected_files": [],
+  "formal_payloads_unchanged": 52,
+  "formal_task_cards_or_continuations_schema_added": false,
+  "shared_ledger_requests": 2016,
+  "new_formal_runs": 0,
+  "old_task_card_delivery_files_verified": 10,
+  "external_model_calls": 0,
+  "scope": "Optional role-boundary checkpoints and linked continuation; scripted replies, local execution. Not live-model/browser/full-regression acceptance.",
+  "basic_check": {
+    "scope": "One scripted transport/usage chain, real source/grading/replay. Not live model acceptance.",
+    "transitions": [
+      {
+        "source": "cf6d37310b084175a6b17ba7f73792b6",
+        "child": "d77bd2dbe4664af8abad9e6530aa8b8a",
+        "next_phase": "repairing",
+        "remaining_seconds": 1797,
+        "source_unchanged": true
+      },
+      {
+        "source": "d77bd2dbe4664af8abad9e6530aa8b8a",
+        "child": "e63163cddd8d49149a656ff67a72b506",
+        "next_phase": "reviewing",
+        "remaining_seconds": 1792,
+        "source_unchanged": true
+      },
+      {
+        "source": "e63163cddd8d49149a656ff67a72b506",
+        "child": "8832fd847f434f6bbba2945302285eec",
+        "next_phase": "revising",
+        "remaining_seconds": 1788,
+        "source_unchanged": true
+      },
+      {
+        "source": "8832fd847f434f6bbba2945302285eec",
+        "child": "c41702e0628e41829e01dbae8d7c9dc5",
+        "next_phase": "final_review",
+        "remaining_seconds": 1781,
+        "source_unchanged": true
+      }
+    ],
+    "paused_sources": [
+      "cf6d37310b084175a6b17ba7f73792b6",
+      "d77bd2dbe4664af8abad9e6530aa8b8a",
+      "e63163cddd8d49149a656ff67a72b506",
+      "8832fd847f434f6bbba2945302285eec"
+    ],
+    "final_run": "c41702e0628e41829e01dbae8d7c9dc5",
+    "final_status": "finished",
+    "repair_result": "passed",
+    "review_verdict": "approve",
+    "phase_call_counts": {
+      "consulting": 3,
+      "repairing": 2,
+      "reviewing": 2,
+      "revising": 2,
+      "final_review": 1
+    },
+    "old_parent_payloads_unchanged": true,
+    "tampered_checkpoint_rejected_without_child": true,
+    "idempotent_one_child_per_source": true,
+    "synthetic_ledger_attempts": 10,
+    "store_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\14ae52ca9d0a42d4ac779b831646169a",
+    "external_model_calls": 0
+  },
+  "output_archive_check": {
+    "scope": "Scripted replies/usage; actual local repair/checks/replay. Not live model success.",
+    "source": "170afb588fbb41298817a25b6f0db61a",
+    "child": "403be60415b045169c5714418058df35",
+    "store_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\86febdc899d14cc5bb2c279d7576d0df",
+    "old_archives_preserved": 3,
+    "new_output_sequence_continues": true,
+    "task_state_original_files_preserved": true,
+    "source_payload_unchanged": true,
+    "only_pending_roles_executed": true,
+    "repair_result": "passed",
+    "review_verdict": "approve",
+    "lineage_usage": {
+      "segments": 2,
+      "attempts": 10,
+      "logical_requests": 10,
+      "known_price_estimate_cny": 0.0036,
+      "unknown_placeholder_cny": 0.0,
+      "complete_cost_estimate_cny": 0.0036,
+      "note": "Current segment plus predecessor segments; includes inherited work costs, not confirmed platform charges."
+    },
+    "external_model_calls": 0
+  },
+  "http_check": {
+    "api_scope": "isolated temp HTTP without workers; not browser-click evidence",
+    "pause_queued_defers_until_worker_boundary": true,
+    "authentication_enforced": true,
+    "continued_child_once": "63cd0d3053974887bf9f80beb850baef",
+    "source_payload_unchanged": true,
+    "updated_card_only_on_child": true,
+    "inherited_document_stage_explicit": true,
+    "lineage_usage_attempts": 2,
+    "preview_service_stopped": true,
+    "external_model_calls": 0,
+    "browser_clicks_verified": false,
+    "browser_block": "Local browser use disabled in Work settings; not changed."
+  },
+  "terminal_check": {
+    "final_completion_wins_over_pause": true,
+    "terminal_pause_flag_cleared": true,
+    "external_model_calls": 0,
+    "scope": "Synthetic coordinator fixture only, no execution/model transport"
+  },
+  "compatibility_checks_passed": 5,
+  "full_regression_run": false,
+  "new_formal_test_files": 0,
+  "browser_clicks_verified": false,
+  "original_panel": {
+    "url": "http://127.0.0.1:8765",
+    "health": {
+      "product": "mini-swe-task-panel",
+      "status": "ready"
+    },
+    "current_checkpoint_asset_loaded": true,
+    "new_task_created": false,
+    "external_model_calls": 0
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "files_scanned": 3782,
+    "matches": 0
+  },
+  "archive_member_counts": {
+    "source-and-documents.zip": 21,
+    "checks-and-http.zip": 31,
+    "four-boundary-scripted-chain.zip": 2383,
+    "output-archive-scripted-chain.zip": 997,
+    "isolated-http-fixture.zip": 350
+  },
+  "pending": [
+    "Real model behavior",
+    "Current browser clicks",
+    "Abnormal process failure scenarios",
+    "Consolidated end-to-end tests",
+    "Tool and Skills interfaces"
+  ]
+}

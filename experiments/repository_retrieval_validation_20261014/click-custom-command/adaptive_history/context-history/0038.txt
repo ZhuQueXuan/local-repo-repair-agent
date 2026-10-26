@@ -1,0 +1,1 @@
+Now I'll apply the fix to both methods: move the cls-injection block to after the concise-form detection.

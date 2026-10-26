@@ -1,0 +1,20 @@
+{
+  "run_id": "e023e166a7384b43a274945a53327dcd",
+  "real_result": "failed",
+  "fix_live_verified": false,
+  "browser_scope": "View/switch/citations/usage/form only; no creation or live cancellation click.",
+  "new_comparison_runs": 0,
+  "archive_member_counts": {
+    "runtime-code.zip": 106,
+    "v4-real-failure.zip": 212,
+    "process-and-accounting.zip": 22,
+    "default-regression.zip": 41,
+    "adapter-regression.zip": 8,
+    "first-failed-regression.zip": 41,
+    "first-adapter.zip": 8,
+    "documentation.zip": 6,
+    "next-identity-prepared-only.zip": 2
+  },
+  "earlier_archive_unchanged": true,
+  "next_identity": "Prepared only; needs explicit authorization for its new external transmission and charges."
+}

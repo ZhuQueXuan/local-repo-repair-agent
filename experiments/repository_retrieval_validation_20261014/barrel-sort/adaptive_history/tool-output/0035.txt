@@ -1,0 +1,15 @@
+  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path
+    def pytest_ignore_collect(path, config):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.20s
+test_empty_sort (test_behavior.LargeSortChecks) ... ok
+test_large_descending_input_sorts_globally (test_behavior.LargeSortChecks) ... ok
+test_large_repeated_values_preserve_multiplicity (test_behavior.LargeSortChecks) ... ok
+test_small_sort (test_behavior.LargeSortChecks) ... ok
+test_sort_then_mutate_and_sort_again (test_behavior.LargeSortChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.008s
+
+OK

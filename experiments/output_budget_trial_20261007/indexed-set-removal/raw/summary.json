@@ -1,0 +1,123 @@
+{
+  "task_id": "boltons-indexed-set-removal-423",
+  "variant": "raw",
+  "exit_status": "LimitsExceeded",
+  "limit_kind": "context_bytes",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\indexed-set-removal\\temp\\run_20261007_220045_474722\\repo",
+  "requests": 8,
+  "estimated_cost_cny": 0.043466,
+  "usage": [
+    {
+      "prompt_tokens": 696,
+      "completion_tokens": 82,
+      "estimated_cost_cny": 0.002048,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 901,
+      "completion_tokens": 85,
+      "estimated_cost_cny": 0.002482,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1114,
+      "completion_tokens": 64,
+      "estimated_cost_cny": 0.00274,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1819,
+      "completion_tokens": 64,
+      "estimated_cost_cny": 0.00415,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2996,
+      "completion_tokens": 64,
+      "estimated_cost_cny": 0.006504,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3578,
+      "completion_tokens": 130,
+      "estimated_cost_cny": 0.008196,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3802,
+      "completion_tokens": 124,
+      "estimated_cost_cny": 0.008596,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 4147,
+      "completion_tokens": 57,
+      "estimated_cost_cny": 0.00875,
+      "response_model": "deepseek-flash"
+    }
+  ],
+  "request_measurements": [
+    {
+      "next_request": 1,
+      "message_utf8_bytes": 1875,
+      "http_attempted": true
+    },
+    {
+      "next_request": 2,
+      "message_utf8_bytes": 2752,
+      "http_attempted": true
+    },
+    {
+      "next_request": 3,
+      "message_utf8_bytes": 3700,
+      "http_attempted": true
+    },
+    {
+      "next_request": 4,
+      "message_utf8_bytes": 6389,
+      "http_attempted": true
+    },
+    {
+      "next_request": 5,
+      "message_utf8_bytes": 11417,
+      "http_attempted": true
+    },
+    {
+      "next_request": 6,
+      "message_utf8_bytes": 14029,
+      "http_attempted": true
+    },
+    {
+      "next_request": 7,
+      "message_utf8_bytes": 14865,
+      "http_attempted": true
+    },
+    {
+      "next_request": 8,
+      "message_utf8_bytes": 16310,
+      "http_attempted": true
+    },
+    {
+      "next_request": 9,
+      "message_utf8_bytes": 19113,
+      "http_attempted": false
+    }
+  ],
+  "tool_output_statistics": null,
+  "elapsed_seconds": 21.047,
+  "changed_files": [],
+  "unexpected_changes": [],
+  "checks_and_description_unchanged": true,
+  "task_tests_passed": false,
+  "new_full_suite_failures": [],
+  "patch_replay_passed": false,
+  "repair_verified": false,
+  "shared_budget": {
+    "max_requests": null,
+    "max_total_cost_cny": 5.0,
+    "accounted_cost_and_reservations_cny": 0.38963,
+    "remaining_cny": 4.61037,
+    "blocked": false
+  },
+  "scope": "Public historical development task; not SWE-bench or a held-out benchmark. Memorization possible."
+}

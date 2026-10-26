@@ -1,0 +1,31 @@
+{
+  "attempts": 2,
+  "provider_attempts": [
+    {
+      "attempt": 1,
+      "provider": "bupt_gateway"
+    },
+    {
+      "attempt": 2,
+      "provider": "deepseek_official"
+    }
+  ],
+  "provider_errors": [
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500,
+      "notice": "bupt_gateway：API请求失败，尚不能判断是网络还是服务问题。",
+      "failover_eligible": true
+    }
+  ],
+  "provider_switches": [
+    {
+      "from": "bupt_gateway",
+      "to": "deepseek_official",
+      "reason": "request_failed",
+      "attempt": 1
+    }
+  ],
+  "completed": true
+}

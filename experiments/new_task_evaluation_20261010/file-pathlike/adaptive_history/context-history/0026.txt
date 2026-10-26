@@ -1,0 +1,1 @@
+Now I can see the bug. Line 402: `self.dest_path = os.path.abspath(self.dest_path)` converts to str, but line 405 uses the original `dest_path` (which may be a Path) with `+ '.part'`. Let me see the rest of `__init__` and the `atomic_save` function.

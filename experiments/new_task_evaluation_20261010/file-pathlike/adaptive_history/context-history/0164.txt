@@ -1,0 +1,1 @@
+I can see the bug: `self.dest_path = os.path.abspath(self.dest_path)` converts to str, but `self.part_path = dest_path + '.part'` uses the original (possibly Path) object. Let me write my notes and reproduce.

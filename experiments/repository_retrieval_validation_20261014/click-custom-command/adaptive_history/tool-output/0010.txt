@@ -1,0 +1,15 @@
+595:    def command_path(self) -> str:
+1564:        def decorator(f: F) -> F:
+1771:    command_class: t.Optional[t.Type[Command]] = None
+1813:    def command(self, __func: t.Callable[..., t.Any]) -> Command:
+1817:    def command(
+1822:    def command(
+1831:        :attr:`command_class` attribute.
+1837:            Added the :attr:`command_class` attribute.
+1841:        if self.command_class and kwargs.get("cls") is None:
+1842:            kwargs["cls"] = self.command_class
+1853:        def decorator(f: t.Callable[..., t.Any]) -> Command:
+1864:    def group(self, __func: t.Callable[..., t.Any]) -> "Group":
+1868:    def group(
+1873:    def group(
+1907:        def decorator(f: t.Callable[..., t.Any]) -> "Group":

@@ -1,0 +1,20 @@
+335 class AtomicSaver:
+336     """``AtomicSaver`` is a configurable `context manager`_ that provides
+337     a writable :class:`file` which will be moved into place as long as
+338     no exceptions are raised within the context manager's block. These
+339     "part files" are created in the same directory as the destination
+340     path to ensure atomic move operations (i.e., no cross-filesystem
+341     moves occur).
+342 
+343     Args:
+344         dest_path (str): The path where the completed file will be
+345             written.
+346         overwrite (bool): Whether to overwrite the destination file if
+347             it exists at completion time. Defaults to ``True``.
+348         file_perms (int): Integer representation of file permissions
+349             for the newly-created file. Defaults are, when the
+350             destination path already exists, to copy the permissions
+351             from the previous file, or if the file did not exist, to
+352             respect the user's configured `umask`_, usually resulting
+353             in octal 0644 or 0664.
+354         text_mode (bool): Whether to open the destination file in text

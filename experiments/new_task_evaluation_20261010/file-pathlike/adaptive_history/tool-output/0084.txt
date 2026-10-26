@@ -1,0 +1,20 @@
+CHANGELOG.md
+LICENSE
+README.md
+TASK.md
+TODO.rst
+boltons
+docs
+misc
+pyproject.toml
+requirements-test.txt
+setup.cfg
+task_checks
+temp
+tests
+tox.ini
+D:\myDocu\project_postg\shixi_project\.venv\Scripts\python.exe
+AtomicSaver Path FAIL TypeError unsupported operand type(s) for +: 'WindowsPath' and 'str'
+atomic_save Path FAIL TypeError unsupported operand type(s) for +: 'WindowsPath' and 'str'
+AtomicSaver PathLike FAIL TypeError unsupported operand type(s) for +: 'MyPath' and 'str'
+iter_find_files Path FAIL AttributeError 'WindowsPath' object has no attribute 'split'

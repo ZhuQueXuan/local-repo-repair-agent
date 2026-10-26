@@ -1,0 +1,1 @@
+The harness truncates output to ~1100 bytes. I need to read very narrow ranges. Let me look at the AtomicSaver __init__ and the part_path/dest_path setup.

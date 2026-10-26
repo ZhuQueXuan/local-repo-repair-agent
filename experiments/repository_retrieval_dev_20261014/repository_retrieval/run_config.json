@@ -1,0 +1,266 @@
+{
+  "agent": "StatefulAgent based on upstream DefaultAgent 2.4.6",
+  "mini_commit": "04d809ceab9df28f9adaed044884180159172930",
+  "wall_time_limit_seconds": 300,
+  "model_temperature": 0,
+  "budget_policy": "configs/deepseek_budget.json",
+  "batch_id": "repository_retrieval_dev_20261014",
+  "tasks": [
+    "requests-json-pickle"
+  ],
+  "freeze_manifest": "configs/repository_retrieval_dev_20261014.freeze.json",
+  "variants": {
+    "adaptive_history": {
+      "tool_output_budget": {
+        "max_output_bytes": 1024
+      },
+      "context_budget": {
+        "target_bytes": 12288,
+        "keep_recent_tool_outputs": 4,
+        "compact_completed_exchanges": true,
+        "retained_audit_entries": 3,
+        "compact_to_target": true
+      },
+      "archive_assistant_content": true,
+      "task_state": {
+        "guard_enabled": true,
+        "repeated_read_threshold": 3,
+        "blocked_read_threshold": 3,
+        "include_previews_in_requests": false
+      }
+    },
+    "repository_retrieval": {
+      "tool_output_budget": {
+        "max_output_bytes": 1024
+      },
+      "context_budget": {
+        "target_bytes": 12288,
+        "keep_recent_tool_outputs": 4,
+        "compact_completed_exchanges": true,
+        "retained_audit_entries": 3,
+        "compact_to_target": true
+      },
+      "archive_assistant_content": true,
+      "task_state": {
+        "guard_enabled": true,
+        "repeated_read_threshold": 3,
+        "blocked_read_threshold": 3,
+        "include_previews_in_requests": false
+      },
+      "repository_retrieval": {
+        "max_message_bytes": 3072,
+        "max_results": 5
+      }
+    }
+  },
+  "run_order": [
+    {
+      "task": "requests-json-pickle",
+      "variant": "adaptive_history"
+    },
+    {
+      "task": "requests-json-pickle",
+      "variant": "repository_retrieval"
+    }
+  ],
+  "scope": "One public development task, one predeclared run off/on; no efficiency/generalization claim from a single task. Primary-first fallback policy shared; actual provider/model receipts must match for any model-matched comparison. Preserve raw default; no reruns to pick a winner.",
+  "selection_notes": "New repository for this project; implementation path crosses response parsing, JSON exception and compatibility imports. Issue author disclosed fix publicly; Agent gets rewritten symptom only, no reference patch. Retrieval developed before first model run; this is development validation, not held-out evaluation.",
+  "variant": "repository_retrieval",
+  "tool_output_budget": {
+    "max_output_bytes": 1024
+  },
+  "context_budget": {
+    "target_bytes": 12288,
+    "keep_recent_tool_outputs": 4,
+    "compact_completed_exchanges": true,
+    "retained_audit_entries": 3,
+    "compact_to_target": true
+  },
+  "archive_assistant_content": true,
+  "task_state": {
+    "guard_enabled": true,
+    "repeated_read_threshold": 3,
+    "blocked_read_threshold": 3,
+    "include_previews_in_requests": false
+  },
+  "repository_retrieval": {
+    "max_message_bytes": 3072,
+    "max_results": 5
+  },
+  "model_name": "openai/deepseek-v4-flash",
+  "provider_routing": {
+    "priority": [
+      {
+        "name": "bupt_gateway",
+        "api_base": "https://myai.bupt.edu.cn/llm-gw/v1",
+        "model": "deepseek-v4-flash",
+        "supports_thinking_control": false,
+        "cost_status": "unknown_platform_price"
+      },
+      {
+        "name": "deepseek_official",
+        "api_base": "https://api.deepseek.com",
+        "model": "deepseek-flash",
+        "supports_thinking_control": true,
+        "cost_status": "conservative_estimate"
+      }
+    ],
+    "active_provider": "bupt_gateway",
+    "switches": [],
+    "unpriced_successful_requests": 0,
+    "cost_estimate_complete": true,
+    "known_price_estimate_cny": 0.0,
+    "cost_scope": "Known-price successful requests only; unpriced/failed charges are unknown."
+  },
+  "task_manifest": {
+    "repository_url": "https://github.com/psf/requests.git",
+    "base_tag": "v2.31.0",
+    "base_commit": "147c8511ddbfa5e8f71bbf5c18ede0c4ceb3bba4",
+    "archive_sha256": "00b2fd9b226ceb366050ef3680f228d10044d9b0bdcf9b9eb0f2252584c805d0",
+    "task_id": "requests-json-pickle",
+    "package": "requests",
+    "source_prefix": "requests/",
+    "source_files_sha256": {
+      ".coveragerc": "8ac66b93028230c815ef67e0b38e74c65cc965a87ca3a49c16a8b8d7f641186d",
+      ".git-blame-ignore-revs": "cb1e75b75e5842448557aa313bb77bb5ab2e4dc80a2a5cd5a2804a1afbf97aea",
+      ".github/CODE_OF_CONDUCT.md": "0216c86755ca264f605593cc82deadc13c3e84b97a60bf461fcda7b4b8b23242",
+      ".github/CONTRIBUTING.md": "6ce203a20b7bc3c87eccdb9be5888bded1bcb7743a598b3cf91b7be65f41f4e0",
+      ".github/FUNDING.yml": "203cc6fc6930c94572f841b0924808acc9ad4f1c0cbb1574875221e4a22fc815",
+      ".github/ISSUE_TEMPLATE/Bug_report.md": "4887dbec17c9e2fd703c0c8ae3e20882f9be53f7fe4a36d61c130838576afe35",
+      ".github/ISSUE_TEMPLATE/Custom.md": "d28111df346e5549a60d86e8c473f1a2ef1009ce3c1653441c9d1bb4c31e592b",
+      ".github/ISSUE_TEMPLATE/Feature_request.md": "bf9bb647959c79e1c64243696e17cdf3788deea3e002793375eac0227e2f0ba2",
+      ".github/ISSUE_TEMPLATE.md": "24ac47c35e70fb3c7dfb2b768ac3ae49f6ea997b96beca4fe489f279429509ca",
+      ".github/SECURITY.md": "d829bca715473cd6460083460346f8f4dd223fc282908fa5f001f8bc0f594892",
+      ".github/workflows/codeql-analysis.yml": "9dbcb54934d011ae54a8eb347eefe257a9088018413af3a44506431adbe2f44e",
+      ".github/workflows/lint.yml": "6be9c46777a4b63d9963e4554069ccfbfb3ba78700acc63f90c37cd827b0abd5",
+      ".github/workflows/lock-issues.yml": "8cf13f517c9261157a1c0036a0c35b7e62df9665e470189569c2f5adae1025c9",
+      ".github/workflows/run-tests.yml": "ddb534aff6e883768b858ec8f61f956ec994151856262be2d87444b3c4ec7e1e",
+      ".gitignore": "0d87c78c285d5f3a9f83c7b9a09c42aa566c771a7e35d0da1ed0dabcd5831b6c",
+      ".pre-commit-config.yaml": "57be8fddb097d167684e284df4396a1dacccca0080304d66be728afc2afaa436",
+      "AUTHORS.rst": "aa54915f55a8aab0e94574aba60e7a761bbc6be5750ed3998e5297d78978a401",
+      "docs/.nojekyll": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "docs/_static/custom.css": "ec1d99bc2726a46b938e2342cde4c4aa39b3fcab99ce5957ab6893b22010b618",
+      "docs/_static/requests-sidebar.png": "da8951134a14d06287616abe84749d04960d5c2a4e8493dab018f87d8eae8d12",
+      "docs/_templates/hacks.html": "14590290d56e931e1db77681dfe0c08554df988d60e0a4b94d336b7ba0fdfb33",
+      "docs/_templates/sidebarintro.html": "dfe5efcc52e5b6b4965a87ec49cd69fd432dc46998c9f0bf080aa72024bdbe34",
+      "docs/_templates/sidebarlogo.html": "407c0ada33668e0b8dca0fb21dc9449f41bf33d316560eb5c2d2a729ce13e12c",
+      "docs/_themes/.gitignore": "f27660c4ec6efa86aac4d61036c5f495e9438805a6f63be44f17db003979a06f",
+      "docs/_themes/flask_theme_support.py": "bba3677c6eeb99f678e808e90142a025b798b7658bac1ab4632591df8441d209",
+      "docs/_themes/LICENSE": "6afc9d58f919ab52f4806a895a37aefe4d263f8e52278e6a1e87c5d7ec82299c",
+      "docs/api.rst": "17ebeb0085781088d5558c5447edb0347457a149ddaf51c1be2f9bfad3c10984",
+      "docs/community/faq.rst": "66955528cee38f1770356b1e2a120a448f0e90c531435faae421c486a17ff31c",
+      "docs/community/out-there.rst": "9779ecdd1a5b73cff0d17651b08cb95f6f285278262159832b315296d0cf2c95",
+      "docs/community/recommended.rst": "99c8004abf493d6ad2018352dbdf923a790dfbe1a45dd90b214f1e29b08034d1",
+      "docs/community/release-process.rst": "a7a8e987bf671a79e4b44e8722b7446fd429922e7d0bde50dd2fba578b966485",
+      "docs/community/support.rst": "7f1a8ee725fce4ef5bc51568d51b54ba1611e518975463bb11d2cd2c20309fd0",
+      "docs/community/updates.rst": "202f5d2f2ac8b76c77f00fb0085886510350623873bb2626ef6cb192c84d385b",
+      "docs/community/vulnerabilities.rst": "1f0d8095ec84a42307abd03b9ae6cad62e030c02c1aad9715dd47f9deb7a76bc",
+      "docs/conf.py": "7288e50389e89cc24cd7ac6b96d8108438ff9d5e0191a950907be392a5458478",
+      "docs/dev/authors.rst": "711bde324e69bf390c914fcb1e5d4aa17174deb2093b8c7865a7103391716d07",
+      "docs/dev/contributing.rst": "5ef36704844d3f399105fbe99d9898f116f4fc0450cb223333de321c368a2d31",
+      "docs/index.rst": "a39657af2b6986d77f755d196e73f50d0af10965b067ee3f1990e10154af0804",
+      "docs/make.bat": "d65d3af3fd9f81bfa4dd7b773d057125af36f4df5e5bc4234fe3127ccf6c6dcc",
+      "docs/Makefile": "a1f210795aefeaa886bbfa6122779ba4c8e52b0e8445b62dcecbb82d308d305e",
+      "docs/requirements.txt": "f92e256d9789c16a167b9b50d21a426c59084afae29112f1ae2bbd0d74957e9f",
+      "docs/user/advanced.rst": "08e893b762643098354451108bf98d6f65067ea23c6d2484fde3e212cbf9c261",
+      "docs/user/authentication.rst": "cf7f9d1159c02747f64009c629ac546cd7332b8eba5a0712230022b132d85194",
+      "docs/user/install.rst": "8b70734839932fa0a53da6e1d97e9c8077fe15f6e06747f24acf154feea039db",
+      "docs/user/quickstart.rst": "2947e0c55d20b7a6d31bc252fbcff0b4db1864e107eb5a6a98c631cdc42de9e0",
+      "ext/flower-of-life.jpg": "1b155652b7a20734dc0c056d4d0fb91d1a7951cb99142adaed5316302daeb3df",
+      "ext/kr-compressed.png": "6607917997aaa337f9ab9f1d3ff54d0a2c3177e5e10444d1e2d34a3912632871",
+      "ext/kr.png": "245f38d6101ce40366c1a30aec5a86b8b8885524ef86968162bf7cf3907307f3",
+      "ext/LICENSE": "3172d399cbd8f10609e73fec73d0e0b33eecd3c572a68b0722229d8c7059f725",
+      "ext/psf-compressed.png": "9d4148ae5024484659fc8ccf9dacb92c6ee1d5b367104e97c0df1ed9524ad9a5",
+      "ext/psf.png": "7a0bf447edc2b67b9138d1ffa64b2f62af05c4dd2da37429584e6b3f5ac84683",
+      "ext/requests-logo-compressed.png": "c9ea2210c884700dc0f05266170c056c1dbae2181f68a74c5b8d63ac042c9263",
+      "ext/requests-logo.ai": "ada5899494a2fbd06b6a1a6062dc1b755eaef9dee8ae833a864712b1671fd604",
+      "ext/requests-logo.png": "c9ea2210c884700dc0f05266170c056c1dbae2181f68a74c5b8d63ac042c9263",
+      "ext/requests-logo.svg": "b1e7fd86516c1e925191a41ee1efdb2489654548c7756881c311f50b79233af0",
+      "ext/ss-compressed.png": "c769ab657e25fbda10791d30c9c114d40ea84da2a23a7b446c7adbf9c2569fcc",
+      "ext/ss.png": "c769ab657e25fbda10791d30c9c114d40ea84da2a23a7b446c7adbf9c2569fcc",
+      "HISTORY.md": "b22101904f27e7fe5f7855dac688d6497ad43847e991441246f2dae28f29061d",
+      "LICENSE": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "Makefile": "68faf9311e3bee6f37a32257326aca3acea0bf03cb29e53459912ed45f86c961",
+      "MANIFEST.in": "7caa1d6b5f562ee868f8719eb9a311b00c1baec207d65fa65ab087664dcaf3c4",
+      "NOTICE": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+      "pyproject.toml": "cac06d1923cfc27743a3dc95c938e47cf6b9519e68b7fe688a119df5c94f100c",
+      "README.md": "150fd62db4024e240040be44b32d7ce98df80ab86dfd564a173cd231f2254abc",
+      "requests/__init__.py": "2ef98a863233f261da297b610b632fe72919d5df76be8c9fde826977e56e0228",
+      "requests/__version__.py": "b2c237133b7b3dac6090e5b8e4686dc0f51c968fd23bfca0b489b803be0839fc",
+      "requests/_internal_utils.py": "9cc4329abe21b37d93a95a3901b0ab99c24486f3d487bc57965bb2ab0b252e24",
+      "requests/adapters.py": "bff1668d4e4a67bea4f98b6d4a1658079469ac8ce184bf18df3816f69e1e050f",
+      "requests/api.py": "abad71717ab8b668889abbdc4952d36c5c82883d85f8bffe8562866f3e32f2f8",
+      "requests/auth.py": "87e1cb955c7d8fcaca57985f480c9c3f60293928254f3efb474b73eea09b6c41",
+      "requests/certs.py": "67d49be35d009efea35054f2b2cd23145854eb1b2df1cb442ea7f2f04bf6de0c",
+      "requests/compat.py": "cb19ed54e4841c632b9fb14daffdf61046a6d5934074f45d484d77ff2687cd39",
+      "requests/cookies.py": "903de43447028fe9b16ed7f97c9b12693f3a786a046290f75f4092829ce5ec13",
+      "requests/exceptions.py": "0e1bde1417255634d1c6145db95a4ef866cc60c203da09a374b7cd12a36923f5",
+      "requests/help.py": "80f5f977f1fb5ddf3c6830017a386a1a097d075545453b79066898bcbdcfcc84",
+      "requests/hooks.py": "0a2bb2b221c0dfd57951f702057148c7cdc8ac3a6ec1f37d45c4d482fdbc7ed4",
+      "requests/models.py": "f8394a8b4a2bf2014033a573bada1b5efbc15bfdb0ac9b8e17935f9dd4c875d0",
+      "requests/packages.py": "0d782ff852487336484e6bf4bc40408568f85bee4218220dfe4b2f811d7b0efb",
+      "requests/sessions.py": "f8bbd3ceb3ed7ad493ad1ddbbb1bb85e176032b2452c1d6ae43ecffbe2f65e1c",
+      "requests/status_codes.py": "16f1e64f9b87fbfba29ad473e611fd5426eded557e35e8b627dba96de8fa8fc8",
+      "requests/structures.py": "f886e6855cf4e92fb968f499b94b6167afba0fd5ce8d1b935c739a6d8d38d573",
+      "requests/utils.py": "eacc765f7708540f018163a0f28771172fbf95b5831444d4f072387d4e119aac",
+      "requirements-dev.txt": "53c7151bd2a3d1ad4631f39d2daaf31894cd051c9d7e7e69b8a55490f271e6d8",
+      "setup.cfg": "dcb8a7cef754e5e5c7c31a7155a68556e910d1845a6b29fa9e36d8cdecc54f16",
+      "setup.py": "e6061b128a3248d4c75abde74965cd770b84452931ac45ae3ded8e4cdc822e6d",
+      "tests/__init__.py": "ac7f253daae0905f9b3dec647cae736bb3c090185aa373b30b3e851599e5342c",
+      "tests/compat.py": "d58ff5e3167de0140a667cc51427f809c552e485875c95b9dad43ce13ba15083",
+      "tests/conftest.py": "c31d83bf96fbf585c0d497fbf21a39b2e69411948ddb947e5ad51e5857976c5c",
+      "tests/test_help.py": "4581acb9c3f69a3ca8c9c1b574d77b11a3b11c0a0aaa0645d16988cc444c4075",
+      "tests/test_hooks.py": "a9e5163f538543a660be3b06650cd0b803ff0c503f5948f66b6fc50ede38109c",
+      "tests/test_lowlevel.py": "2dc5990ef15fbbfcf1681827a337e6195144ee0e2031fb951ed1d32e29cdc27d",
+      "tests/test_packages.py": "90875423db059d65b39416d7b6d01b18938851b8071279877400beb506e08676",
+      "tests/test_requests.py": "0929acb2625673aad96b79c56900f4a3e2abbaa7d9c662343d1cee70213df08a",
+      "tests/test_structures.py": "f7b80e00888105ae80312203279e0cf9256726740bcaa15c6cee7c2c07d33d60",
+      "tests/test_testserver.py": "5c388f68ff0bb13c255856ed19c5943ed493cfa52a62ad557c5ae84887b5da1f",
+      "tests/test_utils.py": "5a98862b9e19412592ff497fd9df5920e6c3ab5852f581c21280bbb6af773fc2",
+      "tests/testserver/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tests/testserver/server.py": "242ffb78788e384a47cd3278df58064d6f480f306ffd0f789ce357969d3cb7a8",
+      "tests/utils.py": "cfaec86690eba62573c8c730a121332837809333fb2b1006a20e2e8f4d34d4de",
+      "tox.ini": "c2959ec216eb11812c6ec49a795da000a7d24de2b44d3131d26fd7e9daf0f596"
+    },
+    "task_files_sha256": {
+      "issue.md": "62439fb65e99566e37698486bbbad50c5da6ee287f21e2ad9b4297e7281da5ba",
+      "checks/test_behavior.py": "a1ac38805c700856ced5c6e9e57bacc4c6526da2b7d20c02aaef29af6aaaf9d9"
+    },
+    "upstream_runner": "pytest",
+    "pytest_plugins": [
+      "pytest_mock"
+    ],
+    "upstream_target": [
+      "tests/test_structures.py",
+      "tests/test_hooks.py"
+    ],
+    "full_target": [
+      "tests/test_structures.py",
+      "tests/test_hooks.py",
+      "tests/test_utils.py",
+      "tests/test_packages.py"
+    ],
+    "agent_test_command": "python -B -m pytest tests/test_structures.py tests/test_hooks.py -q -p no:cacheprovider",
+    "issue_url": "https://github.com/psf/requests/issues/6628",
+    "scope": "Public Requests #6628 development task; local Python 3.10 stdlib json only. 6 independent behavior methods. Upstream targets are selected offline tests, NOT the full Requests suite. No live HTTP/process-pool/simplejson validation. Agent checks visible; no private-held-out or broad accuracy claim."
+  },
+  "budget": {
+    "max_requests": null,
+    "max_total_cost_cny": null,
+    "reservation_per_attempt_cny": "0.10",
+    "max_messages_utf8_bytes": 16384,
+    "max_output_tokens": 2048,
+    "max_prompt_tokens": 36864,
+    "conservative_input_cny_per_million": "2",
+    "conservative_output_cny_per_million": "8",
+    "ledger_path": "data/deepseek_budget.json",
+    "pricing_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "notes": "On 2026-10-10 the user removed the project monetary cap and authorized normal task-related API usage until the provider balance or service is unavailable. Keep cumulative usage and unknown-request accounting; notify the user on provider failures. No request-count or Agent step cap. Time, context, and stagnation protections remain."
+  },
+  "step_limit": 0,
+  "evaluation_freeze": {
+    "manifest": "configs/repository_retrieval_dev_20261014.freeze.json",
+    "sha256": "c3646d6e65b32f9a9513401f25924f8664e6183f21f72cefd76fd84aacb62773",
+    "verified_files": 196
+  }
+}

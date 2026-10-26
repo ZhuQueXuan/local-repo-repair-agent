@@ -1,0 +1,11 @@
+test_accepted_and_needs_evidence_can_use_empty_lists (test_collaboration_responses.ResponseTests) ... ok
+test_actual_failed_reply_paths_are_rejected_and_file_untouched (test_collaboration_responses.ResponseTests) ... ok
+test_correction_is_explicit_and_does_not_echo_untrusted_file_values (test_collaboration_responses.ResponseTests) ... ok
+test_rejected_requires_existing_evidence_for_unchanged_target (test_collaboration_responses.ResponseTests) ... ok
+test_size_shape_and_strict_types_are_bounded (test_collaboration_responses.ResponseTests) ... ok
+test_unknown_or_other_finding_is_not_dropped (test_collaboration_responses.ResponseTests) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.700s
+
+OK

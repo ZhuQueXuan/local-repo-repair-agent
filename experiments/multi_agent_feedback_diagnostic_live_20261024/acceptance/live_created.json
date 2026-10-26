@@ -1,0 +1,58 @@
+{
+  "id": "5dfc19f601634ad5800276cb4bed5dac",
+  "kind": "collaboration_live",
+  "task": "split-after-boundary",
+  "profile": "adaptive_history",
+  "status": "queued",
+  "stage": "repairing",
+  "created": "2026-10-24T08:56:40.171564+00:00",
+  "updated": "2026-10-24T08:56:40.171564+00:00",
+  "cancel_requested": false,
+  "agent_exit": null,
+  "repair_result": "not_run",
+  "metrics": {},
+  "artifacts": {},
+  "scope": "Manual known-defect candidate, disclosed falsey-remainder checks; real-model feedback wiring only, not discovery or effectiveness evidence.",
+  "configuration": {
+    "tool_output_budget": {
+      "max_output_bytes": 1024
+    },
+    "context_budget": {
+      "target_bytes": 12288,
+      "keep_recent_tool_outputs": 4,
+      "compact_completed_exchanges": true,
+      "retained_audit_entries": 3,
+      "compact_to_target": true
+    },
+    "archive_assistant_content": true,
+    "task_state": {
+      "guard_enabled": true,
+      "repeated_read_threshold": 3,
+      "blocked_read_threshold": 3,
+      "include_previews_in_requests": false
+    }
+  },
+  "task_digest": "2268d61f2d10823f11b1e7b21e8aa02f95471aea4ade20938026d3cbe91bcfd6",
+  "collaboration_mode": "dual_review_diagnostic",
+  "collaboration_policy": {
+    "parent_seconds": 1800,
+    "role_seconds": {
+      "repairing": 300,
+      "reviewing": 120,
+      "revising": 180,
+      "final_review": 90
+    },
+    "schema_version": 1,
+    "feedback_windows": 1,
+    "candidate_selection": "latest_legal_even_if_tests_regress",
+    "review_failure": "preserve_last_legal_candidate_and_assessment_no_retry",
+    "review_repeat_limit": 3,
+    "max_consecutive_format_errors": 3,
+    "repair_profile": "adaptive_history",
+    "diagnostic_profile": "seeded_falsey_remainder_v1",
+    "scope": "Manual known-defect candidate with disclosed checks; confirm, independently review, continue the same repair session, review the new version. Wiring acceptance only; no effectiveness claim."
+  },
+  "policy_digest": "eac89ab791382a6216004850d9fcd157d587403b3c9bd7ed5f5dbd911395e6e8",
+  "collaboration_result": "not_completed",
+  "review_verdict": "not_run"
+}

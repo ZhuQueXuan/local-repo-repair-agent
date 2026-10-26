@@ -1,0 +1,1 @@
+{"state": "offline_prepared_not_launchable", "tasks": 6, "planned_slots": 15, "frozen": {"manifest": "evaluation/multi_agent_20261025/freeze.json", "sha256": "d4f3de8c308ac4dc1e4ab211d06e5985656b9be88372966d50257bd1dc5a23fb", "verified_files": 751}, "launchable": false, "model_calls": 0}

@@ -1,0 +1,27 @@
+# Local credentials
+.env
+.env.*
+!.env.example
+
+# Local environments and intermediate artifacts
+.venv/
+**/temp/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Live account usage, service tokens, databases and run state stay local.
+/data/
+**/node_modules/
+**/*.egg-info/
+**/.DS_Store
+**/Thumbs.db
+
+# Large duplicate qualification bundles remain in the local experiment archive.
+/experiments/multi_agent_eval_prep_20261025/development-qualification.zip
+/experiments/multi_agent_eval_prep_20261025/qualification.zip
+# Original test-environment bundles include .env fixtures; retain only locally.
+/experiments/adjudication_panel_20261024/regression.zip
+/experiments/self_review_20261025/regression.zip
+/experiments/multi_agent_eval_prep_20261025/regression.zip

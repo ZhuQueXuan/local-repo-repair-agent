@@ -1,0 +1,15 @@
+60:class BarrelList(list):
+99:        self.lists = [[]]
+103:    @property
+111:        rel_idx, lists = index, self.lists
+121:    def _balance_list(self, list_idx):
+138:            self._balance_list(0)
+144:            self._balance_list(list_idx)
+154:        lists = self.lists
+167:            self._balance_list(list_idx)
+194:            self._balance_list(0)
+277:            self._balance_list(0)
+295:        self._balance_list(0)
+301:    def sort(self):
+312:            self._balance_list(0)
+336:class SplayList(list):

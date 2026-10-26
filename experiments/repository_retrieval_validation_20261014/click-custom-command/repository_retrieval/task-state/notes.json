@@ -1,0 +1,1 @@
+{"hypothesis": "In Group.command, kwargs['cls'] is set before the concise-form check, so @group.command (no parens) fails the 'not kwargs' assertion. Fix: detect concise form first, then apply command_class default.", "next_action": "Reorder command() so concise-form detection happens before cls defaulting; verify group() already does this correctly."}

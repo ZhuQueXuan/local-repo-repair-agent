@@ -1,0 +1,7 @@
+copy [('a', 1), ('a', 2)]
+deep [('a', 1), ('a', 2)]
+shallow shares True
+deep separates True
+deep preserves shared True
+self ref True
+subclass OrderedMultiDict

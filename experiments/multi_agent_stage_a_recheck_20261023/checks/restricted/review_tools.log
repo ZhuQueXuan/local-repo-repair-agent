@@ -1,0 +1,42 @@
+test_absolute_paths_traversal_unc_and_ads_are_not_document_ids (test_review_tools.ReviewToolsTests) ... ok
+test_all_six_tools_operate_and_do_not_change_snapshots_or_work (test_review_tools.ReviewToolsTests) ... ok
+test_caller_and_snapshot_versions_are_bound (test_review_tools.ReviewToolsTests) ... ok
+test_cancel_during_submission_does_not_commit_review (test_review_tools.ReviewToolsTests) ... ok
+test_cancellation_prevents_tool_access_and_review_submission (test_review_tools.ReviewToolsTests) ... ok
+test_case_collisions_and_private_manifest_files_are_rejected (test_review_tools.ReviewToolsTests) ... ok
+test_changed_snapshot_manifest_is_not_rehashed_as_valid (test_review_tools.ReviewToolsTests) ... ok
+test_changed_snapshot_permanently_blocks_review (test_review_tools.ReviewToolsTests) ... ok
+test_execution_and_write_tools_are_rejected_before_any_spawn (test_review_tools.ReviewToolsTests) ... ok
+test_existing_real_task_manifest_can_be_sealed_without_model (test_review_tools.ReviewToolsTests) ... ok
+test_extra_fields_and_nested_actions_do_not_bypass_dispatch (test_review_tools.ReviewToolsTests) ... ok
+test_handoff_limits_docs_reports_and_capabilities (test_review_tools.ReviewToolsTests) ... ok
+test_hardlinks_are_not_exported_as_snapshot_objects (test_review_tools.ReviewToolsTests) ... ERROR
+test_invalid_finding_does_not_register_a_review (test_review_tools.ReviewToolsTests) ... ok
+test_missing_snapshot_object_stops_with_no_review (test_review_tools.ReviewToolsTests) ... ok
+test_multi_page_search_and_file_list_are_explicitly_bounded (test_review_tools.ReviewToolsTests) ... ok
+test_new_files_changed_tests_issue_and_baseline_are_rejected (test_review_tools.ReviewToolsTests) ... ok
+test_no_newline_patch_replays_with_real_git (test_review_tools.ReviewToolsTests) ... ok
+test_read_limits_and_long_line_do_not_create_fake_complete_evidence (test_review_tools.ReviewToolsTests) ... ok
+test_read_returns_exact_bytes_lines_and_hashes (test_review_tools.ReviewToolsTests) ... ok
+test_real_directory_link_cannot_escape_source_or_output (test_review_tools.ReviewToolsTests) ... skipped 'Windows junction creation unavailable; reparse check separately covered'
+test_real_file_symlink_is_not_read (test_review_tools.ReviewToolsTests) ... skipped 'File symlink permission unavailable; real directory junction tested separately'
+test_reparse_attribute_is_rejected_without_following (test_review_tools.ReviewToolsTests) ... ok
+test_same_document_id_in_another_run_does_not_grant_access (test_review_tools.ReviewToolsTests) ... ok
+test_search_is_literal_not_regex_or_executable (test_review_tools.ReviewToolsTests) ... ok
+test_snapshot_refuses_reusing_an_existing_output_directory (test_review_tools.ReviewToolsTests) ... ok
+test_submission_is_idempotent_and_conflicting_content_is_rejected (test_review_tools.ReviewToolsTests) ... ok
+test_unknown_reports_stay_unavailable (test_review_tools.ReviewToolsTests) ... ok
+test_v1_snapshot_remains_v1_after_real_worktree_changes (test_review_tools.ReviewToolsTests) ... ok
+
+======================================================================
+ERROR: test_hardlinks_are_not_exported_as_snapshot_objects (test_review_tools.ReviewToolsTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_review_tools.py", line 247, in test_hardlinks_are_not_exported_as_snapshot_objects
+    os.link(target, alias)
+PermissionError: [WinError 5] 拒绝访问。: 'D:\\myDocu\\project_postg\\shixi_project\\temp\\multi_agent_stage_a_20261022\\tests\\b6a1bd03ce12456e8fd4c5e94131c418\\work\\pkg\\main.py' -> 'D:\\myDocu\\project_postg\\shixi_project\\temp\\multi_agent_stage_a_20261022\\tests\\b6a1bd03ce12456e8fd4c5e94131c418\\hardlink.py'
+
+----------------------------------------------------------------------
+Ran 29 tests in 6.678s
+
+FAILED (errors=1, skipped=2)

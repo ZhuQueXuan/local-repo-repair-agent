@@ -1,0 +1,108 @@
+        elif items[-1] is _MISSING:  # get rid of dead right hand side
+            num_dead = 1
+            while items[-(num_dead + 1)] is _MISSING:
+                num_dead += 1
+            if ded and ded[-1][1] == len(items):
+                del ded[-1]
+            del items[-num_dead:]
+
+    def _get_real_index(self, index):
+        if index < 0:
+            index += len(self)
+        if not self.dead_indices:
+            return index
+        real_index = index
+        for d_start, d_stop in self.dead_indices:
+            if real_index < d_start:
+                break
+            real_index += d_stop - d_start
+        return real_index
+
+    def _get_apparent_index(self, index):
+        if index < 0:
+            index += len(self)
+        if not self.dead_indices:
+            return index
+        apparent_index = index
+        for d_start, d_stop in self.dead_indices:
+            if index < d_start:
+                break
+            apparent_index -= d_stop - d_start
+        return apparent_index
+
+    def _add_dead(self, start, stop=None):
+        # TODO: does not handle when the new interval subsumes
+        # multiple existing intervals
+        dints = self.dead_indices
+        if stop is None:
+            stop = start + 1
+        cand_int = [start, stop]
+        if not dints:
+            dints.append(cand_int)
+            return
+        int_idx = bisect_left(dints, cand_int)
+        dint = dints[int_idx - 1]
+        d_start, d_stop = dint
+        if start <= d_start <= stop:
+            dint[0] = start
+        elif start <= d_stop <= stop:
+            dint[1] = stop
+        else:
+            dints.insert(int_idx, cand_int)
+=====
+        self.difference_update(*others)
+        return self
+
+    def __ixor__(self, *others):
+        self.symmetric_difference_update(*others)
+        return self
+
+    def iter_slice(self, start, stop, step=None):
+        "iterate over a slice of the set"
+        iterable = self
+        if start is not None:
+            start = self._get_real_index(start)
+        if stop is not None:
+            stop = self._get_real_index(stop)
+        if step is not None and step < 0:
+            step = -step
+            iterable = reversed(self)
+        return islice(iterable, start, stop, step)
+
+    # list operations
+    def __getitem__(self, index):
+        try:
+            start, stop, step = index.start, index.stop, index.step
+        except AttributeError:
+            index = operator.index(index)
+        else:
+            iter_slice = self.iter_slice(start, stop, step)
+            return self.from_iterable(iter_slice)
+        if index < 0:
+            index += len(self)
+        real_index = self._get_real_index(index)
+        try:
+            ret = self.item_list[real_index]
+        except IndexError:
+            raise IndexError('IndexedSet index out of range')
+        return ret
+
+    def pop(self, index=None):
+        "pop(index) -> remove the item at a given index (-1 by default)"
+        item_index_map = self.item_index_map
+        len_self = len(item_index_map)
+        if index is None or index == -1 or index == len_self - 1:
+            ret = self.item_list.pop()
+            del item_index_map[ret]
+        else:
+            real_index = self._get_real_index(index)
+            ret = self.item_list[real_index]
+            self.item_list[real_index] = _MISSING
+            del item_index_map[ret]
+            self._add_dead(real_index)
+        self._cull()
+        return ret
+
+    def count(self, val):
+        "count(val) -> count number of instances of value (0 or 1)"
+        if val in self.item_index_map:

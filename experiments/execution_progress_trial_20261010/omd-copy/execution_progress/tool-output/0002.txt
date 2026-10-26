@@ -1,0 +1,34 @@
+7:#    * Redistributions of source code must retain the above copyright
+11:#      copyright notice, this list of conditions and the following
+153:       to ``omd.todict(multi=True)`` (but only shallow-copy; the lists
+165:    def __init__(self, *args, **kwargs):
+185:            _map = self._map
+187:            _map = self._map = {}
+189:        _map.clear()
+194:        cells = self._map.setdefault(k, [])
+239:        dictionary, else *default*. The list returned is a copy and
+265:    def copy(self):
+266:        "Return a shallow copy of the dictionary."
+349:            zipped_items = zip_longest(selfi, otheri, fillvalue=(None, None))
+350:            for (selfk, selfv), (otherk, otherv) in zipped_items:
+425:        values = self._map[k]
+429:            del self._map[k]
+432:        values = self._map[k]
+436:        del self._map[k]
+523:        """Returns a copy of the :class:`OrderedMultiDict` with the same keys
+557:        sorted_val_map = {k: sorted(v, key=key, reverse=(not reverse))
+561:            ret.add(k, sorted_val_map[k].pop())
+574:        Inverting twice yields a copy of the original:
+657:            _map = self._map
+659:            _map = self._map = {}
+661:        _map.clear()
+669:        cells = self._map.setdefault(k, empty)
+694:        cells = self._map[k]
+697:            del self._map[k]
+708:        cells = self._map.pop(k)
+781:    def __init__(self, *a, **kw):
+852:    def copy(self):
+910:    def __init__(self, items=None):
+1072:        """Make a copy and add items from a dictionary or iterable (and/or
+1106:    def __copy__(self):
+1107:        return self  # immutable types don't copy, see tuple's behavior

@@ -1,0 +1,1 @@
+{"edits":[{"expected_occurrences":1,"new":"\\u2028|\\u2029","old":"\\x2028|\\x2029","path":"boltons/strutils.py"}],"scope":"Developer-reviewed minimal reference adapted to this frozen baseline; never model input.","source":"https://github.com/mahmoud/boltons/pull/475"}

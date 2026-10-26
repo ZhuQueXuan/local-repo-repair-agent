@@ -1,0 +1,1 @@
+The middle is always omitted. Let me read even smaller ranges (10 lines) to avoid truncation.

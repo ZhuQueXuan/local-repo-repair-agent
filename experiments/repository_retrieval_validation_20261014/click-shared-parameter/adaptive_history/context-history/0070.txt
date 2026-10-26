@@ -1,0 +1,1 @@
+The `argument` bug is clear. Let me write a reproduction to confirm, then fix.

@@ -1,0 +1,8 @@
+{
+  "old_records_preserved": 41,
+  "new_records": {
+    "4891bcbc29c9439cb41439f13a203f3a": "collaboration_history"
+  },
+  "consistent_migration_backup": "data/task_service/before_collaboration_bfe3245d9bab402c995f936093592c59.sqlite3",
+  "sqlite_integrity": "ok"
+}

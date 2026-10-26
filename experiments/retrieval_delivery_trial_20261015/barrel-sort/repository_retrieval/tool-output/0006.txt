@@ -1,0 +1,68 @@
+108     def _translate_index(self, index):
+109         if index < 0:
+110             index += len(self)
+111         rel_idx, lists = index, self.lists
+112         for list_idx in range(len(lists)):
+113             len_list = len(lists[list_idx])
+114             if rel_idx < len_list:
+115                 break
+116             rel_idx -= len_list
+117         if rel_idx < 0:
+118             return None, None
+119         return list_idx, rel_idx
+120 
+121     def _balance_list(self, list_idx):
+122         if list_idx < 0:
+123             list_idx += len(self.lists)
+124         cur_list, len_self = self.lists[list_idx], len(self)
+125         size_limit = self._cur_size_limit
+126         if len(cur_list) > size_limit:
+127             half_limit = size_limit // 2
+128             while len(cur_list) > half_limit:
+129                 next_list_idx = list_idx + 1
+130                 self.lists.insert(next_list_idx, cur_list[-half_limit:])
+131                 del cur_list[-half_limit:]
+132             return True
+133         return False
+134 
+135     def insert(self, index, item):
+136         if len(self.lists) == 1:
+137             self.lists[0].insert(index, item)
+138             self._balance_list(0)
+139         else:
+140             list_idx, rel_idx = self._translate_index(index)
+141             if list_idx is None:
+142                 raise IndexError()
+143             self.lists[list_idx].insert(rel_idx, item)
+144             self._balance_list(list_idx)
+145         return
+146 
+147     def append(self, item):
+148         self.lists[-1].append(item)
+149 
+150     def extend(self, iterable):
+151         self.lists[-1].extend(iterable)
+152 
+153     def pop(self, *a):
+154         lists = self.lists
+155         if len(lists) == 1 and not a:
+156             return self.lists[0].pop()
+157         index = a and a[0]
+158         if index == () or index is None or index == -1:
+159             ret = lists[-1].pop()
+160             if len(lists) > 1 and not lists[-1]:
+161                 lists.pop()
+162         else:
+163             list_idx, rel_idx = self._translate_index(index)
+164             if list_idx is None:
+165                 raise IndexError()
+166             ret = lists[list_idx].pop(rel_idx)
+167             self._balance_list(list_idx)
+168         return ret
+169 
+170     def iter_slice(self, start, stop, step=None):
+171         iterable = self  # TODO: optimization opportunities abound
+172         # start_list_idx, stop_list_idx = 0, len(self.lists)
+173         if start is None:
+174             start = 0
+175         if stop is None:

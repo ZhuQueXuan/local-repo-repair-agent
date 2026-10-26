@@ -1,0 +1,1 @@
+{"hypothesis": "BarrelList.sort does `del self.lists[:]` then `self.lists[0] = tmp_sorted`, which raises IndexError when len(self.lists)>1. Fix: replace with `self.lists[:] = [tmp_sorted]` then balance.", "next_action": "Reproduce with large BarrelList, apply fix, run tests."}

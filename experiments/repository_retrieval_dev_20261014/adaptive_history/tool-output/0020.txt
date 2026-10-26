@@ -1,0 +1,2 @@
+<class 'requests.exceptions.JSONDecodeError'> ('Expecting value: line 1 column 8 (char 7)',)
+PICKLE FAIL <class 'TypeError'> JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'

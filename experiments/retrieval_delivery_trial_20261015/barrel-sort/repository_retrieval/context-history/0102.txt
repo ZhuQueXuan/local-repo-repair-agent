@@ -1,0 +1,1 @@
+Found the bug. In the multi-list branch, `del self.lists[:]` empties the list, then `self.lists[0] = tmp_sorted` raises IndexError because the list is empty. Let me reproduce:

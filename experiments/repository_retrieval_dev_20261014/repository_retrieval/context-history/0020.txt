@@ -1,0 +1,3 @@
+Now let me reproduce the actual failure. The issue is likely that `Response.json()` raises the exception, and when pickled, the `__reduce__` from stdlib returns `(cls, (msg, doc, pos))` where `cls` is `requests.exceptions.JSONDecodeError`. But wait — `json.JSONDecodeError.__reduce__` returns `(self.__class__, (self.msg, self.doc, self.pos))`. So `cls` would be `requests.exceptions.JSONDecodeError`. Calling `requests.exceptions.JSONDecodeError(msg, doc, pos)` should work...
+
+Let me actually reproduce with a real Response.json() exception.

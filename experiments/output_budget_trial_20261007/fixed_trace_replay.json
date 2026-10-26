@@ -1,0 +1,7 @@
+{
+  "original_message_bytes": 16784,
+  "bounded_message_bytes": 9860,
+  "same_actions_and_responses": true,
+  "model_requests": 0,
+  "scope": "Fixed historical observations replayed through preview creation; not an Agent success result."
+}

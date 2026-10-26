@@ -1,0 +1,21 @@
+1858         if func is not None:
+1859             return decorator(func)
+1860 
+1861         return decorator
+1862 
+1863     @t.overload
+1864     def group(self, __func: t.Callable[..., t.Any]) -> "Group":
+1865         ...
+1866 
+1867     @t.overload
+1868     def group(
+1869         self, *args: t.Any, **kwargs: t.Any
+1870     ) -> t.Callable[[t.Callable[..., t.Any]], "Group"]:
+1871         ...
+1872 
+1873     def group(
+1874         self, *args: t.Any, **kwargs: t.Any
+1875     ) -> t.Union[t.Callable[[t.Callable[..., t.Any]], "Group"], "Group"]:
+1876         """A shortcut decorator for declaring and attaching a group to
+1877         the group. This takes the same arguments as :func:`group` and
+1878         immediately registers the created group with this group by

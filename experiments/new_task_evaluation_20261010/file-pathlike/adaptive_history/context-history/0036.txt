@@ -1,0 +1,1 @@
+Now I understand both bugs. Let me look at the `AtomicSaver.__init__` start to see the full context.

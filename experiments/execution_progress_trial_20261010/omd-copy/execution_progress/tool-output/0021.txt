@@ -1,0 +1,23 @@
+    def copy(self):
+        "Return a shallow copy of the dictionary."
+        return self.__class__(self.iteritems(multi=True))
+
+    @classmethod
+    def fromkeys(cls, keys, default=None):
+        """Create a dictionary from a list of keys, with all the values
+        set to *default*, or ``None`` if *default* is not set.
+        """
+        return cls([(k, default) for k in keys])
+
+---852---
+    def copy(self):
+        return self.__class__(self)
+
+    def pop(self, key, default=_MISSING):
+        if key in self:
+            dict.__delitem__(self.inv, self[key])
+            return dict.pop(self, key)
+        if default is not _MISSING:
+            return default
+        raise KeyError()
+

@@ -1,0 +1,16 @@
+{
+  "python": "3.10.6",
+  "packages": {
+    "mini-swe-agent": "2.4.6",
+    "litellm": "1.104.0",
+    "openai": "2.54.0",
+    "httpx": "0.28.1",
+    "pytest": "8.3.5",
+    "pytest-mock": "3.14.0",
+    "click": "8.5.0",
+    "colorama": "0.4.6"
+  },
+  "task_click_source_version": "8.1.3, package imports verified in task subprocess and Agent Bash",
+  "retrieval_v1_unchanged_sha256": "c6334e4f20c27b761ae96124f67de2abf127579b7b054b8ffdbbef0ba6179285",
+  "task_limits": "300 seconds; original history/output/state policies; no API or monetary cap; shared ledger and guards"
+}

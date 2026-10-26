@@ -1,0 +1,19 @@
+{
+  "budget_at_end.json": "5d93c32357bc7b18a06a193caf390a6f936efe4e8116d09d4f7f31212c9b72ac",
+  "budget_policy.json": "c1b868b1a2fa4fe5957826a3db47c3bd340f77fa9cc793b7ef7b1c319b9aed24",
+  "check_provider_connection.py": "18bab3277a2b55b904e4e410622b8ec9eb4ec39614628e95768e138e64d6273c",
+  "deepseek_budget.py": "cbbbc8a938d037157273dacdc77c4ef860188eebafae334a1e4e87d39dc18c4e",
+  "live_connection.log": "66e191ab67a2a8070e802535ef1a82b4793056a68d8fefd3090d915a11956f68",
+  "offline_checks.log": "34a9ef8658485d83a4982c4c0a4a4d1430acae48f1aaa0d84ec8125127dfb15e",
+  "previous_verified_budget.json": "f4fe7e84b8b19ac425a791567efebdf92326657a230faad509712f2526682878",
+  "provider_priority.json": "cc665e70df8b750771eb426bb4fe4d6f82fed49a6b16dc1d04d0ff019beb36e0",
+  "provider_priority.py": "6435a4c06d943a689b19d34b15354b5ea42d12cbd07ca9d30fbfdb3a513139b2",
+  "run_deepseek_smoke.py": "d4a6f7d2c63765195e7f2417935d7823328916f0b5c57e0e12cd7eeff70fb959",
+  "run_task_batch.py": "981c3ccacb427b87cbf9869e1c69b524bfc3d410f62c2e8767ddc1e5e455fa16",
+  "run_windowed_agent.py": "980e8962ec2da0268fff1720addf08958b0629e1ddb4012b30fd964fd745589d",
+  "summary.json": "eb661025deeeb1df90418df456b4e94b9f4257181341c2794acb6160bc2040c4",
+  "test_provider_priority.py": "b1d702ecbf9bb9ae0a911776f4b9341895341ff4d2130628fccacbe40ac68b0a",
+  "live_connection/primary_with_fallback_error.json": "d3a6b9e0ee4f883b5270b728d66878c95dd2aa6ff4159233d5e26b4f57ad1cc4",
+  "live_connection/primary_with_fallback_ledger.json": "01691146c211e9f9719c3fa5d3f16906e98124599f5db9ff9ef5b002b1afa084",
+  "live_connection/summary.json": "18250c7dcae1606c50a8e3622ebedeb718d80609d4f76014001a31710f04da53"
+}

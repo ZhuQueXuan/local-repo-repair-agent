@@ -1,0 +1,60 @@
+test_additive_migration_has_backup_and_read_only_projection_no_migration (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_http_read_only_auth_scope_and_integrity (test_collaboration_adjudication.PersistentAdjudicationTests) ... ERROR
+test_original_review_and_new_version_have_separate_decisions (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_proof_and_its_manifest_cannot_be_replaced_together (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_real_archived_versions_and_scope_not_model_votes (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_registered_proof_has_complete_receipt_bytes_and_cross_run_is_denied (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_restart_and_duplicate_do_not_reexecute_or_rewrite_outcomes (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_result_and_sql_row_tamper_fail_closed (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_unregistered_new_claims_remain_unknown_even_with_pass_fail_checks (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+test_untrusted_candidate_modification_blocks_old_decision_projection (test_collaboration_adjudication.PersistentAdjudicationTests) ... ok
+
+======================================================================
+ERROR: test_http_read_only_auth_scope_and_integrity (test_collaboration_adjudication.PersistentAdjudicationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "D:\python\python3.10.6\lib\http\client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\python\python3.10.6\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "D:\python\python3.10.6\lib\http\client.py", line 975, in send
+    self.connect()
+  File "D:\python\python3.10.6\lib\http\client.py", line 941, in connect
+    self.sock = self._create_connection(
+  File "D:\python\python3.10.6\lib\socket.py", line 845, in create_connection
+    raise err
+  File "D:\python\python3.10.6\lib\socket.py", line 833, in create_connection
+    sock.connect(sa)
+PermissionError: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_adjudication.py", line 196, in test_http_read_only_auth_scope_and_integrity
+    with request(prefix + "result.json") as response:
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_adjudication.py", line 193, in request
+    return urllib.request.urlopen(req, timeout=10)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "D:\python\python3.10.6\lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。>
+
+----------------------------------------------------------------------
+Ran 10 tests in 35.959s
+
+FAILED (errors=1)

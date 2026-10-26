@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-08",
+  "reason": "User added 10 CNY and asked to continue.",
+  "previous_cumulative_limit_cny": "5.00",
+  "additional_budget_cny": "10.00",
+  "new_cumulative_limit_cny": "15.00",
+  "previous_accounted_cny": "4.846950",
+  "initial_available_cny": "10.153050",
+  "ledger_reset": false,
+  "unknown_reservations_released": false
+}

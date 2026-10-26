@@ -1,0 +1,3 @@
+Now I understand the bug. `iter_slice` iterates over `self` (the apparent view), but it converts `start`/`stop` to *real* indices via `_get_real_index`. That's wrong for positive steps — the islice bounds should be apparent indices.
+
+For negative steps, the existing behavior uses `reversed(self)` and negated step. I must preserve that behavior. Let me check what the negative-step behavior currently produces and what the "expected" upstream behavior is. The task says preserve existing upstream negative-step behavior. Let me check the git baseline to see if there's a reference:

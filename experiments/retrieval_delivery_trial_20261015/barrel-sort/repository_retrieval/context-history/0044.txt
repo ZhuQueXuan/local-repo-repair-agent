@@ -1,0 +1,1 @@
+Now I understand the bug. In `sort`, after `del self.lists[:]`, `self.lists` is empty, so `self.lists[0] = tmp_sorted` raises IndexError. Let me reproduce.

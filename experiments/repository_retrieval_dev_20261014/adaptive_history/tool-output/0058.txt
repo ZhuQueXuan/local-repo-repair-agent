@@ -1,0 +1,5 @@
+type JSONDecodeError msg Extra data doc '{"a": 1}{"b": 2}' pos 8
+str Extra data: line 1 column 9 (char 8)
+isinstance True True
+caught type JSONDecodeError msg Extra data doc '{"a": 1}{"b": 2}' pos 8
+str Extra data: line 1 column 9 (char 8)

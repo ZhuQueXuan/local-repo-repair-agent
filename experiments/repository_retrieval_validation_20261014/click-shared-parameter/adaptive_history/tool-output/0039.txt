@@ -1,0 +1,48 @@
+55:        def decorator(f):
+68:    def decorator(f: F) -> F:
+106:    def decorator(f: F) -> F:
+196:    def decorator(f: t.Callable[..., t.Any]) -> Command:
+285:    def decorator(f: FC) -> FC:
+306:    def decorator(f: FC) -> FC:
+---
+    package_name: t.Optional[str] = None,
+    prog_name: t.Optional[str] = None,
+    message: t.Optional[str] = None,
+    **kwargs: t.Any,
+) -> t.Callable[[FC], FC]:
+    """Add a ``--version`` option which immediately prints the version
+    number and exits the program.
+
+    If ``version`` is not provided, Click will try to detect it using
+    :func:`importlib.metadata.version` to get the version for the
+    ``package_name``. On Python < 3.8, the ``importlib_metadata``
+    backport must be installed.
+
+    If ``package_name`` is not provided, Click will try to detect it by
+    inspecting the stack frames. This will be used to detect the
+    version, so it must match the name of the installed package.
+
+    :param version: The version number to show. If not provided, Click
+        will try to detect it.
+    :param param_decls: One or more option names. Defaults to the single
+        value ``"--version"``.
+    :param package_name: The package name to detect the version from. If
+        not provided, Click will try to detect it.
+    :param prog_name: The name of the CLI to show in the message. If not
+        provided, it will be detected from the command.
+    :param message: The message to show. The values ``%(prog)s``,
+        ``%(package)s``, and ``%(version)s`` are available. Defaults to
+        ``"%(prog)s, version %(version)s"``.
+    :param kwargs: Extra arguments are passed to :func:`option`.
+    :raise RuntimeError: ``version`` could not be detected.
+
+    .. versionchanged:: 8.0
+        Add the ``package_name`` parameter, and the ``%(package)s``
+        value for messages.
+
+    .. versionchanged:: 8.0
+        Use :mod:`importlib.metadata` instead of ``pkg_resources``. The
+        version is detected based on the package name, not the entry
+        point name. The Python package name must match the installed
+        package name, or be passed with ``package_name=``.
+    """

@@ -1,0 +1,3 @@
+lists: 1
+lists after insert: 1
+sort returned None

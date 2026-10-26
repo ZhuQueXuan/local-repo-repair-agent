@@ -1,0 +1,1 @@
+simplejson isn't installed, so the failure isn't from that. Let me reconsider. The issue says "directly constructed instances" also fail. Let me test constructing `JSONDecodeError` directly and pickling — maybe with the `InvalidJSONError`/`RequestException` MRO, `args` gets mangled.

@@ -1,0 +1,9 @@
+.....                                                                    [100%]
+============================== warnings summary ===============================
+tests\conftest.py:8
+  D:\myDocu\project_postg\shixi_project\tasks\indexed-set-removal\temp\run_20261007_221024_128404\repo\tests\conftest.py:8: PytestRemovedIn9Warning: The (path: py.path.local) argument is deprecated, please use (collection_path: pathlib.Path)
+  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path
+    def pytest_ignore_collect(path, config):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.05s

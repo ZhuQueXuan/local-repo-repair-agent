@@ -1,0 +1,1 @@
+{"hypothesis": "AtomicSaver.__init__ does os.path.abspath(dest_path) into self.dest_path but then uses raw dest_path + '.part' for part_path, so PathLike fails with TypeError. iter_find_files uses directory.split(os.path.sep) which fails for Path. Fix: coerce via os.fspath at entry.", "next_action": "Reproduce with a small script using pathlib.Path and a custom PathLike."}

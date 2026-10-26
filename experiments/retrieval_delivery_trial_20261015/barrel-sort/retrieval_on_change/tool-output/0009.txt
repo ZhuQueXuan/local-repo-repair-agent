@@ -1,0 +1,3 @@
+num lists: 1 limit: 26767
+after insert num lists: 15
+ERROR: IndexError list assignment index out of range

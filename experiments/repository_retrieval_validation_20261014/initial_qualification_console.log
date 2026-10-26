@@ -1,0 +1,47 @@
+{
+  "task": "click-shared-parameter",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\click-shared-parameter\\temp\\run_20261014_215520_118542\\repo",
+  "issue_total": 5,
+  "issue_passed": 4,
+  "upstream_targeted": 147,
+  "upstream_targeted_ok": false,
+  "extended_total": 264,
+  "extended_passed": 262,
+  "extended_skipped": 0,
+  "extended_failures": [
+    "tests.test_arguments.test_bytes_args",
+    "tests.test_arguments.test_bytes_args"
+  ],
+  "qualified": false
+}
+{
+  "task": "click-custom-command",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\click-custom-command\\temp\\run_20261014_215524_986755\\repo",
+  "issue_total": 6,
+  "issue_passed": 5,
+  "upstream_targeted": 9,
+  "upstream_targeted_ok": true,
+  "extended_total": 264,
+  "extended_passed": 262,
+  "extended_skipped": 0,
+  "extended_failures": [
+    "tests.test_arguments.test_bytes_args",
+    "tests.test_arguments.test_bytes_args"
+  ],
+  "qualified": true
+}
+barrel-sort: evaluator failed; Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\scripts\check_task.py", line 110, in <module>
+    raise SystemExit(main())
+  File "D:\myDocu\project_postg\shixi_project\scripts\check_task.py", line 99, in main
+    full = pytest_suite(repo, manifest["full_target"], output.parent, "full", plugins=manifest.get("pytest_plugins", ()), import_root=manifest.get("import_root", "."))
+  File "D:\myDocu\project_postg\shixi_project\scripts\check_task.py", line 49, in pytest_suite
+    result = subprocess.run([sys.executable, "-B", "-m", "pytest", *targets, "-q", "-p", "no:cacheprovider",
+  File "D:\python\python3.10.6\lib\subprocess.py", line 503, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "D:\python\python3.10.6\lib\subprocess.py", line 1152, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "D:\python\python3.10.6\lib\subprocess.py", line 1528, in _communicate
+    raise TimeoutExpired(self.args, orig_timeout)
+subprocess.TimeoutExpired: Command '['D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe', '-B', '-m', 'pytest', 'tests', '-q', '-p', 'no:cacheprovider', '--basetemp', 'D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261014_215529_045986\\repo\\temp\\pytest_215530_719102', '--junitxml', 'D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_validation_qualification\\barrel-sort\\full.xml']' timed out after 180 seconds
+

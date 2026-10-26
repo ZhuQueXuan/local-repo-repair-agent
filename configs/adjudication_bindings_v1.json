@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "scope": "Developer-reviewed retrospective exact binding for the known successful diagnostic. Covers only four already-reported falsey remainder inputs; does not adjudicate broader validation or final-review informational claims. Unknown future wording remains unresolved.",
+  "bindings": [
+    {
+      "run_id": "d3173d4153e544ccbf0eb066834848f8",
+      "binding": {
+        "review_id": "reviewing-review",
+        "finding_id": "f1-falsey-remainder-dropped",
+        "finding_sha256": "5a703938d6701d8027171b5107d58f3bfdbbacb862a611848f8451b705752e03",
+        "claim_key": "disclosed-falsey-remainder",
+        "check_ids": [
+          "zero",
+          "none",
+          "false",
+          "zeros"
+        ],
+        "coverage_scope": "Only declared nonempty remainders [0], [None], [False], [0,0] at maxsplit=1; original diagnostic failure was already supplied to reviewer. No broader all-input proof or novel discovery."
+      }
+    }
+  ]
+}

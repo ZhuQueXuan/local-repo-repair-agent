@@ -1,0 +1,1 @@
+So `OrderedMultiDict` has no `__copy__`/`__deepcopy__`. The issue is that `copy.copy` uses `__reduce_ex__` which uses `__getstate__`/`__setstate__`. Let me reproduce.

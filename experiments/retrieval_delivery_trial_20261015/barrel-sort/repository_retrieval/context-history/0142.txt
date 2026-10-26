@@ -1,0 +1,1 @@
+Confirmed the bug. Now let me reproduce with multiple internal lists:

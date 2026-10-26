@@ -1,0 +1,147 @@
+[
+  {
+    "task": "omd-copy",
+    "historical_source": "experiments\\new_task_evaluation_20261010\\omd-copy\\adaptive_history",
+    "first_advisory_sequence": 8,
+    "first_changed_sequence": null,
+    "final_feedback": {
+      "phase": "diagnose_and_repair",
+      "plan_version": 2,
+      "actions_without_source_or_new_validation": 72,
+      "stagnation_feedback": true,
+      "first_source_change_sequence": null,
+      "current_validation": {
+        "targeted": "not_run",
+        "issue": "not_run"
+      },
+      "validation_evidence": {},
+      "last_execution_failure": null,
+      "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate. Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence.",
+      "status": "program-derived advisory; no independent acceptance"
+    },
+    "external_model_requests": 0,
+    "scope": "Fixed historical action replay using archived source revisions; advisory only. No claim of a new repair or saved calls."
+  },
+  {
+    "task": "file-pathlike",
+    "historical_source": "experiments\\new_task_evaluation_20261010\\file-pathlike\\adaptive_history",
+    "first_advisory_sequence": 8,
+    "first_changed_sequence": 111,
+    "final_feedback": {
+      "phase": "review_and_submit",
+      "plan_version": 6,
+      "actions_without_source_or_new_validation": 2,
+      "stagnation_feedback": false,
+      "first_source_change_sequence": 111,
+      "current_validation": {
+        "targeted": "passed",
+        "issue": "passed"
+      },
+      "validation_evidence": {
+        "targeted": {
+          "result": "passed",
+          "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+          "sequence": 124,
+          "output_path": "temp/tool-output/0124.txt",
+          "failures": []
+        },
+        "issue": {
+          "result": "passed",
+          "revision": "b9c8116c688611f25e689f8010e038e536664ff6f589ad202567cabcee42febe",
+          "sequence": 125,
+          "output_path": "temp/tool-output/0125.txt",
+          "failures": []
+        }
+      },
+      "last_execution_failure": {
+        "sequence": 114,
+        "output_path": "temp/tool-output/0114.txt",
+        "returncode": 1
+      },
+      "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance.",
+      "status": "program-derived advisory; no independent acceptance"
+    },
+    "external_model_requests": 0,
+    "scope": "Fixed historical action replay using archived source revisions; advisory only. No claim of a new repair or saved calls."
+  },
+  {
+    "task": "indexed-set-removal",
+    "historical_source": "experiments\\history_retention_trial_20261008\\indexed-set-removal",
+    "first_advisory_sequence": 8,
+    "first_changed_sequence": 30,
+    "final_feedback": {
+      "phase": "review_and_submit",
+      "plan_version": 5,
+      "actions_without_source_or_new_validation": 4,
+      "stagnation_feedback": false,
+      "first_source_change_sequence": 30,
+      "current_validation": {
+        "targeted": "passed",
+        "issue": "passed"
+      },
+      "validation_evidence": {
+        "targeted": {
+          "result": "passed",
+          "revision": "54978d63959c885afa66a88c544a270d81e607b93b2edd1a352f8128574a54cf",
+          "sequence": 36,
+          "output_path": "temp/tool-output/0036.txt",
+          "failures": []
+        },
+        "issue": {
+          "result": "passed",
+          "revision": "54978d63959c885afa66a88c544a270d81e607b93b2edd1a352f8128574a54cf",
+          "sequence": 37,
+          "output_path": "temp/tool-output/0037.txt",
+          "failures": []
+        }
+      },
+      "last_execution_failure": {
+        "sequence": 31,
+        "output_path": "temp/tool-output/0031.txt",
+        "returncode": 1
+      },
+      "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance.",
+      "status": "program-derived advisory; no independent acceptance"
+    },
+    "external_model_requests": 0,
+    "scope": "Fixed historical action replay using archived source revisions; advisory only. No claim of a new repair or saved calls."
+  },
+  {
+    "task": "split-after-boundary",
+    "historical_source": "experiments\\history_retention_trial_20261008\\split-after-boundary",
+    "first_advisory_sequence": null,
+    "first_changed_sequence": 7,
+    "final_feedback": {
+      "phase": "review_and_submit",
+      "plan_version": 4,
+      "actions_without_source_or_new_validation": 1,
+      "stagnation_feedback": false,
+      "first_source_change_sequence": 7,
+      "current_validation": {
+        "targeted": "passed",
+        "issue": "passed"
+      },
+      "validation_evidence": {
+        "targeted": {
+          "result": "passed",
+          "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+          "sequence": 9,
+          "output_path": "temp/tool-output/0009.txt",
+          "failures": []
+        },
+        "issue": {
+          "result": "passed",
+          "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+          "sequence": 10,
+          "output_path": "temp/tool-output/0010.txt",
+          "failures": []
+        }
+      },
+      "last_execution_failure": null,
+      "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance.",
+      "status": "program-derived advisory; no independent acceptance"
+    },
+    "external_model_requests": 0,
+    "scope": "Fixed historical action replay using archived source revisions; advisory only. No claim of a new repair or saved calls."
+  }
+]

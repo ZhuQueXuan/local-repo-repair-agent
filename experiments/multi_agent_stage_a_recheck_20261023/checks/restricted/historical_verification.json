@@ -1,0 +1,11 @@
+{
+  "sealed_entries": 35,
+  "mismatches": [],
+  "current_scripts_match_stage_a": {
+    "inputs/collaboration_demo.py": true,
+    "inputs/collaboration_protocol.py": true,
+    "inputs/review_tools.py": true,
+    "inputs/test_collaboration_protocol.py": true,
+    "inputs/test_review_tools.py": true
+  }
+}

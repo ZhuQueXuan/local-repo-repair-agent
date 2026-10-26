@@ -1,0 +1,48 @@
+128:def command(
+135:def command(
+143:def command(
+145:    cls: t.Type[CmdType] = ...,
+151:def command(
+153:    cls: t.Optional[t.Type[Command]] = None,
+174:    :param cls: the command class to instantiate.  This defaults to
+190:        assert cls is None, "Use 'command(cls=cls)(callable)' to specify a class."
+193:    if cls is None:
+194:        cls = Command
+214:        cmd = cls(  # type: ignore[misc]
+230:def group(
+237:def group(
+244:def group(
+248:    works otherwise the same as :func:`command` just that the `cls`
+254:    if attrs.get("cls") is None:
+255:        attrs["cls"] = Group
+274:def argument(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:
+277:    arguments are forwarded unchanged (except ``cls``).
+281:    :param cls: the argument class to instantiate.  This defaults to
+286:        ArgumentClass = attrs.pop("cls", None) or Argument
+287:        _param_memo(f, ArgumentClass(param_decls, **attrs))
+293:def option(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:
+296:    arguments are forwarded unchanged (except ``cls``).
+300:    :param cls: the option class to instantiate.  This defaults to
+305:        # Issue 926, copy attrs, so pre-defined options can re-use the same cls=
+307:        OptionClass = option_attrs.pop("cls", None) or Option
+308:        _param_memo(f, OptionClass(param_decls, **option_attrs))
+314:def confirmation_option(*param_decls: str, **kwargs: t.Any) -> t.Callable[[FC], FC]:
+318:    :param param_decls: One or more option names. Defaults to the single
+327:    if not param_decls:
+328:        param_decls = ("--yes",)
+335:    return option(*param_decls, **kwargs)
+338:def password_option(*param_decls: str, **kwargs: t.Any) -> t.Callable[[FC], FC]:
+342:    :param param_decls: One or more option names. Defaults to the single
+346:    if not param_decls:
+347:        param_decls = ("--password",)
+352:    return option(*param_decls, **kwargs)
+357:    *param_decls: str,
+377:    :param param_decls: One or more option names. Defaults to the single
+458:    if not param_decls:
+459:        param_decls = ("--version",)
+466:    return option(*param_decls, **kwargs)
+469:def help_option(*param_decls: str, **kwargs: t.Any) -> t.Callable[[FC], FC]:
+477:    :param param_decls: One or more option names. Defaults to the single
+489:    if not param_decls:
+490:        param_decls = ("--help",)
+497:    return option(*param_decls, **kwargs)

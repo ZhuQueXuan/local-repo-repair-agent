@@ -1,0 +1,12 @@
+{
+  "source-and-documents.zip": "7fc95b7e6cd13336b639554a636bfe3c19ba11423058d6f445b039b59b9e844c",
+  "source-and-documents.zip.sha256.json": "8563f869b1b73f0c09dec517b6290ca3f7faa686dd5bddc67d824a59b909b61d",
+  "checks-and-ui.zip": "53ee6c2e4c1ad2445d703c3e552f7433608e9d9740298d5b09b6665899fda7e3",
+  "checks-and-ui.zip.sha256.json": "cd9a4e6b14cf947425f3218a11ecbe18a2260d4727d25d955d994fb2842ec7b0",
+  "scripted-five-stage.zip": "ede313cac025349c9df85970a61297962620b05e0a6100f7695b7cf7580657c6",
+  "scripted-five-stage.zip.sha256.json": "64b9498fffb6c5d0f4159966d731a62b5550390e549be68220666adcf922cedc",
+  "first-scripted-fixture-failure.zip": "17934569a8a52385efc67edd696d3340d441f0fb0bd724f94f78b003a99c818b",
+  "first-scripted-fixture-failure.zip.sha256.json": "fd551efb4b7cfc4fa74ce73e9088f430b4c2ce2ad980da8ccd4491fa375abb8c",
+  "task-card-save.png": "ca8d3e8f1ac1a86a2d1c23e3b6b03439c661a5745d91bc15ea272e9a35f346a2",
+  "verification.json": "ddb4132c8fb51081087055c033a22216e3de3738a27b9ec3d9a479c3aa7fb254"
+}

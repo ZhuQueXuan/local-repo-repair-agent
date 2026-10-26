@@ -1,0 +1,25 @@
+{
+  "scope": "Offline fixes only; no real-model rerun or change to the failed live run.",
+  "regression": {
+    "native_passed": 301,
+    "project_run": 290,
+    "project_passed": 289,
+    "project_skipped": 1,
+    "adapter_passed": 169,
+    "adapter_existing_failures": 6,
+    "adapter_skipped": 1
+  },
+  "wire_bytes": {
+    "before": 16807,
+    "after": 13154,
+    "hard_guard": 16384
+  },
+  "wire_fixture_entries": 5,
+  "full_feedback_fixture_entries": 481,
+  "feedback_fixture": {
+    "original_home": "temp\\multi_agent_stage_b_20261022\\tests\\171fc6d1577c46a8868984d8d41fb6c2",
+    "run_id": "008324cc81bf4e46be525994b708197d",
+    "scope": "scripted response/real local processes, synthetic ledger only"
+  },
+  "python_scope": "Current catalog/evaluation/symbol retrieval are Python-specific; no cross-language integration claim."
+}

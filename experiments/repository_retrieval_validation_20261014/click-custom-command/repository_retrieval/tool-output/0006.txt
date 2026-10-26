@@ -1,0 +1,31 @@
+            name=name or f.__name__.lower().replace("_", "-"),  # type: ignore[arg-type]
+            callback=f,
+            params=params,
+            **attrs,
+        )
+        cmd.__doc__ = f.__doc__
+        return cmd
+
+    if func is not None:
+        return decorator(func)
+
+    return decorator
+
+
+@t.overload
+def group(
+    __func: t.Callable[..., t.Any],
+) -> Group:
+    ...
+
+
+@t.overload
+def group(
+    name: t.Optional[str] = None,
+    **attrs: t.Any,
+) -> t.Callable[[F], Group]:
+    ...
+
+
+def group(
+    name: t.Union[str, t.Callable[..., t.Any], None] = None, **attrs: t.Any

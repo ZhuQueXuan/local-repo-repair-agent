@@ -1,0 +1,1 @@
+Found the bug. In `sort`, when `len(self.lists) > 1`, it does `del self.lists[:]` then `self.lists[0] = tmp_sorted` — but after deleting all elements, `self.lists` is empty, so `self.lists[0]` raises IndexError. Let me confirm the class structure and reproduce.

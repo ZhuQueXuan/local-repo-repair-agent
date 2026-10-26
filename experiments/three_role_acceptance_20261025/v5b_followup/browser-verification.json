@@ -1,0 +1,9 @@
+{
+  "browser": "Edge extension",
+  "url": "http://127.0.0.1:8765/",
+  "runId": "bcb4387bd0064fa49dbbf0c579c7779c",
+  "status": "三角色：文档查阅 → 修复 → 审查（实验）；完成情况见各角色状态。 协作：degraded；审查不可用 最终候选：candidate-664469a77647ecc7ad3226e035cc1243",
+  "roles": "文档查阅 · 已完成\n\nDocumentConsultationSubmitted\n\n活动 10.188 秒 · 调用 5 次\n\n已知估算 0.043322 元；完整费用 未知\n\n时间与版本明细\n初修 · 已完成\n\n正常提交\n\n活动 12.984 秒 · 调用 8 次\n\n已知估算 0.066396 元；完整费用 0.066396\n\n时间与版本明细\n独立首审 · 处理异常\n\nStage failure: LimitsExceeded\n\n活动 未知 秒 · 调用 8 次\n\n已知估算 0.105446 元；完整费用 0.105446\n\n时间与版本明细\n修订 · 已跳过\n\nStage failure: LimitsExceeded\n\n活动 未知 秒 · 调用 0 次\n\n已知估算 0 元；完整费用 0\n\n时间与版本明细\n最终核查 · 已跳过\n\nStage failure: LimitsExceeded\n\n活动 未知 秒 · 调用 0 次\n\n已知估算 0 元；完整费用 0\n\n时间与版本明细",
+  "candidateText": "最终采用版本\ncandidate-664469a77647ecc7ad3226e035cc1243\n本版本测试/审查只属于此候选；独立裁决仅覆盖已登记具体检查，未映射意见仍未知。旧摘要extended_passed仅指相对基线接受，不能当全量全绿；完整测试见运行级评分报告。\n\n--- a/more_itertools/more.py\n+++ b/more_itertools/more.py\n@@ -1425,7 +1425,9 @@\n         if pred(item) and buf:\n             yield buf\n             if maxsplit == 1:\n-                yield list(it)\n+                remainder = list(it)\n+                if remainder:\n+                    yield remainder\n                 return\n             buf = []\n           ",
+  "createdViaBrowser": false
+}

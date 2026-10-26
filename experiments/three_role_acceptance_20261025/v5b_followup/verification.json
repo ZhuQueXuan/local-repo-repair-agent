@@ -1,0 +1,162 @@
+{
+  "run_id": "bcb4387bd0064fa49dbbf0c579c7779c",
+  "status": "failed",
+  "reason": "Stage failure: LimitsExceeded; previous legal candidate and its actual independent assessment are retained.",
+  "metrics": {
+    "attempts": 21,
+    "by_role": {
+      "345a52ed57f14622bdb5de1e3197deec": {
+        "attempts": 8,
+        "complete_cost_estimate_cny": 0.105446,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 929,
+        "known_price_estimate_cny": 0.105446,
+        "known_prompt_tokens": 49007,
+        "logical_requests": 8,
+        "tickets": [
+          "0131e145df834269818a4c9447e0bca4",
+          "0ae742c8e0ab4cf8abf62e6b06c743d5",
+          "1ba04658cb2740a98ba45dd871f65513",
+          "25226a8e6c8f4886bc9bc5312f5f98e4",
+          "3f19adc02b684d1d8c47693a4cd03330",
+          "770eee079fb8415db901b2526ea80ad2",
+          "bccee39e4a5f45319b683b563462340e",
+          "c05df438d81c45c59f90d5cccf751c33"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      },
+      "749a8107d7a143e6b04ef0333614d649": {
+        "attempts": 5,
+        "complete_cost_estimate_cny": null,
+        "has_unknown_usage": true,
+        "known_completion_tokens": 1379,
+        "known_price_estimate_cny": 0.043322,
+        "known_prompt_tokens": 16145,
+        "logical_requests": 4,
+        "tickets": [
+          "085e4b73870e402d9d2c414e5205ad63",
+          "20679855c190438f82b830310b77a104",
+          "6a48affda4ad4e3f87c83cf008e7441c",
+          "75b19a0f98a54f18ac0bd5a41162400a",
+          "ff9d1d2a4d894f17a88fa0a45b66e6ea"
+        ],
+        "unknown_cost_attempts": 1,
+        "unknown_placeholder_cny": 0.1
+      },
+      "7675689c3df740e69c56d22f6c921be9": {
+        "attempts": 8,
+        "complete_cost_estimate_cny": 0.066396,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 929,
+        "known_price_estimate_cny": 0.066396,
+        "known_prompt_tokens": 29482,
+        "logical_requests": 8,
+        "tickets": [
+          "09c2a07c85c241eab9adee41e820b1d4",
+          "31e0086ba9514fc990434fe47796035d",
+          "34c9750bb864452ab5972ade2b9770a5",
+          "407ec1afa7f245c6b494870e4ecc757e",
+          "56e77eb58f0042219dfabe8828f3b462",
+          "cde45f71b875493481ddb5e833116e28",
+          "e038d5d2e01a4fe4b76613c5a2f4e86a",
+          "e648f69a7f72418abbd076cc129e8be9"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      }
+    },
+    "complete_cost_estimate_cny": null,
+    "cost_scope": "Known-price estimates plus unknown placeholders; not confirmed charges or platform balance.",
+    "has_unknown_usage": true,
+    "known_completion_tokens": 3237,
+    "known_price_estimate_cny": 0.215164,
+    "known_prompt_tokens": 94634,
+    "logical_requests": 20,
+    "tickets": [
+      "0131e145df834269818a4c9447e0bca4",
+      "085e4b73870e402d9d2c414e5205ad63",
+      "09c2a07c85c241eab9adee41e820b1d4",
+      "0ae742c8e0ab4cf8abf62e6b06c743d5",
+      "1ba04658cb2740a98ba45dd871f65513",
+      "20679855c190438f82b830310b77a104",
+      "25226a8e6c8f4886bc9bc5312f5f98e4",
+      "31e0086ba9514fc990434fe47796035d",
+      "34c9750bb864452ab5972ade2b9770a5",
+      "3f19adc02b684d1d8c47693a4cd03330",
+      "407ec1afa7f245c6b494870e4ecc757e",
+      "56e77eb58f0042219dfabe8828f3b462",
+      "6a48affda4ad4e3f87c83cf008e7441c",
+      "75b19a0f98a54f18ac0bd5a41162400a",
+      "770eee079fb8415db901b2526ea80ad2",
+      "bccee39e4a5f45319b683b563462340e",
+      "c05df438d81c45c59f90d5cccf751c33",
+      "cde45f71b875493481ddb5e833116e28",
+      "e038d5d2e01a4fe4b76613c5a2f4e86a",
+      "e648f69a7f72418abbd076cc129e8be9",
+      "ff9d1d2a4d894f17a88fa0a45b66e6ea"
+    ],
+    "total_elapsed_seconds": 41.391,
+    "unknown_cost_attempts": 1,
+    "unknown_placeholder_cny": 0.1
+  },
+  "old_payloads_byte_identical": 50,
+  "current_formal_rows": 51,
+  "old_ledger_requests_unchanged": 1900,
+  "new_ledger_requests": 21,
+  "frozen_input_files_verified": 184,
+  "consulting_and_repairing_succeeded": true,
+  "new_fix_live_verified": false,
+  "new_comparison_runs": 0,
+  "actual_grader": {
+    "issue_checks": {
+      "passed": 10,
+      "tests_run": 10
+    },
+    "upstream_targeted": {
+      "passed": 4,
+      "tests_run": 4
+    },
+    "full_upstream_suite": {
+      "passed": 659,
+      "tests_run": 660
+    }
+  },
+  "offline_failure_replay": {
+    "external_model_calls": 0,
+    "guard_unchanged": 16384,
+    "new_api_bytes": 12727,
+    "old_api_bytes": 16940,
+    "old_trajectory_unchanged": true,
+    "original_sha256": "3849d7adeb46dc57f01e2d6a607d5de17a68f86ba85b4e59106927fb8184d559",
+    "original_task_and_latest_exchange_unchanged": true,
+    "run_id": "bcb4387bd0064fa49dbbf0c579c7779c"
+  },
+  "browser_checks": {
+    "browser": "Edge extension",
+    "url": "http://127.0.0.1:8765/",
+    "runId": "bcb4387bd0064fa49dbbf0c579c7779c",
+    "status": "三角色：文档查阅 → 修复 → 审查（实验）；完成情况见各角色状态。 协作：degraded；审查不可用 最终候选：candidate-664469a77647ecc7ad3226e035cc1243",
+    "roles": "文档查阅 · 已完成\n\nDocumentConsultationSubmitted\n\n活动 10.188 秒 · 调用 5 次\n\n已知估算 0.043322 元；完整费用 未知\n\n时间与版本明细\n初修 · 已完成\n\n正常提交\n\n活动 12.984 秒 · 调用 8 次\n\n已知估算 0.066396 元；完整费用 0.066396\n\n时间与版本明细\n独立首审 · 处理异常\n\nStage failure: LimitsExceeded\n\n活动 未知 秒 · 调用 8 次\n\n已知估算 0.105446 元；完整费用 0.105446\n\n时间与版本明细\n修订 · 已跳过\n\nStage failure: LimitsExceeded\n\n活动 未知 秒 · 调用 0 次\n\n已知估算 0 元；完整费用 0\n\n时间与版本明细\n最终核查 · 已跳过\n\nStage failure: LimitsExceeded\n\n活动 未知 秒 · 调用 0 次\n\n已知估算 0 元；完整费用 0\n\n时间与版本明细",
+    "candidateText": "最终采用版本\ncandidate-664469a77647ecc7ad3226e035cc1243\n本版本测试/审查只属于此候选；独立裁决仅覆盖已登记具体检查，未映射意见仍未知。旧摘要extended_passed仅指相对基线接受，不能当全量全绿；完整测试见运行级评分报告。\n\n--- a/more_itertools/more.py\n+++ b/more_itertools/more.py\n@@ -1425,7 +1425,9 @@\n         if pred(item) and buf:\n             yield buf\n             if maxsplit == 1:\n-                yield list(it)\n+                remainder = list(it)\n+                if remainder:\n+                    yield remainder\n                 return\n             buf = []\n           ",
+    "createdViaBrowser": false
+  },
+  "regression": {
+    "directories": {
+      "default": "temp\\regression\\20261025_223925_5cf9c2f8"
+    },
+    "native_passed": 301,
+    "project_tests_run": 404,
+    "project_passed": 403,
+    "project_skipped": 1,
+    "project_seconds": 264.692,
+    "protected_files_unchanged": true,
+    "adapter_scope": "No execution-environment changes: retain v4 final adapter 169 passed/6 identical existing failures/1 skipped; not rerun for this request-view change."
+  },
+  "next_identity": {
+    "name": "atomic_review_v6",
+    "frozen_files": 142,
+    "current_code_matches": true,
+    "dispatched": false
+  }
+}

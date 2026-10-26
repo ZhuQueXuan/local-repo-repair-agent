@@ -1,0 +1,1 @@
+Now let me look at how decorators store the type. Let me check the `option`/`argument` decorators and `_param_memo`.

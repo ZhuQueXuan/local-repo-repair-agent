@@ -1,0 +1,84 @@
+437: 
+438:     def setup(self):
+439:         """Called on context manager entry (the :keyword:`with` statement),
+440:         the ``setup()`` method creates the temporary file in the same
+441:         directory as the destination file.
+442: 
+443:         ``setup()`` tests for a writable directory with rename permissions
+444:         early, as the part file may not be written to immediately (not
+445:         using :func:`os.access` because of the potential issues of
+446:         effective vs. real privileges).
+447: 
+448:         If the caller is not using the :class:`AtomicSaver` as a
+449:         context manager, this method should be called explicitly
+450:         before writing.
+451:         """
+452:         if os.path.lexists(self.dest_path):
+453:             if not self.overwrite:
+454:                 raise OSError(errno.EEXIST,
+455:                               'Overwrite disabled and file already exists',
+456:                               self.dest_path)
+457:         if self.overwrite_part and os.path.lexists(self.part_path):
+458:             os.unlink(self.part_path)
+459:         self._open_part_file()
+460:         return
+461: 
+462:     def __enter__(self):
+463:         self.setup()
+464:         return self.part_file
+465: 
+466:     def __exit__(self, exc_type, exc_val, exc_tb):
+467:         if self.part_file:
+468:             # Ensure data is flushed and synced to disk before closing
+469:             self.part_file.flush()
+470:             os.fsync(self.part_file.fileno())
+471:             self.part_file.close()
+472:         if exc_type:
+473:             if self.rm_part_on_exc:
+474:                 try:
+475:                     os.unlink(self.part_path)
+476:                 except Exception:
+477:                     pass  # avoid masking original error
+478:             return
+479:         try:
+480:             atomic_rename(self.part_path, self.dest_path,
+481:                           overwrite=self.overwrite)
+482:         except OSError:
+483:             if self.rm_part_on_exc:
+484:                 try:
+485:                     os.unlink(self.part_path)
+486:                 except Exception:
+487:                     pass  # avoid masking original error
+488:             raise  # could not save destination file
+489:         return
+490: 
+491: 
+492: def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):
+493:     """Returns a generator that yields file paths under a *directory*,
+494:     matching *patterns* using `glob`_ syntax (e.g., ``*.txt``). Also
+495:     supports *ignored* patterns.
+496: 
+497:     Args:
+498:         directory (str): Path that serves as the root of the
+499:             search. Yielded paths will include this as a prefix.
+500:         patterns (str or list): A single pattern or list of
+501:             glob-formatted patterns to find under *directory*.
+502:         ignored (str or list): A single pattern or list of
+503:             glob-formatted patterns to ignore.
+504:         include_dirs (bool): Whether to include directories that match
+505:            patterns, as well. Defaults to ``False``.
+506:         max_depth (int): traverse up to this level of subdirectory.
+507:            I.e., 0 for the specified *directory* only, 1 for *directory* 
+508:            and one level of subdirectory.
+509: 
+510:     For example, finding Python files in the current directory:
+511: 
+512:     >>> _CUR_DIR = os.path.dirname(os.path.abspath(__file__))
+513:     >>> filenames = sorted(iter_find_files(_CUR_DIR, '*.py'))
+514:     >>> os.path.basename(filenames[-1])
+515:     'urlutils.py'
+516: 
+517:     Or, Python files while ignoring emacs lockfiles:
+518: 
+519:     >>> filenames = iter_find_files(_CUR_DIR, '*.py', ignored='.#*')
+520: 

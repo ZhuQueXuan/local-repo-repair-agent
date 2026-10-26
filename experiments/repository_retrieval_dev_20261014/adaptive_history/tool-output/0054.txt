@@ -1,0 +1,2 @@
+args ('Extra data: line 1 column 9 (char 8)',)
+reduce (<class 'json.decoder.JSONDecodeError'>, ('Extra data', '{"a": 1}{"b": 2}', 8))

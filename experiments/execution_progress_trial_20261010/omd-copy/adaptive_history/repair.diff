@@ -1,0 +1,12 @@
+--- a/boltons/dictutils.py
++++ b/boltons/dictutils.py
+@@ -180,6 +180,9 @@
+         self.clear()
+         self.update_extend(state)
+ 
++    def __reduce__(self):
++        return type(self), (), self.__getstate__()
++
+     def _clear_ll(self):
+         try:
+             _map = self._map

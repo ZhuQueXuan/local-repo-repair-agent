@@ -1,0 +1,10 @@
+118:        def __init__(self, attribute, offset):
+155:    def __init__(self, user='', group='', other=''):
+188:        >>> import tempfile
+189:        >>> 'r' in FilePerms.from_path(tempfile.gettempdir()).user
+235:        Implementation from the :mod:`tempfile` module.
+248:def atomic_save(dest_path, **kwargs):
+335:class AtomicSaver:
+388:    def __init__(self, dest_path, **kwargs):
+492:def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):
+618:    def __init__(self, path, mode='r', buffering=None):

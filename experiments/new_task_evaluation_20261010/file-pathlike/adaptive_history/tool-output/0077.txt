@@ -1,0 +1,56 @@
+def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):
+    """Returns a generator that yields file paths under a *directory*,
+    matching *patterns* using `glob`_ syntax (e.g., ``*.txt``). Also
+    supports *ignored* patterns.
+
+    Args:
+        directory (str): Path that serves as the root of the
+            search. Yielded paths will include this as a prefix.
+        patterns (str or list): A single pattern or list of
+            glob-formatted patterns to find under *directory*.
+        ignored (str or list): A single pattern or list of
+            glob-formatted patterns to ignore.
+        include_dirs (bool): Whether to include directories that match
+           patterns, as well. Defaults to ``False``.
+----
+    As of Python 3.8, you may pass :func:`shutil.copytree` the
+    `dirs_exist_ok=True` flag to achieve the same effect.
+
+    Args:
+        src (str): Path of the source directory to copy.
+        dst (str): Destination path. Existing directories accepted.
+        symlinks (bool): If ``True``, copy symlinks rather than their
+            contents.
+        ignore (callable): A callable that takes a path and directory
+            listing, returning the files within the listing to be ignored.
+
+    For more details, check out :func:`shutil.copytree` and
+    :func:`shutil.copy2`.
+
+    """
+    names = os.listdir(src)
+    if ignore is not None:
+        ignored_names = ignore(src, names)
+    else:
+        ignored_names = set()
+
+    mkdir_p(dst)
+    errors = []
+    for name in names:
+        if name in ignored_names:
+            continue
+        srcname = os.path.join(src, name)
+        dstname = os.path.join(dst, name)
+        try:
+            if symlinks and os.path.islink(srcname):
+                linkto = os.readlink(srcname)
+                os.symlink(linkto, dstname)
+            elif os.path.isdir(srcname):
+                copytree(srcname, dstname, symlinks, ignore)
+            else:
+                # Will raise a SpecialFileError for unsupported file types
+                copy2(srcname, dstname)
+        # catch the Error from the recursive copytree so that we can
+        # continue with other files
+        except Error as e:
+            errors.extend(e.args[0])

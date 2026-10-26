@@ -1,0 +1,37 @@
+    insertion order, alongside the most-recently inserted value for
+    that key.
+
+    >>> OrderedMultiDict([('a', 1), ('b', 2), ('a', 3)]).items(multi=False)
+    [('a', 3), ('b', 2)]
+
+    .. warning::
+
+       ``dict(omd)`` changed behavior `in Python 3.7
+       <https://bugs.python.org/issue34320>`_ due to changes made to
+       support the transition from :class:`collections.OrderedDict` to
+       the built-in dictionary being ordered. Before 3.7, the result
+       would be a new dictionary, with values that were lists, similar
+       to ``omd.todict(multi=True)`` (but only shallow-copy; the lists
+       were direct references to OMD internal structures). From 3.7
+       onward, the values became singular, like
+       ``omd.todict(multi=False)``. For reliable cross-version
+       behavior, just use :meth:`~OrderedMultiDict.todict()`.
+
+    """
+    def __new__(cls, *a, **kw):
+        ret = super().__new__(cls)
+        ret._clear_ll()
+        return ret 
+    
+    def __init__(self, *args, **kwargs):
+        if len(args) > 1:
+            raise TypeError('%s expected at most 1 argument, got %s'
+                            % (self.__class__.__name__, len(args)))
+        super().__init__()
+
+        if args:
+            self.update_extend(args[0])
+        if kwargs:
+            self.update(kwargs)
+
+    def __getstate__(self):

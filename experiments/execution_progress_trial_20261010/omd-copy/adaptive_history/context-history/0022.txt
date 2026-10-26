@@ -1,0 +1,1 @@
+Reproduced. The `__reduce_ex__` path uses `__getstate__` returning a list of pairs, but `__setstate__` calls `update_extend` which... let me check. Actually the issue is likely that `__reduce_ex__` for a dict subclass uses the dict items iterator (which dedupes). Let me check.

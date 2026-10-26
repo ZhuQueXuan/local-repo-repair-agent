@@ -1,0 +1,44 @@
+{
+  "task": "click-custom-command",
+  "variant": "repository_retrieval",
+  "status": "finished",
+  "console": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_click-custom-command_repository_retrieval_run.log",
+  "returncode": 0,
+  "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_click-custom-command_repository_retrieval_121355_053563",
+  "exit_status": "Submitted",
+  "repair_verified": true,
+  "requests": 36
+}
+{
+  "task": "click-custom-command",
+  "variant": "retrieval_on_change",
+  "status": "finished",
+  "console": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_click-custom-command_retrieval_on_change_run.log",
+  "returncode": 0,
+  "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_click-custom-command_retrieval_on_change_121549_366907",
+  "exit_status": "Submitted",
+  "repair_verified": true,
+  "requests": 36
+}
+{
+  "task": "barrel-sort",
+  "variant": "repository_retrieval",
+  "status": "finished",
+  "console": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_barrel-sort_repository_retrieval_run.log",
+  "returncode": 0,
+  "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_barrel-sort_repository_retrieval_121740_831727",
+  "exit_status": "LimitsExceeded",
+  "repair_verified": true,
+  "requests": 96
+}
+{
+  "task": "barrel-sort",
+  "variant": "retrieval_on_change",
+  "status": "finished",
+  "console": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_barrel-sort_retrieval_on_change_run.log",
+  "returncode": 0,
+  "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_barrel-sort_retrieval_on_change_122228_601498",
+  "exit_status": "Submitted",
+  "repair_verified": true,
+  "requests": 19
+}

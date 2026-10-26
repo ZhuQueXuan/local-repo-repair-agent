@@ -1,0 +1,4 @@
+size_limit 16670
+len lists[0] 2000
+num lists: 1 [6000]
+sort returned None

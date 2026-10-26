@@ -1,0 +1,1 @@
+reduce (<function __newobj__ at 0x000001F5FF577D00>, (<class 'boltons.dictutils.OrderedMultiDict'>,), [('a', 1), ('a', 2)], None, <list_iterator object at 0x000001F5FF5C5EA0>)

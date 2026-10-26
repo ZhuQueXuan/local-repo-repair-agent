@@ -1,0 +1,2 @@
+MyCommand MyCommand Command
+OK

@@ -1,0 +1,51 @@
+420         return ret
+421 
+422     def pop(self, index=None):
+423         "pop(index) -> remove the item at a given index (-1 by default)"
+424         item_index_map = self.item_index_map
+425         len_self = len(item_index_map)
+426         if index is None or index == -1 or index == len_self - 1:
+427             ret = self.item_list.pop()
+428             del item_index_map[ret]
+429         else:
+430             real_index = self._get_real_index(index)
+431             ret = self.item_list[real_index]
+432             self.item_list[real_index] = _MISSING
+433             del item_index_map[ret]
+434             self._add_dead(real_index)
+435         self._cull()
+436         return ret
+437 
+438     def count(self, val):
+439         "count(val) -> count number of instances of value (0 or 1)"
+440         if val in self.item_index_map:
+441             return 1
+442         return 0
+443 
+444     def reverse(self):
+445         "reverse() -> reverse the contents of the set in-place"
+446         reversed_list = list(reversed(self))
+447         self.item_list[:] = reversed_list
+448         for i, item in enumerate(self.item_list):
+449             self.item_index_map[item] = i
+450         del self.dead_indices[:]
+451 
+452     def sort(self, **kwargs):
+453         "sort() -> sort the contents of the set in-place"
+454         sorted_list = sorted(self, **kwargs)
+455         if sorted_list == self.item_list:
+456             return
+457         self.item_list[:] = sorted_list
+458         for i, item in enumerate(self.item_list):
+459             self.item_index_map[item] = i
+460         del self.dead_indices[:]
+461 
+462     def index(self, val):
+463         "index(val) -> get the index of a value, raises if not present"
+464         try:
+465             return self._get_apparent_index(self.item_index_map[val])
+466         except KeyError:
+467             cn = self.__class__.__name__
+468             raise ValueError(f'{val!r} is not in {cn}')
+469 
+470 

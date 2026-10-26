@@ -1,0 +1,8 @@
+{
+  "url": "https://github.com/mahmoud/boltons/pull/475",
+  "title": "Fix Unicode line separators in iter_splitlines",
+  "body": "`iter_splitlines()` uses `\\x2028` and `\\x2029` in its line-ending pattern. A hex escape consumes only two digits, so these match a space followed by `28` or `29` instead of the Unicode line and paragraph separators. For example, `list(iter_splitlines('February 28, 2026'))` returns `['February', ', 2026']`, and `indent()` inherits the same text corruption.\r\n\r\nUse `\\u2028` and `\\u2029` for the intended characters. Add regressions for both Unicode separators, leading/trailing separators, ordinary text containing `28` and `29`, and indentation with mixed line endings.\r\n\r\nValidation: all four new cases failed on the original code; `python -m pytest --doctest-modules boltons tests -q` passes with **629 tests** on Python 3.13.14. `git diff --check` passes.\r\n\r\nChecked related open and closed line-ending, splitlines and indentation PRs before implementation; no matching fix was found.\r\n\r\nPrepared with Codex assistance and independently reviewed.",
+  "base_commit": "967864f89791509f9eb36b22b4579d36b72a6df2",
+  "merge_commit": "45a251181fba4c5a4ecc05e838da1c394e1ed0e4",
+  "accessed_date": "2026-10-25"
+}

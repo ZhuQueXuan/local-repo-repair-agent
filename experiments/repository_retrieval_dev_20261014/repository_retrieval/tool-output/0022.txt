@@ -1,0 +1,1 @@
+(<class 'requests.exceptions.JSONDecodeError'>, ('Extra data: line 1 column 9 (char 8)',), {'msg': 'Extra data', 'doc': '{"a": 1}{"b": 2}', 'pos': 8, 'lineno': 1, 'colno': 9, 'response': None, 'request': None})

@@ -1,0 +1,57 @@
+{
+  "task_id": "boltons-file-pathlike-383",
+  "repo": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo",
+  "imported_package": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\__init__.py",
+  "issue_checks": {
+    "tests_run": 10,
+    "subtests_run": 0,
+    "passed": 3,
+    "failed_test_methods": [
+      "frozen_behavior_checks.PathBehavior.test_atomic_save_overwrite",
+      "frozen_behavior_checks.PathBehavior.test_atomic_save_path",
+      "frozen_behavior_checks.PathBehavior.test_atomic_save_relative_path",
+      "frozen_behavior_checks.PathBehavior.test_atomic_save_unicode_spaces",
+      "frozen_behavior_checks.PathBehavior.test_atomic_saver_custom_pathlike",
+      "frozen_behavior_checks.PathBehavior.test_iter_find_files_custom_pathlike",
+      "frozen_behavior_checks.PathBehavior.test_iter_find_files_path"
+    ],
+    "failures": [],
+    "errors": [
+      "frozen_behavior_checks.PathBehavior.test_atomic_save_overwrite",
+      "frozen_behavior_checks.PathBehavior.test_atomic_save_path",
+      "frozen_behavior_checks.PathBehavior.test_atomic_save_relative_path",
+      "frozen_behavior_checks.PathBehavior.test_atomic_save_unicode_spaces",
+      "frozen_behavior_checks.PathBehavior.test_atomic_saver_custom_pathlike",
+      "frozen_behavior_checks.PathBehavior.test_iter_find_files_custom_pathlike",
+      "frozen_behavior_checks.PathBehavior.test_iter_find_files_path"
+    ],
+    "skipped": [],
+    "successful": false,
+    "output": ".EEE.EEEE.\n======================================================================\nERROR: test_atomic_save_overwrite (frozen_behavior_checks.PathBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 53, in test_atomic_save_overwrite\n    self.assert_saved(path)\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 21, in assert_saved\n    with fileutils.atomic_save(destination, **kwargs) as stream:\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 261, in atomic_save\n    return AtomicSaver(dest_path, **kwargs)\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 403, in __init__\n    self.part_path = dest_path + '.part'\nTypeError: unsupported operand type(s) for +: 'WindowsPath' and 'str'\n\n======================================================================\nERROR: test_atomic_save_path (frozen_behavior_checks.PathBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 28, in test_atomic_save_path\n    self.assert_saved(self.root / 'path.txt')\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 21, in assert_saved\n    with fileutils.atomic_save(destination, **kwargs) as stream:\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 261, in atomic_save\n    return AtomicSaver(dest_path, **kwargs)\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 403, in __init__\n    self.part_path = dest_path + '.part'\nTypeError: unsupported operand type(s) for +: 'WindowsPath' and 'str'\n\n======================================================================\nERROR: test_atomic_save_relative_path (frozen_behavior_checks.PathBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 41, in test_atomic_save_relative_path\n    self.assert_saved(relative)\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 21, in assert_saved\n    with fileutils.atomic_save(destination, **kwargs) as stream:\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 261, in atomic_save\n    return AtomicSaver(dest_path, **kwargs)\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 403, in __init__\n    self.part_path = dest_path + '.part'\nTypeError: unsupported operand type(s) for +: 'WindowsPath' and 'str'\n\n======================================================================\nERROR: test_atomic_save_unicode_spaces (frozen_behavior_checks.PathBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 37, in test_atomic_save_unicode_spaces\n    self.assert_saved(self.root / '测试 file.txt')\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 21, in assert_saved\n    with fileutils.atomic_save(destination, **kwargs) as stream:\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 261, in atomic_save\n    return AtomicSaver(dest_path, **kwargs)\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 403, in __init__\n    self.part_path = dest_path + '.part'\nTypeError: unsupported operand type(s) for +: 'WindowsPath' and 'str'\n\n======================================================================\nERROR: test_atomic_saver_custom_pathlike (frozen_behavior_checks.PathBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 32, in test_atomic_saver_custom_pathlike\n    with fileutils.AtomicSaver(CustomPath(destination)) as stream:\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 403, in __init__\n    self.part_path = dest_path + '.part'\nTypeError: unsupported operand type(s) for +: 'CustomPath' and 'str'\n\n======================================================================\nERROR: test_iter_find_files_custom_pathlike (frozen_behavior_checks.PathBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 63, in test_iter_find_files_custom_pathlike\n    found = list(fileutils.iter_find_files(CustomPath(self.root), patterns=['*.txt']))\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 533, in iter_find_files\n    start_depth = len(directory.split(os.path.sep))\nAttributeError: 'CustomPath' object has no attribute 'split'\n\n======================================================================\nERROR: test_iter_find_files_path (frozen_behavior_checks.PathBehavior)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\checks\\test_behavior.py\", line 58, in test_iter_find_files_path\n    found = list(fileutils.iter_find_files(self.root, patterns=['*.txt']))\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\boltons\\fileutils.py\", line 533, in iter_find_files\n    start_depth = len(directory.split(os.path.sep))\nAttributeError: 'WindowsPath' object has no attribute 'split'\n\n----------------------------------------------------------------------\nRan 10 tests in 0.015s\n\nFAILED (errors=7)\n"
+  },
+  "upstream_targeted": {
+    "tests_run": 6,
+    "passed": 6,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0,
+    "output": "......                                                                   [100%]\n============================== warnings summary ===============================\ntests\\conftest.py:8\n  D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\tests\\conftest.py:8: PytestRemovedIn9Warning: The (path: py.path.local) argument is deprecated, please use (collection_path: pathlib.Path)\n  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path\n    def pytest_ignore_collect(path, config):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: D:\\myDocu\\project_postg\\shixi_project\\temp\\execution_progress_trial_20261010_file-pathlike_adaptive_history_155710_176084\\upstream.xml -\n6 passed, 1 warning in 0.13s\n"
+  },
+  "protected_tests_unchanged": true,
+  "changed_protected_tests": [],
+  "task_tests_passed": false,
+  "scope": "Public new-task evaluation, held out from this project strategy tuning only. Visible checks; not SWE-bench, private tests, or guaranteed absent from model training.",
+  "external_model_requests": 0,
+  "full_upstream_suite": {
+    "tests_run": 423,
+    "passed": 423,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0,
+    "output": "........................................................................ [ 17%]\n........................................................................ [ 34%]\n........................................................................ [ 51%]\n........................................................................ [ 68%]\n........................................................................ [ 85%]\n...............................................................          [100%]\n============================== warnings summary ===============================\ntests\\conftest.py:8\n  D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo\\tests\\conftest.py:8: PytestRemovedIn9Warning: The (path: py.path.local) argument is deprecated, please use (collection_path: pathlib.Path)\n  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path\n    def pytest_ignore_collect(path, config):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: D:\\myDocu\\project_postg\\shixi_project\\temp\\execution_progress_trial_20261010_file-pathlike_adaptive_history_155710_176084\\full.xml -\n423 passed, 1 warning in 5.03s\n"
+  }
+}

@@ -1,0 +1,1 @@
+Now let me verify the fix and check the `option` path for the same class of bug (it copies, but let me confirm it doesn't mutate).

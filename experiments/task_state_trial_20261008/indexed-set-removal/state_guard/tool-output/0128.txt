@@ -1,0 +1,1 @@
+392:    def iter_slice(self, start, stop, step=None):

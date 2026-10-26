@@ -1,0 +1,248 @@
+[
+  {
+    "file": "tests/agents/test_default.py",
+    "test_functions": 18,
+    "profile": "adapter",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/agents/test_init.py",
+    "test_functions": 7,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/agents/test_interactive.py",
+    "test_functions": 36,
+    "profile": "adapter",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/agents/test_multimodal.py",
+    "test_functions": 14,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/config/test_init.py",
+    "test_functions": 29,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/config/test_swebench_template.py",
+    "test_functions": 5,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/environments/extra/test_bubblewrap.py",
+    "test_functions": 16,
+    "profile": "excluded",
+    "file_exclusion": "Linux bubblewrap isolation; not the Windows execution environment."
+  },
+  {
+    "file": "tests/environments/extra/test_contree.py",
+    "test_functions": 10,
+    "profile": "excluded",
+    "file_exclusion": "Optional contree SDK/cloud environment is not installed or used."
+  },
+  {
+    "file": "tests/environments/extra/test_swerex_docker.py",
+    "test_functions": 2,
+    "profile": "excluded",
+    "file_exclusion": "Optional SWE-ReX and container runtime are not installed or used."
+  },
+  {
+    "file": "tests/environments/extra/test_swerex_modal.py",
+    "test_functions": 3,
+    "profile": "excluded",
+    "file_exclusion": "Optional SWE-ReX/Modal cloud environment is not installed or used."
+  },
+  {
+    "file": "tests/environments/test_docker.py",
+    "test_functions": 11,
+    "profile": "excluded",
+    "file_exclusion": "Container runtime and images; outside the Windows offline profile."
+  },
+  {
+    "file": "tests/environments/test_init.py",
+    "test_functions": 4,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/environments/test_local.py",
+    "test_functions": 18,
+    "profile": "adapter",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/environments/test_singularity.py",
+    "test_functions": 12,
+    "profile": "excluded",
+    "file_exclusion": "Singularity runtime and images; outside the Windows offline profile."
+  },
+  {
+    "file": "tests/models/test_actions_toolcall.py",
+    "test_functions": 13,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_anthropic_model_integration.py",
+    "test_functions": 3,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_anthropic_utils.py",
+    "test_functions": 1,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_cache_control.py",
+    "test_functions": 2,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_content_string.py",
+    "test_functions": 7,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_format_error_response_persistence.py",
+    "test_functions": 16,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_init.py",
+    "test_functions": 20,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_litellm_model.py",
+    "test_functions": 7,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_litellm_textbased_model.py",
+    "test_functions": 6,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_openrouter_textbased_model.py",
+    "test_functions": 7,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_portkey_model.py",
+    "test_functions": 7,
+    "profile": "excluded",
+    "file_exclusion": "Optional Portkey SDK is not installed or used by this project."
+  },
+  {
+    "file": "tests/models/test_portkey_response_model.py",
+    "test_functions": 10,
+    "profile": "excluded",
+    "file_exclusion": "Optional Portkey SDK is not installed or used by this project."
+  },
+  {
+    "file": "tests/models/test_test_models.py",
+    "test_functions": 12,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/models/test_truncation_finish_reason.py",
+    "test_functions": 11,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/run/test_batch_progress.py",
+    "test_functions": 11,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/run/test_cli_integration.py",
+    "test_functions": 20,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/run/test_extra_config.py",
+    "test_functions": 30,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/run/test_inspector.py",
+    "test_functions": 23,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/run/test_local.py",
+    "test_functions": 1,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/run/test_programbench.py",
+    "test_functions": 7,
+    "profile": "excluded",
+    "file_exclusion": "ProgramBench/container integration is outside the current project runtime."
+  },
+  {
+    "file": "tests/run/test_run_hello_world.py",
+    "test_functions": 1,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/run/test_save.py",
+    "test_functions": 2,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/run/test_swebench.py",
+    "test_functions": 27,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/run/test_swebench_single.py",
+    "test_functions": 3,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/test_fire.py",
+    "test_functions": 10,
+    "profile": "excluded",
+    "file_exclusion": "Real paid API smoke tests; never enabled by this offline entry point."
+  },
+  {
+    "file": "tests/test_init.py",
+    "test_functions": 1,
+    "profile": "native",
+    "file_exclusion": null
+  },
+  {
+    "file": "tests/utils/test_serialize.py",
+    "test_functions": 17,
+    "profile": "native",
+    "file_exclusion": null
+  }
+]

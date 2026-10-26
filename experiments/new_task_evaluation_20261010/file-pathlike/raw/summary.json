@@ -1,0 +1,93 @@
+{
+  "task_id": "boltons-file-pathlike-383",
+  "variant": "raw",
+  "exit_status": "LimitsExceeded",
+  "limit_kind": "context_bytes",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_144253_054477\\repo",
+  "requests": 5,
+  "estimated_cost_cny": 0.018508,
+  "usage": [
+    {
+      "prompt_tokens": 610,
+      "completion_tokens": 82,
+      "estimated_cost_cny": 0.001876,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 814,
+      "completion_tokens": 76,
+      "estimated_cost_cny": 0.002236,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 977,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.002458,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1894,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.004292,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3571,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.007646,
+      "response_model": "deepseek-flash"
+    }
+  ],
+  "request_measurements": [
+    {
+      "next_request": 1,
+      "message_utf8_bytes": 1691,
+      "http_attempted": true
+    },
+    {
+      "next_request": 2,
+      "message_utf8_bytes": 2555,
+      "http_attempted": true
+    },
+    {
+      "next_request": 3,
+      "message_utf8_bytes": 3325,
+      "http_attempted": true
+    },
+    {
+      "next_request": 4,
+      "message_utf8_bytes": 7186,
+      "http_attempted": true
+    },
+    {
+      "next_request": 5,
+      "message_utf8_bytes": 14769,
+      "http_attempted": true
+    },
+    {
+      "next_request": 6,
+      "message_utf8_bytes": 17746,
+      "http_attempted": false
+    }
+  ],
+  "tool_output_statistics": null,
+  "context_projections": null,
+  "task_state": null,
+  "pinned_state_requests": null,
+  "elapsed_seconds": 6.5,
+  "changed_files": [],
+  "unexpected_changes": [],
+  "checks_and_description_unchanged": true,
+  "task_tests_passed": false,
+  "new_full_suite_failures": [],
+  "patch_replay_passed": false,
+  "repair_verified": false,
+  "shared_budget": {
+    "max_requests": null,
+    "max_total_cost_cny": 15.0,
+    "accounted_cost_and_reservations_cny": 5.742262,
+    "remaining_cny": 9.257738,
+    "blocked": false
+  },
+  "scope": "Public new-task evaluation, held out from this project strategy tuning only. Visible checks; not SWE-bench, private tests, or guaranteed absent from model training."
+}

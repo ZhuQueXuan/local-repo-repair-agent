@@ -1,0 +1,46 @@
+111:    def __init__(self, other=None):
+112:        self.item_index_map = dict()
+114:        self.dead_indices = []
+123:        return len(self.item_list) - len(self.item_index_map)
+126:        if not self.dead_indices:
+130:        items, index_map = self.item_list, self.item_index_map
+136:        del self.dead_indices[:]
+139:        ded = self.dead_indices
+142:        items, ii_map = self.item_list, self.item_index_map
+158:    def _get_real_index(self, index):
+161:        if not self.dead_indices:
+164:        for d_start, d_stop in self.dead_indices:
+170:    def _get_apparent_index(self, index):
+173:        if not self.dead_indices:
+176:        for d_start, d_stop in self.dead_indices:
+185:        dints = self.dead_indices
+205:        return len(self.item_index_map)
+208:        return item in self.item_index_map
+236:        if item not in self.item_index_map:
+237:            self.item_index_map[item] = len(self.item_list)
+243:            didx = self.item_index_map.pop(item)
+260:        del self.dead_indices[:]
+261:        self.item_index_map.clear()
+265:        iim = self.item_index_map
+275:        for k in self.item_index_map:
+284:        iim = self.item_index_map
+392:    def iter_slice(self, start, stop, step=None):
+396:            start = self._get_real_index(start)
+398:            stop = self._get_real_index(stop)
+405:    def __getitem__(self, index):
+411:            iter_slice = self.iter_slice(start, stop, step)
+412:            return self.from_iterable(iter_slice)
+415:        real_index = self._get_real_index(index)
+424:        item_index_map = self.item_index_map
+425:        len_self = len(item_index_map)
+428:            del item_index_map[ret]
+430:            real_index = self._get_real_index(index)
+433:            del item_index_map[ret]
+440:        if val in self.item_index_map:
+449:            self.item_index_map[item] = i
+450:        del self.dead_indices[:]
+459:            self.item_index_map[item] = i
+460:        del self.dead_indices[:]
+465:            return self._get_apparent_index(self.item_index_map[val])
+520:        ...    def __init__(self, allowed):
+586:    def __init__(self, included=None, excluded=None):

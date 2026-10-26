@@ -1,0 +1,175 @@
+{
+  "run_id": "f39175da50354f87a7cf5386c0b16b3a",
+  "exit_status": "Submitted",
+  "last_exit": {
+    "role": "exit",
+    "content": "",
+    "extra": {
+      "exit_status": "Submitted",
+      "submission": ""
+    }
+  },
+  "review_verdict": "request_changes",
+  "review_finding_ids": [
+    "finding-falsey-remainder-dropped",
+    "finding-acceptance-not-met"
+  ],
+  "response_validation": [
+    {
+      "finding_id": "finding-falsey-remainder-dropped",
+      "disposition": "accepted",
+      "reason_type": "str",
+      "reason_length": 198,
+      "evidence_ids": [
+        "temp/tool-output/0014.txt"
+      ],
+      "errors": [
+        {
+          "type": "string_pattern_mismatch",
+          "loc": [
+            "evidence_ids",
+            0
+          ],
+          "msg": "String should match pattern '^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$'",
+          "ctx": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$"
+          }
+        }
+      ]
+    },
+    {
+      "finding_id": "finding-acceptance-not-met",
+      "disposition": "accepted",
+      "reason_type": "str",
+      "reason_length": 161,
+      "evidence_ids": [
+        "temp/tool-output/0014.txt"
+      ],
+      "errors": [
+        {
+          "type": "string_pattern_mismatch",
+          "loc": [
+            "evidence_ids",
+            0
+          ],
+          "msg": "String should match pattern '^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$'",
+          "ctx": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$"
+          }
+        }
+      ]
+    }
+  ],
+  "registered_reports": [
+    {
+      "report_id": "repairing-program",
+      "candidate_id": "candidate-80fa4e3c852e72ad82701e10bceb6654",
+      "status": "failed"
+    },
+    {
+      "report_id": "revising-program",
+      "candidate_id": "candidate-c6a3e10f88ea9dedfd909a2be031ccbf",
+      "status": "passed"
+    }
+  ],
+  "usage": {
+    "attempts": 21,
+    "by_role": {
+      "27ab1a49b6024d8a817a071c4a8a99d8": {
+        "attempts": 14,
+        "complete_cost_estimate_cny": 0.095384,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 1531,
+        "known_price_estimate_cny": 0.095384,
+        "known_prompt_tokens": 41568,
+        "logical_requests": 14,
+        "tickets": [
+          "10ad51b8ae584640916be37c57956059",
+          "1cabb534c25641518bab8a68caf1d54d",
+          "3588866f2ab14b63ab322a71ab1c06cf",
+          "372b066dc3354ee9b8edd2a38f0f96d6",
+          "3e274f91d1a4440bb3e57c8ca36c2749",
+          "3ec8c2cea1ee4c1a8dbfe354f7020e2d",
+          "4092433cfbdb48448be38f05982b596d",
+          "41715b3c82934e1bb3136369fbea09b0",
+          "66b31e21ee374f8796fd3e5e4cbe2547",
+          "8b8f8db906ce473f975184ec415336e5",
+          "dd82f47fef334f6c9ea4ea8d3f287ef2",
+          "e2fb5ccfd24e47628532c5595ca3d3c5",
+          "e9cf6a49e1774d71b0125c42172103f3",
+          "efd3778bdb8c483b9ed7caf23f4597a8"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      },
+      "7e4d75c6d6b44625a7e051346b8037f4": {
+        "attempts": 2,
+        "complete_cost_estimate_cny": null,
+        "has_unknown_usage": true,
+        "known_completion_tokens": 50,
+        "known_price_estimate_cny": 0.002244,
+        "known_prompt_tokens": 922,
+        "logical_requests": 1,
+        "tickets": [
+          "493376e62ab04fcb9f320bd52d95f30d",
+          "f870ef8cbff44b97b635a9436c3269a6"
+        ],
+        "unknown_cost_attempts": 1,
+        "unknown_placeholder_cny": 0.1
+      },
+      "d146775004d642efb703d55fc0a099ec": {
+        "attempts": 5,
+        "complete_cost_estimate_cny": 0.051598,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 1358,
+        "known_price_estimate_cny": 0.051598,
+        "known_prompt_tokens": 20367,
+        "logical_requests": 5,
+        "tickets": [
+          "10b362956337405f9ba9a91ed1af0d01",
+          "b13f0b3df46f468cad4c05dbc168a410",
+          "f8bcda5ccf8f41cd852e0967a548cbb8",
+          "f8ff1036872141adb3cdd99288131205",
+          "ff6e9b6ca40242efa6f3579ecdfc3fbb"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      }
+    },
+    "complete_cost_estimate_cny": null,
+    "cost_scope": "Known-price estimates plus unknown placeholders; not confirmed charges or platform balance.",
+    "has_unknown_usage": true,
+    "known_completion_tokens": 2939,
+    "known_price_estimate_cny": 0.149226,
+    "known_prompt_tokens": 62857,
+    "logical_requests": 20,
+    "tickets": [
+      "10ad51b8ae584640916be37c57956059",
+      "10b362956337405f9ba9a91ed1af0d01",
+      "1cabb534c25641518bab8a68caf1d54d",
+      "3588866f2ab14b63ab322a71ab1c06cf",
+      "372b066dc3354ee9b8edd2a38f0f96d6",
+      "3e274f91d1a4440bb3e57c8ca36c2749",
+      "3ec8c2cea1ee4c1a8dbfe354f7020e2d",
+      "4092433cfbdb48448be38f05982b596d",
+      "41715b3c82934e1bb3136369fbea09b0",
+      "493376e62ab04fcb9f320bd52d95f30d",
+      "66b31e21ee374f8796fd3e5e4cbe2547",
+      "8b8f8db906ce473f975184ec415336e5",
+      "b13f0b3df46f468cad4c05dbc168a410",
+      "dd82f47fef334f6c9ea4ea8d3f287ef2",
+      "e2fb5ccfd24e47628532c5595ca3d3c5",
+      "e9cf6a49e1774d71b0125c42172103f3",
+      "efd3778bdb8c483b9ed7caf23f4597a8",
+      "f870ef8cbff44b97b635a9436c3269a6",
+      "f8bcda5ccf8f41cd852e0967a548cbb8",
+      "f8ff1036872141adb3cdd99288131205",
+      "ff6e9b6ca40242efa6f3579ecdfc3fbb"
+    ],
+    "total_elapsed_seconds": 42.078,
+    "unknown_cost_attempts": 1,
+    "unknown_placeholder_cny": 0.1
+  },
+  "response_count": 2,
+  "registered_response_count": 0
+}

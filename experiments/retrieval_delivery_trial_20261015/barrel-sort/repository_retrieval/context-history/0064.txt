@@ -1,0 +1,1 @@
+Interesting — no error there. The bug must depend on the number of internal lists. Let me check `_cur_size_limit` and how lists get split.

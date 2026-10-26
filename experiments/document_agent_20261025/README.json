@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-25",
+  "scope": "Three-role offline implementation. All replies and usage scripted, no live model evaluation.",
+  "current_regression_demo": "temp\\document_agent_demo\\bb82eb0f7ad2402d9ffd01a6a0eb4764",
+  "current_regression_demo_id": "de8ffabf541f4a6fbcfe54632a8ea860",
+  "archive_member_counts": {
+    "runtime-code.zip": 109,
+    "before-code.zip": 105,
+    "documentation.zip": 8,
+    "first-successful-demo.zip": 510,
+    "initial-local-permission-failure.zip": 215,
+    "final-regression-demo.zip": 511,
+    "regression.zip": 41,
+    "adapter.zip": 8,
+    "process.zip": 25
+  },
+  "real_model_calls": 0,
+  "formal_rows_unchanged": 45,
+  "browser_clicks_verified": false,
+  "old_freeze_not_rewritten": true,
+  "old_runtime_preserved_in_before_code": true,
+  "limits": [
+    "Third-role live provider not verified",
+    "No browser clicks: control disabled",
+    "Single explicit pre-repair documentation question; no dynamic delegation",
+    "Binary implementation edits unsupported; original assets can be snapshotted",
+    "Known six adapter differences retained",
+    "Baseline effectiveness comparison deferred"
+  ]
+}

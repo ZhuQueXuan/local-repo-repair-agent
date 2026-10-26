@@ -1,0 +1,32 @@
+595:    def command_path(self) -> str:
+1802:    def add_command(self, cmd: Command, name: t.Optional[str] = None) -> None:
+1813:    def command(self, __func: t.Callable[..., t.Any]) -> Command:
+1817:    def command(
+1822:    def command(
+1841:        if self.command_class and kwargs.get("cls") is None:
+1842:            kwargs["cls"] = self.command_class
+1864:    def group(self, __func: t.Callable[..., t.Any]) -> "Group":
+1868:    def group(
+1873:    def group(
+1901:        if self.group_class is not None and kwargs.get("cls") is None:
+1903:                kwargs["cls"] = type(self)
+1905:                kwargs["cls"] = self.group_class
+1984:    :param param_decls: the parameter declarations for this option or
+2054:        param_decls: t.Optional[t.Sequence[str]] = None,
+2072:        self.name, self.opts, self.secondary_opts = self._parse_decls(
+2073:            param_decls or (), expose_value
+2162:    def _parse_decls(
+2163:        self, decls: t.Sequence[str], expose_value: bool
+2473:        param_decls: t.Optional[t.Sequence[str]] = None,
+2495:        super().__init__(param_decls, type=type, multiple=multiple, **attrs)
+2598:    def _parse_decls(
+2599:        self, decls: t.Sequence[str], expose_value: bool
+2606:        for decl in decls:
+2937:        param_decls: t.Sequence[str],
+2950:        super().__init__(param_decls, required=required, **attrs)
+2974:    def _parse_decls(
+2975:        self, decls: t.Sequence[str], expose_value: bool
+2977:        if not decls:
+2981:        if len(decls) == 1:
+2982:            name = arg = decls[0]
+2987:                f" {len(decls)}."

@@ -1,0 +1,26 @@
+{
+  "run_id": "5dfc19f601634ad5800276cb4bed5dac",
+  "archives": {
+    "multi_agent_feedback_diagnostic_offline_20261024": {
+      "sealed_entries": 90,
+      "zip_entries_verified": {}
+    },
+    "multi_agent_feedback_diagnostic_live_20261024": {
+      "sealed_entries": 47,
+      "zip_entries_verified": {
+        "actual-workspace.zip": 127,
+        "postmortem.zip": 10,
+        "run.zip": 190,
+        "service-projections.zip": 5,
+        "snapshot-v1.zip": 69
+      }
+    }
+  },
+  "frozen_inputs_unchanged": 161,
+  "old_records_unchanged": 42,
+  "only_one_new_run": true,
+  "only_19_new_tickets": true,
+  "pending_runs": 0,
+  "documentation_links_resolve": true,
+  "no_runtime_edits_after_live": true
+}

@@ -1,0 +1,2 @@
+(<function __newobj__ at 0x000001C477137D00>, (<class 'boltons.dictutils.OrderedMultiDict'>,), [('a', 1), ('a', 2)], None, <list_iterator object at 0x000001C477185F00>)
+(<function _reconstructor at 0x000001C477137BE0>, (<class 'boltons.dictutils.OrderedMultiDict'>, <class 'dict'>, {'a': 2}), [('a', 1), ('a', 2)])

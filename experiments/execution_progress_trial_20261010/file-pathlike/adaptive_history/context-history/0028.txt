@@ -1,0 +1,1 @@
+The tool wrapper truncates output to ~1.2KB regardless of range. I need a different approach - write to a file and read it back in a way that fits. Let me use `head -c` to limit bytes, or read the file via python printing specific lines. Actually the issue is the tool truncates the *displayed* output. Let me try reading with a byte limit that's small.

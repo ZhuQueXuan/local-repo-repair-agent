@@ -1,0 +1,45 @@
+    def _get_real_index(self, index):
+        if index < 0:
+            index += len(self)
+        if not self.dead_indices:
+            return index
+        real_index = index
+        for d_start, d_stop in self.dead_indices:
+            if real_index < d_start:
+                break
+            real_index += d_stop - d_start
+        return real_index
+
+    def _get_apparent_index(self, index):
+        if index < 0:
+            index += len(self)
+        if not self.dead_indices:
+            return index
+        apparent_index = index
+        for d_start, d_stop in self.dead_indices:
+            if index < d_start:
+                break
+            apparent_index -= d_stop - d_start
+        return apparent_index
+
+    def _add_dead(self, start, stop=None):
+        # TODO: does not handle when the new interval subsumes
+        # multiple existing intervals
+        dints = self.dead_indices
+=== getitem full ===
+    def __getitem__(self, index):
+        try:
+            start, stop, step = index.start, index.stop, index.step
+        except AttributeError:
+            index = operator.index(index)
+        else:
+            iter_slice = self.iter_slice(start, stop, step)
+            return self.from_iterable(iter_slice)
+        if index < 0:
+            index += len(self)
+        real_index = self._get_real_index(index)
+        try:
+            ret = self.item_list[real_index]
+        except IndexError:
+            raise IndexError('IndexedSet index out of range')
+        return ret

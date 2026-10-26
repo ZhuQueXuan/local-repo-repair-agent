@@ -1,0 +1,6 @@
+        return self[k]
+
+    def copy(self):
+        "Return a shallow copy of the dictionary."
+        return self.__class__(self.iteritems(multi=True))
+

@@ -1,0 +1,14 @@
+[
+  {
+    "finding_id": "finding-falsey-remainder-dropped",
+    "disposition": "accepted",
+    "reason": "The reviewed candidate guarded the remainder with `if rest and any(rest)`, dropping falsey remainders such as 0, None, False, and [0,0]. Changed to `if rest:` so any nonempty remainder is preserved.",
+    "evidence_ids": ["temp/tool-output/0014.txt"]
+  },
+  {
+    "finding_id": "finding-acceptance-not-met",
+    "disposition": "accepted",
+    "reason": "The reviewed candidate failed the disclosed falsey-remainder checks. After the fix, SplitAfterTest and task_checks both pass and falsey remainders are preserved.",
+    "evidence_ids": ["temp/tool-output/0014.txt"]
+  }
+]

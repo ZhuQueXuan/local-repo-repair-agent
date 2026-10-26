@@ -1,0 +1,1 @@
+Interesting — that didn't reproduce. The `del self.lists[:]` followed by `self.lists[0] = ...` should fail. Let me check the actual `lists` attribute type and whether `_balance_list` or something else is involved.

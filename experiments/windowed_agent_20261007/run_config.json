@@ -1,0 +1,23 @@
+{
+  "batch_id": "windowed_first_20261007",
+  "task_id": "more-itertools-windowed-empty-462",
+  "max_requests": 10,
+  "max_reserved_cost_cny": 1.0,
+  "reservation_per_attempt_cny": 0.1,
+  "max_messages_utf8_bytes": 16384,
+  "max_output_tokens": 2048,
+  "wall_time_limit_seconds": 300,
+  "command_timeout_seconds": 30,
+  "model_temperature": 0,
+  "thinking_mode": "disabled",
+  "api_retries": 0,
+  "model_query_retry_attempts": 1,
+  "pricing_checked_date": "2026-10-07",
+  "pricing_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "conservative_input_cny_per_million": 2,
+  "conservative_output_cny_per_million": 8,
+  "notes": "One new task batch following user acceptance of the development direction; do not reset or reuse the completed cart-task ledger. Peak cache-miss pricing, no discounts assumed.",
+  "model_name": "deepseek-flash",
+  "base_commit": "484401f5a056243be2508e2a6af598f7e4e99782",
+  "mini_commit": "04d809ceab9df28f9adaed044884180159172930"
+}

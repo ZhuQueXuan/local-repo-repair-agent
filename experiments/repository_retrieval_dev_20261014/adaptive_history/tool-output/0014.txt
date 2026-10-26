@@ -1,0 +1,24 @@
+                    self.fail("Invalid JSON unexpectedly decoded")
+
+    def test_multiline_error_location_survives(self):
+        self.assert_roundtrip(requests.exceptions.JSONDecodeError("Expected value", '{\n  "value":\n}', 13), 2)
+
+    def test_invalid_response_raises_public_json_exception(self):
+        with self.assertRaises(requests.exceptions.JSONDecodeError) as caught:
+            response_with(b'{"bad":}').json()
+        self.assertIsInstance(caught.exception, requests.exceptions.RequestException)
+        self.assertIsInstance(caught.exception, ValueError)
+        self.assertEqual(caught.exception.doc, '{"bad":}')
+
+    def test_valid_response_is_unchanged(self):
+        self.assertEqual(response_with(b'{"items": [1, null, true]}').json(), {"items": [1, None, True]})
+
+    def test_other_request_exceptions_still_roundtrip(self):
+        for kind in [requests.exceptions.RequestException, requests.exceptions.Timeout, requests.exceptions.HTTPError]:
+            with self.subTest(kind=kind.__name__):
+                error = kind("ordinary failure")
+                restored = pickle.loads(pickle.dumps(error))
+                self.assertIs(type(restored), kind)
+                self.assertEqual(restored.args, error.args)
+
+

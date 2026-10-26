@@ -1,0 +1,65 @@
+156             del items[-num_dead:]
+157 
+158     def _get_real_index(self, index):
+159         if index < 0:
+160             index += len(self)
+161         if not self.dead_indices:
+162             return index
+163         real_index = index
+164         for d_start, d_stop in self.dead_indices:
+165             if real_index < d_start:
+166                 break
+167             real_index += d_stop - d_start
+168         return real_index
+169 
+170     def _get_apparent_index(self, index):
+171         if index < 0:
+172             index += len(self)
+173         if not self.dead_indices:
+174             return index
+175         apparent_index = index
+176         for d_start, d_stop in self.dead_indices:
+177             if index < d_start:
+178                 break
+179             apparent_index -= d_stop - d_start
+180         return apparent_index
+181 
+182     def _add_dead(self, start, stop=None):
+183         # TODO: does not handle when the new interval subsumes
+184         # multiple existing intervals
+185         dints = self.dead_indices
+186         if stop is None:
+187             stop = start + 1
+188         cand_int = [start, stop]
+189         if not dints:
+190             dints.append(cand_int)
+191             return
+192         int_idx = bisect_left(dints, cand_int)
+193         dint = dints[int_idx - 1]
+194         d_start, d_stop = dint
+195         if start <= d_start <= stop:
+196             dint[0] = start
+197         elif start <= d_stop <= stop:
+198             dint[1] = stop
+199         else:
+200             dints.insert(int_idx, cand_int)
+201         return
+202 
+203     # common operations (shared by set and list)
+204     def __len__(self):
+205         return len(self.item_index_map)
+206 
+207     def __contains__(self, item):
+208         return item in self.item_index_map
+209 
+210     def __iter__(self):
+211         return (item for item in self.item_list if item is not _MISSING)
+212 
+213     def __reversed__(self):
+214         item_list = self.item_list
+215         return (item for item in reversed(item_list) if item is not _MISSING)
+216 
+217     def __repr__(self):
+218         return f'{self.__class__.__name__}({list(self)!r})'
+219 
+220     def __eq__(self, other):

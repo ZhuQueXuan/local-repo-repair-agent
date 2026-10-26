@@ -1,0 +1,1 @@
+I can see the key line: `self.part_path = dest_path + '.part'` at line 403. This fails for Path objects. Let me read lines 407-425.

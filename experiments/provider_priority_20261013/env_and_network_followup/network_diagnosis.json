@@ -1,0 +1,48 @@
+{
+  "configured_base": "https://myai.bupt.edu.cn/llm-gw/v1",
+  "configured_model": "deepseek-v4-flash",
+  "credentials_sent": false,
+  "model_api_calls": 0,
+  "ssl_library": "OpenSSL 1.1.1n  15 Mar 2022",
+  "environment": {},
+  "dns": {
+    "myai.bupt.edu.cn": [
+      "198.18.0.104"
+    ],
+    "api.deepseek.com": [
+      "198.18.0.107"
+    ]
+  },
+  "http_checks": [
+    {
+      "name": "gateway_default",
+      "url": "https://myai.bupt.edu.cn/llm-gw/v1/models",
+      "trust_environment": true,
+      "error_type": "ConnectError",
+      "detail": "[WinError 10053] 你的主机中的软件中止了一个已建立的连接。"
+    },
+    {
+      "name": "official_default",
+      "url": "https://api.deepseek.com/models",
+      "trust_environment": true,
+      "status_code": 401,
+      "content_type": null
+    },
+    {
+      "name": "gateway_no_environment_proxy",
+      "url": "https://myai.bupt.edu.cn/llm-gw/v1/models",
+      "trust_environment": false,
+      "error_type": "ConnectError",
+      "detail": "EOF occurred in violation of protocol (_ssl.c:997)"
+    },
+    {
+      "name": "gateway_verified_tls12",
+      "url": "https://myai.bupt.edu.cn/llm-gw/v1/models",
+      "trust_environment": true,
+      "error_type": "ConnectError",
+      "detail": "[Errno 2] No such file or directory"
+    }
+  ],
+  "sdk_request_url": "https://myai.bupt.edu.cn/llm-gw/v1/chat/completions",
+  "sdk_model_parameter": "deepseek-v4-flash"
+}

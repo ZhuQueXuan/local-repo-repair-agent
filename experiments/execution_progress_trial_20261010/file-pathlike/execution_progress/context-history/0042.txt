@@ -1,0 +1,1 @@
+Now I see the bug. Line 400 converts `self.dest_path` to abspath (a string), but line 403 uses the original `dest_path` (which could be a Path) with `+ '.part'`. Let me look at the rest of the class and `iter_find_files`.

@@ -1,0 +1,21 @@
+/d/myDocu/project_postg/shixi_project/tasks/requests-json-pickle/temp/run_20261014_213246_009676/repo
+AUTHORS.rst
+HISTORY.md
+LICENSE
+MANIFEST.in
+Makefile
+NOTICE
+README.md
+TASK.md
+docs
+ext
+pyproject.toml
+requests
+requirements-dev.txt
+setup.cfg
+setup.py
+task_checks
+temp
+tests
+tox.ini
+38c6e8c Frozen task baseline

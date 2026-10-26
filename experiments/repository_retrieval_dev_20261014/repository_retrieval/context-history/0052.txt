@@ -1,0 +1,1 @@
+Reproduced. Now I'll add a `__reduce__` that preserves the original constructor arguments.

@@ -1,0 +1,22 @@
+/d/myDocu/project_postg/shixi_project/tasks/omd-copy/temp/run_20261010_155501_876820/repo
+2b210aa Frozen task baseline
+CHANGELOG.md
+LICENSE
+README.md
+TASK.md
+TODO.rst
+boltons
+docs
+misc
+pyproject.toml
+requirements-test.txt
+setup.cfg
+task_checks
+temp
+tests
+tox.ini
+---
+boltons/dictutils.py
+boltons/urlutils.py
+misc/bench_omd.py
+task_checks/test_behavior.py

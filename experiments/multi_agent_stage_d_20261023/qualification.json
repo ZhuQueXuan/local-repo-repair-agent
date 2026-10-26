@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-23",
+  "status": "D minimal panel implemented; real local browser and offline owned-process acceptance completed",
+  "real_model_requests": 0,
+  "shared_ledger_unchanged": true,
+  "checks": {
+    "upstream_native_passed": 301,
+    "upstream_deselected": 41,
+    "project_run": 273,
+    "project_passed": 272,
+    "project_skipped": 1,
+    "new_panel_tests": 13
+  },
+  "changed_existing_files": [
+    "data/task_service/runs.sqlite3",
+    "scripts/collaboration_live.py",
+    "scripts/collaboration_store.py",
+    "scripts/task_panel.html",
+    "scripts/task_service.py",
+    "scripts/task_service_worker.py"
+  ],
+  "production_migration": {
+    "old_records_preserved": 41,
+    "new_records": {
+      "4891bcbc29c9439cb41439f13a203f3a": "collaboration_history"
+    },
+    "consistent_migration_backup": "data/task_service/before_collaboration_bfe3245d9bab402c995f936093592c59.sqlite3",
+    "sqlite_integrity": "ok"
+  },
+  "historical_artifact_hashes_verified": {
+    "multi_agent_stage_c_offline_20261023": 598,
+    "multi_agent_stage_c_live_20261023": 256,
+    "multi_agent_stage_c_reporting_20261023": 15
+  },
+  "browser": [
+    "Actual browser controls: default replay/single; dual requires live/adaptive; queued create/cancel on isolated no-supervisor server.",
+    "Two synthetic versions display separate failed/passed reports; finding response and exact evidence source visible.",
+    "Existing real C history shows 15 successful official responses/one unknown gateway attempt, complete cost unknown, revision stages skipped.",
+    "Actual waiting-role cancellation shows cancelling then cancelled and later roles skipped; owned child exits.",
+    "Probe worker termination kills owned child; replacement supervisor does not duplicate a live worker; reconciliation marks interrupted and does not requeue.",
+    "Page refresh retains selected run. Service stop/restart preserves records. Literal HTML in model-like text stays text; final official page/screenshot checked."
+  ],
+  "limits": [
+    "No new real model calls through the D browser creation flow; transport already validated by C, D dispatch checks are offline.",
+    "Billed HTTP-in-flight cancellation/worker kill and model-driven revision/final-review remain untested.",
+    "Actual UI actions performed by assistant, not yet independently used by the human user.",
+    "Dual currently supports adaptive_history only; replay, raw and retrieval dual combinations are explicitly disabled/rejected.",
+    "First broad regression failed only on default temp-only error-message compatibility; fixed without removing the boundary test. Earlier passing checks retained.",
+    "An extra regression was blocked before tests by the live server.lock Windows byte lock. Stopped server normally, retained incomplete output and reran.",
+    "Adapter not rerun: no Bash adapter behavior changed; previous six env/path differences and one permission skip remain.",
+    "Candidates and object lists have bounded previews. No user editing of verdicts/code or automatic recovery. Unknown values stay unknown; estimates/placeholders are not confirmed charges.",
+    "Original C summary retains its historical extended_passed semantics; UI warns and exposes full reports. Old run freeze is not overwritten."
+  ]
+}

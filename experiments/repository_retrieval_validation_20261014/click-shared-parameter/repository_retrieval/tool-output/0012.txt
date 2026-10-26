@@ -1,0 +1,6 @@
+arg cmd1: str
+arg cmd2: str
+opt cmd1: str
+opt cmd2: str
+cmd1 param class: CustomArg
+cmd2 param class: Argument

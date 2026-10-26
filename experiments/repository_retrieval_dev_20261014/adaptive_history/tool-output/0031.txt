@@ -1,0 +1,20 @@
+
+class JsonPickleChecks(unittest.TestCase):
+    def assert_roundtrip(self, original, protocol):
+        restored = pickle.loads(pickle.dumps(original, protocol=protocol))
+        self.assertIs(type(restored), type(original))
+        for field in ["msg", "doc", "pos", "lineno", "colno", "args"]:
+            self.assertEqual(getattr(restored, field), getattr(original, field))
+        self.assertEqual(str(restored), str(original))
+
+    def test_direct_exception_all_pickle_protocols(self):
+        for protocol in range(pickle.HIGHEST_PROTOCOL + 1):
+            with self.subTest(protocol=protocol):
+                self.assert_roundtrip(requests.exceptions.JSONDecodeError("Extra data", '{"a": 1}{"b": 2}', 8), protocol)
+
+    def test_response_json_exception_roundtrip(self):
+        for content, encoding in [(b'{"a":}', "utf-8"), ('{"文字":}'.encode("utf-8"), "utf-8"),
+                                  ('{"a":}'.encode("utf-16"), None)]:
+            with self.subTest(content=content, encoding=encoding):
+                try:
+                    response_with(content, encoding).json()

@@ -1,0 +1,4 @@
+args: ('Expecting value: line 1 column 1 (char 0)',)
+msg/doc/pos: Expecting value not json 0
+reduce: (<class 'requests.exceptions.JSONDecodeError'>, ('Expecting value', 'not json', 0))
+ok ('Expecting value: line 1 column 1 (char 0)',) Expecting value not json 0

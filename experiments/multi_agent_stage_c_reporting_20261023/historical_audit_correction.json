@@ -1,0 +1,27 @@
+{
+  "correction": "Earlier narrative and sealed qualification incorrectly said rejected raw responses were absent. They are retained under messages[].extra.response. Original artifacts remain untouched.",
+  "original_trajectory": "../multi_agent_stage_c_live_20261023/run/reviewing-trajectory.json",
+  "original_trajectory_sha256": "428e3ff7b3893aff4c7a725efb28620983ee64ee6c583bdf1656fdcc4d45e732",
+  "errors": [
+    {
+      "response_id": "43b13bb9-0288-4ceb-b923-7c2d6b6fdb10",
+      "call_count": 2,
+      "tool_names": [
+        "read_diff",
+        "read_lines"
+      ],
+      "reason": "expected_one_tool_call",
+      "raw_response_sha256": "516c1b304d6d9aa51a24b4527698d4652e7a9e6d49f07962ef524aeb1db9a5bb"
+    },
+    {
+      "response_id": "4cb0a059-55a6-4556-8a6a-b3e71e567a8c",
+      "call_count": 2,
+      "tool_names": [
+        "read_diff",
+        "read_lines"
+      ],
+      "reason": "expected_one_tool_call",
+      "raw_response_sha256": "4b6b282dcb3ed3baf4a98fd74d9a3339ef63cfc413e31ca20cd77d8bd5f61081"
+    }
+  ]
+}

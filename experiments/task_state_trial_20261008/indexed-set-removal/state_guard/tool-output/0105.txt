@@ -1,0 +1,51 @@
+                del ded[-1]
+            del items[-num_dead:]
+
+    def _get_real_index(self, index):
+        if index < 0:
+            index += len(self)
+        if not self.dead_indices:
+            return index
+        real_index = index
+        for d_start, d_stop in self.dead_indices:
+            if real_index < d_start:
+                break
+            real_index += d_stop - d_start
+        return real_index
+
+    def _get_apparent_index(self, index):
+        if index < 0:
+            index += len(self)
+        if not self.dead_indices:
+            return index
+        apparent_index = index
+        for d_start, d_stop in self.dead_indices:
+            if index < d_start:
+                break
+            apparent_index -= d_stop - d_start
+        return apparent_index
+
+    def _add_dead(self, start, stop=None):
+        # TODO: does not handle when the new interval subsumes
+        # multiple existing intervals
+        dints = self.dead_indices
+        if stop is None:
+            stop = start + 1
+        cand_int = [start, stop]
+        if not dints:
+            dints.append(cand_int)
+            return
+        int_idx = bisect_left(dints, cand_int)
+        dint = dints[int_idx - 1]
+        d_start, d_stop = dint
+        if start <= d_start <= stop:
+            dint[0] = start
+        elif start <= d_stop <= stop:
+            dint[1] = stop
+        else:
+            dints.insert(int_idx, cand_int)
+        return
+
+    # common operations (shared by set and list)
+    def __len__(self):
+        return len(self.item_index_map)

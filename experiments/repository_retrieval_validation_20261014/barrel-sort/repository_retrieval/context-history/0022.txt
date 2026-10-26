@@ -1,0 +1,1 @@
+The bug: `del self.lists[:]` empties the list, then `self.lists[0] = tmp_sorted` raises IndexError because the list is empty. It only works when... actually it always fails for multi-list. But my repro passed. Let me check — maybe `_balance_list` or the insert path. Let me reproduce more precisely with a large container that has multiple lists.

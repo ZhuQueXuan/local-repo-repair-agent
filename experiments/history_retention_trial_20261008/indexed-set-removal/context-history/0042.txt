@@ -1,0 +1,1 @@
+Now I understand. `iter_slice` should iterate over apparent items (self), so it should NOT convert start/stop to real indices. The `_get_real_index` conversion is only needed when indexing into `item_list`. Let me look at the full `__getitem__` and the negative-step handling:

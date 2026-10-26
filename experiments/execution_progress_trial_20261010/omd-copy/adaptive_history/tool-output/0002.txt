@@ -1,0 +1,28 @@
+86:class OrderedMultiDict(dict):
+165:    def __init__(self, *args, **kwargs):
+176:    def __getstate__(self):
+179:    def __setstate__(self, state):
+185:            _map = self._map
+187:            _map = self._map = {}
+189:        _map.clear()
+194:        cells = self._map.setdefault(k, [])
+265:    def copy(self):
+349:            zipped_items = zip_longest(selfi, otheri, fillvalue=(None, None))
+350:            for (selfk, selfv), (otherk, otherv) in zipped_items:
+425:        values = self._map[k]
+429:            del self._map[k]
+432:        values = self._map[k]
+436:        del self._map[k]
+557:        sorted_val_map = {k: sorted(v, key=key, reverse=(not reverse))
+561:            ret.add(k, sorted_val_map[k].pop())
+657:            _map = self._map
+659:            _map = self._map = {}
+661:        _map.clear()
+669:        cells = self._map.setdefault(k, empty)
+694:        cells = self._map[k]
+697:            del self._map[k]
+708:        cells = self._map.pop(k)
+781:    def __init__(self, *a, **kw):
+852:    def copy(self):
+910:    def __init__(self, items=None):
+1106:    def __copy__(self):

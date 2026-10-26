@@ -1,0 +1,1 @@
+The harness truncates even small outputs. Let me try a very small chunk.

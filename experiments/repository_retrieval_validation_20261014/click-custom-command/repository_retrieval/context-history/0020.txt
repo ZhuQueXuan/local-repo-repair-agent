@@ -1,0 +1,1 @@
+Now let me look at the group registration path in core.py.

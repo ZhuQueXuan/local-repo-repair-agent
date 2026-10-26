@@ -1,0 +1,40 @@
+86 class OrderedMultiDict(dict):
+87     """A MultiDict is a dictionary that can have multiple values per key
+88     and the OrderedMultiDict (OMD) is a MultiDict that retains
+89     original insertion order. Common use cases include:
+90 
+91       * handling query strings parsed from URLs
+92       * inverting a dictionary to create a reverse index (values to keys)
+93       * stacking data from multiple dictionaries in a non-destructive way
+94 
+95     The OrderedMultiDict constructor is identical to the built-in
+96     :class:`dict`, and overall the API constitutes an intuitive
+97     superset of the built-in type:
+98 
+99     >>> omd = OrderedMultiDict()
+100     >>> omd['a'] = 1
+101     >>> omd['b'] = 2
+102     >>> omd.add('a', 3)
+103     >>> omd.get('a')
+104     3
+105     >>> omd.getlist('a')
+106     [1, 3]
+107 
+108     Some non-:class:`dict`-like behaviors also make an appearance,
+109     such as support for :func:`reversed`:
+110 
+111     >>> list(reversed(omd))
+112     ['b', 'a']
+113 
+114     Note that unlike some other MultiDicts, this OMD gives precedence
+115     to the most recent value added. ``omd['a']`` refers to ``3``, not
+116     ``1``.
+117 
+118     >>> omd
+119     OrderedMultiDict([('a', 1), ('b', 2), ('a', 3)])
+120     >>> omd.poplast('a')
+121     3
+122     >>> omd
+123     OrderedMultiDict([('a', 1), ('b', 2)])
+124     >>> omd.pop('a')
+125     1

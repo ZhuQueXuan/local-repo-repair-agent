@@ -1,0 +1,3 @@
+Found the bug. In `Group.command`, when called concisely as `@group.command` (no parens), `args[0]` is the callable. The code sets `kwargs["cls"] = self.command_class` **before** checking `callable(args[0])`. Then the assertion `len(args) == 1 and not kwargs` fails because `kwargs` now contains `cls`.
+
+Let me confirm the group method too.

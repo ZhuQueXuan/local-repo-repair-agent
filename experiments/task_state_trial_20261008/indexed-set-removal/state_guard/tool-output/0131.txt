@@ -1,0 +1,16 @@
+158:    def _get_real_index(self, index):
+170:    def _get_apparent_index(self, index):
+210:    def __iter__(self):
+213:    def __reversed__(self):
+240:    def remove(self, item):
+250:    def discard(self, item):
+396:            start = self._get_real_index(start)
+398:            stop = self._get_real_index(stop)
+415:        real_index = self._get_real_index(index)
+422:    def pop(self, index=None):
+430:            real_index = self._get_real_index(index)
+465:            return self._get_apparent_index(self.item_index_map[val])
+626:    def remove(self, item):
+632:    def pop(self):
+735:    def discard(self, items):
+960:    def __iter__(self):

@@ -1,0 +1,1 @@
+Now I understand the bug. `self.part_path = dest_path + '.part'` fails when `dest_path` is a Path. Let me look at the rest of the class and `iter_find_files`.

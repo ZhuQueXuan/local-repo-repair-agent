@@ -1,0 +1,4 @@
+f9cfe43 Frozen task baseline
+---
+<function JSONDecodeError.__reduce__ at 0x000001C79422EB90>
+(<class 'json.decoder.JSONDecodeError'>, ('m', 'd', 0))

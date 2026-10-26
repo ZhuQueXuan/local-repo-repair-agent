@@ -1,0 +1,1 @@
+I found the bug. In `sort()`, when there are multiple lists, it does `del self.lists[:]` (emptying the list) then `self.lists[0] = tmp_sorted` — which raises `IndexError` because the list is empty. Let me confirm the reproduction.

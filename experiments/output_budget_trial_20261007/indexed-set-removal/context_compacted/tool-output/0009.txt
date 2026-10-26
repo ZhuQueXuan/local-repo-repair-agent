@@ -1,0 +1,19 @@
+50:    _MISSING = make_sentinel(var_name='_MISSING')
+52:    _MISSING = object()
+150:        elif items[-1] is _MISSING:  # get rid of dead right hand side
+152:            while items[-(num_dead + 1)] is _MISSING:
+158:    def _get_real_index(self, index):
+211:        return (item for item in self.item_list if item is not _MISSING)
+215:        return (item for item in reversed(item_list) if item is not _MISSING)
+240:    def remove(self, item):
+246:        self.item_list[didx] = _MISSING
+250:    def discard(self, item):
+396:            start = self._get_real_index(start)
+398:            stop = self._get_real_index(stop)
+415:        real_index = self._get_real_index(index)
+422:    def pop(self, index=None):
+430:            real_index = self._get_real_index(index)
+432:            self.item_list[real_index] = _MISSING
+626:    def remove(self, item):
+632:    def pop(self):
+735:    def discard(self, items):

@@ -1,0 +1,1 @@
+The output is truncated in the middle. Let me read the specific line ranges I need using sed on the actual file, one small range at a time.

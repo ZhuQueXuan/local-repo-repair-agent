@@ -1,0 +1,49 @@
+{
+  "task_id": "barrel-sort",
+  "repo": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261015_121740_258992\\repo",
+  "imported_package": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261015_121740_258992\\repo\\boltons\\__init__.py",
+  "issue_checks": {
+    "tests_run": 5,
+    "subtests_run": 0,
+    "passed": 2,
+    "failed_test_methods": [
+      "frozen_behavior_checks.LargeSortChecks.test_large_descending_input_sorts_globally",
+      "frozen_behavior_checks.LargeSortChecks.test_large_repeated_values_preserve_multiplicity",
+      "frozen_behavior_checks.LargeSortChecks.test_sort_then_mutate_and_sort_again"
+    ],
+    "failures": [],
+    "errors": [
+      "frozen_behavior_checks.LargeSortChecks.test_large_descending_input_sorts_globally",
+      "frozen_behavior_checks.LargeSortChecks.test_large_repeated_values_preserve_multiplicity",
+      "frozen_behavior_checks.LargeSortChecks.test_sort_then_mutate_and_sort_again"
+    ],
+    "skipped": [],
+    "successful": false,
+    "output": ".EE.E\n======================================================================\nERROR: test_large_descending_input_sorts_globally (frozen_behavior_checks.LargeSortChecks)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\checks\\test_behavior.py\", line 10, in test_large_descending_input_sorts_globally\n    self.assertIsNone(values.sort())\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261015_121740_258992\\repo\\boltons\\listutils.py\", line 311, in sort\n    self.lists[0] = tmp_sorted\nIndexError: list assignment index out of range\n\n======================================================================\nERROR: test_large_repeated_values_preserve_multiplicity (frozen_behavior_checks.LargeSortChecks)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\checks\\test_behavior.py\", line 18, in test_large_repeated_values_preserve_multiplicity\n    values.sort()\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261015_121740_258992\\repo\\boltons\\listutils.py\", line 311, in sort\n    self.lists[0] = tmp_sorted\nIndexError: list assignment index out of range\n\n======================================================================\nERROR: test_sort_then_mutate_and_sort_again (frozen_behavior_checks.LargeSortChecks)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\checks\\test_behavior.py\", line 24, in test_sort_then_mutate_and_sort_again\n    values.sort()\n  File \"D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261015_121740_258992\\repo\\boltons\\listutils.py\", line 311, in sort\n    self.lists[0] = tmp_sorted\nIndexError: list assignment index out of range\n\n----------------------------------------------------------------------\nRan 5 tests in 0.006s\n\nFAILED (errors=3)\n"
+  },
+  "upstream_targeted": {
+    "tests_run": 2,
+    "passed": 2,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0,
+    "output": "..                                                                       [100%]\n============================== warnings summary ===============================\ntests\\conftest.py:8\n  D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261015_121740_258992\\repo\\tests\\conftest.py:8: PytestRemovedIn9Warning: The (path: py.path.local) argument is deprecated, please use (collection_path: pathlib.Path)\n  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path\n    def pytest_ignore_collect(path, config):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_barrel-sort_repository_retrieval_121740_831727\\upstream.xml -\n2 passed, 1 warning in 0.21s\n"
+  },
+  "protected_tests_unchanged": true,
+  "changed_protected_tests": [],
+  "task_tests_passed": false,
+  "scope": "Public new-task validation of unchanged retrieval v1; no private-held-out claim; task checks visible to Agent. Previously seen boltons base; selected local container/helper test subset, not full upstream suite. An initial sandbox full-suite qualification timed out; that attempt is retained and not counted as task failure. Symptom-only description omits internal repair path; checks expose public API. No reference patch indexed.",
+  "external_model_requests": 0,
+  "full_upstream_suite": {
+    "tests_run": 78,
+    "passed": 78,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0,
+    "output": "........................................................................ [ 92%]\n......                                                                   [100%]\n============================== warnings summary ===============================\ntests\\conftest.py:8\n  D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261015_121740_258992\\repo\\tests\\conftest.py:8: PytestRemovedIn9Warning: The (path: py.path.local) argument is deprecated, please use (collection_path: pathlib.Path)\n  see https://docs.pytest.org/en/latest/deprecations.html#py-path-local-arguments-for-hooks-replaced-with-pathlib-path\n    def pytest_ignore_collect(path, config):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: D:\\myDocu\\project_postg\\shixi_project\\temp\\retrieval_delivery_trial_20261015_barrel-sort_repository_retrieval_121740_831727\\full.xml -\n78 passed, 1 warning in 0.75s\n"
+  }
+}

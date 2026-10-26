@@ -1,0 +1,5 @@
+95:    _size_factor = 1520
+104:    def _cur_size_limit(self):
+105:        len_self, size_factor = len(self), self._size_factor
+121:    def _balance_list(self, list_idx):
+125:        size_limit = self._cur_size_limit

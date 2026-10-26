@@ -1,0 +1,35 @@
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+test_competing_requests_cannot_double_spend_the_balance (test_deepseek_budget.BudgetTests) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.508s
+
+OK

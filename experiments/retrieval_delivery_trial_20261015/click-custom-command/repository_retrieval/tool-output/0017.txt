@@ -1,0 +1,42 @@
+1844:         func: t.Optional[t.Callable] = None
+1845: 
+1846:         if args and callable(args[0]):
+1847:             assert (
+1848:                 len(args) == 1 and not kwargs
+1849:             ), "Use 'command(**kwargs)(callable)' to provide arguments."
+1850:             (func,) = args
+1851:             args = ()
+1852: 
+1853:         def decorator(f: t.Callable[..., t.Any]) -> Command:
+1854:             cmd: Command = command(*args, **kwargs)(f)
+1855:             self.add_command(cmd)
+1856:             return cmd
+1857: 
+1858:         if func is not None:
+1859:             return decorator(func)
+1860: 
+1861:         return decorator
+1862: 
+1863:     @t.overload
+1864:     def group(self, __func: t.Callable[..., t.Any]) -> "Group":
+1865:         ...
+1866: 
+1867:     @t.overload
+1868:     def group(
+1869:         self, *args: t.Any, **kwargs: t.Any
+1870:     ) -> t.Callable[[t.Callable[..., t.Any]], "Group"]:
+1871:         ...
+1872: 
+1873:     def group(
+1874:         self, *args: t.Any, **kwargs: t.Any
+1875:     ) -> t.Union[t.Callable[[t.Callable[..., t.Any]], "Group"], "Group"]:
+1876:         """A shortcut decorator for declaring and attaching a group to
+1877:         the group. This takes the same arguments as :func:`group` and
+1878:         immediately registers the created group with this group by
+1879:         calling :meth:`add_command`.
+1880: 
+1881:         To customize the group class used, set the :attr:`group_class`
+1882:         attribute.
+1883: 
+1884:         .. versionchanged:: 8.1
+1885:             This decorator can be applied without parentheses.

@@ -1,0 +1,80 @@
+        except AttributeError:
+            _map = self._map = {}
+            self.root = []
+        _map.clear()
+        self.root[:] = [self.root, self.root, None]
+
+    def _insert(self, k, v):
+        root = self.root
+        cells = self._map.setdefault(k, [])
+        last = root[PREV]
+        cell = [last, root, k, v]
+        last[NEXT] = root[PREV] = cell
+        cells.append(cell)
+
+    def add(self, k, v):
+        """Add a single value *v* under a key *k*. Existing values under *k*
+        are preserved.
+        """
+        values = super().setdefault(k, [])
+        self._insert(k, v)
+        values.append(v)
+
+    def addlist(self, k, v):
+        """Add an iterable of values underneath a specific key, preserving
+        any values already under that key.
+
+        >>> omd = OrderedMultiDict([('a', -1)])
+        >>> omd.addlist('a', range(3))
+        >>> omd
+        OrderedMultiDict([('a', -1), ('a', 0), ('a', 1), ('a', 2)])
+
+        Called ``addlist`` for consistency with :meth:`getlist`, but
+        tuples and other sequences and iterables work.
+        """
+        if not v:
+            return
+        self_insert = self._insert
+        values = super().setdefault(k, [])
+        for subv in v:
+            self_insert(k, subv)
+        values.extend(v)
+
+    def get(self, k, default=None):
+        """Return the value for key *k* if present in the dictionary, else
+        *default*. If *default* is not given, ``None`` is returned.
+        This method never raises a :exc:`KeyError`.
+
+        To get all values under a key, use :meth:`OrderedMultiDict.getlist`.
+        """
+        return super().get(k, [default])[-1]
+
+    def getlist(self, k, default=_MISSING):
+        """Get all values for key *k* as a list, if *k* is in the
+        dictionary, else *default*. The list returned is a copy and
+        can be safely mutated. If *default* is not given, an empty
+        :class:`list` is returned.
+        """
+        try:
+            return super().__getitem__(k)[:]
+        except KeyError:
+            if default is _MISSING:
+                return []
+            return default
+
+    def clear(self):
+        "Empty the dictionary."
+        super().clear()
+        self._clear_ll()
+
+    def setdefault(self, k, default=_MISSING):
+        """If key *k* is in the dictionary, return its value. If not, insert
+        *k* with a value of *default* and return *default*. *default*
+        defaults to ``None``. See :meth:`dict.setdefault` for more
+        information.
+        """
+        if not super().__contains__(k):
+            self[k] = None if default is _MISSING else default
+        return self[k]
+
+    def copy(self):

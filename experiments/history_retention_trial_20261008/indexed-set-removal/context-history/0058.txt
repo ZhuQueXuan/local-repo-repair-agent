@@ -1,0 +1,5 @@
+Now I understand the bug fully. The `iter_slice` converts apparent indices to real indices, but then iterates over `self` (which yields apparent items, skipping dead ones). So the real-index conversion is wrong for the apparent iteration.
+
+The fix: for positive steps, iterate over `self` using apparent indices directly (no real-index conversion). For negative steps, preserve existing behavior.
+
+Let me write my notes and apply the fix:

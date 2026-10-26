@@ -1,0 +1,31 @@
+     1	    def __getitem__(self, index):
+     2	        try:
+     3	            start, stop, step = index.start, index.stop, index.step
+     4	        except AttributeError:
+     5	            index = operator.index(index)
+     6	        else:
+     7	            iter_slice = self.iter_slice(start, stop, step)
+     8	            return self.from_iterable(iter_slice)
+     9	        if index < 0:
+    10	            index += len(self)
+    11	        real_index = self._get_real_index(index)
+    12	        try:
+    13	            ret = self.item_list[real_index]
+    14	        except IndexError:
+    15	            raise IndexError('IndexedSet index out of range')
+    16	        return ret
+    17	
+    18	    def pop(self, index=None):
+    19	        "pop(index) -> remove the item at a given index (-1 by default)"
+    20	        item_index_map = self.item_index_map
+    21	        len_self = len(item_index_map)
+    22	        if index is None or index == -1 or index == len_self - 1:
+    23	            ret = self.item_list.pop()
+    24	            del item_index_map[ret]
+    25	        else:
+    26	            real_index = self._get_real_index(index)
+    27	            ret = self.item_list[real_index]
+    28	            self.item_list[real_index] = _MISSING
+    29	            del item_index_map[ret]
+    30	            self._add_dead(real_index)
+    31	        self._cull()

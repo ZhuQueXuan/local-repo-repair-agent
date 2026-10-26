@@ -1,0 +1,37 @@
+60 temp/range.txt
+384     """
+385     _default_file_perms = RW_PERMS
+386 
+387     # TODO: option to abort if target file modify date has changed since start?
+388     def __init__(self, dest_path, **kwargs):
+389         self.dest_path = dest_path
+390         self.overwrite = kwargs.pop('overwrite', True)
+391         self.file_perms = kwargs.pop('file_perms', None)
+392         self.overwrite_part = kwargs.pop('overwrite_part', False)
+393         self.part_filename = kwargs.pop('part_file', None)
+394         self.rm_part_on_exc = kwargs.pop('rm_part_on_exc', True)
+395         self.text_mode = kwargs.pop('text_mode', False)
+396         self.buffering = kwargs.pop('buffering', -1)
+397         if kwargs:
+398             raise TypeError(f'unexpected kwargs: {kwargs.keys()!r}')
+399 
+400         self.dest_path = os.path.abspath(self.dest_path)
+401         self.dest_dir = os.path.dirname(self.dest_path)
+402         if not self.part_filename:
+403             self.part_path = dest_path + '.part'
+404         else:
+405             self.part_path = os.path.join(self.dest_dir, self.part_filename)
+406         self.mode = 'w+' if self.text_mode else 'w+b'
+407         self.open_flags = _TEXT_OPENFLAGS if self.text_mode else _BIN_OPENFLAGS
+408 
+409         self.part_file = None
+410 
+411     def _open_part_file(self):
+412         do_chmod = True
+413         file_perms = self.file_perms
+414         if file_perms is None:
+415             try:
+416                 # try to copy from file being replaced
+417                 stat_res = os.stat(self.dest_path)
+418                 file_perms = stat.S_IMODE(stat_res.st_mode)
+419             except OSError:

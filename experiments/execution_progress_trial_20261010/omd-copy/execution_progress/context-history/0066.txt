@@ -1,0 +1,1 @@
+Reproduced. The default copy uses `__reduce__`/`__getstate__`/`__setstate__` which loses duplicates. Let me add `__copy__` and `__deepcopy__`.

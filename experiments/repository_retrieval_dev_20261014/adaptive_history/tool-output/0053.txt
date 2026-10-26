@@ -1,0 +1,2 @@
+args ('Extra data: line 1 column 9 (char 8)',)
+FAIL TypeError JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'

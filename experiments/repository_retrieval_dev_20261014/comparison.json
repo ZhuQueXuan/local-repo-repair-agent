@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-14",
+  "scope": "One public development task; off/on once, not held-out or general accuracy",
+  "rows": [
+    {
+      "variant": "adaptive_history",
+      "requests": 64,
+      "successful_model_responses": 63,
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "first_implementation_edit_action": 57,
+      "known_price_estimate_cny": 0.402342,
+      "first_to_last_response_seconds": 85.352,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "prompt_tokens": 175191,
+      "completion_tokens": 6495,
+      "issue_passed": 6,
+      "targeted_passed": 23,
+      "extended_passed": 240,
+      "extended_skipped": 1
+    },
+    {
+      "variant": "repository_retrieval",
+      "requests": 32,
+      "successful_model_responses": 31,
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "first_implementation_edit_action": 26,
+      "known_price_estimate_cny": 0.253748,
+      "first_to_last_response_seconds": 50.579,
+      "response_models": [
+        "deepseek-flash"
+      ],
+      "successful_providers": [
+        "deepseek_official"
+      ],
+      "prompt_tokens": 107550,
+      "completion_tokens": 4831,
+      "issue_passed": 6,
+      "targeted_passed": 23,
+      "extended_passed": 240,
+      "extended_skipped": 1,
+      "retrieval_projections_including_preflight": 32,
+      "maximum_retrieval_message_bytes": 2902,
+      "source_edit_refreshed": true
+    }
+  ],
+  "same_successful_platform_and_model": true,
+  "total_api_attempts": 96,
+  "successful_responses": 94,
+  "known_price_estimate_cny": 0.65609,
+  "unknown_failed_charge_placeholders_cny": 0.2,
+  "complete_cost_estimate_cny": null,
+  "prior_ledger_entries_unchanged": true,
+  "budget_at_end": {
+    "max_requests": null,
+    "max_total_cost_cny": null,
+    "accounted_cost_and_reservations_cny": 8.638032,
+    "known_price_estimate_cny": 8.038032,
+    "unpriced_usage_requests": 0,
+    "remaining_cny": null,
+    "blocked": false
+  },
+  "frozen_inputs": 196,
+  "runtime_freeze_sha256": "c3646d6e65b32f9a9513401f25924f8664e6183f21f72cefd76fd84aacb62773",
+  "offline_checks_before_runs": 110,
+  "offline_checks_after_collector_fix": 111,
+  "collection": "Both original runs reached Submitted and passed checks, then collection failed on CRLF patch replay. Preserve originals; LF-only patch normalization and fresh-checkout evaluation recovered acceptance without model reruns. Total elapsed/request projections lost from memory stay null. Current exporter fixed only after both runs; frozen runtime source preserved.",
+  "default": "raw unchanged; retrieval optional",
+  "decision": "Promising development example only; add harder new tasks before general effectiveness claims."
+}

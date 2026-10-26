@@ -1,0 +1,70 @@
+     1	class AtomicSaver:
+     2	    """``AtomicSaver`` is a configurable `context manager`_ that provides
+     3	    a writable :class:`file` which will be moved into place as long as
+     4	    no exceptions are raised within the context manager's block. These
+     5	    "part files" are created in the same directory as the destination
+     6	    path to ensure atomic move operations (i.e., no cross-filesystem
+     7	    moves occur).
+     8	
+     9	    Args:
+    10	        dest_path (str): The path where the completed file will be
+    11	            written.
+    12	        overwrite (bool): Whether to overwrite the destination file if
+    13	            it exists at completion time. Defaults to ``True``.
+    14	        file_perms (int): Integer representation of file permissions
+    15	            for the newly-created file. Defaults are, when the
+    16	            destination path already exists, to copy the permissions
+    17	            from the previous file, or if the file did not exist, to
+    18	            respect the user's configured `umask`_, usually resulting
+    19	            in octal 0644 or 0664.
+    20	        text_mode (bool): Whether to open the destination file in text
+    21	            mode (i.e., ``'w'`` not ``'wb'``). Defaults to ``False`` (``wb``).
+    22	        part_file (str): Name of the temporary *part_file*. Defaults
+    23	            to *dest_path* + ``.part``. Note that this argument is
+    24	            just the filename, and not the full path of the part
+    25	            file. To guarantee atomic saves, part files are always
+    26	            created in the same directory as the destination path.
+    27	        overwrite_part (bool): Whether to overwrite the *part_file*,
+    28	            should it exist at setup time. Defaults to ``False``,
+    29	            which results in an :exc:`OSError` being raised on
+    30	            pre-existing part files. Be careful of setting this to
+    31	            ``True`` in situations when multiple threads or processes
+    32	            could be writing to the same part file.
+    33	        rm_part_on_exc (bool): Remove *part_file* on exception cases.
+    34	            Defaults to ``True``, but ``False`` can be useful for
+    35	            recovery in some cases. Note that resumption is not
+    36	            automatic and by default an :exc:`OSError` is raised if
+    37	            the *part_file* exists.
+    38	
+    39	    Practically, the AtomicSaver serves a few purposes:
+    40	
+    41	      * Avoiding overwriting an existing, valid file with a partially
+    42	        written one.
+    43	      * Providing a reasonable guarantee that a part file only has one
+    44	        writer at a time.
+    45	      * Optional recovery of partial data in failure cases.
+    46	
+    47	    .. _context manager: https://docs.python.org/2/reference/compound_stmts.html#with
+    48	    .. _umask: https://en.wikipedia.org/wiki/Umask
+    49	
+    50	    """
+    51	    _default_file_perms = RW_PERMS
+    52	
+    53	    # TODO: option to abort if target file modify date has changed since start?
+    54	    def __init__(self, dest_path, **kwargs):
+    55	        self.dest_path = dest_path
+    56	        self.overwrite = kwargs.pop('overwrite', True)
+    57	        self.file_perms = kwargs.pop('file_perms', None)
+    58	        self.overwrite_part = kwargs.pop('overwrite_part', False)
+    59	        self.part_filename = kwargs.pop('part_file', None)
+    60	        self.rm_part_on_exc = kwargs.pop('rm_part_on_exc', True)
+    61	        self.text_mode = kwargs.pop('text_mode', False)
+    62	        self.buffering = kwargs.pop('buffering', -1)
+    63	        if kwargs:
+    64	            raise TypeError(f'unexpected kwargs: {kwargs.keys()!r}')
+    65	
+    66	        self.dest_path = os.path.abspath(self.dest_path)
+    67	        self.dest_dir = os.path.dirname(self.dest_path)
+    68	        if not self.part_filename:
+    69	            self.part_path = dest_path + '.part'
+    70	        else:

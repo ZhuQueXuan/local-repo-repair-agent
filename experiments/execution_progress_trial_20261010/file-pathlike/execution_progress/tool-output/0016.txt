@@ -1,0 +1,2 @@
+61
+['365             ``True`` in situations when multiple threads or processes', '366             could be writing to the same part file.', '367         rm_part_on_exc (bool): Remove *part_file* on exception cases.', '368             Defaults to ``True``, but ``False`` can be useful for', '369             recovery in some cases. Note that resumption is not', '370             automatic and by default an :exc:`OSError` is raised if', '371             the *part_file* exists.', '372 ', '373     Practically, the AtomicSaver serves a few purposes:', '374 ']

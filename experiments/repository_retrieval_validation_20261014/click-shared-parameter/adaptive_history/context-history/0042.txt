@@ -1,0 +1,1 @@
+Now I understand `convert_type`. The issue: when a `ParamType` instance is passed, it's returned as-is. But the bug is about "reusing a configured parameter decorator". Let me look at how decorators store the type and how `__init__` mutates it. Let me check the `Parameter.__init__` more and where `self.type` gets mutated (e.g., `name` attribute set).

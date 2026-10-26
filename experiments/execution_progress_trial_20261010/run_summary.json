@@ -1,0 +1,58 @@
+[
+  {
+    "task": "omd-copy",
+    "variant": "adaptive_history",
+    "exit_status": "Submitted",
+    "provider_failure": null,
+    "requests": 27,
+    "estimated_cost_cny": 0.18857000000000004,
+    "repair_verified": true,
+    "patch_replay_passed": true,
+    "changed_files": [
+      "boltons/dictutils.py"
+    ],
+    "elapsed_seconds": 35.75
+  },
+  {
+    "task": "omd-copy",
+    "variant": "execution_progress",
+    "exit_status": "Submitted",
+    "provider_failure": null,
+    "requests": 41,
+    "estimated_cost_cny": 0.27010600000000007,
+    "repair_verified": true,
+    "patch_replay_passed": true,
+    "changed_files": [
+      "boltons/dictutils.py"
+    ],
+    "elapsed_seconds": 46.937
+  },
+  {
+    "task": "file-pathlike",
+    "variant": "adaptive_history",
+    "exit_status": "Submitted",
+    "provider_failure": null,
+    "requests": 57,
+    "estimated_cost_cny": 0.36763,
+    "repair_verified": true,
+    "patch_replay_passed": true,
+    "changed_files": [
+      "boltons/fileutils.py"
+    ],
+    "elapsed_seconds": 64.078
+  },
+  {
+    "task": "file-pathlike",
+    "variant": "execution_progress",
+    "exit_status": "Submitted",
+    "provider_failure": null,
+    "requests": 42,
+    "estimated_cost_cny": 0.26842999999999995,
+    "repair_verified": true,
+    "patch_replay_passed": true,
+    "changed_files": [
+      "boltons/fileutils.py"
+    ],
+    "elapsed_seconds": 44.515
+  }
+]

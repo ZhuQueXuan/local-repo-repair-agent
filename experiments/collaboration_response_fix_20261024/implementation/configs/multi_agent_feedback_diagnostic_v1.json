@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "feedback_windows": 1,
+  "parent_seconds": 1800,
+  "role_seconds": {"repairing": 300, "reviewing": 120, "revising": 180, "final_review": 90},
+  "candidate_selection": "latest_legal_even_if_tests_regress",
+  "review_failure": "preserve_last_legal_candidate_and_assessment_no_retry",
+  "review_repeat_limit": 3,
+  "max_consecutive_format_errors": 3,
+  "repair_profile": "adaptive_history",
+  "diagnostic_profile": "seeded_falsey_remainder_v1",
+  "scope": "Manual known-defect candidate with disclosed checks; confirm, independently review, continue the same repair session, review the new version. Wiring acceptance only; no effectiveness claim."
+}

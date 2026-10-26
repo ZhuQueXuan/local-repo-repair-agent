@@ -1,0 +1,1 @@
+Confirmed. In `group`, the concise-form check (lines 1894-1899) happens **before** `kwargs["cls"]` is set (1901-1905). In `command`, the `cls` is set first, breaking the assertion. Let me look at the `command` method fully.

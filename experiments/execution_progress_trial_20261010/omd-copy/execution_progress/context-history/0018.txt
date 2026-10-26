@@ -1,0 +1,1 @@
+Let me read the relevant sections: the class definition area and the copy/reduce methods.

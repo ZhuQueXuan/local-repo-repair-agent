@@ -1,0 +1,32 @@
+{
+  "source_revision": "cecc7bb6b682ab24e4987d5f39e164092af6c128972373bd4916ff8c0b3cc5fe",
+  "changed_files": [
+    "src/click/decorators.py"
+  ],
+  "executed_actions": 21,
+  "blocked_reads": 0,
+  "guard_enabled": true,
+  "warning": "",
+  "model_notes": {
+    "status": "model-authored, unverified",
+    "hypothesis": "argument() at decorators.py:286 does attrs.pop('cls', None) directly on the shared attrs dict, mutating it. Reusing the decorator across commands loses cls on the 2nd call. option() already copies attrs (line 306).",
+    "next_action": "Reproduce with a shared custom Argument decorator across two commands, then fix argument() to copy attrs like option()."
+  },
+  "last_model_intent_unverified": "The fix is complete and verified.\n\n## Summary\n\n**Root cause:** In `src/click/decorators.py`, the `argument()` decorator's inner `decorator` function called `attrs.pop(\"cls\", None)` directly on the shared `attrs` dict captured by the closure. When the same configured decorator was reused across multiple commands, the first invocation removed `cls` from the shared dict, so subsequent commands fell back to the built-in `Argument` class (or lost the custom type's configuration). The `option()` decorator already avoided this by copying `attrs` first.\n\n**Fix:** Copy `attrs` before popping `cls`, mirroring the existing `option()` behavior:\n\n```python\nargument_attrs = attrs.copy()\nArgumentClass = argument_attrs.pop(\"cls\", None) or Argument\n_param_memo(f, ArgumentCla…",
+  "recent_distinct_evidence": [
+    {
+      "command": "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && git --no-pager diff --stat && echo \"---\" && git --no-pager diff",
+      "returncode": 0,
+      "output_path": "temp/tool-output/0020.txt",
+      "preview": " src/click/decorators.py | 6 ++++--\n 1 file changed, 4 insertions(+), 2 deletions(-)\n---\ndiff --git a/src/click/decorators.py b/src/click/decorators.py\nindex 28618dc..d2b020f 100644\n--- a/src/click/decorators.py\n+++ b/src/click/decorators.py\n@@ -283,8 +283,10 @@ def argument(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:\n     \"\"\"\n \n     def decorator(f: FC) -> FC:\n-        ArgumentClass = attrs.pop(\"cls\", None) or Argument\n-        _param_memo(f, ArgumentClass(param_decls, **attrs))\n+        # …"
+    },
+    {
+      "command": "set -o pipefail\necho COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+      "returncode": 0,
+      "output_path": "temp/tool-output/0021.txt",
+      "preview": "COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT\n"
+    }
+  ],
+  "evidence_log": "temp/task-state/events.jsonl",
+  "validation": "Command exit codes are observations; independent repair acceptance occurs outside the Agent."
+}

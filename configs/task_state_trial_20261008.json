@@ -1,0 +1,38 @@
+{
+  "batch_id": "task_state_trial_20261008",
+  "tasks": ["indexed-set-removal", "split-after-boundary"],
+  "agent": "StatefulAgent subclass of upstream DefaultAgent 2.4.6",
+  "mini_commit": "04d809ceab9df28f9adaed044884180159172930",
+  "wall_time_limit_seconds": 300,
+  "model_temperature": 0,
+  "budget_policy": "configs/deepseek_budget.json",
+  "environment": "Windows Python 3.10.6, Git Bash, independent Git baseline, pipefail",
+  "variants": {
+    "state_only": {
+      "tool_output_budget": {"max_output_bytes": 1024},
+      "context_budget": {"target_bytes": 12288, "keep_recent_tool_outputs": 2, "compact_completed_exchanges": true, "retained_audit_entries": 8},
+      "archive_assistant_content": true,
+      "task_state": {"guard_enabled": false}
+    },
+    "state_guard": {
+      "tool_output_budget": {"max_output_bytes": 1024},
+      "context_budget": {"target_bytes": 12288, "keep_recent_tool_outputs": 2, "compact_completed_exchanges": true, "retained_audit_entries": 8},
+      "archive_assistant_content": true,
+      "task_state": {"guard_enabled": true, "repeated_read_threshold": 3, "blocked_read_threshold": 3}
+    },
+    "state_guard_v2": {
+      "tool_output_budget": {"max_output_bytes": 1024},
+      "context_budget": {"target_bytes": 12288, "keep_recent_tool_outputs": 2, "compact_completed_exchanges": true, "retained_audit_entries": 8},
+      "archive_assistant_content": true,
+      "task_state": {"guard_enabled": true, "repeated_read_threshold": 3, "blocked_read_threshold": 3}
+    },
+    "state_guard_v3": {
+      "validation_status": "Offline verified only; cumulative blocked reads reset only on source changes",
+      "tool_output_budget": {"max_output_bytes": 1024},
+      "context_budget": {"target_bytes": 12288, "keep_recent_tool_outputs": 2, "compact_completed_exchanges": true, "retained_audit_entries": 8},
+      "archive_assistant_content": true,
+      "task_state": {"guard_enabled": true, "repeated_read_threshold": 3, "blocked_read_threshold": 3}
+    }
+  },
+  "scope": "Public development tasks, current-state and repeated-read experiments. Historical controls are not paired statistical trials. Same prompt for state_only and state_guard. No total request-count cap."
+}

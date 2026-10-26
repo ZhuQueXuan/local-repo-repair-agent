@@ -1,0 +1,10 @@
+{
+  "adapter/scratch/tmpylinexbe/test.txt": "a1fff0ffefb9eace7230c24e50731f0a91c62f9cefdfe77121c2f607125dffae",
+  "adapter/upstream_junit.xml": "0fcbc24a84786eca74b99ecf09c61afce153ccd3980295dc8f4b30bb1bec5ec9",
+  "adapter/upstream_results.json": "e4e809f0c5a532881edd9d893acbf3c04cffa5dc8878876ad5f12e5154555121",
+  "adapter.log": "95c3b6f067bf570545e450c02771bd15b52a19db15e047320a31b73543e8eb17",
+  "inventory.json": "71107729ba531a3d61ee2b98763901aa3f4d2b983738fd1554f0f5a000b6bdc8",
+  "protected_after.json": "ae3bb6b0b49e91a621da71f2eb80635974dcfd62cab55f3f994e62cbfac10dc2",
+  "protected_before.json": "ae3bb6b0b49e91a621da71f2eb80635974dcfd62cab55f3f994e62cbfac10dc2",
+  "summary.json": "9ee3f0fd1f85800046a991263815a749d8cfeb27a7446f226fab35162e0623ee"
+}

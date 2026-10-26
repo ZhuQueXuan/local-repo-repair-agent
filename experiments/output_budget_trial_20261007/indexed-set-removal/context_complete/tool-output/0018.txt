@@ -1,0 +1,51 @@
+
+def complement(wrapped):
+    """Given a :class:`set`, convert it to a **complement set**.
+
+    Whereas a :class:`set` keeps track of what it contains, a
+    `complement set
+    <https://en.wikipedia.org/wiki/Complement_(set_theory)>`_ keeps
+    track of what it does *not* contain. For example, look what
+    happens when we intersect a normal set with a complement set::
+
+    >>> list(set(range(5)) & complement(set([2, 3])))
+    [0, 1, 4]
+
+    We get the everything in the left that wasn't in the right,
+    because intersecting with a complement is the same as subtracting
+    a normal set.
+
+    Args:
+        wrapped (set): A set or any other iterable which should be
+           turned into a complement set.
+
+    All set methods and operators are supported by complement sets,
+    between other :func:`complement`-wrapped sets and/or regular
+    :class:`set` objects.
+
+    Because a complement set only tracks what elements are *not* in
+    the set, functionality based on set contents is unavailable:
+    :func:`len`, :func:`iter` (and for loops), and ``.pop()``. But a
+    complement set can always be turned back into a regular set by
+    complementing it again:
+
+    >>> s = set(range(5))
+    >>> complement(complement(s)) == s
+    True
+
+    .. note::
+
+       An empty complement set corresponds to the concept of a
+       `universal set <https://en.wikipedia.org/wiki/Universal_set>`_
+       from mathematics.
+
+    Complement sets by example
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    Many uses of sets can be expressed more simply by using a
+    complement. Rather than trying to work out in your head the proper
+    way to invert an expression, you can just throw a complement on
+    the set. Consider this example of a name filter::
+
+        >>> class NamesFilter(object):
+        ...    def __init__(self, allowed):

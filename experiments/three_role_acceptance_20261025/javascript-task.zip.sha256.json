@@ -1,0 +1,15 @@
+{
+  "tasks/fast-deep-equal-property-methods/checks/test_behavior.py": "868db2c70a71c8c367c316975bddfe7af9373df5fde686fb07ccc811ff976fb7",
+  "tasks/fast-deep-equal-property-methods/issue.md": "b161e6a52fbc766f376f63077a6ac0725866e07789cfa4702cd2a216b1cb07fc",
+  "tasks/fast-deep-equal-property-methods/manifest.json": "b1138ddb87d030cbb9fe7cc8ad2a7ea2136e1a2062cd69ae3586dff389b4134c",
+  "tasks/fast-deep-equal-property-methods/repo/fixture_bridge/__init__.py": "060effc9aafd57a5039319339a78d7243986ddc123d06c8e8e1864557aa83011",
+  "tasks/fast-deep-equal-property-methods/repo/lib/equal.js": "eb469e206280321a3878f2335ec98aa2104a155079d8ed83a23029098dccd215",
+  "tasks/fast-deep-equal-property-methods/repo/LICENSE": "7bf9b2de73a6b356761c948d0e9eeb4be6c1270bd04c79cd489c1e400ffdfc1a",
+  "tasks/fast-deep-equal-property-methods/repo/README.md": "ada32c1b53bd74640a22806e99b25c2b8ab2946eed338f325114be87bd5b9fce",
+  "tasks/fast-deep-equal-property-methods/repo/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tasks/fast-deep-equal-property-methods/repo/tests/test_regression.py": "1b4adc22f14580437a1218249958ad4ecda0e0f09afcffa0f980f9d2d3361dda",
+  "evaluation/task_pool_20261025/evaluator/fast-deep-equal-property-methods/reference.json": "0f3515dc1dfa6566ca3ef36d2c49a609347d9ca12a76351b126baefcbc894a1e",
+  "evaluation/task_pool_20261025/evaluator/fast-deep-equal-property-methods/test_behavior.py": "b2afe9d0d916cc8083abd1067000dd4721ca1c06f97d01ebf95d999f9325ef7d",
+  "evaluation/task_pool_20261025/npm-source-metadata.json": "b8606b905503ee9b4290c03c6a4700feeb21c665c587dcb1a79f5ca83cd0296e",
+  "evaluation/task_pool_20261025/README.md": "51d9ad468c343d6fca8f77a597e1f74c843b703981eae16c66dd56330ce8ee1e"
+}

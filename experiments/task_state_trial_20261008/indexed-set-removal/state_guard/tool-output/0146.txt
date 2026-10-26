@@ -1,0 +1,9 @@
+138:    def _cull(self):
+158:    def _get_real_index(self, index):
+170:    def _get_apparent_index(self, index):
+182:    def _add_dead(self, start, stop=None):
+396:            start = self._get_real_index(start)
+398:            stop = self._get_real_index(stop)
+415:        real_index = self._get_real_index(index)
+430:            real_index = self._get_real_index(index)
+465:            return self._get_apparent_index(self.item_index_map[val])

@@ -1,0 +1,8 @@
+{
+  "url": "https://github.com/psf/requests/pull/6589",
+  "title": "Enhance `super_len` to count encoded bytes for str",
+  "body": "This is a possible fix for issue #6586.\r\n\r\nI am not at all confident that this is an appropriate change for Requests. All of the unit tests pass locally for me (specifically `make ci`).",
+  "base_commit": "7a13c041dbef42f9f3feb14110f02626f6892e9a",
+  "merge_commit": "b8be93a721792deeadd2f498b8f77cf610e7765f",
+  "accessed_date": "2026-10-25"
+}

@@ -1,0 +1,25 @@
+118:        def __init__(self, attribute, offset):
+122:        def __get__(self, fp_obj, type_=None):
+127:        def __set__(self, fp_obj, value):
+147:        def _update_integer(self, fp_obj, value):
+155:    def __init__(self, user='', group='', other=''):
+195:    def __int__(self):
+206:    def __repr__(self):
+248:def atomic_save(dest_path, **kwargs):
+335:class AtomicSaver:
+388:    def __init__(self, dest_path, **kwargs):
+389:        self.dest_path = dest_path
+400:        self.dest_path = os.path.abspath(self.dest_path)
+401:        self.dest_dir = os.path.dirname(self.dest_path)
+405:            self.part_path = os.path.join(self.dest_dir, self.part_filename)
+411:    def _open_part_file(self):
+417:                stat_res = os.stat(self.dest_path)
+452:        if os.path.lexists(self.dest_path):
+456:                              self.dest_path)
+462:    def __enter__(self):
+466:    def __exit__(self, exc_type, exc_val, exc_tb):
+480:            atomic_rename(self.part_path, self.dest_path,
+618:    def __init__(self, path, mode='r', buffering=None):
+682:    def __next__(self):
+685:    def __enter__(self):
+690:    def __exit__(self, exc_type, exc_val, exc_tb):

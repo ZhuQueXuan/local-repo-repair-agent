@@ -1,0 +1,16 @@
+        """
+        if not super().__contains__(k):
+            self[k] = None if default is _MISSING else default
+        return self[k]
+
+    def copy(self):
+        "Return a shallow copy of the dictionary."
+        return self.__class__(self.iteritems(multi=True))
+
+    @classmethod
+    def fromkeys(cls, keys, default=None):
+        """Create a dictionary from a list of keys, with all the values
+        set to *default*, or ``None`` if *default* is not set.
+        """
+        return cls([(k, default) for k in keys])
+

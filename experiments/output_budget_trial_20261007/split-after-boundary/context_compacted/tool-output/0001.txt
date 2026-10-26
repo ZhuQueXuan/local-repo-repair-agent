@@ -1,0 +1,15 @@
+/d/myDocu/project_postg/shixi_project/tasks/split-after-boundary/temp/run_20261007_222121_378843/repo
+LICENSE
+MANIFEST.in
+README.rst
+TASK.md
+docs
+more_itertools
+pyproject.toml
+setup.cfg
+setup.py
+task_checks
+temp
+tests
+tox.ini
+./more_itertools/more.py:1400:def split_after(iterable, pred, maxsplit=-1):

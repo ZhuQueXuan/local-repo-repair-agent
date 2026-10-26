@@ -1,0 +1,1 @@
+Hmm, that didn't reproduce. Let me look at the actual sort implementation and the BarrelList internals more carefully.

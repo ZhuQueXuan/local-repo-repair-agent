@@ -1,0 +1,13 @@
+{
+  "source-and-documents.zip": "c846103f32839fedf34cab33323d400f046bd8e2db2a187ab6c977e9c91bdd18",
+  "source-and-documents.zip.sha256.json": "927c9367bab84a30a7499d700cd0d12dcecc24aece1be432d8775aa7f124f9b5",
+  "checks-and-http.zip": "f97debee1bd255796151d4ee852b3ce036a454df23a27c3c8819b7f6a6c07b00",
+  "checks-and-http.zip.sha256.json": "e8af7843f4b46194b6e14c845c782e7d1bbfdbc782cb36cdbfb5860869115a3e",
+  "four-boundary-scripted-chain.zip": "274078f6badba469a5bfd0f800d24daaa1116775c683b9bb9ea61ed49d1f9cf3",
+  "four-boundary-scripted-chain.zip.sha256.json": "d9f06fcda626996cae5979d74d40bb5cbb33db29af834b13284455564795d511",
+  "output-archive-scripted-chain.zip": "0fe5f3529eccad387133ec843287747972144c31f8ea072d11f76cf1492a02b3",
+  "output-archive-scripted-chain.zip.sha256.json": "acd6b2f6da09c95cfa30ca562bf316896a59510856600228d49a4a703d965ba4",
+  "isolated-http-fixture.zip": "1e621a77faa0b79f5fecf2736fe3c2962dddb713ca461010e2a4bac1ab71c2b4",
+  "isolated-http-fixture.zip.sha256.json": "f8be80b034a1a673757fbe32859a346d5db5c1e9e90a54021099cb618e5c73fa",
+  "verification.json": "349069b63535c708f0bc13ee22b2f448fa8f8b754e83f9be1057c803b205fee9"
+}

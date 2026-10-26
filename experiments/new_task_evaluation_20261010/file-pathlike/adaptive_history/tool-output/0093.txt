@@ -1,0 +1,65 @@
+def atomic_save(dest_path, **kwargs):
+    """A convenient interface to the :class:`AtomicSaver` type. Example:
+
+    >>> try:
+    ...     with atomic_save("file.txt", text_mode=True) as fo:
+    ...         _ = fo.write('bye')
+    ...         1/0  # will error
+    ...         fo.write('bye')
+    ... except ZeroDivisionError:
+    ...     pass  # at least our file.txt didn't get overwritten
+
+    See the :class:`AtomicSaver` documentation for details.
+    """
+    return AtomicSaver(dest_path, **kwargs)
+
+====
+def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):
+    """Returns a generator that yields file paths under a *directory*,
+    matching *patterns* using `glob`_ syntax (e.g., ``*.txt``). Also
+    supports *ignored* patterns.
+
+    Args:
+        directory (str): Path that serves as the root of the
+            search. Yielded paths will include this as a prefix.
+        patterns (str or list): A single pattern or list of
+            glob-formatted patterns to find under *directory*.
+        ignored (str or list): A single pattern or list of
+            glob-formatted patterns to ignore.
+        include_dirs (bool): Whether to include directories that match
+           patterns, as well. Defaults to ``False``.
+        max_depth (int): traverse up to this level of subdirectory.
+           I.e., 0 for the specified *directory* only, 1 for *directory* 
+           and one level of subdirectory.
+
+    For example, finding Python files in the current directory:
+
+    >>> _CUR_DIR = os.path.dirname(os.path.abspath(__file__))
+    >>> filenames = sorted(iter_find_files(_CUR_DIR, '*.py'))
+    >>> os.path.basename(filenames[-1])
+    'urlutils.py'
+
+    Or, Python files while ignoring emacs lockfiles:
+
+    >>> filenames = iter_find_files(_CUR_DIR, '*.py', ignored='.#*')
+
+    .. _glob: https://en.wikipedia.org/wiki/Glob_%28programming%29
+
+    """
+    if isinstance(patterns, str):
+        patterns = [patterns]
+    pats_re = re.compile('|'.join([fnmatch.translate(p) for p in patterns]))
+
+    if not ignored:
+        ignored = []
+    elif isinstance(ignored, str):
+        ignored = [ignored]
+    ign_re = re.compile('|'.join([fnmatch.translate(p) for p in ignored]))
+    start_depth = len(directory.split(os.path.sep))
+    for root, dirs, files in os.walk(directory):
+        if max_depth is not None and (len(root.split(os.path.sep)) - start_depth) > max_depth:
+            continue
+        if include_dirs:
+            for basename in dirs:
+                if pats_re.match(basename):
+                    if ignored and ign_re.match(basename):

@@ -1,0 +1,10 @@
+{"task": "boltons-addlist-iterator", "qualified": false, "error": "qualification_child_unavailable", "output": "D:\\myDocu\\project_postg\\shixi_project\\temp\\multi_agent_eval_prep_20261025\\qualification-46430447\\boltons-addlist-iterator"}
+{"task": "click-abort-cause", "qualified": false, "error": "qualification_child_unavailable", "output": "D:\\myDocu\\project_postg\\shixi_project\\temp\\multi_agent_eval_prep_20261025\\qualification-46430447\\click-abort-cause"}
+{"task": "requests-utf8-length", "qualified": false, "error": "qualification_child_unavailable", "output": "D:\\myDocu\\project_postg\\shixi_project\\temp\\multi_agent_eval_prep_20261025\\qualification-46430447\\requests-utf8-length"}
+{"task": "boltons-query-encoding", "qualified": false, "error": "qualification_child_unavailable", "output": "D:\\myDocu\\project_postg\\shixi_project\\temp\\multi_agent_eval_prep_20261025\\qualification-46430447\\boltons-query-encoding"}
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\temp\multi_agent_eval_prep_20261025\qualify_all.py", line 21, in <module>
+{"task": "click-flag-default-map", "qualified": false, "error": "qualification_child_unavailable", "output": "D:\\myDocu\\project_postg\\shixi_project\\temp\\multi_agent_eval_prep_20261025\\qualification-46430447\\click-flag-default-map"}
+{"task": "boltons-unicode-lines", "qualified": false, "error": "qualification_child_unavailable", "output": "D:\\myDocu\\project_postg\\shixi_project\\temp\\multi_agent_eval_prep_20261025\\qualification-46430447\\boltons-unicode-lines"}
+    assert all(v['qualified'] for v in results),'Candidate qualification incomplete; preserve failures, do not freeze launch claims'
+AssertionError: Candidate qualification incomplete; preserve failures, do not freeze launch claims

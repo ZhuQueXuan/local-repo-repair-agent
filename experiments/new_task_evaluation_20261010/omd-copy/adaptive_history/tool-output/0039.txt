@@ -1,0 +1,2 @@
+copy [('a', 2)]
+deepcopy [('a', 2)]

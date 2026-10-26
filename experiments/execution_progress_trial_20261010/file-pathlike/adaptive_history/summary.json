@@ -1,0 +1,6944 @@
+{
+  "task_id": "boltons-file-pathlike-383",
+  "variant": "adaptive_history",
+  "exit_status": "Submitted",
+  "provider_failure": null,
+  "limit_kind": null,
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\file-pathlike\\temp\\run_20261010_155709_451553\\repo",
+  "requests": 57,
+  "estimated_cost_cny": 0.36763,
+  "usage": [
+    {
+      "prompt_tokens": 902,
+      "completion_tokens": 87,
+      "estimated_cost_cny": 0.0025,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1199,
+      "completion_tokens": 76,
+      "estimated_cost_cny": 0.003006,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1438,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.00338,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 1785,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.004074,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2128,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.00476,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2475,
+      "completion_tokens": 80,
+      "estimated_cost_cny": 0.00559,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2842,
+      "completion_tokens": 90,
+      "estimated_cost_cny": 0.006404,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2890,
+      "completion_tokens": 81,
+      "estimated_cost_cny": 0.006428,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2887,
+      "completion_tokens": 124,
+      "estimated_cost_cny": 0.006766,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3003,
+      "completion_tokens": 85,
+      "estimated_cost_cny": 0.006686,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3008,
+      "completion_tokens": 85,
+      "estimated_cost_cny": 0.006696,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2965,
+      "completion_tokens": 115,
+      "estimated_cost_cny": 0.00685,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3019,
+      "completion_tokens": 85,
+      "estimated_cost_cny": 0.006718,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2940,
+      "completion_tokens": 153,
+      "estimated_cost_cny": 0.007104,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3036,
+      "completion_tokens": 90,
+      "estimated_cost_cny": 0.006792,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3011,
+      "completion_tokens": 128,
+      "estimated_cost_cny": 0.007046,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3039,
+      "completion_tokens": 125,
+      "estimated_cost_cny": 0.007078,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2921,
+      "completion_tokens": 69,
+      "estimated_cost_cny": 0.006394,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2790,
+      "completion_tokens": 90,
+      "estimated_cost_cny": 0.0063,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3135,
+      "completion_tokens": 69,
+      "estimated_cost_cny": 0.006822,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3031,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006622,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3014,
+      "completion_tokens": 115,
+      "estimated_cost_cny": 0.006948,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2928,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006416,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2876,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006312,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2861,
+      "completion_tokens": 86,
+      "estimated_cost_cny": 0.00641,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2843,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006246,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2807,
+      "completion_tokens": 69,
+      "estimated_cost_cny": 0.006166,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3065,
+      "completion_tokens": 69,
+      "estimated_cost_cny": 0.006682,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2964,
+      "completion_tokens": 98,
+      "estimated_cost_cny": 0.006712,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2884,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006328,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2882,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006324,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2836,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006232,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2895,
+      "completion_tokens": 94,
+      "estimated_cost_cny": 0.006542,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3042,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006644,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2840,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.00624,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2776,
+      "completion_tokens": 102,
+      "estimated_cost_cny": 0.006368,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2991,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006542,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3038,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006636,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3034,
+      "completion_tokens": 85,
+      "estimated_cost_cny": 0.006748,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3033,
+      "completion_tokens": 70,
+      "estimated_cost_cny": 0.006626,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3076,
+      "completion_tokens": 199,
+      "estimated_cost_cny": 0.007744,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2780,
+      "completion_tokens": 120,
+      "estimated_cost_cny": 0.00652,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2905,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.006314,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2862,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.006228,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3191,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.006886,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3133,
+      "completion_tokens": 112,
+      "estimated_cost_cny": 0.007162,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3208,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.00692,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3110,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.006724,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3031,
+      "completion_tokens": 173,
+      "estimated_cost_cny": 0.007446,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2947,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.006398,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2918,
+      "completion_tokens": 63,
+      "estimated_cost_cny": 0.00634,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2842,
+      "completion_tokens": 337,
+      "estimated_cost_cny": 0.00838,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2880,
+      "completion_tokens": 360,
+      "estimated_cost_cny": 0.00864,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 3121,
+      "completion_tokens": 91,
+      "estimated_cost_cny": 0.00697,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2935,
+      "completion_tokens": 71,
+      "estimated_cost_cny": 0.006438,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2976,
+      "completion_tokens": 86,
+      "estimated_cost_cny": 0.00664,
+      "response_model": "deepseek-flash"
+    },
+    {
+      "prompt_tokens": 2987,
+      "completion_tokens": 346,
+      "estimated_cost_cny": 0.008742,
+      "response_model": "deepseek-flash"
+    }
+  ],
+  "request_measurements": [
+    {
+      "next_request": 1,
+      "message_utf8_bytes": 2973,
+      "http_attempted": true
+    },
+    {
+      "next_request": 2,
+      "message_utf8_bytes": 4167,
+      "http_attempted": true
+    },
+    {
+      "next_request": 3,
+      "message_utf8_bytes": 5188,
+      "http_attempted": true
+    },
+    {
+      "next_request": 4,
+      "message_utf8_bytes": 6695,
+      "http_attempted": true
+    },
+    {
+      "next_request": 5,
+      "message_utf8_bytes": 8178,
+      "http_attempted": true
+    },
+    {
+      "next_request": 6,
+      "message_utf8_bytes": 9713,
+      "http_attempted": true
+    },
+    {
+      "next_request": 7,
+      "message_utf8_bytes": 11323,
+      "http_attempted": true
+    },
+    {
+      "next_request": 8,
+      "message_utf8_bytes": 11310,
+      "http_attempted": true
+    },
+    {
+      "next_request": 9,
+      "message_utf8_bytes": 11283,
+      "http_attempted": true
+    },
+    {
+      "next_request": 10,
+      "message_utf8_bytes": 11638,
+      "http_attempted": true
+    },
+    {
+      "next_request": 11,
+      "message_utf8_bytes": 11615,
+      "http_attempted": true
+    },
+    {
+      "next_request": 12,
+      "message_utf8_bytes": 11512,
+      "http_attempted": true
+    },
+    {
+      "next_request": 13,
+      "message_utf8_bytes": 11847,
+      "http_attempted": true
+    },
+    {
+      "next_request": 14,
+      "message_utf8_bytes": 11544,
+      "http_attempted": true
+    },
+    {
+      "next_request": 15,
+      "message_utf8_bytes": 11974,
+      "http_attempted": true
+    },
+    {
+      "next_request": 16,
+      "message_utf8_bytes": 11699,
+      "http_attempted": true
+    },
+    {
+      "next_request": 17,
+      "message_utf8_bytes": 11766,
+      "http_attempted": true
+    },
+    {
+      "next_request": 18,
+      "message_utf8_bytes": 11241,
+      "http_attempted": true
+    },
+    {
+      "next_request": 19,
+      "message_utf8_bytes": 10695,
+      "http_attempted": true
+    },
+    {
+      "next_request": 20,
+      "message_utf8_bytes": 12163,
+      "http_attempted": true
+    },
+    {
+      "next_request": 21,
+      "message_utf8_bytes": 11827,
+      "http_attempted": true
+    },
+    {
+      "next_request": 22,
+      "message_utf8_bytes": 11640,
+      "http_attempted": true
+    },
+    {
+      "next_request": 23,
+      "message_utf8_bytes": 11150,
+      "http_attempted": true
+    },
+    {
+      "next_request": 24,
+      "message_utf8_bytes": 11088,
+      "http_attempted": true
+    },
+    {
+      "next_request": 25,
+      "message_utf8_bytes": 11094,
+      "http_attempted": true
+    },
+    {
+      "next_request": 26,
+      "message_utf8_bytes": 11093,
+      "http_attempted": true
+    },
+    {
+      "next_request": 27,
+      "message_utf8_bytes": 10943,
+      "http_attempted": true
+    },
+    {
+      "next_request": 28,
+      "message_utf8_bytes": 12100,
+      "http_attempted": true
+    },
+    {
+      "next_request": 29,
+      "message_utf8_bytes": 11577,
+      "http_attempted": true
+    },
+    {
+      "next_request": 30,
+      "message_utf8_bytes": 11217,
+      "http_attempted": true
+    },
+    {
+      "next_request": 31,
+      "message_utf8_bytes": 11158,
+      "http_attempted": true
+    },
+    {
+      "next_request": 32,
+      "message_utf8_bytes": 11077,
+      "http_attempted": true
+    },
+    {
+      "next_request": 33,
+      "message_utf8_bytes": 11382,
+      "http_attempted": true
+    },
+    {
+      "next_request": 34,
+      "message_utf8_bytes": 11980,
+      "http_attempted": true
+    },
+    {
+      "next_request": 35,
+      "message_utf8_bytes": 11100,
+      "http_attempted": true
+    },
+    {
+      "next_request": 36,
+      "message_utf8_bytes": 10802,
+      "http_attempted": true
+    },
+    {
+      "next_request": 37,
+      "message_utf8_bytes": 11798,
+      "http_attempted": true
+    },
+    {
+      "next_request": 38,
+      "message_utf8_bytes": 11828,
+      "http_attempted": true
+    },
+    {
+      "next_request": 39,
+      "message_utf8_bytes": 11680,
+      "http_attempted": true
+    },
+    {
+      "next_request": 40,
+      "message_utf8_bytes": 11767,
+      "http_attempted": true
+    },
+    {
+      "next_request": 41,
+      "message_utf8_bytes": 11983,
+      "http_attempted": true
+    },
+    {
+      "next_request": 42,
+      "message_utf8_bytes": 10745,
+      "http_attempted": true
+    },
+    {
+      "next_request": 43,
+      "message_utf8_bytes": 11093,
+      "http_attempted": true
+    },
+    {
+      "next_request": 44,
+      "message_utf8_bytes": 10866,
+      "http_attempted": true
+    },
+    {
+      "next_request": 45,
+      "message_utf8_bytes": 12266,
+      "http_attempted": true
+    },
+    {
+      "next_request": 46,
+      "message_utf8_bytes": 11953,
+      "http_attempted": true
+    },
+    {
+      "next_request": 47,
+      "message_utf8_bytes": 12258,
+      "http_attempted": true
+    },
+    {
+      "next_request": 48,
+      "message_utf8_bytes": 12078,
+      "http_attempted": true
+    },
+    {
+      "next_request": 49,
+      "message_utf8_bytes": 11862,
+      "http_attempted": true
+    },
+    {
+      "next_request": 50,
+      "message_utf8_bytes": 11601,
+      "http_attempted": true
+    },
+    {
+      "next_request": 51,
+      "message_utf8_bytes": 11502,
+      "http_attempted": true
+    },
+    {
+      "next_request": 52,
+      "message_utf8_bytes": 11173,
+      "http_attempted": true
+    },
+    {
+      "next_request": 53,
+      "message_utf8_bytes": 11309,
+      "http_attempted": true
+    },
+    {
+      "next_request": 54,
+      "message_utf8_bytes": 12015,
+      "http_attempted": true
+    },
+    {
+      "next_request": 55,
+      "message_utf8_bytes": 11175,
+      "http_attempted": true
+    },
+    {
+      "next_request": 56,
+      "message_utf8_bytes": 11390,
+      "http_attempted": true
+    },
+    {
+      "next_request": 57,
+      "message_utf8_bytes": 11380,
+      "http_attempted": true
+    }
+  ],
+  "tool_output_statistics": {
+    "observations": 57,
+    "truncated_observations": 29,
+    "raw_output_bytes": 92050,
+    "visible_output_bytes": 45250,
+    "max_visible_output_bytes": 1024,
+    "per_output_budget_bytes": 1024
+  },
+  "context_projections": [
+    {
+      "before_bytes": 2198,
+      "after_bytes": 2198,
+      "target_bytes": 11511,
+      "reserved_bytes": 777,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 3087,
+      "after_bytes": 3087,
+      "target_bytes": 11206,
+      "reserved_bytes": 1082,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 3857,
+      "after_bytes": 3857,
+      "target_bytes": 10955,
+      "reserved_bytes": 1333,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 5398,
+      "after_bytes": 5398,
+      "target_bytes": 10989,
+      "reserved_bytes": 1299,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 6941,
+      "after_bytes": 6941,
+      "target_bytes": 11049,
+      "reserved_bytes": 1239,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 8476,
+      "after_bytes": 8476,
+      "target_bytes": 11049,
+      "reserved_bytes": 1239,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 10090,
+      "after_bytes": 10090,
+      "target_bytes": 11053,
+      "reserved_bytes": 1235,
+      "replaced_outputs": []
+    },
+    {
+      "before_bytes": 11767,
+      "after_bytes": 10029,
+      "target_bytes": 11005,
+      "reserved_bytes": 1283,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 13391,
+      "after_bytes": 10039,
+      "target_bytes": 11042,
+      "reserved_bytes": 1246,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 15174,
+      "after_bytes": 10235,
+      "target_bytes": 10883,
+      "reserved_bytes": 1405,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 16791,
+      "after_bytes": 10267,
+      "target_bytes": 10938,
+      "reserved_bytes": 1350,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 18417,
+      "after_bytes": 10261,
+      "target_bytes": 11035,
+      "reserved_bytes": 1253,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 20191,
+      "after_bytes": 10442,
+      "target_bytes": 10881,
+      "reserved_bytes": 1407,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 21799,
+      "after_bytes": 10307,
+      "target_bytes": 11049,
+      "reserved_bytes": 1239,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 23572,
+      "after_bytes": 10451,
+      "target_bytes": 10763,
+      "reserved_bytes": 1525,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 25189,
+      "after_bytes": 10443,
+      "target_bytes": 11030,
+      "reserved_bytes": 1258,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 26939,
+      "after_bytes": 10380,
+      "target_bytes": 10900,
+      "reserved_bytes": 1388,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 28001,
+      "after_bytes": 9833,
+      "target_bytes": 10878,
+      "reserved_bytes": 1410,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 29217,
+      "after_bytes": 9288,
+      "target_bytes": 10879,
+      "reserved_bytes": 1409,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 30836,
+      "after_bytes": 10907,
+      "target_bytes": 11030,
+      "reserved_bytes": 1258,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 32102,
+      "after_bytes": 10571,
+      "target_bytes": 11030,
+      "reserved_bytes": 1258,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 33650,
+      "after_bytes": 10384,
+      "target_bytes": 11030,
+      "reserved_bytes": 1258,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 35348,
+      "after_bytes": 9818,
+      "target_bytes": 10954,
+      "reserved_bytes": 1334,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 36905,
+      "after_bytes": 9756,
+      "target_bytes": 10954,
+      "reserved_bytes": 1334,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 38250,
+      "after_bytes": 9762,
+      "target_bytes": 10954,
+      "reserved_bytes": 1334,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 39870,
+      "after_bytes": 9835,
+      "target_bytes": 11028,
+      "reserved_bytes": 1260,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 41418,
+      "after_bytes": 9685,
+      "target_bytes": 11028,
+      "reserved_bytes": 1260,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 42576,
+      "after_bytes": 10843,
+      "target_bytes": 11029,
+      "reserved_bytes": 1259,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 43610,
+      "after_bytes": 10321,
+      "target_bytes": 11030,
+      "reserved_bytes": 1258,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 44512,
+      "after_bytes": 9878,
+      "target_bytes": 10947,
+      "reserved_bytes": 1341,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 46072,
+      "after_bytes": 9818,
+      "target_bytes": 10946,
+      "reserved_bytes": 1342,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 47619,
+      "after_bytes": 9817,
+      "target_bytes": 11026,
+      "reserved_bytes": 1262,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 49083,
+      "after_bytes": 10122,
+      "target_bytes": 11026,
+      "reserved_bytes": 1262,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 50725,
+      "after_bytes": 10700,
+      "target_bytes": 11006,
+      "reserved_bytes": 1282,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 52240,
+      "after_bytes": 9820,
+      "target_bytes": 11006,
+      "reserved_bytes": 1282,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 53488,
+      "after_bytes": 9522,
+      "target_bytes": 11006,
+      "reserved_bytes": 1282,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 54423,
+      "after_bytes": 10457,
+      "target_bytes": 10945,
+      "reserved_bytes": 1343,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 55983,
+      "after_bytes": 10487,
+      "target_bytes": 10945,
+      "reserved_bytes": 1343,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 57536,
+      "after_bytes": 10427,
+      "target_bytes": 11033,
+      "reserved_bytes": 1255,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 59144,
+      "after_bytes": 10520,
+      "target_bytes": 11039,
+      "reserved_bytes": 1249,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 60608,
+      "after_bytes": 10736,
+      "target_bytes": 11039,
+      "reserved_bytes": 1249,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 61762,
+      "after_bytes": 9432,
+      "target_bytes": 10973,
+      "reserved_bytes": 1315,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 63510,
+      "after_bytes": 9627,
+      "target_bytes": 10820,
+      "reserved_bytes": 1468,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 65039,
+      "after_bytes": 9511,
+      "target_bytes": 10931,
+      "reserved_bytes": 1357,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 66569,
+      "after_bytes": 11041,
+      "target_bytes": 11061,
+      "reserved_bytes": 1227,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 67720,
+      "after_bytes": 10728,
+      "target_bytes": 11061,
+      "reserved_bytes": 1227,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 69018,
+      "after_bytes": 10926,
+      "target_bytes": 10954,
+      "reserved_bytes": 1334,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 70549,
+      "after_bytes": 10746,
+      "target_bytes": 10954,
+      "reserved_bytes": 1334,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        },
+        {
+          "message_index": 85,
+          "full_output_path": "temp/tool-output/0042.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 71998,
+      "after_bytes": 10651,
+      "target_bytes": 11075,
+      "reserved_bytes": 1213,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        },
+        {
+          "message_index": 85,
+          "full_output_path": "temp/tool-output/0042.txt"
+        },
+        {
+          "message_index": 87,
+          "full_output_path": "temp/tool-output/0043.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 72932,
+      "after_bytes": 9986,
+      "target_bytes": 10671,
+      "reserved_bytes": 1617,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        },
+        {
+          "message_index": 85,
+          "full_output_path": "temp/tool-output/0042.txt"
+        },
+        {
+          "message_index": 87,
+          "full_output_path": "temp/tool-output/0043.txt"
+        },
+        {
+          "message_index": 89,
+          "full_output_path": "temp/tool-output/0044.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 74065,
+      "after_bytes": 9887,
+      "target_bytes": 10671,
+      "reserved_bytes": 1617,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        },
+        {
+          "message_index": 85,
+          "full_output_path": "temp/tool-output/0042.txt"
+        },
+        {
+          "message_index": 87,
+          "full_output_path": "temp/tool-output/0043.txt"
+        },
+        {
+          "message_index": 89,
+          "full_output_path": "temp/tool-output/0044.txt"
+        },
+        {
+          "message_index": 91,
+          "full_output_path": "temp/tool-output/0045.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 75070,
+      "after_bytes": 9669,
+      "target_bytes": 10782,
+      "reserved_bytes": 1506,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        },
+        {
+          "message_index": 85,
+          "full_output_path": "temp/tool-output/0042.txt"
+        },
+        {
+          "message_index": 87,
+          "full_output_path": "temp/tool-output/0043.txt"
+        },
+        {
+          "message_index": 89,
+          "full_output_path": "temp/tool-output/0044.txt"
+        },
+        {
+          "message_index": 91,
+          "full_output_path": "temp/tool-output/0045.txt"
+        },
+        {
+          "message_index": 93,
+          "full_output_path": "temp/tool-output/0046.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 76636,
+      "after_bytes": 9704,
+      "target_bytes": 10681,
+      "reserved_bytes": 1607,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        },
+        {
+          "message_index": 85,
+          "full_output_path": "temp/tool-output/0042.txt"
+        },
+        {
+          "message_index": 87,
+          "full_output_path": "temp/tool-output/0043.txt"
+        },
+        {
+          "message_index": 89,
+          "full_output_path": "temp/tool-output/0044.txt"
+        },
+        {
+          "message_index": 91,
+          "full_output_path": "temp/tool-output/0045.txt"
+        },
+        {
+          "message_index": 93,
+          "full_output_path": "temp/tool-output/0046.txt"
+        },
+        {
+          "message_index": 95,
+          "full_output_path": "temp/tool-output/0047.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 78651,
+      "after_bytes": 10270,
+      "target_bytes": 10541,
+      "reserved_bytes": 1747,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        },
+        {
+          "message_index": 85,
+          "full_output_path": "temp/tool-output/0042.txt"
+        },
+        {
+          "message_index": 87,
+          "full_output_path": "temp/tool-output/0043.txt"
+        },
+        {
+          "message_index": 89,
+          "full_output_path": "temp/tool-output/0044.txt"
+        },
+        {
+          "message_index": 91,
+          "full_output_path": "temp/tool-output/0045.txt"
+        },
+        {
+          "message_index": 93,
+          "full_output_path": "temp/tool-output/0046.txt"
+        },
+        {
+          "message_index": 95,
+          "full_output_path": "temp/tool-output/0047.txt"
+        },
+        {
+          "message_index": 97,
+          "full_output_path": "temp/tool-output/0048.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 79953,
+      "after_bytes": 9493,
+      "target_bytes": 10604,
+      "reserved_bytes": 1684,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        },
+        {
+          "message_index": 85,
+          "full_output_path": "temp/tool-output/0042.txt"
+        },
+        {
+          "message_index": 87,
+          "full_output_path": "temp/tool-output/0043.txt"
+        },
+        {
+          "message_index": 89,
+          "full_output_path": "temp/tool-output/0044.txt"
+        },
+        {
+          "message_index": 91,
+          "full_output_path": "temp/tool-output/0045.txt"
+        },
+        {
+          "message_index": 93,
+          "full_output_path": "temp/tool-output/0046.txt"
+        },
+        {
+          "message_index": 95,
+          "full_output_path": "temp/tool-output/0047.txt"
+        },
+        {
+          "message_index": 97,
+          "full_output_path": "temp/tool-output/0048.txt"
+        },
+        {
+          "message_index": 99,
+          "full_output_path": "temp/tool-output/0049.txt"
+        },
+        {
+          "message_index": 101,
+          "full_output_path": "temp/tool-output/0050.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 81255,
+      "after_bytes": 9790,
+      "target_bytes": 10686,
+      "reserved_bytes": 1602,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        },
+        {
+          "message_index": 85,
+          "full_output_path": "temp/tool-output/0042.txt"
+        },
+        {
+          "message_index": 87,
+          "full_output_path": "temp/tool-output/0043.txt"
+        },
+        {
+          "message_index": 89,
+          "full_output_path": "temp/tool-output/0044.txt"
+        },
+        {
+          "message_index": 91,
+          "full_output_path": "temp/tool-output/0045.txt"
+        },
+        {
+          "message_index": 93,
+          "full_output_path": "temp/tool-output/0046.txt"
+        },
+        {
+          "message_index": 95,
+          "full_output_path": "temp/tool-output/0047.txt"
+        },
+        {
+          "message_index": 97,
+          "full_output_path": "temp/tool-output/0048.txt"
+        },
+        {
+          "message_index": 99,
+          "full_output_path": "temp/tool-output/0049.txt"
+        },
+        {
+          "message_index": 101,
+          "full_output_path": "temp/tool-output/0050.txt"
+        },
+        {
+          "message_index": 103,
+          "full_output_path": "temp/tool-output/0051.txt"
+        }
+      ]
+    },
+    {
+      "before_bytes": 82798,
+      "after_bytes": 9770,
+      "target_bytes": 10676,
+      "reserved_bytes": 1612,
+      "mode": "completed_exchanges",
+      "replaced_outputs": [
+        {
+          "message_index": 3,
+          "full_output_path": "temp/tool-output/0001.txt"
+        },
+        {
+          "message_index": 5,
+          "full_output_path": "temp/tool-output/0002.txt"
+        },
+        {
+          "message_index": 7,
+          "full_output_path": "temp/tool-output/0003.txt"
+        },
+        {
+          "message_index": 9,
+          "full_output_path": "temp/tool-output/0004.txt"
+        },
+        {
+          "message_index": 11,
+          "full_output_path": "temp/tool-output/0005.txt"
+        },
+        {
+          "message_index": 13,
+          "full_output_path": "temp/tool-output/0006.txt"
+        },
+        {
+          "message_index": 15,
+          "full_output_path": "temp/tool-output/0007.txt"
+        },
+        {
+          "message_index": 17,
+          "full_output_path": "temp/tool-output/0008.txt"
+        },
+        {
+          "message_index": 19,
+          "full_output_path": "temp/tool-output/0009.txt"
+        },
+        {
+          "message_index": 21,
+          "full_output_path": "temp/tool-output/0010.txt"
+        },
+        {
+          "message_index": 23,
+          "full_output_path": "temp/tool-output/0011.txt"
+        },
+        {
+          "message_index": 25,
+          "full_output_path": "temp/tool-output/0012.txt"
+        },
+        {
+          "message_index": 27,
+          "full_output_path": "temp/tool-output/0013.txt"
+        },
+        {
+          "message_index": 29,
+          "full_output_path": "temp/tool-output/0014.txt"
+        },
+        {
+          "message_index": 31,
+          "full_output_path": "temp/tool-output/0015.txt"
+        },
+        {
+          "message_index": 33,
+          "full_output_path": "temp/tool-output/0016.txt"
+        },
+        {
+          "message_index": 35,
+          "full_output_path": "temp/tool-output/0017.txt"
+        },
+        {
+          "message_index": 37,
+          "full_output_path": "temp/tool-output/0018.txt"
+        },
+        {
+          "message_index": 39,
+          "full_output_path": "temp/tool-output/0019.txt"
+        },
+        {
+          "message_index": 41,
+          "full_output_path": "temp/tool-output/0020.txt"
+        },
+        {
+          "message_index": 43,
+          "full_output_path": "temp/tool-output/0021.txt"
+        },
+        {
+          "message_index": 45,
+          "full_output_path": "temp/tool-output/0022.txt"
+        },
+        {
+          "message_index": 47,
+          "full_output_path": "temp/tool-output/0023.txt"
+        },
+        {
+          "message_index": 49,
+          "full_output_path": "temp/tool-output/0024.txt"
+        },
+        {
+          "message_index": 51,
+          "full_output_path": "temp/tool-output/0025.txt"
+        },
+        {
+          "message_index": 53,
+          "full_output_path": "temp/tool-output/0026.txt"
+        },
+        {
+          "message_index": 55,
+          "full_output_path": "temp/tool-output/0027.txt"
+        },
+        {
+          "message_index": 57,
+          "full_output_path": "temp/tool-output/0028.txt"
+        },
+        {
+          "message_index": 59,
+          "full_output_path": "temp/tool-output/0029.txt"
+        },
+        {
+          "message_index": 61,
+          "full_output_path": "temp/tool-output/0030.txt"
+        },
+        {
+          "message_index": 63,
+          "full_output_path": "temp/tool-output/0031.txt"
+        },
+        {
+          "message_index": 65,
+          "full_output_path": "temp/tool-output/0032.txt"
+        },
+        {
+          "message_index": 67,
+          "full_output_path": "temp/tool-output/0033.txt"
+        },
+        {
+          "message_index": 69,
+          "full_output_path": "temp/tool-output/0034.txt"
+        },
+        {
+          "message_index": 71,
+          "full_output_path": "temp/tool-output/0035.txt"
+        },
+        {
+          "message_index": 73,
+          "full_output_path": "temp/tool-output/0036.txt"
+        },
+        {
+          "message_index": 75,
+          "full_output_path": "temp/tool-output/0037.txt"
+        },
+        {
+          "message_index": 77,
+          "full_output_path": "temp/tool-output/0038.txt"
+        },
+        {
+          "message_index": 79,
+          "full_output_path": "temp/tool-output/0039.txt"
+        },
+        {
+          "message_index": 81,
+          "full_output_path": "temp/tool-output/0040.txt"
+        },
+        {
+          "message_index": 83,
+          "full_output_path": "temp/tool-output/0041.txt"
+        },
+        {
+          "message_index": 85,
+          "full_output_path": "temp/tool-output/0042.txt"
+        },
+        {
+          "message_index": 87,
+          "full_output_path": "temp/tool-output/0043.txt"
+        },
+        {
+          "message_index": 89,
+          "full_output_path": "temp/tool-output/0044.txt"
+        },
+        {
+          "message_index": 91,
+          "full_output_path": "temp/tool-output/0045.txt"
+        },
+        {
+          "message_index": 93,
+          "full_output_path": "temp/tool-output/0046.txt"
+        },
+        {
+          "message_index": 95,
+          "full_output_path": "temp/tool-output/0047.txt"
+        },
+        {
+          "message_index": 97,
+          "full_output_path": "temp/tool-output/0048.txt"
+        },
+        {
+          "message_index": 99,
+          "full_output_path": "temp/tool-output/0049.txt"
+        },
+        {
+          "message_index": 101,
+          "full_output_path": "temp/tool-output/0050.txt"
+        },
+        {
+          "message_index": 103,
+          "full_output_path": "temp/tool-output/0051.txt"
+        },
+        {
+          "message_index": 105,
+          "full_output_path": "temp/tool-output/0052.txt"
+        }
+      ]
+    }
+  ],
+  "task_state": {
+    "source_revision": "4ed974f4c672d33a13254a49dfad084c1ee1792fab1dd3393f800f8c3f33f39b",
+    "changed_files": [
+      "boltons/fileutils.py"
+    ],
+    "executed_actions": 57,
+    "blocked_reads": 0,
+    "guard_enabled": true,
+    "warning": "",
+    "model_notes": {
+      "status": "model-authored, unverified",
+      "hypothesis": "AtomicSaver.__init__ does dest_path + '.part' (str concat) and iter_find_files does directory.split(os.path.sep); both fail for PathLike. Fix by coercing via os.fspath at entry.",
+      "next_action": "Apply os.fspath coercion in AtomicSaver.__init__ and iter_find_files, then run tests."
+    },
+    "last_model_intent_unverified": "The fix is complete and minimal.\n\n**Diagnosis:** `AtomicSaver.__init__` did `dest_path + '.part'` (string concatenation) and `iter_find_files` did `directory.split(os.path.sep)` — both fail when given a `pathlib.Path` or custom `os.PathLike` object.\n\n**Repair:** Coerce inputs at the public entry points with `os.fspath(...)`:\n- `AtomicSaver.__init__`: `dest_path = os.fspath(dest_path)`\n- `iter_find_files`: `directory = os.fspath(directory)`\n\nThis preserves all existing string behavior (relative paths, Unicode/spaces, explicit temp names, overwrite, patterns/ignored patterns) since `os.fspath` returns strings unchanged, while accepting any string-returning PathLike. Byte-returning PathLike is intentionally not supported.\n\n**Verification:**\n- Manual reproduct…",
+    "recent_distinct_evidence": [
+      {
+        "command": "set -o pipefail\ncd \"$(git rev-parse --show-toplevel)\" && git status --porcelain && echo \"---DIFF---\" && git diff -- boltons/fileutils.py",
+        "returncode": 0,
+        "output_path": "temp/tool-output/0056.txt",
+        "preview": " M boltons/fileutils.py\n?? temp/\n---DIFF---\ndiff --git a/boltons/fileutils.py b/boltons/fileutils.py\nindex 2a05770..4a49a2c 100644\n--- a/boltons/fileutils.py\n+++ b/boltons/fileutils.py\n@@ -386,6 +386,7 @@ class AtomicSaver:\n \n     # TODO: option to abort if target file modify date has changed since start?\n     def __init__(self, dest_path, **kwargs):\n+        dest_path = os.fspath(dest_path)\n         self.dest_path = dest_path\n         self.overwrite = kwargs.pop('overwrite', True)\n         self.file_perms …"
+      },
+      {
+        "command": "set -o pipefail\necho COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "returncode": 0,
+        "output_path": "temp/tool-output/0057.txt",
+        "preview": "COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT\n"
+      }
+    ],
+    "evidence_log": "temp/task-state/events.jsonl",
+    "validation": "Command exit codes are observations; independent repair acceptance occurs outside the Agent."
+  },
+  "pinned_state_requests": [
+    {
+      "request_view": 1,
+      "content_bytes": 697,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "0f943b6f3adcc2ed6d9e8631d678389842f64f24619b6bc4853488841057380f"
+    },
+    {
+      "request_view": 2,
+      "content_bytes": 983,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "1e9f3c191026c51c8cedec0eadc36a8e4500c748437561ab417a44d51c6b4684"
+    },
+    {
+      "request_view": 3,
+      "content_bytes": 1211,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "7c7fdff39a5007dc4042d72c1508ac3063f8b1423297ea4ec371ad3e2e031080"
+    },
+    {
+      "request_view": 4,
+      "content_bytes": 1181,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "fedc03573e6ce4cd967563d181bb650e896d867f5209d06dc81bd2b51429f8f6"
+    },
+    {
+      "request_view": 5,
+      "content_bytes": 1129,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "0137c6e92d7888d09c7e3cbfd9657b10bec09cfa764390067c3daaea09e73fde"
+    },
+    {
+      "request_view": 6,
+      "content_bytes": 1129,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "f64d72d01545a4caa3ed1d21ddf77b3dbebab1f46c9074f22b680c8751c8c0af"
+    },
+    {
+      "request_view": 7,
+      "content_bytes": 1125,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "81479a1d276445d78cb75d89348c866ef46887cb9be657d5d03bd798c1e0316f"
+    },
+    {
+      "request_view": 8,
+      "content_bytes": 1173,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "eff3588533cafb9eebad7de776ca30d1025dcc638048a6ccace5762b1a682857"
+    },
+    {
+      "request_view": 9,
+      "content_bytes": 1136,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "2a52ad5cc1f2bbe6f90970c3c0b0d0c29b955a40018c40706e1c341761b1b20e"
+    },
+    {
+      "request_view": 10,
+      "content_bytes": 1287,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "92c62ac38327e938497b8a6a5c4a6d37e25a1249d638d8a90a97da095c117bcb"
+    },
+    {
+      "request_view": 11,
+      "content_bytes": 1232,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "9ccac3db18607bc11e402fa9f6c851a30f8755f15fc5a617bf533f8e8ef0876c"
+    },
+    {
+      "request_view": 12,
+      "content_bytes": 1143,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "41ba21186455e2aac13ef4ade67bdb1c3cd1a31ef1d6b91988af4c6c7361caa9"
+    },
+    {
+      "request_view": 13,
+      "content_bytes": 1297,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "1fedbe0e32f5eba440d2548987ba7bc8901296186c25335dd0dadd91d3e86d83"
+    },
+    {
+      "request_view": 14,
+      "content_bytes": 1129,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "71fb6df27267caf11d62171c43e57e549bc82592e7dfabc420fdadb38a789c86"
+    },
+    {
+      "request_view": 15,
+      "content_bytes": 1415,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "73549bc3952c40ea9bb7e6583e07842ed6fc960a8fd6bd98e8a613564105185c"
+    },
+    {
+      "request_view": 16,
+      "content_bytes": 1148,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "d6125cf451579576d9d71ab53568422ffab769825d17885b49eedb69e66a5052"
+    },
+    {
+      "request_view": 17,
+      "content_bytes": 1278,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "9cc6aa3ccf41f90c9390b9b6fed11268589b0a6f3118279f5055d46ec834f7c4"
+    },
+    {
+      "request_view": 18,
+      "content_bytes": 1284,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "a7c5e25983d7cda917d6df24216c4780bb27efc6a6db63e1d4b65ba4b87c97df"
+    },
+    {
+      "request_view": 19,
+      "content_bytes": 1283,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "93ed9b16a6dd19b91edec303dba0e2a73936cfda218fa970fa3ec4f6468e5198"
+    },
+    {
+      "request_view": 20,
+      "content_bytes": 1148,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "a48f30de872830eeb56c11279cb1aaea385529f9f6ef3f109a9e0eb885cceaf9"
+    },
+    {
+      "request_view": 21,
+      "content_bytes": 1148,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "26f2dbf9e7afff2f7caad5a4daaf5dccf458087f8e3087465d9b6595b5b7dd88"
+    },
+    {
+      "request_view": 22,
+      "content_bytes": 1148,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "dd9cfd970e20b44ce4fd4f7d2e10e7f56d48a86334a09742cce06cbca6665b0e"
+    },
+    {
+      "request_view": 23,
+      "content_bytes": 1224,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "2b0c2a2f98e654038769e432d02e981e5fcf2120797065f00502e3f792dc168e"
+    },
+    {
+      "request_view": 24,
+      "content_bytes": 1224,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "238e65c4be4b3b2bbf97b10b06fedac243668c0ee80c5bc0158d3c9a216c1ad8"
+    },
+    {
+      "request_view": 25,
+      "content_bytes": 1224,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "dd84b55569931d28e76384b56ce8f58b69f9adf2b944616d1ea65daba6587e77"
+    },
+    {
+      "request_view": 26,
+      "content_bytes": 1150,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "57b3785885931535929a2b18f71bd0aeb840caeac65152ded3c1877b5761b7a8"
+    },
+    {
+      "request_view": 27,
+      "content_bytes": 1150,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "aa7d26f94b2a89f315a119c942a0642c0098a5836bc5b84cb7fcf92cff61427e"
+    },
+    {
+      "request_view": 28,
+      "content_bytes": 1149,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "3e53079138755962bbe03e7ee3faa3bca42dca51714254830cb74ba948d7eb26"
+    },
+    {
+      "request_view": 29,
+      "content_bytes": 1148,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "8948b8789860feb52b69718be70d15a6dad473e0ed06f8fca02710d23e9315ee"
+    },
+    {
+      "request_view": 30,
+      "content_bytes": 1219,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "0b58d0f17040d58f577fcc8a0ef8fcb06b7ffa37c23db1f8c098f683af19b72e"
+    },
+    {
+      "request_view": 31,
+      "content_bytes": 1220,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "6860db747289ee5fae83cfd0412b92632bfc5cd85c20e80e5416aecc70378a3c"
+    },
+    {
+      "request_view": 32,
+      "content_bytes": 1152,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "673a4323732dcc643f5fa34a076abf0bf1fce0c94a251df92688079212a5bd35"
+    },
+    {
+      "request_view": 33,
+      "content_bytes": 1152,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "be2a7d335d2e73c0fc6276317b6a1eb8532bd75ed6b7e39cd7ec4690c174ba48"
+    },
+    {
+      "request_view": 34,
+      "content_bytes": 1172,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "4d07017742891e68f9d8ff03a17e05acbcfee084277be46686ff5fe535305189"
+    },
+    {
+      "request_view": 35,
+      "content_bytes": 1172,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "e3fbd005d1ae2811aec59a499470ea394802458ca28fd1ff69089d36841de79b"
+    },
+    {
+      "request_view": 36,
+      "content_bytes": 1172,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "e22d558e0733912f52c10fb71478c3d08a17e7f5eccb5a57217bf80e67bbecbc"
+    },
+    {
+      "request_view": 37,
+      "content_bytes": 1221,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "cfe4f21b24b398f6933288e22152f32f7fbf67560488de93a6e3a83e94bab8da"
+    },
+    {
+      "request_view": 38,
+      "content_bytes": 1221,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "4568221f9ec3065dd9847fe1049764f1d8cedb5db55b65089d6c7c7392fe85e2"
+    },
+    {
+      "request_view": 39,
+      "content_bytes": 1145,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "f5fb155dc48830f72fdcaced8a7a9d494ff90a4e1eba9f817a622438ef6e06c0"
+    },
+    {
+      "request_view": 40,
+      "content_bytes": 1139,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "837f0ec7a5d8f095f050294185385e79a345b70f006a9bccbb3d48b17c43b55b"
+    },
+    {
+      "request_view": 41,
+      "content_bytes": 1139,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "1eb668914bb33daf3e38fe9960b34d465d07228955b07449ffcebcf792686c48"
+    },
+    {
+      "request_view": 42,
+      "content_bytes": 1199,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "ca0e55c153cb2e8aad4d7cf07ac17cb86392cf23693eadc56621c0680accf5c8"
+    },
+    {
+      "request_view": 43,
+      "content_bytes": 1332,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "4d3070606855dd68654ae20e2e8e9c1ca1f41453bd125f09130a53bde79eaee3"
+    },
+    {
+      "request_view": 44,
+      "content_bytes": 1227,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "b93b622a023829b7b8c3cff07b42a244a36ed2c91cd7041a5e5aba527be8abca"
+    },
+    {
+      "request_view": 45,
+      "content_bytes": 1117,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "934546f58dc086d179c31d7ee03e9aef8d0ec58408cbed92e9838781c1ca4621"
+    },
+    {
+      "request_view": 46,
+      "content_bytes": 1117,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "1fff8859560810ba327434a171db5bca699985590036d8b5455ff628f0833226"
+    },
+    {
+      "request_view": 47,
+      "content_bytes": 1210,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "cdfcfa96dab009049ef615fad10737ba3d35e4a8ff56d8aa3efe14f53502dabf"
+    },
+    {
+      "request_view": 48,
+      "content_bytes": 1210,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "8433bfb6e41a93062f90b6bdae7e11f0db410d3b4f9830a4b12889a350c47920"
+    },
+    {
+      "request_view": 49,
+      "content_bytes": 1103,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "61c74cb807ca5033b3e8f128d7e16ff3ec00443e288bc8ee9e70b77ece85d784"
+    },
+    {
+      "request_view": 50,
+      "content_bytes": 1500,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "d6f2fbbb2b504bcb1d5c2ec481c3fafec25558fa1687a979be85f3f11c4c1f58"
+    },
+    {
+      "request_view": 51,
+      "content_bytes": 1500,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "0ec42ab75bceaf5be53330faaf5ed445c800ce2473e1c2872aec1bca35921089"
+    },
+    {
+      "request_view": 52,
+      "content_bytes": 1396,
+      "source_revision": "be181c4c4fe55fda16b17b1e50c51ba3d67dcd18cd406c844ba1de22a1b1ea32",
+      "sha256": "b3d19fa082df01dd5310b365706eb14f4190e5931009a20fe9829033186a3d1a"
+    },
+    {
+      "request_view": 53,
+      "content_bytes": 1483,
+      "source_revision": "4ed974f4c672d33a13254a49dfad084c1ee1792fab1dd3393f800f8c3f33f39b",
+      "sha256": "2bcab3c2dcf7162360a8977e1b776d84cbfb9fd8b87fbfe4b73633083d3fd482"
+    },
+    {
+      "request_view": 54,
+      "content_bytes": 1619,
+      "source_revision": "4ed974f4c672d33a13254a49dfad084c1ee1792fab1dd3393f800f8c3f33f39b",
+      "sha256": "db5727f6db066e15627e5ee2e83a3ec2379bcdc138c27f20f7b9f566a5be34ea"
+    },
+    {
+      "request_view": 55,
+      "content_bytes": 1568,
+      "source_revision": "4ed974f4c672d33a13254a49dfad084c1ee1792fab1dd3393f800f8c3f33f39b",
+      "sha256": "31000b343c0ae75edf275caa1f8972aa08146a4e0874b9fa92cfe6c48c9176bd"
+    },
+    {
+      "request_view": 56,
+      "content_bytes": 1490,
+      "source_revision": "4ed974f4c672d33a13254a49dfad084c1ee1792fab1dd3393f800f8c3f33f39b",
+      "sha256": "652ed951faefd06ceeaed13b9a54754570e0cafcadd2f3ea8601d453a440ad62"
+    },
+    {
+      "request_view": 57,
+      "content_bytes": 1496,
+      "source_revision": "4ed974f4c672d33a13254a49dfad084c1ee1792fab1dd3393f800f8c3f33f39b",
+      "sha256": "a3d7d41bf888bc0c10b2ff52a37ab454a763371d9a005f06548384daa72d3a44"
+    }
+  ],
+  "elapsed_seconds": 64.078,
+  "changed_files": [
+    "boltons/fileutils.py"
+  ],
+  "unexpected_changes": [],
+  "checks_and_description_unchanged": true,
+  "task_tests_passed": true,
+  "new_full_suite_failures": [],
+  "patch_replay_passed": true,
+  "repair_verified": true,
+  "shared_budget": {
+    "max_requests": null,
+    "max_total_cost_cny": null,
+    "accounted_cost_and_reservations_cny": 7.412574,
+    "remaining_cny": null,
+    "blocked": false
+  },
+  "scope": "Public new-task evaluation, held out from this project strategy tuning only. Visible checks; not SWE-bench, private tests, or guaranteed absent from model training."
+}

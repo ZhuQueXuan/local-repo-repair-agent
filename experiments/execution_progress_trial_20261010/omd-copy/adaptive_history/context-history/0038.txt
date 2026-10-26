@@ -1,0 +1,1 @@
+That `__reduce_ex__` is for `FrozenDict`, not OMD. So OMD has no custom `__reduce__`. Let me look at OMD's `__getstate__`/`__setstate__` and `__init__`.

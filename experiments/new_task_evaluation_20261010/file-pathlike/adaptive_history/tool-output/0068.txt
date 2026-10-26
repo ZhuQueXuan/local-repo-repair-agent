@@ -1,0 +1,21 @@
+
+        # if default perms are overridden by the user or previous dest_path
+        # chmod away the effects of the umask
+        if do_chmod:
+            try:
+                os.chmod(self.part_path, file_perms)
+            except OSError:
+                self.part_file.close()
+                raise
+        return
+
+    def setup(self):
+        """Called on context manager entry (the :keyword:`with` statement),
+        the ``setup()`` method creates the temporary file in the same
+        directory as the destination file.
+
+        ``setup()`` tests for a writable directory with rename permissions
+        early, as the part file may not be written to immediately (not
+        using :func:`os.access` because of the potential issues of
+        effective vs. real privileges).
+

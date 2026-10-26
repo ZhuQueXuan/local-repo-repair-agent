@@ -1,0 +1,11 @@
+{
+  "ledger_unchanged.json": "ea15a1ac9c5a0de1f016a743e8263dcf278b8f359ad9c0cd592193bec664642b",
+  "offline_checks.txt": "73c461292ea4940e0abea4086f8a92d236f8c6dda843c12ea24734f42787dfc2",
+  "summary.json": "77a9f1ae944f3533a35e5f680fde4790b00b6dbcc744ca07cc9bd98b90513bbf",
+  "configs/deepseek_budget.json": "c1b868b1a2fa4fe5957826a3db47c3bd340f77fa9cc793b7ef7b1c319b9aed24",
+  "scripts/deepseek_budget.py": "0a4af80081f86909160b0132d1bc5adbb3a13c06c246a65e23970fd497f2be38",
+  "scripts/run_deepseek_smoke.py": "ed070f6350265e3c5eb0acee5c85e9e59d3ddf0fb6f717a5b79d1952370fc116",
+  "scripts/run_task_batch.py": "8a0220a44a1e17ed6e3f5fbe09c9d74f7df7479cb430b973625392d7a53a2b99",
+  "scripts/run_windowed_agent.py": "4cab9e81655985136e8184663753c12579cf7f6dfaff8c8289392670de7f4351",
+  "scripts/test_deepseek_budget.py": "e53c2b664d2e431c8752f5994e66b0ab80f9ef25b3c2a21ad86ca93cfeaebf46"
+}

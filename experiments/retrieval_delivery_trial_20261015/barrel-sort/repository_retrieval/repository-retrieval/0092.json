@@ -1,0 +1,333 @@
+{
+  "indexed_files": 30,
+  "query_terms": [
+    "after",
+    "all",
+    "another",
+    "api",
+    "behavior",
+    "but",
+    "change",
+    "changing",
+    "checks",
+    "compatible",
+    "container",
+    "different",
+    "duplicates",
+    "empty",
+    "fails",
+    "globally",
+    "implementation",
+    "index",
+    "input",
+    "inputs",
+    "inserting",
+    "insertion",
+    "large",
+    "larger",
+    "later",
+    "leave",
+    "length",
+    "library",
+    "list",
+    "must",
+    "none",
+    "operation",
+    "operations",
+    "place",
+    "preserve",
+    "prior",
+    "public",
+    "repair",
+    "replacing",
+    "reproduce",
+    "size",
+    "small",
+    "sort",
+    "sorting",
+    "sorts",
+    "sufficiently",
+    "type",
+    "usable",
+    "value",
+    "values",
+    "whether",
+    "without",
+    "works"
+  ],
+  "hits": [
+    {
+      "path": "boltons/setutils.py",
+      "symbol": "IndexedSet.sort",
+      "start": 452,
+      "end": 460,
+      "matched_terms": [
+        "index",
+        "list",
+        "place",
+        "sort"
+      ],
+      "import_neighbors": [],
+      "score": 11.7811,
+      "sha256": "47f8787d719739a71ce3b01f86542a93636c39ed9d3143f16b931cb876e69b9a",
+      "snippet": [
+        {
+          "line": 452,
+          "text": "    def sort(self, **kwargs):"
+        },
+        {
+          "line": 453,
+          "text": "        \"sort() -> sort the contents of the set in-place\""
+        },
+        {
+          "line": 454,
+          "text": "        sorted_list = sorted(self, **kwargs)"
+        },
+        {
+          "line": 455,
+          "text": "        if sorted_list == self.item_list:"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "boltons/listutils.py",
+      "symbol": "BarrelList.sort",
+      "start": 301,
+      "end": 312,
+      "matched_terms": [
+        "length",
+        "list",
+        "sort"
+      ],
+      "import_neighbors": [],
+      "score": 10.992,
+      "sha256": "2a6e98c632c03ee4b55896381a4703d2667a174d21145dea5d172947b4527587",
+      "snippet": [
+        {
+          "line": 301,
+          "text": "    def sort(self):"
+        },
+        {
+          "line": 302,
+          "text": "        # poor pythonist's mergesort, it's faster than sorted(self)"
+        },
+        {
+          "line": 303,
+          "text": "        # when the lists' average length is greater than 512."
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "boltons/tableutils.py",
+      "symbol": "ListInputType",
+      "start": 167,
+      "end": 178,
+      "matched_terms": [
+        "input",
+        "list",
+        "type"
+      ],
+      "import_neighbors": [],
+      "score": 10.924,
+      "sha256": "ba9f29d4e4c3277328921f8277662dd173838b81a85629cdfe64f39e9a8cf707",
+      "snippet": [
+        {
+          "line": 167,
+          "text": "class ListInputType(InputType):"
+        },
+        {
+          "line": 168,
+          "text": "    def check_type(self, obj):"
+        },
+        {
+          "line": 169,
+          "text": "        return isinstance(obj, MutableSequence)"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "boltons/cacheutils.py",
+      "symbol": "ThresholdCounter.values",
+      "start": 779,
+      "end": 780,
+      "matched_terms": [
+        "list",
+        "values"
+      ],
+      "import_neighbors": [],
+      "score": 9.7128,
+      "sha256": "d0e46982934adb54bdccf1556012ba7d877f76040fafc716667db8a143244853",
+      "snippet": [
+        {
+          "line": 779,
+          "text": "    def values(self):"
+        },
+        {
+          "line": 780,
+          "text": "        return list(self.itervalues())"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "boltons/dictutils.py",
+      "symbol": "OrderedMultiDict.values",
+      "start": 597,
+      "end": 601,
+      "matched_terms": [
+        "list",
+        "values"
+      ],
+      "import_neighbors": [],
+      "score": 9.594,
+      "sha256": "966d192b9918c6448fa9f64728463f80ed0456a8aa9d59efa3071e87707c21a0",
+      "snippet": [
+        {
+          "line": 597,
+          "text": "    def values(self, multi=False):"
+        },
+        {
+          "line": 598,
+          "text": "        \"\"\"Returns a list containing the output of :meth:`itervalues`.  See"
+        },
+        {
+          "line": 599,
+          "text": "        that method's docs for more details."
+        }
+      ],
+      "syntax_fallback": false
+    }
+  ],
+  "refreshed_files": [],
+  "removed_from_index": [],
+  "skipped": [],
+  "message_utf8_bytes": 2500,
+  "full_message_utf8_bytes": 2500,
+  "selected_hits": [
+    {
+      "path": "boltons/setutils.py",
+      "symbol": "IndexedSet.sort",
+      "start": 452,
+      "end": 460,
+      "matched_terms": [
+        "index",
+        "list",
+        "place",
+        "sort"
+      ],
+      "import_neighbors": [],
+      "score": 11.7811,
+      "sha256": "47f8787d719739a71ce3b01f86542a93636c39ed9d3143f16b931cb876e69b9a",
+      "snippet": [
+        {
+          "line": 452,
+          "text": "    def sort(self, **kwargs):"
+        },
+        {
+          "line": 453,
+          "text": "        \"sort() -> sort the contents of the set in-place\""
+        },
+        {
+          "line": 454,
+          "text": "        sorted_list = sorted(self, **kwargs)"
+        },
+        {
+          "line": 455,
+          "text": "        if sorted_list == self.item_list:"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "boltons/listutils.py",
+      "symbol": "BarrelList.sort",
+      "start": 301,
+      "end": 312,
+      "matched_terms": [
+        "length",
+        "list",
+        "sort"
+      ],
+      "import_neighbors": [],
+      "score": 10.992,
+      "sha256": "2a6e98c632c03ee4b55896381a4703d2667a174d21145dea5d172947b4527587",
+      "snippet": [
+        {
+          "line": 301,
+          "text": "    def sort(self):"
+        },
+        {
+          "line": 302,
+          "text": "        # poor pythonist's mergesort, it's faster than sorted(self)"
+        },
+        {
+          "line": 303,
+          "text": "        # when the lists' average length is greater than 512."
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "boltons/tableutils.py",
+      "symbol": "ListInputType",
+      "start": 167,
+      "end": 178,
+      "matched_terms": [
+        "input",
+        "list",
+        "type"
+      ],
+      "import_neighbors": [],
+      "score": 10.924,
+      "sha256": "ba9f29d4e4c3277328921f8277662dd173838b81a85629cdfe64f39e9a8cf707",
+      "snippet": [
+        {
+          "line": 167,
+          "text": "class ListInputType(InputType):"
+        },
+        {
+          "line": 168,
+          "text": "    def check_type(self, obj):"
+        },
+        {
+          "line": 169,
+          "text": "        return isinstance(obj, MutableSequence)"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "boltons/cacheutils.py",
+      "symbol": "ThresholdCounter.values",
+      "start": 779,
+      "end": 780,
+      "matched_terms": [
+        "list",
+        "values"
+      ],
+      "import_neighbors": [],
+      "score": 9.7128,
+      "sha256": "d0e46982934adb54bdccf1556012ba7d877f76040fafc716667db8a143244853",
+      "snippet": [
+        {
+          "line": 779,
+          "text": "    def values(self):"
+        },
+        {
+          "line": 780,
+          "text": "        return list(self.itervalues())"
+        }
+      ],
+      "syntax_fallback": false
+    }
+  ],
+  "projection": 92,
+  "preview": false,
+  "delivery_mode": "full",
+  "delivery_reason": "always_policy",
+  "snapshot": null,
+  "snapshot_sha256": null
+}

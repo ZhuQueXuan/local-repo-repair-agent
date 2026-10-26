@@ -1,0 +1,10 @@
+{
+  "adapter/scratch/tmpsid85xk2/test.txt": "a1fff0ffefb9eace7230c24e50731f0a91c62f9cefdfe77121c2f607125dffae",
+  "adapter/upstream_junit.xml": "60168b18d2074ae724273e73da084b94bdc29cd025c01b14ef02716b797493c2",
+  "adapter/upstream_results.json": "150e717992aa74089ec279d68c971c08bbc788896ee857cc8e9a511fa3b6b00a",
+  "adapter.log": "4336bba0f01e81e7a65b46428d456c5d3f22d8e8fd2b8d232a778744cfea4f38",
+  "inventory.json": "71107729ba531a3d61ee2b98763901aa3f4d2b983738fd1554f0f5a000b6bdc8",
+  "protected_after.json": "b09e639f770659dd1865e6ff3edcc761b464b28e7a1f171a355cffa48d5323f8",
+  "protected_before.json": "b09e639f770659dd1865e6ff3edcc761b464b28e7a1f171a355cffa48d5323f8",
+  "summary.json": "cf2ef4ea085169f1f1455166ae2dc6da70818fe48422a034dd17f6ca27140cf7"
+}

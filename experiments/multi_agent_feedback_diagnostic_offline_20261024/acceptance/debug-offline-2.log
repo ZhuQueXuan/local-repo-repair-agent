@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\temp\multi_agent_feedback_diagnostic_20261024\debug_offline.py", line 15, in <module>
+    case.test_actual_full_feedback_preserves_session_versions_and_replay()
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 176, in test_actual_full_feedback_preserves_session_versions_and_replay
+    self.exercise()
+  File "D:\myDocu\project_postg\shixi_project\scripts\test_collaboration_diagnostic.py", line 152, in exercise
+    self.assertEqual(result["status"], "finished", result)
+  File "D:\python\python3.10.6\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "D:\python\python3.10.6\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "D:\python\python3.10.6\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'failed' != 'finished'
+- failed
++ finished
+ : {'agent_exit': None, 'artifacts': {}, 'cancel_requested': False, 'collaboration_mode': 'dual_review_diagnostic', 'collaboration_policy': {'candidate_selection': 'latest_legal_even_if_tests_regress', 'diagnostic_profile': 'seeded_falsey_remainder_v1', 'feedback_windows': 1, 'max_consecutive_format_errors': 3, 'parent_seconds': 1800, 'repair_profile': 'adaptive_history', 'review_failure': 'preserve_last_legal_candidate_and_assessment_no_retry', 'review_repeat_limit': 3, 'role_seconds': {'final_review': 90, 'repairing': 300, 'reviewing': 120, 'revising': 180}, 'schema_version': 1, 'scope': 'Manual known-defect candidate with disclosed checks; confirm, independently review, continue the same repair session, review the new version. Wiring acceptance only; no effectiveness claim.'}, 'collaboration_result': 'not_completed', 'configuration': {'archive_assistant_content': True, 'context_budget': {'compact_completed_exchanges': True, 'compact_to_target': True, 'keep_recent_tool_outputs': 4, 'retained_audit_entries': 3, 'target_bytes': 12288}, 'task_state': {'blocked_read_threshold': 3, 'guard_enabled': True, 'include_previews_in_requests': False, 'repeated_read_threshold': 3}, 'tool_output_budget': {'max_output_bytes': 1024}}, 'created': '2026-10-24T07:49:05.523111+00:00', 'id': 'f104d8174f1d44d0983d9b9f98260c3e', 'kind': 'collaboration_live', 'metrics': {}, 'policy_digest': 'eac89ab791382a6216004850d9fcd157d587403b3c9bd7ed5f5dbd911395e6e8', 'profile': 'adaptive_history', 'repair_result': 'unknown', 'review_verdict': 'unavailable', 'scope': 'Manual known-defect candidate, disclosed falsey-remainder checks; real-model feedback wiring only, not discovery or effectiveness evidence.', 'stage': 'done', 'started': '2026-10-24T07:49:09.777844+00:00', 'status': 'failed', 'task': 'split-after-boundary', 'task_digest': '2268d61f2d10823f11b1e7b21e8aa02f95471aea4ade20938026d3cbe91bcfd6', 'updated': '2026-10-24T07:49:12.907710+00:00', 'workspace': 'D:\\myDocu\\project_postg\\shixi_project\\tasks\\split-after-boundary\\temp\\run_20261024_154905_882323\\repo', 'ended': '2026-10-24T07:49:12.907710+00:00', 'reason': 'Stage failure: ProtocolError'}

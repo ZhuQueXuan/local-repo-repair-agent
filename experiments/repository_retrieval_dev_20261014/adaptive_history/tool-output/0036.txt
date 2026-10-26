@@ -1,0 +1,3 @@
+caught <class 'requests.exceptions.JSONDecodeError'> ('Expecting value: line 1 column 6 (char 5)',)
+msg Expecting value doc {"a":} pos 5
+OK <class 'requests.exceptions.JSONDecodeError'> ('Expecting value: line 1 column 6 (char 5)',)

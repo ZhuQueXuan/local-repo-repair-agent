@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "task": "indexed-set-removal",
+      "requests": 41,
+      "estimated_cost_cny": "0.290964",
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "patch_replay_passed": true,
+      "issue_passed": 10,
+      "upstream_targeted_passed": 5,
+      "full_suite_passed": 423,
+      "full_suite_tests": 423,
+      "new_full_suite_failures": [],
+      "maximum_actual_request_bytes": 13752,
+      "blocked_reads": 0,
+      "compaction_requests": 35
+    },
+    {
+      "task": "split-after-boundary",
+      "requests": 11,
+      "estimated_cost_cny": "0.060432",
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "patch_replay_passed": true,
+      "issue_passed": 10,
+      "upstream_targeted_passed": 4,
+      "full_suite_passed": 659,
+      "full_suite_tests": 660,
+      "new_full_suite_failures": [],
+      "maximum_actual_request_bytes": 12286,
+      "blocked_reads": 0,
+      "compaction_requests": 3
+    }
+  ],
+  "new_requests": 52,
+  "new_estimated_cost_cny": "0.351396",
+  "cumulative_limit_cny": "15.00",
+  "shared_accounted_cost_and_reservations_cny": "5.198346",
+  "remaining_cny": "9.801654",
+  "retained_old_unsettled_requests": 1,
+  "offline_tests_passed": 52,
+  "scope": "Two public development tasks; adaptive multi-knob change, one run each. No general success-rate/cost claim or held-out benchmark."
+}

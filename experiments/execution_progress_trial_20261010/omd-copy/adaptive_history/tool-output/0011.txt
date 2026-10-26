@@ -1,0 +1,2 @@
+(<function __newobj__ at 0x00000223366B7D00>, (<class 'boltons.dictutils.OrderedMultiDict'>,), [('a', 1), ('a', 2)], None, <list_iterator object at 0x0000022336705F30>)
+state [('a', 1), ('a', 2)]

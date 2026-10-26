@@ -1,0 +1,1 @@
+There's already a diff of 3 insertions. Let me see the current diff and the full __init__.

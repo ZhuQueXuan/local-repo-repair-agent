@@ -1,0 +1,2285 @@
+{
+  "profile": "native",
+  "exit_code": 0,
+  "selected": [
+    "tests/agents/test_init.py::TestGetAgentClass::test_full_path[minisweagent.agents.default.DefaultAgent-DefaultAgent]",
+    "tests/agents/test_init.py::TestGetAgentClass::test_full_path[minisweagent.agents.interactive.InteractiveAgent-InteractiveAgent]",
+    "tests/agents/test_init.py::TestGetAgentClass::test_shorthand[default-DefaultAgent]",
+    "tests/agents/test_init.py::TestGetAgentClass::test_shorthand[interactive-InteractiveAgent]",
+    "tests/agents/test_init.py::TestGetAgentClass::test_invalid_spec",
+    "tests/agents/test_init.py::TestGetAgentClass::test_invalid_module",
+    "tests/agents/test_init.py::TestGetAgent::test_default_type",
+    "tests/agents/test_init.py::TestGetAgent::test_agent_class_in_config",
+    "tests/agents/test_init.py::TestGetAgent::test_config_passed_to_agent",
+    "tests/agents/test_multimodal.py::test_expand_content_string[Just plain text-expected0]",
+    "tests/agents/test_multimodal.py::test_expand_content_string[Text before <MSWEA_MULTIMODAL_CONTENT><CONTENT_TYPE>image_url</CONTENT_TYPE>https://example.com/image.png</MSWEA_MULTIMODAL_CONTENT> text after-expected1]",
+    "tests/agents/test_multimodal.py::test_expand_content_string[<MSWEA_MULTIMODAL_CONTENT><CONTENT_TYPE>image_url</CONTENT_TYPE>data:image/png;base64,iVBORw0KGgoAAAANS</MSWEA_MULTIMODAL_CONTENT>-expected2]",
+    "tests/agents/test_multimodal.py::test_expand_content_string_multiple_images",
+    "tests/agents/test_multimodal.py::test_expand_content_string_multiline",
+    "tests/agents/test_multimodal.py::test_expand_content_string_whitespace_handling",
+    "tests/agents/test_multimodal.py::test_expand_content_string_adjacent_images",
+    "tests/agents/test_multimodal.py::test_expand_multimodal_content_string",
+    "tests/agents/test_multimodal.py::test_expand_multimodal_content_list",
+    "tests/agents/test_multimodal.py::test_expand_multimodal_content_dict",
+    "tests/agents/test_multimodal.py::test_expand_multimodal_content_dict_no_content_key",
+    "tests/agents/test_multimodal.py::test_expand_multimodal_content_nested",
+    "tests/agents/test_multimodal.py::test_expand_multimodal_content_preserves_original",
+    "tests/agents/test_multimodal.py::test_model_format_message_with_multimodal",
+    "tests/agents/test_multimodal.py::test_model_format_message_without_multimodal",
+    "tests/agents/test_multimodal.py::test_unknown_content_type_ignored",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_simple_string_value",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_simple_string_with_quotes",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_nested_single_level",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_nested_multiple_levels",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_deeply_nested",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_integer_value",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_negative_integer",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_float_value",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_negative_float",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_boolean_true",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_boolean_false",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_null_value",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_list_value",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_list_of_numbers",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_dict_value",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_nested_with_integer",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_nested_with_float",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_nested_with_boolean",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_model_name_example",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_empty_string_value",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_value_with_spaces",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_zero_integer",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_zero_float",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_empty_key_raises_value_error[=value]",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_empty_key_raises_value_error[model..name=value]",
+    "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_empty_key_raises_value_error[model.=value]",
+    "tests/config/test_init.py::TestGetConfigFromSpec::test_uses_key_value_spec_for_equals_sign",
+    "tests/config/test_init.py::TestGetConfigFromSpec::test_uses_key_value_spec_with_number",
+    "tests/config/test_init.py::TestGetConfigFromSpec::test_loads_yaml_file_when_no_equals",
+    "tests/config/test_init.py::TestGetConfigFromSpec::test_loads_utf8_yaml_regardless_of_locale",
+    "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[default]",
+    "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[mini]",
+    "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[mini_textbased]",
+    "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[programbench]",
+    "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[swebench]",
+    "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[swebench_backticks]",
+    "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[swebench_modal]",
+    "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[swebench_xml]",
+    "tests/config/test_swebench_template.py::test_observation_template_short_output",
+    "tests/config/test_swebench_template.py::test_observation_template_long_output",
+    "tests/config/test_swebench_template.py::test_observation_template_edge_case_exactly_10000_chars",
+    "tests/config/test_swebench_template.py::test_observation_template_just_under_10000_chars",
+    "tests/config/test_swebench_template.py::test_agent_config_requires_templates",
+    "tests/environments/test_init.py::TestGetEnvironmentClass::test_get_environment_class_local_full_path",
+    "tests/environments/test_init.py::TestGetEnvironmentClass::test_get_environment_class_local_shorthand",
+    "tests/environments/test_init.py::TestGetEnvironmentClass::test_get_environment_class_invalid_spec",
+    "tests/environments/test_init.py::TestGetEnvironmentClass::test_get_environment_class_invalid_module",
+    "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_empty_tool_calls_raises_format_error",
+    "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_none_tool_calls_raises_format_error",
+    "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_template_kwargs_exposed_to_format_error_template",
+    "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_valid_bash_tool_call",
+    "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_multiple_valid_tool_calls",
+    "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_unknown_tool_raises_format_error",
+    "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_invalid_json_raises_format_error",
+    "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_missing_command_raises_format_error",
+    "tests/models/test_actions_toolcall.py::TestFormatToolcallObservationMessages::test_basic_formatting",
+    "tests/models/test_actions_toolcall.py::TestFormatToolcallObservationMessages::test_multiple_outputs",
+    "tests/models/test_actions_toolcall.py::TestFormatToolcallObservationMessages::test_with_template_vars",
+    "tests/models/test_actions_toolcall.py::TestFormatToolcallObservationMessages::test_exception_info_in_extra",
+    "tests/models/test_actions_toolcall.py::TestBashTool::test_bash_tool_structure",
+    "tests/models/test_anthropic_model_integration.py::test_sonnet_4_cache_control_integration",
+    "tests/models/test_anthropic_model_integration.py::test_get_model_anthropic_applies_cache_control[sonnet-4]",
+    "tests/models/test_anthropic_model_integration.py::test_get_model_anthropic_applies_cache_control[claude-sonnet]",
+    "tests/models/test_anthropic_model_integration.py::test_get_model_anthropic_applies_cache_control[anthropic/claude]",
+    "tests/models/test_anthropic_model_integration.py::test_get_model_anthropic_applies_cache_control[opus-latest]",
+    "tests/models/test_anthropic_model_integration.py::test_get_model_non_anthropic_no_cache_control[gpt-4]",
+    "tests/models/test_anthropic_model_integration.py::test_get_model_non_anthropic_no_cache_control[gpt-3.5-turbo]",
+    "tests/models/test_anthropic_model_integration.py::test_get_model_non_anthropic_no_cache_control[llama2]",
+    "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages0-expected0]",
+    "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages1-expected1]",
+    "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages2-expected2]",
+    "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages3-expected3]",
+    "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages4-expected4]",
+    "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages5-expected5]",
+    "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages6-expected6]",
+    "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages7-expected7]",
+    "tests/models/test_cache_control.py::test_set_cache_control_basic",
+    "tests/models/test_cache_control.py::test_set_cache_control_offset_deprecated",
+    "tests/models/test_content_string.py::TestGetContentString::test_plain_string_content",
+    "tests/models/test_content_string.py::TestGetContentString::test_openai_multimodal_text_blocks",
+    "tests/models/test_content_string.py::TestGetContentString::test_openai_tool_calls",
+    "tests/models/test_content_string.py::TestGetContentString::test_anthropic_content_blocks[message0-expected_fragments0]",
+    "tests/models/test_content_string.py::TestGetContentString::test_anthropic_content_blocks[message1-expected_fragments1]",
+    "tests/models/test_content_string.py::TestGetContentString::test_anthropic_content_blocks[message2-expected_fragments2]",
+    "tests/models/test_content_string.py::TestGetContentString::test_anthropic_content_blocks[message3-expected_fragments3]",
+    "tests/models/test_content_string.py::TestGetContentString::test_anthropic_tool_use_without_text_block",
+    "tests/models/test_content_string.py::TestGetContentString::test_empty_message",
+    "tests/models/test_content_string.py::TestGetContentString::test_content_list_skips_non_dict_items",
+    "tests/models/test_format_error_response_persistence.py::test_litellm_model_format_error_persists_response",
+    "tests/models/test_format_error_response_persistence.py::test_litellm_response_model_format_error_persists_response_with_model_dump",
+    "tests/models/test_format_error_response_persistence.py::test_litellm_response_model_format_error_persists_response_plain_dict_fallback",
+    "tests/models/test_format_error_response_persistence.py::test_openrouter_model_format_error_persists_response",
+    "tests/models/test_format_error_response_persistence.py::test_openrouter_response_model_format_error_persists_response",
+    "tests/models/test_format_error_response_persistence.py::test_requesty_model_format_error_persists_response",
+    "tests/models/test_format_error_response_persistence.py::test_persisted_response_round_trips_through_json",
+    "tests/models/test_format_error_response_persistence.py::test_format_error_still_propagates_after_persisting_response",
+    "tests/models/test_format_error_response_persistence.py::test_litellm_textbased_model_format_error_persists_response",
+    "tests/models/test_format_error_response_persistence.py::test_openrouter_textbased_model_format_error_persists_response",
+    "tests/models/test_format_error_response_persistence.py::test_format_error_not_swallowed_when_model_dump_raises",
+    "tests/models/test_format_error_response_persistence.py::test_litellm_response_model_format_error_not_swallowed_when_model_dump_raises",
+    "tests/models/test_init.py::TestGetModelName::test_input_model_name_takes_precedence",
+    "tests/models/test_init.py::TestGetModelName::test_config_takes_precedence_over_env",
+    "tests/models/test_init.py::TestGetModelName::test_env_var_fallback",
+    "tests/models/test_init.py::TestGetModelName::test_config_fallback",
+    "tests/models/test_init.py::TestGetModelName::test_raises_error_when_no_model_configured",
+    "tests/models/test_init.py::TestGetModelClass::test_anthropic_model_selection",
+    "tests/models/test_init.py::TestGetModelClass::test_litellm_model_fallback",
+    "tests/models/test_init.py::TestGetModelClass::test_partial_matches",
+    "tests/models/test_init.py::TestGetModelClass::test_litellm_response_model_selection",
+    "tests/models/test_init.py::TestGetModel::test_config_deep_copy",
+    "tests/models/test_init.py::TestGetModel::test_integration_with_compatible_model",
+    "tests/models/test_init.py::TestGetModel::test_config_api_key_used_when_no_env_var",
+    "tests/models/test_init.py::TestGetModel::test_no_api_key_when_none_provided",
+    "tests/models/test_init.py::TestGetModel::test_get_deterministic_model",
+    "tests/models/test_init.py::TestGlobalModelStats::test_prints_cost_limit_when_set",
+    "tests/models/test_init.py::TestGlobalModelStats::test_prints_call_limit_when_set",
+    "tests/models/test_init.py::TestGlobalModelStats::test_prints_both_limits_when_both_set",
+    "tests/models/test_init.py::TestGlobalModelStats::test_no_print_when_silent_startup_set",
+    "tests/models/test_init.py::TestGlobalModelStats::test_no_print_when_no_limits_set",
+    "tests/models/test_init.py::TestGlobalModelStats::test_no_print_when_limits_are_zero",
+    "tests/models/test_litellm_model.py::TestLitellmModelConfig::test_default_format_error_template",
+    "tests/models/test_litellm_model.py::TestLitellmModel::test_query_includes_bash_tool",
+    "tests/models/test_litellm_model.py::TestLitellmModel::test_parse_actions_valid_tool_call",
+    "tests/models/test_litellm_model.py::TestLitellmModel::test_parse_actions_no_tool_calls_raises",
+    "tests/models/test_litellm_model.py::TestLitellmModel::test_finish_reason_threaded_into_format_error_template",
+    "tests/models/test_litellm_model.py::TestLitellmModel::test_format_observation_messages",
+    "tests/models/test_litellm_model.py::TestLitellmModel::test_format_observation_messages_no_actions",
+    "tests/models/test_litellm_textbased_model.py::test_authentication_error_enhanced_message",
+    "tests/models/test_litellm_textbased_model.py::test_model_registry_loading",
+    "tests/models/test_litellm_textbased_model.py::test_model_registry_none",
+    "tests/models/test_litellm_textbased_model.py::test_model_registry_not_provided",
+    "tests/models/test_litellm_textbased_model.py::test_litellm_model_cost_tracking_ignore_errors",
+    "tests/models/test_litellm_textbased_model.py::test_litellm_model_cost_validation_zero_cost",
+    "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_successful_query",
+    "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_authentication_error",
+    "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_no_cost_information",
+    "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_free_model_zero_cost",
+    "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_config",
+    "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_get_template_vars",
+    "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_no_api_key",
+    "tests/models/test_test_models.py::test_basic_functionality_and_cost_tracking",
+    "tests/models/test_test_models.py::test_custom_cost_and_multiple_models",
+    "tests/models/test_test_models.py::test_config_dataclass",
+    "tests/models/test_test_models.py::test_sleep_and_warning_commands",
+    "tests/models/test_test_models.py::test_raise_exception",
+    "tests/models/test_test_models.py::test_toolcall_model_basic",
+    "tests/models/test_test_models.py::test_toolcall_model_format_observation",
+    "tests/models/test_test_models.py::test_toolcall_config",
+    "tests/models/test_test_models.py::test_response_api_model_basic",
+    "tests/models/test_test_models.py::test_response_api_model_format_observation",
+    "tests/models/test_test_models.py::test_response_api_model_format_message",
+    "tests/models/test_test_models.py::test_response_api_config",
+    "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_non_truncation_returns_status[response0]",
+    "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_non_truncation_returns_status[response1]",
+    "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_non_truncation_returns_status[None]",
+    "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_incomplete_max_output_tokens_maps_to_length_dict",
+    "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_incomplete_max_output_tokens_maps_to_length_obj",
+    "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_incomplete_other_reason_is_not_length",
+    "tests/models/test_truncation_finish_reason.py::TestRegexActionsTemplateKwargs::test_finish_reason_reported_on_zero_actions",
+    "tests/models/test_truncation_finish_reason.py::TestRegexActionsTemplateKwargs::test_without_template_kwargs_still_works",
+    "tests/models/test_truncation_finish_reason.py::TestResponseActionsTemplateKwargs::test_finish_reason_reported_on_no_tool_calls",
+    "tests/models/test_truncation_finish_reason.py::TestHasToolCallsDistinction::test_malformed_toolcall_with_tool_calls_reason_shows_real_error",
+    "tests/models/test_truncation_finish_reason.py::TestHasToolCallsDistinction::test_empty_payload_with_tool_calls_reason_reports_truncation",
+    "tests/models/test_truncation_finish_reason.py::TestHasToolCallsDistinction::test_malformed_toolcall_with_length_reason_still_reports_truncation",
+    "tests/models/test_truncation_finish_reason.py::TestHasToolCallsDistinction::test_response_parser_passes_has_tool_calls",
+    "tests/run/test_batch_progress.py::test_shorten_str[hello-10-False-hello     ]",
+    "tests/run/test_batch_progress.py::test_shorten_str[hello world-8-False-hello...]",
+    "tests/run/test_batch_progress.py::test_shorten_str[hello world-8-True-...world]",
+    "tests/run/test_batch_progress.py::test_shorten_str[hello-5-False-hello]",
+    "tests/run/test_batch_progress.py::test_shorten_str[hi-5-False-hi   ]",
+    "tests/run/test_batch_progress.py::test_manager_initialization",
+    "tests/run/test_batch_progress.py::test_manager_with_yaml_path",
+    "tests/run/test_batch_progress.py::test_instance_lifecycle",
+    "tests/run/test_batch_progress.py::test_multiple_instances[statuses0]",
+    "tests/run/test_batch_progress.py::test_multiple_instances[statuses1]",
+    "tests/run/test_batch_progress.py::test_multiple_instances[statuses2]",
+    "tests/run/test_batch_progress.py::test_uncaught_exception",
+    "tests/run/test_batch_progress.py::test_update_instance_status",
+    "tests/run/test_batch_progress.py::test_yaml_report_generation",
+    "tests/run/test_batch_progress.py::test_get_overview_data",
+    "tests/run/test_batch_progress.py::test_print_report",
+    "tests/run/test_batch_progress.py::test_concurrent_operations",
+    "tests/run/test_cli_integration.py::test_configure_if_first_time_called",
+    "tests/run/test_cli_integration.py::test_mini_command_calls_run_interactive",
+    "tests/run/test_cli_integration.py::test_mini_calls_prompt_when_no_task_provided",
+    "tests/run/test_cli_integration.py::test_mini_with_explicit_model",
+    "tests/run/test_cli_integration.py::test_yolo_mode_sets_correct_agent_config",
+    "tests/run/test_cli_integration.py::test_confirm_mode_sets_correct_agent_config",
+    "tests/run/test_cli_integration.py::test_cost_limit_zero_is_preserved",
+    "tests/run/test_cli_integration.py::test_mini_help_with_typer_runner",
+    "tests/run/test_cli_integration.py::test_exit_immediately_flag_sets_confirm_exit_false",
+    "tests/run/test_cli_integration.py::test_no_exit_immediately_flag_sets_confirm_exit_true",
+    "tests/run/test_cli_integration.py::test_exit_immediately_flag_with_typer_runner",
+    "tests/run/test_cli_integration.py::test_output_file_is_created",
+    "tests/run/test_extra_config.py::TestConfigSetup::test_setup_with_all_inputs",
+    "tests/run/test_extra_config.py::TestConfigSetup::test_setup_with_model_only",
+    "tests/run/test_extra_config.py::TestConfigSetup::test_setup_with_empty_inputs",
+    "tests/run/test_extra_config.py::TestConfigSetup::test_setup_with_existing_env_vars",
+    "tests/run/test_extra_config.py::TestConfigSetup::test_setup_key_name_but_no_value",
+    "tests/run/test_extra_config.py::TestConfigSet::test_set_with_both_arguments_provided",
+    "tests/run/test_extra_config.py::TestConfigSet::test_set_with_no_arguments_prompts_for_both",
+    "tests/run/test_extra_config.py::TestConfigSet::test_set_with_key_only_prompts_for_value",
+    "tests/run/test_extra_config.py::TestConfigSet::test_set_with_value_only_prompts_for_key",
+    "tests/run/test_extra_config.py::TestConfigSet::test_set_key_value",
+    "tests/run/test_extra_config.py::TestConfigSet::test_set_api_key",
+    "tests/run/test_extra_config.py::TestConfigSet::test_set_multiple_keys",
+    "tests/run/test_extra_config.py::TestConfigSet::test_set_overwrites_existing_key",
+    "tests/run/test_extra_config.py::TestConfigSet::test_set_with_empty_strings_via_prompt",
+    "tests/run/test_extra_config.py::TestConfigUnset::test_unset_with_argument_provided",
+    "tests/run/test_extra_config.py::TestConfigUnset::test_unset_with_no_argument_prompts_for_key",
+    "tests/run/test_extra_config.py::TestConfigUnset::test_unset_existing_key",
+    "tests/run/test_extra_config.py::TestConfigUnset::test_unset_nonexistent_key",
+    "tests/run/test_extra_config.py::TestConfigUnset::test_unset_from_empty_file",
+    "tests/run/test_extra_config.py::TestConfigUnset::test_unset_from_file_with_multiple_keys",
+    "tests/run/test_extra_config.py::TestConfigUnset::test_unset_api_key_scenario",
+    "tests/run/test_extra_config.py::TestConfigUnset::test_unset_configured_flag",
+    "tests/run/test_extra_config.py::TestConfigEdit::test_edit_with_default_editor",
+    "tests/run/test_extra_config.py::TestConfigEdit::test_edit_with_custom_editor",
+    "tests/run/test_extra_config.py::TestConfigureIfFirstTime::test_configure_when_not_configured",
+    "tests/run/test_extra_config.py::TestConfigureIfFirstTime::test_skip_configure_when_already_configured",
+    "tests/run/test_extra_config.py::TestTyperAppIntegration::test_set_command_via_typer",
+    "tests/run/test_extra_config.py::TestTyperAppIntegration::test_unset_command_via_typer",
+    "tests/run/test_extra_config.py::TestTyperAppIntegration::test_app_help_contains_config_file_path",
+    "tests/run/test_extra_config.py::TestTyperAppIntegration::test_app_no_args_is_help",
+    "tests/run/test_inspector.py::test_trajectory_inspector_load_trajectory_formats",
+    "tests/run/test_inspector.py::test_trajectory_inspector_unrecognized_format",
+    "tests/run/test_inspector.py::test_trajectory_inspector_current_trajectory_name",
+    "tests/run/test_inspector.py::test_trajectory_inspector_binding_labels",
+    "tests/run/test_inspector.py::test_main_no_reasoning_flag",
+    "tests/run/test_inspector.py::test_main_with_single_file",
+    "tests/run/test_inspector.py::test_main_with_directory_containing_trajectories",
+    "tests/run/test_inspector.py::test_main_with_directory_no_trajectories",
+    "tests/run/test_inspector.py::test_main_with_nonexistent_path",
+    "tests/run/test_inspector.py::test_main_with_current_directory_default",
+    "tests/run/test_save.py::test_agent_save_includes_class_names",
+    "tests/run/test_save.py::test_agent_serialize",
+    "tests/run/test_swebench.py::test_get_image_name_with_existing_image_name",
+    "tests/run/test_swebench.py::test_get_image_name_without_image_name",
+    "tests/run/test_swebench.py::test_get_image_name_with_none_image_name",
+    "tests/run/test_swebench.py::test_get_image_name_with_complex_instance_id",
+    "tests/run/test_swebench.py::test_get_sb_environment_runs_startup_command_as_dict",
+    "tests/run/test_swebench.py::test_get_sb_environment_does_not_mutate_shared_config",
+    "tests/run/test_swebench.py::test_filter_instances_no_filters",
+    "tests/run/test_swebench.py::test_filter_instances_regex_filter",
+    "tests/run/test_swebench.py::test_filter_instances_slice_only",
+    "tests/run/test_swebench.py::test_filter_instances_slice_start_only",
+    "tests/run/test_swebench.py::test_filter_instances_slice_end_only",
+    "tests/run/test_swebench.py::test_filter_instances_filter_and_slice",
+    "tests/run/test_swebench.py::test_filter_instances_shuffle",
+    "tests/run/test_swebench.py::test_filter_instances_empty_list",
+    "tests/run/test_swebench.py::test_filter_instances_no_matches",
+    "tests/run/test_swebench.py::test_update_preds_file_new_file",
+    "tests/run/test_swebench.py::test_update_preds_file_existing_file",
+    "tests/run/test_swebench.py::test_update_preds_file_overwrite_existing",
+    "tests/run/test_swebench.py::test_remove_from_preds_file_existing",
+    "tests/run/test_swebench.py::test_remove_from_preds_file_nonexistent_instance",
+    "tests/run/test_swebench.py::test_remove_from_preds_file_no_file",
+    "tests/run/test_swebench_single.py::test_swebench_single_cost_limit_zero_is_preserved",
+    "tests/test_init.py::test_startup_banner_survives_non_utf8_stdout",
+    "tests/utils/test_serialize.py::test_empty_input",
+    "tests/utils/test_serialize.py::test_single_dictionary",
+    "tests/utils/test_serialize.py::test_simple_override",
+    "tests/utils/test_serialize.py::test_nested_dict_merge",
+    "tests/utils/test_serialize.py::test_deeply_nested_merge",
+    "tests/utils/test_serialize.py::test_override_dict_with_non_dict",
+    "tests/utils/test_serialize.py::test_override_non_dict_with_dict",
+    "tests/utils/test_serialize.py::test_multiple_dictionaries",
+    "tests/utils/test_serialize.py::test_multiple_nested_dictionaries",
+    "tests/utils/test_serialize.py::test_mixed_value_types",
+    "tests/utils/test_serialize.py::test_list_override_not_merge",
+    "tests/utils/test_serialize.py::test_empty_nested_dicts",
+    "tests/utils/test_serialize.py::test_complex_nested_structure",
+    "tests/utils/test_serialize.py::test_original_dicts_unchanged",
+    "tests/utils/test_serialize.py::test_none_dictionaries_skipped",
+    "tests/utils/test_serialize.py::test_unset_values_skipped",
+    "tests/utils/test_serialize.py::test_nested_dict_with_only_unset"
+  ],
+  "deselected": [
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_portkey_model_format_error_persists_response",
+      "reason": "Optional Portkey SDK is not installed or used."
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_portkey_response_model_format_error_persists_response_with_model_dump",
+      "reason": "Optional Portkey SDK is not installed or used."
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_portkey_model_format_error_not_swallowed_when_model_dump_raises",
+      "reason": "Optional Portkey SDK is not installed or used."
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_portkey_response_model_format_error_not_swallowed_when_model_dump_raises",
+      "reason": "Optional Portkey SDK is not installed or used."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_help",
+      "reason": "Child CLI import requires a real Windows console; parent headless session is not inherited."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_python_m_minisweagent_help",
+      "reason": "Child CLI import requires a real Windows console."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_script_help",
+      "reason": "Upstream console entry points are not installed; project runs pinned source directly."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_swe_agent_help",
+      "reason": "Upstream console entry points are not installed."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_extra_help",
+      "reason": "Upstream console entry points are not installed."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_e_help",
+      "reason": "Upstream console entry points are not installed."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_extra_subcommand_help[config-aliases0]",
+      "reason": "Upstream console entry points are not installed."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_extra_subcommand_help[inspect-aliases1]",
+      "reason": "Upstream console entry points are not installed."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_extra_subcommand_help[swebench-aliases2]",
+      "reason": "Upstream console entry points are not installed."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_extra_subcommand_help[swebench-single-aliases3]",
+      "reason": "Upstream console entry points are not installed."
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_extra_config_help",
+      "reason": "Upstream console entry points are not installed."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_basic_navigation",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_trajectory_navigation",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_swebench_format",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_scrolling",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_empty_trajectory",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_invalid_file",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_css_loading",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_quit_binding",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_reasoning_display",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_toggle_reasoning",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_reload",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_reload_clamps_step",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_ansi_content",
+      "reason": "Async inspector tests require optional pytest-asyncio; not installed in current environment."
+    },
+    {
+      "nodeid": "tests/run/test_local.py::test_local_end_to_end",
+      "reason": "Recorded local shell trajectory is POSIX-specific; current adapter uses Git Bash explicitly."
+    },
+    {
+      "nodeid": "tests/run/test_run_hello_world.py::test_run_hello_world_end_to_end",
+      "reason": "Recorded hello-world shell trajectory is POSIX-specific."
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_swebench_end_to_end[1]",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_swebench_end_to_end[2]",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_redo_existing_false_skips_existing",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_redo_existing_true_overwrites_existing",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_exception_handling_in_agent_run[1]",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_exception_handling_in_agent_run[2]",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_different_exception_types[1]",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_different_exception_types[2]",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_exception_handling_with_progress_manager",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    },
+    {
+      "nodeid": "tests/run/test_swebench_single.py::test_swebench_single_end_to_end",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    },
+    {
+      "nodeid": "tests/run/test_swebench_single.py::test_swebench_single_end_to_end_exit_immediately",
+      "reason": "Upstream slow/container integration; excluded before fixture execution and downloads."
+    }
+  ],
+  "counts": {
+    "passed": 301
+  },
+  "reports": [
+    {
+      "nodeid": "tests/agents/test_init.py::TestGetAgentClass::test_full_path[minisweagent.agents.default.DefaultAgent-DefaultAgent]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_init.py::TestGetAgentClass::test_full_path[minisweagent.agents.interactive.InteractiveAgent-InteractiveAgent]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_init.py::TestGetAgentClass::test_shorthand[default-DefaultAgent]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_init.py::TestGetAgentClass::test_shorthand[interactive-InteractiveAgent]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_init.py::TestGetAgentClass::test_invalid_spec",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_init.py::TestGetAgentClass::test_invalid_module",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_init.py::TestGetAgent::test_default_type",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_init.py::TestGetAgent::test_agent_class_in_config",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_init.py::TestGetAgent::test_config_passed_to_agent",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_content_string[Just plain text-expected0]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_content_string[Text before <MSWEA_MULTIMODAL_CONTENT><CONTENT_TYPE>image_url</CONTENT_TYPE>https://example.com/image.png</MSWEA_MULTIMODAL_CONTENT> text after-expected1]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_content_string[<MSWEA_MULTIMODAL_CONTENT><CONTENT_TYPE>image_url</CONTENT_TYPE>data:image/png;base64,iVBORw0KGgoAAAANS</MSWEA_MULTIMODAL_CONTENT>-expected2]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_content_string_multiple_images",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_content_string_multiline",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_content_string_whitespace_handling",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_content_string_adjacent_images",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_multimodal_content_string",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_multimodal_content_list",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_multimodal_content_dict",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_multimodal_content_dict_no_content_key",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_multimodal_content_nested",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_expand_multimodal_content_preserves_original",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_model_format_message_with_multimodal",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_model_format_message_without_multimodal",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/agents/test_multimodal.py::test_unknown_content_type_ignored",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_simple_string_value",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_simple_string_with_quotes",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_nested_single_level",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_nested_multiple_levels",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_deeply_nested",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_integer_value",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_negative_integer",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_float_value",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_negative_float",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_boolean_true",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_boolean_false",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_null_value",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_list_value",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_list_of_numbers",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_dict_value",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_nested_with_integer",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_nested_with_float",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_nested_with_boolean",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_model_name_example",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_empty_string_value",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_value_with_spaces",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_zero_integer",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_zero_float",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_empty_key_raises_value_error[=value]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_empty_key_raises_value_error[model..name=value]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestKeyValueSpecToNestedDict::test_empty_key_raises_value_error[model.=value]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestGetConfigFromSpec::test_uses_key_value_spec_for_equals_sign",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestGetConfigFromSpec::test_uses_key_value_spec_with_number",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestGetConfigFromSpec::test_loads_yaml_file_when_no_equals",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::TestGetConfigFromSpec::test_loads_utf8_yaml_regardless_of_locale",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[default]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[mini]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[mini_textbased]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[programbench]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[swebench]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[swebench_backticks]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[swebench_modal]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_init.py::test_all_builtin_configs_findable_by_name[swebench_xml]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_swebench_template.py::test_observation_template_short_output",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_swebench_template.py::test_observation_template_long_output",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_swebench_template.py::test_observation_template_edge_case_exactly_10000_chars",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_swebench_template.py::test_observation_template_just_under_10000_chars",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/config/test_swebench_template.py::test_agent_config_requires_templates",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_init.py::TestGetEnvironmentClass::test_get_environment_class_local_full_path",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_init.py::TestGetEnvironmentClass::test_get_environment_class_local_shorthand",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_init.py::TestGetEnvironmentClass::test_get_environment_class_invalid_spec",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/environments/test_init.py::TestGetEnvironmentClass::test_get_environment_class_invalid_module",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_empty_tool_calls_raises_format_error",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_none_tool_calls_raises_format_error",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_template_kwargs_exposed_to_format_error_template",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_valid_bash_tool_call",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_multiple_valid_tool_calls",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_unknown_tool_raises_format_error",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_invalid_json_raises_format_error",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestParseToolcallActions::test_missing_command_raises_format_error",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestFormatToolcallObservationMessages::test_basic_formatting",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestFormatToolcallObservationMessages::test_multiple_outputs",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestFormatToolcallObservationMessages::test_with_template_vars",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestFormatToolcallObservationMessages::test_exception_info_in_extra",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_actions_toolcall.py::TestBashTool::test_bash_tool_structure",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_model_integration.py::test_sonnet_4_cache_control_integration",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_model_integration.py::test_get_model_anthropic_applies_cache_control[sonnet-4]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_model_integration.py::test_get_model_anthropic_applies_cache_control[claude-sonnet]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_model_integration.py::test_get_model_anthropic_applies_cache_control[anthropic/claude]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_model_integration.py::test_get_model_anthropic_applies_cache_control[opus-latest]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_model_integration.py::test_get_model_non_anthropic_no_cache_control[gpt-4]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_model_integration.py::test_get_model_non_anthropic_no_cache_control[gpt-3.5-turbo]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_model_integration.py::test_get_model_non_anthropic_no_cache_control[llama2]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages0-expected0]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages1-expected1]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages2-expected2]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages3-expected3]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages4-expected4]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages5-expected5]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages6-expected6]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_anthropic_utils.py::test_reorder_thinking_blocks[messages7-expected7]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_cache_control.py::test_set_cache_control_basic",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_cache_control.py::test_set_cache_control_offset_deprecated",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_content_string.py::TestGetContentString::test_plain_string_content",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_content_string.py::TestGetContentString::test_openai_multimodal_text_blocks",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_content_string.py::TestGetContentString::test_openai_tool_calls",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_content_string.py::TestGetContentString::test_anthropic_content_blocks[message0-expected_fragments0]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_content_string.py::TestGetContentString::test_anthropic_content_blocks[message1-expected_fragments1]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_content_string.py::TestGetContentString::test_anthropic_content_blocks[message2-expected_fragments2]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_content_string.py::TestGetContentString::test_anthropic_content_blocks[message3-expected_fragments3]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_content_string.py::TestGetContentString::test_anthropic_tool_use_without_text_block",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_content_string.py::TestGetContentString::test_empty_message",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_content_string.py::TestGetContentString::test_content_list_skips_non_dict_items",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_litellm_model_format_error_persists_response",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_litellm_response_model_format_error_persists_response_with_model_dump",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_litellm_response_model_format_error_persists_response_plain_dict_fallback",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_openrouter_model_format_error_persists_response",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_openrouter_response_model_format_error_persists_response",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_requesty_model_format_error_persists_response",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_persisted_response_round_trips_through_json",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_format_error_still_propagates_after_persisting_response",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_litellm_textbased_model_format_error_persists_response",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_openrouter_textbased_model_format_error_persists_response",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_format_error_not_swallowed_when_model_dump_raises",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_format_error_response_persistence.py::test_litellm_response_model_format_error_not_swallowed_when_model_dump_raises",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModelName::test_input_model_name_takes_precedence",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModelName::test_config_takes_precedence_over_env",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModelName::test_env_var_fallback",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModelName::test_config_fallback",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModelName::test_raises_error_when_no_model_configured",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModelClass::test_anthropic_model_selection",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModelClass::test_litellm_model_fallback",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModelClass::test_partial_matches",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModelClass::test_litellm_response_model_selection",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModel::test_config_deep_copy",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModel::test_integration_with_compatible_model",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModel::test_config_api_key_used_when_no_env_var",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModel::test_no_api_key_when_none_provided",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGetModel::test_get_deterministic_model",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGlobalModelStats::test_prints_cost_limit_when_set",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGlobalModelStats::test_prints_call_limit_when_set",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGlobalModelStats::test_prints_both_limits_when_both_set",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGlobalModelStats::test_no_print_when_silent_startup_set",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGlobalModelStats::test_no_print_when_no_limits_set",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_init.py::TestGlobalModelStats::test_no_print_when_limits_are_zero",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_model.py::TestLitellmModelConfig::test_default_format_error_template",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_model.py::TestLitellmModel::test_query_includes_bash_tool",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_model.py::TestLitellmModel::test_parse_actions_valid_tool_call",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_model.py::TestLitellmModel::test_parse_actions_no_tool_calls_raises",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_model.py::TestLitellmModel::test_finish_reason_threaded_into_format_error_template",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_model.py::TestLitellmModel::test_format_observation_messages",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_model.py::TestLitellmModel::test_format_observation_messages_no_actions",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_textbased_model.py::test_authentication_error_enhanced_message",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_textbased_model.py::test_model_registry_loading",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_textbased_model.py::test_model_registry_none",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_textbased_model.py::test_model_registry_not_provided",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_textbased_model.py::test_litellm_model_cost_tracking_ignore_errors",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_litellm_textbased_model.py::test_litellm_model_cost_validation_zero_cost",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_successful_query",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_authentication_error",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_no_cost_information",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_free_model_zero_cost",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_config",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_get_template_vars",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_openrouter_textbased_model.py::test_openrouter_model_no_api_key",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_basic_functionality_and_cost_tracking",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_custom_cost_and_multiple_models",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_config_dataclass",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_sleep_and_warning_commands",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_raise_exception",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_toolcall_model_basic",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_toolcall_model_format_observation",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_toolcall_config",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_response_api_model_basic",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_response_api_model_format_observation",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_response_api_model_format_message",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_test_models.py::test_response_api_config",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_non_truncation_returns_status[response0]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_non_truncation_returns_status[response1]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_non_truncation_returns_status[None]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_incomplete_max_output_tokens_maps_to_length_dict",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_incomplete_max_output_tokens_maps_to_length_obj",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestFinishReasonFromResponsesApi::test_incomplete_other_reason_is_not_length",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestRegexActionsTemplateKwargs::test_finish_reason_reported_on_zero_actions",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestRegexActionsTemplateKwargs::test_without_template_kwargs_still_works",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestResponseActionsTemplateKwargs::test_finish_reason_reported_on_no_tool_calls",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestHasToolCallsDistinction::test_malformed_toolcall_with_tool_calls_reason_shows_real_error",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestHasToolCallsDistinction::test_empty_payload_with_tool_calls_reason_reports_truncation",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestHasToolCallsDistinction::test_malformed_toolcall_with_length_reason_still_reports_truncation",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/models/test_truncation_finish_reason.py::TestHasToolCallsDistinction::test_response_parser_passes_has_tool_calls",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_shorten_str[hello-10-False-hello     ]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_shorten_str[hello world-8-False-hello...]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_shorten_str[hello world-8-True-...world]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_shorten_str[hello-5-False-hello]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_shorten_str[hi-5-False-hi   ]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_manager_initialization",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_manager_with_yaml_path",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_instance_lifecycle",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_multiple_instances[statuses0]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_multiple_instances[statuses1]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_multiple_instances[statuses2]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_uncaught_exception",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_update_instance_status",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_yaml_report_generation",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_get_overview_data",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_print_report",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_batch_progress.py::test_concurrent_operations",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_configure_if_first_time_called",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_command_calls_run_interactive",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_calls_prompt_when_no_task_provided",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_with_explicit_model",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_yolo_mode_sets_correct_agent_config",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_confirm_mode_sets_correct_agent_config",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_cost_limit_zero_is_preserved",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_mini_help_with_typer_runner",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_exit_immediately_flag_sets_confirm_exit_false",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_no_exit_immediately_flag_sets_confirm_exit_true",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_exit_immediately_flag_with_typer_runner",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_cli_integration.py::test_output_file_is_created",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSetup::test_setup_with_all_inputs",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSetup::test_setup_with_model_only",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSetup::test_setup_with_empty_inputs",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSetup::test_setup_with_existing_env_vars",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSetup::test_setup_key_name_but_no_value",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSet::test_set_with_both_arguments_provided",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSet::test_set_with_no_arguments_prompts_for_both",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSet::test_set_with_key_only_prompts_for_value",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSet::test_set_with_value_only_prompts_for_key",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSet::test_set_key_value",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSet::test_set_api_key",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSet::test_set_multiple_keys",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSet::test_set_overwrites_existing_key",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigSet::test_set_with_empty_strings_via_prompt",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigUnset::test_unset_with_argument_provided",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigUnset::test_unset_with_no_argument_prompts_for_key",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigUnset::test_unset_existing_key",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigUnset::test_unset_nonexistent_key",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigUnset::test_unset_from_empty_file",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigUnset::test_unset_from_file_with_multiple_keys",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigUnset::test_unset_api_key_scenario",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigUnset::test_unset_configured_flag",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigEdit::test_edit_with_default_editor",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigEdit::test_edit_with_custom_editor",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigureIfFirstTime::test_configure_when_not_configured",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestConfigureIfFirstTime::test_skip_configure_when_already_configured",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestTyperAppIntegration::test_set_command_via_typer",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestTyperAppIntegration::test_unset_command_via_typer",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestTyperAppIntegration::test_app_help_contains_config_file_path",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_extra_config.py::TestTyperAppIntegration::test_app_no_args_is_help",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_load_trajectory_formats",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_unrecognized_format",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_current_trajectory_name",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_trajectory_inspector_binding_labels",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_main_no_reasoning_flag",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_main_with_single_file",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_main_with_directory_containing_trajectories",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_main_with_directory_no_trajectories",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_main_with_nonexistent_path",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_inspector.py::test_main_with_current_directory_default",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_save.py::test_agent_save_includes_class_names",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_save.py::test_agent_serialize",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_get_image_name_with_existing_image_name",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_get_image_name_without_image_name",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_get_image_name_with_none_image_name",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_get_image_name_with_complex_instance_id",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_get_sb_environment_runs_startup_command_as_dict",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_get_sb_environment_does_not_mutate_shared_config",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_filter_instances_no_filters",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_filter_instances_regex_filter",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_filter_instances_slice_only",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_filter_instances_slice_start_only",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_filter_instances_slice_end_only",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_filter_instances_filter_and_slice",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_filter_instances_shuffle",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_filter_instances_empty_list",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_filter_instances_no_matches",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_update_preds_file_new_file",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_update_preds_file_existing_file",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_update_preds_file_overwrite_existing",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_remove_from_preds_file_existing",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_remove_from_preds_file_nonexistent_instance",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench.py::test_remove_from_preds_file_no_file",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/run/test_swebench_single.py::test_swebench_single_cost_limit_zero_is_preserved",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_init.py::test_startup_banner_survives_non_utf8_stdout",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_empty_input",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_single_dictionary",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_simple_override",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_nested_dict_merge",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_deeply_nested_merge",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_override_dict_with_non_dict",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_override_non_dict_with_dict",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_multiple_dictionaries",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_multiple_nested_dictionaries",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_mixed_value_types",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_list_override_not_merge",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_empty_nested_dicts",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_complex_nested_structure",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_original_dicts_unchanged",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_none_dictionaries_skipped",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_unset_values_skipped",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/utils/test_serialize.py::test_nested_dict_with_only_unset",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    }
+  ],
+  "guard_violations": []
+}

@@ -1,0 +1,60 @@
+111:    def __init__(self, other=None):
+112:        self.item_index_map = dict()
+113:        self.item_list = []
+114:        self.dead_indices = []
+123:        return len(self.item_list) - len(self.item_index_map)
+126:        if not self.dead_indices:
+130:        items, index_map = self.item_list, self.item_index_map
+136:        del self.dead_indices[:]
+139:        ded = self.dead_indices
+142:        items, ii_map = self.item_list, self.item_index_map
+158:    def _get_real_index(self, index):
+161:        if not self.dead_indices:
+164:        for d_start, d_stop in self.dead_indices:
+170:    def _get_apparent_index(self, index):
+173:        if not self.dead_indices:
+176:        for d_start, d_stop in self.dead_indices:
+185:        dints = self.dead_indices
+205:        return len(self.item_index_map)
+208:        return item in self.item_index_map
+211:        return (item for item in self.item_list if item is not _MISSING)
+214:        item_list = self.item_list
+215:        return (item for item in reversed(item_list) if item is not _MISSING)
+236:        if item not in self.item_index_map:
+237:            self.item_index_map[item] = len(self.item_list)
+238:            self.item_list.append(item)
+243:            didx = self.item_index_map.pop(item)
+246:        self.item_list[didx] = _MISSING
+259:        del self.item_list[:]
+260:        del self.dead_indices[:]
+261:        self.item_index_map.clear()
+265:        iim = self.item_index_map
+275:        for k in self.item_index_map:
+284:        iim = self.item_index_map
+392:    def iter_slice(self, start, stop, step=None):
+396:            start = self._get_real_index(start)
+398:            stop = self._get_real_index(stop)
+405:    def __getitem__(self, index):
+411:            iter_slice = self.iter_slice(start, stop, step)
+412:            return self.from_iterable(iter_slice)
+415:        real_index = self._get_real_index(index)
+417:            ret = self.item_list[real_index]
+424:        item_index_map = self.item_index_map
+425:        len_self = len(item_index_map)
+427:            ret = self.item_list.pop()
+428:            del item_index_map[ret]
+430:            real_index = self._get_real_index(index)
+431:            ret = self.item_list[real_index]
+432:            self.item_list[real_index] = _MISSING
+433:            del item_index_map[ret]
+440:        if val in self.item_index_map:
+447:        self.item_list[:] = reversed_list
+448:        for i, item in enumerate(self.item_list):
+449:            self.item_index_map[item] = i
+450:        del self.dead_indices[:]
+455:        if sorted_list == self.item_list:
+457:        self.item_list[:] = sorted_list
+458:        for i, item in enumerate(self.item_list):
+459:            self.item_index_map[item] = i
+460:        del self.dead_indices[:]
+465:            return self._get_apparent_index(self.item_index_map[val])

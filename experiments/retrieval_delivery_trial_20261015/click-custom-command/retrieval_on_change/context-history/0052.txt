@@ -1,0 +1,1 @@
+Reproduced. Now let me look at the `group` method for comparison.

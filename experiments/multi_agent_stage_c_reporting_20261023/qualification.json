@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-23",
+  "real_model_requests": 0,
+  "shared_ledger_unchanged": true,
+  "production_database_changed": false,
+  "changed_source_files": [
+    "scripts/collaboration_live.py",
+    "scripts/collaboration_runtime.py",
+    "scripts/review_model.py",
+    "scripts/test_collaboration_runtime.py"
+  ],
+  "targeted_c_tests": 24,
+  "new_tests": 5,
+  "upstream_native_passed": 301,
+  "project": {
+    "run": 260,
+    "passed": 259,
+    "skipped": 1
+  },
+  "historical_hashes_verified": 854,
+  "limits": [
+    "No live calls after reporting changes; old live identity keeps its original freeze.",
+    "Raw FormatError responses already existed in extra.response; bounded rejection index is new, not a bounded replacement for raw responses.",
+    "No new default strategy, ledger policy, review permissions, provider policy, UI or database migration.",
+    "Adapter not rerun: no environment changes; previous six env/path differences remain. Prior optional async warnings remain.",
+    "Real revision/final-review and billed in-flight cancel/kill still untested; no evidence of repair-rate gains."
+  ]
+}

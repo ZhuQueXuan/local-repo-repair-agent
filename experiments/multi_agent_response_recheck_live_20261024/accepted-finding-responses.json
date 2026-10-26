@@ -1,0 +1,4 @@
+[
+  {"finding_id": "f1-falsey-remainder-dropped", "disposition": "accepted", "reason": "Removed the `any(rest)` guard so nonempty falsey remainders (0, None, False, [0,0]) are preserved; verified locally.", "evidence_ids": []},
+  {"finding_id": "f2-acceptance-not-met", "disposition": "accepted", "reason": "Fixed implementation; SplitAfterTest and task_checks both pass after the change.", "evidence_ids": []}
+]

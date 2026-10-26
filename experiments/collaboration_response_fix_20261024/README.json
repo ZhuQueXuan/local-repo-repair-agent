@@ -1,0 +1,21 @@
+{
+  "scope": "Offline response metadata correction after one real recheck failure; no extra real calls and no old result override.",
+  "parser_tests_passed": 6,
+  "diagnostic_workflow_tests_passed": 10,
+  "native_passed": 301,
+  "project_passed": 317,
+  "project_skipped": 1,
+  "fixtures": {
+    "corrected-full-chain.zip": {
+      "original_home": "temp\\multi_agent_stage_b_20261022\\tests\\154b8246187f449fa0b9dd2d77a5ee69",
+      "files": 489,
+      "scope": "Scripted model only, synthetic ledger, actual files/processes."
+    },
+    "persistent-invalid-stopped.zip": {
+      "original_home": "temp\\multi_agent_stage_b_20261022\\tests\\3c598f7aa83140689eb34657628744b2",
+      "files": 342,
+      "scope": "Scripted model only, synthetic ledger, actual files/processes."
+    }
+  },
+  "real_recheck_archive": "../multi_agent_feedback_recheck_live_20261024"
+}

@@ -1,0 +1,6 @@
+ M boltons/setutils.py
+?? temp/
+---
+warning: in the working copy of 'boltons/setutils.py', LF will be replaced by CRLF the next time Git touches it
+ boltons/setutils.py | 24 ++++++++++++++++++++----
+ 1 file changed, 20 insertions(+), 4 deletions(-)

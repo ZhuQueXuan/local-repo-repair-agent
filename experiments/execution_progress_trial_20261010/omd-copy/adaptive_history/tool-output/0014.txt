@@ -1,0 +1,2 @@
+pickle [('a', 1), ('a', 2)]
+reduce (<function _reconstructor at 0x0000022EE328C9D0>, (<class 'boltons.dictutils.OrderedMultiDict'>, <class 'dict'>, {'a': 2}), [('a', 1), ('a', 2)])

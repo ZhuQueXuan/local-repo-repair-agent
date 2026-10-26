@@ -1,0 +1,5 @@
+reduce: (<class 'json.decoder.JSONDecodeError'>, ('msg', 'doc', 0))
+args: ('msg: line 1 column 1 (char 0)',)
+R reduce: (<class 'requests.exceptions.JSONDecodeError'>, ('msg: line 1 column 1 (char 0)',), {'msg': 'msg', 'doc': 'doc', 'pos': 0, 'lineno': 1, 'colno': 1, 'response': None, 'request': None})
+R args: ('msg: line 1 column 1 (char 0)',)
+R msg/doc/pos: msg doc 0

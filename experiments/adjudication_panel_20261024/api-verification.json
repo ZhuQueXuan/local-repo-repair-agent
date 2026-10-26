@@ -1,0 +1,27 @@
+{
+  "records": 45,
+  "batch_id": "batch-b3bb38f273cfadce72ba5abad39dc27e",
+  "proof_files_read_over_http": 85,
+  "versions": [
+    {
+      "candidate_id": "candidate-f9ac8bc2b41c23c082017e3175d58830",
+      "is_final": false,
+      "verdicts": [
+        "confirmed",
+        "unresolved"
+      ]
+    },
+    {
+      "candidate_id": "candidate-02ab1f84db028a6db2375cf39c57c4be",
+      "is_final": true,
+      "verdicts": [
+        "unresolved",
+        "unresolved"
+      ]
+    }
+  ],
+  "cross_run_rejected": true,
+  "single_unchanged": true,
+  "new_tasks_created": 0,
+  "model_calls": 0
+}

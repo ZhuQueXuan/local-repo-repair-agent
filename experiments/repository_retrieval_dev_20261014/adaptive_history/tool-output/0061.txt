@@ -1,0 +1,11 @@
+test_direct_exception_all_pickle_protocols (test_behavior.JsonPickleChecks) ... ok
+test_invalid_response_raises_public_json_exception (test_behavior.JsonPickleChecks) ... ok
+test_multiline_error_location_survives (test_behavior.JsonPickleChecks) ... ok
+test_other_request_exceptions_still_roundtrip (test_behavior.JsonPickleChecks) ... ok
+test_response_json_exception_roundtrip (test_behavior.JsonPickleChecks) ... ok
+test_valid_response_is_unchanged (test_behavior.JsonPickleChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

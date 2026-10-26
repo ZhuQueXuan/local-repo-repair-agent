@@ -1,0 +1,8 @@
+--- a/cart.py
++++ b/cart.py
+@@ -3,4 +3,4 @@
+ 
+ 
+ def cart_total(prices):
+-    return reduce(add, prices)
++    return reduce(add, prices, 0)

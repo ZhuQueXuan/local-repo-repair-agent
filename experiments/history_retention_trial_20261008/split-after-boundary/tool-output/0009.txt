@@ -1,0 +1,9 @@
+test_ends_with_sep (tests.test_more.SplitAfterTest) ... ok
+test_max_split (tests.test_more.SplitAfterTest) ... ok
+test_no_sep (tests.test_more.SplitAfterTest) ... ok
+test_starts_with_sep (tests.test_more.SplitAfterTest) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

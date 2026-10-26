@@ -1,0 +1,1 @@
+src/click/core.py:2181:            metavar = self.type.name.upper()

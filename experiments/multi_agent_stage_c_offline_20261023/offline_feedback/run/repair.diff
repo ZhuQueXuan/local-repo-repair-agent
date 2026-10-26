@@ -1,0 +1,24 @@
+--- a/more_itertools/more.py
++++ b/more_itertools/more.py
+@@ -1353,7 +1353,9 @@
+             if keep_separator:
+                 yield [item]
+             if maxsplit == 1:
+-                yield list(it)
++                rest = list(it)
++                if rest:
++                    yield rest
+                 return
+             buf = []
+             maxsplit -= 1
+@@ -1425,7 +1427,9 @@
+         if pred(item) and buf:
+             yield buf
+             if maxsplit == 1:
+-                yield list(it)
++                rest = list(it)
++                if rest:
++                    yield rest
+                 return
+             buf = []
+             maxsplit -= 1

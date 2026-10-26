@@ -1,0 +1,18 @@
+{
+  "current": "temp\\regression\\20261024_200852_45fa13d2\\adapter\\upstream_results.json",
+  "previous": "temp\\regression\\20261024_172323_ca9697bb\\adapter\\upstream_results.json",
+  "counts": {
+    "passed": 169,
+    "failed": 6,
+    "skipped": 1
+  },
+  "failed_nodeids": [
+    "tests/environments/test_local.py::test_local_environment_custom_cwd",
+    "tests/environments/test_local.py::test_local_environment_cwd_parameter_override",
+    "tests/environments/test_local.py::test_local_environment_default_cwd",
+    "tests/environments/test_local.py::test_local_environment_env_variable_override",
+    "tests/environments/test_local.py::test_local_environment_existing_env_variables",
+    "tests/environments/test_local.py::test_local_environment_set_env_variables"
+  ],
+  "same_failures": true
+}

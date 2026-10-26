@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "base_digest": "eb05cdf97a77e2f5dfc85f3cdcd17466be57b3a4d1f7b7efbca326a47640a669",
+      "base_length": 6,
+      "history_digest": "42ded0bddb3e2c806f53893fc6bc56532a4d8ad557d8a620fcbd7f41f986ab16",
+      "history_length": 12,
+      "phase": "reviewing",
+      "phase_role_id": "a9b7be10e79d40a18f698a8eb9ddb8eb",
+      "review_id": "reviewing-review",
+      "scope": "S+ one logical repair session with read-only self-check phases; not independent reviewer discovery or an effectiveness result.",
+      "session_id": "78a3ea2369ee4339a10c93a9a22d3b20"
+    },
+    {
+      "adopted_history_digest": "42ded0bddb3e2c806f53893fc6bc56532a4d8ad557d8a620fcbd7f41f986ab16",
+      "phase": "revising",
+      "review_id": "reviewing-review",
+      "scope": "S+ one logical repair session with read-only self-check phases; not independent reviewer discovery or an effectiveness result.",
+      "session_id": "78a3ea2369ee4339a10c93a9a22d3b20"
+    },
+    {
+      "base_digest": "271a2f9647ed0e94f1cf849abd72103610d191ef89212f8cd7a608f67837c876",
+      "base_length": 17,
+      "history_digest": "d57ddf3d897b98c47207fb8b788de7053c63217297090a6b68ae8ff7f9478ee5",
+      "history_length": 21,
+      "phase": "final_review",
+      "phase_role_id": "1014d1a081cd44aeb232d0dc59c0b3db",
+      "review_id": "final_review-review",
+      "scope": "S+ one logical repair session with read-only self-check phases; not independent reviewer discovery or an effectiveness result.",
+      "session_id": "78a3ea2369ee4339a10c93a9a22d3b20"
+    }
+  ],
+  "scope": "S+ one logical repair session with read-only self-check phases; not independent reviewer discovery or an effectiveness result."
+}

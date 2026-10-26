@@ -1,0 +1,1 @@
+Now I understand both methods. The fix: move the `cls` injection to after the concise-form detection, so the assertion sees clean `kwargs`. Let me write notes and apply the fix.

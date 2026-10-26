@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-13",
+  "offline_checks": 94,
+  "guide_compatibility_fix": "Omit unsupported thinking on BUPT; preserve existing thinking setting on official backup",
+  "resolved_public_priority": [
+    {
+      "name": "bupt_gateway",
+      "api_base": "https://myai.bupt.edu.cn/llm-gw/v1",
+      "model": "deepseek-v4-flash",
+      "supports_thinking_control": false,
+      "cost_status": "unknown_platform_price"
+    },
+    {
+      "name": "deepseek_official",
+      "api_base": "https://api.deepseek.com",
+      "model": "deepseek-flash",
+      "supports_thinking_control": true,
+      "cost_status": "conservative_estimate"
+    }
+  ],
+  "campus_network_confirmed_by_user": true,
+  "dns_adapters": {
+    "Mihomo": [
+      "198.18.0.2"
+    ],
+    "WLAN": [
+      "10.3.9.4",
+      "10.3.9.5",
+      "10.3.9.6"
+    ]
+  },
+  "explicit_campus_dns_udp_and_tcp": {
+    "server": "10.3.9.4",
+    "answer": "198.18.0.104",
+    "actual_campus_dns_delivery_verified": false
+  },
+  "public_dns_google_and_alidns": "Both returned NXDOMAIN with no A answer; internal DNS may differ",
+  "network_responsibility": "Undetermined; possible campus-only DNS and proxy interception; key authentication unverified",
+  "user_choice": "Keep proxy running; retain primary-first automatic fallback; stop proxy-exit comparison",
+  "new_model_api_attempts": 0,
+  "shared_ledger_unchanged": true,
+  "network_settings_changed": false,
+  "tls_verification_disabled": false,
+  "prior_artifacts_preserved": [
+    17,
+    6
+  ]
+}

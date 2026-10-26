@@ -1,0 +1,9 @@
+{
+  "run_id": "5dfc19f601634ad5800276cb4bed5dac",
+  "scope": "One authorized real feedback diagnostic, failure retained. Offline extracted revised source is NOT the registered final candidate.",
+  "runtime_files_in_zip": 190,
+  "registered_candidate_count": 1,
+  "postmortem_scope": "Original live status unchanged; no additional model requests.",
+  "browser_scope": "Initial pending screen only; actual submit via existing task-service HTTP API because Work browser use was disabled.",
+  "cost_scope": "Known estimate 0.160808 CNY plus unknown reservation 0.10 CNY; complete charge unknown."
+}

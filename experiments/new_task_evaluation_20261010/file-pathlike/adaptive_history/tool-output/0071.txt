@@ -1,0 +1,43 @@
+56:    """Creates a directory and any parent directories that may need to
+118:        def __init__(self, attribute, offset):
+155:    def __init__(self, user='', group='', other=''):
+181:        assigned to the file or directory at *path*.
+248:def atomic_save(dest_path, **kwargs):
+261:    return AtomicSaver(dest_path, **kwargs)
+335:class AtomicSaver:
+339:    "part files" are created in the same directory as the destination
+344:        dest_path (str): The path where the completed file will be
+357:            to *dest_path* + ``.part``. Note that this argument is
+360:            created in the same directory as the destination path.
+388:    def __init__(self, dest_path, **kwargs):
+389:        self.dest_path = dest_path
+400:        self.dest_path = os.path.abspath(self.dest_path)
+401:        self.dest_dir = os.path.dirname(self.dest_path)
+403:            self.part_path = dest_path + '.part'
+405:            self.part_path = os.path.join(self.dest_dir, self.part_filename)
+417:                stat_res = os.stat(self.dest_path)
+424:        fd = os.open(self.part_path, self.open_flags, file_perms)
+428:        # if default perms are overridden by the user or previous dest_path
+432:                os.chmod(self.part_path, file_perms)
+441:        directory as the destination file.
+443:        ``setup()`` tests for a writable directory with rename permissions
+452:        if os.path.lexists(self.dest_path):
+456:                              self.dest_path)
+457:        if self.overwrite_part and os.path.lexists(self.part_path):
+458:            os.unlink(self.part_path)
+475:                    os.unlink(self.part_path)
+480:            atomic_rename(self.part_path, self.dest_path,
+485:                    os.unlink(self.part_path)
+492:def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):
+493:    """Returns a generator that yields file paths under a *directory*,
+498:        directory (str): Path that serves as the root of the
+501:            glob-formatted patterns to find under *directory*.
+506:        max_depth (int): traverse up to this level of subdirectory.
+507:           I.e., 0 for the specified *directory* only, 1 for *directory* 
+508:           and one level of subdirectory.
+510:    For example, finding Python files in the current directory:
+533:    start_depth = len(directory.split(os.path.sep))
+534:    for root, dirs, files in os.walk(directory):
+564:        src (str): Path of the source directory to copy.
+568:        ignore (callable): A callable that takes a path and directory
+618:    def __init__(self, path, mode='r', buffering=None):

@@ -1,0 +1,1 @@
+Now let me look at the `command` method's cls injection block to apply the fix.

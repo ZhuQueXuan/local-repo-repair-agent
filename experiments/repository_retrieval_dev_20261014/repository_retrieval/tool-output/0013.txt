@@ -1,0 +1,17 @@
+test_behavior.py
+===
+task_checks/test_behavior.py:2:import pickle
+task_checks/test_behavior.py:17:        restored = pickle.loads(pickle.dumps(original, protocol=protocol))
+task_checks/test_behavior.py:23:    def test_direct_exception_all_pickle_protocols(self):
+task_checks/test_behavior.py:24:        for protocol in range(pickle.HIGHEST_PROTOCOL + 1):
+task_checks/test_behavior.py:26:                self.assert_roundtrip(requests.exceptions.JSONDecodeError("Extra data", '{"a": 1}{"b": 2}', 8), protocol)
+task_checks/test_behavior.py:28:    def test_response_json_exception_roundtrip(self):
+task_checks/test_behavior.py:33:                    response_with(content, encoding).json()
+task_checks/test_behavior.py:34:                except requests.exceptions.JSONDecodeError as error:
+task_checks/test_behavior.py:35:                    self.assert_roundtrip(error, pickle.HIGHEST_PROTOCOL)
+task_checks/test_behavior.py:40:        self.assert_roundtrip(requests.exceptions.JSONDecodeError("Expected value", '{\n  "value":\n}', 13), 2)
+task_checks/test_behavior.py:42:    def test_invalid_response_raises_public_json_exception(self):
+task_checks/test_behavior.py:43:        with self.assertRaises(requests.exceptions.JSONDecodeError) as caught:
+task_checks/test_behavior.py:44:            response_with(b'{"bad":}').json()
+task_checks/test_behavior.py:50:        self.assertEqual(response_with(b'{"items": [1, null, true]}').json(), {"items": [1, None, True]})
+task_checks/test_behavior.py:56:                restored = pickle.loads(pickle.dumps(error))

@@ -1,0 +1,23 @@
+{
+  "scope": "Retained real integration failures and offline fixes; no completed three-role acceptance or effect comparison.",
+  "live_acceptance_passed": false,
+  "browser_clicks_verified": false,
+  "new_effect_comparison_runs": 0,
+  "known_price_estimate_cny": 1.244044,
+  "unknown_placeholder_cny": 0.5,
+  "complete_cost_estimate_cny": null,
+  "archive_member_counts": {
+    "runtime-code.zip": 106,
+    "four-real-failures.zip": 855,
+    "process-and-accounting.zip": 94,
+    "javascript-task.zip": 13,
+    "default-regression.zip": 41,
+    "adapter-regression.zip": 8,
+    "documentation.zip": 8
+  },
+  "regressions": [
+    "temp\\regression\\20261025_211130_dd197ba2",
+    "temp\\regression\\20261025_211556_14c0b9e7"
+  ],
+  "next_real_dispatch": "Not started: automatic approval review usage failure. Do not bypass approval."
+}

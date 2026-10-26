@@ -1,0 +1,1 @@
+Both bugs reproduced. Let me look at the AtomicSaver class to find where the temp filename is built.

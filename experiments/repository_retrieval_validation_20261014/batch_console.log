@@ -1,0 +1,66 @@
+{
+  "task": "click-shared-parameter",
+  "variant": "adaptive_history",
+  "status": "finished",
+  "console": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-shared-parameter_adaptive_history_run.log",
+  "returncode": 0,
+  "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-shared-parameter_adaptive_history_220305_068221",
+  "exit_status": "Submitted",
+  "repair_verified": true,
+  "requests": 45
+}
+{
+  "task": "click-shared-parameter",
+  "variant": "repository_retrieval",
+  "status": "finished",
+  "console": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-shared-parameter_repository_retrieval_run.log",
+  "returncode": 0,
+  "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-shared-parameter_repository_retrieval_220418_065090",
+  "exit_status": "Submitted",
+  "repair_verified": true,
+  "requests": 22
+}
+{
+  "task": "click-custom-command",
+  "variant": "adaptive_history",
+  "status": "finished",
+  "console": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-custom-command_adaptive_history_run.log",
+  "returncode": 0,
+  "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-custom-command_adaptive_history_220504_944069",
+  "exit_status": "Submitted",
+  "repair_verified": true,
+  "requests": 26
+}
+{
+  "task": "click-custom-command",
+  "variant": "repository_retrieval",
+  "status": "finished",
+  "console": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-custom-command_repository_retrieval_run.log",
+  "returncode": 0,
+  "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_click-custom-command_repository_retrieval_220554_159090",
+  "exit_status": "Submitted",
+  "repair_verified": true,
+  "requests": 26
+}
+{
+  "task": "barrel-sort",
+  "variant": "adaptive_history",
+  "status": "finished",
+  "console": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_barrel-sort_adaptive_history_run.log",
+  "returncode": 0,
+  "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_barrel-sort_adaptive_history_220644_221339",
+  "exit_status": "Submitted",
+  "repair_verified": true,
+  "requests": 41
+}
+{
+  "task": "barrel-sort",
+  "variant": "repository_retrieval",
+  "status": "finished",
+  "console": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_barrel-sort_repository_retrieval_run.log",
+  "returncode": 0,
+  "results": "D:\\myDocu\\project_postg\\shixi_project\\temp\\repository_retrieval_validation_20261014_barrel-sort_repository_retrieval_220745_359430",
+  "exit_status": "Submitted",
+  "repair_verified": true,
+  "requests": 26
+}

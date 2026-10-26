@@ -1,0 +1,1 @@
+Interesting - direct construction pickles fine. The issue is with exceptions caught from `Response.json()`. Let me test that path.

@@ -1,0 +1,6 @@
+cmd1: custom:a
+cmd2: custom:a
+cmd3: custom:a
+cmd4: custom:a
+cmd1 param type: MyArg
+cmd2 param type: Argument

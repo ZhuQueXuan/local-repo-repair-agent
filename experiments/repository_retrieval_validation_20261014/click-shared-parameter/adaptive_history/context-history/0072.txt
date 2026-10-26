@@ -1,0 +1,1 @@
+Hmm, that works because `cls=click.Argument` is passed explicitly. The bug is when `cls` is a custom subclass. Let me test with a custom class.

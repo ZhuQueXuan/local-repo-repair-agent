@@ -1,0 +1,22 @@
+__init__.py
+_compat.py
+_termui_impl.py
+_textwrap.py
+_winconsole.py
+core.py
+decorators.py
+exceptions.py
+formatting.py
+globals.py
+parser.py
+py.typed
+shell_completion.py
+termui.py
+testing.py
+types.py
+utils.py
+---
+128:def command(
+135:def command(
+143:def command(
+151:def command(

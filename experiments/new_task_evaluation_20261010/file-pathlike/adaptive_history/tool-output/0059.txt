@@ -1,0 +1,45 @@
+44 temp/seg.txt
+        if self.overwrite_part and os.path.lexists(self.part_path):
+            os.unlink(self.part_path)
+        self._open_part_file()
+        return
+
+    def __enter__(self):
+        self.setup()
+        return self.part_file
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.part_file:
+            # Ensure data is flushed and synced to disk before closing
+            self.part_file.flush()
+            os.fsync(self.part_file.fileno())
+            self.part_file.close()
+        if exc_type:
+            if self.rm_part_on_exc:
+                try:
+                    os.unlink(self.part_path)
+                except Exception:
+                    pass  # avoid masking original error
+            return
+        try:
+            atomic_rename(self.part_path, self.dest_path,
+                          overwrite=self.overwrite)
+        except OSError:
+            if self.rm_part_on_exc:
+                try:
+                    os.unlink(self.part_path)
+                except Exception:
+                    pass  # avoid masking original error
+            raise  # could not save destination file
+        return
+
+
+def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):
+    """Returns a generator that yields file paths under a *directory*,
+    matching *patterns* using `glob`_ syntax (e.g., ``*.txt``). Also
+    supports *ignored* patterns.
+
+    Args:
+        directory (str): Path that serves as the root of the
+            search. Yielded paths will include this as a prefix.
+        patterns (str or list): A single pattern or list of

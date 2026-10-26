@@ -1,0 +1,19 @@
+{
+  "previous": "temp\\regression\\20261023_161438_f96bfea5\\adapter\\upstream_results.json",
+  "current": "temp\\regression\\20261024_172323_ca9697bb\\adapter\\upstream_results.json",
+  "same_failed_nodeids": true,
+  "counts": {
+    "passed": 169,
+    "failed": 6,
+    "skipped": 1
+  },
+  "failures": [
+    "tests/environments/test_local.py::test_local_environment_custom_cwd",
+    "tests/environments/test_local.py::test_local_environment_cwd_parameter_override",
+    "tests/environments/test_local.py::test_local_environment_default_cwd",
+    "tests/environments/test_local.py::test_local_environment_env_variable_override",
+    "tests/environments/test_local.py::test_local_environment_existing_env_variables",
+    "tests/environments/test_local.py::test_local_environment_set_env_variables"
+  ],
+  "scope": "3 environment propagation and 3 path spelling differences, retained; default/base hook behavior unchanged."
+}

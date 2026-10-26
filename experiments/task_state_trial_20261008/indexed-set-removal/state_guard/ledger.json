@@ -1,0 +1,5 @@
+{
+  "attempts": 258,
+  "completed": true,
+  "note": "Stopped externally. In-flight reservation remains in the shared budget; do not retry this identity."
+}

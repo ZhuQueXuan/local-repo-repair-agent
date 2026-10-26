@@ -1,0 +1,15 @@
+test_bound_combinations (test_behavior.RemovalSliceTests) ... ok
+test_direct_iter_slice_after_removal (test_behavior.RemovalSliceTests) ... ok
+test_existing_index_and_membership (test_behavior.RemovalSliceTests) ... ok
+test_existing_negative_step_contract (test_behavior.RemovalSliceTests) ... ok
+test_multiple_removals (test_behavior.RemovalSliceTests) ... ok
+test_negative_start_after_removal (test_behavior.RemovalSliceTests) ... ok
+test_no_removal_and_empty (test_behavior.RemovalSliceTests) ... ok
+test_positive_bounds_after_removal (test_behavior.RemovalSliceTests) ... ok
+test_step_after_removal (test_behavior.RemovalSliceTests) ... ok
+test_very_negative_bounds (test_behavior.RemovalSliceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.002s
+
+OK

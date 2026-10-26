@@ -1,0 +1,17 @@
+/d/myDocu/project_postg/shixi_project/tasks/indexed-set-removal/temp/run_20261008_151313_294938/repo
+CHANGELOG.md
+LICENSE
+README.md
+TASK.md
+TODO.rst
+boltons
+docs
+misc
+pyproject.toml
+requirements-test.txt
+setup.cfg
+task_checks
+temp
+tests
+tox.ini
+b9e035f Frozen task baseline

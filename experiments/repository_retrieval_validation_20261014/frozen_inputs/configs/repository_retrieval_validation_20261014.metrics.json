@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "primary_metrics": [
+    "repair_verified",
+    "requests",
+    "successful_model_responses",
+    "first_implementation_edit_action",
+    "prompt_tokens",
+    "completion_tokens",
+    "elapsed_seconds",
+    "known_price_estimate_cny"
+  ],
+  "diagnostic_paths_evaluator_only": {
+    "click-shared-parameter": [
+      "src/click/decorators.py"
+    ],
+    "click-custom-command": [
+      "src/click/core.py"
+    ],
+    "barrel-sort": [
+      "boltons/listutils.py"
+    ]
+  },
+  "first_read_definition": "Earliest successful recorded executed command containing an explicit diagnostic path and a cat/sed/grep/rg/head/tail command or read_text/read_bytes. This is a limited observable proxy, not exact first understanding or localization accuracy. Broad searches or aliases may be missed.",
+  "decision": "Preserve all six outcomes; no tuning/reruns in this batch. Analyze failures as localization, action stagnation, context pressure, provider/environment or verification failures; keep retrieval optional without broad claims."
+}

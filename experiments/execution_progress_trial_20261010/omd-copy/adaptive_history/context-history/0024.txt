@@ -1,0 +1,1 @@
+The state is correct (both pairs). The problem is the 5th element: the dict items iterator. `copy` uses `__reduce_ex__` and then applies the dict iterator via `obj.update(...)` or `obj[k]=v`, which dedupes. Let me check `__getstate__`/`__setstate__`.

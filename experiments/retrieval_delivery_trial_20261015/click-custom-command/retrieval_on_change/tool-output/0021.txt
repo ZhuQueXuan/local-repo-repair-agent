@@ -1,0 +1,21 @@
+
+        if self.group_class is not None and kwargs.get("cls") is None:
+            if self.group_class is type:
+                kwargs["cls"] = type(self)
+            else:
+                kwargs["cls"] = self.group_class
+
+        def decorator(f: t.Callable[..., t.Any]) -> "Group":
+            cmd: Group = group(*args, **kwargs)(f)
+            self.add_command(cmd)
+            return cmd
+
+        if func is not None:
+            return decorator(func)
+
+        return decorator
+
+    def get_command(self, ctx: Context, cmd_name: str) -> t.Optional[Command]:
+        return self.commands.get(cmd_name)
+
+    def list_commands(self, ctx: Context) -> t.List[str]:

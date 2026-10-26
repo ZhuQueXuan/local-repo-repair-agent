@@ -1,0 +1,12 @@
+{
+  "type": "InternalServerError",
+  "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.",
+  "provider_failure": {
+    "kind": "request_failed",
+    "provider": "bupt_gateway",
+    "status_code": 500,
+    "notice": "bupt_gateway：API请求失败，尚不能判断是网络还是服务问题。",
+    "failover_eligible": true
+  },
+  "fallback_attempted_next": true
+}

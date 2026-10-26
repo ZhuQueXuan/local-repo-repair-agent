@@ -1,0 +1,1 @@
+{"hypothesis": "argument() at decorators.py:286 does attrs.pop('cls', None) directly on the shared attrs dict, mutating it. Reusing the decorator across commands loses cls on the 2nd call. option() already copies attrs (line 306).", "next_action": "Reproduce with a shared custom Argument decorator across two commands, then fix argument() to copy attrs like option()."}

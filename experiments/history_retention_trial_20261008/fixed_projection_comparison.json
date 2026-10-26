@@ -1,0 +1,90 @@
+{
+  "model_requests": 0,
+  "scope": "Fixed historical request projections; not a new Agent repair result.",
+  "rows": [
+    {
+      "completed_steps": 7,
+      "fixed_actions": true,
+      "reserved_state_bytes": 1800,
+      "variants": [
+        {
+          "policy": "old_eager",
+          "projected_history_bytes": 6985,
+          "retained_calls": 2,
+          "removed_tool_outputs": 5,
+          "goal_unchanged": true
+        },
+        {
+          "policy": "new_adaptive",
+          "projected_history_bytes": 10058,
+          "retained_calls": 5,
+          "removed_tool_outputs": 2,
+          "goal_unchanged": true
+        }
+      ]
+    },
+    {
+      "completed_steps": 9,
+      "fixed_actions": true,
+      "reserved_state_bytes": 1800,
+      "variants": [
+        {
+          "policy": "old_eager",
+          "projected_history_bytes": 7353,
+          "retained_calls": 2,
+          "removed_tool_outputs": 7,
+          "goal_unchanged": true
+        },
+        {
+          "policy": "new_adaptive",
+          "projected_history_bytes": 9911,
+          "retained_calls": 5,
+          "removed_tool_outputs": 4,
+          "goal_unchanged": true
+        }
+      ]
+    },
+    {
+      "completed_steps": 11,
+      "fixed_actions": true,
+      "reserved_state_bytes": 1800,
+      "variants": [
+        {
+          "policy": "old_eager",
+          "projected_history_bytes": 7548,
+          "retained_calls": 2,
+          "removed_tool_outputs": 9,
+          "goal_unchanged": true
+        },
+        {
+          "policy": "new_adaptive",
+          "projected_history_bytes": 9751,
+          "retained_calls": 5,
+          "removed_tool_outputs": 6,
+          "goal_unchanged": true
+        }
+      ]
+    },
+    {
+      "completed_steps": 14,
+      "fixed_actions": true,
+      "reserved_state_bytes": 1800,
+      "variants": [
+        {
+          "policy": "old_eager",
+          "projected_history_bytes": 8031,
+          "retained_calls": 2,
+          "removed_tool_outputs": 12,
+          "goal_unchanged": true
+        },
+        {
+          "policy": "new_adaptive",
+          "projected_history_bytes": 9955,
+          "retained_calls": 4,
+          "removed_tool_outputs": 10,
+          "goal_unchanged": true
+        }
+      ]
+    }
+  ]
+}

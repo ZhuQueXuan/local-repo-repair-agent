@@ -1,0 +1,3 @@
+Found the bug. In `command` (line 1841), `kwargs["cls"]` is set **before** the concise-form check at line 1846-1849. When called as `@group.command` (no parens), `args=(func,)` and `kwargs` now contains `cls`, so the assertion `not kwargs` fails.
+
+In `group` (line 1901), the `cls` assignment happens **after** the concise-form check, so it works. Let me confirm the decorators.py `command`/`group` functions and reproduce.

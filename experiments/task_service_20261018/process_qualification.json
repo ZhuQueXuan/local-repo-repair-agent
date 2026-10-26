@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-18",
+  "scope": "actual local API and worker processes; no model requests",
+  "checks": {
+    "queued_cancel": {
+      "run_id": "4528e77f09474eda90744a4bdc43abe9",
+      "status": "cancelled"
+    },
+    "active_cancel": {
+      "run_id": "53d7764f4ed340478f90fc2560e6bf1d",
+      "status": "cancelled",
+      "model_requests": 0
+    },
+    "worker_crash": {
+      "run_id": "ff0ce1f308d247ffb8a6161b4cfbc1a9",
+      "status": "interrupted",
+      "observed_child_pids": [
+        3700
+      ],
+      "children_still_running": [],
+      "automatically_requeued": false
+    },
+    "manager_restart": {
+      "run_id": "43b22b91df0149d3b8225dd161b3a66e",
+      "status": "finished",
+      "repair_result": "passed",
+      "worker_finished_without_manager": true,
+      "same_result_after_restart": true
+    }
+  },
+  "ledger_unchanged": true
+}

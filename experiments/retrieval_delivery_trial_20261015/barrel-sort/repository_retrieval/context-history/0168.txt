@@ -1,0 +1,1 @@
+Confirmed the bug: `del self.lists[:]` empties the list, then `self.lists[0] = tmp_sorted` raises IndexError. Let me reproduce with a real multi-list container via the public API:

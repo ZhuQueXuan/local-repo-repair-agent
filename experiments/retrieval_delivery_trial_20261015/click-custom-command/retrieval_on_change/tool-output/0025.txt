@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "D:\myDocu\project_postg\shixi_project\tasks\click-custom-command\temp\run_20261015_121548_726839\repo\temp\repro.py", line 14, in <module>
+    def foo():
+  File "D:\myDocu\project_postg\shixi_project\tasks\click-custom-command\temp\run_20261015_121548_726839\repo\src\click\core.py", line 1847, in command
+    assert (
+AssertionError: Use 'command(**kwargs)(callable)' to provide arguments.

@@ -1,0 +1,408 @@
+{
+  "attempts": 96,
+  "provider_attempts": [
+    {
+      "attempt": 1,
+      "provider": "bupt_gateway"
+    },
+    {
+      "attempt": 2,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 3,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 4,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 5,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 6,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 7,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 8,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 9,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 10,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 11,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 12,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 13,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 14,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 15,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 16,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 17,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 18,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 19,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 20,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 21,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 22,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 23,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 24,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 25,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 26,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 27,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 28,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 29,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 30,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 31,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 32,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 33,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 34,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 35,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 36,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 37,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 38,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 39,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 40,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 41,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 42,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 43,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 44,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 45,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 46,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 47,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 48,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 49,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 50,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 51,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 52,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 53,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 54,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 55,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 56,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 57,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 58,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 59,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 60,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 61,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 62,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 63,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 64,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 65,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 66,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 67,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 68,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 69,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 70,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 71,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 72,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 73,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 74,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 75,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 76,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 77,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 78,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 79,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 80,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 81,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 82,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 83,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 84,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 85,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 86,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 87,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 88,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 89,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 90,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 91,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 92,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 93,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 94,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 95,
+      "provider": "deepseek_official"
+    },
+    {
+      "attempt": 96,
+      "provider": "deepseek_official"
+    }
+  ],
+  "provider_errors": [
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500,
+      "notice": "bupt_gateway\uff1aAPI\u8bf7\u6c42\u5931\u8d25\uff0c\u5c1a\u4e0d\u80fd\u5224\u65ad\u662f\u7f51\u7edc\u8fd8\u662f\u670d\u52a1\u95ee\u9898\u3002",
+      "failover_eligible": true
+    }
+  ],
+  "provider_switches": [
+    {
+      "from": "bupt_gateway",
+      "to": "deepseek_official",
+      "reason": "request_failed",
+      "attempt": 1
+    }
+  ],
+  "completed": true,
+  "note": "This run ended. Shared total budget remains cumulative."
+}

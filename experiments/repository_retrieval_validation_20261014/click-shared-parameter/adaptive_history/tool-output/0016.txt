@@ -1,0 +1,51 @@
+        self.default = default
+        self.is_eager = is_eager
+        self.metavar = metavar
+        self.envvar = envvar
+        self._custom_shell_complete = shell_complete
+
+        if __debug__:
+            if self.type.is_composite and nargs != self.type.arity:
+                raise ValueError(
+                    f"'nargs' must be {self.type.arity} (or None) for"
+                    f" type {self.type!r}, but it was {nargs}."
+                )
+
+            # Skip no default or callable default.
+            check_default = default if not callable(default) else None
+
+            if check_default is not None:
+                if multiple:
+                    try:
+                        # Only check the first value against nargs.
+                        check_default = next(_check_iter(check_default), None)
+                    except TypeError:
+                        raise ValueError(
+                            "'default' must be a list when 'multiple' is true."
+                        ) from None
+
+                # Can be None for multiple with empty default.
+                if nargs != 1 and check_default is not None:
+                    try:
+                        _check_iter(check_default)
+                    except TypeError:
+                        if multiple:
+                            message = (
+                                "'default' must be a list of lists when 'multiple' is"
+                                " true and 'nargs' != 1."
+                            )
+                        else:
+                            message = "'default' must be a list when 'nargs' != 1."
+
+                        raise ValueError(message) from None
+
+                    if nargs > 1 and len(check_default) != nargs:
+                        subject = "item length" if multiple else "length"
+                        raise ValueError(
+                            f"'default' {subject} must match nargs={nargs}."
+                        )
+
+    def to_info_dict(self) -> t.Dict[str, t.Any]:
+        """Gather information that could be useful for a tool generating
+        user-facing documentation.
+

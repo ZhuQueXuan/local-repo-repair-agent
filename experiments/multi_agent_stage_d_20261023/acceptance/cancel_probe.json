@@ -1,0 +1,7 @@
+{
+  "run_id": "716c5d1c519b4486bc2033d5fcac79af",
+  "child_pid": 31780,
+  "status": "cancelled",
+  "owned_child_exit_checked": true,
+  "method": "Actual panel cancellation; native GetExitCodeProcess confirmed child not active after worker exit. No model."
+}

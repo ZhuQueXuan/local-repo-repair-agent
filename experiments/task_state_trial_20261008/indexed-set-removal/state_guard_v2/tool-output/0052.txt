@@ -1,0 +1,12 @@
+125:    def _compact(self):
+138:    def _cull(self):
+158:    def _get_real_index(self, index):
+182:    def _add_dead(self, start, stop=None):
+240:    def remove(self, item):
+250:    def discard(self, item):
+392:    def iter_slice(self, start, stop, step=None):
+405:    def __getitem__(self, index):
+422:    def pop(self, index=None):
+626:    def remove(self, item):
+632:    def pop(self):
+735:    def discard(self, items):

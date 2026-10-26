@@ -1,0 +1,5 @@
+176:    def __getstate__(self):
+179:    def __setstate__(self, state):
+265:    def copy(self):
+852:    def copy(self):
+1106:    def __copy__(self):

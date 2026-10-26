@@ -1,0 +1,90 @@
+       onward, the values became singular, like
+       ``omd.todict(multi=False)``. For reliable cross-version
+       behavior, just use :meth:`~OrderedMultiDict.todict()`.
+
+    """
+    def __new__(cls, *a, **kw):
+        ret = super().__new__(cls)
+        ret._clear_ll()
+        return ret 
+    
+    def __init__(self, *args, **kwargs):
+        if len(args) > 1:
+            raise TypeError('%s expected at most 1 argument, got %s'
+                            % (self.__class__.__name__, len(args)))
+        super().__init__()
+
+        if args:
+            self.update_extend(args[0])
+        if kwargs:
+            self.update(kwargs)
+
+    def __getstate__(self):
+        return list(self.iteritems(multi=True))
+
+    def __setstate__(self, state):
+        self.clear()
+        self.update_extend(state)
+
+    def _clear_ll(self):
+        try:
+            _map = self._map
+        except AttributeError:
+            _map = self._map = {}
+            self.root = []
+        _map.clear()
+        self.root[:] = [self.root, self.root, None]
+
+    def _insert(self, k, v):
+        root = self.root
+        cells = self._map.setdefault(k, [])
+        last = root[PREV]
+        cell = [last, root, k, v]
+        last[NEXT] = root[PREV] = cell
+        cells.append(cell)
+
+    def add(self, k, v):
+----
+        """
+        if not super().__contains__(k):
+            self[k] = None if default is _MISSING else default
+        return self[k]
+
+    def copy(self):
+        "Return a shallow copy of the dictionary."
+        return self.__class__(self.iteritems(multi=True))
+
+    @classmethod
+    def fromkeys(cls, keys, default=None):
+        """Create a dictionary from a list of keys, with all the values
+        set to *default*, or ``None`` if *default* is not set.
+        """
+        return cls([(k, default) for k in keys])
+
+----
+        except AttributeError:
+            try:
+                ret = self._hash = hash(frozenset(self.items()))
+            except Exception as e:
+                ret = self._hash = FrozenHashError(e)
+
+        if ret.__class__ is FrozenHashError:
+            raise ret
+
+        return ret
+
+    def __copy__(self):
+        return self  # immutable types don't copy, see tuple's behavior
+
+    # block everything else
+    def _raise_frozen_typeerror(self, *a, **kw):
+        "raises a TypeError, because FrozenDicts are immutable"
+        raise TypeError('%s object is immutable' % self.__class__.__name__)
+
+    __ior__ = __setitem__ = __delitem__ = update = _raise_frozen_typeerror
+    setdefault = pop = popitem = clear = _raise_frozen_typeerror
+
+    del _raise_frozen_typeerror
+
+
+# end dictutils.py

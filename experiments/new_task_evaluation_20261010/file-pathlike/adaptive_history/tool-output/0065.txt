@@ -1,0 +1,69 @@
+     1	    def __init__(self, dest_path, **kwargs):
+     2	        self.dest_path = dest_path
+     3	        self.overwrite = kwargs.pop('overwrite', True)
+     4	        self.file_perms = kwargs.pop('file_perms', None)
+     5	        self.overwrite_part = kwargs.pop('overwrite_part', False)
+     6	        self.part_filename = kwargs.pop('part_file', None)
+     7	        self.rm_part_on_exc = kwargs.pop('rm_part_on_exc', True)
+     8	        self.text_mode = kwargs.pop('text_mode', False)
+     9	        self.buffering = kwargs.pop('buffering', -1)
+    10	        if kwargs:
+    11	            raise TypeError(f'unexpected kwargs: {kwargs.keys()!r}')
+    12	
+    13	        self.dest_path = os.path.abspath(self.dest_path)
+    14	        self.dest_dir = os.path.dirname(self.dest_path)
+    15	        if not self.part_filename:
+    16	            self.part_path = dest_path + '.part'
+    17	        else:
+    18	            self.part_path = os.path.join(self.dest_dir, self.part_filename)
+    19	        self.mode = 'w+' if self.text_mode else 'w+b'
+    20	        self.open_flags = _TEXT_OPENFLAGS if self.text_mode else _BIN_OPENFLAGS
+    21	
+    22	        self.part_file = None
+    23	
+    24	    def _open_part_file(self):
+    25	        do_chmod = True
+    26	        file_perms = self.file_perms
+    27	        if file_perms is None:
+    28	            try:
+    29	                # try to copy from file being replaced
+    30	                stat_res = os.stat(self.dest_path)
+    31	                file_perms = stat.S_IMODE(stat_res.st_mode)
+    32	            except OSError:
+    33	                # default if no destination file exists
+    34	                file_perms = self._default_file_perms
+    35	                do_chmod = False  # respect the umask
+    36	
+    37	        fd = os.open(self.part_path, self.open_flags, file_perms)
+    38	        set_cloexec(fd)
+    39	        self.part_file = os.fdopen(fd, self.mode, self.buffering)
+    40	
+    41	        # if default perms are overridden by the user or previous dest_path
+    42	        # chmod away the effects of the umask
+    43	        if do_chmod:
+    44	            try:
+    45	                os.chmod(self.part_path, file_perms)
+    46	            except OSError:
+    47	                self.part_file.close()
+    48	                raise
+    49	        return
+    50	
+    51	    def setup(self):
+    52	        """Called on context manager entry (the :keyword:`with` statement),
+    53	        the ``setup()`` method creates the temporary file in the same
+    54	        directory as the destination file.
+    55	
+    56	        ``setup()`` tests for a writable directory with rename permissions
+    57	        early, as the part file may not be written to immediately (not
+    58	        using :func:`os.access` because of the potential issues of
+    59	        effective vs. real privileges).
+    60	
+    61	        If the caller is not using the :class:`AtomicSaver` as a
+    62	        context manager, this method should be called explicitly
+    63	        before writing.
+    64	        """
+    65	        if os.path.lexists(self.dest_path):
+    66	            if not self.overwrite:
+    67	                raise OSError(errno.EEXIST,
+    68	                              'Overwrite disabled and file already exists',
+    69	                              self.dest_path)

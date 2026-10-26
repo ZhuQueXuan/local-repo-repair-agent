@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "context_mode": "same_session_readonly_self_review_v1",
+  "feedback_windows": 1,
+  "parent_seconds": 1800,
+  "role_seconds": {"repairing": 300, "reviewing": 120, "revising": 180, "final_review": 90},
+  "candidate_selection": "latest_legal_even_if_tests_regress",
+  "review_failure": "preserve_last_legal_candidate_and_assessment_no_retry",
+  "review_repeat_limit": 3,
+  "max_consecutive_format_errors": 3,
+  "repair_profile": "adaptive_history",
+  "scope": "S+ wiring only: one logical session retains its chronological repair/self-check history, review phases use the six read-only tools. Same phase deadlines and grading opportunities as D; actual usage is measured, not assumed equal. No effectiveness result or paid batch authorization."
+}

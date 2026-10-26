@@ -1,0 +1,20 @@
+{
+  "scripts/task_cards.py": "5f962b464a958bbe4b2fbbcf139a59dcfa28047cdc69a1fa514d489d61796634",
+  "scripts/task_service_store.py": "84be0a6ee96e1e6b3d4db6cb43537c03d6a8f57d1d7bd9b379c790ec12a838c1",
+  "scripts/collaboration_store.py": "a6a046f9a1981f8f6bbc8794f353c62a2644e41d8640ede641d301c860f71b08",
+  "scripts/collaboration_panel.py": "f3fc973652577ff102e2ba968744ab4abcf04c46c5ade0e2bc8ed81470708254",
+  "scripts/task_service.py": "9023b79f3f8a3081af4b2024ec491811f18359c4e5554511cb2fb8fdd8b08049",
+  "scripts/task_service_worker.py": "3a35884a0217e3f82877eae30263560bd66e1583018770a46ee5152e35ce7bc1",
+  "scripts/collaboration_runtime.py": "232930211f4e06566d0a7c2fface6d9884fb6ae5cb977c019f44cd6e914ee211",
+  "scripts/collaboration_live.py": "9efbd995ab7309a714c669002f301323ef6bca6813ae476b6a3c3b745ceaa434",
+  "scripts/document_agent_demo.py": "77e300fbbc4afa8035116230060758eae5da8d0cda11c8b6f9beafecdf71a12f",
+  "scripts/task_card_panel.js": "4e3ee1f7292c0fef0b95864b02f27d81f8182b723a4a282f000bab9a9f449847",
+  "scripts/task_panel.html": "c24fcabd45d225c5ff80dc31366639d26fd9afb7cb683ad41db998c6ad9915d4",
+  "Project/36_过程_Harness任务卡与运行中要求补充.md": "af751d8e8b1629ea02da0d2ddfe9c0a4c5b82cfdd4502fafa5955f213b79f487",
+  "Project/35_调研_Agent_Harness主流方案与项目演进建议.md": "4a4b32f5936626a6c045b18a6264008e8efcc0aeaa9314d2b5b258654d26d766",
+  "Project/00_项目现状与快速接手.md": "1b38300ba0619f7e62e6cf9629ecbffa10090644fc9d5b4597f08403418d8ce3",
+  "Project/项目开发流水账.md": "d7140958dfbc3888cf2ea7aa7c06d3ac78dd56d176200841310fcf61900c7187",
+  "AGENTS.md": "b79c02495750ea664d4645112f79a7964af3a3c0f94e0f5968db11ee39c4e941",
+  "README.md": "a2193c5f42966f0b88a3e591efc7ea28ff810fc08534ad724ace7bde43bf1424",
+  "job/AGENTS.md": "bfa98c704a0571f067f9ae18bbbda7d54414c7550b5294de7d901916a3c66007"
+}

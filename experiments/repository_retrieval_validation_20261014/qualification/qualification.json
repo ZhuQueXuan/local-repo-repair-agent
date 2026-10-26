@@ -1,0 +1,47 @@
+[
+  {
+    "task": "click-shared-parameter",
+    "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\click-shared-parameter\\temp\\run_20261014_220039_686412\\repo",
+    "issue_total": 5,
+    "issue_passed": 4,
+    "upstream_targeted": 115,
+    "upstream_targeted_ok": true,
+    "extended_total": 264,
+    "extended_passed": 262,
+    "extended_skipped": 0,
+    "extended_failures": [
+      "tests.test_arguments.test_bytes_args",
+      "tests.test_arguments.test_bytes_args"
+    ],
+    "qualified": true
+  },
+  {
+    "task": "click-custom-command",
+    "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\click-custom-command\\temp\\run_20261014_220043_290659\\repo",
+    "issue_total": 6,
+    "issue_passed": 5,
+    "upstream_targeted": 9,
+    "upstream_targeted_ok": true,
+    "extended_total": 264,
+    "extended_passed": 262,
+    "extended_skipped": 0,
+    "extended_failures": [
+      "tests.test_arguments.test_bytes_args",
+      "tests.test_arguments.test_bytes_args"
+    ],
+    "qualified": true
+  },
+  {
+    "task": "barrel-sort",
+    "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261014_220046_612023\\repo",
+    "issue_total": 5,
+    "issue_passed": 2,
+    "upstream_targeted": 2,
+    "upstream_targeted_ok": true,
+    "extended_total": 78,
+    "extended_passed": 78,
+    "extended_skipped": 0,
+    "extended_failures": [],
+    "qualified": true
+  }
+]

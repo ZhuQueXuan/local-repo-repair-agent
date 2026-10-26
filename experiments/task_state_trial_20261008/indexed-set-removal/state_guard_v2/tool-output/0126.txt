@@ -1,0 +1,6 @@
+125:    def _compact(self):
+158:    def _get_real_index(self, index):
+210:    def __iter__(self):
+213:    def __reversed__(self):
+392:    def iter_slice(self, start, stop, step=None):
+960:    def __iter__(self):

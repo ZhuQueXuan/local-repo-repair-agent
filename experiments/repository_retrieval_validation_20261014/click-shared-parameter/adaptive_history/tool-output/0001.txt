@@ -1,0 +1,22 @@
+CHANGES.rst
+CODE_OF_CONDUCT.md
+CONTRIBUTING.rst
+LICENSE.rst
+MANIFEST.in
+README.rst
+TASK.md
+artwork
+docs
+examples
+requirements
+setup.cfg
+setup.py
+src
+task_checks
+temp
+tests
+tox.ini
+---
+click
+---
+7ed8a47 Frozen task baseline

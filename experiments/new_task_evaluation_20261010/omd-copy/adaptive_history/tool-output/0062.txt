@@ -1,0 +1,16 @@
+        dict.__delitem__(self.inv, self[key])
+        dict.__delitem__(self, key)
+
+    def clear(self):
+        dict.clear(self)
+        dict.clear(self.inv)
+
+    def copy(self):
+        return self.__class__(self)
+
+    def pop(self, key, default=_MISSING):
+        if key in self:
+            dict.__delitem__(self.inv, self[key])
+            return dict.pop(self, key)
+        if default is not _MISSING:
+            return default

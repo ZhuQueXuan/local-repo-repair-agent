@@ -1,0 +1,2 @@
+('Extra data: line 1 column 9 (char 8)',) Extra data {"a": 1}{"b": 2} 8
+FAIL <class 'TypeError'> JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'

@@ -1,0 +1,32 @@
+{
+  "source_revision": "1b2962578229655c6c9005ee0eeeec7fd1c2a3f4e8d9ed3ad45de72d4d26473e",
+  "changed_files": [
+    "src/click/decorators.py"
+  ],
+  "executed_actions": 44,
+  "blocked_reads": 0,
+  "guard_enabled": true,
+  "warning": "",
+  "model_notes": {
+    "status": "not written",
+    "hypothesis": "",
+    "next_action": ""
+  },
+  "last_model_intent_unverified": "The fix is complete and verified.\n\n**Root cause:** In `src/click/decorators.py`, the `argument` decorator mutated the shared `attrs` dict via `attrs.pop(\"cls\", None)`. When a configured parameter decorator (e.g. `@click.argument(..., cls=MyType)`) was reused across multiple commands, the first invocation popped `cls` out of the shared dict, so later commands fell back to the built-in `Argument` class (or lost other config). The `option` decorator had already been fixed for this (Issue 926) by copying `attrs` first, but `argument` had not.\n\n**Repair:** Mirror the option fix — copy `attrs` into `argument_attrs` before popping `cls`, so each application creates a distinct instance of the requested class with its configuration preserved and independent from ot…",
+  "recent_distinct_evidence": [
+    {
+      "command": "set -o pipefail\ncd \"$(pwd)\" && git status --short && echo \"=== diff ===\" && git diff",
+      "returncode": 0,
+      "output_path": "temp/tool-output/0043.txt",
+      "preview": " M src/click/decorators.py\n?? temp/\n=== diff ===\ndiff --git a/src/click/decorators.py b/src/click/decorators.py\nindex 28618dc..b0aa8e0 100644\n--- a/src/click/decorators.py\n+++ b/src/click/decorators.py\n@@ -283,8 +283,10 @@ def argument(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:\n     \"\"\"\n \n     def decorator(f: FC) -> FC:\n-        ArgumentClass = attrs.pop(\"cls\", None) or Argument\n-        _param_memo(f, ArgumentClass(param_decls, **attrs))\n+        # Copy attrs, so pre-defined arguments can…"
+    },
+    {
+      "command": "set -o pipefail\necho COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+      "returncode": 0,
+      "output_path": "temp/tool-output/0044.txt",
+      "preview": "COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT\n"
+    }
+  ],
+  "evidence_log": "temp/task-state/events.jsonl",
+  "validation": "Command exit codes are observations; independent repair acceptance occurs outside the Agent."
+}

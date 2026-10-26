@@ -1,0 +1,11 @@
+30:# json/simplejson module import resolution
+31:has_simplejson = False
+33:    import simplejson as json
+35:    has_simplejson = True
+37:    import json
+39:if has_simplejson:
+40:    from simplejson import JSONDecodeError
+42:    from json import JSONDecodeError
+---
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>

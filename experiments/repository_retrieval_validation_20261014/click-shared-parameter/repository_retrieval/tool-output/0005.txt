@@ -1,0 +1,121 @@
+     1	        attr_params = attrs.pop("params", None)
+     2	        params = attr_params if attr_params is not None else []
+     3	
+     4	        try:
+     5	            decorator_params = f.__click_params__  # type: ignore
+     6	        except AttributeError:
+     7	            pass
+     8	        else:
+     9	            del f.__click_params__  # type: ignore
+    10	            params.extend(reversed(decorator_params))
+    11	
+    12	        if attrs.get("help") is None:
+    13	            attrs["help"] = f.__doc__
+    14	
+    15	        cmd = cls(  # type: ignore[misc]
+    16	            name=name or f.__name__.lower().replace("_", "-"),  # type: ignore[arg-type]
+    17	            callback=f,
+    18	            params=params,
+    19	            **attrs,
+    20	        )
+    21	        cmd.__doc__ = f.__doc__
+    22	        return cmd
+    23	
+    24	    if func is not None:
+    25	        return decorator(func)
+    26	
+    27	    return decorator
+    28	
+    29	
+    30	@t.overload
+    31	def group(
+    32	    __func: t.Callable[..., t.Any],
+    33	) -> Group:
+    34	    ...
+    35	
+    36	
+    37	@t.overload
+    38	def group(
+    39	    name: t.Optional[str] = None,
+    40	    **attrs: t.Any,
+    41	) -> t.Callable[[F], Group]:
+    42	    ...
+    43	
+    44	
+    45	def group(
+    46	    name: t.Union[str, t.Callable[..., t.Any], None] = None, **attrs: t.Any
+    47	) -> t.Union[Group, t.Callable[[F], Group]]:
+    48	    """Creates a new :class:`Group` with a function as callback.  This
+    49	    works otherwise the same as :func:`command` just that the `cls`
+    50	    parameter is set to :class:`Group`.
+    51	
+    52	    .. versionchanged:: 8.1
+    53	        This decorator can be applied without parentheses.
+    54	    """
+    55	    if attrs.get("cls") is None:
+    56	        attrs["cls"] = Group
+    57	
+    58	    if callable(name):
+    59	        grp: t.Callable[[F], Group] = t.cast(Group, command(**attrs))
+    60	        return grp(name)
+    61	
+    62	    return t.cast(Group, command(name, **attrs))
+    63	
+    64	
+    65	def _param_memo(f: FC, param: Parameter) -> None:
+    66	    if isinstance(f, Command):
+    67	        f.params.append(param)
+    68	    else:
+    69	        if not hasattr(f, "__click_params__"):
+    70	            f.__click_params__ = []  # type: ignore
+    71	
+    72	        f.__click_params__.append(param)  # type: ignore
+    73	
+    74	
+    75	def argument(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:
+    76	    """Attaches an argument to the command.  All positional arguments are
+    77	    passed as parameter declarations to :class:`Argument`; all keyword
+    78	    arguments are forwarded unchanged (except ``cls``).
+    79	    This is equivalent to creating an :class:`Argument` instance manually
+    80	    and attaching it to the :attr:`Command.params` list.
+    81	
+    82	    :param cls: the argument class to instantiate.  This defaults to
+    83	                :class:`Argument`.
+    84	    """
+    85	
+    86	    def decorator(f: FC) -> FC:
+    87	        ArgumentClass = attrs.pop("cls", None) or Argument
+    88	        _param_memo(f, ArgumentClass(param_decls, **attrs))
+    89	        return f
+    90	
+    91	    return decorator
+    92	
+    93	
+    94	def option(*param_decls: str, **attrs: t.Any) -> t.Callable[[FC], FC]:
+    95	    """Attaches an option to the command.  All positional arguments are
+    96	    passed as parameter declarations to :class:`Option`; all keyword
+    97	    arguments are forwarded unchanged (except ``cls``).
+    98	    This is equivalent to creating an :class:`Option` instance manually
+    99	    and attaching it to the :attr:`Command.params` list.
+   100	
+   101	    :param cls: the option class to instantiate.  This defaults to
+   102	                :class:`Option`.
+   103	    """
+   104	
+   105	    def decorator(f: FC) -> FC:
+   106	        # Issue 926, copy attrs, so pre-defined options can re-use the same cls=
+   107	        option_attrs = attrs.copy()
+   108	        OptionClass = option_attrs.pop("cls", None) or Option
+   109	        _param_memo(f, OptionClass(param_decls, **option_attrs))
+   110	        return f
+   111	
+   112	    return decorator
+   113	
+   114	
+   115	def confirmation_option(*param_decls: str, **kwargs: t.Any) -> t.Callable[[FC], FC]:
+   116	    """Add a ``--yes`` option which shows a prompt before continuing if
+   117	    not passed. If the prompt is declined, the program will exit.
+   118	
+   119	    :param param_decls: One or more option names. Defaults to the single
+   120	        value ``"--yes"``.
+   121	    :param kwargs: Extra arguments are passed to :func:`option`.

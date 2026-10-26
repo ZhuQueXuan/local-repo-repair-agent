@@ -1,0 +1,1 @@
+Confirmed. The fix: move the `cls` assignment to after the concise-form detection, so the assertion sees the original empty kwargs. Let me write notes and apply the fix.

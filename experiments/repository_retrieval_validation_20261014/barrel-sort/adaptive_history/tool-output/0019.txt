@@ -1,0 +1,19 @@
+    .. _blist module available on PyPI: https://pypi.python.org/pypi/blist
+    .. _B-trees: https://en.wikipedia.org/wiki/B-tree
+
+    """
+
+    _size_factor = 1520
+    "This size factor is the result of tuning using the tune() function below."
+
+    def __init__(self, iterable=None):
+        self.lists = [[]]
+        if iterable:
+            self.extend(iterable)
+
+    @property
+    def _cur_size_limit(self):
+        len_self, size_factor = len(self), self._size_factor
+        return int(round(size_factor * math_log(len_self + 2, 2)))
+
+    def _translate_index(self, index):

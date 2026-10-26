@@ -1,0 +1,1 @@
+Now I see the bug clearly. `del self.lists[:]` empties the list, then `self.lists[0] = tmp_sorted` raises IndexError because index 0 doesn't exist in an empty list. My earlier repro must not have triggered the multi-list branch. Let me reproduce properly with a large enough input.

@@ -1,0 +1,21 @@
+{
+  "run_id": "d3173d4153e544ccbf0eb066834848f8",
+  "four_phases_succeeded": true,
+  "repair_passed": true,
+  "final_review_approve": true,
+  "frozen_inputs_currently_unchanged": 168,
+  "old_records_unchanged": 44,
+  "production_rows": 45,
+  "new_tickets": 21,
+  "old_ledger_requests_unchanged": true,
+  "no_pending_runs": true,
+  "archives_verified": {
+    "multi_agent_feedback_diagnostic_live_20261024": 50,
+    "multi_agent_feedback_recheck_live_20261024": 51,
+    "collaboration_response_fix_20261024": 33,
+    "review_adjudication_20261024": 43,
+    "multi_agent_response_recheck_live_20261024": 53
+  },
+  "runtime_edits_this_recheck": 0,
+  "scope": "manual known-defect integration diagnostic, no new-task or comparative effectiveness result"
+}

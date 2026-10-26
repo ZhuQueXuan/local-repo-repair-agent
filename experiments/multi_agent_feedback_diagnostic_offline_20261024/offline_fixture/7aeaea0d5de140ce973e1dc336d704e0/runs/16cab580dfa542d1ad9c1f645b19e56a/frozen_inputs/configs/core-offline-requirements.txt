@@ -1,0 +1,13 @@
+annotated-types==0.8.0
+Jinja2==3.1.6
+markdown-it-py==4.2.0
+MarkupSafe==3.0.4
+mdurl==0.1.2
+platformdirs==4.12.3
+pydantic==2.13.5
+pydantic_core==2.46.5
+Pygments==2.21.0
+python-dotenv==1.2.4
+rich==15.0.0
+typing-inspection==0.4.4
+typing_extensions==4.16.0

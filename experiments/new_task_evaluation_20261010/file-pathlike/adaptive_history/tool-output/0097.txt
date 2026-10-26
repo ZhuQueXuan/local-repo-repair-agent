@@ -1,0 +1,20 @@
+533:     start_depth = len(directory.split(os.path.sep))
+534:     for root, dirs, files in os.walk(directory):
+535:         if max_depth is not None and (len(root.split(os.path.sep)) - start_depth) > max_depth:
+536:             continue
+537:         if include_dirs:
+538:             for basename in dirs:
+539:                 if pats_re.match(basename):
+540:                     if ignored and ign_re.match(basename):
+541:                         continue
+542:                     filename = os.path.join(root, basename)
+543:                     yield filename
+544: 
+545:         for basename in files:
+546:             if pats_re.match(basename):
+547:                 if ignored and ign_re.match(basename):
+548:                     continue
+549:                 filename = os.path.join(root, basename)
+550:                 yield filename
+551:     return
+552: 

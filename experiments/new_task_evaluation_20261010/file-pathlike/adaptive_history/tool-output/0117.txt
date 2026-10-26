@@ -1,0 +1,5 @@
+AtomicSaver Path: hello
+atomic_save Path: data
+atomic_save PathLike: data3
+iter_find_files Path: ['a.txt', 'out.txt', 'out2.txt', 'out3.txt']
+leftover: ['out.txt', 'out2.txt', 'out3.txt', 'sub']

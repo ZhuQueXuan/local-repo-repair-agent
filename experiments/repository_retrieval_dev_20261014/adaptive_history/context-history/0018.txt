@@ -1,0 +1,1 @@
+The current behavior works on this Python. But the issue is about robustness. Let me check the git baseline to understand what state we're in — maybe the fix is expected to add `__reduce__` to the requests JSONDecodeError. Let me look at the full exceptions.py and check the task_checks.

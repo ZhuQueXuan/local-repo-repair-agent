@@ -1,0 +1,1 @@
+The `__reduce__` returns only the formatted message as args, but `__init__` requires `msg, doc, pos`. I'll add a `__reduce__` that preserves the original constructor arguments.

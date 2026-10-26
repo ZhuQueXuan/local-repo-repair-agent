@@ -1,0 +1,120 @@
+# Copyright (c) 2013, Mahmoud Hashemi
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#
+#    * Redistributions in binary form must reproduce the above
+#      copyright notice, this list of conditions and the following
+#      disclaimer in the documentation and/or other materials provided
+#      with the distribution.
+#
+#    * The names of the contributors may not be used to endorse or
+#      promote products derived from this software without specific
+#      prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+"""Python's builtin :class:`list` is a very fast and efficient
+sequence type, but it could be better for certain access patterns,
+such as non-sequential insertion into a large lists. ``listutils``
+provides a pure-Python solution to this problem.
+
+For utilities for working with iterables and lists, check out
+:mod:`iterutils`. For the a :class:`list`-based version of
+:class:`collections.namedtuple`, check out :mod:`namedutils`.
+"""
+
+
+import operator
+from math import log as math_log
+from itertools import chain, islice
+
+try:
+    from .typeutils import make_sentinel
+    _MISSING = make_sentinel(var_name='_MISSING')
+except ImportError:
+    _MISSING = object()
+
+# TODO: expose splaylist?
+__all__ = ['BList', 'BarrelList']
+
+
+# TODO: comparators
+# TODO: keep track of list lengths and bisect to the right list for
+# faster getitem (and slightly slower setitem and delitem ops)
+
+class BarrelList(list):
+    """The ``BarrelList`` is a :class:`list` subtype backed by many
+    dynamically-scaled sublists, to provide better scaling and random
+    insertion/deletion characteristics. It is a subtype of the builtin
+    :class:`list` and has an identical API, supporting indexing,
+    slicing, sorting, etc. If application requirements call for
+    something more performant, consider the `blist module available on
+    PyPI`_.
+
+    The name comes by way of Kurt Rose, who said it reminded him of
+    barrel shifters. Not sure how, but it's BList-like, so the name
+    stuck. BList is of course a reference to `B-trees`_.
+
+    Args:
+        iterable: An optional iterable of initial values for the list.
+
+    >>> blist = BList(range(100000))
+    >>> blist.pop(50000)
+    50000
+    >>> len(blist)
+    99999
+    >>> len(blist.lists)  # how many underlying lists
+    8
+    >>> slice_idx = blist.lists[0][-1]
+    >>> blist[slice_idx:slice_idx + 2]
+    BarrelList([11637, 11638])
+
+    Slicing is supported and works just fine across list borders,
+    returning another instance of the BarrelList.
+
+    .. _blist module available on PyPI: https://pypi.python.org/pypi/blist
+    .. _B-trees: https://en.wikipedia.org/wiki/B-tree
+
+    """
+
+    _size_factor = 1520
+    "This size factor is the result of tuning using the tune() function below."
+
+    def __init__(self, iterable=None):
+        self.lists = [[]]
+        if iterable:
+            self.extend(iterable)
+
+    @property
+    def _cur_size_limit(self):
+        len_self, size_factor = len(self), self._size_factor
+        return int(round(size_factor * math_log(len_self + 2, 2)))
+
+    def _translate_index(self, index):
+        if index < 0:
+            index += len(self)
+        rel_idx, lists = index, self.lists
+        for list_idx in range(len(lists)):
+            len_list = len(lists[list_idx])
+            if rel_idx < len_list:
+                break
+            rel_idx -= len_list
+        if rel_idx < 0:
+            return None, None
+        return list_idx, rel_idx
+

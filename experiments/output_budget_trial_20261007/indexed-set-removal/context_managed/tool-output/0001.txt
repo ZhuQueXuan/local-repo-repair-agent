@@ -1,0 +1,22 @@
+/d/myDocu/project_postg/shixi_project/tasks/indexed-set-removal/temp/run_20261007_220547_218890/repo
+CHANGELOG.md
+LICENSE
+README.md
+TASK.md
+TODO.rst
+boltons
+docs
+misc
+pyproject.toml
+requirements-test.txt
+setup.cfg
+task_checks
+temp
+tests
+tox.ini
+---
+68:class IndexedSet(MutableSet):
+392:    def iter_slice(self, start, stop, step=None):
+405:    def __getitem__(self, index):
+411:            iter_slice = self.iter_slice(start, stop, step)
+412:            return self.from_iterable(iter_slice)

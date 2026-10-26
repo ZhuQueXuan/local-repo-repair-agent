@@ -1,0 +1,20 @@
+{
+  "acceptance-collaboration.json": "ad716f06f642a44cf8a256537f7db9aa8ae2a6a954fee0f0b3d7d373c89dc7b6",
+  "acceptance-dispatched.json": "60bccf0bcb1f2c846f6816f8b9935b15e98c36ba52ed4b4c49d3e14cef79ff7f",
+  "acceptance-parent.json": "b6a1b5e290bffdc438cc1e21d77fcb1aa8b9ef8baa820ea6de7352c3667e821a",
+  "acceptance-result.json": "c51f2746db6a7656973045d4b38b26fe0ee930c6d03dad7152b28f987fd8393c",
+  "before-real-acceptance.sqlite3": "875a31e1d2e367a0b8600e82f50744442af844f9561ddcb74214b1c4c2756da3",
+  "before-real-ledger.json": "d0843391cdac81e492875d5311e7c9c24cccea0972dc2493f32056d0563be0ee",
+  "before-real-payloads.json": "cb3f6963ee77bcd1b639b3fd4827941aac20b50b6d51b01b0397569be7c601fe",
+  "browser-current-failure.jpg": "3683923aa6522185930b58aac37427a320fbe7c06253cc8319b3ba65642f00d7",
+  "browser-verification.json": "2c9fe7edac86efe82a76b3a4ae4ea32ed4aa3824a331000ab6d1283c8ab36c95",
+  "final-formal-store.sqlite3": "eb5e37e18ca2b1a50b7e085612b82ccbdd95b68d91ee6d132ffddcc187f30f78",
+  "final-parent.json": "c51f2746db6a7656973045d4b38b26fe0ee930c6d03dad7152b28f987fd8393c",
+  "final-shared-ledger.json": "f9e6527c5a7b246a79c52a6c6bc6cb06d3be625577d425fefff9ecbb68036093",
+  "offline-finalize-results.json": "3edca2b624f08ad95f561b256dedff2f25b5139031c32f3fc7b0974fe7d3ed95",
+  "restored-panel.json": "7f89160c5538d4d9710e80a9337a1fea3e5a2a792753f9469109b378da349ca5",
+  "restored-panel.log": "f77f1c9a4d608821d2888c0e2c1f038d64c2895e04dc7a44dfbd954589229e90",
+  "review-failure-replay.json": "008b193676f52637ea55a4cc0d5640fb5324d34d3805c5e2e5ac9b4e012df7ef",
+  "three-role-acceptance-plan.json": "be169221ed5f17427a05beecdde5878b5c285913a5ef7664a2516fd349a920f7",
+  "verification.json": "e93914e72e99405e4dcabc511fbf5737d6e7896a8c803be688f910f8be322f01"
+}

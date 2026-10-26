@@ -1,0 +1,1 @@
+Reproduced. Now let me look at the class structure and `__init__`/`__reduce__` to understand how to implement `__copy__`/`__deepcopy__`.

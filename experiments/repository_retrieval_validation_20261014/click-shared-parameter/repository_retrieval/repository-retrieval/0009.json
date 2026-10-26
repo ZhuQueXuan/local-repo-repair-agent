@@ -1,0 +1,373 @@
+{
+  "indexed_files": 16,
+  "query_terms": [
+    "accepts",
+    "application",
+    "argument",
+    "back",
+    "between",
+    "both",
+    "built",
+    "but",
+    "callbacks",
+    "cause",
+    "changing",
+    "class",
+    "code",
+    "command",
+    "commands",
+    "configuration",
+    "configured",
+    "create",
+    "custom",
+    "decorator",
+    "distinct",
+    "either",
+    "every",
+    "execution",
+    "falls",
+    "first",
+    "gets",
+    "independent",
+    "inside",
+    "instance",
+    "keep",
+    "keyword",
+    "later",
+    "leave",
+    "library",
+    "line",
+    "locate",
+    "must",
+    "option",
+    "ordinary",
+    "other",
+    "parameter",
+    "parameters",
+    "preserve",
+    "rather",
+    "rejects",
+    "requested",
+    "reusable",
+    "reusing",
+    "same",
+    "setup",
+    "several",
+    "shares",
+    "stops",
+    "tests",
+    "than",
+    "type",
+    "working"
+  ],
+  "hits": [
+    {
+      "path": "src/click/core.py",
+      "symbol": "Parameter",
+      "start": 1976,
+      "end": 2406,
+      "matched_terms": [
+        "argument",
+        "both",
+        "but",
+        "class",
+        "code",
+        "command",
+        "custom",
+        "either",
+        "later",
+        "must",
+        "option",
+        "other",
+        "parameter",
+        "parameters",
+        "rather",
+        "than",
+        "type"
+      ],
+      "import_neighbors": [
+        "src/click/decorators.py"
+      ],
+      "score": 13.3067,
+      "sha256": "9b3f3b6d810acc8a0d6046b9e8114088e267bedd58d0bfa2ef00f8fd979c89e1",
+      "snippet": [
+        {
+          "line": 1977,
+          "text": "    r\"\"\"A parameter to a command comes in two versions: they are either"
+        },
+        {
+          "line": 1978,
+          "text": "    :class:`Option`\\s or :class:`Argument`\\s.  Other subclasses are currently"
+        },
+        {
+          "line": 1979,
+          "text": "    not supported by design as some of the internals for parsing are"
+        },
+        {
+          "line": 1980,
+          "text": "    intentionally not finalized."
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/decorators.py",
+      "symbol": "option",
+      "start": 293,
+      "end": 311,
+      "matched_terms": [
+        "class",
+        "command",
+        "decorator",
+        "instance",
+        "keyword",
+        "option",
+        "parameter",
+        "same"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 13.176,
+      "sha256": "ca8df3bf38149b9abb8790978f257aab787f3c902251a7a6d7bf335f07565052",
+      "snippet": [
+        {
+          "line": 294,
+          "text": "    \"\"\"Attaches an option to the command.  All positional arguments are"
+        },
+        {
+          "line": 295,
+          "text": "    passed as parameter declarations to :class:`Option`; all keyword"
+        },
+        {
+          "line": 296,
+          "text": "    arguments are forwarded unchanged (except ``cls``)."
+        },
+        {
+          "line": 297,
+          "text": "    This is equivalent to creating an :class:`Option` instance manually"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/parser.py",
+      "symbol": "Argument",
+      "start": 213,
+      "end": 242,
+      "matched_terms": [
+        "argument",
+        "class"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 10.9398,
+      "sha256": "70012dd6e411f20ab7f92f72b2a6d553e7dd01936f8a5c70e11789fd3d4e40c9",
+      "snippet": [
+        {
+          "line": 213,
+          "text": "class Argument:"
+        },
+        {
+          "line": 214,
+          "text": "    def __init__(self, obj: \"CoreArgument\", dest: t.Optional[str], nargs: int = 1):"
+        },
+        {
+          "line": 215,
+          "text": "        self.dest = dest"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/types.py",
+      "symbol": "UUIDParameterType",
+      "start": 613,
+      "end": 634,
+      "matched_terms": [
+        "class",
+        "parameter",
+        "type"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 7.4988,
+      "sha256": "ac46f56994902aaddc8823268e91b652f6bdbe4e3df1744bed386b70ad8646cb",
+      "snippet": [
+        {
+          "line": 613,
+          "text": "class UUIDParameterType(ParamType):"
+        },
+        {
+          "line": 614,
+          "text": "    name = \"uuid\""
+        },
+        {
+          "line": 615,
+          "text": ""
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/exceptions.py",
+      "symbol": "BadArgumentUsage",
+      "start": 247,
+      "end": 253,
+      "matched_terms": [
+        "argument",
+        "but",
+        "class",
+        "instance"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 5.7385,
+      "sha256": "ee00da2c6b8564178237063d11132c176f99dd1f45bead3d65ce886522a3b1ea",
+      "snippet": [
+        {
+          "line": 247,
+          "text": "class BadArgumentUsage(UsageError):"
+        },
+        {
+          "line": 248,
+          "text": "    \"\"\"Raised if an argument is generally supplied but the use of the argument"
+        },
+        {
+          "line": 249,
+          "text": "    was incorrect.  This is for instance raised if the number of values"
+        }
+      ],
+      "syntax_fallback": false
+    }
+  ],
+  "refreshed_files": [],
+  "removed_from_index": [],
+  "skipped": [],
+  "message_utf8_bytes": 2594,
+  "selected_hits": [
+    {
+      "path": "src/click/core.py",
+      "symbol": "Parameter",
+      "start": 1976,
+      "end": 2406,
+      "matched_terms": [
+        "argument",
+        "both",
+        "but",
+        "class",
+        "code",
+        "command",
+        "custom",
+        "either",
+        "later",
+        "must",
+        "option",
+        "other",
+        "parameter",
+        "parameters",
+        "rather",
+        "than",
+        "type"
+      ],
+      "import_neighbors": [
+        "src/click/decorators.py"
+      ],
+      "score": 13.3067,
+      "sha256": "9b3f3b6d810acc8a0d6046b9e8114088e267bedd58d0bfa2ef00f8fd979c89e1",
+      "snippet": [
+        {
+          "line": 1977,
+          "text": "    r\"\"\"A parameter to a command comes in two versions: they are either"
+        },
+        {
+          "line": 1978,
+          "text": "    :class:`Option`\\s or :class:`Argument`\\s.  Other subclasses are currently"
+        },
+        {
+          "line": 1979,
+          "text": "    not supported by design as some of the internals for parsing are"
+        },
+        {
+          "line": 1980,
+          "text": "    intentionally not finalized."
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/decorators.py",
+      "symbol": "option",
+      "start": 293,
+      "end": 311,
+      "matched_terms": [
+        "class",
+        "command",
+        "decorator",
+        "instance",
+        "keyword",
+        "option",
+        "parameter",
+        "same"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 13.176,
+      "sha256": "ca8df3bf38149b9abb8790978f257aab787f3c902251a7a6d7bf335f07565052",
+      "snippet": [
+        {
+          "line": 294,
+          "text": "    \"\"\"Attaches an option to the command.  All positional arguments are"
+        },
+        {
+          "line": 295,
+          "text": "    passed as parameter declarations to :class:`Option`; all keyword"
+        },
+        {
+          "line": 296,
+          "text": "    arguments are forwarded unchanged (except ``cls``)."
+        },
+        {
+          "line": 297,
+          "text": "    This is equivalent to creating an :class:`Option` instance manually"
+        }
+      ],
+      "syntax_fallback": false
+    },
+    {
+      "path": "src/click/parser.py",
+      "symbol": "Argument",
+      "start": 213,
+      "end": 242,
+      "matched_terms": [
+        "argument",
+        "class"
+      ],
+      "import_neighbors": [
+        "src/click/core.py"
+      ],
+      "score": 10.9398,
+      "sha256": "70012dd6e411f20ab7f92f72b2a6d553e7dd01936f8a5c70e11789fd3d4e40c9",
+      "snippet": [
+        {
+          "line": 213,
+          "text": "class Argument:"
+        },
+        {
+          "line": 214,
+          "text": "    def __init__(self, obj: \"CoreArgument\", dest: t.Optional[str], nargs: int = 1):"
+        },
+        {
+          "line": 215,
+          "text": "        self.dest = dest"
+        }
+      ],
+      "syntax_fallback": false
+    }
+  ],
+  "projection": 9
+}

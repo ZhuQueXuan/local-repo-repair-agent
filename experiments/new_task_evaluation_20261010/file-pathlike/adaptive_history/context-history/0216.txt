@@ -1,0 +1,1 @@
+The fix: coerce `dest_path` via `os.fspath` at the start of `__init__`. Let me also check `iter_find_files`.

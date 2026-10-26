@@ -1,0 +1,12 @@
+{
+  "type": "RuntimeError",
+  "message": "primary-test-secret backup-test-secret [REDACTED] provider failure",
+  "provider_failure": {
+    "kind": "request_failed",
+    "provider": "deepseek_official",
+    "status_code": 503,
+    "notice": "deepseek_official：API请求失败，尚不能判断是网络还是服务问题。",
+    "failover_eligible": true
+  },
+  "fallback_attempted_next": false
+}

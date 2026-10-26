@@ -1,0 +1,1 @@
+Interesting — the roundtrip works here. Let me check the actual pickle behavior more carefully, since `args` only has one element but the constructor needs `msg, doc, pos`.

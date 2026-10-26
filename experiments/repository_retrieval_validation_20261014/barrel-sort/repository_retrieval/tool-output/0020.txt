@@ -1,0 +1,7 @@
+num lists: 1
+num lists after insert: 15
+sort returned None len 200001 sorted True
+empty sort: None 0
+small: None [1, 1, 2, 3] 4
+large ret: None len ok: True sorted: True
+usable: True True

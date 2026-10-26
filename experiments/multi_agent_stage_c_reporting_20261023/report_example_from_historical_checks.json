@@ -1,0 +1,44 @@
+{
+  "scope": "New summary rendered offline from historical reports; not a new model run or a replacement for historical ProgramReport.",
+  "summary": {
+    "schema_version": 2,
+    "acceptance_rule": "task_checks_pass_and_no_new_full_suite_failures",
+    "accepted_against_baseline": true,
+    "issue": {
+      "tests_run": 10,
+      "passed": 10,
+      "successful": true
+    },
+    "targeted": {
+      "tests_run": 4,
+      "passed": 4,
+      "successful": true
+    },
+    "full_suite": {
+      "tests_run": 660,
+      "passed": 659
+    },
+    "full_suite_all_passed": false,
+    "protected_tests_unchanged": true,
+    "baseline_failures": {
+      "count": 1,
+      "names": [
+        "test_more.TimeLimitedTests.test_zero_limit"
+      ],
+      "truncated": false
+    },
+    "remaining_failures": {
+      "count": 1,
+      "names": [
+        "test_more.TimeLimitedTests.test_zero_limit"
+      ],
+      "truncated": false
+    },
+    "new_failures": {
+      "count": 0,
+      "names": [],
+      "truncated": false
+    },
+    "note": "Acceptance against baseline does not mean all tests passed. Listed failures remain; truncated names are previews."
+  }
+}

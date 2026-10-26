@@ -1,0 +1,1 @@
+The tool truncates output regardless. Let me read the file in small chunks with sed directly on the source file.

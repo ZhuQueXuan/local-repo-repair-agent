@@ -1,0 +1,1 @@
+Reproduced. Now let me check what `__reduce_ex__` currently returns and confirm the fix.

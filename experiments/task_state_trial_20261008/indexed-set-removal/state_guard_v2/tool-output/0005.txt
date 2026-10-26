@@ -1,0 +1,60 @@
+111:    def __init__(self, other=None):
+122:    def _dead_index_count(self):
+125:    def _compact(self):
+138:    def _cull(self):
+158:    def _get_real_index(self, index):
+170:    def _get_apparent_index(self, index):
+182:    def _add_dead(self, start, stop=None):
+204:    def __len__(self):
+207:    def __contains__(self, item):
+210:    def __iter__(self):
+213:    def __reversed__(self):
+217:    def __repr__(self):
+220:    def __eq__(self, other):
+229:    def from_iterable(cls, it):
+234:    def add(self, item):
+240:    def remove(self, item):
+250:    def discard(self, item):
+257:    def clear(self):
+263:    def isdisjoint(self, other):
+271:    def issubset(self, other):
+280:    def issuperset(self, other):
+290:    def union(self, *others):
+294:    def iter_intersection(self, *others):
+304:    def intersection(self, *others):
+311:    def iter_difference(self, *others):
+321:    def difference(self, *others):
+328:    def symmetric_difference(self, *others):
+338:    def __rsub__(self, other):
+343:    def update(self, *others):
+354:    def intersection_update(self, *others):
+359:    def difference_update(self, *others):
+366:    def symmetric_difference_update(self, other):  # note singular 'other'
+376:    def __ior__(self, *others):
+380:    def __iand__(self, *others):
+384:    def __isub__(self, *others):
+388:    def __ixor__(self, *others):
+392:    def iter_slice(self, start, stop, step=None):
+405:    def __getitem__(self, index):
+411:            iter_slice = self.iter_slice(start, stop, step)
+412:            return self.from_iterable(iter_slice)
+422:    def pop(self, index=None):
+438:    def count(self, val):
+444:    def reverse(self):
+452:    def sort(self, **kwargs):
+462:    def index(self, val):
+471:def complement(wrapped):
+520:        ...    def __init__(self, allowed):
+523:        ...    def filter(self, names):
+558:def _norm_args_typeerror(other):
+569:def _norm_args_notimplemented(other):
+586:    def __init__(self, included=None, excluded=None):
+595:    def __repr__(self):
+600:    def complemented(self):
+610:    def complement(self):
+614:    def __contains__(self, item):
+619:    def add(self, item):
+626:    def remove(self, item):
+632:    def pop(self):
+637:    def intersection(self, other):
+643:    def __and__(self, other):

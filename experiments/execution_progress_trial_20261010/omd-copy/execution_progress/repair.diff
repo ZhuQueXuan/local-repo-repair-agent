@@ -1,0 +1,27 @@
+--- a/boltons/dictutils.py
++++ b/boltons/dictutils.py
+@@ -67,6 +67,7 @@
+ 
+ """
+ 
++import copy
+ from collections.abc import KeysView, ValuesView, ItemsView
+ from itertools import zip_longest
+ 
+@@ -265,6 +266,16 @@
+     def copy(self):
+         "Return a shallow copy of the dictionary."
+         return self.__class__(self.iteritems(multi=True))
++
++    def __copy__(self):
++        return self.copy()
++
++    def __deepcopy__(self, memo):
++        ret = self.__class__()
++        memo[id(self)] = ret
++        for k, v in self.iteritems(multi=True):
++            ret.add(copy.deepcopy(k, memo), copy.deepcopy(v, memo))
++        return ret
+ 
+     @classmethod
+     def fromkeys(cls, keys, default=None):

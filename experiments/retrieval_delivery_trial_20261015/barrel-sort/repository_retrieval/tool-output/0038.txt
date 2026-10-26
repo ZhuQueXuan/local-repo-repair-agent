@@ -1,0 +1,4 @@
+len before 601
+returned None
+len after 601
+sorted? True

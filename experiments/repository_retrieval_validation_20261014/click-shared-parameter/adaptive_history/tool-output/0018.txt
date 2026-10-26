@@ -1,0 +1,18 @@
+def convert_type(ty: t.Optional[t.Any], default: t.Optional[t.Any] = None) -> ParamType:
+    """Find the most appropriate :class:`ParamType` for the given Python
+    type. If the type isn't provided, it can be inferred from a default
+    value.
+    """
+    guessed_type = False
+
+    if ty is None and default is not None:
+        if isinstance(default, (tuple, list)):
+            # If the default is empty, ty will remain None and will
+            # return STRING.
+            if default:
+                item = default[0]
+
+                # A tuple of tuples needs to detect the inner types.
+                # Can't call convert recursively because that would
+                # incorrectly unwind the tuple to a single type.
+                if isinstance(item, (tuple, list)):

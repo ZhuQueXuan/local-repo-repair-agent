@@ -1,0 +1,16 @@
+{
+  "run_id": "842e3e3223b0442d8f2098a99d5895a0",
+  "child_pid": 4788,
+  "worker_exit": 1,
+  "owned_child_exited": true,
+  "manager_did_not_duplicate_live_worker": true,
+  "status": "interrupted",
+  "roles": [
+    "succeeded",
+    "interrupted",
+    "skipped",
+    "skipped"
+  ],
+  "restart_requeued": false,
+  "real_model_requests": 0
+}

@@ -1,0 +1,1 @@
+Confirmed: `cmd2` gets a plain `Argument` instead of `MyArg` because `attrs.pop("cls")` mutates the shared dict. The `option` path already copies. Fix `argument` to copy attrs like `option` does.

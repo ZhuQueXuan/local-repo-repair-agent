@@ -1,0 +1,38 @@
+{
+  "tasks": [
+    {
+      "task": "split-after-boundary",
+      "task_id": "more-itertools-split-after-658",
+      "requests": 9,
+      "estimated_cost_cny": "0.047828",
+      "exit_status": "Submitted",
+      "repair_verified": true,
+      "issue_before_passed": 5,
+      "issue_after_passed": 10,
+      "issue_test_methods": 10,
+      "upstream_targeted_passed": 4,
+      "full_upstream_passed": 659,
+      "full_upstream_tests": 660
+    },
+    {
+      "task": "indexed-set-removal",
+      "task_id": "boltons-indexed-set-removal-423",
+      "requests": 6,
+      "estimated_cost_cny": "0.029368",
+      "exit_status": "LimitsExceeded",
+      "repair_verified": false,
+      "issue_before_passed": 3,
+      "issue_after_passed": 3,
+      "issue_test_methods": 10,
+      "upstream_targeted_passed": 5,
+      "full_upstream_passed": 423,
+      "full_upstream_tests": 423
+    }
+  ],
+  "new_tasks": 2,
+  "verified_repairs": 1,
+  "paid_requests": 15,
+  "estimated_cost_cny": "0.077196",
+  "remaining_cny_after_accounting_and_historical_reservation": "4.653836",
+  "scope": "Two fixed public development tasks; older windowed task is separate historical evidence. Not SWE-bench or a held-out result."
+}

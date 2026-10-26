@@ -1,0 +1,365 @@
+[
+  {
+    "sequence": 1,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 1,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 2,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 2,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 3,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 3,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 4,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 4,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 5,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 5,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 6,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "diagnose_and_repair",
+    "plan_version": 1,
+    "actions_without_source_or_new_validation": 6,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": null,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run a failing issue check or a concrete reproduction; if the diagnosis is sufficient, make the smallest implementation change and validate.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 7,
+    "implementation_changed": true,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 0,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 7,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 8,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "validate_changes",
+    "plan_version": 2,
+    "actions_without_source_or_new_validation": 1,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 7,
+    "current_validation": {
+      "targeted": "not_run",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run the declared checks for the current source revision: targeted, issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 9,
+    "implementation_changed": false,
+    "new_validation_result": true,
+    "phase": "validate_changes",
+    "plan_version": 3,
+    "actions_without_source_or_new_validation": 0,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 7,
+    "current_validation": {
+      "targeted": "passed",
+      "issue": "not_run"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Run the declared checks for the current source revision: issue. Earlier passes are stale after edits.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 10,
+    "implementation_changed": false,
+    "new_validation_result": true,
+    "phase": "review_and_submit",
+    "plan_version": 4,
+    "actions_without_source_or_new_validation": 0,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 7,
+    "current_validation": {
+      "targeted": "passed",
+      "issue": "passed"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance.",
+    "status": "program-derived advisory; no independent acceptance"
+  },
+  {
+    "sequence": 11,
+    "implementation_changed": false,
+    "new_validation_result": false,
+    "phase": "review_and_submit",
+    "plan_version": 4,
+    "actions_without_source_or_new_validation": 1,
+    "stagnation_feedback": false,
+    "first_source_change_sequence": 7,
+    "current_validation": {
+      "targeted": "passed",
+      "issue": "passed"
+    },
+    "validation_evidence": {
+      "targeted": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 9,
+        "output_path": "temp/tool-output/0009.txt",
+        "failures": []
+      },
+      "issue": {
+        "result": "passed",
+        "revision": "a5422076532c370524cd7600fa6251c65666d6e49d06dd90c32632024a56592d",
+        "sequence": 10,
+        "output_path": "temp/tool-output/0010.txt",
+        "failures": []
+      }
+    },
+    "last_execution_failure": null,
+    "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance.",
+    "status": "program-derived advisory; no independent acceptance"
+  }
+]

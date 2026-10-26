@@ -1,0 +1,58 @@
+        "OMD.viewitems() -> a set-like object providing a view on OMD's items"
+        return ItemsView(self)
+
+
+# A couple of convenient aliases
+OMD = OrderedMultiDict
+MultiDict = OrderedMultiDict
+
+
+class FastIterOrderedMultiDict(OrderedMultiDict):
+    """An OrderedMultiDict backed by a skip list.  Iteration over keys
+    is faster and uses constant memory but adding duplicate key-value
+    pairs is slower. Brainchild of Mark Williams.
+    """
+    def _clear_ll(self):
+        # TODO: always reset objects? (i.e., no else block below)
+        try:
+            _map = self._map
+        except AttributeError:
+            _map = self._map = {}
+            self.root = []
+        _map.clear()
+        self.root[:] = [self.root, self.root,
+                        None, None,
+                        self.root, self.root]
+
+    def _insert(self, k, v):
+        root = self.root
+        empty = []
+        cells = self._map.setdefault(k, empty)
+        last = root[PREV]
+
+        if cells is empty:
+            cell = [last, root,
+                    k, v,
+                    last, root]
+            # was the last one skipped?
+            if last[SPREV][SNEXT] is root:
+                last[SPREV][SNEXT] = cell
+            last[NEXT] = last[SNEXT] = root[PREV] = root[SPREV] = cell
+            cells.append(cell)
+---845---
+        dict.__delitem__(self.inv, self[key])
+        dict.__delitem__(self, key)
+
+    def clear(self):
+        dict.clear(self)
+        dict.clear(self.inv)
+
+    def copy(self):
+        return self.__class__(self)
+
+    def pop(self, key, default=_MISSING):
+        if key in self:
+            dict.__delitem__(self.inv, self[key])
+            return dict.pop(self, key)
+        if default is not _MISSING:
+            return default

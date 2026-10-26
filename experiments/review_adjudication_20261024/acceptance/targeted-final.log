@@ -1,0 +1,23 @@
+test_already_reported_failure_is_not_a_new_finding (test_review_adjudication.AdjudicationTests) ... ok
+test_altered_claim_or_unknown_check_cannot_reuse_a_binding (test_review_adjudication.AdjudicationTests) ... ok
+test_changed_source_without_behavioral_gain_is_not_improvement (test_review_adjudication.AdjudicationTests) ... ok
+test_check_errors_and_timeouts_remain_unresolved (test_review_adjudication.AdjudicationTests) ... ok
+test_cross_run_lineage_is_rejected_even_for_identical_code (test_review_adjudication.AdjudicationTests) ... ok
+test_decisions_are_append_only_and_same_claim_group_has_same_scope (test_review_adjudication.AdjudicationTests) ... ok
+test_different_revision_summaries_are_not_silently_combined (test_review_adjudication.AdjudicationTests) ... ok
+test_fixing_a_finding_does_not_hide_a_new_regression (test_review_adjudication.AdjudicationTests) ... ok
+test_frozen_probe_is_not_polluted_by_later_original_edits (test_review_adjudication.AdjudicationTests) ... ok
+test_model_or_json_receipt_is_not_program_issued (test_review_adjudication.AdjudicationTests) ... ok
+test_no_mapping_or_receipt_never_confirms_on_model_confidence (test_review_adjudication.AdjudicationTests) ... ok
+test_old_receipt_cannot_be_applied_to_target_candidate (test_review_adjudication.AdjudicationTests) ... ok
+test_probe_mutation_does_not_get_a_passing_receipt_for_original_bytes (test_review_adjudication.AdjudicationTests) ... ok
+test_real_process_confirms_refutes_leaves_unknown_and_deduplicates (test_review_adjudication.AdjudicationTests) ... ok
+test_same_candidate_is_unchanged_and_probe_runs_only_once (test_review_adjudication.AdjudicationTests) ... ok
+test_store_requires_temp_and_probe_hash_is_checked (test_review_adjudication.AdjudicationTests) ... ok
+test_suggested_model_code_is_not_executed (test_review_adjudication.AdjudicationTests) ... ok
+test_tampered_receipt_or_decision_is_rejected (test_review_adjudication.AdjudicationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 16.446s
+
+OK

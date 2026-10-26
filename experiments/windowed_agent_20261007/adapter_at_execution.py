@@ -1,0 +1,214 @@
+"""One teaching task with upstream DefaultAgent and explicit Windows/API adapters."""
+import argparse
+import difflib
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import subprocess
+import sys
+import time
+from urllib.parse import urlparse
+
+ROOT = Path(__file__).resolve().parent.parent
+os.environ["MSWEA_GLOBAL_CONFIG_DIR"] = str(ROOT / "temp" / "mini-global")
+os.environ["MSWEA_SILENT_STARTUP"] = "1"
+os.environ["MSWEA_MODEL_RETRY_STOP_AFTER_ATTEMPT"] = "1"
+os.environ["LITELLM_LOCAL_MODEL_COST_MAP"] = "True"
+sys.dont_write_bytecode = True
+
+from dotenv import dotenv_values
+from minisweagent.agents.default import DefaultAgent
+from minisweagent.environments.local import LocalEnvironment
+from minisweagent.exceptions import LimitsExceeded
+from minisweagent.models.litellm_model import LitellmModel
+
+
+class GitBashEnvironment(LocalEnvironment):
+    def __init__(self, cwd, bash):
+        super().__init__(cwd=str(cwd), timeout=30)
+        self.bash = str(bash)
+
+    def execute(self, action, cwd="", *, timeout=None):
+        if re.search(r"(?:^|[\s;&|])(?:rm|rmdir|del|rd|remove-item)(?:\s|$)", action["command"], re.IGNORECASE):
+            return {"output": "Deletion commands are disabled for this task.", "returncode": -1, "exception_info": "Deletion rejected."}
+        allowed = {"PATH", "SYSTEMROOT", "WINDIR", "COMSPEC", "PATHEXT", "TEMP", "TMP"}
+        child_env = {k: v for k, v in os.environ.items() if k.upper() in allowed}
+        child_env.update({
+            "PATH": str(Path(sys.executable).parent) + os.pathsep + child_env.get("PATH", ""),
+            "HOME": str(ROOT / "temp" / "bash-home"), "PYTHONUTF8": "1",
+            "PYTHONDONTWRITEBYTECODE": "1", "TEMP": str(ROOT / "temp"),
+            "TMP": str(ROOT / "temp"),
+        })
+        process = subprocess.Popen(
+            [self.bash, "--noprofile", "--norc", "-c", action["command"]],
+            cwd=cwd or self.config.cwd, env=child_env, text=True,
+            encoding="utf-8", errors="replace", stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        )
+        try:
+            stdout, _ = process.communicate(timeout=timeout or self.config.timeout)
+            output = {"output": stdout, "returncode": process.returncode, "exception_info": ""}
+        except subprocess.TimeoutExpired:
+            subprocess.run(["taskkill", "/PID", str(process.pid), "/T", "/F"], capture_output=True)
+            process.kill() if process.poll() is None else None
+            stdout, _ = process.communicate(timeout=5)
+            output = {"output": stdout, "returncode": -1, "exception_info": "Command timed out."}
+        self._check_finished(output)
+        return output
+
+    def serialize(self):
+        data = super().serialize()
+        data["info"]["config"]["bash_executable"] = self.bash
+        return data
+
+
+class BudgetedDeepSeekModel(LitellmModel):
+    """Retain upstream parsing/history; reserve RMB 0.10 before each HTTP attempt."""
+    def __init__(self, settings, *, ledger_path=None, error_path=None):
+        super().__init__(
+            model_name="openai/" + settings["DEEPSEEK_CHAT_MODEL"],
+            model_kwargs={"api_base": settings["DEEPSEEK_API_BASE_URL"],
+                          "max_tokens": 2048, "temperature": 0,
+                          "timeout": 45, "num_retries": 0,
+                          "extra_body": {"thinking": {"type": "disabled"}}},
+        )
+        self._api_key = settings["DEEPSEEK_API_KEY"]
+        self.requests = 0
+        self.actual_cost_cny = 0.0
+        self.usage = []
+        self.ledger_path = Path(ledger_path) if ledger_path else ROOT / "temp" / "deepseek_first_task_ledger.json"
+        self.error_path = Path(error_path) if error_path else ROOT / "temp" / "deepseek_request_error.json"
+        self.ledger = json.loads(self.ledger_path.read_text()) if self.ledger_path.exists() else {"attempts": 0}
+
+    def _query(self, messages, **kwargs):
+        payload_bytes = len(json.dumps(messages, ensure_ascii=False).encode("utf-8"))
+        if self.ledger.get("completed") or self.ledger.get("blocked_auth") or self.requests >= 10 or self.ledger["attempts"] >= 10 or payload_bytes > 16384:
+            raise LimitsExceeded({"role": "exit", "content": "Request or context budget reached.",
+                                  "extra": {"exit_status": "LimitsExceeded", "submission": ""}})
+        self.requests += 1
+        self.ledger["attempts"] += 1
+        self.ledger_path.write_text(json.dumps(self.ledger, indent=2), encoding="utf-8")
+        try:
+            return super()._query(messages, api_key=self._api_key, **kwargs)
+        except Exception as error:
+            # Avoid persisting provider exception bodies or request credentials.
+            diagnostic = str(error).replace(self._api_key, "[REDACTED]")
+            diagnostic = diagnostic.replace(self.config.model_kwargs["api_base"], "[API_BASE]")
+            diagnostic = re.sub(r"Your api key:\s*\S+", "API credential", diagnostic, flags=re.IGNORECASE)
+            if "authentication fails" in diagnostic.lower() or "api key" in diagnostic.lower() and "invalid" in diagnostic.lower():
+                self.ledger["blocked_auth"] = True
+                self.ledger_path.write_text(json.dumps(self.ledger, indent=2), encoding="utf-8")
+            self.error_path.write_text(
+                json.dumps({"type": type(error).__name__, "message": diagnostic}, ensure_ascii=False, indent=2), encoding="utf-8")
+            raise RuntimeError("DeepSeek request failed: " + type(error).__name__) from None
+
+    def _calculate_cost(self, response):
+        usage = response.usage
+        if usage is None or usage.prompt_tokens is None or usage.completion_tokens is None:
+            raise RuntimeError("Missing token usage; stop instead of spending again.")
+        # Official peak prices; deliberately ignore cache and off-peak discounts.
+        cost = (usage.prompt_tokens * 2 + usage.completion_tokens * 8) / 1_000_000
+        self.actual_cost_cny += cost
+        self.usage.append({"prompt_tokens": usage.prompt_tokens,
+                           "completion_tokens": usage.completion_tokens,
+                           "estimated_cost_cny": cost})
+        if usage.prompt_tokens > 36864 or usage.completion_tokens > 2048 or cost > 0.1:
+            raise RuntimeError("Usage exceeded conservative reservation; stop for review.")
+        return {"cost": cost, "cost_currency": "CNY"}
+
+    def serialize(self):
+        data = super().serialize()
+        data["info"]["model_budget"] = {
+            "currency": "CNY", "max_requests": 10, "reserved_cost_cny": self.requests / 10,
+            "estimated_actual_cost_cny": self.actual_cost_cny, "usage": self.usage,
+        }
+        return data
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--run", action="store_true", help="Make paid requests; requires user authorization.")
+    args = parser.parse_args()
+    settings = dotenv_values(ROOT / ".env", interpolate=False)
+    required = ("DEEPSEEK_API_KEY", "DEEPSEEK_API_BASE_URL", "DEEPSEEK_CHAT_MODEL")
+    if not all(settings.get(k) for k in required):
+        raise SystemExit("Required DeepSeek settings missing.")
+    if urlparse(settings["DEEPSEEK_API_BASE_URL"]).hostname != "api.deepseek.com":
+        raise SystemExit("Pricing assumes official DeepSeek endpoint; review other endpoints first.")
+    if settings["DEEPSEEK_CHAT_MODEL"] != "deepseek-flash":
+        raise SystemExit("Pricing configured for Flash; review other models first.")
+    bash = Path(r"D:\Git\bin\bash.exe")
+    if not bash.is_file():
+        raise SystemExit("Configured Git Bash executable not found.")
+    stamp = time.strftime("%Y%m%d_%H%M%S")
+    work = ROOT / "examples" / "cart-empty" / "temp" / ("deepseek_" + stamp)
+    work.mkdir(parents=True)
+    (ROOT / "temp" / "bash-home").mkdir(parents=True, exist_ok=True)
+    (work / "temp").mkdir()
+    for name in ("cart.py", "test_cart.py"):
+        shutil.copy2(ROOT / "examples" / "cart-empty" / name, work / name)
+    env = GitBashEnvironment(work, bash)
+    model = BudgetedDeepSeekModel(settings)
+    baseline = env.execute({"command": "python -B -m unittest -v"})
+    assert baseline["returncode"] != 0 and "FAILED (errors=1)" in baseline["output"]
+    # These are real local commands, not a model request or a repair hint.
+    probe = env.execute({"command": "printf 'bash-ok\\n'; python -B -c 'import sys; print(sys.prefix)'"})
+    assert probe["returncode"] == 0 and "bash-ok" in probe["output"]
+    assert str(ROOT / ".venv").lower() in probe["output"].lower()
+    assert settings["DEEPSEEK_API_KEY"] not in json.dumps(model.serialize())
+    payload = model._prepare_messages_for_api([{"role": "user", "content": "hello", "extra": {"local": True}}])
+    assert "extra" not in payload[0] and model.requests == 0
+    for messages, count in (([{"role": "user", "content": "x" * 17000}], 0),
+                            ([{"role": "user", "content": "hello"}], 10)):
+        model.requests = count
+        try:
+            model._query(messages)
+        except LimitsExceeded:
+            pass
+        else:
+            raise AssertionError("Pre-request guard did not stop execution.")
+        assert model.requests == count
+    model.requests = 0
+    if not args.run:
+        report = {"bash_commands": "passed", "virtualenv_python": "passed",
+                  "original_task": "4 passed, 1 error", "model_config": "loaded",
+                  "serialized_credentials": "absent", "external_requests": 0,
+                  "planned_max_requests": 10, "planned_max_cost_cny": 1}
+        (ROOT / "temp" / "deepseek_preflight.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+        print(json.dumps(report, indent=2))
+        return
+    result_dir = ROOT / "temp" / ("deepseek_result_" + stamp)
+    result_dir.mkdir()
+    agent = DefaultAgent(
+        model, env, system_template="You are a helpful software engineering assistant. Use exactly one bash tool call per response.",
+        instance_template=("Fix this issue: {{task}}\n"
+                           "Work only in the current task directory. Do not delete files. Keep any helper files in temp/. "
+                           "Do not modify test_cart.py. Inspect code, reproduce the failure, implement a minimal fix, "
+                           "and run python -B -m unittest -v. "
+                           "Every command runs in a fresh Git Bash shell on Windows with Python available. "
+                           "When finished, submit using echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT by itself."),
+        step_limit=10, cost_limit=1, wall_time_limit_seconds=300,
+        output_path=result_dir / "trajectory.json",
+    )
+    status = agent.run("An empty cart raises an exception when calculating its total; retain behavior for non-empty carts.")
+    verification = env.execute({"command": "python -B -m unittest -v"})
+    tests_unchanged = (work / "test_cart.py").read_bytes() == (ROOT / "examples" / "cart-empty" / "test_cart.py").read_bytes()
+    before = (ROOT / "examples" / "cart-empty" / "cart.py").read_text().splitlines(keepends=True)
+    after = (work / "cart.py").read_text().splitlines(keepends=True)
+    (result_dir / "repair.diff").write_text("".join(difflib.unified_diff(before, after, fromfile="a/cart.py", tofile="b/cart.py")), encoding="utf-8")
+    summary = {"exit_status": status["exit_status"], "requests": model.requests,
+               "estimated_cost_cny": model.actual_cost_cny, "usage": model.usage,
+               "tests_passed": verification["returncode"] == 0 and tests_unchanged,
+               "tests_unchanged": tests_unchanged, "verification_output": verification["output"],
+               "scope": "Single synthetic teaching task; not SWE-bench or a performance comparison."}
+    (result_dir / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    model.ledger["completed"] = True
+    model.ledger["note"] = "First teaching-task batch ended; do not spend remaining requests automatically."
+    model.ledger_path.write_text(json.dumps(model.ledger, indent=2), encoding="utf-8")
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    print("Review temporary results before promoting them to experiments/: " + str(result_dir))
+
+
+if __name__ == "__main__":
+    main()

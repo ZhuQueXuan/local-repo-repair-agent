@@ -1,0 +1,15 @@
+{
+  "browser": "ChatGPT in-app browser",
+  "run_id": "d3173d4153e544ccbf0eb066834848f8",
+  "default_offline_single": true,
+  "overview_one_supported_three_unknown": true,
+  "initial_version_supported": true,
+  "proof_button_loaded": true,
+  "receipt_counts": [
+    6,
+    2
+  ],
+  "final_version_unknown_only": true,
+  "switch_clears_proof": true,
+  "new_tasks_created": 0
+}

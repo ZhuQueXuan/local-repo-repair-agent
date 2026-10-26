@@ -1,0 +1,1 @@
+Now let me write the fix. I'll add `__reduce__` that returns a 3-tuple (callable, args, state) without the dict-items iterator, so both pickle and copy use the state path. But I must preserve pickle behavior and subclass. Let me check the class definition and existing methods around copy.

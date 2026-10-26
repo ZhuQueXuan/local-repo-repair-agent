@@ -1,0 +1,20 @@
+--- a/boltons/fileutils.py
++++ b/boltons/fileutils.py
+@@ -397,7 +397,8 @@
+         if kwargs:
+             raise TypeError(f'unexpected kwargs: {kwargs.keys()!r}')
+ 
+-        self.dest_path = os.path.abspath(self.dest_path)
++        dest_path = os.fspath(dest_path)
++        self.dest_path = os.path.abspath(dest_path)
+         self.dest_dir = os.path.dirname(self.dest_path)
+         if not self.part_filename:
+             self.part_path = dest_path + '.part'
+@@ -521,6 +522,7 @@
+     .. _glob: https://en.wikipedia.org/wiki/Glob_%28programming%29
+ 
+     """
++    directory = os.fspath(directory)
+     if isinstance(patterns, str):
+         patterns = [patterns]
+     pats_re = re.compile('|'.join([fnmatch.translate(p) for p in patterns]))

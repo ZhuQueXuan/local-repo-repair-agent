@@ -1,0 +1,16 @@
+    def setdefault(self, k, default=_MISSING):
+        """If key *k* is in the dictionary, return its value. If not, insert
+        *k* with a value of *default* and return *default*. *default*
+        defaults to ``None``. See :meth:`dict.setdefault` for more
+        information.
+        """
+        if not super().__contains__(k):
+            self[k] = None if default is _MISSING else default
+        return self[k]
+
+    def copy(self):
+        "Return a shallow copy of the dictionary."
+        return self.__class__(self.iteritems(multi=True))
+
+    @classmethod
+    def fromkeys(cls, keys, default=None):

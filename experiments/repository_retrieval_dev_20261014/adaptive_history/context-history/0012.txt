@@ -1,0 +1,1 @@
+Interesting — it works here. The issue mentions "missing constructor arguments" TypeError. Let me check the Python version and how pickle reconstructs. The problem likely arises when `__reduce__` from the base JSONDecodeError is used, which returns `(cls, (msg, doc, pos))`. Let me check.

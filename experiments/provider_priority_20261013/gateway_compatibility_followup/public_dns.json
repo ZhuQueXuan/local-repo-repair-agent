@@ -1,0 +1,30 @@
+{
+  "hostname": "myai.bupt.edu.cn",
+  "campus_network_confirmed_by_user": true,
+  "campus_dns_explicit_query": {
+    "server": "10.3.9.4",
+    "answer": "198.18.0.104"
+  },
+  "public_dns_http_status": 200,
+  "public_dns_status": 3,
+  "public_dns_answers": [],
+  "public_dns_authority": [
+    {
+      "name": "bupt.edu.cn.",
+      "type": 6,
+      "TTL": 1800,
+      "data": "ns.bupt.edu.cn. admin.example.com. 2100034267 10800 900 604800 86400"
+    }
+  ],
+  "alidns_http_status": 200,
+  "alidns_status": 3,
+  "alidns_answers": [],
+  "alidns_authority": [
+    {
+      "name": "bupt.edu.cn.",
+      "TTL": 600,
+      "type": 6,
+      "data": "ns.bupt.edu.cn. admin.example.com. 2100034267 10800 900 604800 86400"
+    }
+  ]
+}

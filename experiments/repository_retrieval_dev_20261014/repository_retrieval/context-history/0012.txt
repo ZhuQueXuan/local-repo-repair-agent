@@ -1,0 +1,1 @@
+The roundtrip works in this environment. The issue must be with `simplejson` installed, or with a different Python version. Let me check the environment and whether simplejson is present.

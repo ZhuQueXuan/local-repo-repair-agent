@@ -1,0 +1,1 @@
+{"hypothesis": "Fixed: moved cls injection after concise-form detection in Group.command; group already correct. Now run tests.", "next_action": "Run pytest and unittest task_checks."}

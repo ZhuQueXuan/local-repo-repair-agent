@@ -1,0 +1,51 @@
+1 # Copyright (c) 2013, Mahmoud Hashemi
+7 #    * Redistributions of source code must retain the above copyright
+11 #      copyright notice, this list of conditions and the following
+19 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+22 # A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+86 class OrderedMultiDict(dict):
+153        to ``omd.todict(multi=True)`` (but only shallow-copy; the lists
+160     def __new__(cls, *a, **kw):
+165     def __init__(self, *args, **kwargs):
+176     def __getstate__(self):
+179     def __setstate__(self, state):
+239         dictionary, else *default*. The list returned is a copy and
+265     def copy(self):
+266         "Return a shallow copy of the dictionary."
+325     def __setitem__(self, k, v):
+331     def __getitem__(self, k):
+334     def __delitem__(self, k):
+338     def __eq__(self, other):
+367     def __ne__(self, other):
+370     def __ior__(self, other):
+523         """Returns a copy of the :class:`OrderedMultiDict` with the same keys
+574         Inverting twice yields a copy of the original:
+609     def __iter__(self):
+612     def __reversed__(self):
+626     def __repr__(self):
+649 class FastIterOrderedMultiDict(OrderedMultiDict):
+735     def __reversed__(self):
+751 class OneToOne(dict):
+781     def __init__(self, *a, **kw):
+835     def __setitem__(self, key, val):
+844     def __delitem__(self, key):
+852     def copy(self):
+890     def __repr__(self):
+900 class ManyToMany:
+910     def __init__(self, items=None):
+926     def __getitem__(self, key):
+929     def __setitem__(self, key, vals):
+939     def __delitem__(self, key):
+1003     def __contains__(self, key):
+1006     def __iter__(self):
+1009     def __len__(self):
+1012     def __eq__(self, other):
+1015     def __repr__(self):
+1052 class FrozenHashError(TypeError):
+1056 class FrozenDict(dict):
+1072         """Make a copy and add items from a dictionary or iterable (and/or
+1085     def __repr__(self):
+1089     def __reduce_ex__(self, protocol):
+1092     def __hash__(self):
+1106     def __copy__(self):
+1107         return self  # immutable types don't copy, see tuple's behavior

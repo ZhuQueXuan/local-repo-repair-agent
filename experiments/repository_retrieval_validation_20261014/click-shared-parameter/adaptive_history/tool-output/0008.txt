@@ -1,0 +1,12 @@
+    def __init__(
+        self,
+        param_decls: t.Optional[t.Sequence[str]] = None,
+        type: t.Optional[t.Union[types.ParamType, t.Any]] = None,
+        required: bool = False,
+        default: t.Optional[t.Union[t.Any, t.Callable[[], t.Any]]] = None,
+        callback: t.Optional[t.Callable[[Context, "Parameter", t.Any], t.Any]] = None,
+        nargs: t.Optional[int] = None,
+        multiple: bool = False,
+        metavar: t.Optional[str] = None,
+        expose_value: bool = True,
+        is_eager: bool = False,

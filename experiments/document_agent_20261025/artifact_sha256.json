@@ -1,0 +1,23 @@
+{
+  "adapter.zip": "d8f29f7b32d0dc400795b55d4a505732eaa62a07d07ab9a84fe19c04c6f298cd",
+  "adapter.zip.sha256.json": "4d39b708493fa9c95d439829f1f80b1e68781cbacee57e314322d0c099d22d94",
+  "before-code.zip": "4a194df9f616e410c394ebba394b34007900224ce580228aeb96dc03c7b9b2bb",
+  "before-code.zip.sha256.json": "f97743c975b2386b5dfc7d38f8ec498d43540b56bd4484ce8f1f2e329c9172af",
+  "documentation.zip": "35350eda46fa15a76b07f77191ed8efa60d59cb913ec93f685ff825c80261d2e",
+  "documentation.zip.sha256.json": "13bc3f0ab90c8f61d2ef6fbb6c273522f3abe6da4417cf537acf269453303fee",
+  "final-regression-demo.zip": "ea701ce35d282c4b56f3cb20bbc83f40067bdba81e509ee49f97587f9112c4bf",
+  "final-regression-demo.zip.sha256.json": "474cb6d149a6a89e986cc3604c99ada882843adcb3ab0fa37660519536c4281b",
+  "first-successful-demo.zip": "1a10c0c7f0d2e68bce7d0a0e97162be700c74ca0ba58325e19a7dc077ef814c9",
+  "first-successful-demo.zip.sha256.json": "b91c64d3acd2362cc032bce94b03144773e12cdff5421d84b4f8703bb50ef02e",
+  "http-verification.json": "6d0267c0ff860eeee86d6b2f86bf45a2f192380baa8c78f754a2f6a2847a2c8b",
+  "initial-local-permission-failure.zip": "c5ccf3e345cec588dfae9a683eb5f8849c6f3892f3a9205d2f3d72b6c3b30c40",
+  "initial-local-permission-failure.zip.sha256.json": "25f8b7af15bf254753137808478dd0bbcf09f7c5db08f28d9e4d41e52399fa62",
+  "process.zip": "375c000c3540591f761a9808215f1f7a26629194bd1d8d1c836404baf665665a",
+  "process.zip.sha256.json": "45a32fa0dd64e51eb265cfcd99dd0a06fd8b76e9c0e982c6316bc696092be176",
+  "README.json": "43c05742b6c739d57557f858196f9f00a4a2112e1fc9fd758f292c263bbd4b97",
+  "regression.zip": "1bce134abcfd3431dae84fea170f7e01cb01b6e7e99bbd998d44f5a4b67a119a",
+  "regression.zip.sha256.json": "33328c34cb88c78737693fec5c5058bf6b96a247adb79981044665d59b969810",
+  "runtime-code.zip": "2919b3b1cfe71629ac1ba7c68ee3a108d1d10a745016b4bf165503300fbffb93",
+  "runtime-code.zip.sha256.json": "4400fef270eabce070e5f90aad783d0f2ced3a858441f056746e735db486009c",
+  "verification.json": "1848f6026c56f39b41e29a3e4885bba3a55926f8fb0610b08ad4241d695c35da"
+}

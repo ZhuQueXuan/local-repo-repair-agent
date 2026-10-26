@@ -1,0 +1,10 @@
+{
+  "run_id": "d3173d4153e544ccbf0eb066834848f8",
+  "scope": "One authorized new-code-version manual-seed diagnostic, all four phases completed; normal revision Submitted, valid metadata, independent final approve and clean replay. Not new-task effectiveness evaluation.",
+  "original_run_entries_verified": 209,
+  "run_zip_entries": 210,
+  "registered_candidates": 2,
+  "fee_scope": "Known estimate 0.177842 CNY plus unknown 0.10 reservation; complete fees unknown.",
+  "browser_scope": "Existing task-service API/Supervisor/worker; final browser clicking and user operation not claimed.",
+  "metadata_scope": "Accepted twice with empty evidence IDs, first submission valid. Bounded correction branch was not exercised by real model this run; offline branch evidence retained."
+}

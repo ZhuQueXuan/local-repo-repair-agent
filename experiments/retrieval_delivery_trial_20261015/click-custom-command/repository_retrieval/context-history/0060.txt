@@ -1,0 +1,1 @@
+The fix: move the `cls` assignment after the concise-form check in `command`, matching `group`. Let me apply it.

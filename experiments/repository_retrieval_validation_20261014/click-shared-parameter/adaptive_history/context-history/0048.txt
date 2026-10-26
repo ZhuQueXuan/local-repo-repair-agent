@@ -1,0 +1,1 @@
+Now let me look at how the decorators store the type. The issue is likely in `Parameter.__init__` where `self.type` is set, and the decorator reuses the same `ParamType` instance. Let me look at the `_param_memo` and how `type` is passed.

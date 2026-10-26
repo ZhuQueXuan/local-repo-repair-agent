@@ -1,0 +1,101 @@
+        return self.lists[list_idx][rel_idx]
+
+    def __delitem__(self, index):
+        try:
+            start, stop, step = index.start, index.stop, index.step
+        except AttributeError:
+            index = operator.index(index)
+        else:
+            self.del_slice(start, stop, step)
+            return
+        list_idx, rel_idx = self._translate_index(index)
+        if list_idx is None:
+            raise IndexError()
+        del self.lists[list_idx][rel_idx]
+
+    def __setitem__(self, index, item):
+        try:
+            start, stop, step = index.start, index.stop, index.step
+        except AttributeError:
+            index = operator.index(index)
+        else:
+            if len(self.lists) == 1:
+                self.lists[0][index] = item
+            else:
+                tmp = list(self)
+                tmp[index] = item
+                self.lists[:] = [tmp]
+            self._balance_list(0)
+            return
+        list_idx, rel_idx = self._translate_index(index)
+        if list_idx is None:
+            raise IndexError()
+        self.lists[list_idx][rel_idx] = item
+
+    def __getslice__(self, start, stop):
+        iter_slice = self.iter_slice(start, stop, 1)
+        return self.from_iterable(iter_slice)
+
+    def __setslice__(self, start, stop, sequence):
+        if len(self.lists) == 1:
+            self.lists[0][start:stop] = sequence
+        else:
+            tmp = list(self)
+            tmp[start:stop] = sequence
+            self.lists[:] = [tmp]
+        self._balance_list(0)
+        return
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}({list(self)!r})'
+
+    def sort(self):
+        # poor pythonist's mergesort, it's faster than sorted(self)
+        # when the lists' average length is greater than 512.
+        if len(self.lists) == 1:
+            self.lists[0].sort()
+        else:
+            for li in self.lists:
+                li.sort()
+            tmp_sorted = sorted(chain.from_iterable(self.lists))
+            del self.lists[:]
+            self.lists[0] = tmp_sorted
+            self._balance_list(0)
+
+    def reverse(self):
+        for cur in self.lists:
+            cur.reverse()
+        self.lists.reverse()
+
+    def count(self, item):
+        return sum([cur.count(item) for cur in self.lists])
+
+    def index(self, item):
+        len_accum = 0
+        for cur in self.lists:
+            try:
+                rel_idx = cur.index(item)
+                return len_accum + rel_idx
+            except ValueError:
+                len_accum += len(cur)
+        raise ValueError(f'{item!r} is not in list')
+
+
+BList = BarrelList
+
+
+class SplayList(list):
+    """Like a `splay tree`_, the SplayList facilitates moving higher
+    utility items closer to the front of the list for faster access.
+
+    .. _splay tree: https://en.wikipedia.org/wiki/Splay_tree
+    """
+
+    def shift(self, item_index, dest_index=0):
+        if item_index == dest_index:
+            return
+        item = self.pop(item_index)
+        self.insert(dest_index, item)
+
+    def swap(self, item_index, dest_index):
+        self[dest_index], self[item_index] = self[item_index], self[dest_index]

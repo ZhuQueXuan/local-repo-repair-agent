@@ -1,0 +1,23 @@
+{
+  "audit/acceptance-criteria.json": "0fa83aa6237c1f73d155993d7d3a772d95cc50dd25d8d8355ea8784a53e0a79a",
+  "audit/additional-flows.json": "92b1ddb3935a961ccc134e5c6b44a47d69144eeb006187befe037057652d37da",
+  "audit/additional-flows.log": "edd1f5738af782fdf775ad61aab771965336ebbdf83e2e94826cf2904df4931f",
+  "audit/additional_flows.py": "05caeed605a6e508afd5bca2b39e80ad79f79c0755cabf4fad5e7c257717b711",
+  "audit/audit_state.py": "fa8526a90e7f73cbff2899bb5fff43de9543319ebaf3b7f425e26e870987b9b3",
+  "audit/finalize_audit.py": "d0dd42debf29cde52c94c22358c77a98108dcb9f12d8fc4173e3fb56d0b5e02e",
+  "audit/focused-tests.json": "7afb08d05002694faa2e0b9d55ab72c21616bece0feca3d9946514c084bee8f4",
+  "audit/focused-tests.log": "4ed8812c12cb14c1d8ad94fa9ef551bc08ea559bfc329c09a90cced8531e53cd",
+  "audit/initial-audit.json": "3160a8d29cf392cf0307097402ebba3b68975f189f9a4fea6db6500c717752b1",
+  "audit/run_offline_checks.py": "fe7e95f08a67d58ea19e633bfe1a66b1eb2d2a69fb9cd590411b5c4fa95ffd82",
+  "audit/sandbox-first-failure.md": "c8b6a440d230d183cec17f12626bb494fbc43089049e300b886e06b7d164531e",
+  "audit/sandbox-first-result.json": "1aa7c63a828f14ec5e01c58f8b45c025702a4526a5e9127896837ba1b2b8a583",
+  "audit/service-audit.json": "3160a8d29cf392cf0307097402ebba3b68975f189f9a4fea6db6500c717752b1",
+  "audit/verification.json": "41c918852b0ab51fcca07ffc35c6be9c93ac7d60f243515a25af8ddce321d15a",
+  "AGENTS.md": "588b47b940b1b916a3da7c7cd6a152607b73290ace9538eb08e21ed77aac8ce4",
+  "README.md": "ea25fc470aa3fc4cd8b3b8d9a3d3e8cf67c5462413ca4ea8390218df6be28839",
+  "Project/00_项目现状与快速接手.md": "a09b09ba223caf5eed28dab87c5dbad94f8b165ebb3819ae205dc3cc7270fe25",
+  "Project/33_过程_三角色真实接入诊断与多语言扩题准备.md": "95eae65b1f26f08a288317ed0a502e72902405fa7f57d5ef22ffc5ba839c9e5b",
+  "Project/34_过程_三角色集中离线核查与最终验收标准.md": "1cad005c123dced9afdf939acf5b8b6d7ea915fdf9efb7b4effc0b709ad8f61b",
+  "Project/项目开发流水账.md": "0731c43a2a8cca368466cea685b94d810e0660ea953704b213a79fc4402b457f",
+  "job/AGENTS.md": "980e41c29907d53bac633dfb92a5308f58f4d99223117647672bd989b6b2ba46"
+}

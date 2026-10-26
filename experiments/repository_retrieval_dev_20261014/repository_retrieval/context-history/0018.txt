@@ -1,0 +1,3 @@
+Now I understand the structure. The issue is that `CompatJSONDecodeError` (stdlib `json.JSONDecodeError`) defines `__reduce__` returning `(cls, (msg, doc, pos))`. When pickle reconstructs, it calls `JSONDecodeError(msg, doc, pos)`. That works here.
+
+But the issue mentions "missing constructor arguments" TypeError. This happens when `CompatJSONDecodeError` is `simplejson.JSONDecodeError`, whose `__reduce__` returns `(cls, (msg, doc, pos))` but... Actually let me think about the real upstream fix. The known requests fix (PR #6165) added `__reduce__` to `JSONDecodeError`. Let me check the git log / current state and reproduce the actual failing scenario.

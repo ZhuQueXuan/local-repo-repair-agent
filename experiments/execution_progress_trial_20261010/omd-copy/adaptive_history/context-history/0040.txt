@@ -1,0 +1,3 @@
+Now I understand. OMD has `__getstate__`/`__setstate__` that correctly preserve all pairs. The problem is `__reduce_ex__(4)` returns the `__newobj__` form with a dict-items iterator (5th element), which `copy._reconstruct` applies via `y[key]=value`, deduping.
+
+The fix: add a `__reduce__` method to OMD that returns `(type(self), (), self.__getstate__())` — a 3-tuple with no dict-items iterator. This makes both pickle and copy use `__setstate__`, preserving all pairs. Let me verify this works and preserves subclass/pickle.

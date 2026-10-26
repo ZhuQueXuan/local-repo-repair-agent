@@ -1,0 +1,72 @@
+{
+  "historical_estimated_cost_cny": "0.068968",
+  "historical_unknown_charge_reservation_cny": "0.20",
+  "historical_sources": [
+    "experiments/deepseek_smoke_20261005/summary.json",
+    "experiments/windowed_agent_20261007/summary.json",
+    "experiments/deepseek_connection_20261005/summary.json"
+  ],
+  "blocked": false,
+  "requests": {
+    "a3ca4375a0e943628f0de7334da52803": {
+      "status": "settled",
+      "amount_cny": "0.002012"
+    },
+    "761bdf9447ea4f9b9bd34abf3fc25f70": {
+      "status": "settled",
+      "amount_cny": "0.002268"
+    },
+    "0be893d39edc4aee95adc505d5dcd30f": {
+      "status": "settled",
+      "amount_cny": "0.005026"
+    },
+    "ab91f10684a2458c8d75f2c49ff59018": {
+      "status": "settled",
+      "amount_cny": "0.005686"
+    },
+    "3663324d26544d97b11bb9a2e692726b": {
+      "status": "settled",
+      "amount_cny": "0.006502"
+    },
+    "49e776bd379c474395406a50d792c09f": {
+      "status": "settled",
+      "amount_cny": "0.005722"
+    },
+    "3e8bd30855324d1786577e3141bb4167": {
+      "status": "settled",
+      "amount_cny": "0.006012"
+    },
+    "873f8f35c0664bf097c9f4b493651d21": {
+      "status": "settled",
+      "amount_cny": "0.006582"
+    },
+    "43a3c04835ba4983bfb9353916d81ca8": {
+      "status": "settled",
+      "amount_cny": "0.008018"
+    },
+    "154a386dc09a4ae394d3ec8adfa9c81a": {
+      "status": "settled",
+      "amount_cny": "0.002048"
+    },
+    "ee0f2f2eea5544e7a1c0f1c316c6fad0": {
+      "status": "settled",
+      "amount_cny": "0.002524"
+    },
+    "3dc9f4ec11ef4b3ca3469725b75f2243": {
+      "status": "settled",
+      "amount_cny": "0.00392"
+    },
+    "f9a85e492dde42d39cfbe40436b3c321": {
+      "status": "settled",
+      "amount_cny": "0.005544"
+    },
+    "caca72350413462ca827bb3367e95ff0": {
+      "status": "settled",
+      "amount_cny": "0.007632"
+    },
+    "094eb9f6b8f04704aa29c00476facb0c": {
+      "status": "settled",
+      "amount_cny": "0.0077"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "scope": "Offline implementation and fixture evidence only; live request is separately authorized and archived.",
+  "regression": {
+    "native_passed": 301,
+    "project_passed": 280,
+    "project_skipped": 1
+  },
+  "selected_fixtures": [
+    {
+      "home": "temp\\multi_agent_stage_b_20261022\\tests\\7aeaea0d5de140ce973e1dc336d704e0",
+      "run_id": "16cab580dfa542d1ad9c1f645b19e56a",
+      "repair_result": "passed",
+      "requests_scope": "scripted transport, synthetic ledger only"
+    },
+    {
+      "home": "temp\\multi_agent_stage_b_20261022\\tests\\52d63524fe964ab7885cb29ed6274f11",
+      "run_id": "08a644e462b24dc0996d6ec1bc210a25",
+      "repair_result": "failed",
+      "requests_scope": "scripted transport, synthetic ledger only"
+    }
+  ],
+  "partial_copy_note": "offline_fixture/ is the preserved incomplete first copy stopped by Windows path length; complete ZIP files are authoritative."
+}

@@ -1,0 +1,14 @@
+test_copy_container_is_independent (test_behavior.CopyBehavior) ... ok
+test_deep_preserves_all_pairs (test_behavior.CopyBehavior) ... ok
+test_deep_self_reference (test_behavior.CopyBehavior) ... ok
+test_deep_values_independent_and_alias_preserved (test_behavior.CopyBehavior) ... ok
+test_existing_method_copy_preserved (test_behavior.CopyBehavior) ... ok
+test_existing_pickle_protocols_preserved (test_behavior.CopyBehavior) ... ok
+test_shallow_preserves_all_pairs (test_behavior.CopyBehavior) ... ok
+test_shallow_shares_values (test_behavior.CopyBehavior) ... ok
+test_subclass_preserved (test_behavior.CopyBehavior) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.001s
+
+OK

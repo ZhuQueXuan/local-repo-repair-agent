@@ -1,0 +1,1 @@
+{"hypothesis": "sort() cleared self.lists then indexed [0], raising IndexError for multi-barrel inputs", "next_action": "done"}

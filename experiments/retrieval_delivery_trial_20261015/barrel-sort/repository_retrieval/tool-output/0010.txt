@@ -1,0 +1,26 @@
+done
+296         return
+297 
+298     def __repr__(self):
+299         return f'{self.__class__.__name__}({list(self)!r})'
+300 
+301     def sort(self):
+302         # poor pythonist's mergesort, it's faster than sorted(self)
+303         # when the lists' average length is greater than 512.
+304         if len(self.lists) == 1:
+305             self.lists[0].sort()
+306         else:
+307             for li in self.lists:
+308                 li.sort()
+309             tmp_sorted = sorted(chain.from_iterable(self.lists))
+310             del self.lists[:]
+311             self.lists[0] = tmp_sorted
+312             self._balance_list(0)
+313 
+314     def reverse(self):
+315         for cur in self.lists:
+316             cur.reverse()
+317         self.lists.reverse()
+318 
+319     def count(self, item):
+320         return sum([cur.count(item) for cur in self.lists])

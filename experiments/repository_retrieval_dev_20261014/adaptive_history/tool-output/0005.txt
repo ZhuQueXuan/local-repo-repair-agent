@@ -1,0 +1,4 @@
+direct: JSONDecodeError('Expecting value: line 1 column 1 (char 0)') ('Expecting value: line 1 column 1 (char 0)',)
+roundtrip ok: JSONDecodeError('Expecting value: line 1 column 1 (char 0)') ('Expecting value: line 1 column 1 (char 0)',)
+caught: JSONDecodeError('Expecting value: line 1 column 1 (char 0)') ('Expecting value: line 1 column 1 (char 0)',)
+caught roundtrip ok: JSONDecodeError('Expecting value: line 1 column 1 (char 0)') ('Expecting value: line 1 column 1 (char 0)',)

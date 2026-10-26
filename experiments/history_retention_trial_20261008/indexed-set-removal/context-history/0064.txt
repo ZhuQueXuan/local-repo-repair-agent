@@ -1,0 +1,1 @@
+The positive-step slices now work, but negative bounds like `-3` are passed directly to `islice`, which rejects negative values. I need to normalize negative indices for the positive-step path. Let me look at `__getitem__` and `_get_real_index`:

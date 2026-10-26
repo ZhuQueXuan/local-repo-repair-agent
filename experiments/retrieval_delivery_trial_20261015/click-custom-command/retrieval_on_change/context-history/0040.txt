@@ -1,0 +1,1 @@
+Now I see the bug. In `Group.command`, the concise form `@group.command` passes the function as `args[0]`, but `kwargs["cls"]` is set *before* the callable check, so the assertion `not kwargs` fails. Let me confirm and check the `group` method too.

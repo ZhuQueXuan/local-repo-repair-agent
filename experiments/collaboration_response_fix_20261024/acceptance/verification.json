@@ -1,0 +1,20 @@
+{
+  "changed_existing": [
+    "scripts/collaboration_feedback.py",
+    "scripts/collaboration_live.py",
+    "scripts/test_collaboration_diagnostic.py"
+  ],
+  "new_files": [
+    "scripts/collaboration_responses.py",
+    "scripts/test_collaboration_responses.py"
+  ],
+  "post_recheck_original_rows_unchanged": 44,
+  "post_recheck_ledger_byte_unchanged": true,
+  "model_calls_in_offline_fix": 0,
+  "old_archives_unchanged": {
+    "multi_agent_feedback_recheck_live_20261024": 51,
+    "multi_agent_feedback_diagnostic_live_20261024": 50,
+    "multi_agent_feedback_fix_20261024": 57,
+    "review_adjudication_20261024": 43
+  }
+}

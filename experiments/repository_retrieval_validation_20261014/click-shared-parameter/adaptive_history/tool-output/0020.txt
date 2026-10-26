@@ -1,0 +1,21 @@
+    if __debug__:
+        try:
+            if issubclass(ty, ParamType):
+                raise AssertionError(
+                    f"Attempted to use an uninstantiated parameter type ({ty})."
+                )
+        except TypeError:
+            # ty is an instance (correct), so issubclass fails.
+            pass
+
+    return FuncParamType(ty)
+
+
+#: A dummy parameter type that just does nothing.  From a user's
+#: perspective this appears to just be the same as `STRING` but
+#: internally no string conversion takes place if the input was bytes.
+#: This is usually useful when working with file paths as they can
+#: appear in bytes and unicode.
+#:
+#: For path related uses the :class:`Path` type is a better choice but
+#: there are situations where an unprocessed type is useful which is why

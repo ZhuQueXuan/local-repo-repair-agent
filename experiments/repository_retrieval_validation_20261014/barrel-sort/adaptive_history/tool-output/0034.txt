@@ -1,0 +1,5 @@
+ret None
+len 50001 sorted True
+usable 50003 -5 7
+empty sort None 0
+small None [1, 1, 2, 3]

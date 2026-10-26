@@ -1,0 +1,15 @@
+{
+  "kind": "real_api_connection_attempt",
+  "upstream_version": "2.4.6",
+  "upstream_commit": "04d809ceab9df28f9adaed044884180159172930",
+  "status": "blocked_invalid_api_key",
+  "generation_attempts": 2,
+  "successful_model_responses": 0,
+  "model_actions_executed": 0,
+  "reported_token_usage": null,
+  "actual_charge_cny": null,
+  "retained_budget_reservation_cny": 0.2,
+  "provider_error": "Authentication Fails: API key invalid.",
+  "automatic_retries": 0,
+  "scope": "Credential rejection, not an agent task failure or a SWE-bench result."
+}

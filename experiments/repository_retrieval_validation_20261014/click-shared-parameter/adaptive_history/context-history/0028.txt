@@ -1,0 +1,1 @@
+Now I understand the structure. Let me look at how `Option` and `Argument` handle the `type` parameter, and how decorators reuse them. Let me check the `_parse_decls` and the `__init__` of Option/Argument.

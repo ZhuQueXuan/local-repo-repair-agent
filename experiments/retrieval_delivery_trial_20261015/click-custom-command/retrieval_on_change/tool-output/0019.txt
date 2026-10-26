@@ -1,0 +1,20 @@
+            return cmd
+
+        if func is not None:
+            return decorator(func)
+
+        return decorator
+
+    @t.overload
+    def group(self, __func: t.Callable[..., t.Any]) -> "Group":
+        ...
+
+    @t.overload
+    def group(
+        self, *args: t.Any, **kwargs: t.Any
+    ) -> t.Callable[[t.Callable[..., t.Any]], "Group"]:
+        ...
+
+    def group(
+        self, *args: t.Any, **kwargs: t.Any
+    ) -> t.Union[t.Callable[[t.Callable[..., t.Any]], "Group"], "Group"]:

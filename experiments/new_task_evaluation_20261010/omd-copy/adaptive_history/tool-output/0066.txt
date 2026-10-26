@@ -1,0 +1,6 @@
+86:class OrderedMultiDict(dict):
+649:class FastIterOrderedMultiDict(OrderedMultiDict):
+751:class OneToOne(dict):
+900:class ManyToMany:
+1052:class FrozenHashError(TypeError):
+1056:class FrozenDict(dict):

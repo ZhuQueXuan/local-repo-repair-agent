@@ -1,0 +1,1 @@
+Now I understand the AtomicSaver issue. Let me look at the rest of AtomicSaver (rollback, save) and the `atomic_save` function, plus `iter_find_files`.

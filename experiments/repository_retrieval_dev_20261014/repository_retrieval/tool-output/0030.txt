@@ -1,0 +1,20 @@
+ M requests/exceptions.py
+?? temp/
+---DIFF---
+diff --git a/requests/exceptions.py b/requests/exceptions.py
+index e1cedf8..8efb43a 100644
+--- a/requests/exceptions.py
++++ b/requests/exceptions.py
+@@ -41,6 +41,12 @@ class JSONDecodeError(InvalidJSONError, CompatJSONDecodeError):
+         CompatJSONDecodeError.__init__(self, *args)
+         InvalidJSONError.__init__(self, *self.args, **kwargs)
+ 
++    def __reduce__(self):
++        return (
++            self.__class__,
++            (self.msg, self.doc, self.pos),
++        )
++
+ 
+ class HTTPError(RequestException):
+     """An HTTP error occurred."""

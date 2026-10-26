@@ -1,0 +1,28 @@
+260:    def __init__(
+595:    def command_path(self) -> str:
+844:    def __init__(
+1175:    def __init__(
+1470:    def __init__(
+1771:    command_class: t.Optional[t.Type[Command]] = None
+1778:    #: ``group_class = type``), this group's class will be used as the
+1783:    group_class: t.Optional[t.Union[t.Type["Group"], t.Type[type]]] = None
+1786:    def __init__(
+1813:    def command(self, __func: t.Callable[..., t.Any]) -> Command:
+1817:    def command(
+1822:    def command(
+1831:        :attr:`command_class` attribute.
+1837:            Added the :attr:`command_class` attribute.
+1841:        if self.command_class and kwargs.get("cls") is None:
+1842:            kwargs["cls"] = self.command_class
+1864:    def group(self, __func: t.Callable[..., t.Any]) -> "Group":
+1868:    def group(
+1873:    def group(
+1881:        To customize the group class used, set the :attr:`group_class`
+1888:            Added the :attr:`group_class` attribute.
+1901:        if self.group_class is not None and kwargs.get("cls") is None:
+1902:            if self.group_class is type:
+1905:                kwargs["cls"] = self.group_class
+1931:    def __init__(
+2052:    def __init__(
+2471:    def __init__(
+2935:    def __init__(

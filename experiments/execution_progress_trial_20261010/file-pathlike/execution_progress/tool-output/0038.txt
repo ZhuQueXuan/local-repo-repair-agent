@@ -1,0 +1,15 @@
+test_atomic_save_explicit_part_name (test_behavior.PathBehavior) ... ok
+test_atomic_save_overwrite (test_behavior.PathBehavior) ... ok
+test_atomic_save_path (test_behavior.PathBehavior) ... ok
+test_atomic_save_relative_path (test_behavior.PathBehavior) ... ok
+test_atomic_save_string_regression (test_behavior.PathBehavior) ... ok
+test_atomic_save_unicode_spaces (test_behavior.PathBehavior) ... ok
+test_atomic_saver_custom_pathlike (test_behavior.PathBehavior) ... ok
+test_iter_find_files_custom_pathlike (test_behavior.PathBehavior) ... ok
+test_iter_find_files_path (test_behavior.PathBehavior) ... ok
+test_iter_find_files_string_regression (test_behavior.PathBehavior) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.022s
+
+OK

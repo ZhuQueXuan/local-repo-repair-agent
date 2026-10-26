@@ -1,0 +1,46 @@
+{
+  "task_id": "barrel-sort",
+  "repo": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261014_220046_612023\\repo",
+  "imported_package": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\barrel-sort\\temp\\run_20261014_220046_612023\\repo\\boltons\\__init__.py",
+  "issue_checks": {
+    "tests_run": 5,
+    "subtests_run": 0,
+    "passed": 2,
+    "failed_test_methods": [
+      "frozen_behavior_checks.LargeSortChecks.test_large_descending_input_sorts_globally",
+      "frozen_behavior_checks.LargeSortChecks.test_large_repeated_values_preserve_multiplicity",
+      "frozen_behavior_checks.LargeSortChecks.test_sort_then_mutate_and_sort_again"
+    ],
+    "failures": [],
+    "errors": [
+      "frozen_behavior_checks.LargeSortChecks.test_large_descending_input_sorts_globally",
+      "frozen_behavior_checks.LargeSortChecks.test_large_repeated_values_preserve_multiplicity",
+      "frozen_behavior_checks.LargeSortChecks.test_sort_then_mutate_and_sort_again"
+    ],
+    "skipped": [],
+    "successful": false
+  },
+  "upstream_targeted": {
+    "tests_run": 2,
+    "passed": 2,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0
+  },
+  "protected_tests_unchanged": true,
+  "changed_protected_tests": [],
+  "task_tests_passed": false,
+  "scope": "Public new-task validation of unchanged retrieval v1; no private-held-out claim; task checks visible to Agent. Previously seen boltons base; selected local container/helper test subset, not full upstream suite. An initial sandbox full-suite qualification timed out; that attempt is retained and not counted as task failure. Symptom-only description omits internal repair path; checks expose public API. No reference patch indexed.",
+  "external_model_requests": 0,
+  "full_upstream_suite": {
+    "tests_run": 78,
+    "passed": 78,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true,
+    "returncode": 0
+  }
+}

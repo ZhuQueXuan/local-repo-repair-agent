@@ -1,0 +1,1 @@
+{"hypothesis": "AtomicSaver.__init__ does dest_path + '.part' (str concat) and iter_find_files does directory.split(os.path.sep); both fail for PathLike. Fix by coercing via os.fspath at entry.", "next_action": "Apply os.fspath coercion in AtomicSaver.__init__ and iter_find_files, then run tests."}

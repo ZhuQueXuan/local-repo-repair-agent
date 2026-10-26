@@ -1,0 +1,25 @@
+{
+  "task_id": "more-itertools-split-after-658",
+  "work": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\split-after-boundary\\temp\\run_20261007_222121_378843\\repo",
+  "git_root_verified": true,
+  "pipefail_verified": true,
+  "variant": "context_compacted",
+  "tool_output_budget": {
+    "max_output_bytes": 1024
+  },
+  "context_budget": {
+    "target_bytes": 12288,
+    "keep_recent_tool_outputs": 2,
+    "compact_completed_exchanges": true,
+    "retained_audit_entries": 8
+  },
+  "archive_assistant_content": false,
+  "external_model_requests": 0,
+  "budget": {
+    "max_requests": null,
+    "max_total_cost_cny": 5.0,
+    "accounted_cost_and_reservations_cny": 2.00023,
+    "remaining_cny": 2.99977,
+    "blocked": false
+  }
+}

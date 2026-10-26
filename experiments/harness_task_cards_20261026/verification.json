@@ -1,0 +1,69 @@
+{
+  "scope": "First Harness task-card version; no pause/resume or full-system acceptance claim.",
+  "protected_old_files_listed": 11644,
+  "protected_old_files_hash_verified": 11643,
+  "occupied_runtime_lock_files_not_byte_verified": [
+    "data/task_service/server.lock"
+  ],
+  "changed_old_protected_files": [],
+  "formal_payloads_unchanged": 52,
+  "formal_task_card_schema_migrated": false,
+  "shared_ledger_requests": 2016,
+  "external_model_calls": 0,
+  "new_formal_runs": 0,
+  "new_formal_test_files": 0,
+  "full_regression_run": false,
+  "basic_check": {
+    "scope": "Scripted transport/usage; real local five-stage files, grading and patch replay. No live model calls.",
+    "single_model_card_and_unchanged_guard": true,
+    "stale_save_conflict": true,
+    "legacy_payload_unchanged": true,
+    "cancelled_card_readonly": true,
+    "five_stage_revision_delivery": true,
+    "demo_evidence": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\d0dd147c60a743fb852bea2fad5fb2df\\demonstration.json",
+    "demo_card_audit": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\d0dd147c60a743fb852bea2fad5fb2df\\runs\\4e3c158af52b418c97f705634c1c6335\\task-card.json",
+    "single_store": "D:\\myDocu\\project_postg\\shixi_project\\temp\\harness_task_cards_20261026\\store-9118ea89098b485e9df5de0935991f2f",
+    "external_model_calls": 0
+  },
+  "final_wire_check": {
+    "unique_api_input_ids_bound_to_audit": true,
+    "latest_revision_delivered": [
+      1,
+      2
+    ],
+    "raw_messages_unchanged": true,
+    "transport_mocked": true,
+    "external_model_calls": 0
+  },
+  "existing_compatibility_checks_passed": 5,
+  "browser_verified": [
+    "isolated creation with card",
+    "save revision 2",
+    "switch clears/restores card",
+    "cancel makes card read-only",
+    "isolated server stopped"
+  ],
+  "browser_scope": "Temporary loopback store without supervisor/worker/model; mode=live field did not execute any model.",
+  "original_panel": {
+    "url": "http://127.0.0.1:8765",
+    "health": {
+      "product": "mini-swe-task-panel",
+      "status": "ready"
+    },
+    "current_task_card_asset_loaded": true,
+    "new_task_created": false,
+    "external_model_calls": 0
+  },
+  "pending": [
+    "pause at a safe role boundary",
+    "checkpoint continuation as linked new identity",
+    "tool and Skills expansion",
+    "additional model adapters",
+    "real model/full system evaluation"
+  ],
+  "credential_scan": {
+    "keys_checked": 2,
+    "files_scanned": 964,
+    "matches": 0
+  }
+}

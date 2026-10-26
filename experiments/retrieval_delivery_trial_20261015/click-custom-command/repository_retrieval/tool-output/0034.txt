@@ -1,0 +1,27 @@
+ M src/click/core.py
+?? temp/
+---DIFF---
+diff --git a/src/click/core.py b/src/click/core.py
+index 5abfb0f..2495e9a 100644
+--- a/src/click/core.py
++++ b/src/click/core.py
+@@ -1838,9 +1838,6 @@ class Group(MultiCommand):
+         """
+         from .decorators import command
+ 
+-        if self.command_class and kwargs.get("cls") is None:
+-            kwargs["cls"] = self.command_class
+-
+         func: t.Optional[t.Callable] = None
+ 
+         if args and callable(args[0]):
+@@ -1850,6 +1847,9 @@ class Group(MultiCommand):
+             (func,) = args
+             args = ()
+ 
++        if self.command_class and kwargs.get("cls") is None:
++            kwargs["cls"] = self.command_class
++
+         def decorator(f: t.Callable[..., t.Any]) -> Command:
+             cmd: Command = command(*args, **kwargs)(f)
+             self.add_command(cmd)

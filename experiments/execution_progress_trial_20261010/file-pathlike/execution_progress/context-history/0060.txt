@@ -1,0 +1,1 @@
+Now I see the bug: `self.part_path = dest_path + '.part'` uses the original `dest_path` (which could be a Path), not the abspath string. Let me look at iter_find_files.

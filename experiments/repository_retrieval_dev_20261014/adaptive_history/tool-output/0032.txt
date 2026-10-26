@@ -1,0 +1,17 @@
+requests/compat.py:40:    from simplejson import JSONDecodeError
+requests/compat.py:42:    from json import JSONDecodeError
+requests/exceptions.py:9:from .compat import JSONDecodeError as CompatJSONDecodeError
+requests/exceptions.py:31:class JSONDecodeError(InvalidJSONError, CompatJSONDecodeError):
+requests/exceptions.py:36:        Construct the JSONDecodeError instance first with all
+requests/exceptions.py:39:        and the error message from JSONDecodeError is preserved.
+requests/exceptions.py:41:        CompatJSONDecodeError.__init__(self, *args)
+requests/models.py:31:    JSONDecodeError,
+requests/models.py:49:from .exceptions import JSONDecodeError as RequestsJSONDecodeError
+requests/models.py:948:        :raises requests.exceptions.JSONDecodeError: If the response body does not
+requests/models.py:967:                except JSONDecodeError as e:
+requests/models.py:968:                    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests/models.py:972:        except JSONDecodeError as e:
+requests/models.py:973:            # Catch JSON-related errors and raise as requests.JSONDecodeError
+requests/models.py:974:            # This aliases json.JSONDecodeError and simplejson.JSONDecodeError
+requests/models.py:975:            raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests/__init__.py:166:    JSONDecodeError,

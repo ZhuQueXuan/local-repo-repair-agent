@@ -1,0 +1,10 @@
+{
+  "adapter/scratch/tmp9k0p_1bh/test.txt": "a1fff0ffefb9eace7230c24e50731f0a91c62f9cefdfe77121c2f607125dffae",
+  "adapter/upstream_junit.xml": "39baf79c76fcefdaa4d0999f562f091d773bad13f3d410cdd3c3ed0448001469",
+  "adapter/upstream_results.json": "e73b8aaf67237775351a89a24eeaa9b260401ddb58207f4239ad19627b8e5a7c",
+  "adapter.log": "4d1ac1a3945cb107503ce693ee874bfda7326122b8645380c34c089b27879358",
+  "inventory.json": "71107729ba531a3d61ee2b98763901aa3f4d2b983738fd1554f0f5a000b6bdc8",
+  "protected_after.json": "7259b34aa121de1dd3dd2f0abb2b31dbf8a121c5212799f1e7761516aaca7923",
+  "protected_before.json": "7259b34aa121de1dd3dd2f0abb2b31dbf8a121c5212799f1e7761516aaca7923",
+  "summary.json": "22285566e1e9f640bd885c30a48c1f28573470f4efc792ae78a8d715872281f4"
+}

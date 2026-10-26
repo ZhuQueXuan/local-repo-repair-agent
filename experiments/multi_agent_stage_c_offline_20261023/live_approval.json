@@ -1,0 +1,13 @@
+{
+  "action": "One live dual-role split-after-boundary integration acceptance",
+  "state": "rejected_before_execution",
+  "reason": "Automatic review required explicit confirmation of external model destinations, transmitted code/task content and real cost/accounting scope.",
+  "next_confirmation": {
+    "primary": "https://myai.bupt.edu.cn/llm-gw/v1 (deepseek-v4-flash)",
+    "fallback": "https://api.deepseek.com (deepseek-flash)",
+    "task": "split-after-boundary, public more-itertools issue #658",
+    "payload": "Original public issue, relevant code excerpts from its fixed task checkout, candidate diff, bounded test summaries, role prompts and feedback. Credentials are authentication-only.",
+    "scope": "Exactly one new identity, at most one revision, parent deadline 1800 seconds. No new task batch or rerun selection.",
+    "cost": "Existing uncapped project accounting policy; append attempts/usage to the existing ledger. Gateway price remains unknown; do not claim a fixed total or zero charge."
+  }
+}

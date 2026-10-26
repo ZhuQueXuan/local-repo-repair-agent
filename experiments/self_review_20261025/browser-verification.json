@@ -1,0 +1,16 @@
+{
+  "default_offline": true,
+  "default_single": true,
+  "self_choice_hint": "S+：同一 Agent 保留修复和自查历史。初修 → 六个只读工具自查 → 至多一次修订 → 只读复核。时间与评分机会对齐双 Agent，实际用量分别记账。当前仅离线接线验收，尚无真实模型/新题效果证据。",
+  "synthetic_label": true,
+  "self_stage_label": true,
+  "shared_session_ids": [
+    "78a3ea2369ee4339a10c93a9a22d3b20"
+  ],
+  "history_phases": [
+    "reviewing",
+    "revising",
+    "final_review"
+  ],
+  "created_tasks": 0
+}

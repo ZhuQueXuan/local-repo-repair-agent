@@ -1,0 +1,4 @@
+type <class 'requests.exceptions.JSONDecodeError'> msg Expecting value doc {"a":} pos 5
+args ('Expecting value: line 1 column 6 (char 5)',)
+str Expecting value: line 1 column 6 (char 5)
+OK <class 'requests.exceptions.JSONDecodeError'> Expecting value {"a":} 5 ('Expecting value: line 1 column 6 (char 5)',) Expecting value: line 1 column 6 (char 5)

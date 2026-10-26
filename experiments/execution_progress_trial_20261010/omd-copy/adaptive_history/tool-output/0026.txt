@@ -1,0 +1,17 @@
+ boltons/dictutils.py | 3 +++
+ 1 file changed, 3 insertions(+)
+---
+diff --git a/boltons/dictutils.py b/boltons/dictutils.py
+index f913f29..69da050 100644
+--- a/boltons/dictutils.py
++++ b/boltons/dictutils.py
+@@ -180,6 +180,9 @@ class OrderedMultiDict(dict):
+         self.clear()
+         self.update_extend(state)
+ 
++    def __reduce__(self):
++        return type(self), (), self.__getstate__()
++
+     def _clear_ll(self):
+         try:
+             _map = self._map

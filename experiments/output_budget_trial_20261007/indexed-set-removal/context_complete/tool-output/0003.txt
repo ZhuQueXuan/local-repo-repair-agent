@@ -1,0 +1,155 @@
+class IndexedSet(MutableSet):
+    """``IndexedSet`` is a :class:`collections.MutableSet` that maintains
+    insertion order and uniqueness of inserted elements. It's a hybrid
+    type, mostly like an OrderedSet, but also :class:`list`-like, in
+    that it supports indexing and slicing.
+
+    Args:
+        other (iterable): An optional iterable used to initialize the set.
+
+    >>> x = IndexedSet(list(range(4)) + list(range(8)))
+    >>> x
+    IndexedSet([0, 1, 2, 3, 4, 5, 6, 7])
+    >>> x - set(range(2))
+    IndexedSet([2, 3, 4, 5, 6, 7])
+    >>> x[-1]
+    7
+    >>> fcr = IndexedSet('freecreditreport.com')
+    >>> ''.join(fcr[:fcr.index('.')])
+    'frecditpo'
+
+    Standard set operators and interoperation with :class:`set` are
+    all supported:
+
+    >>> fcr & set('cash4gold.com')
+    IndexedSet(['c', 'd', 'o', '.', 'm'])
+
+    As you can see, the ``IndexedSet`` is almost like a ``UniqueList``,
+    retaining only one copy of a given value, in the order it was
+    first added. For the curious, the reason why IndexedSet does not
+    support setting items based on index (i.e, ``__setitem__()``),
+    consider the following dilemma::
+
+      my_indexed_set = [A, B, C, D]
+      my_indexed_set[2] = A
+
+    At this point, a set requires only one *A*, but a :class:`list` would
+    overwrite *C*. Overwriting *C* would change the length of the list,
+    meaning that ``my_indexed_set[2]`` would not be *A*, as expected with a
+    list, but rather *D*. So, no ``__setitem__()``.
+
+    Otherwise, the API strives to be as complete a union of the
+    :class:`list` and :class:`set` APIs as possible.
+    """
+    def __init__(self, other=None):
+        self.item_index_map = dict()
+        self.item_list = []
+        self.dead_indices = []
+        self._compactions = 0
+        self._c_max_size = 0
+        if other:
+            self.update(other)
+
+    # internal functions
+        "from_iterable(it) -> create a set from an iterable"
+        return cls(it)
+
+    # set operations
+    def add(self, item):
+        "add(item) -> add item to the set"
+        if item not in self.item_index_map:
+            self.item_index_map[item] = len(self.item_list)
+            self.item_list.append(item)
+
+    def remove(self, item):
+        "remove(item) -> remove item from the set, raises if not present"
+        try:
+            didx = self.item_index_map.pop(item)
+        except KeyError:
+            raise KeyError(item)
+        self.item_list[didx] = _MISSING
+        self._add_dead(didx)
+        self._cull()
+
+    def discard(self, item):
+        "discard(item) -> discard item from the set (does not raise)"
+        try:
+            self.remove(item)
+        except KeyError:
+            pass
+
+    def clear(self):
+        "clear() -> empty the set"
+        del self.item_list[:]
+        del self.dead_indices[:]
+        self.item_index_map.clear()
+
+    def isdisjoint(self, other):
+        "isdisjoint(other) -> return True if no overlap with other"
+        iim = self.item_index_map
+        for k in other:
+            if k in iim:
+                return False
+        return True
+
+    def __iand__(self, *others):
+        self.intersection_update(*others)
+        return self
+
+    def __isub__(self, *others):
+        self.difference_update(*others)
+        return self
+
+    def __ixor__(self, *others):
+        self.symmetric_difference_update(*others)
+        return self
+
+    def iter_slice(self, start, stop, step=None):
+        "iterate over a slice of the set"
+        iterable = self
+        if start is not None:
+            start = self._get_real_index(start)
+        if stop is not None:
+            stop = self._get_real_index(stop)
+        if step is not None and step < 0:
+            step = -step
+            iterable = reversed(self)
+        return islice(iterable, start, stop, step)
+
+    # list operations
+    def __getitem__(self, index):
+        try:
+            start, stop, step = index.start, index.stop, index.step
+        except AttributeError:
+            index = operator.index(index)
+        else:
+            iter_slice = self.iter_slice(start, stop, step)
+            return self.from_iterable(iter_slice)
+        if index < 0:
+            index += len(self)
+        real_index = self._get_real_index(index)
+        try:
+            ret = self.item_list[real_index]
+        except IndexError:
+            raise IndexError('IndexedSet index out of range')
+        return ret
+
+    def pop(self, index=None):
+        "pop(index) -> remove the item at a given index (-1 by default)"
+        item_index_map = self.item_index_map
+        len_self = len(item_index_map)
+        if index is None or index == -1 or index == len_self - 1:
+            ret = self.item_list.pop()
+            del item_index_map[ret]
+        else:
+            real_index = self._get_real_index(index)
+            ret = self.item_list[real_index]
+            self.item_list[real_index] = _MISSING
+            del item_index_map[ret]
+            self._add_dead(real_index)
+        self._cull()
+        return ret
+
+    def count(self, val):
+        "count(val) -> count number of instances of value (0 or 1)"
+        if val in self.item_index_map:

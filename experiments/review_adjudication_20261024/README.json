@@ -1,0 +1,16 @@
+{
+  "scope": "Trusted offline adjudication kernel and artificial demonstration. Not integrated into production worker/panel, no general natural-language judgement or model effectiveness claim.",
+  "targeted_tests_passed": 20,
+  "upstream_native_passed": 301,
+  "project_tests_run": 310,
+  "project_tests_passed": 309,
+  "project_tests_skipped": 1,
+  "adapter": {
+    "passed": 169,
+    "unchanged_failures": 6,
+    "skipped": 1
+  },
+  "real_model_calls": 0,
+  "formal_new_runs": 0,
+  "complete_demonstration_entries": 80
+}

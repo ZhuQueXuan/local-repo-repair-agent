@@ -1,0 +1,3 @@
+The base `__reduce__` returns `(cls, (msg, doc, pos))`. The problem: requests' `__init__` calls `InvalidJSONError.__init__(self, *self.args)` where `self.args` is the single formatted message. So `self.args` becomes `(formatted_msg,)`, and `__reduce__` returns `(cls, (formatted_msg,))` — only one arg.
+
+The fix: override `__reduce__` in requests' `JSONDecodeError` to return the proper `(msg, doc, pos)` tuple. Let me write the fix.

@@ -1,0 +1,1 @@
+Now let me reproduce the bugs and check the `iter_find_files` signature.

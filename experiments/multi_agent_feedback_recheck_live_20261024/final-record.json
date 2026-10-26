@@ -1,0 +1,179 @@
+{
+  "agent_exit": null,
+  "artifacts": {
+    "baseline/report.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\baseline\\report.json",
+    "evidences.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\evidences.json",
+    "handoffs.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\handoffs.json",
+    "manual-seed.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\manual-seed.json",
+    "patch-replay/report.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\patch-replay\\report.json",
+    "repair-context-projections.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\repair-context-projections.json",
+    "repair.diff": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\repair.diff",
+    "repairing-verification/report.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\repairing-verification\\report.json",
+    "reports.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\reports.json",
+    "responses.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\responses.json",
+    "reviewing-trajectory.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\reviewing-trajectory.json",
+    "reviews.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\reviews.json",
+    "revising-verification/report.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\revising-verification\\report.json",
+    "seed-validation/report.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\seed-validation\\report.json",
+    "summary.json": "D:\\myDocu\\project_postg\\shixi_project\\data\\task_service\\runs\\f39175da50354f87a7cf5386c0b16b3a\\summary.json"
+  },
+  "assessment_report_id": "revising-program",
+  "cancel_requested": false,
+  "collaboration_mode": "dual_review_diagnostic",
+  "collaboration_policy": {
+    "candidate_selection": "latest_legal_even_if_tests_regress",
+    "diagnostic_profile": "seeded_falsey_remainder_v1",
+    "feedback_windows": 1,
+    "max_consecutive_format_errors": 3,
+    "parent_seconds": 1800,
+    "repair_profile": "adaptive_history",
+    "review_failure": "preserve_last_legal_candidate_and_assessment_no_retry",
+    "review_repeat_limit": 3,
+    "role_seconds": {
+      "final_review": 90,
+      "repairing": 300,
+      "reviewing": 120,
+      "revising": 180
+    },
+    "schema_version": 1,
+    "scope": "Manual known-defect candidate with disclosed checks; confirm, independently review, continue the same repair session, review the new version. Wiring acceptance only; no effectiveness claim."
+  },
+  "collaboration_result": "degraded",
+  "configuration": {
+    "archive_assistant_content": true,
+    "context_budget": {
+      "compact_completed_exchanges": true,
+      "compact_to_target": true,
+      "keep_recent_tool_outputs": 4,
+      "retained_audit_entries": 3,
+      "target_bytes": 12288
+    },
+    "task_state": {
+      "blocked_read_threshold": 3,
+      "guard_enabled": true,
+      "include_previews_in_requests": false,
+      "repeated_read_threshold": 3
+    },
+    "tool_output_budget": {
+      "max_output_bytes": 1024
+    }
+  },
+  "created": "2026-10-24T12:22:18.563608+00:00",
+  "ended": "2026-10-24T12:23:02.389308+00:00",
+  "final_candidate_id": "candidate-c6a3e10f88ea9dedfd909a2be031ccbf",
+  "id": "f39175da50354f87a7cf5386c0b16b3a",
+  "kind": "collaboration_live",
+  "live_assessment_digest": "c753cc19e4f36b888950674b92dc6e0c9e2657b82456b73c6b0a02151138e545",
+  "live_receipts_digest": "985b4fa310362445979f931cea41df85c05fbfa2586d2cbca6948d34fc8778a7",
+  "metrics": {
+    "attempts": 21,
+    "by_role": {
+      "27ab1a49b6024d8a817a071c4a8a99d8": {
+        "attempts": 14,
+        "complete_cost_estimate_cny": 0.095384,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 1531,
+        "known_price_estimate_cny": 0.095384,
+        "known_prompt_tokens": 41568,
+        "logical_requests": 14,
+        "tickets": [
+          "10ad51b8ae584640916be37c57956059",
+          "1cabb534c25641518bab8a68caf1d54d",
+          "3588866f2ab14b63ab322a71ab1c06cf",
+          "372b066dc3354ee9b8edd2a38f0f96d6",
+          "3e274f91d1a4440bb3e57c8ca36c2749",
+          "3ec8c2cea1ee4c1a8dbfe354f7020e2d",
+          "4092433cfbdb48448be38f05982b596d",
+          "41715b3c82934e1bb3136369fbea09b0",
+          "66b31e21ee374f8796fd3e5e4cbe2547",
+          "8b8f8db906ce473f975184ec415336e5",
+          "dd82f47fef334f6c9ea4ea8d3f287ef2",
+          "e2fb5ccfd24e47628532c5595ca3d3c5",
+          "e9cf6a49e1774d71b0125c42172103f3",
+          "efd3778bdb8c483b9ed7caf23f4597a8"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      },
+      "7e4d75c6d6b44625a7e051346b8037f4": {
+        "attempts": 2,
+        "complete_cost_estimate_cny": null,
+        "has_unknown_usage": true,
+        "known_completion_tokens": 50,
+        "known_price_estimate_cny": 0.002244,
+        "known_prompt_tokens": 922,
+        "logical_requests": 1,
+        "tickets": [
+          "493376e62ab04fcb9f320bd52d95f30d",
+          "f870ef8cbff44b97b635a9436c3269a6"
+        ],
+        "unknown_cost_attempts": 1,
+        "unknown_placeholder_cny": 0.1
+      },
+      "d146775004d642efb703d55fc0a099ec": {
+        "attempts": 5,
+        "complete_cost_estimate_cny": 0.051598,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 1358,
+        "known_price_estimate_cny": 0.051598,
+        "known_prompt_tokens": 20367,
+        "logical_requests": 5,
+        "tickets": [
+          "10b362956337405f9ba9a91ed1af0d01",
+          "b13f0b3df46f468cad4c05dbc168a410",
+          "f8bcda5ccf8f41cd852e0967a548cbb8",
+          "f8ff1036872141adb3cdd99288131205",
+          "ff6e9b6ca40242efa6f3579ecdfc3fbb"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      }
+    },
+    "complete_cost_estimate_cny": null,
+    "cost_scope": "Known-price estimates plus unknown placeholders; not confirmed charges or platform balance.",
+    "has_unknown_usage": true,
+    "known_completion_tokens": 2939,
+    "known_price_estimate_cny": 0.149226,
+    "known_prompt_tokens": 62857,
+    "logical_requests": 20,
+    "tickets": [
+      "10ad51b8ae584640916be37c57956059",
+      "10b362956337405f9ba9a91ed1af0d01",
+      "1cabb534c25641518bab8a68caf1d54d",
+      "3588866f2ab14b63ab322a71ab1c06cf",
+      "372b066dc3354ee9b8edd2a38f0f96d6",
+      "3e274f91d1a4440bb3e57c8ca36c2749",
+      "3ec8c2cea1ee4c1a8dbfe354f7020e2d",
+      "4092433cfbdb48448be38f05982b596d",
+      "41715b3c82934e1bb3136369fbea09b0",
+      "493376e62ab04fcb9f320bd52d95f30d",
+      "66b31e21ee374f8796fd3e5e4cbe2547",
+      "8b8f8db906ce473f975184ec415336e5",
+      "b13f0b3df46f468cad4c05dbc168a410",
+      "dd82f47fef334f6c9ea4ea8d3f287ef2",
+      "e2fb5ccfd24e47628532c5595ca3d3c5",
+      "e9cf6a49e1774d71b0125c42172103f3",
+      "efd3778bdb8c483b9ed7caf23f4597a8",
+      "f870ef8cbff44b97b635a9436c3269a6",
+      "f8bcda5ccf8f41cd852e0967a548cbb8",
+      "f8ff1036872141adb3cdd99288131205",
+      "ff6e9b6ca40242efa6f3579ecdfc3fbb"
+    ],
+    "total_elapsed_seconds": 42.078,
+    "unknown_cost_attempts": 1,
+    "unknown_placeholder_cny": 0.1
+  },
+  "policy_digest": "eac89ab791382a6216004850d9fcd157d587403b3c9bd7ed5f5dbd911395e6e8",
+  "profile": "adaptive_history",
+  "reason": "Stage failure: ValidationError; previous legal candidate and its actual independent assessment are retained.",
+  "repair_result": "passed",
+  "review_verdict": "unavailable",
+  "scope": "Manual known-defect candidate, disclosed falsey-remainder checks; real-model feedback wiring only, not discovery or effectiveness evidence.",
+  "stage": "done",
+  "started": "2026-10-24T12:22:27.062255+00:00",
+  "status": "failed",
+  "task": "split-after-boundary",
+  "task_digest": "2268d61f2d10823f11b1e7b21e8aa02f95471aea4ade20938026d3cbe91bcfd6",
+  "updated": "2026-10-24T12:23:04.968334+00:00",
+  "workspace": "D:\\myDocu\\project_postg\\shixi_project\\tasks\\split-after-boundary\\temp\\run_20261024_202223_127966\\repo"
+}

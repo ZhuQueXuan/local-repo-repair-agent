@@ -1,0 +1,18 @@
+--- a/boltons/fileutils.py
++++ b/boltons/fileutils.py
+@@ -386,6 +386,7 @@
+ 
+     # TODO: option to abort if target file modify date has changed since start?
+     def __init__(self, dest_path, **kwargs):
++        dest_path = os.fspath(dest_path)
+         self.dest_path = dest_path
+         self.overwrite = kwargs.pop('overwrite', True)
+         self.file_perms = kwargs.pop('file_perms', None)
+@@ -521,6 +522,7 @@
+     .. _glob: https://en.wikipedia.org/wiki/Glob_%28programming%29
+ 
+     """
++    directory = os.fspath(directory)
+     if isinstance(patterns, str):
+         patterns = [patterns]
+     pats_re = re.compile('|'.join([fnmatch.translate(p) for p in patterns]))

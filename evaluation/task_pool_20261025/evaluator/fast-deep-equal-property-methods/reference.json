@@ -1,0 +1,17 @@
+{
+  "task": "fast-deep-equal-property-methods",
+  "edits": [
+    {
+      "file": "lib/equal.js",
+      "old": "if (a.valueOf !== Object.prototype.valueOf)",
+      "new": "if (typeof a.valueOf === 'function' && typeof b.valueOf === 'function' && a.valueOf !== Object.prototype.valueOf)",
+      "count": 1
+    },
+    {
+      "file": "lib/equal.js",
+      "old": "if (a.toString !== Object.prototype.toString)",
+      "new": "if (typeof a.toString === 'function' && typeof b.toString === 'function' && a.toString !== Object.prototype.toString)",
+      "count": 1
+    }
+  ]
+}

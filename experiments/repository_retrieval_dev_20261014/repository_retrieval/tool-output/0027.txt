@@ -1,0 +1,5 @@
+JSONDecodeError 'Extra data' '{"a": 1}{"b": 2}' 8 Extra data: line 1 column 9 (char 8)
+JSONDecodeError 'Extra data' '{"a": 1}{"b": 2}' 8 Extra data: line 1 column 9 (char 8)
+isinstance InvalidJSONError: True
+isinstance ValueError: True
+valid: {'a': 1}

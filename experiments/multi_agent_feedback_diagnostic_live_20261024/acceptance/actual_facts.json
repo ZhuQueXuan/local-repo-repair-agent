@@ -1,0 +1,14 @@
+{
+  "external_model_requests": 0,
+  "new_production_runs": 0,
+  "old_payloads_unchanged": true,
+  "production_rows": 42,
+  "pending": [],
+  "shared_ledger_unchanged": true,
+  "normal_policy_unchanged": true,
+  "approval": {
+    "action": "Create and start the sole live feedback diagnostic via the production panel",
+    "status": "rejected_before_click",
+    "reason": "Explicit authorization for source, patch, tests and session data sent to the named model providers, with charges, is required."
+  }
+}

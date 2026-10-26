@@ -1,0 +1,58 @@
+260:         """
+261:         if not super().__contains__(k):
+262:             self[k] = None if default is _MISSING else default
+263:         return self[k]
+264: 
+265:     def copy(self):
+266:         "Return a shallow copy of the dictionary."
+267:         return self.__class__(self.iteritems(multi=True))
+268: 
+269:     @classmethod
+270:     def fromkeys(cls, keys, default=None):
+271:         """Create a dictionary from a list of keys, with all the values
+272:         set to *default*, or ``None`` if *default* is not set.
+273:         """
+274:         return cls([(k, default) for k in keys])
+275: 
+276:     def update(self, E, **F):
+277:         """Add items from a dictionary or iterable (and/or keyword arguments),
+278:         overwriting values under an existing key. See
+279:         :meth:`dict.update` for more details.
+280:         """
+281:         # E and F are throwback names to the dict() __doc__
+282:         if E is self:
+283:             return
+284:         self_add = self.add
+285:         if isinstance(E, OrderedMultiDict):
+286:             for k in E:
+287:                 if k in self:
+288:                     del self[k]
+289:             for k, v in E.iteritems(multi=True):
+290:                 self_add(k, v)
+=== 1100-1120 ===
+1095:         except AttributeError:
+1096:             try:
+1097:                 ret = self._hash = hash(frozenset(self.items()))
+1098:             except Exception as e:
+1099:                 ret = self._hash = FrozenHashError(e)
+1100: 
+1101:         if ret.__class__ is FrozenHashError:
+1102:             raise ret
+1103: 
+1104:         return ret
+1105: 
+1106:     def __copy__(self):
+1107:         return self  # immutable types don't copy, see tuple's behavior
+1108: 
+1109:     # block everything else
+1110:     def _raise_frozen_typeerror(self, *a, **kw):
+1111:         "raises a TypeError, because FrozenDicts are immutable"
+1112:         raise TypeError('%s object is immutable' % self.__class__.__name__)
+1113: 
+1114:     __ior__ = __setitem__ = __delitem__ = update = _raise_frozen_typeerror
+1115:     setdefault = pop = popitem = clear = _raise_frozen_typeerror
+1116: 
+1117:     del _raise_frozen_typeerror
+1118: 
+1119: 
+1120: # end dictutils.py

@@ -1,0 +1,2 @@
+# Frozen task inputs, patch fixtures and evidence hashes depend on exact bytes.
+* -text

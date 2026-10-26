@@ -1,0 +1,10 @@
+test_argument_custom_type_survives_reuse (test_behavior.SharedParameterChecks) ... ok
+test_builtin_option_instances_are_independent (test_behavior.SharedParameterChecks) ... ok
+test_custom_class_without_extra_attributes_is_preserved (test_behavior.SharedParameterChecks) ... ok
+test_option_custom_type_survives_reuse (test_behavior.SharedParameterChecks) ... ok
+test_unshared_custom_parameter_still_executes (test_behavior.SharedParameterChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

@@ -1,0 +1,1 @@
+I found the bug. At line 310, `del self.lists[:]` empties the list, then line 311 tries `self.lists[0] = tmp_sorted` which raises `IndexError` on an empty list. Let me confirm the class structure and reproduce.

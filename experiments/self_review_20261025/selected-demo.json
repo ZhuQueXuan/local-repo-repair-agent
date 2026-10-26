@@ -1,0 +1,12 @@
+{
+  "home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\self_review_demo\\72a3900d44764f7685acd8dfef6c18bc",
+  "run_id": "8e22efc7c94d4af78b990678c2216da6",
+  "output": "D:\\myDocu\\project_postg\\shixi_project\\temp\\self_review_demo\\72a3900d44764f7685acd8dfef6c18bc\\runs\\8e22efc7c94d4af78b990678c2216da6",
+  "scope": "All replies/usage synthetic, real local copies/checks/replay; zero external API calls, no effectiveness claim.",
+  "counts": {
+    "final_review": 2,
+    "repairing": 2,
+    "reviewing": 3,
+    "revising": 2
+  }
+}

@@ -1,0 +1,26 @@
+        elif items[-1] is _MISSING:  # get rid of dead right hand side
+            num_dead = 1
+            while items[-(num_dead + 1)] is _MISSING:
+                num_dead += 1
+            if ded and ded[-1][1] == len(items):
+                del ded[-1]
+            del items[-num_dead:]
+
+    def _get_real_index(self, index):
+        if index < 0:
+            index += len(self)
+        if not self.dead_indices:
+            return index
+        real_index = index
+        for d_start, d_stop in self.dead_indices:
+            if real_index < d_start:
+                break
+            real_index += d_stop - d_start
+        return real_index
+
+    def _get_apparent_index(self, index):
+        if index < 0:
+            index += len(self)
+        if not self.dead_indices:
+            return index
+        apparent_index = index

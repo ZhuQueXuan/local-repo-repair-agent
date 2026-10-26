@@ -1,0 +1,16 @@
+{
+  "scope": "Offline synthetic mechanism demonstration. Reviews and source revisions are scripted; test cases execute in separate Python processes.",
+  "run_id": "synthetic-4dfc84e27ded47c29785fa95b44d60b1",
+  "baseline_passed": 0,
+  "v1_passed": 2,
+  "v2_passed": 3,
+  "checks_per_version": 3,
+  "bash_denied": true,
+  "stale_review_rejected": true,
+  "v1_stays_unchanged": true,
+  "model_requests": 0,
+  "model_effectiveness_demonstrated": false,
+  "candidate_v1": "candidate-a048bc9e8f5ee8e3133d36c42e31aa4f",
+  "candidate_v2": "candidate-b5b548f4ef86b65c3d87c7415890cd9c"
+}
+Evidence: D:\myDocu\project_postg\shixi_project\temp\multi_agent_stage_a_20261022\demo_f050f79688744c44977f81ff80e48f65\summary.json

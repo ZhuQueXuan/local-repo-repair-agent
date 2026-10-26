@@ -1,0 +1,11 @@
+test_bare_command_uses_parent_custom_class_and_runs (test_behavior.RegistrationChecks) ... ok
+test_bare_group_uses_parent_custom_group_class (test_behavior.RegistrationChecks) ... ok
+test_called_command_form_keeps_parent_custom_class (test_behavior.RegistrationChecks) ... ok
+test_called_nested_group_form_keeps_class (test_behavior.RegistrationChecks) ... ok
+test_explicit_command_class_overrides_parent (test_behavior.RegistrationChecks) ... ok
+test_plain_parent_still_accepts_bare_command (test_behavior.RegistrationChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

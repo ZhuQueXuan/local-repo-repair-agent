@@ -1,0 +1,9 @@
+{
+  "browser": "ChatGPT in-app browser",
+  "edgeDisconnected": true,
+  "url": "http://127.0.0.1:8765/",
+  "runId": "71be331b11054dc0ad8bcc4945549380",
+  "status": "三角色：文档查阅 → 修复 → 审查（实验）；完成情况见各角色状态。 协作：degraded；审查不可用 最终候选：candidate-41e5af0bfe615f68491e49c30efb7b85",
+  "roles": "文档查阅 · 已完成\n\nDocumentConsultationSubmitted\n\n活动 12.515 秒 · 调用 5 次\n\n已知估算 0.04686 元；完整费用 未知\n\n时间与版本明细\n初修 · 已完成\n\n正常提交\n\n活动 15.016 秒 · 调用 8 次\n\n已知估算 0.057392 元；完整费用 0.057392\n\n时间与版本明细\n独立首审 · 处理异常\n\nStage failure: TimeoutError\n\n活动 未知 秒 · 调用 82 次\n\n已知估算 0.955768 元；完整费用 0.955768\n\n时间与版本明细\n修订 · 已跳过\n\nStage failure: TimeoutError\n\n活动 未知 秒 · 调用 0 次\n\n已知估算 0 元；完整费用 0\n\n时间与版本明细\n最终核查 · 已跳过\n\nStage failure: TimeoutError\n\n活动 未知 秒 · 调用 0 次\n\n已知估算 0 元；完整费用 0\n\n时间与版本明细",
+  "createdViaBrowser": false
+}

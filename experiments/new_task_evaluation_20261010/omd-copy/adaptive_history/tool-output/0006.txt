@@ -1,0 +1,48 @@
+    def setdefault(self, k, default=_MISSING):
+        """If key *k* is in the dictionary, return its value. If not, insert
+        *k* with a value of *default* and return *default*. *default*
+        defaults to ``None``. See :meth:`dict.setdefault` for more
+        information.
+        """
+        if not super().__contains__(k):
+            self[k] = None if default is _MISSING else default
+        return self[k]
+
+    def copy(self):
+        "Return a shallow copy of the dictionary."
+        return self.__class__(self.iteritems(multi=True))
+
+    @classmethod
+    def fromkeys(cls, keys, default=None):
+        """Create a dictionary from a list of keys, with all the values
+        set to *default*, or ``None`` if *default* is not set.
+        """
+        return cls([(k, default) for k in keys])
+
+---1100---
+        except AttributeError:
+            try:
+                ret = self._hash = hash(frozenset(self.items()))
+            except Exception as e:
+                ret = self._hash = FrozenHashError(e)
+
+        if ret.__class__ is FrozenHashError:
+            raise ret
+
+        return ret
+
+    def __copy__(self):
+        return self  # immutable types don't copy, see tuple's behavior
+
+    # block everything else
+    def _raise_frozen_typeerror(self, *a, **kw):
+        "raises a TypeError, because FrozenDicts are immutable"
+        raise TypeError('%s object is immutable' % self.__class__.__name__)
+
+    __ior__ = __setitem__ = __delitem__ = update = _raise_frozen_typeerror
+    setdefault = pop = popitem = clear = _raise_frozen_typeerror
+
+    del _raise_frozen_typeerror
+
+
+# end dictutils.py

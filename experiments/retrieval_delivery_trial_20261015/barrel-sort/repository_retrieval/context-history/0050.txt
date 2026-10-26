@@ -1,0 +1,1 @@
+The bug: `del self.lists[:]` empties the list, then `self.lists[0] = tmp_sorted` raises IndexError. My earlier repro didn't trigger it because `_balance_list` may have kept it as one list. Let me force multiple lists.

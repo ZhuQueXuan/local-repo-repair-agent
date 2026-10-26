@@ -1,0 +1,41 @@
+65 temp/cmd_range.txt
+     1	def command(
+     2	    name: t.Union[str, t.Callable[..., t.Any], None] = None,
+     3	    cls: t.Optional[t.Type[Command]] = None,
+     4	    **attrs: t.Any,
+     5	) -> t.Union[Command, t.Callable[..., Command]]:
+     6	    r"""Creates a new :class:`Command` and uses the decorated function as
+     7	    callback.  This will also automatically attach all decorated
+     8	    :func:`option`\s and :func:`argument`\s as parameters to the command.
+     9	
+    10	    The name of the command defaults to the name of the function with
+    11	    underscores replaced by dashes.  If you want to change that, you can
+    12	    pass the intended name as the first argument.
+    13	
+    14	    All keyword arguments are forwarded to the underlying command class.
+    15	    For the ``params`` argument, any decorated params are appended to
+    16	    the end of the list.
+    17	
+    18	    Once decorated the function turns into a :class:`Command` instance
+    19	    that can be invoked as a command line utility or be attached to a
+    20	    command :class:`Group`.
+    21	
+    22	    :param name: the name of the command.  This defaults to the function
+    23	                 name with underscores replaced by dashes.
+    24	    :param cls: the command class to instantiate.  This defaults to
+    25	                :class:`Command`.
+    26	
+    27	    .. versionchanged:: 8.1
+    28	        This decorator can be applied without parentheses.
+    29	
+    30	    .. versionchanged:: 8.1
+    31	        The ``params`` argument can be used. Decorated params are
+    32	        appended to the end of the list.
+    33	    """
+    34	
+    35	    func: t.Optional[t.Callable[..., t.Any]] = None
+    36	
+    37	    if callable(name):
+    38	        func = name
+    39	        name = None
+    40	        assert cls is None, "Use 'command(cls=cls)(callable)' to specify a class."

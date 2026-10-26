@@ -1,0 +1,3 @@
+size_limit 16670
+num lists: 1 [20000]
+sort returned None

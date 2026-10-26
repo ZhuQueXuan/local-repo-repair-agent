@@ -1,0 +1,1 @@
+The truncation is hiding the middle. Let me read the exact decorator functions with grep for line numbers.

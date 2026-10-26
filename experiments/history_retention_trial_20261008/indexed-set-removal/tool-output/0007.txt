@@ -1,0 +1,31 @@
+120     # internal functions
+121     @property
+122     def _dead_index_count(self):
+123         return len(self.item_list) - len(self.item_index_map)
+124 
+125     def _compact(self):
+126         if not self.dead_indices:
+127             return
+128         self._compactions += 1
+129         dead_index_count = self._dead_index_count
+130         items, index_map = self.item_list, self.item_index_map
+131         self._c_max_size = max(self._c_max_size, len(items))
+132         for i, item in enumerate(self):
+133             items[i] = item
+134             index_map[item] = i
+135         del items[-dead_index_count:]
+136         del self.dead_indices[:]
+137 
+138     def _cull(self):
+139         ded = self.dead_indices
+140         if not ded:
+141             return
+142         items, ii_map = self.item_list, self.item_index_map
+143         if not ii_map:
+144             del items[:]
+145             del ded[:]
+146         elif len(ded) > 384:
+147             self._compact()
+148         elif self._dead_index_count > (len(items) / _COMPACTION_FACTOR):
+149             self._compact()
+150         elif items[-1] is _MISSING:  # get rid of dead right hand side

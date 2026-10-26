@@ -1,0 +1,45 @@
+--- a/boltons/setutils.py
++++ b/boltons/setutils.py
+@@ -391,15 +391,35 @@
+ 
+     def iter_slice(self, start, stop, step=None):
+         "iterate over a slice of the set"
+-        iterable = self
+-        if start is not None:
+-            start = self._get_real_index(start)
+-        if stop is not None:
+-            stop = self._get_real_index(stop)
+         if step is not None and step < 0:
+-            step = -step
++            # Preserve the existing upstream negative-step behavior.
+             iterable = reversed(self)
+-        return islice(iterable, start, stop, step)
++            if start is not None:
++                start = self._get_real_index(start)
++            if stop is not None:
++                stop = self._get_real_index(stop)
++            return islice(iterable, start, stop, -step)
++        # Positive-step slicing must match slicing the logical sequence
++        # (i.e. list(self)), so normalize the bounds against the apparent
++        # length and iterate over the live items directly.
++        length = len(self)
++        if start is None:
++            start = 0
++        elif start < 0:
++            start += length
++            if start < 0:
++                start = 0
++        elif start > length:
++            start = length
++        if stop is None:
++            stop = length
++        elif stop < 0:
++            stop += length
++            if stop < 0:
++                stop = 0
++        elif stop > length:
++            stop = length
++        return islice(self, start, stop, step)
+ 
+     # list operations
+     def __getitem__(self, index):
