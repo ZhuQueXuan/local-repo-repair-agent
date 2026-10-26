@@ -24,7 +24,7 @@ from self_review_demo import response
 from task_service_store import ROOT
 
 
-def exercise(*, scenario="revise", attack_bash=True, cancel_phase=None, checkpoint=None, question=None, task_card=None, allow_pause=False, continuation=None):
+def exercise(*, scenario="revise", attack_bash=True, cancel_phase=None, checkpoint=None, question=None, task_card=None, allow_pause=False, allow_capabilities=False, continuation=None):
     if scenario not in {"revise", "approve", "not_found", "provider_failure"}:
         raise ValueError("Choose a declared offline scenario")
     home = Path(continuation["home"]) if continuation else ROOT / "temp/document_agent_demo" / uuid.uuid4().hex
@@ -34,23 +34,34 @@ def exercise(*, scenario="revise", attack_bash=True, cancel_phase=None, checkpoi
         ledger.write_bytes(canonical_bytes({"historical_estimated_cost_cny": "0.0", "historical_unknown_charge_reservation_cny": "0.0", "blocked": False, "requests": {}}))
     accounting = SharedBudget(load_budget_config(), ledger_path=ledger, temp_dir=home / "locks")
     parent = store.get(continuation["run_id"]) if continuation else store.create_collaboration("split-after-boundary", "adaptive_history", uuid.uuid4().hex,
-        public_policy(documents=True, question=question or "What does the frozen repository README say this library provides, and what remains unspecified about the reported boundary?"), execution="live", task_card=task_card, allow_pause=allow_pause)
+        public_policy(documents=True, question=question or "What does the frozen repository README say this library provides, and what remains unspecified about the reported boundary?"), execution="live", task_card=task_card, allow_pause=allow_pause, allow_capabilities=allow_capabilities)
     store.update(parent["id"], transport_scope="scripted_offline", scope="Three-role scripted transport and usage; real local files/checks/replay. Not real model or new-task effectiveness.")
     settings = {"DEEPSEEK_API_KEY": "offline-private-" + uuid.uuid4().hex,
         "DEEPSEEK_API_BASE_URL": "https://api.deepseek.com", "DEEPSEEK_CHAT_MODEL": "deepseek-flash"}
     runner = LiveRunner(store, parent["id"], settings=settings, accounting=accounting)
     runner.setup()
-    counts, wires = {}, []
+    counts, wires, ordinary_counts = {}, [], {}
     def transport(**kwargs):
         role = next(r for r in store.roles(parent["id"]) if r["status"] == "running")
         phase = role["phase"]
         counts[phase] = counts.get(phase, 0) + 1
         wires.append({"phase": phase, "messages": deepcopy(kwargs["messages"]),
             "tool_names": [t["function"]["name"] for t in kwargs["tools"]]})
+        if parent.get("harness_capabilities_version") == 1 and phase in {"consulting", "reviewing", "final_review"}:
+            prefix = "Use registered document IDs below." if phase == "consulting" else "Use registered IDs below."
+            info = next(json.loads(m["content"].split("\n", 1)[1]) for m in reversed(kwargs["messages"])
+                        if m["role"] == "user" and m["content"].startswith(prefix))
+            skill = info["capability_catalog"]["skills"][0]
+            observations = [json.loads(m["content"]) for m in kwargs["messages"] if m["role"] == "tool"]
+            if not any(o.get("name") == skill["name"] for o in observations):
+                return response("read_skill", {"skill": skill["name"], "sha256": skill["sha256"]})
+            if phase != "consulting" and not any("changed_files" in o for o in observations):
+                return response("read_change_summary", {"candidate_id": info["candidate_id"]})
+        ordinary_counts[phase] = ordinary_counts.get(phase, 0) + 1
         if phase == "consulting":
             if scenario == "provider_failure":
                 raise RuntimeError("Scripted document transport failure")
-            if attack_bash and counts[phase] == 1:
+            if attack_bash and ordinary_counts[phase] == 1:
                 return response("bash", {"command": "echo DOCUMENT_BASH_MUST_NEVER_EXECUTE"})
             data = json.loads(kwargs["messages"][1]["content"].split("\n", 1)[1])
             grant = data["grant"]
@@ -65,7 +76,7 @@ def exercise(*, scenario="revise", attack_bash=True, cancel_phase=None, checkpoi
                 evidence_ids=reads, unknowns=["Boundary semantics still require code inspection and independent checks."])
             return response("submit_consultation", {"advice": advice})
         if role["role"] == "repairer":
-            if counts[phase] == 2:
+            if ordinary_counts[phase] == 2:
                 return response("bash", {"command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"})
             before, after = (OLD, FIXED if scenario == "approve" else SEEDED) if phase == "repairing" else (SEEDED, FIXED)
             code = "from pathlib import Path; p=Path('more_itertools/more.py'); s=p.read_text(); a=s.index('\\ndef split_after('); b=s.index('\\ndef split_when(',a); body=s[a:b]; assert body.count(" + repr(before) + ")==1; p.write_text(s[:a]+body.replace(" + repr(before) + "," + repr(after) + ")+s[b:])"
@@ -74,7 +85,7 @@ def exercise(*, scenario="revise", attack_bash=True, cancel_phase=None, checkpoi
             return response("bash", {"command": "python -B -c " + shlex.quote(code)}, "OFFLINE_REPAIR_CONTEXT")
         data = next(json.loads(m["content"].split("\n", 1)[1]) for m in reversed(kwargs["messages"])
             if m["role"] == "user" and m["content"].startswith("Use registered IDs below."))
-        if phase == "reviewing" and scenario != "approve" and counts[phase] == 1:
+        if phase == "reviewing" and scenario != "approve" and ordinary_counts[phase] == 1:
             doc = next(d for d in data["documents"] if d["side"] == "candidate" and d["path"] == "more_itertools/more.py")
             return response("read_lines", {"snapshot_id": data["snapshot_id"], "document_id": doc["document_id"], "start": 1427, "end": 1433})
         report = {k: data[k] for k in ("run_id", "reviewer_role_run_id", "candidate_id", "source_tree_digest", "review_id")}

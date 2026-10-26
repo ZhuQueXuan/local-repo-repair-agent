@@ -151,6 +151,8 @@ def freeze_inputs(task, output):
     paths.update((ROOT / "configs").glob("*-requirements.txt"))
     paths.update(ROOT / "configs" / name for name in ("deepseek_budget.json", "provider_priority.json", "retrieval_delivery_trial_20261015.json", "adjudication_bindings_v1.json"))
     paths.update((ROOT / "mini-swe-agent/src/minisweagent").rglob("*.py"))
+    paths.update((ROOT / "skills").glob("*/SKILL.md"))
+    paths.add(ROOT / "scripts/capability_panel.js")
     paths.update(ROOT / name for name in ("scripts/task_panel.html", "scripts/collaboration_panel.js", "scripts/task_card_panel.js", "scripts/checkpoint_panel.js", "scripts/launch_task_panel.pyw", "启动任务面板.cmd"))
     paths.update(source / "repo" / name for name in manifest["source_files_sha256"])
     paths.update(source / name for name in (*manifest["task_files_sha256"], "manifest.json"))

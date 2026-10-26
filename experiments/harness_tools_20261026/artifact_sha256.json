@@ -1,0 +1,13 @@
+{
+  "source-and-documents.zip": "f2c8642d146440e5c9eebcc2cb88fae30c264946f610f2a8dd5170cc61a40ea6",
+  "source-and-documents.zip.sha256.json": "2df51976003f3c5c32b5fe573750b7eef339c055570a93a2c3482be2c42bab4a",
+  "checks-and-http.zip": "e729e3759f53882b7006f9941f1b01bb6669e7a2a60996f44e27a38d416f32a2",
+  "checks-and-http.zip.sha256.json": "8c9386b9621e4a0581c786c89c4b5a5074941ea04e6e94df8225c5bb10a7c2d2",
+  "final-scripted-chain.zip": "21fb6e97d39c29006cbcc2a891281669f09b79c4b171a081b425b0bcc1257ed5",
+  "final-scripted-chain.zip.sha256.json": "299b105e90e035f069f41d06d25e4eeed41c2f0029a244cf8fc829474259e46b",
+  "continuation-scripted-chain.zip": "6c0667b6f055cf9beee3f4bee5f3b7be69c9ee892cdc7bda0777fd247a7eb7b9",
+  "continuation-scripted-chain.zip.sha256.json": "5b0f3296a7dce61e298786d4b380b3703983de45f43be9d265face0ba2c87faf",
+  "first-restricted-failure.zip": "78837ec509d38aa8748ea2d36c240b652e4dc3b58124fdcb84e3d36976f53a0c",
+  "first-restricted-failure.zip.sha256.json": "1ae5500ced904bcc2de79b6e54b104c8a88409338f9a801161d954f4605945e4",
+  "verification.json": "8550a1615585c4847483f656678c5181f3949b5d7720fe1b880b9c4b07df7da3"
+}

@@ -122,7 +122,7 @@ class CollaborationStore(RunStore):
             raise StateConflict("stale_parent_revision")
         return role, parent, meta
 
-    def create_collaboration(self, task, profile, request_key, collaboration_policy, *, input_manifest=None, input_issue=None, execution="mock", task_card=None, allow_pause=False, _defer_dispatch=False):
+    def create_collaboration(self, task, profile, request_key, collaboration_policy, *, input_manifest=None, input_issue=None, execution="mock", task_card=None, allow_pause=False, allow_capabilities=False, _defer_dispatch=False):
         if execution not in {"mock", "live"} or execution == "live" and task == "synthetic-arithmetic":
             raise ValueError("Live collaboration requires a fixed catalog task")
         kind = "collaboration_mock" if execution == "mock" else "collaboration_live"
@@ -153,6 +153,8 @@ class CollaborationStore(RunStore):
             raise ValueError("Invalid checkpoint options")
         if allow_pause and (task_card is None or diagnostic or self_review or execution != "live"):
             raise ValueError("暂停仅用于开启任务卡的新建双/三角色任务，自查和诊断暂不支持。")
+        if type(allow_capabilities) is not bool or allow_capabilities and (diagnostic or self_review or execution != "live"):
+            raise ValueError("工具与Skills扩展仅用于新建普通双/三角色任务，自查和诊断暂不支持。")
         if documents and (diagnostic or self_review):
             raise ValueError("Choose either document consultation or diagnostic/self-check")
         phases = PHASE_ORDER if documents else PHASES
@@ -179,7 +181,7 @@ class CollaborationStore(RunStore):
             found = db.execute("SELECT id,payload FROM runs WHERE request_key=?", (request_key,)).fetchone()
             if found:
                 old = json.loads(found["payload"])
-                if (old.get("task"), old.get("profile"), old.get("kind"), old.get("policy_digest"), old.get("task_digest"), old.get("task_card_seed_sha256"), old.get("harness_pause_version") == 1) != (task, profile, kind, digest, task_digest, creation_fields(card).get("task_card_seed_sha256"), allow_pause):
+                if (old.get("task"), old.get("profile"), old.get("kind"), old.get("policy_digest"), old.get("task_digest"), old.get("task_card_seed_sha256"), old.get("harness_pause_version") == 1, old.get("harness_capabilities_version") == 1) != (task, profile, kind, digest, task_digest, creation_fields(card).get("task_card_seed_sha256"), allow_pause, allow_capabilities):
                     raise StateConflict("idempotency_key_content_conflict")
                 return old
             run_id, timestamp = uuid.uuid4().hex, now()
@@ -192,6 +194,8 @@ class CollaborationStore(RunStore):
             record.update(creation_fields(card))
             if allow_pause:
                 record.update(harness_pause_version=1, pause_requested=False)
+            if allow_capabilities:
+                record["harness_capabilities_version"] = 1
             if _defer_dispatch:
                 record["status"] = "preparing_continuation"
             if card is not None:

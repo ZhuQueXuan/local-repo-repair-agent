@@ -1,0 +1,146 @@
+{
+  "protected_old_files_hash_verified": 5374,
+  "changed_old_protected_files": [],
+  "formal_payloads_unchanged": 52,
+  "formal_task_cards_or_continuations_schema_added": false,
+  "shared_ledger_requests": 2016,
+  "new_formal_runs": 0,
+  "old_task_card_delivery_files_verified": 10,
+  "external_model_calls": 0,
+  "scope": "Opt-in readonly tool registry, approved method skills, fixed local MCP tool subset. Scripted model replies; local processes/checks actually executed.",
+  "basic_chain": {
+    "store_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\c84036aa1d1e45cfa5227da24ba01ffd",
+    "run_id": "712a37a8e00c4f778b45853552ca4154",
+    "counts": {
+      "consulting": 4,
+      "repairing": 2,
+      "reviewing": 4,
+      "revising": 2,
+      "final_review": 3
+    },
+    "status": "finished",
+    "repair_result": "passed",
+    "review_verdict": "approve",
+    "receipt_counts": {
+      "consulting-tool-registry": 3,
+      "final_review-tool-registry": 3,
+      "reviewing-tool-registry": 4
+    },
+    "external_model_calls": 0
+  },
+  "continuation_before_source_pinning": {
+    "store_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\51cbef37f57b4bfd994aab05cc9e8ed8",
+    "source": "a5f202a0ac974097a4bee7ff84eebbe7",
+    "child": "b3481763c223415d9af333d43dccbf3a",
+    "source_unchanged": true,
+    "configuration_inherited": true,
+    "completed_document_role_not_repeated": true,
+    "repair_result": "passed",
+    "review_verdict": "approve",
+    "lineage_usage": {
+      "segments": 2,
+      "attempts": 9,
+      "logical_requests": 9,
+      "known_price_estimate_cny": 0.00324,
+      "unknown_placeholder_cny": 0.0,
+      "complete_cost_estimate_cny": 0.00324,
+      "note": "Current segment plus predecessor segments; includes inherited work costs, not confirmed platform charges."
+    },
+    "external_model_calls": 0
+  },
+  "boundary_checks": {
+    "checks": [
+      "role tool restriction",
+      "candidate binding",
+      "skill role restriction",
+      "skill hash binding",
+      "real MCP lifecycle and diff counts",
+      "no new issued evidence",
+      "snapshot bytes preserved",
+      "cancel before dispatch",
+      "hunk header ambiguity",
+      "tampered patch rejected",
+      "cancel during MCP handshake"
+    ],
+    "external_model_calls": 0,
+    "mcp_exchanges": [
+      {
+        "method": "initialize",
+        "request_sha256": "ce198740c6b2573a12e7c5ffae5cbc94bf116e0af126b2c163448ec34b5b63f2",
+        "response_bytes": 185,
+        "response_sha256": "cad2ea550a2c0bfc85743b40e109da2dcbd3c45695b0acfe46960c4b7573d6c6"
+      },
+      {
+        "method": "tools/list",
+        "request_sha256": "57683c7d8945f05cdcefbb42f57c954c95ccf39624214126d2db7a02380ef724",
+        "response_bytes": 583,
+        "response_sha256": "a84192f4eb07b9b754b24e29950d253ceeace15d4476e1afbc46909f793f171b"
+      },
+      {
+        "method": "tools/call",
+        "request_sha256": "1a745673b9f3e430cafbfa30b44a78a6abb68a0e1c19fb30b0e3d68b8ff24198",
+        "response_bytes": 1055,
+        "response_sha256": "518d389446be6cff8e5559f3ce8fb44364e86cdbbf976b494d0a890031608485"
+      }
+    ]
+  },
+  "http": {
+    "checks": [
+      "HTML/assets",
+      "authenticated creation",
+      "explicit opt-in",
+      "same-key idempotence",
+      "configuration conflict",
+      "read-only capability view",
+      "default off",
+      "boolean validation",
+      "unsupported mode rejection"
+    ],
+    "workers_started": 0,
+    "external_model_calls": 0,
+    "browser_clicks_verified": false,
+    "store_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\harness_tools_20261026\\http-store"
+  },
+  "ui": {
+    "scope": "Node VM with fake DOM; not browser clicks",
+    "default_off": true,
+    "mode_switch_clears": true,
+    "old_run_no_badge": true,
+    "select_clears_badge": true,
+    "inline_script_syntax": true
+  },
+  "existing_compatibility_checks_passed": 6,
+  "full_regression_run": false,
+  "new_formal_test_files": 0,
+  "browser_clicks_verified": false,
+  "panel": {
+    "url": "http://127.0.0.1:8765",
+    "health": {
+      "product": "mini-swe-task-panel",
+      "status": "ready"
+    },
+    "current_capability_asset_loaded": true,
+    "new_task_created": false,
+    "external_model_calls": 0
+  },
+  "archive_members": {
+    "source-and-documents.zip": 23,
+    "checks-and-http.zip": 34,
+    "final-scripted-chain.zip": 535,
+    "continuation-scripted-chain.zip": 724,
+    "first-restricted-failure.zip": 238
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "files_scanned": 1554,
+    "matches": 0
+  },
+  "pending": [
+    "Real model tool/skill selection and quality",
+    "Browser clicks",
+    "General external MCP interoperability",
+    "Execution backend and Python/Node environment interfaces",
+    "Model capability adaptation",
+    "Consolidated system acceptance"
+  ]
+}

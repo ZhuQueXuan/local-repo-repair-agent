@@ -351,6 +351,8 @@ class LiveRunner:
             self.store.home / relative, context.identity,
             self.store.get(self.run_id)["collaboration_policy"]["document_question"])
         broker = DocumentBroker(snapshot, context.identity, cancelled=lambda: self.store.get(self.run_id)["cancel_requested"])
+        from harness_capabilities import configure_capabilities, CapabilityBroker
+        broker = configure_capabilities(broker, context, self.output / "consulting-tool-registry.json", self.frozen)
         grant = snapshot.grant
         public_grant = grant.model_dump(mode="json")
         public_grant["documents"] = [{"document_id": d.document_id, "path": d.path, "line_count": d.line_count} for d in grant.documents[:8]]
@@ -359,6 +361,7 @@ class LiveRunner:
         data = {"grant": public_grant, "document_count": len(grant.documents), "advice_id": bindings["advice_id"],
             "submission_bindings":bindings,
             "submission_instruction":"Call submit_consultation ALONE with advice={these exact submission_bindings, status, answer, evidence_ids, unknowns}. evidence_ids must be returned by tools. The COMPLETE handoff, including question, answer, metadata and selected exact excerpts, is limited to 6144 UTF-8 JSON bytes. Cite only essential short spans; overlapping long excerpts still count in full. If rejected as too large, reduce selected citations/answer or read narrower ranges and resubmit within the original deadline. Use information_not_found and explicit unknowns if the requested boundary is not documented; do not keep scanning to force an answer."}
+        if isinstance(broker, CapabilityBroker):data["capability_catalog"] = broker.prompt_catalog()
         try:
             if not grant.documents:
                 advice = DocumentAdvice(advice_id=data["advice_id"], run_id=self.run_id, role_run_id=context.identity.role_run_id,
@@ -369,6 +372,7 @@ class LiveRunner:
             else:
                 model = ProtectedDocumentModel(self.settings, context=context, accounting=self.accounting, route_state=self.route_state,
                     ledger_path=self.output / "consulting-ledger.json", error_path=self.output / "consulting-error.json")
+                if isinstance(broker, CapabilityBroker):broker.bind_model(model)
                 self.models.append(model)
                 advice = run_document_consultation(model, broker, context, self.output / "consulting-trajectory.json",
                     "Use registered document IDs below. Answer this single question, cite exact returned evidence and submit DocumentAdvice. Do not infer new requirements from unrelated text.\n" + canonical_bytes(data).decode())
@@ -395,6 +399,8 @@ class LiveRunner:
         self.store.register_record(context.identity.role_run_id, "handoff", handoff)
         broker = ReviewEvidenceBroker(snapshot, context.identity, handoff, reports=reports,
             cancelled=lambda: self.store.get(self.run_id)["cancel_requested"])
+        from harness_capabilities import configure_capabilities, CapabilityBroker
+        broker = configure_capabilities(broker, context, self.output / (context.role["phase"] + "-tool-registry.json"), self.frozen)
         history = self.self_session.begin(context) if self.self_review and self.self_session is not None else None
         if self.self_review and history is None:
             raise ProtocolError("self_review_in_process_session_missing")
@@ -406,12 +412,14 @@ class LiveRunner:
             **extra,
             ledger_path=self.output / (context.role["phase"] + "-ledger.json"), error_path=self.output / (context.role["phase"] + "-error.json"))
         self.models.append(model)
+        if isinstance(broker, CapabilityBroker):broker.bind_model(model)
         selected_docs = [d for d in candidate.documents if d.side in {"issue", "diff"} or d.path in self.assessments[candidate.candidate_id]["changed"]]
         data = {"run_id": self.run_id, "reviewer_role_run_id": context.identity.role_run_id,
             "candidate_id": candidate.candidate_id, "source_tree_digest": candidate.source_tree_digest,
             "snapshot_id": candidate.snapshot_id, "requirements": [r.model_dump(mode="json") for r in snapshot.requirements],
             "documents": [{"document_id": d.document_id, "side": d.side, "path": d.path, "lines": d.line_count} for d in selected_docs],
             "report_ids": [r.report_id for r in reports], "review_id": context.role["phase"] + "-review"}
+        if isinstance(broker, CapabilityBroker):data["capability_catalog"] = broker.prompt_catalog()
         if self.diagnostic:
             data["diagnostic_scope"] = SCOPE + " Read the independent report; do not assume a verdict or invent an independent discovery."
         if self.self_review:
@@ -516,6 +524,7 @@ class LiveRunner:
         names += ('review-context-projections.json',)
         names += ("response-validation.json",)
         names += ("task-card.json", "checkpoint/manifest.json", "continuation-import.json")
+        names += ("consulting-tool-registry.json", "reviewing-tool-registry.json", "final_review-tool-registry.json")
         if self.documents:
             names += ("consultations.json", "consultation-context.json", "consulting-trajectory.json", "consulting-events.json", "document-context-projections.json")
         if self.self_review:

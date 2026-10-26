@@ -256,7 +256,7 @@ def continue_checkpoint(store, run_id, body):
             if db.execute("SELECT 1 FROM runs WHERE request_key=?", (key,)).fetchone():
                 raise CheckpointConflict("续做请求键已属于其他任务。")
             db.execute("INSERT INTO harness_continuations VALUES(?,?,NULL,'preparing',?)", (run_id, key, parent["checkpoint_sha256"]))
-        child = store.create_collaboration(parent["task"], parent["profile"], key, parent["collaboration_policy"], execution="live", task_card=card, allow_pause=True, _defer_dispatch=True)
+        child = store.create_collaboration(parent["task"], parent["profile"], key, parent["collaboration_policy"], execution="live", task_card=card, allow_pause=True, allow_capabilities=parent.get("harness_capabilities_version") == 1, _defer_dispatch=True)
         with store.transaction() as db:
             db.execute("UPDATE harness_continuations SET child_id=? WHERE source_id=?", (child["id"], run_id))
         try:

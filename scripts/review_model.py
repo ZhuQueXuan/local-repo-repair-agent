@@ -25,7 +25,7 @@ class ReviewModel(BudgetedDeepSeekModel):
         if remaining <= 0:
             raise TimeoutError("No review request time remaining")
         options = dict(self.config.model_kwargs, timeout=min(45, remaining))
-        tools = list(REVIEW_TOOLS) if self.tool_schemas is SCHEMAS else [
+        tools = self.registered_tools.api_tools() if hasattr(self, "registered_tools") else list(REVIEW_TOOLS) if self.tool_schemas is SCHEMAS else [
             {"type": "function", "function": {"name": name,
              "description": "Read frozen documentation or submit a cited interpretation; no execution",
              "parameters": schema.model_json_schema()}} for name, schema in self.tool_schemas.items()]
@@ -42,7 +42,7 @@ class ReviewModel(BudgetedDeepSeekModel):
             call = calls[0]
             if call.function.name not in self.tool_schemas or not call.id:
                 reason = "unregistered_tool_or_missing_id"
-                raise ValueError("Only the six registered review tools are permitted")
+                raise ValueError("Only this role's explicitly registered tools are permitted")
             reason = "invalid_json_arguments"
             arguments = json.loads(call.function.arguments)
             reason = "arguments_too_large"

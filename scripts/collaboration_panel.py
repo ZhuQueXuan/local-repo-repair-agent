@@ -42,12 +42,15 @@ def public_policy(diagnostic=False, *, self_review=False, documents=False, quest
 
 
 def create_panel_run(store, body):
-    if set(body) - {"task", "profile", "mode", "request_key", "collaboration_mode", "policy_version", "document_question", "task_card", "allow_pause"}:
+    if set(body) - {"task", "profile", "mode", "request_key", "collaboration_mode", "policy_version", "document_question", "task_card", "allow_pause", "allow_capabilities"}:
         raise ValueError("Unknown creation fields")
     mode = body.get("collaboration_mode", "single")
     allow_pause = body.get("allow_pause", False)
     if type(allow_pause) is not bool or allow_pause and mode not in {"dual_review", "document_review"}:
         raise ValueError("阶段暂停只用于新建双/三角色任务。")
+    allow_capabilities = body.get("allow_capabilities", False)
+    if type(allow_capabilities) is not bool or allow_capabilities and mode not in {"dual_review", "document_review"}:
+        raise ValueError("工具与Skills扩展只用于新建普通双/三角色任务。")
     if "document_question" in body and mode != "document_review":
         raise ValueError("Document question requires the document collaboration mode")
     if mode == "single":
@@ -57,7 +60,7 @@ def create_panel_run(store, body):
     if type(body.get("policy_version")) is not int or body["policy_version"] != 1:
         raise ValueError("Refresh the panel policy before creating a collaboration")
     return store.create_collaboration(body["task"], body["profile"], body["request_key"], public_policy(mode == "dual_review_diagnostic", self_review=mode == "self_review",
-        documents=mode == "document_review", question=body.get("document_question")), execution="live", allow_pause=allow_pause, **({"task_card": body["task_card"]} if "task_card" in body else {}))
+        documents=mode == "document_review", question=body.get("document_question")), execution="live", allow_pause=allow_pause, allow_capabilities=allow_capabilities, **({"task_card": body["task_card"]} if "task_card" in body else {}))
 
 
 def usage_view(store, row):
@@ -144,6 +147,8 @@ def collaboration_view(store, run_id):
         "final_candidate_id": row.get("final_candidate_id"), "synthetic": row["kind"] == "collaboration_mock" or row.get("transport_scope") == "scripted_offline", **records}
     from collaboration_adjudication import read_batches
     result["adjudications"] = read_batches(store, run_id)
+    if row.get("harness_capabilities_version") == 1:
+        result["harness_capabilities"] = {"version": 1, "scope": "只读工具注册、按需Skills及本地MCP变更概览；导航结果不等于验收证据。"}
     if len(canonical_bytes(result)) > 2 * 1024 * 1024:
         raise ValueError("Collaboration index exceeds bounded preview")
     return result

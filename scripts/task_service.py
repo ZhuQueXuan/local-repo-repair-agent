@@ -106,7 +106,7 @@ def make_handler(store, token, port):
 
         def do_GET(self):
             route = urlparse(self.path)
-            if not self.allowed(api=route.path not in {"/", "/api/health", "/collaboration-panel.js", "/task-card-panel.js", "/checkpoint-panel.js"}):
+            if not self.allowed(api=route.path not in {"/", "/api/health", "/collaboration-panel.js", "/task-card-panel.js", "/checkpoint-panel.js", "/capability-panel.js"}):
                 return
             try:
                 if route.path == "/":
@@ -118,6 +118,8 @@ def make_handler(store, token, port):
                     self.send(200, (ROOT / "scripts/task_card_panel.js").read_bytes(), "text/javascript; charset=utf-8")
                 elif route.path == "/checkpoint-panel.js":
                     self.send(200, (ROOT / "scripts/checkpoint_panel.js").read_bytes(), "text/javascript; charset=utf-8")
+                elif route.path == "/capability-panel.js":
+                    self.send(200, (ROOT / "scripts/capability_panel.js").read_bytes(), "text/javascript; charset=utf-8")
                 elif route.path == "/api/health":
                     self.send(200, {"product": "mini-swe-task-panel", "status": "ready"})
                 elif route.path == "/api/catalog":
