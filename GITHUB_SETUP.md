@@ -48,3 +48,5 @@ GitHub 上不包含兄弟目录 `job/` 与 `bishe_improve/`。阶段文档中的
 后续开发新增了[阶段39工具/Skills](Project/39_过程_Harness只读工具注册与Skills扩展.md)与[阶段40执行环境](Project/40_过程_执行后端接口与Python_Node环境声明.md)。当前环境检查入口为面板“检查执行环境”，或`.venv\Scripts\python.exe -B scripts/execution_runtime.py --probe`。`MINI_TASK_BASH`统一指定本机Bash；可选`MINI_TASK_NODE`仅指定检查用Node，不改原JS桥。新电脑仍须自行建立环境、填写私有凭据；版本探测通过不代表空白机器或完整功能验收。
 
 [阶段41](Project/41_过程_模型能力声明与角色绑定及Messages离线适配.md)新增模型能力/角色声明。面板当前只开放原北邮/DeepSeek路由；Claude原生Messages候选只做离线转换，没有新增API客户端或私有凭据需求，不要凭此文自行启用新外发地址。
+
+[阶段42](Project/42_过程_统一使用入口与整体验收范围.md)已把根README整理为当前使用入口，历史README在Git与正式封存中保留。统一验收范围JSON只是分层清单，不能运行任务，也不是付费或重新安装成功的证明；当前整体验收、真实模型/浏览器和异机验证仍待完成。

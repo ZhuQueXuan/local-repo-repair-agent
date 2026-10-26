@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "state": "scope_only_not_launchable",
+  "paid_launch_authorized": false,
+  "creates_runs": false,
+  "scope": "Unified use and acceptance boundaries after Harness stages 36-41; no scheduler, request identity or model dispatch.",
+  "current_product": {
+    "name": "本地仓库修复 Agent",
+    "upstream_commit": "04d809ceab9df28f9adaed044884180159172930",
+    "default_mode": "replay",
+    "default_collaboration": "single",
+    "task_card_default": false,
+    "phase_pause_default": false,
+    "tool_skills_default": false,
+    "enabled_model_profile": "legacy_deepseek_v1",
+    "offline_only_model_profile": "anthropic_messages_offline_v1",
+    "automatic_task_languages": ["python"],
+    "os_sandbox": false
+  },
+  "supported_combination_rules": {
+    "task_card": "new live single/dual/document tasks; human-owned plan is not program acceptance",
+    "phase_pause": "new normal live dual/document tasks with task card; whole-role boundary only",
+    "tool_skills": "new normal live dual/document tasks; approved readonly methods and fixed local MCP only",
+    "self_review_and_diagnostic": "existing experimental branches; no new pause/tool bundle and not a required comparison arm",
+    "model_selection": "original enabled profile only; no role-mixed vendors or live Claude transport",
+    "continuation": "unique linked child, same frozen inputs/environment/profile, retained predecessor costs"
+  },
+  "acceptance_layers": [
+    {"id": "program", "question": "Does the program honor contracts and preserve results?", "status": "current_full_regression_pending", "criteria": ["current default regression", "adapter differences compared by name", "permission and identity rejection", "one-revision limit", "cancellation and interruption retain evidence", "formal history and shared accounting remain cumulative"]},
+    {"id": "real_integration", "question": "Does the current original-provider three-role workflow run end to end?", "status": "not_launched", "criteria": ["new final frozen identity after explicit scope confirmation", "document consultation may report unknowns", "repair checks and clean replay", "legal final approve for success", "failed/degraded results retained without automatic rerun"]},
+    {"id": "browser_use", "question": "Can a person use the current page correctly?", "status": "pending_browser_validation", "criteria": ["mode switches clear unsupported options", "creation and saved profile", "task-card edit and conflict", "role-boundary pause and unique continuation", "in-flight cancellation as a separate outcome", "history and artifacts do not mix identities"]},
+    {"id": "effect", "question": "Does the complete workflow improve results over the original baseline?", "status": "not_started_requires_comparison_gate", "criteria": ["new comparable task freeze", "visible versus retained checks separated", "terminal retained scoring and batch gate", "all declared failures and costs included", "prompt/time/opportunity differences disclosed", "no broad or module-specific improvement claim from one diagnostic"]},
+    {"id": "fresh_machine", "question": "Can the repository be installed and used on a clean machine?", "status": "not_verified", "criteria": ["recursive submodules", "fresh venv and dependency sources", "local private settings only", "excluded archive limits disclosed", "no automatic old-run restoration"]}
+  ],
+  "feature_review_items": [
+    {"id": "defaults", "evidence_entry": "README.md", "required": "offline default, optional switches off, no account probe or task on page load"},
+    {"id": "task_card", "evidence_entry": "Project/36_过程_Harness任务卡与运行中要求补充.md", "required": "CAS edits and per-call input receipts; no false completion claim"},
+    {"id": "checkpoint", "evidence_entry": "Project/37_过程_Harness阶段暂停与检查点续做.md", "required": "boundary only, no unsettled requests, old identity preserved, unique continuation and cumulative costs"},
+    {"id": "tools_skills_mcp", "evidence_entry": "Project/39_过程_Harness只读工具注册与Skills扩展.md", "required": "explicit roles/schemas, skill hashes, fixed MCP lifecycle, no forged evidence or authority"},
+    {"id": "runtime", "evidence_entry": "Project/40_过程_执行后端接口与Python_Node环境声明.md", "required": "fixed explicit probes, original shell guards, environment-bound continuation, Node not generic JS support"},
+    {"id": "model", "evidence_entry": "Project/41_过程_模型能力声明与角色绑定及Messages离线适配.md", "required": "same original routing/accounting, explicit role requirements, codec candidate cannot dispatch"}
+  ],
+  "comparison_prerequisites_not_yet_claimed_complete": ["final terminal retained-check scoring integration", "new batch launch gate", "new baseline-versus-full-workflow input freeze"],
+  "historical_freezes": "31 slots and old v7 remain historical and non-launchable; never overwrite their digests to bypass rejection",
+  "next_step": "Prepare one consolidated current-code engineering check round; real-model and comparison execution require their own concrete scope, not this file."
+}

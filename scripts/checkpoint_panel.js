@@ -32,6 +32,7 @@ async function refreshCheckpoint(row,revision){
 }
 $('allowPause').onchange=checkpointChoices;
 const previousTaskCardChoices=taskCardChoices;taskCardChoices=function(){previousTaskCardChoices();checkpointChoices();};
+$('taskCardEnabled').addEventListener('change',checkpointChoices);
 $('collaborationMode').onchange=()=>{collaborationChoices();checkpointChoices();};
 $('checkpointPause').onclick=async()=>{
   if(checkpointBusy||checkpointRun!==selected)return;

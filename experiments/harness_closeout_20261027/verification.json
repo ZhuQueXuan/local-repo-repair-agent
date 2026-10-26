@@ -1,0 +1,113 @@
+{
+  "protected_old_files_hash_verified": 5374,
+  "changed_old_protected_files": [],
+  "formal_payloads_unchanged": 52,
+  "formal_task_cards_or_continuations_schema_added": false,
+  "shared_ledger_requests": 2016,
+  "new_formal_runs": 0,
+  "old_task_card_delivery_files_verified": 10,
+  "external_model_calls": 0,
+  "scope": "Consolidated use and scope-only acceptance preparation with two frontend wiring fixes; not full regression, real-model or browser acceptance.",
+  "reports": {
+    "panel-check": {
+      "scope": "Combined actual page scripts in Node fake DOM, not browser clicks",
+      "previous_fast_response_availability_failure_reproduced": true,
+      "previous_task_card_pause_stale_reproduced": true,
+      "bootstrap_waits_for_all_scripts": true,
+      "fast_and_normal_load_order_passed": true,
+      "offline_defaults": true,
+      "live_three_role_switch": true,
+      "pause_requires_card": true,
+      "unsupported_options_cleared": true,
+      "replay_omits_live_features": true,
+      "history_no_false_profile": true,
+      "no_tasks_models_or_environment_probes_started": true
+    },
+    "scope-check": {
+      "scope_json_no_launch_fields": true,
+      "default_switches_match_documentation": true,
+      "acceptance_layers": 5,
+      "feature_evidence_entries": 6,
+      "readme_local_links_verified": [
+        "GITHUB_SETUP.md",
+        "Project/00_项目现状与快速接手.md",
+        "Project/42_过程_统一使用入口与整体验收范围.md",
+        "THIRD_PARTY.md",
+        "Project/项目开发流水账.md",
+        "configs/final_acceptance_scope_v1.json"
+      ],
+      "source_files_fingerprinted": 132,
+      "external_model_calls": 0,
+      "full_regression_run": false
+    },
+    "http-check": {
+      "scope": "Temporary HTTP without supervisor/worker; no task POSTs or browser clicks",
+      "assets_verified": [
+        "/collaboration-panel.js",
+        "/task-card-panel.js",
+        "/checkpoint-panel.js",
+        "/capability-panel.js",
+        "/execution-panel.js",
+        "/model-profile-panel.js"
+      ],
+      "new_task_rows": 0,
+      "external_model_calls": 0,
+      "environment_probes_started": 0,
+      "browser_clicks_verified": false
+    },
+    "live-resources": {
+      "url": "http://127.0.0.1:8765",
+      "health": {
+        "product": "mini-swe-task-panel",
+        "status": "ready"
+      },
+      "new_bootstrap_served": true,
+      "new_checkpoint_listener_served": true,
+      "service_restarted": false,
+      "note": "Only HTML/JS changed; existing handlers read files with no-store. Refresh loads new resources.",
+      "new_task_created": false,
+      "external_model_calls": 0,
+      "browser_clicks_verified": false
+    },
+    "protection-check": {
+      "protected_old_files_hash_verified": 5374,
+      "changed_old_protected_files": [],
+      "formal_payloads_unchanged": 52,
+      "formal_task_cards_or_continuations_schema_added": false,
+      "shared_ledger_requests": 2016,
+      "new_formal_runs": 0,
+      "old_task_card_delivery_files_verified": 10,
+      "external_model_calls": 0
+    }
+  },
+  "original_files_verified_against_base_commit": {
+    "README.before.md": "dff104e6d96c2af7bce8179ccffb1d4a3a921fe5012997ad5d9a0d94c92f6ed1",
+    "task_panel.before.html": "f1bd573fc66021e8e21f05fba87acb7940cb4daa934712f2fc70e57039b73e82",
+    "checkpoint_panel.before.js": "29d4666c2bb80bc2ca161f99eec15e253ada3ae654e2b1cfc76df9678115e354"
+  },
+  "base_commit": "22c4afa6dcfae520a3c0a59c4079c00889656a73",
+  "old_model_delivery_files_verified": 7,
+  "archive_member_counts": {
+    "source-and-documents.zip": 10,
+    "checks-and-originals.zip": 29
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "files_scanned": 39,
+    "matches": 0
+  },
+  "new_formal_test_files": 0,
+  "full_regression_run": false,
+  "real_model_acceptance_run": false,
+  "browser_clicks_verified": false,
+  "environment_probes_started": 0,
+  "pending": [
+    "Consolidated current-code engineering regression and adapter differences",
+    "Real original-route integrated acceptance after explicit final scope",
+    "Browser clicks",
+    "Fresh-machine setup",
+    "Terminal retained scoring and comparison batch gate",
+    "New same-task original-baseline versus full-workflow comparison",
+    "New-vendor live transport"
+  ]
+}
