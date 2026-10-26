@@ -98,7 +98,9 @@ class RunStore:
         db.execute("INSERT INTO events(run_id,at,kind,actor,payload) VALUES(?,?,?,?,?)",
                    (run_id, now(), kind, actor, json.dumps(data, ensure_ascii=False)))
 
-    def create(self, task, profile, mode, request_key, *, task_card=None):
+    def create(self, task, profile, mode, request_key, *, task_card=None, model_profile=None):
+        from model_profiles import selection_fields
+        model_fields = selection_fields(model_profile,execution=mode)
         if task not in {item["id"] for item in catalog()} or profile not in PROFILES or mode not in {"live", "replay"}:
             raise ValueError("Select a supported fixed task, strategy and mode")
         if mode == "replay" and task not in {"click-custom-command", "barrel-sort"}:
@@ -119,6 +121,7 @@ class RunStore:
                   "metrics": {}, "artifacts": {}, "scope": next(t["scope"] for t in catalog() if t["id"] == task),
                   "configuration": policy(profile), "reason": "", "actor": "single_agent"}
         record.update(creation_fields(card))
+        record.update(model_fields)
         if card is not None:
             record["scope"] += " Interactive human task card enabled; not a frozen baseline comparison."
         with self.connect() as db:
@@ -126,7 +129,7 @@ class RunStore:
             found = db.execute("SELECT payload FROM runs WHERE request_key=?", (request_key,)).fetchone()
             if found:
                 old = json.loads(found[0])
-                if (old["task"], old["profile"], old["kind"], old.get("task_card_seed_sha256")) != (task, profile, mode, record.get("task_card_seed_sha256")):
+                if (old["task"], old["profile"], old["kind"], old.get("task_card_seed_sha256"),old.get('model_profile_sha256')) != (task, profile, mode, record.get("task_card_seed_sha256"),record.get('model_profile_sha256')):
                     raise ValueError("Idempotency key belongs to a different request")
                 return old
             db.execute("INSERT INTO runs VALUES(?,?,?,?,?)", (record["id"], request_key, "queued", record["created"], json.dumps(record, ensure_ascii=False)))

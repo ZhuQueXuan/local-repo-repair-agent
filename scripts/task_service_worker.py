@@ -88,6 +88,8 @@ class ServiceModelHooks(TaskCardModelMixin):
 
     def query(self, messages):
         check_cancel(self.service_store, self.service_run_id)
+        from model_profiles import validate_record
+        validate_record(self.service_store.get(self.service_run_id))
         self.service_store.event(self.service_run_id, "model_request", {"next_attempt": self.requests + 1}, "repairer")
         try:
             result = super().query(messages)
@@ -150,6 +152,7 @@ def freeze_inputs(task, output):
     paths.add(ROOT / "scripts/capability_panel.js")
     paths.add(ROOT / "configs/execution_backends_v1.json")
     paths.add(ROOT / "scripts/execution_panel.js")
+    paths.update(ROOT/name for name in ('configs/model_profiles_v1.json','scripts/model_profile_panel.js'))
     paths.update(ROOT / name for name in ("scripts/task_panel.html", "scripts/collaboration_panel.js", "scripts/task_card_panel.js", "scripts/checkpoint_panel.js", "scripts/launch_task_panel.pyw", "启动任务面板.cmd"))
     paths.update(source / "repo" / name for name in manifest["source_files_sha256"])
     paths.update(source / name for name in (*manifest["task_files_sha256"], "manifest.json"))
@@ -208,6 +211,12 @@ def run_one(store, run_id):
         return result
 
     try:
+        from model_profiles import validate_record, selection_fields, DEFAULT
+        if record['kind']=='live':
+            validate_record(record)
+            (output/'model-profile.json').write_text(json.dumps({'explicit_selection':bool(record.get('model_profile_id')),
+                **selection_fields(record.get('model_profile_id',DEFAULT),execution='live')},ensure_ascii=False,indent=2),encoding='utf-8')
+            artifacts['model-profile.json']=str(output/'model-profile.json')
         (output / "run_config.json").write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
         (output / "execution-environment.json").write_text(json.dumps(runtime_report(),ensure_ascii=False,indent=2),encoding="utf-8")
         artifacts["execution-environment.json"] = str(output / "execution-environment.json")

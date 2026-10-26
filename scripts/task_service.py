@@ -107,7 +107,7 @@ def make_handler(store, token, port):
 
         def do_GET(self):
             route = urlparse(self.path)
-            if not self.allowed(api=route.path not in {"/", "/api/health", "/collaboration-panel.js", "/task-card-panel.js", "/checkpoint-panel.js", "/capability-panel.js", "/execution-panel.js"}):
+            if not self.allowed(api=route.path not in {"/", "/api/health", "/collaboration-panel.js", "/task-card-panel.js", "/checkpoint-panel.js", "/capability-panel.js", "/execution-panel.js", "/model-profile-panel.js"}):
                 return
             try:
                 if route.path == "/":
@@ -123,6 +123,11 @@ def make_handler(store, token, port):
                     self.send(200, (ROOT / "scripts/capability_panel.js").read_bytes(), "text/javascript; charset=utf-8")
                 elif route.path == "/execution-panel.js":
                     self.send(200, (ROOT / "scripts/execution_panel.js").read_bytes(), "text/javascript; charset=utf-8")
+                elif route.path == "/model-profile-panel.js":
+                    self.send(200, (ROOT / "scripts/model_profile_panel.js").read_bytes(), "text/javascript; charset=utf-8")
+                elif route.path == "/api/model-profiles":
+                    from model_profiles import profile_catalog
+                    self.send(200,profile_catalog())
                 elif route.path == "/api/execution-environment":
                     from execution_runtime import runtime_report
                     self.send(200, last_execution_report or runtime_report())

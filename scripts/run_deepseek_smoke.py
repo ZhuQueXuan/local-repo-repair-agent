@@ -31,6 +31,8 @@ from deepseek_budget import BudgetExhausted, SharedBudget, load_budget_config
 from provider_priority import load_providers, classify_failure
 from execution_backend import WindowsGitBashBackend
 from execution_runtime import bash_executable
+from model_protocols import LegacyChatAdapter
+from model_profiles import profile_catalog, ModelConfigurationError
 
 
 class GitBashEnvironment(LocalEnvironment):
@@ -83,7 +85,9 @@ class GitBashEnvironment(LocalEnvironment):
 class BudgetedDeepSeekModel(LitellmModel):
     """Retain upstream parsing/history; record shared usage and optional limits."""
     def __init__(self, settings, *, ledger_path=None, error_path=None, budget=None,
-                 route_state=None, request_check=None, request_deadline=None, request_limits=None):
+                 route_state=None, request_check=None, request_deadline=None, request_limits=None, model_role="single_agent"):
+        self.protocol_adapter, self.model_role = LegacyChatAdapter(), model_role
+        self.model_capability_sha256 = profile_catalog()['configuration_sha256']
         self.route_state = route_state
         self.request_check = request_check or (lambda: None)
         self.request_deadline = request_deadline
@@ -144,6 +148,8 @@ class BudgetedDeepSeekModel(LitellmModel):
 
     def provider_statistics(self):
         return {"priority": [provider.public() for provider in self.providers],
+                "protocol": self.protocol_adapter.protocol_id, "role": self.model_role,
+                "capability_declaration_sha256": self.model_capability_sha256,
                 "active_provider": self.providers[self.provider_index].name,
                 "switches": self.ledger.get("provider_switches", []),
                 "unpriced_successful_requests": self.unpriced_requests,
@@ -156,6 +162,8 @@ class BudgetedDeepSeekModel(LitellmModel):
 
     def _query(self, messages, **kwargs):
         self.request_check()
+        if profile_catalog()['configuration_sha256'] != self.model_capability_sha256:
+            raise ModelConfigurationError("Model capability declaration changed during this run")
         if self.route_state is not None:
             self._activate_provider(self.route_state.get("provider_index", self.provider_index))
         payload_bytes = len(json.dumps(messages, ensure_ascii=False).encode("utf-8"))
@@ -172,6 +180,7 @@ class BudgetedDeepSeekModel(LitellmModel):
         for index in range(self.provider_index, len(self.providers)):
             self.request_check()
             provider = self._activate_provider(index)
+            self.protocol_adapter.validate(messages,role=self.model_role,provider=provider,limits=self.budget_config)
             try:
                 self._reservation = self.budget.reserve(provider=provider.name)
             except BudgetExhausted:
@@ -187,7 +196,7 @@ class BudgetedDeepSeekModel(LitellmModel):
             try:
                 response = self._perform_completion(messages, provider)
                 self._response_provider = provider
-                return response
+                return self.protocol_adapter.normalize(response)
             except Exception as error:
                 failure, diagnostic = classify_failure(error, provider, self.providers)
                 self.budget.note_failure(self._reservation, failure)

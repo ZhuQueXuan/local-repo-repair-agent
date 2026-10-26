@@ -46,3 +46,5 @@ GitHub 上不包含兄弟目录 `job/` 与 `bishe_improve/`。阶段文档中的
 本次上传仅检查提交范围、密钥和文件完整性；不追加模型请求，不重跑全量测试。当前功能和验证边界以 [阶段37](Project/37_过程_Harness阶段暂停与检查点续做.md) 为准。
 
 后续开发新增了[阶段39工具/Skills](Project/39_过程_Harness只读工具注册与Skills扩展.md)与[阶段40执行环境](Project/40_过程_执行后端接口与Python_Node环境声明.md)。当前环境检查入口为面板“检查执行环境”，或`.venv\Scripts\python.exe -B scripts/execution_runtime.py --probe`。`MINI_TASK_BASH`统一指定本机Bash；可选`MINI_TASK_NODE`仅指定检查用Node，不改原JS桥。新电脑仍须自行建立环境、填写私有凭据；版本探测通过不代表空白机器或完整功能验收。
+
+[阶段41](Project/41_过程_模型能力声明与角色绑定及Messages离线适配.md)新增模型能力/角色声明。面板当前只开放原北邮/DeepSeek路由；Claude原生Messages候选只做离线转换，没有新增API客户端或私有凭据需求，不要凭此文自行启用新外发地址。

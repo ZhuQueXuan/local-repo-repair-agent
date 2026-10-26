@@ -122,7 +122,7 @@ class CollaborationStore(RunStore):
             raise StateConflict("stale_parent_revision")
         return role, parent, meta
 
-    def create_collaboration(self, task, profile, request_key, collaboration_policy, *, input_manifest=None, input_issue=None, execution="mock", task_card=None, allow_pause=False, allow_capabilities=False, _defer_dispatch=False):
+    def create_collaboration(self, task, profile, request_key, collaboration_policy, *, input_manifest=None, input_issue=None, execution="mock", task_card=None, allow_pause=False, allow_capabilities=False, model_profile=None, _defer_dispatch=False):
         if execution not in {"mock", "live"} or execution == "live" and task == "synthetic-arithmetic":
             raise ValueError("Live collaboration requires a fixed catalog task")
         kind = "collaboration_mock" if execution == "mock" else "collaboration_live"
@@ -158,6 +158,8 @@ class CollaborationStore(RunStore):
         if documents and (diagnostic or self_review):
             raise ValueError("Choose either document consultation or diagnostic/self-check")
         phases = PHASE_ORDER if documents else PHASES
+        from model_profiles import selection_fields
+        model_fields = selection_fields(model_profile,execution=execution,phases=phases)
         if diagnostic:
             scope = SCOPE
         if self_review:
@@ -181,7 +183,7 @@ class CollaborationStore(RunStore):
             found = db.execute("SELECT id,payload FROM runs WHERE request_key=?", (request_key,)).fetchone()
             if found:
                 old = json.loads(found["payload"])
-                if (old.get("task"), old.get("profile"), old.get("kind"), old.get("policy_digest"), old.get("task_digest"), old.get("task_card_seed_sha256"), old.get("harness_pause_version") == 1, old.get("harness_capabilities_version") == 1) != (task, profile, kind, digest, task_digest, creation_fields(card).get("task_card_seed_sha256"), allow_pause, allow_capabilities):
+                if (old.get("task"), old.get("profile"), old.get("kind"), old.get("policy_digest"), old.get("task_digest"), old.get("task_card_seed_sha256"), old.get("harness_pause_version") == 1, old.get("harness_capabilities_version") == 1,old.get('model_profile_sha256')) != (task, profile, kind, digest, task_digest, creation_fields(card).get("task_card_seed_sha256"), allow_pause, allow_capabilities,model_fields.get('model_profile_sha256')):
                     raise StateConflict("idempotency_key_content_conflict")
                 return old
             run_id, timestamp = uuid.uuid4().hex, now()
@@ -192,6 +194,7 @@ class CollaborationStore(RunStore):
                       "collaboration_mode": "document_review_" + execution if documents else "self_review_" + execution if self_review else "dual_review_diagnostic" if diagnostic else "dual_review_" + execution, "collaboration_policy": collaboration_policy,
                       "policy_digest": digest, "collaboration_result": "not_completed", "review_verdict": "not_run"}
             record.update(creation_fields(card))
+            record.update(model_fields)
             if allow_pause:
                 record.update(harness_pause_version=1, pause_requested=False)
             if allow_capabilities:

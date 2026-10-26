@@ -42,7 +42,7 @@ def public_policy(diagnostic=False, *, self_review=False, documents=False, quest
 
 
 def create_panel_run(store, body):
-    if set(body) - {"task", "profile", "mode", "request_key", "collaboration_mode", "policy_version", "document_question", "task_card", "allow_pause", "allow_capabilities"}:
+    if set(body) - {"task", "profile", "mode", "request_key", "collaboration_mode", "policy_version", "document_question", "task_card", "allow_pause", "allow_capabilities", "model_profile"}:
         raise ValueError("Unknown creation fields")
     mode = body.get("collaboration_mode", "single")
     allow_pause = body.get("allow_pause", False)
@@ -54,13 +54,13 @@ def create_panel_run(store, body):
     if "document_question" in body and mode != "document_review":
         raise ValueError("Document question requires the document collaboration mode")
     if mode == "single":
-        return store.create(body["task"], body["profile"], body["mode"], body["request_key"], **({"task_card": body["task_card"]} if "task_card" in body else {}))
+        return store.create(body["task"], body["profile"], body["mode"], body["request_key"],model_profile=body.get('model_profile'), **({"task_card": body["task_card"]} if "task_card" in body else {}))
     if mode not in {"dual_review", "dual_review_diagnostic", "self_review", "document_review"} or body["mode"] != "live" or body["profile"] != "adaptive_history":
         raise ValueError("分阶段审查/自查目前仅支持真实运行＋上下文与任务状态策略；离线重放没有新的模型检查。")
     if type(body.get("policy_version")) is not int or body["policy_version"] != 1:
         raise ValueError("Refresh the panel policy before creating a collaboration")
     return store.create_collaboration(body["task"], body["profile"], body["request_key"], public_policy(mode == "dual_review_diagnostic", self_review=mode == "self_review",
-        documents=mode == "document_review", question=body.get("document_question")), execution="live", allow_pause=allow_pause, allow_capabilities=allow_capabilities, **({"task_card": body["task_card"]} if "task_card" in body else {}))
+        documents=mode == "document_review", question=body.get("document_question")), execution="live", allow_pause=allow_pause, allow_capabilities=allow_capabilities, model_profile=body.get('model_profile'), **({"task_card": body["task_card"]} if "task_card" in body else {}))
 
 
 def usage_view(store, row):

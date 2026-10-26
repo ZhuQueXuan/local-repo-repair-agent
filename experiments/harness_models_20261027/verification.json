@@ -1,0 +1,854 @@
+{
+  "protected_old_files_hash_verified": 5374,
+  "changed_old_protected_files": [],
+  "formal_payloads_unchanged": 52,
+  "formal_task_cards_or_continuations_schema_added": false,
+  "shared_ledger_requests": 2016,
+  "new_formal_runs": 0,
+  "old_task_card_delivery_files_verified": 10,
+  "external_model_calls": 0,
+  "scope": "Original model route capability declaration and role binding; second-vendor Messages codec is offline-only without live transport.",
+  "reports": {
+    "protocol-check": {
+      "request_payload": {
+        "model": "offline-native-fixture",
+        "max_tokens": 2048,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Read the candidate."
+              }
+            ]
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "call_a",
+                "name": "read_diff",
+                "input": {
+                  "candidate_id": "c"
+                }
+              },
+              {
+                "type": "tool_use",
+                "id": "call_b",
+                "name": "read_report",
+                "input": {
+                  "report_id": "r"
+                }
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "call_a",
+                "content": "diff-data"
+              },
+              {
+                "type": "tool_result",
+                "tool_use_id": "call_b",
+                "content": "report-data"
+              },
+              {
+                "type": "text",
+                "text": "Keep unknowns explicit."
+              }
+            ]
+          }
+        ],
+        "tools": [
+          {
+            "name": "list_files",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "snapshot_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Snapshot Id",
+                  "type": "string"
+                },
+                "prefix": {
+                  "default": "",
+                  "maxLength": 240,
+                  "title": "Prefix",
+                  "type": "string"
+                },
+                "cursor": {
+                  "default": 0,
+                  "minimum": 0,
+                  "title": "Cursor",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "snapshot_id"
+              ],
+              "title": "ListFiles",
+              "type": "object"
+            }
+          },
+          {
+            "name": "read_lines",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "snapshot_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Snapshot Id",
+                  "type": "string"
+                },
+                "document_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Document Id",
+                  "type": "string"
+                },
+                "start": {
+                  "minimum": 1,
+                  "title": "Start",
+                  "type": "integer"
+                },
+                "end": {
+                  "minimum": 1,
+                  "title": "End",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "snapshot_id",
+                "document_id",
+                "start",
+                "end"
+              ],
+              "title": "ReadLines",
+              "type": "object"
+            }
+          },
+          {
+            "name": "search_text",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "snapshot_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Snapshot Id",
+                  "type": "string"
+                },
+                "query": {
+                  "maxLength": 200,
+                  "minLength": 1,
+                  "title": "Query",
+                  "type": "string"
+                },
+                "document_ids": {
+                  "default": [],
+                  "items": {
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                    "type": "string"
+                  },
+                  "maxItems": 200,
+                  "title": "Document Ids",
+                  "type": "array"
+                },
+                "case_sensitive": {
+                  "default": false,
+                  "title": "Case Sensitive",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "snapshot_id",
+                "query"
+              ],
+              "title": "SearchText",
+              "type": "object"
+            }
+          },
+          {
+            "name": "read_diff",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "candidate_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Candidate Id",
+                  "type": "string"
+                },
+                "cursor": {
+                  "default": 0,
+                  "minimum": 0,
+                  "title": "Cursor",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "candidate_id"
+              ],
+              "title": "ReadDiff",
+              "type": "object"
+            }
+          },
+          {
+            "name": "read_report",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "report_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Report Id",
+                  "type": "string"
+                },
+                "section": {
+                  "default": "all",
+                  "enum": [
+                    "all",
+                    "status",
+                    "scope",
+                    "summary"
+                  ],
+                  "title": "Section",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "report_id"
+              ],
+              "title": "ReadReport",
+              "type": "object"
+            }
+          },
+          {
+            "name": "submit_review",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "$defs": {
+                "Finding": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "schema_version": {
+                      "default": 1,
+                      "maximum": 1,
+                      "minimum": 1,
+                      "title": "Schema Version",
+                      "type": "integer"
+                    },
+                    "finding_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Finding Id",
+                      "type": "string"
+                    },
+                    "severity": {
+                      "enum": [
+                        "major",
+                        "minor",
+                        "informational"
+                      ],
+                      "title": "Severity",
+                      "type": "string"
+                    },
+                    "category": {
+                      "enum": [
+                        "behavior",
+                        "compatibility",
+                        "scope",
+                        "validation",
+                        "style"
+                      ],
+                      "title": "Category",
+                      "type": "string"
+                    },
+                    "claim": {
+                      "maxLength": 2000,
+                      "minLength": 1,
+                      "title": "Claim",
+                      "type": "string"
+                    },
+                    "evidence_ids": {
+                      "items": {
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                        "type": "string"
+                      },
+                      "maxItems": 10,
+                      "minItems": 1,
+                      "title": "Evidence Ids",
+                      "type": "array"
+                    },
+                    "requirement_ref": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Requirement Ref",
+                      "type": "string"
+                    },
+                    "impact": {
+                      "maxLength": 2000,
+                      "minLength": 1,
+                      "title": "Impact",
+                      "type": "string"
+                    },
+                    "suggested_validation": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/SuggestedValidation"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "default": null
+                    },
+                    "confidence": {
+                      "default": "medium",
+                      "enum": [
+                        "low",
+                        "medium",
+                        "high"
+                      ],
+                      "title": "Confidence",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "finding_id",
+                    "severity",
+                    "category",
+                    "claim",
+                    "evidence_ids",
+                    "requirement_ref",
+                    "impact"
+                  ],
+                  "title": "Finding",
+                  "type": "object"
+                },
+                "ReviewReport": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "schema_version": {
+                      "default": 1,
+                      "maximum": 1,
+                      "minimum": 1,
+                      "title": "Schema Version",
+                      "type": "integer"
+                    },
+                    "review_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Review Id",
+                      "type": "string"
+                    },
+                    "run_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Run Id",
+                      "type": "string"
+                    },
+                    "reviewer_role_run_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Reviewer Role Run Id",
+                      "type": "string"
+                    },
+                    "candidate_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Candidate Id",
+                      "type": "string"
+                    },
+                    "source_tree_digest": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "title": "Source Tree Digest",
+                      "type": "string"
+                    },
+                    "verdict": {
+                      "enum": [
+                        "approve",
+                        "request_changes",
+                        "insufficient_evidence"
+                      ],
+                      "title": "Verdict",
+                      "type": "string"
+                    },
+                    "findings": {
+                      "default": [],
+                      "items": {
+                        "$ref": "#/$defs/Finding"
+                      },
+                      "maxItems": 20,
+                      "title": "Findings",
+                      "type": "array"
+                    },
+                    "coverage": {
+                      "items": {
+                        "maxLength": 300,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "maxItems": 12,
+                      "minItems": 1,
+                      "title": "Coverage",
+                      "type": "array"
+                    },
+                    "unknowns": {
+                      "default": [],
+                      "items": {
+                        "maxLength": 300,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "maxItems": 12,
+                      "title": "Unknowns",
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "review_id",
+                    "run_id",
+                    "reviewer_role_run_id",
+                    "candidate_id",
+                    "source_tree_digest",
+                    "verdict",
+                    "coverage"
+                  ],
+                  "title": "ReviewReport",
+                  "type": "object"
+                },
+                "SuggestedValidation": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "schema_version": {
+                      "default": 1,
+                      "maximum": 1,
+                      "minimum": 1,
+                      "title": "Schema Version",
+                      "type": "integer"
+                    },
+                    "input": {
+                      "maxLength": 2000,
+                      "minLength": 1,
+                      "title": "Input",
+                      "type": "string"
+                    },
+                    "expected": {
+                      "maxLength": 2000,
+                      "minLength": 1,
+                      "title": "Expected",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "input",
+                    "expected"
+                  ],
+                  "title": "SuggestedValidation",
+                  "type": "object"
+                }
+              },
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "report": {
+                  "$ref": "#/$defs/ReviewReport"
+                }
+              },
+              "required": [
+                "report"
+              ],
+              "title": "SubmitReview",
+              "type": "object"
+            }
+          }
+        ],
+        "system": "Read-only reviewer."
+      },
+      "raw_reply": {
+        "id": "offline-response",
+        "model": "offline-native-fixture",
+        "type": "message",
+        "role": "assistant",
+        "stop_reason": "tool_use",
+        "content": [
+          {
+            "type": "text",
+            "text": "Inspect the diff."
+          },
+          {
+            "type": "tool_use",
+            "id": "next_call",
+            "name": "read_diff",
+            "input": {
+              "candidate_id": "c"
+            }
+          }
+        ],
+        "usage": {
+          "input_tokens": 100,
+          "output_tokens": 20,
+          "cache_creation_input_tokens": 30,
+          "cache_read_input_tokens": 40
+        }
+      },
+      "normalized": {
+        "prompt_tokens": 170,
+        "completion_tokens": 20,
+        "raw_usage": {
+          "input_tokens": 100,
+          "output_tokens": 20,
+          "cache_creation_input_tokens": 30,
+          "cache_read_input_tokens": 40
+        },
+        "actions": [
+          {
+            "tool": "read_diff",
+            "arguments": {
+              "candidate_id": "c"
+            },
+            "tool_call_id": "next_call"
+          }
+        ]
+      },
+      "rejections": [
+        "pending tool before user",
+        "orphan result",
+        "thinking field",
+        "missing usage",
+        "negative usage",
+        "truncated reply",
+        "unknown block",
+        "unregistered output tool",
+        "native live transport absent",
+        "offline profile creation",
+        "unknown profile creation",
+        "legacy thinking rejected before reserve"
+      ],
+      "legacy_rejection_reservations": 0,
+      "external_model_calls": 0,
+      "scope": "Synthetic Messages format conversion and existing tool parser; no native vendor transport or real model quality acceptance."
+    },
+    "continuation-check": {
+      "store_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\9f974f77296f44d6b7351efeac010400",
+      "source": "fc063289df9643088519577061abf0da",
+      "child": "f0f74e5e65e947758656f1f1d25091fb",
+      "source_unchanged": true,
+      "model_profile_inherited": true,
+      "role_bindings": {
+        "consulting": "legacy_deepseek_v1",
+        "final_review": "legacy_deepseek_v1",
+        "repairing": "legacy_deepseek_v1",
+        "reviewing": "legacy_deepseek_v1",
+        "revising": "legacy_deepseek_v1"
+      },
+      "bad_profile_rejected": true,
+      "completed_roles_not_repeated": true,
+      "repair_result": "passed",
+      "review_verdict": "approve",
+      "counts": {
+        "before": {
+          "consulting": 4
+        },
+        "after": {
+          "repairing": 2,
+          "reviewing": 4,
+          "revising": 2,
+          "final_review": 3
+        }
+      },
+      "lineage_usage": {
+        "segments": 2,
+        "attempts": 15,
+        "logical_requests": 15,
+        "known_price_estimate_cny": 0.0054,
+        "unknown_placeholder_cny": 0.0,
+        "complete_cost_estimate_cny": 0.0054,
+        "note": "Current segment plus predecessor segments; includes inherited work costs, not confirmed platform charges."
+      },
+      "external_model_calls": 0,
+      "model_profile_artifact": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\9f974f77296f44d6b7351efeac010400\\runs\\f0f74e5e65e947758656f1f1d25091fb\\model-profile.json"
+    },
+    "wire-replay": {
+      "scope": "Replay actual scripted API-view histories through native Messages codec only; no live transport, no new model replies or repair execution.",
+      "requests_converted": 15,
+      "phases": [
+        "consulting",
+        "final_review",
+        "repairing",
+        "reviewing",
+        "revising"
+      ],
+      "requests": [
+        {
+          "phase": "consulting",
+          "input_sha256": "f7bb8a17dea2e39aca9b241b0ce7b430455a1c733bc85a8477c904c863d1dc0e",
+          "native_sha256": "34dbee046f897e37092b3b225cf50ef7faa730d3a77095ee8eefdc765dcd77b9",
+          "input_messages": 3,
+          "native_messages": 1
+        },
+        {
+          "phase": "consulting",
+          "input_sha256": "5dfcc7cade2011f3feb3fb2f69fa215f80f4cc90e8e4ceb8d58884a201a22254",
+          "native_sha256": "e78d80bb1adb90b54db42814639f67fae1add65ca94a78d17abcb37dad7d6558",
+          "input_messages": 5,
+          "native_messages": 3
+        },
+        {
+          "phase": "consulting",
+          "input_sha256": "ab3f86e157a980667a2eaefc424fcf872ae6440dcc9bc01d987ed21d4f7bced0",
+          "native_sha256": "308a20d9dcf2a55649870ed7efb538da88cc9567d211cd3e654a4ddc4be2a9e2",
+          "input_messages": 6,
+          "native_messages": 3
+        },
+        {
+          "phase": "consulting",
+          "input_sha256": "3bede97c3263802ef90cefce155687cb4943bf9bfb3a8f0221ef71d900720067",
+          "native_sha256": "0f90c3c3b4abdd507cab37efd0dbdfb9028fd3432cba1c662675a1d8fc0baf53",
+          "input_messages": 8,
+          "native_messages": 5
+        },
+        {
+          "phase": "repairing",
+          "input_sha256": "7479579aa5d7023b415930692afedd4f562faa16454050bdedcdb37052fb9ce4",
+          "native_sha256": "c108f564653ee05eeac4c786697ad0ce8a1ea007d6c88d9fc2576f9df5ea0261",
+          "input_messages": 4,
+          "native_messages": 1
+        },
+        {
+          "phase": "repairing",
+          "input_sha256": "0d5bf66bc804d2ee825e3041eb170531c17abee13010c783e3e4dd2bfd014fdd",
+          "native_sha256": "96ed3d64d785b8d3a96e165fce0f9da9c41a2877c099cc6a636e86b9e1011a63",
+          "input_messages": 6,
+          "native_messages": 3
+        },
+        {
+          "phase": "reviewing",
+          "input_sha256": "debc00bf6025cb4276996b95ccb9957c45fb700c61f5f510ae8f11097a92370e",
+          "native_sha256": "01c187ef60d6ae9fa701440abdb7259054b8de4d2937e617146eceb03f75d457",
+          "input_messages": 3,
+          "native_messages": 1
+        },
+        {
+          "phase": "reviewing",
+          "input_sha256": "b5b2027b9542738bc42e6dde132cd693ac328917655450a0045e43c0d4edbc29",
+          "native_sha256": "50acdeaa5d681931057f11041ed1070b0e32ebf6ba2da0730b7c9e3b78b989ee",
+          "input_messages": 5,
+          "native_messages": 3
+        },
+        {
+          "phase": "reviewing",
+          "input_sha256": "37f5cd74d5e7ff0a7902ea38679b6fa989f2758baf679cf26dad6e8d8f1a7347",
+          "native_sha256": "16db3df4ce82f32a78161ed6828af2db935702c313b124c49ecf64aa7bf049f3",
+          "input_messages": 7,
+          "native_messages": 5
+        },
+        {
+          "phase": "reviewing",
+          "input_sha256": "7171b9b79a779fb957eecb3587cd1d45bb8b0d4d6dc7068d88a466cd2f7c7797",
+          "native_sha256": "9f3ce9877d5af03302ef07d03700316bfb177f9fd0dd7ca9d6471edc093f2b98",
+          "input_messages": 9,
+          "native_messages": 7
+        },
+        {
+          "phase": "revising",
+          "input_sha256": "065fdffe872c127b860f462850c8ffc08c4ec9fce25ba47e61f667b69355d9ac",
+          "native_sha256": "e17c9705a90de8e54c4e0a0f63fa59c17360f70cd108361d8bb1968f976d9c90",
+          "input_messages": 9,
+          "native_messages": 5
+        },
+        {
+          "phase": "revising",
+          "input_sha256": "17061e9a4d4c54f70f8da01cb4c1230be0adc48a6159e2e1eba655370d8e768e",
+          "native_sha256": "c0ef48836a00d6d6e992b5f1c8e5d772cfa8410866e0f0e35076ce0e828af9cd",
+          "input_messages": 11,
+          "native_messages": 7
+        },
+        {
+          "phase": "final_review",
+          "input_sha256": "c4ae9a291d4262105469fdb12c8cf25ec7c4856903a1eb8f748ff54e8327119d",
+          "native_sha256": "cc40088f7ecbc086b0bef1661c7f22766b262023b9ae570f7dea96cc7da82b4f",
+          "input_messages": 3,
+          "native_messages": 1
+        },
+        {
+          "phase": "final_review",
+          "input_sha256": "ef4fbb12ffa42defc8207bff5ca25a2e67f956cf510634f890172b26ea8b9332",
+          "native_sha256": "00675c888ba88d2fccbf458dc1acea91c4f0a961d78d85e4a1ca28667db132ec",
+          "input_messages": 5,
+          "native_messages": 3
+        },
+        {
+          "phase": "final_review",
+          "input_sha256": "fc93ab2de9682792a844340ada30389dab1ee6f024354489c36ad377e9d2404a",
+          "native_sha256": "9e9a9cfd524b3f95c9bc20ceed41b26fb668880d618f05195b4cdf4826b54b70",
+          "input_messages": 7,
+          "native_messages": 5
+        }
+      ],
+      "latest_role_requirements_verified": true,
+      "external_model_calls": 0
+    },
+    "http-check": {
+      "catalog": {
+        "schema_version": 1,
+        "default_profile": "legacy_deepseek_v1",
+        "profiles": [
+          {
+            "id": "legacy_deepseek_v1",
+            "label": "原北邮优先 / DeepSeek备用",
+            "status": "enabled",
+            "protocol": "chat_completions_tools_v1",
+            "roles": [
+              "single_agent",
+              "repairer",
+              "reviewer",
+              "document_reader"
+            ],
+            "role_mixing": false,
+            "tool_calls": "named_functions_json_arguments",
+            "thinking": "official_disabled_gateway_undeclared",
+            "context_limits": "existing_16KiB_default_32KiB_document_review_only",
+            "output_limit": "existing_2048_tokens",
+            "cancellation": "check_before_and_after_request_and_original_timeout",
+            "usage": "prompt_tokens_completion_tokens_required",
+            "pricing": "existing_official_conservative_CNY_gateway_unknown",
+            "route": "unchanged_provider_priority_json"
+          },
+          {
+            "id": "anthropic_messages_offline_v1",
+            "label": "Claude Messages格式候选（仅离线）",
+            "status": "offline_only",
+            "protocol": "anthropic_messages_tools_v1",
+            "roles": [
+              "repairer",
+              "reviewer",
+              "document_reader"
+            ],
+            "role_mixing": false,
+            "tool_calls": "tool_use_tool_result_blocks",
+            "thinking": "unsupported_fail_closed",
+            "context_limits": "local_codec_guard_only_not_model_capacity_claim",
+            "output_limit": "caller_bounded_up_to_2048_tokens",
+            "cancellation": "no_network_transport_implemented",
+            "usage": "input_output_and_cache_tokens_normalized_price_unknown",
+            "pricing": "unknown_no_live_account_validation",
+            "route": "no_live_endpoint_or_credentials_registered"
+          }
+        ],
+        "configuration_sha256": "9bc9cf22346943827b2dac8a1cf7025f8b46de4a1e0f305d82a8b2a1dbb0e289",
+        "note": "声明不是账号/真实模型验收。原路由保持；Claude候选只有离线格式适配，没有可发送的客户端。"
+      },
+      "checks": [
+        "catalog no transport",
+        "offline profile disabled",
+        "HTML/assets",
+        "bad profile before create",
+        "three-role bindings",
+        "single-role binding",
+        "same-key idempotence/conflict",
+        "legacy no implicit metadata rewrite",
+        "authenticated catalog"
+      ],
+      "new_temp_runs": 3,
+      "all_cancelled": true,
+      "workers_started": 0,
+      "external_model_calls": 0,
+      "browser_clicks_verified": false
+    },
+    "ui-check": {
+      "scope": "Node fake DOM, not browser clicks",
+      "candidate_disabled": true,
+      "replay_no_model": true,
+      "old_records_not_rewritten": true,
+      "no_account_probe": true,
+      "inline_syntax": true
+    },
+    "panel-restored": {
+      "url": "http://127.0.0.1:8765",
+      "health": {
+        "product": "mini-swe-task-panel",
+        "status": "ready"
+      },
+      "current_model_profile_asset_loaded": true,
+      "new_task_created": false,
+      "external_model_calls": 0
+    },
+    "protection-check": {
+      "protected_old_files_hash_verified": 5374,
+      "changed_old_protected_files": [],
+      "formal_payloads_unchanged": 52,
+      "formal_task_cards_or_continuations_schema_added": false,
+      "shared_ledger_requests": 2016,
+      "new_formal_runs": 0,
+      "old_task_card_delivery_files_verified": 10,
+      "external_model_calls": 0
+    }
+  },
+  "old_execution_delivery_files_verified": 7,
+  "archive_member_counts": {
+    "source-and-documents.zip": 23,
+    "checks-and-http.zip": 34,
+    "scripted-pause-and-continuation.zip": 891
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "files_scanned": 948,
+    "matches": 0
+  },
+  "distinct_existing_compatibility_checks_passed": 7,
+  "targeted_compatibility_repetitions": 2,
+  "full_regression_run": false,
+  "new_formal_test_files": 0,
+  "browser_clicks_verified": false,
+  "pending": [
+    "Authorized second-vendor transport/account/pricing/shared settlement",
+    "Real model behavior and quality",
+    "Browser clicks",
+    "Full default and adapter regression",
+    "Consolidated system acceptance",
+    "Same-task initial-baseline comparison"
+  ]
+}

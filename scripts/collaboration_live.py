@@ -136,6 +136,11 @@ class LiveRunner:
     def setup(self):
         from task_service_worker import freeze_inputs
         record = self.store.get(self.run_id)
+        from model_profiles import validate_record, selection_fields, DEFAULT
+        validate_record(record,phases=[r['phase'] for r in self.store.roles(self.run_id)])
+        (self.output/'model-profile.json').write_bytes(canonical_bytes({
+            'explicit_selection':bool(record.get('model_profile_id')),
+            **selection_fields(record.get('model_profile_id',DEFAULT),execution='live',phases=[r['phase'] for r in self.store.roles(self.run_id)])}))
         self.task = record["task"]
         self.frozen = freeze_inputs(self.task, self.output)
         policy_name = ("multi_agent_documents_v2.json" if self.store.get(self.run_id)["collaboration_policy"].get("review_context_bytes") == 32768 else "multi_agent_documents_v1.json") if self.documents else "self_review_v1.json" if self.self_review else "multi_agent_feedback_diagnostic_v1.json" if self.diagnostic else "multi_agent_v1.json"
@@ -515,6 +520,7 @@ class LiveRunner:
         names += ("response-validation.json",)
         names += ("task-card.json", "checkpoint/manifest.json", "continuation-import.json")
         names += ("execution-environment.json",)
+        names += ("model-profile.json",)
         names += ("consulting-tool-registry.json", "reviewing-tool-registry.json", "final_review-tool-registry.json")
         if self.documents:
             names += ("consultations.json", "consultation-context.json", "consulting-trajectory.json", "consulting-events.json", "document-context-projections.json")

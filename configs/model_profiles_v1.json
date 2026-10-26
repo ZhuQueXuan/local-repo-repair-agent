@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "default_profile": "legacy_deepseek_v1",
+  "profiles": [
+    {
+      "id": "legacy_deepseek_v1",
+      "label": "原北邮优先 / DeepSeek备用",
+      "status": "enabled",
+      "protocol": "chat_completions_tools_v1",
+      "roles": ["single_agent", "repairer", "reviewer", "document_reader"],
+      "role_mixing": false,
+      "tool_calls": "named_functions_json_arguments",
+      "thinking": "official_disabled_gateway_undeclared",
+      "context_limits": "existing_16KiB_default_32KiB_document_review_only",
+      "output_limit": "existing_2048_tokens",
+      "cancellation": "check_before_and_after_request_and_original_timeout",
+      "usage": "prompt_tokens_completion_tokens_required",
+      "pricing": "existing_official_conservative_CNY_gateway_unknown",
+      "route": "unchanged_provider_priority_json"
+    },
+    {
+      "id": "anthropic_messages_offline_v1",
+      "label": "Claude Messages格式候选（仅离线）",
+      "status": "offline_only",
+      "protocol": "anthropic_messages_tools_v1",
+      "roles": ["repairer", "reviewer", "document_reader"],
+      "role_mixing": false,
+      "tool_calls": "tool_use_tool_result_blocks",
+      "thinking": "unsupported_fail_closed",
+      "context_limits": "local_codec_guard_only_not_model_capacity_claim",
+      "output_limit": "caller_bounded_up_to_2048_tokens",
+      "cancellation": "no_network_transport_implemented",
+      "usage": "input_output_and_cache_tokens_normalized_price_unknown",
+      "pricing": "unknown_no_live_account_validation",
+      "route": "no_live_endpoint_or_credentials_registered"
+    }
+  ]
+}

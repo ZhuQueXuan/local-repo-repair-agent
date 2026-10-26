@@ -24,7 +24,7 @@ from self_review_demo import response
 from task_service_store import ROOT
 
 
-def exercise(*, scenario="revise", attack_bash=True, cancel_phase=None, checkpoint=None, question=None, task_card=None, allow_pause=False, allow_capabilities=False, continuation=None):
+def exercise(*, scenario="revise", attack_bash=True, cancel_phase=None, checkpoint=None, question=None, task_card=None, allow_pause=False, allow_capabilities=False, model_profile=None, continuation=None):
     if scenario not in {"revise", "approve", "not_found", "provider_failure"}:
         raise ValueError("Choose a declared offline scenario")
     home = Path(continuation["home"]) if continuation else ROOT / "temp/document_agent_demo" / uuid.uuid4().hex
@@ -34,7 +34,7 @@ def exercise(*, scenario="revise", attack_bash=True, cancel_phase=None, checkpoi
         ledger.write_bytes(canonical_bytes({"historical_estimated_cost_cny": "0.0", "historical_unknown_charge_reservation_cny": "0.0", "blocked": False, "requests": {}}))
     accounting = SharedBudget(load_budget_config(), ledger_path=ledger, temp_dir=home / "locks")
     parent = store.get(continuation["run_id"]) if continuation else store.create_collaboration("split-after-boundary", "adaptive_history", uuid.uuid4().hex,
-        public_policy(documents=True, question=question or "What does the frozen repository README say this library provides, and what remains unspecified about the reported boundary?"), execution="live", task_card=task_card, allow_pause=allow_pause, allow_capabilities=allow_capabilities)
+        public_policy(documents=True, question=question or "What does the frozen repository README say this library provides, and what remains unspecified about the reported boundary?"), execution="live", task_card=task_card, allow_pause=allow_pause, allow_capabilities=allow_capabilities, model_profile=model_profile)
     store.update(parent["id"], transport_scope="scripted_offline", scope="Three-role scripted transport and usage; real local files/checks/replay. Not real model or new-task effectiveness.")
     settings = {"DEEPSEEK_API_KEY": "offline-private-" + uuid.uuid4().hex,
         "DEEPSEEK_API_BASE_URL": "https://api.deepseek.com", "DEEPSEEK_CHAT_MODEL": "deepseek-flash"}

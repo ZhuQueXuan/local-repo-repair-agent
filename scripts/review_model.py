@@ -29,8 +29,8 @@ class ReviewModel(BudgetedDeepSeekModel):
             {"type": "function", "function": {"name": name,
              "description": "Read frozen documentation or submit a cited interpretation; no execution",
              "parameters": schema.model_json_schema()}} for name, schema in self.tool_schemas.items()]
-        return litellm.completion(model=self.config.model_name, messages=messages,
-                                  tools=tools, api_key=self._api_key, **options)
+        request = self.protocol_adapter.prepare(messages,tools,model=self.config.model_name,api_key=self._api_key,**options)
+        return litellm.completion(**request)
 
     def _parse_actions(self, response):
         calls = response.choices[0].message.tool_calls or []

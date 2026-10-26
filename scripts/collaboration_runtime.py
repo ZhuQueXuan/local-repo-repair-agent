@@ -43,6 +43,7 @@ class RoleModelHooks(TaskCardModelMixin):
         self.context, self.accounting = context, accounting
         self.request_ordinal = 0
         super().__init__(*args, budget=accounting, route_state=route_state,
+                         model_role=self.context.identity.role,
                          request_check=lambda: self.context.check(), request_deadline=lambda: self.context.deadline, **kwargs)
 
     def task_card_source(self):
@@ -60,6 +61,9 @@ class RoleModelHooks(TaskCardModelMixin):
 
     def _query(self, messages, **kwargs):
         self.context.check()
+        from model_profiles import validate_record
+        validate_record(self.context.store.get(self.context.identity.run_id),
+                        phases=[r['phase'] for r in self.context.store.roles(self.context.identity.run_id)])
         if self.contains_credentials(canonical_bytes(messages).decode()):
             raise ProtocolError("credential_in_role_input")
         self.request_ordinal += 1
