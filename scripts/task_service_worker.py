@@ -74,13 +74,8 @@ def check_cancel(store, run_id):
         raise InterruptAgentFlow({"role": "exit", "content": "Cancellation requested", "extra": {"exit_status": "Cancelled", "submission": ""}})
 
 
-def terminate_owned_process(process):
-    """Stop only this worker's newly created subprocess and its descendants."""
-    if process.poll() is None:
-        if os.name == "nt":
-            subprocess.run(["taskkill", "/PID", str(process.pid), "/T", "/F"], capture_output=True)
-        if process.poll() is None:
-            process.kill()
+from execution_backend import terminate_owned_process
+from execution_runtime import bash_executable, runtime_report
 
 
 class ServiceModelHooks(TaskCardModelMixin):
@@ -153,6 +148,8 @@ def freeze_inputs(task, output):
     paths.update((ROOT / "mini-swe-agent/src/minisweagent").rglob("*.py"))
     paths.update((ROOT / "skills").glob("*/SKILL.md"))
     paths.add(ROOT / "scripts/capability_panel.js")
+    paths.add(ROOT / "configs/execution_backends_v1.json")
+    paths.add(ROOT / "scripts/execution_panel.js")
     paths.update(ROOT / name for name in ("scripts/task_panel.html", "scripts/collaboration_panel.js", "scripts/task_card_panel.js", "scripts/checkpoint_panel.js", "scripts/launch_task_panel.pyw", "启动任务面板.cmd"))
     paths.update(source / "repo" / name for name in manifest["source_files_sha256"])
     paths.update(source / name for name in (*manifest["task_files_sha256"], "manifest.json"))
@@ -212,6 +209,8 @@ def run_one(store, run_id):
 
     try:
         (output / "run_config.json").write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
+        (output / "execution-environment.json").write_text(json.dumps(runtime_report(),ensure_ascii=False,indent=2),encoding="utf-8")
+        artifacts["execution-environment.json"] = str(output / "execution-environment.json")
         frozen = freeze_inputs(record["task"], output)
         work, manifest = prepare_task(record["task"])
         store.update(run_id, event="workspace_ready", workspace=str(work))
@@ -226,7 +225,7 @@ def run_one(store, run_id):
             status = {"exit_status": "OfflinePatchReplay"}
         else:
             stage("preflight")
-            bash = Path(os.environ.get("MINI_TASK_BASH", r"D:\Git\bin\bash.exe"))
+            bash = bash_executable()
             if not bash.is_file():
                 raise RuntimeError("Git Bash not found; set MINI_TASK_BASH to its executable")
             import_root = package_root(work, manifest) if manifest.get("import_root") else None

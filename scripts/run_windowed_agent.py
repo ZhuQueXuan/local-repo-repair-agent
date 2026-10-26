@@ -78,7 +78,8 @@ def main():
         raise SystemExit("Required model configuration is missing.")
     if urlparse(settings["DEEPSEEK_API_BASE_URL"]).hostname != "api.deepseek.com" or settings["DEEPSEEK_CHAT_MODEL"] != "deepseek-flash":
         raise SystemExit("This budget is configured for official DeepSeek Flash only.")
-    bash = Path(r"D:\Git\bin\bash.exe")
+    from execution_runtime import bash_executable
+    bash = bash_executable()
     if not bash.is_file():
         raise SystemExit("Configured Git Bash was not found.")
     setup = subprocess.run([sys.executable, "-B", str(ROOT / "scripts" / "prepare_windowed_task.py")],

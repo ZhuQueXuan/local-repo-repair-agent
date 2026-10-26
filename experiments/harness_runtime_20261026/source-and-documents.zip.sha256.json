@@ -1,0 +1,22 @@
+{
+  "scripts/execution_backend.py": "2e060f808eacb5873676ec357345b2717744cf0f95345483b72e92d8e693cae7",
+  "scripts/execution_runtime.py": "468d34548abf523bd7850a5a19b45a57d4bdec99552504a6c37e936aec77bbd7",
+  "scripts/execution_panel.js": "c264e4b4fea7832912f0f2ef1a719e6e12c526545435cd610df6ec06c9de0048",
+  "scripts/run_deepseek_smoke.py": "cc42bfea9bb167b428b044a65212e69adfcea1c96fa38d445c6cb03f3ab5c221",
+  "scripts/run_task_batch.py": "7cb1df66ffaa3967cf474f46e27a3c4fa37dfa77c7c8fe7b5371538dafc0f2fe",
+  "scripts/run_windowed_agent.py": "ec385ab90b7131f27c504494d2218aa15fbf647acb02f0cca39f7c3510e5b61f",
+  "scripts/collaboration_live.py": "47fa5784d32e670bf33a2df3117385e1034835959cb2e0ad0d8f8b0a4d9f0e5a",
+  "scripts/harness_checkpoints.py": "c9688f414cf08358c80afca0f236934e36a93682aa4f33878543b9299a5316bb",
+  "scripts/task_service.py": "99d5070c5def88854fbdcaa2f0b134c6d7cd4b8cfbf399af958cac2ecc779b73",
+  "scripts/task_service_worker.py": "7766b647b96d229e308eb87c95c38a367ae65223f1d8bee08d7069712d258938",
+  "scripts/task_service_store.py": "1dc2ba4c396cc203191eaae2a44593ef91a96ed5d443f0bc0bb5f9ff796af651",
+  "scripts/task_panel.html": "aadf0a80790550bb611a60ca0c970dc9331fa7ef11b4c1597352a284c76b2a8b",
+  "configs/execution_backends_v1.json": "0f594cf90ddbc6071730046b7112fdddfd877cc474f11c1097539c87aaffc1d8",
+  "Project/40_过程_执行后端接口与Python_Node环境声明.md": "86c34e0efab69345f45619669f304f88468cd8bf0d1dd96552689e5e653a6708",
+  "Project/00_项目现状与快速接手.md": "67b50d60faf2d02e69de2f112f95ee17c06261d40f12c396a8f82fae2e39982d",
+  "Project/项目开发流水账.md": "1e1b9fc06a7fc75d2fd92816a4e82042b4c880f5b50f4cec26277cbfb7fdac51",
+  "README.md": "8874e6e2bc83fdaf69067f2c620247eb0aab7760e4a2cbfdde3d5e58c62bdacd",
+  "AGENTS.md": "336728ed875aa0cb98665193d47750454745b0addc8d0ea95c1f1cd2c1f39eda",
+  "GITHUB_SETUP.md": "fd0068d866da4c9ef8413ef7c471e9519ae8786c558d975c7194a8091be57739",
+  "job/AGENTS.md": "de2f5b1e7a328fbdd931fdd96111f8985c98aaf71e540fb3985389dd39d6da02"
+}

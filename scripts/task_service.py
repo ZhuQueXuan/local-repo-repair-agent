@@ -67,6 +67,7 @@ class Supervisor:
 def make_handler(store, token, port):
     operations = threading.Lock()
     closing = False
+    last_execution_report = None
     from dotenv import dotenv_values
     # Authentication-only values never reach HTTP. Check complete responses,
     # including DB objects/events and registered artifacts, before previewing.
@@ -106,7 +107,7 @@ def make_handler(store, token, port):
 
         def do_GET(self):
             route = urlparse(self.path)
-            if not self.allowed(api=route.path not in {"/", "/api/health", "/collaboration-panel.js", "/task-card-panel.js", "/checkpoint-panel.js", "/capability-panel.js"}):
+            if not self.allowed(api=route.path not in {"/", "/api/health", "/collaboration-panel.js", "/task-card-panel.js", "/checkpoint-panel.js", "/capability-panel.js", "/execution-panel.js"}):
                 return
             try:
                 if route.path == "/":
@@ -120,6 +121,11 @@ def make_handler(store, token, port):
                     self.send(200, (ROOT / "scripts/checkpoint_panel.js").read_bytes(), "text/javascript; charset=utf-8")
                 elif route.path == "/capability-panel.js":
                     self.send(200, (ROOT / "scripts/capability_panel.js").read_bytes(), "text/javascript; charset=utf-8")
+                elif route.path == "/execution-panel.js":
+                    self.send(200, (ROOT / "scripts/execution_panel.js").read_bytes(), "text/javascript; charset=utf-8")
+                elif route.path == "/api/execution-environment":
+                    from execution_runtime import runtime_report
+                    self.send(200, last_execution_report or runtime_report())
                 elif route.path == "/api/health":
                     self.send(200, {"product": "mini-swe-task-panel", "status": "ready"})
                 elif route.path == "/api/catalog":
@@ -162,7 +168,7 @@ def make_handler(store, token, port):
                 self.send(400, {"error": "Invalid request"})
 
         def do_POST(self):
-            nonlocal closing
+            nonlocal closing, last_execution_report
             if not self.allowed():
                 return
             try:
@@ -185,6 +191,11 @@ def make_handler(store, token, port):
                             closing = True
                             self.send(200, {"status": "stopping"})
                             threading.Thread(target=self.server.shutdown, daemon=True).start()
+                    elif route == "/api/execution-environment/inspect":
+                        if body:raise ValueError("执行环境检查只接受空对象，不接受路径或命令。")
+                        from execution_runtime import runtime_report
+                        last_execution_report = runtime_report(probe=True)
+                        self.send(200, last_execution_report)
                     elif route == "/api/runs":
                         self.send(201, create_panel_run(store, body))
                     elif route.startswith("/api/runs/") and route.endswith("/cancel") and len(route.split("/")) == 5:

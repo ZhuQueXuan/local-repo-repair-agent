@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "backend": "windows_git_bash_v1",
+  "bash": {"executable_env": "MINI_TASK_BASH", "fallback": "D:\\Git\\bin\\bash.exe"},
+  "python": {"executable_source": "current_process", "minimum_version": [3, 10], "dependency_roots": "current_process_prefix"},
+  "node": {"executable_env": "MINI_TASK_NODE", "fallback_command": "node", "required_for_python_tasks": false, "automatic_task_service_support": false},
+  "git": {"command": "git"},
+  "version_probe_timeout_seconds": 3,
+  "automatic_install": false,
+  "os_sandbox": false,
+  "dependency_manifests": ["configs/core-offline-requirements.txt", "configs/model-requirements.txt", "configs/evaluation-requirements.txt", "configs/retrieval-evaluation-requirements.txt"]
+}

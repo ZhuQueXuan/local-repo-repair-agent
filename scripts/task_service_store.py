@@ -23,8 +23,8 @@ def catalog():
     rows = []
     for path in sorted((ROOT / "tasks").glob("*/manifest.json")):
         data = json.loads(path.read_text(encoding="utf-8"))
-        if "task_files_sha256" in data:
-            rows.append({"id": path.parent.name, "task_id": data["task_id"], "scope": data["scope"]})
+        if "task_files_sha256" in data and data.get("language", "python") == "python":
+            rows.append({"id": path.parent.name, "task_id": data["task_id"], "scope": data["scope"], "language": "python"})
     return rows
 
 

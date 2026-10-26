@@ -1,0 +1,9 @@
+{
+  "source-and-documents.zip": "d21abb95d5f055dbcd7ec20f0e5f58ab14b8098119423a3fb4b9365d481333b0",
+  "source-and-documents.zip.sha256.json": "622319a6a0039401f63b658a7069de1d2e5e7b135fe030edb3d14d577fdaa9a9",
+  "checks-and-http.zip": "9c0d6f8597e23fa045731d6dde9154e1b323e8e736a3736ebcf3cc4140397c06",
+  "checks-and-http.zip.sha256.json": "dc0c054320e1c5a76d5ad98be03aa1460317b9d28bdbb9ab992ff11f98016b6e",
+  "scripted-pause-and-continuation.zip": "4267ef43f4daf4883f436b8e4fe0b660a424fd8157431cc0080b992602bd0abf",
+  "scripted-pause-and-continuation.zip.sha256.json": "34124071dfbb898a6df53f6e6b1113a6f79441c035e93d0182b743076d92891d",
+  "verification.json": "9ee425ce2cafc7f7775bd4b57c5d6845e659f8e138ca3393298630d23428200e"
+}

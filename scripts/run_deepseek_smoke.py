@@ -29,12 +29,15 @@ from minisweagent.exceptions import InterruptAgentFlow, LimitsExceeded
 from minisweagent.models.litellm_model import LitellmModel
 from deepseek_budget import BudgetExhausted, SharedBudget, load_budget_config
 from provider_priority import load_providers, classify_failure
+from execution_backend import WindowsGitBashBackend
+from execution_runtime import bash_executable
 
 
 class GitBashEnvironment(LocalEnvironment):
     def __init__(self, cwd, bash, *, python_import_root=None):
         super().__init__(cwd=str(cwd), timeout=30)
         self.bash = str(bash)
+        self.backend = WindowsGitBashBackend(self.bash)
         self.python_import_root = None
         if python_import_root is not None:
             candidate = Path(python_import_root).resolve()
@@ -56,20 +59,8 @@ class GitBashEnvironment(LocalEnvironment):
         if self.python_import_root is not None:
             child_env["PYTHONPATH"] = self.python_import_root
         child_env = self._configure_child_environment(child_env)
-        process = subprocess.Popen(
-            [self.bash, "--noprofile", "--norc", "-c", action["command"]],
-            cwd=cwd or self.config.cwd, env=child_env, text=True,
-            encoding="utf-8", errors="replace", stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-        )
-        try:
-            stdout, _ = process.communicate(timeout=timeout or self.config.timeout)
-            output = {"output": stdout, "returncode": process.returncode, "exception_info": ""}
-        except subprocess.TimeoutExpired:
-            subprocess.run(["taskkill", "/PID", str(process.pid), "/T", "/F"], capture_output=True)
-            process.kill() if process.poll() is None else None
-            stdout, _ = process.communicate(timeout=5)
-            output = {"output": stdout, "returncode": -1, "exception_info": "Command timed out.",
-                      "extra": {"exception_type": "TimeoutExpired", "exception": "Command timed out."}}
+        output = self.backend.run_shell(action["command"], cwd=cwd or self.config.cwd,
+            env=child_env, timeout=timeout or self.config.timeout)
         output = self._process_output(output, command=action["command"])
         self._check_finished(output)
         return output
@@ -83,6 +74,7 @@ class GitBashEnvironment(LocalEnvironment):
     def serialize(self):
         data = super().serialize()
         data["info"]["config"]["bash_executable"] = self.bash
+        data["info"]["config"]["execution_backend"] = self.backend.describe()
         if self.python_import_root is not None:
             data["info"]["config"]["python_import_root"] = self.python_import_root
         return data
@@ -297,7 +289,7 @@ def main():
         raise SystemExit("Pricing assumes official DeepSeek endpoint; review other endpoints first.")
     if settings["DEEPSEEK_CHAT_MODEL"] != "deepseek-flash":
         raise SystemExit("Pricing configured for Flash; review other models first.")
-    bash = Path(r"D:\Git\bin\bash.exe")
+    bash = bash_executable()
     if not bash.is_file():
         raise SystemExit("Configured Git Bash executable not found.")
     stamp = time.strftime("%Y%m%d_%H%M%S")

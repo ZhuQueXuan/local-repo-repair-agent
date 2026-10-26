@@ -44,3 +44,5 @@ GitHub 上不包含兄弟目录 `job/` 与 `bishe_improve/`。阶段文档中的
 新电脑的面板会创建自己的本机历史；不会显示原电脑的实时52条记录，也不会自动恢复旧失败或暂停身份。已有封存包含开发轨迹和历史机器路径，请保持仓库私有；未来公开展示时另做面向展示的整理。
 
 本次上传仅检查提交范围、密钥和文件完整性；不追加模型请求，不重跑全量测试。当前功能和验证边界以 [阶段37](Project/37_过程_Harness阶段暂停与检查点续做.md) 为准。
+
+后续开发新增了[阶段39工具/Skills](Project/39_过程_Harness只读工具注册与Skills扩展.md)与[阶段40执行环境](Project/40_过程_执行后端接口与Python_Node环境声明.md)。当前环境检查入口为面板“检查执行环境”，或`.venv\Scripts\python.exe -B scripts/execution_runtime.py --probe`。`MINI_TASK_BASH`统一指定本机Bash；可选`MINI_TASK_NODE`仅指定检查用Node，不改原JS桥。新电脑仍须自行建立环境、填写私有凭据；版本探测通过不代表空白机器或完整功能验收。

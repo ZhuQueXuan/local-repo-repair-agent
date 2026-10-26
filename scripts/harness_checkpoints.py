@@ -167,6 +167,8 @@ def save_checkpoint(runner):
         "remaining_parent_seconds": remaining, "frozen": runner.frozen, "roles": store.roles(run_id),
         "objects": objects, "files_sha256": files, "assessments": assessments, "baseline": runner.baseline,
         "route_state": runner.route_state, "session": session, "parent": {k: state[k] for k in ("task", "profile", "configuration", "collaboration_policy", "task_digest", "policy_digest")}}
+    from execution_runtime import runtime_identity
+    payload["execution_identity"] = runtime_identity()
     raw = canonical_bytes(payload)
     if len(raw) > 16 * 1024 * 1024:
         raise CheckpointConflict("暂停点清单超过16MB，不截断后续恢复所需历史。")
@@ -203,6 +205,9 @@ def load_checkpoint(store, parent):
     value = json.loads(raw)
     if value["source_run_id"] != parent["id"] or value["next_phase"] != parent["checkpoint_next_phase"]:
         raise CheckpointConflict("暂停点身份不匹配。")
+    from execution_runtime import runtime_identity
+    if value.get("execution_identity") != runtime_identity():
+        raise CheckpointConflict("执行环境声明发生变化；不跨Python、Bash或依赖环境续做。请保留原记录后另建任务。")
     for name, expected in value["frozen"].items():
         if not (ROOT / name).is_file() or digest_file(ROOT / name) != expected:
             raise CheckpointConflict("运行代码/输入已改变，暂停点不能直接续做：" + name)

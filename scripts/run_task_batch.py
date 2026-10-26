@@ -21,6 +21,7 @@ from task_state import TaskState
 from state_agent import StatefulAgent, NoProgress
 from evaluation_freeze import verify_freeze
 from repository_retrieval import RepositoryRetrieval
+from execution_runtime import bash_executable
 
 
 class TaskEnvironment(GitBashEnvironment):
@@ -189,7 +190,7 @@ def main():
                     query=(ROOT / "tasks" / args.task / "issue.md").read_text(encoding="utf-8"), **retrieval_policy)
                  if retrieval_policy is not None else None)
     model_options["repository_retrieval"] = retrieval
-    state_environment = (StatefulTaskEnvironment(work, Path(r"D:\Git\bin\bash.exe"),
+    state_environment = (StatefulTaskEnvironment(work, bash_executable(),
                          source_files=list(manifest["source_files_sha256"]), state_policy=state_policy,
                          python_import_root=import_directory, **output_policy)
                          if state_policy is not None else None)
@@ -198,7 +199,7 @@ def main():
              else RecordedModel(settings, **model_options))
     if archive_assistant:
         model.context_budget.enable_assistant_archives(work)
-    environment = TaskEnvironment(work, Path(r"D:\Git\bin\bash.exe"), python_import_root=import_directory)
+    environment = TaskEnvironment(work, bash_executable(), python_import_root=import_directory)
     probe = environment.execute({"command": "git rev-parse --show-toplevel; python -B -c 'import sys; print(sys.prefix)'"})
     if probe["returncode"] != 0 or str(ROOT / ".venv").lower() not in probe["output"].lower():
         raise RuntimeError("Git Bash / virtual environment preflight failed.")
@@ -231,7 +232,7 @@ def main():
     with claim.open("x", encoding="utf-8") as stream:
         json.dump({"results": str(results), "work": str(work), "task": args.task}, stream, indent=2)
     if output_policy is not None:
-        environment = state_environment or BoundedTaskEnvironment(work, Path(r"D:\Git\bin\bash.exe"), python_import_root=import_directory, **output_policy)
+        environment = state_environment or BoundedTaskEnvironment(work, bash_executable(), python_import_root=import_directory, **output_policy)
     current_config = config | {"variant": args.variant, "tool_output_budget": output_policy, "context_budget": context_policy,
                                "archive_assistant_content": archive_assistant,
                                "task_state": state_policy,

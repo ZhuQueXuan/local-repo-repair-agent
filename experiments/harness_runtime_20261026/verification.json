@@ -1,0 +1,410 @@
+{
+  "protected_old_files_hash_verified": 5374,
+  "changed_old_protected_files": [],
+  "formal_payloads_unchanged": 52,
+  "formal_task_cards_or_continuations_schema_added": false,
+  "shared_ledger_requests": 2016,
+  "new_formal_runs": 0,
+  "old_task_card_delivery_files_verified": 10,
+  "external_model_calls": 0,
+  "scope": "Windows local execution backend and explicit runtime declaration/probe; not OS isolation, general JS service or real-model/system acceptance.",
+  "reports": {
+    "runtime-probe": {
+      "schema_version": 1,
+      "recorded_at": "2026-10-26T14:04:32.376379+00:00",
+      "probe_performed": true,
+      "backend": {
+        "id": "windows_git_bash_v1",
+        "transport": "local_subprocess",
+        "os_isolation": false,
+        "scope": "Trusted fixed tasks on this host; environment, filesystem and role policies are caller responsibilities."
+      },
+      "configuration_sha256": "0f594cf90ddbc6071730046b7112fdddfd877cc474f11c1097539c87aaffc1d8",
+      "runtimes": {
+        "python": {
+          "executable": "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+          "version": "3.10.6",
+          "status": "available",
+          "source": "current_process",
+          "prefix": "D:\\myDocu\\project_postg\\shixi_project\\.venv",
+          "base_prefix": "D:\\python\\python3.10.6",
+          "site_packages": "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Lib\\site-packages"
+        },
+        "bash": {
+          "executable": "D:\\Git\\bin\\bash.exe",
+          "status": "available",
+          "version": "GNU bash, version 5.2.37(1)-release (x86_64-pc-msys)",
+          "returncode": 0,
+          "elapsed_seconds": 0.078
+        },
+        "node": {
+          "executable": "D:\\Node.js\\node.EXE",
+          "status": "available",
+          "version": "v24.21.0",
+          "returncode": 0,
+          "elapsed_seconds": 0.079,
+          "required_for_python_tasks": false,
+          "automatic_task_service_support": false,
+          "selection": "PATH"
+        },
+        "git": {
+          "executable": "D:\\Git\\cmd\\git.EXE",
+          "status": "available",
+          "version": "git version 2.49.0.windows.1",
+          "returncode": 0,
+          "elapsed_seconds": 0.078
+        }
+      },
+      "dependencies": {
+        "python_packages": {
+          "mini-swe-agent": {
+            "version": "2.4.6",
+            "status": "installed_metadata"
+          },
+          "pydantic": {
+            "version": "2.13.5",
+            "status": "installed_metadata"
+          },
+          "litellm": {
+            "version": "1.104.0",
+            "status": "installed_metadata"
+          },
+          "pytest": {
+            "version": "8.3.5",
+            "status": "installed_metadata"
+          },
+          "python-dotenv": {
+            "version": "1.2.4",
+            "status": "installed_metadata"
+          }
+        },
+        "manifests": [
+          {
+            "path": "configs/core-offline-requirements.txt",
+            "sha256": "07e6adbfde5d991c3aebd3cc14e2847d1129370b91559264b67b38fa94209e52"
+          },
+          {
+            "path": "configs/model-requirements.txt",
+            "sha256": "88763afac69eca98a1a85cd3551fd43f790bca1514c1cbbf1c06b49831a37a6c"
+          },
+          {
+            "path": "configs/evaluation-requirements.txt",
+            "sha256": "a0e201ecda2bc871726ea3bb5db9cfe6b2109f60d8da88eecf910b790794b03d"
+          },
+          {
+            "path": "configs/retrieval-evaluation-requirements.txt",
+            "sha256": "b9e5918a94a65adbdb92c733e590a3442e5db3f57484bda3d10f99ac820aa151"
+          }
+        ],
+        "node_modules_installed_by_this_check": false,
+        "node_scope": "Runtime declaration only; no npm/package installation or generic JS task-service adapter."
+      },
+      "scope": "No model calls, installs or network probes. A version probe does not certify task execution, dependency compatibility or OS isolation."
+    },
+    "backend-check": {
+      "checks": [
+        "UTF8/exit code",
+        "project Python on PATH",
+        "pipefail",
+        "deletion guard",
+        "shell timeout",
+        "submission sentinel",
+        "secret environment excluded",
+        "backend serialization",
+        "optional Node missing",
+        "environment declaration binding",
+        "owned argv cancellation"
+      ],
+      "owned_child_pid": 22424,
+      "owned_child_stopped": true,
+      "external_model_calls": 0,
+      "runtime_report": {
+        "schema_version": 1,
+        "recorded_at": "2026-10-26T14:06:21.790677+00:00",
+        "probe_performed": true,
+        "backend": {
+          "id": "windows_git_bash_v1",
+          "transport": "local_subprocess",
+          "os_isolation": false,
+          "scope": "Trusted fixed tasks on this host; environment, filesystem and role policies are caller responsibilities."
+        },
+        "configuration_sha256": "0f594cf90ddbc6071730046b7112fdddfd877cc474f11c1097539c87aaffc1d8",
+        "runtimes": {
+          "python": {
+            "executable": "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+            "version": "3.10.6",
+            "status": "available",
+            "source": "current_process",
+            "prefix": "D:\\myDocu\\project_postg\\shixi_project\\.venv",
+            "base_prefix": "D:\\python\\python3.10.6",
+            "site_packages": "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Lib\\site-packages"
+          },
+          "bash": {
+            "executable": "D:\\Git\\bin\\bash.exe",
+            "status": "available",
+            "version": "GNU bash, version 5.2.37(1)-release (x86_64-pc-msys)",
+            "returncode": 0,
+            "elapsed_seconds": 0.062
+          },
+          "node": {
+            "executable": "D:\\Node.js\\node.EXE",
+            "status": "available",
+            "version": "v24.21.0",
+            "returncode": 0,
+            "elapsed_seconds": 0.109,
+            "required_for_python_tasks": false,
+            "automatic_task_service_support": false,
+            "selection": "PATH"
+          },
+          "git": {
+            "executable": "D:\\Git\\cmd\\git.EXE",
+            "status": "available",
+            "version": "git version 2.49.0.windows.1",
+            "returncode": 0,
+            "elapsed_seconds": 0.079
+          }
+        },
+        "dependencies": {
+          "python_packages": {
+            "mini-swe-agent": {
+              "version": "2.4.6",
+              "status": "installed_metadata"
+            },
+            "pydantic": {
+              "version": "2.13.5",
+              "status": "installed_metadata"
+            },
+            "litellm": {
+              "version": "1.104.0",
+              "status": "installed_metadata"
+            },
+            "pytest": {
+              "version": "8.3.5",
+              "status": "installed_metadata"
+            },
+            "python-dotenv": {
+              "version": "1.2.4",
+              "status": "installed_metadata"
+            }
+          },
+          "manifests": [
+            {
+              "path": "configs/core-offline-requirements.txt",
+              "sha256": "07e6adbfde5d991c3aebd3cc14e2847d1129370b91559264b67b38fa94209e52"
+            },
+            {
+              "path": "configs/model-requirements.txt",
+              "sha256": "88763afac69eca98a1a85cd3551fd43f790bca1514c1cbbf1c06b49831a37a6c"
+            },
+            {
+              "path": "configs/evaluation-requirements.txt",
+              "sha256": "a0e201ecda2bc871726ea3bb5db9cfe6b2109f60d8da88eecf910b790794b03d"
+            },
+            {
+              "path": "configs/retrieval-evaluation-requirements.txt",
+              "sha256": "b9e5918a94a65adbdb92c733e590a3442e5db3f57484bda3d10f99ac820aa151"
+            }
+          ],
+          "node_modules_installed_by_this_check": false,
+          "node_scope": "Runtime declaration only; no npm/package installation or generic JS task-service adapter."
+        },
+        "scope": "No model calls, installs or network probes. A version probe does not certify task execution, dependency compatibility or OS isolation."
+      }
+    },
+    "continuation-check": {
+      "store_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\812fed3855774f33a7338626ec854479",
+      "source": "f47fdb8ded654da1b18c98d2a197e324",
+      "child": "8f5b4e1485c84d84b16a4a44f443447c",
+      "source_unchanged": true,
+      "changed_environment_rejected_without_child": true,
+      "same_environment_continued": true,
+      "completed_roles_not_repeated": true,
+      "repair_result": "passed",
+      "review_verdict": "approve",
+      "counts": {
+        "before": {
+          "consulting": 4
+        },
+        "after": {
+          "repairing": 2,
+          "reviewing": 4,
+          "revising": 2,
+          "final_review": 3
+        }
+      },
+      "runtime_declaration_saved": true,
+      "lineage_usage": {
+        "segments": 2,
+        "attempts": 15,
+        "logical_requests": 15,
+        "known_price_estimate_cny": 0.0054,
+        "unknown_placeholder_cny": 0.0,
+        "complete_cost_estimate_cny": 0.0054,
+        "note": "Current segment plus predecessor segments; includes inherited work costs, not confirmed platform charges."
+      },
+      "external_model_calls": 0
+    },
+    "http-check": {
+      "checks": [
+        "GET does not spawn",
+        "HTML and JS",
+        "authentication before spawn",
+        "command injection fields rejected",
+        "actual fixed version probes",
+        "cached report timestamp",
+        "Node scope explicit",
+        "Python-only automatic catalog",
+        "no new tasks"
+      ],
+      "report": {
+        "schema_version": 1,
+        "recorded_at": "2026-10-26T14:09:56.082139+00:00",
+        "probe_performed": true,
+        "automatic_task_service_languages": [
+          "python"
+        ],
+        "backend": {
+          "id": "windows_git_bash_v1",
+          "transport": "local_subprocess",
+          "os_isolation": false,
+          "scope": "Trusted fixed tasks on this host; environment, filesystem and role policies are caller responsibilities."
+        },
+        "configuration_sha256": "0f594cf90ddbc6071730046b7112fdddfd877cc474f11c1097539c87aaffc1d8",
+        "runtimes": {
+          "python": {
+            "executable": "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+            "version": "3.10.6",
+            "status": "available",
+            "source": "current_process",
+            "prefix": "D:\\myDocu\\project_postg\\shixi_project\\.venv",
+            "base_prefix": "D:\\python\\python3.10.6",
+            "site_packages": "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Lib\\site-packages"
+          },
+          "bash": {
+            "executable": "D:\\Git\\bin\\bash.exe",
+            "status": "available",
+            "version": "GNU bash, version 5.2.37(1)-release (x86_64-pc-msys)",
+            "returncode": 0,
+            "elapsed_seconds": 0.063
+          },
+          "node": {
+            "executable": "D:\\Node.js\\node.EXE",
+            "status": "available",
+            "version": "v24.21.0",
+            "returncode": 0,
+            "elapsed_seconds": 0.094,
+            "required_for_python_tasks": false,
+            "automatic_task_service_support": false,
+            "selection": "PATH"
+          },
+          "git": {
+            "executable": "D:\\Git\\cmd\\git.EXE",
+            "status": "available",
+            "version": "git version 2.49.0.windows.1",
+            "returncode": 0,
+            "elapsed_seconds": 0.093
+          }
+        },
+        "dependencies": {
+          "python_packages": {
+            "mini-swe-agent": {
+              "version": "2.4.6",
+              "status": "installed_metadata"
+            },
+            "pydantic": {
+              "version": "2.13.5",
+              "status": "installed_metadata"
+            },
+            "litellm": {
+              "version": "1.104.0",
+              "status": "installed_metadata"
+            },
+            "pytest": {
+              "version": "8.3.5",
+              "status": "installed_metadata"
+            },
+            "python-dotenv": {
+              "version": "1.2.4",
+              "status": "installed_metadata"
+            }
+          },
+          "manifests": [
+            {
+              "path": "configs/core-offline-requirements.txt",
+              "sha256": "07e6adbfde5d991c3aebd3cc14e2847d1129370b91559264b67b38fa94209e52"
+            },
+            {
+              "path": "configs/model-requirements.txt",
+              "sha256": "88763afac69eca98a1a85cd3551fd43f790bca1514c1cbbf1c06b49831a37a6c"
+            },
+            {
+              "path": "configs/evaluation-requirements.txt",
+              "sha256": "a0e201ecda2bc871726ea3bb5db9cfe6b2109f60d8da88eecf910b790794b03d"
+            },
+            {
+              "path": "configs/retrieval-evaluation-requirements.txt",
+              "sha256": "b9e5918a94a65adbdb92c733e590a3442e5db3f57484bda3d10f99ac820aa151"
+            }
+          ],
+          "node_modules_installed_by_this_check": false,
+          "node_scope": "Runtime declaration only; no npm/package installation or generic JS task-service adapter."
+        },
+        "scope": "No model calls, installs or network probes. A version probe does not certify task execution, dependency compatibility or OS isolation."
+      },
+      "workers_started": 0,
+      "external_model_calls": 0,
+      "browser_clicks_verified": false
+    },
+    "ui-check": {
+      "scope": "Node fake DOM, not browser clicks",
+      "no_automatic_probe": true,
+      "explicit_button": true,
+      "error_reenables": true,
+      "inline_syntax": true
+    },
+    "protection-check": {
+      "protected_old_files_hash_verified": 5374,
+      "changed_old_protected_files": [],
+      "formal_payloads_unchanged": 52,
+      "formal_task_cards_or_continuations_schema_added": false,
+      "shared_ledger_requests": 2016,
+      "new_formal_runs": 0,
+      "old_task_card_delivery_files_verified": 10,
+      "external_model_calls": 0
+    },
+    "panel-restored": {
+      "url": "http://127.0.0.1:8765",
+      "health": {
+        "product": "mini-swe-task-panel",
+        "status": "ready"
+      },
+      "current_execution_asset_loaded": true,
+      "new_task_created": false,
+      "external_model_calls": 0
+    }
+  },
+  "old_tools_delivery_files_verified": 11,
+  "archive_member_counts": {
+    "source-and-documents.zip": 20,
+    "checks-and-http.zip": 29,
+    "scripted-pause-and-continuation.zip": 881
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "files_scanned": 930,
+    "matches": 0
+  },
+  "existing_compatibility_checks_passed": 10,
+  "full_regression_run": false,
+  "upstream_adapter_profile_run": false,
+  "new_formal_test_files": 0,
+  "browser_clicks_verified": false,
+  "pending": [
+    "Real browser/model acceptance",
+    "Full default and adapter regressions including six existing adapter differences",
+    "Fresh-machine environment setup",
+    "Generic JS task service",
+    "OS-isolated backend",
+    "Model capability and role adaptation"
+  ]
+}

@@ -18,6 +18,8 @@ from self_review import SelfReviewSession, validate_self_policy, SCOPE as SELF_S
 from collaboration_store import CollaborationStore
 from deepseek_budget import SharedBudget, load_budget_config
 from review_tools import ReviewEvidenceBroker, seal_candidate
+from execution_backend import LocalProcessBackend
+from execution_runtime import bash_executable, runtime_report
 from state_agent import StatefulAgent
 from task_service_store import ROOT, now
 from task_workspace import digest, load_task, package_root, prepare_task
@@ -91,24 +93,11 @@ class LiveRunner:
             raise TimeoutError("Parent deadline exceeded")
 
     def command(self, command, *, timeout, check):
-        from task_service_worker import terminate_owned_process
-        check()
-        process = subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        end = time.monotonic() + timeout
         try:
-            while True:
-                check()
-                try:
-                    output, _ = process.communicate(timeout=min(0.25, max(0.001, end - time.monotonic())))
-                    check()
-                    return process.returncode, output
-                except subprocess.TimeoutExpired:
-                    if time.monotonic() >= end:
-                        raise TimeoutError("Owned verification process deadline exceeded")
-        finally:
-            if process.poll() is None:
-                terminate_owned_process(process)
-                process.communicate(timeout=5)
+            result = LocalProcessBackend().run_argv(command, cwd=ROOT, timeout=timeout, check=check)
+            return result.returncode, result.output
+        except subprocess.TimeoutExpired:
+            raise TimeoutError("Owned verification process deadline exceeded") from None
 
     def grade(self, checkout, name, context=None):
         check = context.check if context else self.check_parent
@@ -156,6 +145,7 @@ class LiveRunner:
         shutil.copyfile(policy_path, self.output / "frozen_inputs/configs" / policy_name)
         (self.output / "inputs.json").write_bytes(canonical_bytes({"schema_version": 1, "files_sha256": self.frozen}))
         (self.output / "run_config.json").write_bytes(canonical_bytes(record))
+        (self.output / "execution-environment.json").write_bytes(canonical_bytes(runtime_report()))
         self.source, self.manifest = load_task(self.task)
         self.issue = (self.source / "issue.md").read_bytes()
         self.work, _ = prepare_task(self.task)
@@ -213,7 +203,7 @@ class LiveRunner:
 
     def make_repair_session(self, context, imported=None):
         configuration = self.store.get(self.run_id)["configuration"]
-        env = RepairEnvironment(self.work, Path(os.environ.get("MINI_TASK_BASH", r"D:\Git\bin\bash.exe")),
+        env = RepairEnvironment(self.work, bash_executable(),
             source_files=list(self.manifest["source_files_sha256"]), state_policy=configuration["task_state"],
             python_import_root=package_root(self.work, self.manifest), context=context, **configuration["tool_output_budget"])
         model = RepairModel(self.settings, task_state=env.task_state, context_policy=configuration["context_budget"],
@@ -524,6 +514,7 @@ class LiveRunner:
         names += ('review-context-projections.json',)
         names += ("response-validation.json",)
         names += ("task-card.json", "checkpoint/manifest.json", "continuation-import.json")
+        names += ("execution-environment.json",)
         names += ("consulting-tool-registry.json", "reviewing-tool-registry.json", "final_review-tool-registry.json")
         if self.documents:
             names += ("consultations.json", "consultation-context.json", "consulting-trajectory.json", "consulting-events.json", "document-context-projections.json")
