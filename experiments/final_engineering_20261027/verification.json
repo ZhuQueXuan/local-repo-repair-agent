@@ -1,0 +1,1145 @@
+{
+  "protected_old_files_hash_verified": 5374,
+  "changed_old_protected_files": [],
+  "formal_payloads_unchanged": 52,
+  "formal_task_cards_or_continuations_schema_added": false,
+  "shared_ledger_requests": 2016,
+  "new_formal_runs": 0,
+  "old_task_card_delivery_files_verified": 10,
+  "external_model_calls": 0,
+  "scope": "Current-code engineering acceptance with six unchanged adapter differences and isolated real-browser checks; no paid or live-model acceptance.",
+  "base_commit": "1cbf29d7615a9568291bbd431c7cfc386003a6dd",
+  "final_default": [
+    {
+      "scope": "native",
+      "exit_code": 0,
+      "command": [
+        "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+        "-B",
+        "D:\\myDocu\\project_postg\\shixi_project\\scripts\\run_regression.py",
+        "--upstream-child",
+        "D:\\myDocu\\project_postg\\shixi_project\\temp\\regression\\20261027_025801_1ab23420\\native",
+        "--upstream-profile",
+        "native"
+      ],
+      "counts": {
+        "passed": 301
+      },
+      "deselected": 41,
+      "guard_violations": 0
+    },
+    {
+      "scope": "project",
+      "exit_code": 0,
+      "command": [
+        "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "tests_run": 408,
+      "skipped": 1
+    }
+  ],
+  "initial_project_error": "Windows WinError 5 during synthetic budget atomic replacement; retained, fixed, targeted and full regression rerun.",
+  "adapter": {
+    "old_source": "experiments/three_role_acceptance_20261025/adapter-regression.zip",
+    "old_temp": "temp/regression/20261025_230923_64443451",
+    "current": "temp/regression/20261027_025633_062e3945",
+    "counts": {
+      "passed": 169,
+      "failed": 6,
+      "skipped": 1
+    },
+    "same_failure_nodeids": [
+      "tests/environments/test_local.py::test_local_environment_custom_cwd",
+      "tests/environments/test_local.py::test_local_environment_cwd_parameter_override",
+      "tests/environments/test_local.py::test_local_environment_default_cwd",
+      "tests/environments/test_local.py::test_local_environment_env_variable_override",
+      "tests/environments/test_local.py::test_local_environment_existing_env_variables",
+      "tests/environments/test_local.py::test_local_environment_set_env_variables"
+    ],
+    "new_failures": [],
+    "resolved_historical_failures": [],
+    "guard_violations": [],
+    "scope": "Three explicit environment-variable policy differences and three POSIX-versus-Windows path representation differences; not a fully passing upstream LocalEnvironment."
+  },
+  "browser": {
+    "scope": "Actual Edge UI on isolated temporary HTTP service with no Supervisor/worker; provider entry blocked after scripted paused fixture.",
+    "url": "http://127.0.0.1:5351",
+    "store_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\88672764a359434aa096335ed16b3f3c",
+    "source_run": "d56b5d7fa7114f8b88988b0ed63d44ec",
+    "created_run": "eb7de18abe164e479fc6851a09ff1915",
+    "child_run": "55e3dc3c2d31452ca690c5cf420a02eb",
+    "checks": [
+      "offline defaults",
+      "three-role strategy lock",
+      "card enables pause",
+      "offline-only profile disabled",
+      "create all-option temporary three-role task",
+      "save card revision 2",
+      "queued cancellation and readonly card",
+      "checkpoint creates linked child",
+      "inherited document phase and model profile",
+      "source unchanged and repeat continuation disabled",
+      "request pause message",
+      "single/replay disable unsupported options"
+    ],
+    "created_rows_during_browser": 2,
+    "fixture_rows": 2,
+    "final_rows": 4,
+    "all_queues_cancelled": true,
+    "source_payload_unchanged": true,
+    "synthetic_fixture_requests_before_and_after": 3,
+    "browser_console_errors": 0,
+    "workers_started": 0,
+    "external_model_calls": 0,
+    "not_verified": [
+      "real model in-flight cancellation",
+      "browser observes actual worker boundary pause",
+      "stale card save in two browser tabs",
+      "real-model outcome",
+      "fresh machine"
+    ],
+    "screenshots": [
+      "browser-paused-top.png",
+      "browser-paused.png"
+    ]
+  },
+  "reports": {
+    "backend-check.json": {
+      "checks": [
+        "UTF8/exit code",
+        "project Python on PATH",
+        "pipefail",
+        "deletion guard",
+        "shell timeout",
+        "submission sentinel",
+        "secret environment excluded",
+        "backend serialization",
+        "optional Node missing",
+        "environment declaration binding",
+        "owned argv cancellation"
+      ],
+      "owned_child_pid": 15920,
+      "owned_child_stopped": true,
+      "external_model_calls": 0,
+      "runtime_report": {
+        "schema_version": 1,
+        "recorded_at": "2026-10-26T18:48:17.396301+00:00",
+        "probe_performed": true,
+        "automatic_task_service_languages": [
+          "python"
+        ],
+        "backend": {
+          "id": "windows_git_bash_v1",
+          "transport": "local_subprocess",
+          "os_isolation": false,
+          "scope": "Trusted fixed tasks on this host; environment, filesystem and role policies are caller responsibilities."
+        },
+        "configuration_sha256": "0f594cf90ddbc6071730046b7112fdddfd877cc474f11c1097539c87aaffc1d8",
+        "runtimes": {
+          "python": {
+            "executable": "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+            "version": "3.10.6",
+            "status": "available",
+            "source": "current_process",
+            "prefix": "D:\\myDocu\\project_postg\\shixi_project\\.venv",
+            "base_prefix": "D:\\python\\python3.10.6",
+            "site_packages": "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Lib\\site-packages"
+          },
+          "bash": {
+            "executable": "D:\\Git\\bin\\bash.exe",
+            "status": "available",
+            "version": "GNU bash, version 5.2.37(1)-release (x86_64-pc-msys)",
+            "returncode": 0,
+            "elapsed_seconds": 0.078
+          },
+          "node": {
+            "executable": "D:\\Node.js\\node.EXE",
+            "status": "available",
+            "version": "v24.21.0",
+            "returncode": 0,
+            "elapsed_seconds": 0.125,
+            "required_for_python_tasks": false,
+            "automatic_task_service_support": false,
+            "selection": "PATH"
+          },
+          "git": {
+            "executable": "D:\\Git\\cmd\\git.EXE",
+            "status": "available",
+            "version": "git version 2.49.0.windows.1",
+            "returncode": 0,
+            "elapsed_seconds": 0.094
+          }
+        },
+        "dependencies": {
+          "python_packages": {
+            "mini-swe-agent": {
+              "version": "2.4.6",
+              "status": "installed_metadata"
+            },
+            "pydantic": {
+              "version": "2.13.5",
+              "status": "installed_metadata"
+            },
+            "litellm": {
+              "version": "1.104.0",
+              "status": "installed_metadata"
+            },
+            "pytest": {
+              "version": "8.3.5",
+              "status": "installed_metadata"
+            },
+            "python-dotenv": {
+              "version": "1.2.4",
+              "status": "installed_metadata"
+            }
+          },
+          "manifests": [
+            {
+              "path": "configs/core-offline-requirements.txt",
+              "sha256": "07e6adbfde5d991c3aebd3cc14e2847d1129370b91559264b67b38fa94209e52"
+            },
+            {
+              "path": "configs/model-requirements.txt",
+              "sha256": "88763afac69eca98a1a85cd3551fd43f790bca1514c1cbbf1c06b49831a37a6c"
+            },
+            {
+              "path": "configs/evaluation-requirements.txt",
+              "sha256": "a0e201ecda2bc871726ea3bb5db9cfe6b2109f60d8da88eecf910b790794b03d"
+            },
+            {
+              "path": "configs/retrieval-evaluation-requirements.txt",
+              "sha256": "b9e5918a94a65adbdb92c733e590a3442e5db3f57484bda3d10f99ac820aa151"
+            }
+          ],
+          "node_modules_installed_by_this_check": false,
+          "node_scope": "Runtime declaration only; no npm/package installation or generic JS task-service adapter."
+        },
+        "scope": "No model calls, installs or network probes. A version probe does not certify task execution, dependency compatibility or OS isolation."
+      }
+    },
+    "continuation-check.json": {
+      "store_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\1f3a15cc65fa45d892a89675131f30ef",
+      "source": "3055a423509b4cb08c2352999a77e2d3",
+      "child": "b06f90553a44405bbcb8a0f9ad3dd2d5",
+      "source_unchanged": true,
+      "model_profile_inherited": true,
+      "role_bindings": {
+        "consulting": "legacy_deepseek_v1",
+        "final_review": "legacy_deepseek_v1",
+        "repairing": "legacy_deepseek_v1",
+        "reviewing": "legacy_deepseek_v1",
+        "revising": "legacy_deepseek_v1"
+      },
+      "bad_profile_rejected": true,
+      "completed_roles_not_repeated": true,
+      "repair_result": "passed",
+      "review_verdict": "approve",
+      "counts": {
+        "before": {
+          "consulting": 4
+        },
+        "after": {
+          "repairing": 2,
+          "reviewing": 4,
+          "revising": 2,
+          "final_review": 3
+        }
+      },
+      "lineage_usage": {
+        "segments": 2,
+        "attempts": 15,
+        "logical_requests": 15,
+        "known_price_estimate_cny": 0.0054,
+        "unknown_placeholder_cny": 0.0,
+        "complete_cost_estimate_cny": 0.0054,
+        "note": "Current segment plus predecessor segments; includes inherited work costs, not confirmed platform charges."
+      },
+      "external_model_calls": 0,
+      "model_profile_artifact": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\1f3a15cc65fa45d892a89675131f30ef\\runs\\b06f90553a44405bbcb8a0f9ad3dd2d5\\model-profile.json"
+    },
+    "pause-check.json": {
+      "scope": "One scripted transport/usage chain, real source/grading/replay. Not live model acceptance.",
+      "transitions": [
+        {
+          "source": "de76bf54dbd842c4aac69f3b45cee751",
+          "child": "f80c0fe148564e369a5205e9500d892a",
+          "next_phase": "repairing",
+          "remaining_seconds": 1796,
+          "source_unchanged": true
+        },
+        {
+          "source": "f80c0fe148564e369a5205e9500d892a",
+          "child": "b7b9b6368ac348e2b8c6f8c3a3208824",
+          "next_phase": "reviewing",
+          "remaining_seconds": 1790,
+          "source_unchanged": true
+        },
+        {
+          "source": "b7b9b6368ac348e2b8c6f8c3a3208824",
+          "child": "28f7b57082d8489fbeb19dc236eaee9d",
+          "next_phase": "revising",
+          "remaining_seconds": 1785,
+          "source_unchanged": true
+        },
+        {
+          "source": "28f7b57082d8489fbeb19dc236eaee9d",
+          "child": "08c2c7088600405f8246e896d33d6408",
+          "next_phase": "final_review",
+          "remaining_seconds": 1777,
+          "source_unchanged": true
+        }
+      ],
+      "paused_sources": [
+        "de76bf54dbd842c4aac69f3b45cee751",
+        "f80c0fe148564e369a5205e9500d892a",
+        "b7b9b6368ac348e2b8c6f8c3a3208824",
+        "28f7b57082d8489fbeb19dc236eaee9d"
+      ],
+      "final_run": "08c2c7088600405f8246e896d33d6408",
+      "final_status": "finished",
+      "repair_result": "passed",
+      "review_verdict": "approve",
+      "phase_call_counts": {
+        "consulting": 3,
+        "repairing": 2,
+        "reviewing": 2,
+        "revising": 2,
+        "final_review": 1
+      },
+      "old_parent_payloads_unchanged": true,
+      "tampered_checkpoint_rejected_without_child": true,
+      "idempotent_one_child_per_source": true,
+      "synthetic_ledger_attempts": 10,
+      "store_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\539c9977be61481db98110cf6efb9053",
+      "external_model_calls": 0
+    },
+    "card-check.json": {
+      "scope": "Scripted transport/usage; real local five-stage files, grading and patch replay. No live model calls.",
+      "single_model_card_and_unchanged_guard": true,
+      "stale_save_conflict": true,
+      "legacy_payload_unchanged": true,
+      "cancelled_card_readonly": true,
+      "five_stage_revision_delivery": true,
+      "demo_evidence": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\85cc4676a9f744ddb6b10db4714d4739\\demonstration.json",
+      "demo_card_audit": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\85cc4676a9f744ddb6b10db4714d4739\\runs\\ad1ea368182a4524954985e3b247c3bc\\task-card.json",
+      "single_store": "D:\\myDocu\\project_postg\\shixi_project\\temp\\final_engineering_20261027\\store-c5b09eed398c482fb79e71e3c5f55697",
+      "external_model_calls": 0
+    },
+    "wire-replay.json": {
+      "scope": "Replay actual scripted API-view histories through native Messages codec only; no live transport, no new model replies or repair execution.",
+      "requests_converted": 15,
+      "phases": [
+        "consulting",
+        "final_review",
+        "repairing",
+        "reviewing",
+        "revising"
+      ],
+      "requests": [
+        {
+          "phase": "consulting",
+          "input_sha256": "1cf50d35c078bed3a58c6e87cdc725efb02b2e416be2d25bf41dff97f70e6bbf",
+          "native_sha256": "d70fdab8d178e31f0102eece7dfea777e14561e8f55b45455c6e5b251e51c62c",
+          "input_messages": 3,
+          "native_messages": 1
+        },
+        {
+          "phase": "consulting",
+          "input_sha256": "6e007ecc732e201cc0283f79d6989331e13550ad33c27a38d28a650a684d478d",
+          "native_sha256": "68cb83524a45aa3753b66b79ea1d92df6a153b331877f0b580d27cf30bfec160",
+          "input_messages": 5,
+          "native_messages": 3
+        },
+        {
+          "phase": "consulting",
+          "input_sha256": "b72f607e183622cb032eac1062a92b77731c4cb10926ed7419476d92005ef30b",
+          "native_sha256": "9596519149c572b4a239a1aab10d9088f7dea7c8da0ac515cf0925218899c5dc",
+          "input_messages": 6,
+          "native_messages": 3
+        },
+        {
+          "phase": "consulting",
+          "input_sha256": "20f49ee46a61450bf4e27e226a61f9f205c3fec07575f029acd5d13caa42b2be",
+          "native_sha256": "6884dbc1ef6a93436bc5e5d6c8c2836b5769c2e5c7477fcfd335684d72d8ba7d",
+          "input_messages": 8,
+          "native_messages": 5
+        },
+        {
+          "phase": "repairing",
+          "input_sha256": "a408ae4405cf921deeff88d7037c4615c1d7f71c09f4b2bc646554e188fa0a34",
+          "native_sha256": "bc63d7d90691e6f389568f2d3188ae3e474cc1558173998e6fd406e78fd2ba29",
+          "input_messages": 4,
+          "native_messages": 1
+        },
+        {
+          "phase": "repairing",
+          "input_sha256": "499e2f334ed06a65d16a1223ba2b63f274073d733e7a0d705986f8764db4f38d",
+          "native_sha256": "663a385870c3d6675be0c95fe17e7a8c3215096951d8f78cd4b2be8276c8d57e",
+          "input_messages": 6,
+          "native_messages": 3
+        },
+        {
+          "phase": "reviewing",
+          "input_sha256": "c55d2c719a1bfab81e3d829802344cabe87239e03ff5b6c7d4a6be4a1482521e",
+          "native_sha256": "c501db568af78c51bddb34fbc3d51a964185dbb748f9cbfd80b2f9269c43ff50",
+          "input_messages": 3,
+          "native_messages": 1
+        },
+        {
+          "phase": "reviewing",
+          "input_sha256": "998576613c12398eb3f9b7aad2de7630bbe6a2c290cc965de7fb6b2634c51528",
+          "native_sha256": "934094f5a03ee374b173ef74ab0617137d8353ea09a2f0282a88bc38daa9507b",
+          "input_messages": 5,
+          "native_messages": 3
+        },
+        {
+          "phase": "reviewing",
+          "input_sha256": "c62399d950ccbc16ddf091c09edd208a6d62db4b6562ada0a15d304fa86dd959",
+          "native_sha256": "d65ec34dc2cc1fbc75a75deb008fc28503a351cbe54582d4f416e12fa7f52bcd",
+          "input_messages": 7,
+          "native_messages": 5
+        },
+        {
+          "phase": "reviewing",
+          "input_sha256": "044f14340c8342e609ec93465854fbb73779ce822cfd9fa5725352140606dea0",
+          "native_sha256": "8ef908ed35d9f1b51b998a8b035d4084f4e91e55f21696905c8ac99581e46631",
+          "input_messages": 9,
+          "native_messages": 7
+        },
+        {
+          "phase": "revising",
+          "input_sha256": "05fc51335626df0ab1e536233609ddb9c12953fca7d00535de699f338fad60d6",
+          "native_sha256": "a138e7299d9adad8f66d6c836312b7bacfbd7f0027861ae97edee50f6632e332",
+          "input_messages": 9,
+          "native_messages": 5
+        },
+        {
+          "phase": "revising",
+          "input_sha256": "6f94c8aaa5bffe5809c0b658f204b9e56905ee8cf5bf5b431d8ff8c64c0db37b",
+          "native_sha256": "123bacb6739adc3c36ca002d4ecdb35c563cb543e6d308c824fc6062bdeb1934",
+          "input_messages": 11,
+          "native_messages": 7
+        },
+        {
+          "phase": "final_review",
+          "input_sha256": "dc3565fee344219926f34248fce659f6ebe7a4dc7d346e843347de21e1b8648d",
+          "native_sha256": "4cc329a31567c6f47c39fb0d7166c54a331c55f789b2eb74aee7b9913fe3763d",
+          "input_messages": 3,
+          "native_messages": 1
+        },
+        {
+          "phase": "final_review",
+          "input_sha256": "a37e16aa308734606794fb5e583ff12ad6737935fc9f3bb4def0873d3bd1855b",
+          "native_sha256": "646360b11c3419b2cd1ba4d323fef2e84c54a1d235ae8db1abbb6d122a643b7d",
+          "input_messages": 5,
+          "native_messages": 3
+        },
+        {
+          "phase": "final_review",
+          "input_sha256": "ebbf9b2683a7e93f78da555a8ebba9a7366c292fd5a77e7c27c4655a7b509dc0",
+          "native_sha256": "24d1f451cc24a2805b9aeb721b434d872d94b399f5e0c03b90c4316bd80c896c",
+          "input_messages": 7,
+          "native_messages": 5
+        }
+      ],
+      "latest_role_requirements_verified": true,
+      "external_model_calls": 0
+    },
+    "protocol-check.json": {
+      "request_payload": {
+        "model": "offline-native-fixture",
+        "max_tokens": 2048,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Read the candidate."
+              }
+            ]
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "call_a",
+                "name": "read_diff",
+                "input": {
+                  "candidate_id": "c"
+                }
+              },
+              {
+                "type": "tool_use",
+                "id": "call_b",
+                "name": "read_report",
+                "input": {
+                  "report_id": "r"
+                }
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "call_a",
+                "content": "diff-data"
+              },
+              {
+                "type": "tool_result",
+                "tool_use_id": "call_b",
+                "content": "report-data"
+              },
+              {
+                "type": "text",
+                "text": "Keep unknowns explicit."
+              }
+            ]
+          }
+        ],
+        "tools": [
+          {
+            "name": "list_files",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "snapshot_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Snapshot Id",
+                  "type": "string"
+                },
+                "prefix": {
+                  "default": "",
+                  "maxLength": 240,
+                  "title": "Prefix",
+                  "type": "string"
+                },
+                "cursor": {
+                  "default": 0,
+                  "minimum": 0,
+                  "title": "Cursor",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "snapshot_id"
+              ],
+              "title": "ListFiles",
+              "type": "object"
+            }
+          },
+          {
+            "name": "read_lines",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "snapshot_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Snapshot Id",
+                  "type": "string"
+                },
+                "document_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Document Id",
+                  "type": "string"
+                },
+                "start": {
+                  "minimum": 1,
+                  "title": "Start",
+                  "type": "integer"
+                },
+                "end": {
+                  "minimum": 1,
+                  "title": "End",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "snapshot_id",
+                "document_id",
+                "start",
+                "end"
+              ],
+              "title": "ReadLines",
+              "type": "object"
+            }
+          },
+          {
+            "name": "search_text",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "snapshot_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Snapshot Id",
+                  "type": "string"
+                },
+                "query": {
+                  "maxLength": 200,
+                  "minLength": 1,
+                  "title": "Query",
+                  "type": "string"
+                },
+                "document_ids": {
+                  "default": [],
+                  "items": {
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                    "type": "string"
+                  },
+                  "maxItems": 200,
+                  "title": "Document Ids",
+                  "type": "array"
+                },
+                "case_sensitive": {
+                  "default": false,
+                  "title": "Case Sensitive",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "snapshot_id",
+                "query"
+              ],
+              "title": "SearchText",
+              "type": "object"
+            }
+          },
+          {
+            "name": "read_diff",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "candidate_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Candidate Id",
+                  "type": "string"
+                },
+                "cursor": {
+                  "default": 0,
+                  "minimum": 0,
+                  "title": "Cursor",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "candidate_id"
+              ],
+              "title": "ReadDiff",
+              "type": "object"
+            }
+          },
+          {
+            "name": "read_report",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "report_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                  "title": "Report Id",
+                  "type": "string"
+                },
+                "section": {
+                  "default": "all",
+                  "enum": [
+                    "all",
+                    "status",
+                    "scope",
+                    "summary"
+                  ],
+                  "title": "Section",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "report_id"
+              ],
+              "title": "ReadReport",
+              "type": "object"
+            }
+          },
+          {
+            "name": "submit_review",
+            "description": "Read fixed snapshot",
+            "input_schema": {
+              "$defs": {
+                "Finding": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "schema_version": {
+                      "default": 1,
+                      "maximum": 1,
+                      "minimum": 1,
+                      "title": "Schema Version",
+                      "type": "integer"
+                    },
+                    "finding_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Finding Id",
+                      "type": "string"
+                    },
+                    "severity": {
+                      "enum": [
+                        "major",
+                        "minor",
+                        "informational"
+                      ],
+                      "title": "Severity",
+                      "type": "string"
+                    },
+                    "category": {
+                      "enum": [
+                        "behavior",
+                        "compatibility",
+                        "scope",
+                        "validation",
+                        "style"
+                      ],
+                      "title": "Category",
+                      "type": "string"
+                    },
+                    "claim": {
+                      "maxLength": 2000,
+                      "minLength": 1,
+                      "title": "Claim",
+                      "type": "string"
+                    },
+                    "evidence_ids": {
+                      "items": {
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                        "type": "string"
+                      },
+                      "maxItems": 10,
+                      "minItems": 1,
+                      "title": "Evidence Ids",
+                      "type": "array"
+                    },
+                    "requirement_ref": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Requirement Ref",
+                      "type": "string"
+                    },
+                    "impact": {
+                      "maxLength": 2000,
+                      "minLength": 1,
+                      "title": "Impact",
+                      "type": "string"
+                    },
+                    "suggested_validation": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/SuggestedValidation"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "default": null
+                    },
+                    "confidence": {
+                      "default": "medium",
+                      "enum": [
+                        "low",
+                        "medium",
+                        "high"
+                      ],
+                      "title": "Confidence",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "finding_id",
+                    "severity",
+                    "category",
+                    "claim",
+                    "evidence_ids",
+                    "requirement_ref",
+                    "impact"
+                  ],
+                  "title": "Finding",
+                  "type": "object"
+                },
+                "ReviewReport": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "schema_version": {
+                      "default": 1,
+                      "maximum": 1,
+                      "minimum": 1,
+                      "title": "Schema Version",
+                      "type": "integer"
+                    },
+                    "review_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Review Id",
+                      "type": "string"
+                    },
+                    "run_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Run Id",
+                      "type": "string"
+                    },
+                    "reviewer_role_run_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Reviewer Role Run Id",
+                      "type": "string"
+                    },
+                    "candidate_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+                      "title": "Candidate Id",
+                      "type": "string"
+                    },
+                    "source_tree_digest": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "title": "Source Tree Digest",
+                      "type": "string"
+                    },
+                    "verdict": {
+                      "enum": [
+                        "approve",
+                        "request_changes",
+                        "insufficient_evidence"
+                      ],
+                      "title": "Verdict",
+                      "type": "string"
+                    },
+                    "findings": {
+                      "default": [],
+                      "items": {
+                        "$ref": "#/$defs/Finding"
+                      },
+                      "maxItems": 20,
+                      "title": "Findings",
+                      "type": "array"
+                    },
+                    "coverage": {
+                      "items": {
+                        "maxLength": 300,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "maxItems": 12,
+                      "minItems": 1,
+                      "title": "Coverage",
+                      "type": "array"
+                    },
+                    "unknowns": {
+                      "default": [],
+                      "items": {
+                        "maxLength": 300,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "maxItems": 12,
+                      "title": "Unknowns",
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "review_id",
+                    "run_id",
+                    "reviewer_role_run_id",
+                    "candidate_id",
+                    "source_tree_digest",
+                    "verdict",
+                    "coverage"
+                  ],
+                  "title": "ReviewReport",
+                  "type": "object"
+                },
+                "SuggestedValidation": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "schema_version": {
+                      "default": 1,
+                      "maximum": 1,
+                      "minimum": 1,
+                      "title": "Schema Version",
+                      "type": "integer"
+                    },
+                    "input": {
+                      "maxLength": 2000,
+                      "minLength": 1,
+                      "title": "Input",
+                      "type": "string"
+                    },
+                    "expected": {
+                      "maxLength": 2000,
+                      "minLength": 1,
+                      "title": "Expected",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "input",
+                    "expected"
+                  ],
+                  "title": "SuggestedValidation",
+                  "type": "object"
+                }
+              },
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "default": 1,
+                  "maximum": 1,
+                  "minimum": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "report": {
+                  "$ref": "#/$defs/ReviewReport"
+                }
+              },
+              "required": [
+                "report"
+              ],
+              "title": "SubmitReview",
+              "type": "object"
+            }
+          }
+        ],
+        "system": "Read-only reviewer."
+      },
+      "raw_reply": {
+        "id": "offline-response",
+        "model": "offline-native-fixture",
+        "type": "message",
+        "role": "assistant",
+        "stop_reason": "tool_use",
+        "content": [
+          {
+            "type": "text",
+            "text": "Inspect the diff."
+          },
+          {
+            "type": "tool_use",
+            "id": "next_call",
+            "name": "read_diff",
+            "input": {
+              "candidate_id": "c"
+            }
+          }
+        ],
+        "usage": {
+          "input_tokens": 100,
+          "output_tokens": 20,
+          "cache_creation_input_tokens": 30,
+          "cache_read_input_tokens": 40
+        }
+      },
+      "normalized": {
+        "prompt_tokens": 170,
+        "completion_tokens": 20,
+        "raw_usage": {
+          "input_tokens": 100,
+          "output_tokens": 20,
+          "cache_creation_input_tokens": 30,
+          "cache_read_input_tokens": 40
+        },
+        "actions": [
+          {
+            "tool": "read_diff",
+            "arguments": {
+              "candidate_id": "c"
+            },
+            "tool_call_id": "next_call"
+          }
+        ]
+      },
+      "rejections": [
+        "pending tool before user",
+        "orphan result",
+        "thinking field",
+        "missing usage",
+        "negative usage",
+        "truncated reply",
+        "unknown block",
+        "unregistered output tool",
+        "native live transport absent",
+        "offline profile creation",
+        "unknown profile creation",
+        "legacy thinking rejected before reserve"
+      ],
+      "legacy_rejection_reservations": 0,
+      "external_model_calls": 0,
+      "scope": "Synthetic Messages format conversion and existing tool parser; no native vendor transport or real model quality acceptance."
+    },
+    "boundary-checks.json": {
+      "checks": [
+        "role tool restriction",
+        "candidate binding",
+        "skill role restriction",
+        "skill hash binding",
+        "real MCP lifecycle and diff counts",
+        "no new issued evidence",
+        "snapshot bytes preserved",
+        "cancel before dispatch",
+        "hunk header ambiguity",
+        "tampered patch rejected",
+        "cancel during MCP handshake"
+      ],
+      "external_model_calls": 0,
+      "mcp_exchanges": [
+        {
+          "method": "initialize",
+          "request_sha256": "ce198740c6b2573a12e7c5ffae5cbc94bf116e0af126b2c163448ec34b5b63f2",
+          "response_bytes": 185,
+          "response_sha256": "cad2ea550a2c0bfc85743b40e109da2dcbd3c45695b0acfe46960c4b7573d6c6"
+        },
+        {
+          "method": "tools/list",
+          "request_sha256": "57683c7d8945f05cdcefbb42f57c954c95ccf39624214126d2db7a02380ef724",
+          "response_bytes": 583,
+          "response_sha256": "a84192f4eb07b9b754b24e29950d253ceeace15d4476e1afbc46909f793f171b"
+        },
+        {
+          "method": "tools/call",
+          "request_sha256": "1a745673b9f3e430cafbfa30b44a78a6abb68a0e1c19fb30b0e3d68b8ff24198",
+          "response_bytes": 1055,
+          "response_sha256": "518d389446be6cff8e5559f3ce8fb44364e86cdbbf976b494d0a890031608485"
+        }
+      ]
+    },
+    "http-check.json": {
+      "catalog": {
+        "schema_version": 1,
+        "default_profile": "legacy_deepseek_v1",
+        "profiles": [
+          {
+            "id": "legacy_deepseek_v1",
+            "label": "原北邮优先 / DeepSeek备用",
+            "status": "enabled",
+            "protocol": "chat_completions_tools_v1",
+            "roles": [
+              "single_agent",
+              "repairer",
+              "reviewer",
+              "document_reader"
+            ],
+            "role_mixing": false,
+            "tool_calls": "named_functions_json_arguments",
+            "thinking": "official_disabled_gateway_undeclared",
+            "context_limits": "existing_16KiB_default_32KiB_document_review_only",
+            "output_limit": "existing_2048_tokens",
+            "cancellation": "check_before_and_after_request_and_original_timeout",
+            "usage": "prompt_tokens_completion_tokens_required",
+            "pricing": "existing_official_conservative_CNY_gateway_unknown",
+            "route": "unchanged_provider_priority_json"
+          },
+          {
+            "id": "anthropic_messages_offline_v1",
+            "label": "Claude Messages格式候选（仅离线）",
+            "status": "offline_only",
+            "protocol": "anthropic_messages_tools_v1",
+            "roles": [
+              "repairer",
+              "reviewer",
+              "document_reader"
+            ],
+            "role_mixing": false,
+            "tool_calls": "tool_use_tool_result_blocks",
+            "thinking": "unsupported_fail_closed",
+            "context_limits": "local_codec_guard_only_not_model_capacity_claim",
+            "output_limit": "caller_bounded_up_to_2048_tokens",
+            "cancellation": "no_network_transport_implemented",
+            "usage": "input_output_and_cache_tokens_normalized_price_unknown",
+            "pricing": "unknown_no_live_account_validation",
+            "route": "no_live_endpoint_or_credentials_registered"
+          }
+        ],
+        "configuration_sha256": "9bc9cf22346943827b2dac8a1cf7025f8b46de4a1e0f305d82a8b2a1dbb0e289",
+        "note": "声明不是账号/真实模型验收。原路由保持；Claude候选只有离线格式适配，没有可发送的客户端。"
+      },
+      "checks": [
+        "catalog no transport",
+        "offline profile disabled",
+        "HTML/assets",
+        "bad profile before create",
+        "three-role bindings",
+        "single-role binding",
+        "same-key idempotence/conflict",
+        "legacy no implicit metadata rewrite",
+        "authenticated catalog"
+      ],
+      "new_temp_runs": 3,
+      "all_cancelled": true,
+      "workers_started": 0,
+      "external_model_calls": 0,
+      "browser_clicks_verified": false
+    }
+  },
+  "old_closeout_delivery_files_verified": 5,
+  "archive_member_counts": {
+    "source-and-documents.zip": 139,
+    "checks-and-reports.zip": 75,
+    "scripted-workflows.zip": 4273
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "files_scanned": 4487,
+    "matches": 0
+  },
+  "new_permanent_regression_tests": 2,
+  "formal_service_restarted": false,
+  "pending": [
+    "Current original-route real-model three-role acceptance",
+    "Real-model in-flight cancellation",
+    "Browser observation of actual worker pause",
+    "New same-task baseline comparison after scoring/batch gate and freeze",
+    "Fresh-machine install",
+    "New-vendor live transport remains unimplemented"
+  ],
+  "regression_scratch_policy": "Generated pytest environments and formal payload snapshot remain local; full logs, results, inventory and protected hashes are sealed. No .env fixtures or live task payloads are in these archives."
+}

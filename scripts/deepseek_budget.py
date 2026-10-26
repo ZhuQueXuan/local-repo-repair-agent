@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import re
+import time
 import uuid
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -75,7 +76,17 @@ class SharedBudget:
             json.dump(data, output, ensure_ascii=False, indent=2)
             output.flush()
             os.fsync(output.fileno())
-        temporary.replace(self.path)
+        # Windows scanners/readers can briefly deny replacement of a closed
+        # file. Retry only this atomic write, while retaining the budget lock;
+        # never repeat a provider request or proceed without a saved reserve.
+        for attempt in range(4):
+            try:
+                temporary.replace(self.path)
+                return
+            except PermissionError as error:
+                if getattr(error, "winerror", None) not in {5, 32, 33} or attempt == 3:
+                    raise
+                time.sleep((.02, .05, .1)[attempt])
 
     def snapshot(self):
         with self._locked() as data:

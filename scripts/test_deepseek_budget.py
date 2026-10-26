@@ -48,6 +48,40 @@ class BudgetTests(unittest.TestCase):
         self.assertEqual(self.new_budget().snapshot()["accounted_cost_and_reservations_cny"], 0.12)
         self.assertIsNone(self.budget.snapshot()["max_requests"])
 
+    def test_transient_windows_replace_retries_only_atomic_save(self):
+        replace = Path.replace
+        error = PermissionError("synthetic Windows sharing denial")
+        error.winerror = 5
+        calls = []
+
+        def flaky(path, target):
+            calls.append((path, target))
+            if len(calls) < 3:
+                raise error
+            return replace(path, target)
+
+        with patch.object(Path, "replace", flaky), patch("deepseek_budget.time.sleep") as wait:
+            ticket = self.budget.reserve()
+        data = json.loads(self.path.read_text(encoding="utf-8"))
+        self.assertEqual(set(data["requests"]), {ticket})
+        self.assertEqual(len(calls), 3)
+        self.assertEqual(len({path for path, _ in calls}), 1)
+        self.assertEqual(wait.call_count, 2)
+
+    def test_failed_atomic_save_preserves_ledger_and_blocks_transport(self):
+        model = self.model()
+        before = self.path.read_bytes()
+        error = PermissionError("synthetic persistent Windows sharing denial")
+        error.winerror = 32
+        with patch.object(Path, "replace", side_effect=error) as replace, \
+                patch("deepseek_budget.time.sleep"), \
+                patch("run_deepseek_smoke.LitellmModel._query") as transport:
+            with self.assertRaises(PermissionError):
+                model._query([{"role": "user", "content": "offline fixture"}])
+            self.assertEqual(replace.call_count, 4)
+            transport.assert_not_called()
+        self.assertEqual(self.path.read_bytes(), before)
+
     def test_last_call_cannot_cross_five_yuan(self):
         self.seed("4.90")
         ticket = self.budget.reserve()

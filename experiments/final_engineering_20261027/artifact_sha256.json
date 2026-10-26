@@ -1,0 +1,10 @@
+{
+  "source-and-documents.zip": "8c239c6c83321c65a57dff0fc34bfdf61935622cfe54ef16fef534561d2b0334",
+  "source-and-documents.zip.sha256.json": "c4e3b73aa716b7ddc55cd51b189499b2a5c6a0a6f075d0b9099104e17ef917df",
+  "checks-and-reports.zip": "78b32e1b2d95a201f49ff16dcc578cf3cc010e4613ba4c44cf1c94d1d63d1c49",
+  "checks-and-reports.zip.sha256.json": "fbfff28686d31e07b98afda778fd59b8e3e1fe3ce04b8c5f71ad2ac7d643d0bc",
+  "scripted-workflows.zip": "4a1b52ee4f58437e81e7e614f3ac1cf916c1d958d786cc547aef070a60f9996f",
+  "scripted-workflows.zip.sha256.json": "308534b9577ea9c42d9ee355e2efa5f7d192cef1b167e7067e7715ce0ae88eb9",
+  "browser-paused-top.png": "37d251d277d93b74f45ab882c5cdda6815fd1bb854fb6352e34171a303ae45e5",
+  "verification.json": "7f7bfe2a35f085d8a0fa00bebe58611edd7c86a8cf0aa0fc4f4149e7211e471b"
+}

@@ -91,6 +91,10 @@ def main():
     write_json(output / "inventory.json", inventory)
     tracked = [p for folder in ("src", "tests") for p in (UPSTREAM / folder).rglob("*") if p.is_file() and "__pycache__" not in p.parts]
     tracked.extend(p for folder in ("scripts", "configs", "data") for p in (ROOT / folder).rglob("*") if p.is_file() and "__pycache__" not in p.parts)
+    # The running panel holds this transient IPC lock exclusively on Windows.
+    # It contains no persisted task data; protect every other data file.
+    transient_locks = {ROOT / "data/task_service/server.lock"}
+    tracked = [p for p in tracked if p not in transient_locks]
     before = fingerprint(tracked)
     write_json(output / "protected_before.json", before)
     # Preserve OS/runtime variables, dropping provider credentials and user config.
@@ -137,6 +141,7 @@ def main():
     write_json(output / "protected_after.json", after)
     changed = [name for name in before if before[name] != after[name]]
     summary = {"scope": args.scope, "upstream_version": version, "jobs": outcomes, "protected_files": len(before), "changed_protected_files": changed,
+               "transient_lock_exclusions": [p.relative_to(ROOT).as_posix() for p in sorted(transient_locks)],
                "upstream_test_files": len(tests), "upstream_test_functions": sum(row["test_functions"] for row in inventory),
                "configuration": configuration, "versions": {d.metadata["Name"]: d.version for d in importlib.metadata.distributions()}}
     write_json(output / "summary.json", summary)
