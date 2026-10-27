@@ -162,7 +162,7 @@ def freeze_inputs(task, output):
     for path in sorted(paths):
         relative = path.relative_to(ROOT).as_posix()
         listing[relative] = digest(path)
-        if path.is_relative_to(ROOT / "evaluation/multi_agent_20261025/public"):
+        if source.is_relative_to(ROOT / "evaluation") and path.is_relative_to(source):
             # Public packet paths are deeper than legacy tasks and can exceed
             # Windows MAX_PATH under a run. Preserve exact bytes and original
             # member paths in an archive, without enabling OS-wide settings.

@@ -1,0 +1,1 @@
+{"edits":[{"expected_occurrences":1,"new":"other = chain.from_iterable(others)","old":"other = chain(others)","path":"boltons/setutils.py"}],"scope":"Developer qualification only; never sent to models"}
