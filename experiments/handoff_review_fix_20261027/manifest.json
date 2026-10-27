@@ -1,0 +1,382 @@
+{
+  "stage": 60,
+  "source_base_commit": "b1ccaf32408c8c4cbcdbc8b841ea9b48270c79ac",
+  "source_changed_files": [
+    "scripts/document_agent.py",
+    "scripts/review_tools.py",
+    "scripts/review_model.py",
+    "scripts/collaboration_runtime.py",
+    "scripts/collaboration_live.py",
+    "scripts/test_document_context.py",
+    "scripts/test_collaboration_runtime.py",
+    "scripts/test_document_integration.py"
+  ],
+  "offline_tests_passed": 78,
+  "new_regressions_in_existing_files": 1,
+  "old_record_replay": {
+    "old_handoff_bytes": 6187,
+    "limit_bytes": 6144,
+    "handoff_feedback": {
+      "reason": "document_handoff_too_large",
+      "error_type": "DocumentHandoffTooLarge",
+      "payload_bytes": 6187,
+      "limit_bytes": 6144,
+      "correction": "The COMPLETE handoff includes your answer, question, metadata and ALL selected exact excerpts. Keep only essential evidence_ids, shorten the answer/unknowns, or read narrower line ranges to obtain smaller issued evidence. Then resubmit alone within the original deadline. Do not change version bindings or invent citations. The fixed_bytes_with_empty_answer_unknowns cannot be reduced by merely rewording the answer. If it already exceeds the limit, select fewer or narrower issued citations first. Otherwise keep the JSON increment for answer/unknowns within the remaining budget, preferably with 256 bytes spare. Do not submit another draft that exceeds this exact budget.",
+      "budget": {
+        "over_by_bytes": 43,
+        "fixed_bytes_with_empty_answer_unknowns": 5562,
+        "answer_unknowns_json_increment_bytes": 625,
+        "maximum_answer_unknowns_json_increment_bytes": 582,
+        "selected_excerpt_costs": [
+          {
+            "evidence_id": "doc-evidence-0dce7b083be134569d08c14cc162a9ea",
+            "start": 59,
+            "end": 107,
+            "excerpt_entry_json_bytes": 2240,
+            "quote_utf8_bytes": 1941
+          },
+          {
+            "evidence_id": "doc-evidence-bcf0eb4b80d72d7afd7097d7e2bf11be",
+            "start": 1,
+            "end": 59,
+            "excerpt_entry_json_bytes": 2058,
+            "quote_utf8_bytes": 1736
+          }
+        ],
+        "selected_excerpt_count": 2,
+        "cost_list_truncated": false
+      }
+    },
+    "old_review_range": {
+      "document_id": "doc-97f7ac618851a6de8342a62e107f9d4c",
+      "end": 260,
+      "snapshot_id": "snapshot-ecec3ce11d72f7d3f9d550e2b29f8295",
+      "start": 180
+    },
+    "review_range_feedback": {
+      "reason": "invalid_line_range",
+      "snapshot_id": "snapshot-ecec3ce11d72f7d3f9d550e2b29f8295",
+      "selected_document": {
+        "document_id": "doc-97f7ac618851a6de8342a62e107f9d4c",
+        "path": "boltons/timeutils.py",
+        "side": "candidate",
+        "line_count": 569
+      },
+      "requested_line_count": 81,
+      "max_lines_per_read": 80,
+      "correction": "read_lines input keys are snapshot_id, document_id, start, end. start/end are inclusive; end-start+1 must be at most 80 and inside THIS document. start_line/end_line are evidence OUTPUT fields, not request parameters. Copy the same document ID; issue no new read until you correct it. No range was cropped or executed and no evidence was issued.",
+      "example_only_not_executed": {
+        "snapshot_id": "snapshot-ecec3ce11d72f7d3f9d550e2b29f8295",
+        "document_id": "doc-97f7ac618851a6de8342a62e107f9d4c",
+        "start": 180,
+        "end": 259
+      }
+    },
+    "developer_corrected_read_received_real_evidence": true,
+    "corrected_evidence_lines": [
+      180,
+      259
+    ],
+    "old_runs_not_modified": true,
+    "model_calls": 0,
+    "scope": "Read-only old-record rejection replay; developer-chosen corrected read, not a model review or new score."
+  },
+  "new_parent_runs": 1,
+  "selection_reruns": 0,
+  "result": {
+    "task": "boltons-aware-relative",
+    "run_id": "a6fb54d05e094f1baf48bf592dd67fd4",
+    "status": "finished",
+    "resolved": true,
+    "repair_result": "passed",
+    "collaboration_result": "completed",
+    "review_verdict": "approve",
+    "complete_three_role_acceptance": true,
+    "candidate_selection": "exported_final_patch",
+    "patch_sha256": "4e83c1c5e34d242c9175048722108e7faf9f315b005fa914d404dc81b2700dde",
+    "evaluation_error": null
+  },
+  "checks": {
+    "public": {
+      "tests_run": 2,
+      "passed": 2,
+      "successful": true
+    },
+    "upstream": {
+      "tests_run": 4,
+      "passed": 4,
+      "successful": true
+    },
+    "withheld": {
+      "tests_run": 3,
+      "passed": 3,
+      "successful": true
+    }
+  },
+  "usage": {
+    "attempts": 34,
+    "available": true,
+    "by_role": {
+      "34f843a0577f4b52918648399f254f78": {
+        "attempts": 17,
+        "complete_cost_estimate_cny": 0.140558,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 1525,
+        "known_price_estimate_cny": 0.140558,
+        "known_prompt_tokens": 64179,
+        "logical_requests": 17,
+        "tickets": [
+          "17c9b19685634685826b9471b1ab89bc",
+          "1bafcbbd03464e328654fb0b2b12739e",
+          "416f10a3ab994472bb219733e6106136",
+          "51336b2ae2174818b776b59d62cb9dfc",
+          "5f287b6ce603447cbe74e996b4361ff7",
+          "741506f1f04b4546a74c50885dff2a36",
+          "754875886ba9422d9c4bc4f49264aa67",
+          "7855959a5c534259b7b39bea0d5bc7b9",
+          "7e90940e0f884b908f3c8285fc2ebfee",
+          "944cbee148e44678b90aaab48160a7e7",
+          "a6f3ec0d5d724a5daec17e90e6b7586f",
+          "a86ed789ab1f4a74b22c8d3620174264",
+          "c2731ac8fa0247a28d8644dc4d280034",
+          "d573b279689746e3a2e3e17dde48707f",
+          "d7b4ac5d1fd6452bbd22c62bd54b7538",
+          "e7dda2a6a7ad48b89569857edfe2ac29",
+          "f8f259f577d649e7b853c06bc77b84d8"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      },
+      "758badb9f4e1408d85107bcd8015580f": {
+        "attempts": 9,
+        "complete_cost_estimate_cny": null,
+        "has_unknown_usage": true,
+        "known_completion_tokens": 1620,
+        "known_price_estimate_cny": 0.091412,
+        "known_prompt_tokens": 39226,
+        "logical_requests": 8,
+        "tickets": [
+          "018d2f44d74146d59c60130e64ddbd2d",
+          "1f4efc43543f49debe5894d8f9b12b13",
+          "2d2ecf96dd8340c99e4de248307efc1d",
+          "458f965902a748aca7b911e6339546b2",
+          "5fecb88c2d0e4b32a7d9a48211dfc6ac",
+          "8d59cad17c8b4ea2979f1b879b70051b",
+          "b603aa63ef12439997c59f13401183d9",
+          "b9adcd04138b47e183b3ec3df559f041",
+          "bdcac674c5374928bb86f8f7ea350520"
+        ],
+        "unknown_cost_attempts": 1,
+        "unknown_placeholder_cny": 0.1
+      },
+      "8cf1812c70a84665a0979da50b7d92d9": {
+        "attempts": 8,
+        "complete_cost_estimate_cny": 0.139126,
+        "has_unknown_usage": false,
+        "known_completion_tokens": 2403,
+        "known_price_estimate_cny": 0.139126,
+        "known_prompt_tokens": 59951,
+        "logical_requests": 8,
+        "tickets": [
+          "225dc63c97854ed59403a000a9d2e841",
+          "437b763002a640fb859d5d2c27678215",
+          "4aa05357f0a34b42943f5b4a1111347c",
+          "4b083784fc004a0bbc936077649180f9",
+          "8efdeab6783e4ae085d2ad8f27195192",
+          "9bbfb58bb04143f881117dbd719dda3a",
+          "db9287bca42443dbbf4dbab7f64178c8",
+          "e74c816da11a48d28ecaa810306c1432"
+        ],
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0
+      }
+    },
+    "complete_cost_estimate_cny": null,
+    "cost_scope": "Known-price estimates plus unknown placeholders; not confirmed charges or platform balance.",
+    "has_unknown_usage": true,
+    "known_completion_tokens": 5548,
+    "known_price_estimate_cny": 0.371096,
+    "known_prompt_tokens": 163356,
+    "logical_requests": 33,
+    "providers": {
+      "bupt_gateway": {
+        "attempts": 1,
+        "settled": 0,
+        "unknown": 1
+      },
+      "deepseek_official": {
+        "attempts": 33,
+        "settled": 33,
+        "unknown": 0
+      }
+    },
+    "synthetic": false,
+    "tickets": [
+      "018d2f44d74146d59c60130e64ddbd2d",
+      "17c9b19685634685826b9471b1ab89bc",
+      "1bafcbbd03464e328654fb0b2b12739e",
+      "1f4efc43543f49debe5894d8f9b12b13",
+      "225dc63c97854ed59403a000a9d2e841",
+      "2d2ecf96dd8340c99e4de248307efc1d",
+      "416f10a3ab994472bb219733e6106136",
+      "437b763002a640fb859d5d2c27678215",
+      "458f965902a748aca7b911e6339546b2",
+      "4aa05357f0a34b42943f5b4a1111347c",
+      "4b083784fc004a0bbc936077649180f9",
+      "51336b2ae2174818b776b59d62cb9dfc",
+      "5f287b6ce603447cbe74e996b4361ff7",
+      "5fecb88c2d0e4b32a7d9a48211dfc6ac",
+      "741506f1f04b4546a74c50885dff2a36",
+      "754875886ba9422d9c4bc4f49264aa67",
+      "7855959a5c534259b7b39bea0d5bc7b9",
+      "7e90940e0f884b908f3c8285fc2ebfee",
+      "8d59cad17c8b4ea2979f1b879b70051b",
+      "8efdeab6783e4ae085d2ad8f27195192",
+      "944cbee148e44678b90aaab48160a7e7",
+      "9bbfb58bb04143f881117dbd719dda3a",
+      "a6f3ec0d5d724a5daec17e90e6b7586f",
+      "a86ed789ab1f4a74b22c8d3620174264",
+      "b603aa63ef12439997c59f13401183d9",
+      "b9adcd04138b47e183b3ec3df559f041",
+      "bdcac674c5374928bb86f8f7ea350520",
+      "c2731ac8fa0247a28d8644dc4d280034",
+      "d573b279689746e3a2e3e17dde48707f",
+      "d7b4ac5d1fd6452bbd22c62bd54b7538",
+      "db9287bca42443dbbf4dbab7f64178c8",
+      "e74c816da11a48d28ecaa810306c1432",
+      "e7dda2a6a7ad48b89569857edfe2ac29",
+      "f8f259f577d649e7b853c06bc77b84d8"
+    ],
+    "unknown_cost_attempts": 1,
+    "unknown_placeholder_cny": 0.1
+  },
+  "roles": [
+    {
+      "id": "758badb9f4e1408d85107bcd8015580f",
+      "run_id": "a6fb54d05e094f1baf48bf592dd67fd4",
+      "phase": "consulting",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "34f843a0577f4b52918648399f254f78",
+      "run_id": "a6fb54d05e094f1baf48bf592dd67fd4",
+      "phase": "repairing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "8cf1812c70a84665a0979da50b7d92d9",
+      "run_id": "a6fb54d05e094f1baf48bf592dd67fd4",
+      "phase": "reviewing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "af4ae2ef2bef43a888cff13b5f184832",
+      "run_id": "a6fb54d05e094f1baf48bf592dd67fd4",
+      "phase": "revising",
+      "status": "skipped",
+      "reason": "Not required by this feedback branch"
+    },
+    {
+      "id": "b94c71d4ea4f495c92bb0bc2f193057d",
+      "run_id": "a6fb54d05e094f1baf48bf592dd67fd4",
+      "phase": "final_review",
+      "status": "skipped",
+      "reason": "Not required by this feedback branch"
+    }
+  ],
+  "traces": {
+    "consulting-trajectory.json": {
+      "actions": 11,
+      "tools": [
+        "read_lines",
+        "search_text",
+        "submit_consultation"
+      ],
+      "rejections": [
+        {
+          "correction": "The selected document has only the reported line_count. Do not repeat this rejected range. Copy document_id and line numbers from the SAME returned search hit; line numbers from another document cannot be reused here. The listed matches are only previously issued spans overlapping your requested range, not proof of relevance. Choose a relevant hit or search/list again; then request at most 80 lines within that document. No new evidence was issued and no target was automatically changed. Submit explicit unknowns if the question is not documented.",
+          "error_type": "DocumentReadRangeError",
+          "max_lines_per_read": 80,
+          "previously_issued_matches": [],
+          "reason": "invalid_document_read_range",
+          "selected_document": {
+            "document_id": "doc-2695e9fdad3376836227496c862995c4",
+            "line_count": 107,
+            "path": "README.md"
+          },
+          "snapshot_id": "documents-64162a37911a88873e8044990028578b",
+          "status": "rejected"
+        }
+      ],
+      "format_corrections": []
+    },
+    "repairing-trajectory.json": {
+      "actions": 17,
+      "tools": [],
+      "rejections": [],
+      "format_corrections": []
+    },
+    "reviewing-trajectory.json": {
+      "actions": 7,
+      "tools": [
+        "read_diff",
+        "read_lines",
+        "read_report",
+        "submit_review"
+      ],
+      "rejections": [
+        {
+          "correction": "read_lines input keys are snapshot_id, document_id, start, end. start/end are inclusive; end-start+1 must be at most 80 and inside THIS document. start_line/end_line are evidence OUTPUT fields, not request parameters. Copy the same document ID; issue no new read until you correct it. No range was cropped or executed and no evidence was issued.",
+          "example_only_not_executed": {
+            "document_id": "doc-97f7ac618851a6de8342a62e107f9d4c",
+            "end": 259,
+            "snapshot_id": "snapshot-db57c181f7d7c44776dedc7948de4646",
+            "start": 180
+          },
+          "max_lines_per_read": 80,
+          "reason": "invalid_line_range",
+          "requested_line_count": 121,
+          "selected_document": {
+            "document_id": "doc-97f7ac618851a6de8342a62e107f9d4c",
+            "line_count": 569,
+            "path": "boltons/timeutils.py",
+            "side": "candidate"
+          },
+          "snapshot_id": "snapshot-db57c181f7d7c44776dedc7948de4646",
+          "status": "rejected"
+        }
+      ],
+      "format_corrections": [
+        "Invalid review tool call: expected_one_tool_call. Use exactly one registered tool with valid schema."
+      ]
+    }
+  },
+  "handoff_bytes": 3862,
+  "document_status": "information_not_found",
+  "document_citations": 3,
+  "frozen_inputs_verified": 313,
+  "formal_payloads_unchanged": 53,
+  "old_requests_unchanged": 2781,
+  "new_attempts": 34,
+  "shared_requests_after": 2815,
+  "known_price_estimate_cny": 0.371096,
+  "unknown_placeholder_cny": 0.1,
+  "complete_cost_estimate_cny": null,
+  "historical_files_unchanged": 7418,
+  "balance_probed": false,
+  "scope": "One known development task after issue-context, handoff-budget and review-argument feedback changes; no fresh benchmark or causal success claim.",
+  "archive_members": {
+    "one-full-acceptance.zip": 702,
+    "offline-and-source.zip": 27,
+    "local-execution-diagnostics.zip": 23
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "objects_including_nested": 865,
+    "matches": 0
+  },
+  "formal_database_and_whole_shared_ledger_uploaded": false
+}

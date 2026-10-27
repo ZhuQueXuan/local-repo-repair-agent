@@ -427,6 +427,11 @@ class DocumentContextTests(unittest.TestCase):
         with self.assertRaises(DocumentHandoffTooLarge) as caught:
             broker.dispatch(f.identity,'submit_consultation',{'advice':oversized.model_dump(mode='json')})
         self.assertGreater(caught.exception.payload_bytes,6144)
+        budget=document_rejection(caught.exception)['budget']
+        self.assertEqual(budget['fixed_bytes_with_empty_answer_unknowns']+budget['answer_unknowns_json_increment_bytes'],caught.exception.payload_bytes)
+        self.assertEqual(budget['maximum_answer_unknowns_json_increment_bytes'],6144-budget['fixed_bytes_with_empty_answer_unknowns'])
+        self.assertGreater(budget['selected_excerpt_costs'][0]['excerpt_entry_json_bytes'],0)
+        self.assertLessEqual(len(canonical_bytes(document_rejection(caught.exception))),4096)
         self.assertIsNone(broker.advice)
         observed=[]
         def query(messages):
@@ -440,6 +445,7 @@ class DocumentContextTests(unittest.TestCase):
                 self.assertEqual(receipt['limit_bytes'],6144)
                 self.assertEqual(receipt['payload_bytes'],caught.exception.payload_bytes)
                 self.assertIn('narrower',receipt['correction'])
+                self.assertEqual(receipt['budget']['over_by_bytes'],caught.exception.payload_bytes-6144)
                 tool,args='read_lines',{'snapshot_id':broker.snapshot.grant.snapshot_id,'document_id':doc.document_id,'start':1,'end':1}
             else:
                 ref=json.loads(messages[-1]['content'])['evidence']['evidence_id']

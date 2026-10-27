@@ -30,6 +30,12 @@ class DocumentIntegrationTests(unittest.TestCase):
             if wire["phase"] == "consulting":
                 self.assertEqual(set(wire["tool_names"]), {"list_files", "read_lines", "search_text", "submit_consultation"})
                 self.assertNotIn("OFFLINE_REPAIR_CONTEXT", json.dumps(wire["messages"]))
+                data=json.loads(wire['messages'][1]['content'].split('\n',1)[1])
+                issue=data['original_issue']
+                from collaboration_protocol import sha256
+                self.assertEqual(issue['sha256'],sha256(runner.issue))
+                self.assertEqual(issue['text'],runner.issue[:2048].decode('utf-8',errors='ignore'))
+                self.assertEqual(issue['complete'],len(runner.issue)<=2048)
             else:
                 self.assertIn("document_tree_digest", json.dumps(wire["messages"]))
                 if wire["phase"] == "repairing":

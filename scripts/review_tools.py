@@ -32,6 +32,28 @@ class ReviewCancelled(ProtocolError):
     pass
 
 
+class ReviewReadRangeError(ProtocolError):
+    def __init__(self,snapshot_id,document,start,end):
+        super().__init__('invalid_line_range')
+        self.snapshot_id,self.document,self.start,self.end=snapshot_id,document,start,end
+
+
+def review_rejection(error):
+    import re
+    code=str(error)
+    result={'reason':code if re.fullmatch(r'[a-z_]{1,96}',code) else type(error).__name__}
+    if isinstance(error,ReviewReadRangeError):
+        doc=error.document
+        result.update(snapshot_id=error.snapshot_id,selected_document={k:getattr(doc,k) for k in ['document_id','path','side','line_count']},
+            requested_line_count=error.end-error.start+1,max_lines_per_read=80,
+            correction='read_lines input keys are snapshot_id, document_id, start, end. start/end are inclusive; end-start+1 must be at most 80 and inside THIS document. start_line/end_line are evidence OUTPUT fields, not request parameters. Copy the same document ID; issue no new read until you correct it. No range was cropped or executed and no evidence was issued.')
+        if doc.line_count:
+            start=max(1,min(error.start,doc.line_count))
+            result['example_only_not_executed']={'snapshot_id':error.snapshot_id,'document_id':doc.document_id,
+                'start':start,'end':min(doc.line_count,start+79)}
+    return result
+
+
 def _unlinked(path: Path):
     info = path.lstat()
     if stat.S_ISLNK(info.st_mode) or getattr(info, "st_file_attributes", 0) & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 1024):
@@ -248,8 +270,8 @@ class ListFiles(Message):
 class ReadLines(Message):
     snapshot_id: Identifier
     document_id: Identifier
-    start: Annotated[int, Field(ge=1)]
-    end: Annotated[int, Field(ge=1)]
+    start: Annotated[int, Field(ge=1,description='One-based inclusive input key start, not evidence-output start_line. Within this registered document.')]
+    end: Annotated[int, Field(ge=1,description='Inclusive input key end, not end_line. end-start+1 <= 80 and end <= this document line_count.')]
 
 
 class SearchText(Message):
@@ -347,7 +369,7 @@ class ReviewEvidenceBroker:
         if is_opaque(doc):
             raise ProtocolError("opaque_document_has_no_text_lines")
         if end < start or end - start + 1 > 80 or end > doc.line_count:
-            raise ProtocolError("invalid_line_range")
+            raise ReviewReadRangeError(self.candidate.snapshot_id,doc,start,end)
         lines = self.snapshot.read(doc.document_id).decode("utf-8").splitlines(keepends=True)
         selected = []
         def response(selected, register=False):

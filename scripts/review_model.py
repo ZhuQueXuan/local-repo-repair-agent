@@ -1,6 +1,7 @@
 """Read-only tool model using the existing protected/attributed request path."""
 import json
 import time
+from pydantic import ValidationError
 
 from run_deepseek_smoke import BudgetedDeepSeekModel
 
@@ -71,7 +72,18 @@ class ReviewModel(BudgetedDeepSeekModel):
                     for key in ("id", "tool", "arguments_preview"):
                         item[key] = item[key][:len(item[key]) // 2]
                     item["arguments_truncated"] = True
-            raise FormatError({"role": "user", "content": "Invalid review tool call: " + reason + ". Use exactly one registered tool with valid schema.",
+            correction={}
+            if reason=='invalid_schema_arguments' and isinstance(error,ValidationError):
+                fields=set(self.tool_schemas[call.function.name].model_fields)
+                safe_names=fields|{'start_line','end_line'}
+                correction={'tool':call.function.name,'required_input_fields':[k for k,f in self.tool_schemas[call.function.name].model_fields.items() if f.is_required()],
+                    'validation_errors':[{'location':[p if p in safe_names else '<field>' for p in item['loc'][:3]],'type':item['type']}
+                        for item in error.errors(include_input=False,include_url=False)[:6]]}
+                if call.function.name=='read_lines':
+                    correction['correction']='Use exactly snapshot_id, document_id, start, end. Replace the wrong start_line/end_line keys yourself; they name output evidence fields. Values must be integers, start/end inclusive, at most 80 lines. Do not change snapshot/document bindings or repeat the rejected payload.'
+            content="Invalid review tool call: " + reason + ". Use exactly one registered tool with valid schema."
+            if correction:content+='\n'+canonical_bytes(correction).decode()
+            raise FormatError({"role": "user", "content": content,
                                "extra": {"interrupt_type": "FormatError", "review_rejection": audit}}) from None
         return [{"tool": call.function.name, "arguments": arguments, "tool_call_id": call.id}]
 

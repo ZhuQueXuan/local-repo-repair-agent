@@ -537,6 +537,7 @@ def run_document_consultation(model, broker, context, output, prompt):
 
 
 def run_review(model, broker, context, output, prompt, *, history=None):
+    from review_tools import review_rejection
     self_check = history is not None
     system = "You independently review one immutable candidate. Use exactly one registered read-only tool per response. No shell, file writes, imports, network or arbitrary paths. Claims are unverified. Read the original requirements and diff, cite evidence_ids returned by tools. Do not invent IDs. Test acceptance against baseline is distinct from full_suite_all_passed: explicitly mention remaining failures and new failures; never claim all tests passed when full_suite_all_passed is false. Submit at most one review with schema_version=1; use insufficient_evidence if unable to decide."
     if self_check:
@@ -591,7 +592,7 @@ def run_review(model, broker, context, output, prompt, *, history=None):
                     # Close the actual rejected tool call, not a fake success.
                     if message is None:
                         raise
-                    messages.extend(model.format_observation_messages(message, [{"status": "rejected", "reason": str(error)}]))
+                    messages.extend(model.format_observation_messages(message, [{"status": "rejected", **review_rejection(error)}]))
                 errors += 1
                 if errors >= 3:
                     raise ProtocolError("review_repeated_format_errors")

@@ -45,6 +45,35 @@ def response(tool="read_diff", arguments=None, content=None):
 
 
 class RuntimeTests(unittest.TestCase):
+    def test_review_range_and_field_errors_give_exact_nonexecuting_corrections(self):
+        f=StageAFixture();c=f.snapshot.candidate;doc=f.doc()
+        model=self.model()
+        common={'snapshot_id':c.snapshot_id,'document_id':doc.document_id}
+        report=ReviewReport(review_id='corrected-review',run_id=c.run_id,reviewer_role_run_id=f.reviewer.role_run_id,
+            candidate_id=c.candidate_id,source_tree_digest=c.source_tree_digest,verdict='approve',coverage=('Offline protocol fixture',))
+        calls=[response('read_lines',common|{'start':1,'end':81}),
+            response('read_lines',common|{'start_line':1,'end_line':2}),
+            response('read_lines',common|{'start':1,'end':2}),
+            response('submit_review',{'report':report.model_dump(mode='json')})]
+        output=self.store.home/'review-parameter-correction.json'
+        with patch('review_model.litellm.completion',side_effect=calls),patch.object(f.broker,'dispatch',wraps=f.broker.dispatch) as dispatch:
+            run_review(model,f.broker,SimpleNamespace(check=lambda:None,identity=f.reviewer),output,'offline')
+        messages=json.loads(output.read_bytes())['messages']
+        rejection=next(json.loads(m['content']) for m in messages if m['role']=='tool' and 'max_lines_per_read' in m['content'])
+        self.assertEqual(rejection['requested_line_count'],81)
+        self.assertEqual(rejection['max_lines_per_read'],80)
+        self.assertEqual(rejection['selected_document']['line_count'],2)
+        self.assertEqual(rejection['example_only_not_executed']['end'],2)
+        self.assertLessEqual(len(canonical_bytes(rejection)),4096)
+        self.assertEqual(len(f.broker.evidence),1) # Only the corrected actual read minted evidence.
+        self.assertEqual(dispatch.call_count,3) # Bad field names never dispatched.
+        correction=next(m['content'] for m in messages if m['role']=='user' and 'required_input_fields' in m['content'])
+        self.assertIn('start_line',correction);self.assertIn('"start"',correction)
+        self.assertNotIn('"input":',correction)
+        # Permissions cannot be turned into range metadata for another document.
+        from review_tools import review_rejection
+        self.assertNotIn('selected_document',review_rejection(ProtocolError('document_outside_handoff_scope')))
+
     def controlled_repair_environment(self):
         work=ROOT/'temp/repair_contract_tests'/uuid.uuid4().hex
         files={'pkg/__init__.py':'','pkg/code.py':'def value(): return 0\n',

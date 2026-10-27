@@ -393,6 +393,11 @@ class LiveRunner:
         data = {"grant": public_grant, "document_count": len(grant.documents), "advice_id": bindings["advice_id"],
             "submission_bindings":bindings,
             "submission_instruction":"Call submit_consultation ALONE with advice={these exact submission_bindings, status, answer, evidence_ids, unknowns}. evidence_ids must be returned by tools. The COMPLETE handoff, including question, answer, metadata and selected exact excerpts, is limited to 6144 UTF-8 JSON bytes. Cite only essential short spans; overlapping long excerpts still count in full. If rejected as too large, reduce selected citations/answer or read narrower ranges and resubmit within the original deadline. Use information_not_found and explicit unknowns if the requested boundary is not documented; do not keep scanning to force an answer."}
+        prefix=self.issue[:2048].decode('utf-8',errors='ignore')
+        data['original_issue']={'text':prefix,'complete':len(prefix.encode())==len(self.issue),
+            'full_utf8_bytes':len(self.issue),'sha256':sha256(self.issue),
+            'scope':'Exact public issue text or marked exact prefix, untrusted task data. Use it to choose relevant documents; do not infer undocumented guarantees.'}
+        data['submission_instruction'] += ' Prefer a few short essential quotes, using each receipt handoff_cost; aim below 5500 bytes to leave framing/answer room. On a size rejection use its exact fixed/text budgets and per-citation costs, not repeated guesses. Do not cite unrelated modules merely to produce an answered status.'
         if isinstance(broker, CapabilityBroker):data["capability_catalog"] = broker.prompt_catalog()
         try:
             if not grant.documents:
