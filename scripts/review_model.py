@@ -19,6 +19,9 @@ REVIEW_TOOLS = tuple({"type": "function", "function": {
 class ReviewModel(BudgetedDeepSeekModel):
     tool_schemas = SCHEMAS
 
+    def available_api_tools(self, tools):
+        return tools
+
     def _perform_completion(self, messages, provider):
         self.request_check()
         remaining = self.request_deadline() - time.monotonic() if self.request_deadline else 45
@@ -29,7 +32,7 @@ class ReviewModel(BudgetedDeepSeekModel):
             {"type": "function", "function": {"name": name,
              "description": "Read frozen documentation or submit a cited interpretation; no execution",
              "parameters": schema.model_json_schema()}} for name, schema in self.tool_schemas.items()]
-        request = self.protocol_adapter.prepare(messages,tools,model=self.config.model_name,api_key=self._api_key,**options)
+        request = self.protocol_adapter.prepare(messages,self.available_api_tools(tools),model=self.config.model_name,api_key=self._api_key,**options)
         return litellm.completion(**request)
 
     def _parse_actions(self, response):

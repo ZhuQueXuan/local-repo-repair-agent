@@ -366,6 +366,7 @@ def run_document_consultation(model, broker, context, output, prompt):
                 messages.append(message)
                 actions = message["extra"]["actions"]
                 outputs = []
+                close_lookup = False
                 for ordinal, action in enumerate(actions):
                     started = False
                     try:
@@ -379,6 +380,8 @@ def run_document_consultation(model, broker, context, output, prompt):
                         if stale:
                             result = result | {"progress_warning": "This exact request returned no new evidence. Submit supported facts and explicit unknowns, or information_not_found.",
                                 "same_request_repeats_without_new_evidence": seen_requests[key]}
+                            if seen_requests[key] >= 2 and not getattr(model, "document_lookup_closed", False):
+                                close_lookup = True
                         outputs.append(result)
                         repeated = repeated + 1 if key == last else 0
                         last = key
@@ -393,6 +396,9 @@ def run_document_consultation(model, broker, context, output, prompt):
                         raise
                 messages.extend(model.format_observation_messages(message, outputs))
                 delivered = True
+                if close_lookup and hasattr(model, "close_document_lookup"):
+                    context.check()
+                    messages.append(model.close_document_lookup(broker.snapshot.grant, broker.evidence))
                 errors = 0
                 if actions[0]["tool"] == "submit_consultation":
                     return broker.advice

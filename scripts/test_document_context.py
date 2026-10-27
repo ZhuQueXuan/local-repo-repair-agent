@@ -23,6 +23,52 @@ import test_collaboration_runtime as runtime_fixture
 
 
 class DocumentContextTests(unittest.TestCase):
+    def test_finalization_only_advertises_submission_and_rejects_reads_locally(self):
+        f,broker=self.fixture(b'known fact\n');fixture=runtime_fixture.RuntimeTests();fixture.setUp()
+        model=fixture.model(cls=ProtectedDocumentModel)
+        model.close_document_lookup(broker.snapshot.grant,broker.evidence)
+        self.assertEqual([t['function']['name'] for t in model.available_api_tools(
+            [{'function':{'name':name}} for name in ('read_skill','read_lines','submit_consultation')])],['submit_consultation'])
+        with self.assertRaises(FormatError):
+            model._parse_actions(self.response_batch([('read_lines',{'snapshot_id':broker.snapshot.grant.snapshot_id,
+                'document_id':broker.snapshot.grant.documents[0].document_id,'start':1,'end':1})]))
+        advice=document_fixture.advice_for(broker,'information_not_found')
+        with patch('review_model.litellm.completion',return_value=runtime_fixture.response('submit_consultation',{'advice':advice.model_dump(mode='json')})) as transport:
+            model.query([{'role':'user','content':'Submit supported facts or explicit unknowns.'}])
+        self.assertEqual([t['function']['name'] for t in transport.call_args.kwargs['tools']],['submit_consultation'])
+
+    def test_repeated_lookup_switches_to_submission_or_bounded_failure(self):
+        for obey in (True,False):
+            f,broker=self.fixture(b'known fact\n');fixture=runtime_fixture.RuntimeTests();fixture.setUp()
+            parser=fixture.model(cls=ProtectedDocumentModel);count=0
+            args={'snapshot_id':broker.snapshot.grant.snapshot_id,'document_id':broker.snapshot.grant.documents[0].document_id,'start':1,'end':1}
+            def query(messages):
+                nonlocal count
+                count+=1
+                if getattr(parser,'document_lookup_closed',False) and obey:
+                    self.assertIn('Document lookup is now CLOSED',canonical_bytes(messages).decode())
+                    calls=[('submit_consultation',{'advice':document_fixture.advice_for(broker,'information_not_found').model_dump(mode='json')})]
+                else:calls=[('read_lines',args)]
+                response=self.response_batch(calls)
+                return response.choices[0].message.model_dump()|{'extra':{'actions':parser._parse_actions(response)}}
+            class Scripted:
+                usage={}
+                contains_credentials=staticmethod(lambda _:False)
+                def query(self,messages):return query(messages)
+                @property
+                def document_lookup_closed(self):return getattr(parser,'document_lookup_closed',False)
+                def close_document_lookup(self,grant,evidence):return parser.close_document_lookup(grant,evidence)
+                def format_observation_messages(self,m,outputs):return ReviewModel.format_observation_messages(self,m,outputs)
+            model=Scripted();context=SimpleNamespace(check=lambda:None,identity=f.identity)
+            if obey:
+                result=run_document_consultation(model,broker,context,f.f.root/'bounded-submit.json','One question')
+                self.assertEqual(result.status,'information_not_found');self.assertEqual(count,4)
+            else:
+                with self.assertRaisesRegex(ProtocolError,'document_repeated_format_errors'):
+                    run_document_consultation(model,broker,context,f.f.root/'bounded-fail.json','One question')
+                self.assertEqual(count,6);self.assertIsNone(broker.advice)
+            self.assertEqual(sum(e.get('tool')=='read_lines' for e in broker.events),3)
+
     def response_batch(self, calls):
         response=runtime_fixture.response(calls[0][0],calls[0][1])
         template=response.choices[0].message.tool_calls[0]
