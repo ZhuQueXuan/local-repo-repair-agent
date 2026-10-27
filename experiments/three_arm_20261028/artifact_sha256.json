@@ -1,0 +1,9 @@
+{
+  "all-six-runs.zip": "88db66a75451aa055bdef26c9d9013def6a8bb825c62403edd073fcb20abf56a",
+  "all-six-runs.zip.sha256.json": "44cc31b09ade725d391dc3160f2748d4167187130413088961ea3c736a9911e1",
+  "preparation-and-audit.zip": "044b6452227bbe8b88d01125ec8cfdd4b1c86672c8e7400d2d1d271cfcad8fa8",
+  "preparation-and-audit.zip.sha256.json": "cf376521362283be232627ca3368d22edc6beb277fc4fce6e8e5cbcf8f5d9774",
+  "public-and-scoring-inputs.zip": "331e9410c0b64a1c4aa051ddb87f2f03a76db13e28049c9f930e09b065c9b004",
+  "public-and-scoring-inputs.zip.sha256.json": "ad499dc2fec0def4669f20317c11288b3d6a046a5ffc3eb893a38f564a91b29d",
+  "manifest.json": "7e1a8b84656c13d845588129bb811fd74fb846cc51aa5746fa9ad11862696bdf"
+}

@@ -1,0 +1,564 @@
+{
+  "all_terminal": true,
+  "arms": {
+    "baseline": {
+      "attempts": 14,
+      "elapsed_seconds": 40.968,
+      "known_price_estimate_cny": 0.073192,
+      "normal_submissions": 0,
+      "resolved": 0,
+      "slots": 2,
+      "unknown_placeholder_cny": 0.2
+    },
+    "full": {
+      "attempts": 56,
+      "elapsed_seconds": 228.703,
+      "known_price_estimate_cny": 0.741034,
+      "normal_submissions": 2,
+      "resolved": 2,
+      "slots": 2,
+      "unknown_placeholder_cny": 0.2
+    },
+    "improved": {
+      "attempts": 31,
+      "elapsed_seconds": 65.109,
+      "known_price_estimate_cny": 0.173206,
+      "normal_submissions": 2,
+      "resolved": 2,
+      "slots": 2,
+      "unknown_placeholder_cny": 0.2
+    }
+  },
+  "balance_probed": false,
+  "billing_stop": null,
+  "complete_cost_estimate_cny": null,
+  "elapsed_scope": "Finalized worker metrics total_elapsed_seconds; preparation through finalization, excluding queued wait and later retained scoring. Not created-to-ended timestamps.",
+  "formal_payloads_unchanged": 53,
+  "frozen_inputs_verified": 452,
+  "full_complete": 2,
+  "historical_files_unchanged": 7675,
+  "known_price_estimate_cny": 0.987432,
+  "plan_sha256": "ce4ff396c4b851ea539e6463f1bfd2d9d84be097c5453b41a36360f6083b1ab3",
+  "platform_attempts": 101,
+  "platform_failures": [
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    }
+  ],
+  "qualification": {
+    "boltons-isoparse-fraction": {
+      "baseline": {
+        "public": {
+          "passed": 0,
+          "successful": false,
+          "tests_run": 2
+        },
+        "upstream": {
+          "passed": 4,
+          "successful": true,
+          "tests_run": 4
+        },
+        "withheld": {
+          "passed": 1,
+          "successful": false,
+          "tests_run": 3
+        }
+      },
+      "reference": {
+        "public": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "upstream": {
+          "passed": 4,
+          "successful": true,
+          "tests_run": 4
+        },
+        "withheld": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        }
+      }
+    },
+    "click-empty-default-help": {
+      "baseline": {
+        "public": {
+          "passed": 0,
+          "successful": false,
+          "tests_run": 2
+        },
+        "upstream": {
+          "passed": 25,
+          "successful": true,
+          "tests_run": 25
+        },
+        "withheld": {
+          "passed": 2,
+          "successful": false,
+          "tests_run": 3
+        }
+      },
+      "reference": {
+        "public": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "upstream": {
+          "passed": 25,
+          "successful": true,
+          "tests_run": 25
+        },
+        "withheld": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "agent_exit": "LimitsExceeded",
+      "attempts": 8,
+      "candidate_selection": "exported_final_patch",
+      "collaboration_result": null,
+      "elapsed_seconds": 16.671,
+      "evaluation_error": "ValueError: Final patch cannot replay",
+      "known_price_estimate_cny": 0.036258,
+      "limit_kind": "context_bytes",
+      "normal_submission": false,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Agent触发运行保护：context_bytes",
+      "repair_result": "failed",
+      "resolved": false,
+      "review_verdict": null,
+      "run_id": "0f81a1ded2654343b2f2be70a49f3976",
+      "status": "finished",
+      "task": "click-empty-default-help",
+      "tools_observed": [],
+      "traces": {
+        "trajectory.json": {
+          "actions": 7,
+          "bash_commands": 7,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "baseline"
+    },
+    {
+      "agent_exit": "Submitted",
+      "attempts": 18,
+      "candidate_selection": "exported_final_patch",
+      "checks": {
+        "public": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "upstream": {
+          "passed": 25,
+          "successful": true,
+          "tests_run": 25
+        },
+        "withheld": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        }
+      },
+      "collaboration_result": null,
+      "elapsed_seconds": 35.156,
+      "evaluation_error": null,
+      "known_price_estimate_cny": 0.101628,
+      "limit_kind": null,
+      "normal_submission": true,
+      "patch_sha256": "dea71127d37cb6d7d73d5255c7b4d4a802b570e5c14b2139d6ae5037438036a6",
+      "reason": "",
+      "repair_result": "passed",
+      "resolved": true,
+      "review_verdict": null,
+      "run_id": "eddd9ff941a34badac40a3c4526aae11",
+      "status": "finished",
+      "task": "click-empty-default-help",
+      "tools_observed": [],
+      "traces": {
+        "trajectory.json": {
+          "actions": 17,
+          "bash_commands": 17,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 1,
+          "test_commands": 2
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "improved"
+    },
+    {
+      "agent_exit": null,
+      "attempts": 31,
+      "candidate_selection": "exported_final_patch",
+      "checks": {
+        "public": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "upstream": {
+          "passed": 25,
+          "successful": true,
+          "tests_run": 25
+        },
+        "withheld": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        }
+      },
+      "collaboration_result": "completed",
+      "complete_three_role": true,
+      "document_citations": 4,
+      "document_handoff_bytes": 3539,
+      "document_status": "answered",
+      "elapsed_seconds": 130.172,
+      "evaluation_error": null,
+      "known_price_estimate_cny": 0.43983,
+      "normal_repair_submission": true,
+      "patch_sha256": "dea71127d37cb6d7d73d5255c7b4d4a802b570e5c14b2139d6ae5037438036a6",
+      "reason": "Model collaboration ended. Repair acceptance is from independent checks and clean patch replay.",
+      "repair_result": "passed",
+      "resolved": true,
+      "review_verdict": "approve",
+      "roles": [
+        {
+          "phase": "consulting",
+          "reason": null,
+          "status": "succeeded"
+        },
+        {
+          "phase": "repairing",
+          "reason": null,
+          "status": "succeeded"
+        },
+        {
+          "phase": "reviewing",
+          "reason": null,
+          "status": "succeeded"
+        },
+        {
+          "phase": "revising",
+          "reason": "Not required by this feedback branch",
+          "status": "skipped"
+        },
+        {
+          "phase": "final_review",
+          "reason": "Not required by this feedback branch",
+          "status": "skipped"
+        }
+      ],
+      "run_id": "a3eb84d7f98e455993b9e8ddfe97c527",
+      "status": "finished",
+      "task": "click-empty-default-help",
+      "tools_observed": [
+        "read_diff",
+        "read_lines",
+        "read_report",
+        "search_text",
+        "submit_consultation",
+        "submit_review"
+      ],
+      "traces": {
+        "consulting-trajectory.json": {
+          "actions": 14,
+          "bash_commands": 0,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        },
+        "repairing-trajectory.json": {
+          "actions": 9,
+          "bash_commands": 9,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 1,
+          "test_commands": 2
+        },
+        "reviewing-trajectory.json": {
+          "actions": 11,
+          "bash_commands": 0,
+          "format_corrections": 1,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "full"
+    },
+    {
+      "agent_exit": null,
+      "attempts": 25,
+      "candidate_selection": "exported_final_patch",
+      "checks": {
+        "public": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "upstream": {
+          "passed": 4,
+          "successful": true,
+          "tests_run": 4
+        },
+        "withheld": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        }
+      },
+      "collaboration_result": "completed",
+      "complete_three_role": true,
+      "document_citations": 3,
+      "document_handoff_bytes": 3520,
+      "document_status": "information_not_found",
+      "elapsed_seconds": 98.531,
+      "evaluation_error": null,
+      "known_price_estimate_cny": 0.301204,
+      "normal_repair_submission": true,
+      "patch_sha256": "63524e0f4e2c94bc47442758f34bd8b2786508429c31958f4cd279f1e3559f3e",
+      "reason": "Model collaboration ended. Repair acceptance is from independent checks and clean patch replay.",
+      "repair_result": "passed",
+      "resolved": true,
+      "review_verdict": "approve",
+      "roles": [
+        {
+          "phase": "consulting",
+          "reason": null,
+          "status": "succeeded"
+        },
+        {
+          "phase": "repairing",
+          "reason": null,
+          "status": "succeeded"
+        },
+        {
+          "phase": "reviewing",
+          "reason": null,
+          "status": "succeeded"
+        },
+        {
+          "phase": "revising",
+          "reason": "Not required by this feedback branch",
+          "status": "skipped"
+        },
+        {
+          "phase": "final_review",
+          "reason": "Not required by this feedback branch",
+          "status": "skipped"
+        }
+      ],
+      "run_id": "90c392311683433cac14571df99d59bd",
+      "status": "finished",
+      "task": "boltons-isoparse-fraction",
+      "tools_observed": [
+        "read_diff",
+        "read_lines",
+        "read_report",
+        "search_text",
+        "submit_consultation",
+        "submit_review"
+      ],
+      "traces": {
+        "consulting-trajectory.json": {
+          "actions": 12,
+          "bash_commands": 0,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        },
+        "repairing-trajectory.json": {
+          "actions": 9,
+          "bash_commands": 9,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 1,
+          "test_commands": 2
+        },
+        "reviewing-trajectory.json": {
+          "actions": 7,
+          "bash_commands": 0,
+          "format_corrections": 1,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "full"
+    },
+    {
+      "agent_exit": "Submitted",
+      "attempts": 13,
+      "candidate_selection": "exported_final_patch",
+      "checks": {
+        "public": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "upstream": {
+          "passed": 4,
+          "successful": true,
+          "tests_run": 4
+        },
+        "withheld": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        }
+      },
+      "collaboration_result": null,
+      "elapsed_seconds": 29.953,
+      "evaluation_error": null,
+      "known_price_estimate_cny": 0.071578,
+      "limit_kind": null,
+      "normal_submission": true,
+      "patch_sha256": "cacbe20a1afe73a8e742b2eb143c39d2759c038b5d9056d3e3efe00692edaa78",
+      "reason": "",
+      "repair_result": "passed",
+      "resolved": true,
+      "review_verdict": null,
+      "run_id": "36f6b26940424028b991a06dd4aedbc2",
+      "status": "finished",
+      "task": "boltons-isoparse-fraction",
+      "tools_observed": [],
+      "traces": {
+        "trajectory.json": {
+          "actions": 12,
+          "bash_commands": 12,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 1,
+          "test_commands": 1
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "improved"
+    },
+    {
+      "agent_exit": "LimitsExceeded",
+      "attempts": 6,
+      "candidate_selection": "exported_final_patch",
+      "checks": {
+        "public": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "upstream": {
+          "passed": 4,
+          "successful": true,
+          "tests_run": 4
+        },
+        "withheld": {
+          "passed": 1,
+          "successful": false,
+          "tests_run": 3
+        }
+      },
+      "collaboration_result": null,
+      "elapsed_seconds": 24.297,
+      "evaluation_error": null,
+      "known_price_estimate_cny": 0.036934,
+      "limit_kind": "context_bytes",
+      "normal_submission": false,
+      "patch_sha256": "091398b8b2213de2e737aaa6aecebe932e2bfbbc44bf9882c437be18d0e302ba",
+      "reason": "Agent触发运行保护：context_bytes",
+      "repair_result": "passed",
+      "resolved": false,
+      "review_verdict": null,
+      "run_id": "0cd5ff5a5f934f60a683413457f688d9",
+      "status": "finished",
+      "task": "boltons-isoparse-fraction",
+      "tools_observed": [],
+      "traces": {
+        "trajectory.json": {
+          "actions": 5,
+          "bash_commands": 5,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 1
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "baseline"
+    }
+  ],
+  "scope": "Two unused concrete public issues, two familiar repositories, each of three systems once; descriptive evidence only. No training-unseen, statistical or single-module causal claim.",
+  "selection_reruns": 0,
+  "shared_requests_after": 3177,
+  "shared_requests_before": 3076,
+  "slots": 6,
+  "source_base_commit": "f18d479f7152fea97107ca730f2b3ee85e016902",
+  "stage": 63,
+  "unknown_placeholder_cny": 0.6,
+  "archive_members": {
+    "all-six-runs.zip": 2814,
+    "preparation-and-audit.zip": 101,
+    "public-and-scoring-inputs.zip": 258
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "objects_including_nested": 3926,
+    "matches": 0
+  },
+  "formal_database_and_whole_shared_ledger_uploaded": false,
+  "source_patch": "preparation-and-audit.zip/source-change.patch"
+}

@@ -14,7 +14,7 @@ import uuid
 
 ROOT=Path(__file__).resolve().parent.parent
 sys.dont_write_bytecode=True
-from comparison_inputs import TASKS,FRESH_TASKS,CURRENT_TASKS,packet_for,public_task
+from comparison_inputs import TASKS,FRESH_TASKS,CURRENT_TASKS,THREE_ARM_TASKS,packet_for,public_task
 from collaboration_protocol import canonical_bytes
 from evaluation_preparation import copy_public,apply_reference
 from task_workspace import prepare_task,changed_files,load_task,digest
@@ -25,7 +25,11 @@ from collaboration_panel import public_policy,usage_view
 def write(path,value):path.write_bytes(canonical_bytes(value))
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 
-DESIGNS={'legacy_six':TASKS,'fresh_two':FRESH_TASKS,'current_two':CURRENT_TASKS}
+DESIGNS={'legacy_six':TASKS,'fresh_two':FRESH_TASKS,'current_two':CURRENT_TASKS,'three_arm_two':THREE_ARM_TASKS}
+
+def design_variants(plan):
+    design_tasks(plan)
+    return ('baseline','improved','full') if plan.get('design')=='three_arm_two' else ('baseline','full')
 
 def design_tasks(plan):
     name=plan.get('design','legacy_six')
@@ -99,13 +103,15 @@ def prepare(home,design='legacy_six'):
     qualification=qualify(home,tasks)
     slots=[]
     for i,task in enumerate(tasks):
-        for variant in (('baseline','full') if i%2==0 else ('full','baseline')):
+        order=design_variants({'design':design})
+        for variant in (order if i%2==0 else tuple(reversed(order))):
             key='comparison-'+uuid.uuid4().hex
             slots.append({'task':task,'variant':variant,'request_key':key,'repetition':1})
     from execution_runtime import runtime_identity
     plan={'schema_version':1,'state':'prepared_not_dispatched','batch_id':home.name,'design':design,'slots':slots,
-        'tasks':list(tasks),'variants':['baseline','full'],'repetitions':1,
+        'tasks':list(tasks),'variants':list(design_variants({'design':design})),'repetitions':1,
         'baseline':'Original raw-profile DefaultAgent 2.4.6 route through existing worker, 300s; current Windows/accounting adapter, not byte-identical historical deployment.',
+        'improved':'Existing adaptive_history single StatefulAgent, 300s, bounded output, history projection and task-state guard. No task card, retrieval, consultation, independent role review, skills or collaboration repair contract.',
         'full':'adaptive_history + fixed document question + human task card + readonly skills/MCP, first repair 300s; original five-phase 1800s parent policy, one possible revision.',
         'confounds':'Prompts, context/state, consultation, review, opportunities and total time differ. Compare entire systems; do not attribute gain to agent count or individual module.',
         'visibility':'Same source/issue/public checks/upstream subset. Retained checks and reference outside all copied workspaces/snapshots/prompts. Local Bash is not an OS sandbox.',
@@ -128,10 +134,10 @@ def verify(home):
     if plan['batch_id']!=home.name:raise ValueError('Batch identity cannot be moved or copied to a new home')
     if plan['schema_version']!=1 or plan['state']!='prepared_not_dispatched' or plan['paid_launch_authorized'] is not False:raise ValueError('Invalid scope-only plan')
     slots=plan['slots']
-    tasks=design_tasks(plan);expected=2*len(tasks)
-    if plan['tasks']!=list(tasks) or plan['variants']!=['baseline','full'] or plan['repetitions']!=1:raise ValueError('Comparison design changed')
+    tasks=design_tasks(plan);variants=design_variants(plan);expected=len(variants)*len(tasks)
+    if plan['tasks']!=list(tasks) or plan['variants']!=list(variants) or plan['repetitions']!=1:raise ValueError('Comparison design changed')
     if len(slots)!=expected or len({s['request_key'] for s in slots})!=expected:raise ValueError('Expected exactly the declared unique slots')
-    if any(sorted(s['variant'] for s in slots if s['task']==t)!=['baseline','full'] for t in tasks):raise ValueError('Missing comparison arm')
+    if any(sorted(s['variant'] for s in slots if s['task']==t)!=sorted(variants) for t in tasks):raise ValueError('Missing comparison arm')
     if any(s['task'] not in tasks or s['repetition']!=1 for s in slots):raise ValueError('Invalid slot')
     for n,h in plan['files_sha256'].items():
         p=(ROOT/n).resolve()
@@ -181,7 +187,7 @@ def score(home,store,slots):
         if row['kind']=='collaboration_live':result['usage']=usage_view(store,row)
         results.append(result);write(home/'terminal-results.json',results)
     pairs={t:{r['variant']:r['resolved'] for r in results if r['task']==t} for t in dict.fromkeys(s['task'] for s in slots)}
-    report={'slots':len(slots),'results':results,'resolved':{v:sum(r['resolved'] for r in results if r['variant']==v) for v in ('baseline','full')},
+    report={'slots':len(slots),'results':results,'resolved':{v:sum(r['resolved'] for r in results if r['variant']==v) for v in dict.fromkeys(s['variant'] for s in slots)},
         'pairs':pairs,'scope':'Predeclared public issues, one repetition each. Descriptive system comparison only; no benchmark/population/module attribution.',
         'no_result_selection_reruns':True}
     write(home/'comparison-summary.json',report);return report
@@ -205,13 +211,15 @@ def execute(home,authorization):
             slots=[]
             # Predeclare every result identity before any model, not only winners.
             for slot in plan['slots']:
-                if slot['variant']=='baseline':row=store.create(slot['task'],'raw','live',slot['request_key'],model_profile='legacy_deepseek_v1')
-                else:
+                if slot['variant'] in {'baseline','improved'}:
+                    row=store.create(slot['task'],'raw' if slot['variant']=='baseline' else 'adaptive_history','live',slot['request_key'],model_profile='legacy_deepseek_v1')
+                elif slot['variant']=='full':
                     row=store.create_collaboration(slot['task'],'adaptive_history',slot['request_key'],public_policy(documents=True,question=plan['full_question']),
                         execution='live',model_profile='legacy_deepseek_v1',allow_capabilities=True,task_card={
                         'goal':'Fix the original issue under its existing constraints; program checks and independent review determine outcomes.',
                         'steps':[{'id':'repair','title':'Read, repair and verify the original issue','status':'pending'}],
                         'instruction':'Retain uncertainty and failures. At most one revision; do not loop until success.'})
+                else:raise ValueError('Unknown comparison arm')
                 slots.append({**slot,'run_id':row['id']})
             write(home/'slots.json',slots)
             for slot in slots:

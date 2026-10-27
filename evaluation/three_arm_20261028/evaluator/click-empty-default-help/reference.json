@@ -1,0 +1,1 @@
+{"edits":[{"expected_occurrences":1,"new":"            elif default_value == \"\":\n                default_string = '\"\"'\n            else:\n                default_string = str(default_value)\n","old":"            else:\n                default_string = str(default_value)\n","path":"src/click/core.py"}],"scope":"Developer qualification only, never model input"}
