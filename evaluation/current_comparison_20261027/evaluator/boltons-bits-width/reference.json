@@ -1,0 +1,1 @@
+{"edits":[{"expected_occurrences":1,"new":"        if val >= 2 ** len_:","old":"        if val > 2 ** len_:","path":"boltons/mathutils.py"}],"scope":"Trusted developer qualification only; excluded from model inputs"}

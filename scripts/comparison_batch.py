@@ -14,7 +14,7 @@ import uuid
 
 ROOT=Path(__file__).resolve().parent.parent
 sys.dont_write_bytecode=True
-from comparison_inputs import TASKS,FRESH_TASKS,packet_for,public_task
+from comparison_inputs import TASKS,FRESH_TASKS,CURRENT_TASKS,packet_for,public_task
 from collaboration_protocol import canonical_bytes
 from evaluation_preparation import copy_public,apply_reference
 from task_workspace import prepare_task,changed_files,load_task,digest
@@ -25,7 +25,7 @@ from collaboration_panel import public_policy,usage_view
 def write(path,value):path.write_bytes(canonical_bytes(value))
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 
-DESIGNS={'legacy_six':TASKS,'fresh_two':FRESH_TASKS}
+DESIGNS={'legacy_six':TASKS,'fresh_two':FRESH_TASKS,'current_two':CURRENT_TASKS}
 
 def design_tasks(plan):
     name=plan.get('design','legacy_six')

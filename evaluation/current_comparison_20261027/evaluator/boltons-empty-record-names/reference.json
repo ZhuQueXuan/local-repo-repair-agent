@@ -1,0 +1,1 @@
+{"edits":[{"expected_occurrences":2,"new":"    for name in [typename] + field_names:\n        if not name or not all(c.isalnum() or c == '_' for c in name):","old":"    for name in [typename] + field_names:\n        if not all(c.isalnum() or c == '_' for c in name):","path":"boltons/namedutils.py"}],"scope":"Trusted developer qualification only; excluded from model inputs"}

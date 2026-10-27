@@ -1,0 +1,387 @@
+{
+  "stage": 61,
+  "source_base_commit": "9c9292e454284c969bed85713722d41d2943e9d0",
+  "plan_sha256": "2a37854cb81f3c8b4eb1193a5b83ea5d44293e6bc75564387f857ff949ba1b1f",
+  "frozen_inputs_verified": 427,
+  "slots": 4,
+  "all_terminal": true,
+  "selection_reruns": 0,
+  "results": [
+    {
+      "task": "boltons-empty-record-names",
+      "variant": "baseline",
+      "run_id": "90e949799a4a48b5b1c477e708d7b3f1",
+      "status": "finished",
+      "agent_exit": "LimitsExceeded",
+      "resolved": false,
+      "repair_result": "failed",
+      "collaboration_result": null,
+      "review_verdict": null,
+      "candidate_selection": "exported_final_patch",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evaluation_error": "ValueError: Final patch cannot replay",
+      "attempts": 5,
+      "known_price_estimate_cny": 0.020822,
+      "unknown_placeholder_cny": 0.1,
+      "elapsed_seconds": 19.36,
+      "tools_observed": [],
+      "reason": "Agent触发运行保护：context_bytes",
+      "limit_kind": "context_bytes"
+    },
+    {
+      "task": "boltons-empty-record-names",
+      "variant": "full",
+      "run_id": "340247a86c81464aac8b6c4d72358a16",
+      "status": "failed",
+      "agent_exit": null,
+      "resolved": false,
+      "repair_result": "unknown",
+      "collaboration_result": "not_completed",
+      "review_verdict": "unavailable",
+      "candidate_selection": "no_sealed_candidate",
+      "patch_sha256": null,
+      "evaluation_error": "No exported or legally sealed final patch; retained in denominator",
+      "attempts": 196,
+      "known_price_estimate_cny": 1.508752,
+      "unknown_placeholder_cny": 0.1,
+      "elapsed_seconds": 334.954,
+      "tools_observed": [
+        "read_lines",
+        "search_text",
+        "submit_consultation"
+      ],
+      "reason": "Stage failure: TimeoutError",
+      "roles": [
+        {
+          "phase": "consulting",
+          "status": "succeeded",
+          "reason": null
+        },
+        {
+          "phase": "repairing",
+          "status": "failed",
+          "reason": "Stage failure: TimeoutError"
+        },
+        {
+          "phase": "reviewing",
+          "status": "skipped",
+          "reason": "Stage failure: TimeoutError"
+        },
+        {
+          "phase": "revising",
+          "status": "skipped",
+          "reason": "Stage failure: TimeoutError"
+        },
+        {
+          "phase": "final_review",
+          "status": "skipped",
+          "reason": "Stage failure: TimeoutError"
+        }
+      ],
+      "document_handoff_bytes": 3998,
+      "document_status": "information_not_found",
+      "document_citations": 3
+    },
+    {
+      "task": "boltons-bits-width",
+      "variant": "full",
+      "run_id": "fcc31d363fbd4eafafad5e5c6688ab73",
+      "status": "finished",
+      "agent_exit": null,
+      "resolved": true,
+      "repair_result": "passed",
+      "collaboration_result": "completed",
+      "review_verdict": "approve",
+      "candidate_selection": "exported_final_patch",
+      "patch_sha256": "409733ef50ccf12ab28f15af7068cf334398ba08fdf2fea101c82a6597f9da9b",
+      "evaluation_error": null,
+      "attempts": 23,
+      "known_price_estimate_cny": 0.261282,
+      "unknown_placeholder_cny": 0.1,
+      "elapsed_seconds": 110.297,
+      "tools_observed": [
+        "read_diff",
+        "read_lines",
+        "read_report",
+        "search_text",
+        "submit_consultation",
+        "submit_review"
+      ],
+      "reason": "Model collaboration ended. Repair acceptance is from independent checks and clean patch replay.",
+      "roles": [
+        {
+          "phase": "consulting",
+          "status": "succeeded",
+          "reason": null
+        },
+        {
+          "phase": "repairing",
+          "status": "succeeded",
+          "reason": null
+        },
+        {
+          "phase": "reviewing",
+          "status": "succeeded",
+          "reason": null
+        },
+        {
+          "phase": "revising",
+          "status": "skipped",
+          "reason": "Not required by this feedback branch"
+        },
+        {
+          "phase": "final_review",
+          "status": "skipped",
+          "reason": "Not required by this feedback branch"
+        }
+      ],
+      "document_handoff_bytes": 3701,
+      "document_status": "information_not_found",
+      "document_citations": 4,
+      "checks": {
+        "public": {
+          "tests_run": 2,
+          "passed": 2,
+          "successful": true
+        },
+        "upstream": {
+          "tests_run": 11,
+          "passed": 11,
+          "successful": true
+        },
+        "withheld": {
+          "tests_run": 3,
+          "passed": 3,
+          "successful": true
+        }
+      }
+    },
+    {
+      "task": "boltons-bits-width",
+      "variant": "baseline",
+      "run_id": "c5e8bb4827c94f00ac89cfb137ec22a3",
+      "status": "finished",
+      "agent_exit": "Submitted",
+      "resolved": true,
+      "repair_result": "passed",
+      "collaboration_result": null,
+      "review_verdict": null,
+      "candidate_selection": "exported_final_patch",
+      "patch_sha256": "7d24ae2176de4e9d0f91fca52dac8f128a36b2f73521949c3071bd3d43241466",
+      "evaluation_error": null,
+      "attempts": 7,
+      "known_price_estimate_cny": 0.030406000000000002,
+      "unknown_placeholder_cny": 0.1,
+      "elapsed_seconds": 29.344,
+      "tools_observed": [],
+      "reason": "",
+      "limit_kind": null,
+      "checks": {
+        "public": {
+          "tests_run": 2,
+          "passed": 2,
+          "successful": true
+        },
+        "upstream": {
+          "tests_run": 11,
+          "passed": 11,
+          "successful": true
+        },
+        "withheld": {
+          "tests_run": 3,
+          "passed": 3,
+          "successful": true
+        }
+      }
+    }
+  ],
+  "arms": {
+    "baseline": {
+      "resolved": 1,
+      "slots": 2,
+      "attempts": 12,
+      "known_price_estimate_cny": 0.051228,
+      "unknown_placeholder_cny": 0.2,
+      "elapsed_seconds": 48.704
+    },
+    "full": {
+      "resolved": 1,
+      "slots": 2,
+      "attempts": 219,
+      "known_price_estimate_cny": 1.770034,
+      "unknown_placeholder_cny": 0.2,
+      "elapsed_seconds": 445.251
+    }
+  },
+  "full_complete": 1,
+  "normal_baseline_submissions": 1,
+  "known_price_estimate_cny": 1.821262,
+  "unknown_placeholder_cny": 0.4,
+  "complete_cost_estimate_cny": null,
+  "platform_attempts": 231,
+  "shared_requests_before": 2815,
+  "shared_requests_after": 3046,
+  "formal_payloads_unchanged": 53,
+  "historical_files_unchanged": 7426,
+  "billing_stop": null,
+  "qualification": {
+    "boltons-bits-width": {
+      "baseline": {
+        "public": {
+          "tests_run": 2,
+          "passed": 0,
+          "successful": false
+        },
+        "upstream": {
+          "tests_run": 11,
+          "passed": 11,
+          "successful": true
+        },
+        "withheld": {
+          "tests_run": 3,
+          "passed": 1,
+          "successful": false
+        }
+      },
+      "reference": {
+        "public": {
+          "tests_run": 2,
+          "passed": 2,
+          "successful": true
+        },
+        "upstream": {
+          "tests_run": 11,
+          "passed": 11,
+          "successful": true
+        },
+        "withheld": {
+          "tests_run": 3,
+          "passed": 3,
+          "successful": true
+        }
+      }
+    },
+    "boltons-empty-record-names": {
+      "baseline": {
+        "public": {
+          "tests_run": 2,
+          "passed": 0,
+          "successful": false
+        },
+        "upstream": {
+          "tests_run": 3,
+          "passed": 3,
+          "successful": true
+        },
+        "withheld": {
+          "tests_run": 3,
+          "passed": 2,
+          "successful": false
+        }
+      },
+      "reference": {
+        "public": {
+          "tests_run": 2,
+          "passed": 2,
+          "successful": true
+        },
+        "upstream": {
+          "tests_run": 3,
+          "passed": 3,
+          "successful": true
+        },
+        "withheld": {
+          "tests_run": 3,
+          "passed": 3,
+          "successful": true
+        }
+      }
+    }
+  },
+  "roles": [
+    {
+      "id": "caf0f507f37742dfa12e24e6379dc0f9",
+      "run_id": "340247a86c81464aac8b6c4d72358a16",
+      "phase": "consulting",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "17bf4e093a3949a19f1983fc24083ad0",
+      "run_id": "340247a86c81464aac8b6c4d72358a16",
+      "phase": "repairing",
+      "status": "failed",
+      "reason": "Stage failure: TimeoutError"
+    },
+    {
+      "id": "98646ef875b84f6c9ccf3424c01b81cc",
+      "run_id": "340247a86c81464aac8b6c4d72358a16",
+      "phase": "reviewing",
+      "status": "skipped",
+      "reason": "Stage failure: TimeoutError"
+    },
+    {
+      "id": "4d28bf49bd9d4239a3fa509e34ea82d1",
+      "run_id": "340247a86c81464aac8b6c4d72358a16",
+      "phase": "revising",
+      "status": "skipped",
+      "reason": "Stage failure: TimeoutError"
+    },
+    {
+      "id": "a6b6fe1fae0644afa540d7993e07e3bc",
+      "run_id": "340247a86c81464aac8b6c4d72358a16",
+      "phase": "final_review",
+      "status": "skipped",
+      "reason": "Stage failure: TimeoutError"
+    },
+    {
+      "id": "238b8a791bb44b21812b7be0594532b7",
+      "run_id": "fcc31d363fbd4eafafad5e5c6688ab73",
+      "phase": "consulting",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "53610da179d04b998d955ce92d0a2e2c",
+      "run_id": "fcc31d363fbd4eafafad5e5c6688ab73",
+      "phase": "repairing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "cba0a471a44549aea2285f92fb5461f8",
+      "run_id": "fcc31d363fbd4eafafad5e5c6688ab73",
+      "phase": "reviewing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "5bdaa1cf54274587b6afc1a248871328",
+      "run_id": "fcc31d363fbd4eafafad5e5c6688ab73",
+      "phase": "revising",
+      "status": "skipped",
+      "reason": "Not required by this feedback branch"
+    },
+    {
+      "id": "81b54974b0884107ab13e8f100285216",
+      "run_id": "fcc31d363fbd4eafafad5e5c6688ab73",
+      "phase": "final_review",
+      "status": "skipped",
+      "reason": "Not required by this feedback branch"
+    }
+  ],
+  "balance_probed": false,
+  "scope": "Two new-to-project public issues in a familiar repository, each arm once. Not model-training-unseen, cross-repository, statistical or module-causal evidence.",
+  "archive_members": {
+    "all-four-runs.zip": 1783,
+    "preparation-and-audit.zip": 23,
+    "public-and-scoring-inputs.zip": 233
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "objects_including_nested": 2491,
+    "matches": 0
+  },
+  "formal_database_and_whole_shared_ledger_uploaded": false,
+  "source_patch": "preparation-and-audit.zip/source-change.patch"
+}
