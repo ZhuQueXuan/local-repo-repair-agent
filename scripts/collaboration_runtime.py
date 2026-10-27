@@ -264,6 +264,8 @@ class RepairEnvironment(StatefulTaskEnvironment):
         self._control_key = None
         self._control_revision = None
         self._read_spans = {}
+        self._read_requests = {}
+        self._visible_read_outputs = {}
         self._redundant_reads = self._control_errors = 0
         self._final_diff_read = False
         self._phase_sequence = 0
@@ -280,6 +282,8 @@ class RepairEnvironment(StatefulTaskEnvironment):
         revision=state._implementation_revision()
         if key!=self._control_key or revision!=self._control_revision:
             self._read_spans={}
+            self._read_requests={}
+            self._visible_read_outputs={}
             self._redundant_reads=self._control_errors=0
             self._final_diff_read=False
             if key!=self._control_key:
@@ -287,20 +291,94 @@ class RepairEnvironment(StatefulTaskEnvironment):
                     r.get('sequence',0) for r in state.progress.validation.values()]) if state.progress else 0
             self._control_key,self._control_revision=key,revision
 
-    def _read_span(self,command):
-        try:tokens=shlex.split(checkout_body(command))
+    def _read_plan(self,command):
+        """Classify a small literal read-only shell grammar, never evaluate it.
+
+        Writes, substitutions, redirects and unknown tools decline classification.
+        Classification does not execute/split the command or authorize a test pass.
+        """
+        body=checkout_body(command)
+        if any(c in body for c in ('$', '`', '\n', '\r')):return None
+        try:
+            lexer=shlex.shlex(body,posix=True,punctuation_chars=';&|<>')
+            lexer.whitespace_split=True;lexer.commenters=''
+            parts=[];part=[];pipe=False
+            for token in lexer:
+                if token in {'&&',';','|'}:
+                    if not part:return None
+                    parts.append((part,pipe));part=[];pipe=token=='|'
+                elif token in {'&','||','>','>>','<','<<','>&'}:return None
+                else:part.append(token)
+            if not part:return None
+            parts.append((part,pipe))
         except ValueError:return None
-        if len(tokens)==4 and tokens[:2]==['sed','-n'] and re.fullmatch(r'\d+(,\d+)?p',tokens[2]):
-            values=[int(x) for x in tokens[2][:-1].split(',')]
-            start,end=values[0],values[-1];name=tokens[3]
-        elif len(tokens)==2 and tokens[0]=='cat':
-            start,end,name=1,2**63-1,tokens[1]
-        else:return None
-        path=(Path(self.config.cwd)/name).resolve()
-        if not path.is_relative_to(Path(self.config.cwd).resolve()):return None
-        relative=path.relative_to(Path(self.config.cwd).resolve()).as_posix()
-        if relative not in self.task_state.current_files or start<1 or end<start:return None
-        return relative,start,end
+        root=Path(self.config.cwd).resolve();spans=[];identity=[];dependencies={}
+        archives={e['full_output_path']:e['sha256'] for e in self.output_budget.events}
+
+        def filename(name,*,directory=False):
+            path=(root/name).resolve()
+            if not path.is_relative_to(root):return None
+            relative=path.relative_to(root).as_posix()
+            if relative in self.task_state.current_files:
+                dependencies[relative]=self.task_state.current_files[relative]
+            elif relative in archives and path.is_file():
+                if sha256(path.read_bytes())!=archives[relative]:return None
+                dependencies[relative]=archives[relative]
+            elif directory and path.is_dir() and any(n.startswith(relative+'/') for n in self.task_state.current_files):
+                dependencies[relative]=self.task_state.revision
+            else:return None
+            return relative
+
+        for tokens,piped in parts:
+            if tokens[0]=='echo' and not piped:continue
+            span=None
+            if not piped and len(tokens)==4 and tokens[:2]==['sed','-n'] and re.fullmatch(r'\d+(,\d+)?p',tokens[2]):
+                values=[int(x) for x in tokens[2][:-1].split(',')]
+                name=filename(tokens[3]);start,end=values[0],values[-1]
+                if name is None or start<1 or end<start:return None
+                span=(name,start,end);tokens=['sed','-n',f'{start},{end}p',name]
+            elif not piped and len(tokens)==2 and tokens[0]=='cat':
+                name=filename(tokens[1])
+                if name is None:return None
+                span=(name,1,2**63-1);tokens=['cat',name]
+            elif not piped and tokens[0]=='grep':
+                offset=1
+                while offset<len(tokens) and tokens[offset] in {'-n','-r','-rn','-nr','-i','-in','-E','-F','-nE'}:offset+=1
+                if offset+1>=len(tokens) or tokens[offset].startswith('-'):return None
+                names=[filename(n,directory=True) for n in tokens[offset+1:]]
+                if not all(names):return None
+                tokens=tokens[:offset+1]+names
+            elif piped and tokens[0] in {'head','tail'} and (
+                    len(tokens)==2 and re.fullmatch(r'-\d+',tokens[1]) or
+                    len(tokens)==3 and tokens[1]=='-n' and tokens[2].isdigit()):pass
+            elif not piped and len(tokens)==3 and tokens[:2]==['wc','-l']:
+                name=filename(tokens[2])
+                if name is None:return None
+                tokens=tokens[:2]+[name]
+            else:return None
+            identity.append(tokens)
+            if span:spans.append(span)
+        if not identity:return None
+        # A pipe filters its source; it cannot certify full source coverage.
+        if any(piped for _,piped in parts):spans=[]
+        key=sha256(canonical_bytes({'commands':identity,'inputs':dependencies}))
+        return {'key':key,'spans':spans,'single_span':len(identity)==1 and len(spans)==1}
+
+    def _covered_read(self,span):
+        name,start,end=span
+        return next((entry for entry in self._read_spans.get(name,[]) if entry[0]<=start and end<=entry[1]),None)
+
+    def _small_missing_read(self,plan):
+        if not plan['single_span'] or self._covered_read(plan['spans'][0]):return False
+        name,start,end=plan['spans'][0]
+        path=Path(self.config.cwd)/name
+        if not path.is_file():return False
+        lines=path.read_bytes().splitlines(keepends=True)
+        raw=b''.join(lines[start-1:min(end,len(lines))])
+        # A recovery reread is allowed once. Copying identical output into a new
+        # archive pathname is not genuinely missing evidence on every iteration.
+        if name.startswith('temp/tool-output/') and self._visible_read_outputs.get(sha256(raw),0)>=2:return False
+        return bool(raw) and len(raw)<=self.output_budget.max_output_bytes
 
     def _control_rejection(self,command,text):
         self._control_errors+=1
@@ -334,18 +412,33 @@ class RepairEnvironment(StatefulTaskEnvironment):
                 'At most one final git diff is allowed. Submit this candidate now using '
                 'echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT alone. Do not rerun tests or reread source. '
                 'This passes work to independent evaluation/review; it does not certify correctness.')
-        span=self._read_span(command)
-        if span:
-            name,start,end=span
-            previous=[entry for entry in self._read_spans.get(name,[]) if entry[0]<=start and end<=entry[1]]
-            if previous:
+        plan=self._read_plan(command)
+        if plan:
+            previous=self._read_requests.get(plan['key'])
+            covered=plan['spans'] and all(self._covered_read(s) for s in plan['spans'])
+            if previous and previous['count']>=2:
+                return self._control_rejection(command,
+                    f'Repeated read-only request for unchanged inputs; full prior output already available at {previous["output_path"]}. '
+                    'A truncated output does NOT mean all requested source lines were delivered. '
+                    'Read ONE missing source/output slice small enough to fit the output budget (try 5-10 lines), '
+                    'or run the declared issue check/reproduction, edit implementation, or submit. '
+                    'Changing echo separators, quoting, or rereading old output does not advance the repair.')
+            if covered:
                 self._redundant_reads+=1
                 if self._redundant_reads>=2:
                     return self._control_rejection(command,
-                        f'This unchanged source range is already available at {previous[-1][2]}. '
+                        'This unchanged source range is already available in a COMPLETE prior observation. '
                         'Varying an overlapping line range adds no evidence. Use that observation; '
                         'make a concrete implementation change or reproduction, run a declared check, '
                         'or request genuinely unread lines for a specific missing fact. No patch is supplied by this contract.')
+            if facts['stagnation_feedback'] and not self._small_missing_read(plan):
+                return self._control_rejection(command,
+                    'Read-only exploration has stalled without implementation or new declared-test evidence. '
+                    'Run the declared issue check: '+self._declared_command_texts.get('issue','see task instructions')+'. '
+                    'Alternatively make a concrete reproduction/edit, submit, or read ONE genuinely missing '
+                    'source/output slice that fits the output budget (try 5-10 lines). '
+                    'Broad searches, compound reads and repeated old output are closed in this state; '
+                    'truncated middle lines are not marked as seen. No repair is generated by this contract.')
         return None
 
     def _configure_child_environment(self, env):
@@ -376,11 +469,24 @@ class RepairEnvironment(StatefulTaskEnvironment):
                     'extra':{'declared_check_receipts':receipts}},command=action['command'])
             else:
                 result = super().execute(action, cwd, timeout=min(timeout or self.config.timeout, remaining))
-            self._control_errors=0
-            span=self._read_span(action['command']) if self.task_state.progress else None
-            if span and result['returncode']==0:
-                name,start,end=span
-                self._read_spans.setdefault(name,[]).append((start,end,result.get('extra',{}).get('tool_output',{}).get('full_output_path')))
+            plan=self._read_plan(action['command']) if self.task_state.progress else None
+            if plan:
+                archive=result.get('extra',{}).get('tool_output',{})
+                previous=self._read_requests.get(plan['key'],{})
+                self._read_requests[plan['key']]={'count':previous.get('count',0)+1,
+                    'output_path':archive.get('full_output_path')}
+                # Requested lines are not delivered lines when HEAD/TAIL truncated.
+                # A complete empty read also provides no new recovery evidence.
+                if result['returncode']==0 and not archive.get('truncated',True) and result['output'].strip():
+                    digest=archive['sha256']
+                    self._visible_read_outputs[digest]=self._visible_read_outputs.get(digest,0)+1
+                    if not previous:self._control_errors=0
+                    for name,start,end in plan['spans']:
+                        self._read_spans.setdefault(name,[]).append((start,end,archive.get('full_output_path')))
+            else:
+                if (self.task_state._implementation_revision()!=self._control_revision or
+                        self.task_state.progress and self.task_state.progress.since_progress==0):
+                    self._control_errors=0
         except InterruptAgentFlow as error:
             if error.messages[-1].get("extra", {}).get("exit_status") == "Submitted":
                 self.completed_submission = {"action": dict(action), "message": error.messages[-1]}

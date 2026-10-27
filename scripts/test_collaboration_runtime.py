@@ -131,6 +131,72 @@ class RuntimeTests(unittest.TestCase):
         (work/'pkg/code.py').write_text('new implementation\n',encoding='utf-8')
         self.assertEqual(env.execute({'command':"sed -n '1,30p' pkg/code.py"})['returncode'],0)
 
+    def test_truncated_read_does_not_cover_missing_source_and_middle_remains_readable(self):
+        work,env,context=self.controlled_repair_environment()
+        text='\n'.join('# '+str(i)+' '+('x'*150) for i in range(100))+'\n'
+        (work/'pkg/code.py').write_text(text,encoding='utf-8')
+        wide="sed -n '1,90p' pkg/code.py"
+        output=env.execute({'command':wide})
+        self.assertTrue(output['extra']['tool_output']['truncated'])
+        self.assertNotIn('pkg/code.py',env._read_spans)
+        # These middle lines were absent from HEAD/TAIL; they must not be blocked.
+        narrow=env.execute({'command':"sed -n '40,44p' pkg/code.py"})
+        self.assertEqual(narrow['returncode'],0)
+        self.assertFalse(narrow['extra']['tool_output']['truncated'])
+        self.assertIn('# 41 ',narrow['output'])
+        self.assertEqual(env._read_spans['pkg/code.py'][0][:2],(40,44))
+        env.execute({'command':wide})
+        rejected=env.execute({'command':wide})
+        self.assertIn('truncated output does NOT mean',rejected['output'])
+        self.assertIsNone(env.completed_submission)
+
+    def test_compound_search_and_archive_loops_close_but_real_progress_remains_open(self):
+        work,env,context=self.controlled_repair_environment()
+        (work/'pkg/code.py').write_text('def value(): return 0\n'+'# unused\n'*50,encoding='utf-8')
+        compound='cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)" && sed -n 1,4p pkg/code.py && echo ---- && sed -n 30,34p pkg/code.py'
+        env.execute({'command':compound});env.execute({'command':compound})
+        rejected=env.execute({'command':compound.replace('----','different separator')})
+        self.assertIn('Repeated read-only request',rejected['output'])
+        search='grep -n "value\\|unused" pkg/code.py | head -60'
+        env.execute({'command':search});env.execute({'command':search})
+        env.execute({'command':search})
+        archive='temp/tool-output/0001.txt'
+        # Allowed immutable archive read can supply real, previously missing evidence.
+        self.assertEqual(env.execute({'command':f"sed -n '1,2p' {archive}"})['returncode'],0)
+        # Varying broad reads after actual stagnation cannot reopen exploration.
+        while not env.task_state.progress.facts()['stagnation_feedback']:
+            env.execute({'command':'python -B -c "print(0)"'})
+        blocked=env.execute({'command':'grep -n "value" pkg/code.py | head -10'})
+        self.assertIn('Read-only exploration has stalled',blocked['output'])
+        missing=env.execute({'command':"sed -n '15,16p' pkg/code.py"})
+        self.assertEqual(missing['returncode'],0)
+        recovery=env.execute({'command':'cat '+missing['extra']['tool_output']['full_output_path']})
+        self.assertEqual(recovery['returncode'],0)
+        recursive=env.execute({'command':'cat '+recovery['extra']['tool_output']['full_output_path']})
+        self.assertIn('Read-only exploration has stalled',recursive['output'])
+        # The failure is obtained from the actual registered runner, not a claim.
+        issue=env.execute({'command':'python -B -m unittest discover -s task_checks -v'})
+        self.assertNotEqual(issue['returncode'],0)
+        self.assertEqual(env.task_state.progress.facts()['current_validation']['issue'],'failed')
+        fix="from pathlib import Path; Path('pkg/code.py').write_text('def value(): return 1\\n')"
+        env.execute({'command':'python -B -c '+shlex.quote(fix)})
+        self.assertEqual(env.execute({'command':'cat pkg/code.py'})['returncode'],0)
+        self.assertIsNone(env.completed_submission)
+
+    def test_read_classifier_declines_writes_and_never_certifies_filtered_source_coverage(self):
+        work,env,context=self.controlled_repair_environment();env._sync_control()
+        for command in ["sed -i 's/0/1/' pkg/code.py",'cat pkg/code.py > pkg/new.py',
+                'sed -n 1,3p pkg/code.py && python modify.py','grep --pre=touch value pkg/code.py',
+                'cat ../outside.py','cat "$(pwd)/pkg/code.py"','cd /outside && cat pkg/code.py',
+                "sed -n '1,3p' pkg/code.py || true",'cat pkg/code.py &']:
+            with self.subTest(command=command):self.assertIsNone(env._read_plan(command))
+        self.assertEqual(env._read_plan('cat pkg/code.py | head -1')['spans'],[])
+        self.assertFalse(env._small_missing_read(env._read_plan("sed -n '1000,1002p' pkg/code.py")))
+        # A quote containing a semicolon is data, not a second shell command.
+        self.assertIsNotNone(env._read_plan('grep -n "x;y" pkg/code.py | head -3'))
+        (work/'temp/tool-output/unregistered.txt').write_text('not issued',encoding='utf-8')
+        self.assertIsNone(env._read_plan('cat temp/tool-output/unregistered.txt'))
+
     def test_repair_stop_reason_survives_empty_candidate_and_retains_partial_snapshot(self):
         # Reuse the actual runner ordering, with no model or subprocess. A valid
         # partial candidate is still sealed, but a stopped repair never advances.
