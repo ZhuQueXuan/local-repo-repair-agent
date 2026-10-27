@@ -1,0 +1,14 @@
+{
+  "checks/run_once.py": "9a4f7300a09ebc97a490c4a2262cb2f042078a16c5f13e9989a40d40986d3197",
+  "checks/plan.json": "637616ca6ceedb76fa4edb0d24f3ad75c5b005e9361092910105c81085b0a6eb",
+  "checks/plan-sha256.json": "7976cdc9d0fb74c581eeddb927b0c9259e9a5b561e1158b7e3086a01cc644ddc",
+  "checks/readiness.json": "8310737e6af59be98ea0efda4ecd0ac1e3438f35e49e89c8e2bde08c8d339e90",
+  "checks/consumed-authorization.json": "1822dbd3fffc696f3e2df564c5f3b8df5eb669a1c63b16f1d42c1e34bda1ea4a",
+  "checks/explicit-user-approval.json": "f984c40f6e23217361fd937cca2e06361e9c728d2c65734585f7f69da44437b4",
+  "checks/inspect_result.py": "1125a38206632c15df14423f21389d02043fed673327a7cf49ab98895cf75f2b",
+  "checks/inspection.json": "035c00ca4ed121173c3193f355c191683e8d49bbc977e125b9a2feaa60968a5e",
+  "checks/finish.py": "93f472e5ad96195a460ad06f3d497da9222e0151c797577c409c51431f825967",
+  "checks/protection-check.json": "73128b324208290ee644b64bd2e13141d741b5c8f8ddaecc9c43707a7bd5e22d",
+  "checks/seal.py": "018d1af2f744b48cc1c3bfdc81f94bf8975b01e9a1c3f1cadd6f26137711df59",
+  "Project/55_验收_集中核查后的完整三角色单次真实验收.md": "a35c1a88df0bca8a98cb63cd9f967187e118343a15846c7d10482a6d146c0bee"
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "stage": 55,
+  "base_commit": "27575524e63208e3d4d8d74483dfb5e083ed64eb",
+  "result": {
+    "task": "click-flag-default-map",
+    "run_id": "943260d8e65649a8a9dd06f75a3160fb",
+    "status": "finished",
+    "resolved": true,
+    "collaboration_result": "degraded",
+    "repair_result": "passed",
+    "review_verdict": "approve",
+    "evaluation_error": null,
+    "complete_three_role_acceptance": false
+  },
+  "audit": {
+    "complete_cost_estimate_cny": null,
+    "extra_selection_reruns": 0,
+    "formal_payloads_unchanged": 53,
+    "historical_artifacts_unchanged": 66,
+    "input_hashes_verified": 452,
+    "known_price_estimate_cny": "0.340586",
+    "new_attempts": 38,
+    "new_parent_runs": 1,
+    "old_requests_unchanged": 2408,
+    "scope": "One known Click development regression; prior failures remain. No fresh comparison or general stability claim.",
+    "shared_requests_after": 2446,
+    "unknown_placeholder_cny": "0.10"
+  },
+  "archive_members": {
+    "one-real-run.zip": 796,
+    "local-diagnostics.zip": 28,
+    "approval-and-checks.zip": 12
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "nested_objects": 974,
+    "matches": 0
+  },
+  "approval": "Explicit human approval for exactly this one new post-stage-54 run; previous grants not reused.",
+  "formal_database_and_whole_shared_ledger_not_uploaded": true,
+  "scope": "Exactly one known Click development case after the concentrated stage-54 audit. Complete acceptance requires successful consultation, repair, review and independent final patch checks. Previous results retained; not a fresh benchmark or general stability proof."
+}
