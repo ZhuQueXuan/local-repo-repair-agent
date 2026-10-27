@@ -1,0 +1,376 @@
+{
+  "scope": "One predeclared six-public-task/twelve-slot original-raw versus full-system comparison; no retries, no causal module attribution or broad benchmark claim.",
+  "batch_plan_sha256": "4e02755a936a049384513cfa9b41007132d25135a755bf9523f919def62e612e",
+  "arms": {
+    "baseline": {
+      "slots": 6,
+      "resolved": 3,
+      "statuses": {
+        "finished": 6
+      },
+      "approve_and_resolved": 0,
+      "attempts": 50,
+      "known_price_estimate_cny": "0.238066",
+      "unknown_placeholder_cny": "0.60",
+      "total_elapsed_seconds": 135.188
+    },
+    "full": {
+      "slots": 6,
+      "resolved": 1,
+      "statuses": {
+        "failed": 6
+      },
+      "approve_and_resolved": 0,
+      "attempts": 171,
+      "known_price_estimate_cny": "1.492656",
+      "unknown_placeholder_cny": "0.60",
+      "total_elapsed_seconds": 331.298
+    }
+  },
+  "pairs": {
+    "boltons-addlist-iterator": {
+      "baseline": false,
+      "full": false
+    },
+    "boltons-query-encoding": {
+      "baseline": true,
+      "full": false
+    },
+    "boltons-unicode-lines": {
+      "baseline": true,
+      "full": false
+    },
+    "click-abort-cause": {
+      "baseline": true,
+      "full": false
+    },
+    "click-flag-default-map": {
+      "baseline": false,
+      "full": true
+    },
+    "requests-utf8-length": {
+      "baseline": false,
+      "full": false
+    }
+  },
+  "full_only_resolved": [
+    "click-flag-default-map"
+  ],
+  "baseline_only_resolved": [
+    "boltons-query-encoding",
+    "boltons-unicode-lines",
+    "click-abort-cause"
+  ],
+  "all_twelve_retained": true,
+  "formal_rows_unchanged": 53,
+  "old_shared_requests_unchanged": 2035,
+  "new_attempts": 221,
+  "shared_requests_after": 2256,
+  "fees_by_run": {
+    "b081fd9788db4e698a16a8aac8c32343": {
+      "attempts": 7,
+      "known_price_estimate_cny": "0.037670",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "85420e6526564145a40543f206990e75": {
+      "attempts": 16,
+      "known_price_estimate_cny": "0.157538",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "0b21a156b8964d47b05c121cf6261d72": {
+      "attempts": 11,
+      "known_price_estimate_cny": "0.109288",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "e73704b8fe394d8984d6d231711d2f86": {
+      "attempts": 12,
+      "known_price_estimate_cny": "0.060568",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "68c027f2f1fa43718df39e941b49eea4": {
+      "attempts": 6,
+      "known_price_estimate_cny": "0.020614",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "b5e1dfb8c03b475f845df9d96c459dec": {
+      "attempts": 4,
+      "known_price_estimate_cny": "0.030954",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "f4e9f95486c949deba624bbc61a4094b": {
+      "attempts": 14,
+      "known_price_estimate_cny": "0.139130",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "004e2864090e4cbcabdeb56b43515612": {
+      "attempts": 10,
+      "known_price_estimate_cny": "0.045672",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "7d121855d485459e817758ae0134e9de": {
+      "attempts": 4,
+      "known_price_estimate_cny": "0.009540",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "38cee7b06f8d44d2b68fb17798954816": {
+      "attempts": 111,
+      "known_price_estimate_cny": "0.906666",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "fe6861ec94be44faa2a3c3286adc85b2": {
+      "attempts": 15,
+      "known_price_estimate_cny": "0.149080",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    },
+    "2d4b2feeed2f4ff79fae2967710f5342": {
+      "attempts": 11,
+      "known_price_estimate_cny": "0.064002",
+      "unknown_placeholder_cny": "0.10",
+      "unknown_attempts": 1,
+      "complete_cost_estimate_cny": null
+    }
+  },
+  "rows": [
+    {
+      "task": "boltons-addlist-iterator",
+      "variant": "baseline",
+      "run_id": "b081fd9788db4e698a16a8aac8c32343",
+      "status": "finished",
+      "agent_exit": "LimitsExceeded",
+      "collaboration_result": null,
+      "repair_result": "failed",
+      "review_verdict": null,
+      "resolved": false,
+      "evaluation_error": "ValueError: Final patch cannot replay",
+      "candidate_selection": "exported_final_patch"
+    },
+    {
+      "task": "boltons-addlist-iterator",
+      "variant": "full",
+      "run_id": "85420e6526564145a40543f206990e75",
+      "status": "failed",
+      "agent_exit": null,
+      "collaboration_result": "not_completed",
+      "repair_result": "unknown",
+      "review_verdict": "unavailable",
+      "resolved": false,
+      "evaluation_error": "No exported or legally sealed final patch; retained in denominator",
+      "candidate_selection": "no_sealed_candidate"
+    },
+    {
+      "task": "click-abort-cause",
+      "variant": "full",
+      "run_id": "0b21a156b8964d47b05c121cf6261d72",
+      "status": "failed",
+      "agent_exit": null,
+      "collaboration_result": "not_completed",
+      "repair_result": "unknown",
+      "review_verdict": "unavailable",
+      "resolved": false,
+      "evaluation_error": "No exported or legally sealed final patch; retained in denominator",
+      "candidate_selection": "no_sealed_candidate"
+    },
+    {
+      "task": "click-abort-cause",
+      "variant": "baseline",
+      "run_id": "e73704b8fe394d8984d6d231711d2f86",
+      "status": "finished",
+      "agent_exit": "Submitted",
+      "collaboration_result": null,
+      "repair_result": "passed",
+      "review_verdict": null,
+      "resolved": true,
+      "evaluation_error": null,
+      "candidate_selection": "exported_final_patch"
+    },
+    {
+      "task": "requests-utf8-length",
+      "variant": "baseline",
+      "run_id": "68c027f2f1fa43718df39e941b49eea4",
+      "status": "finished",
+      "agent_exit": "LimitsExceeded",
+      "collaboration_result": null,
+      "repair_result": "failed",
+      "review_verdict": null,
+      "resolved": false,
+      "evaluation_error": "ValueError: Final patch cannot replay",
+      "candidate_selection": "exported_final_patch"
+    },
+    {
+      "task": "requests-utf8-length",
+      "variant": "full",
+      "run_id": "b5e1dfb8c03b475f845df9d96c459dec",
+      "status": "failed",
+      "agent_exit": null,
+      "collaboration_result": "not_completed",
+      "repair_result": "unknown",
+      "review_verdict": "unavailable",
+      "resolved": false,
+      "evaluation_error": "No exported or legally sealed final patch; retained in denominator",
+      "candidate_selection": "no_sealed_candidate"
+    },
+    {
+      "task": "boltons-query-encoding",
+      "variant": "full",
+      "run_id": "f4e9f95486c949deba624bbc61a4094b",
+      "status": "failed",
+      "agent_exit": null,
+      "collaboration_result": "not_completed",
+      "repair_result": "unknown",
+      "review_verdict": "unavailable",
+      "resolved": false,
+      "evaluation_error": "No exported or legally sealed final patch; retained in denominator",
+      "candidate_selection": "no_sealed_candidate"
+    },
+    {
+      "task": "boltons-query-encoding",
+      "variant": "baseline",
+      "run_id": "004e2864090e4cbcabdeb56b43515612",
+      "status": "finished",
+      "agent_exit": "Submitted",
+      "collaboration_result": null,
+      "repair_result": "passed",
+      "review_verdict": null,
+      "resolved": true,
+      "evaluation_error": null,
+      "candidate_selection": "exported_final_patch"
+    },
+    {
+      "task": "click-flag-default-map",
+      "variant": "baseline",
+      "run_id": "7d121855d485459e817758ae0134e9de",
+      "status": "finished",
+      "agent_exit": "LimitsExceeded",
+      "collaboration_result": null,
+      "repair_result": "failed",
+      "review_verdict": null,
+      "resolved": false,
+      "evaluation_error": "ValueError: Final patch cannot replay",
+      "candidate_selection": "exported_final_patch"
+    },
+    {
+      "task": "click-flag-default-map",
+      "variant": "full",
+      "run_id": "38cee7b06f8d44d2b68fb17798954816",
+      "status": "failed",
+      "agent_exit": null,
+      "collaboration_result": "degraded",
+      "repair_result": "passed",
+      "review_verdict": "unavailable",
+      "resolved": true,
+      "evaluation_error": null,
+      "candidate_selection": "exported_final_patch"
+    },
+    {
+      "task": "boltons-unicode-lines",
+      "variant": "full",
+      "run_id": "fe6861ec94be44faa2a3c3286adc85b2",
+      "status": "failed",
+      "agent_exit": null,
+      "collaboration_result": "not_completed",
+      "repair_result": "unknown",
+      "review_verdict": "unavailable",
+      "resolved": false,
+      "evaluation_error": "No exported or legally sealed final patch; retained in denominator",
+      "candidate_selection": "no_sealed_candidate"
+    },
+    {
+      "task": "boltons-unicode-lines",
+      "variant": "baseline",
+      "run_id": "2d4b2feeed2f4ff79fae2967710f5342",
+      "status": "finished",
+      "agent_exit": "LimitsExceeded",
+      "collaboration_result": null,
+      "repair_result": "passed",
+      "review_verdict": null,
+      "resolved": true,
+      "evaluation_error": null,
+      "candidate_selection": "exported_final_patch"
+    }
+  ],
+  "freeze_verified_after": 923,
+  "fresh_machine": "excluded_by_user_20261027",
+  "archive_members": {
+    "all-twelve-runs.zip": 3041,
+    "scores-and-audit.zip": 33
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "nested_members_scanned": 4510,
+    "matches": 0
+  },
+  "document_failure_replays": {
+    "scope": "Offline exact stored actions, original read-only broker/loop; no source modification or model retry.",
+    "results": [
+      {
+        "run_id": "85420e6526564145a40543f206990e75",
+        "task": "boltons-addlist-iterator",
+        "recorded_assistant_actions": 15,
+        "replayed_requests": 15,
+        "reason": "ProtocolError: document_repeated_evidence_limit",
+        "external_model_calls": 0
+      },
+      {
+        "run_id": "0b21a156b8964d47b05c121cf6261d72",
+        "task": "click-abort-cause",
+        "recorded_assistant_actions": 10,
+        "replayed_requests": 10,
+        "reason": "ProtocolError: document_repeated_evidence_limit",
+        "external_model_calls": 0
+      },
+      {
+        "run_id": "b5e1dfb8c03b475f845df9d96c459dec",
+        "task": "requests-utf8-length",
+        "recorded_assistant_actions": 3,
+        "replayed_requests": 3,
+        "reason": "ProtocolError: document_repeated_format_errors",
+        "external_model_calls": 0
+      },
+      {
+        "run_id": "f4e9f95486c949deba624bbc61a4094b",
+        "task": "boltons-query-encoding",
+        "recorded_assistant_actions": 13,
+        "replayed_requests": 13,
+        "reason": "ProtocolError: document_repeated_evidence_limit",
+        "external_model_calls": 0
+      },
+      {
+        "run_id": "fe6861ec94be44faa2a3c3286adc85b2",
+        "task": "boltons-unicode-lines",
+        "recorded_assistant_actions": 14,
+        "replayed_requests": 14,
+        "reason": "ProtocolError: document_repeated_evidence_limit",
+        "external_model_calls": 0
+      }
+    ]
+  },
+  "provider_destinations": [
+    "https://myai.bupt.edu.cn/llm-gw/v1",
+    "https://api.deepseek.com"
+  ],
+  "extra_paid_retries": 0,
+  "formal_database_and_shared_ledger_full_not_uploaded": true,
+  "test_scope": "23 existing service checks + six baseline/reference qualifications + synthetic two-arm/gate checks; no new full default/adapter repeat."
+}

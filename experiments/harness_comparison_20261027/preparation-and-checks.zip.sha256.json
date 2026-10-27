@@ -1,0 +1,12 @@
+{
+  "batch/plan.json": "4e02755a936a049384513cfa9b41007132d25135a755bf9523f919def62e612e",
+  "batch/plan-sha256.json": "11ec543f47dc7c740c75662836c4d45e4d1f187f7a307d7793d7a4946ef2e72a",
+  "batch/qualification.json": "f1553829f285fd3ed85481d190cbb9d2198c811ba1f34832ed6179cff836627a",
+  "checks/comparison_check.py": "27706a8ead703b3b511ba85f65f96df73244c768e910c7e958140b3bc8297ffe",
+  "checks/comparison-check.json": "9d7dde3fd5c9f39b51aaf76adcc701bfa155884578713562accb1e690aed57e8",
+  "checks/comparison_wires.py": "fedcef2032174493546bba8b1f45af95dd411f2f9b5c55e2ca6d47e5bd4b3483",
+  "checks/comparison-wires.json": "491146c369796af4209134f9aad38d45a08576f804f7972338b0d2b26dc5181c",
+  "checks/comparison-wire-final.log": "4d41941e9037abd0f2c2fb783e271a03d3bf1ee6593a7e396000bfd3374c1891",
+  "checks/comparison-service-compatibility.log": "69ffe49abb07890656dbf300b76e37fa9625f2f062c0f31b04aa88b14add5521",
+  "checks/comparison-service-final.log": "443a8d4bb8f41bbcf3a6f3f7cf5c2ef5b21f14e6edb4aa89c11c79868468300a"
+}

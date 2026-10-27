@@ -11,6 +11,7 @@ import shutil
 import subprocess
 import sys
 import time
+import zipfile
 
 sys.dont_write_bytecode = True
 from task_service_store import ROOT, DEFAULT_HOME, RunStore, now, worker_lock
@@ -157,12 +158,23 @@ def freeze_inputs(task, output):
     paths.update(source / "repo" / name for name in manifest["source_files_sha256"])
     paths.update(source / name for name in (*manifest["task_files_sha256"], "manifest.json"))
     listing = {}
+    packed_public = []
     for path in sorted(paths):
         relative = path.relative_to(ROOT).as_posix()
         listing[relative] = digest(path)
+        if path.is_relative_to(ROOT / "evaluation/multi_agent_20261025/public"):
+            # Public packet paths are deeper than legacy tasks and can exceed
+            # Windows MAX_PATH under a run. Preserve exact bytes and original
+            # member paths in an archive, without enabling OS-wide settings.
+            packed_public.append((path, relative))
+            continue
         destination = output / "frozen_inputs" / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(path, destination)
+    if packed_public:
+        with zipfile.ZipFile(output / "frozen_public_inputs.zip", "x", compression=zipfile.ZIP_DEFLATED) as archive:
+            for path, relative in packed_public:
+                archive.write(path, relative)
     (output / "inputs.json").write_text(json.dumps({"version": 1, "files_sha256": listing}, indent=2), encoding="utf-8")
     return listing
 
@@ -251,7 +263,8 @@ def run_one(store, run_id):
                 env = ServiceStatefulEnvironment(work, bash, source_files=list(manifest["source_files_sha256"]), state_policy=configuration["task_state"], python_import_root=import_root, **configuration["tool_output_budget"], **hooks)
             else:
                 env = ServiceRawEnvironment(work, bash, python_import_root=import_root, **hooks)
-            retrieval = RepositoryRetrieval(work, manifest["source_files_sha256"], source_prefix=manifest["source_prefix"], query=(ROOT / "tasks" / record["task"] / "issue.md").read_text(encoding="utf-8"), **configuration["repository_retrieval"]) if configuration.get("repository_retrieval") else None
+            task_source, _ = load_task(record["task"])
+            retrieval = RepositoryRetrieval(work, manifest["source_files_sha256"], source_prefix=manifest["source_prefix"], query=(task_source / "issue.md").read_text(encoding="utf-8"), **configuration["repository_retrieval"]) if configuration.get("repository_retrieval") else None
             from dotenv import dotenv_values
             settings = dotenv_values(ROOT / ".env", interpolate=False)
             options = {"ledger_path": output / "ledger.json", "error_path": output / "request_error.json", "repository_retrieval": retrieval, "budget": RunBudget(store, run_id), **hooks}
@@ -271,7 +284,7 @@ def run_one(store, run_id):
                                 step_limit=0, cost_limit=model.budget.agent_cost_limit, wall_time_limit_seconds=300, output_path=output / "trajectory.json")
             stage("agent")
             agent_begin = time.monotonic()
-            status = agent.run((ROOT / "tasks" / record["task"] / "issue.md").read_text(encoding="utf-8"))
+            status = agent.run((task_source / "issue.md").read_text(encoding="utf-8"))
             store.update(run_id, event="agent_ended", agent_exit=status.get("exit_status"), elapsed_agent_seconds=round(time.monotonic() - agent_begin, 3))
             artifacts["trajectory.json"] = str(output / "trajectory.json")
         changed = collect_patch(record["task"], work, output, manifest)

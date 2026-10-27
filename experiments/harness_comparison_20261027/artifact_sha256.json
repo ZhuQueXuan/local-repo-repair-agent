@@ -1,0 +1,9 @@
+{
+  "inputs-and-source.zip": "205abdb695439f0c636a8852917821090ea9f5896595ef57f08eba12cf45c59c",
+  "inputs-and-source.zip.sha256.json": "d8312d7276fb83a8f153978694cfdcfb0f2ce7ac9f11be5335768ce48cf87a74",
+  "preparation-and-checks.zip": "d40ef8fcb138b233612bae0401254887abf03f637a5554e39a1f28c045b74a14",
+  "preparation-and-checks.zip.sha256.json": "df713b7d5a89ebd012b049e0f72f34e8630c76e42ef9bb302a7c6150251444d1",
+  "scripted-wires.zip": "cafc552d0a4b5f51ddad2770456e5f6cdd59d214139eda7f8e7553ecc7110610",
+  "scripted-wires.zip.sha256.json": "40ac1185c4b2c12e848a35f5d8b73d038419ae478c85ec48a2f3e08a7388404d",
+  "verification.json": "735928c97dcf35ec925df8349f0bd97fa07dcddfa3ebc1c11d860ed7a70e29a3"
+}

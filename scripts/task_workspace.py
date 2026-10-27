@@ -26,6 +26,9 @@ def load_task(name: str) -> tuple[Path, dict]:
     task = ROOT / "tasks" / name
     if task.parent.resolve() != (ROOT / "tasks").resolve():
         raise ValueError("Expected one task directory name.")
+    if not (task / "manifest.json").exists():
+        from comparison_inputs import public_task
+        task, _ = public_task(name)
     manifest = json.loads((task / "manifest.json").read_text(encoding="utf-8"))
     for relative, expected in manifest["source_files_sha256"].items():
         if digest(task / "repo" / relative) != expected:
@@ -38,7 +41,8 @@ def load_task(name: str) -> tuple[Path, dict]:
 
 def prepare_task(name: str) -> tuple[Path, dict]:
     task, manifest = load_task(name)
-    work = task / "temp" / ("run_" + datetime.now().strftime("%Y%m%d_%H%M%S_%f")) / "repo"
+    temporary = task / "temp" if task.is_relative_to(ROOT / "tasks") else ROOT / "temp/comparison_tasks" / name
+    work = temporary / ("run_" + datetime.now().strftime("%Y%m%d_%H%M%S_%f")) / "repo"
     work.mkdir(parents=True)
     for relative in manifest["source_files_sha256"]:
         destination = work / relative

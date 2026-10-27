@@ -1,0 +1,175 @@
+{
+  "scope": "One explicitly approved current Harness integration on known public issue, not new-task effectiveness.",
+  "run_id": "31f5e27b4d3841c7a8fb3ea47c6bf570",
+  "status": "finished",
+  "repair_result": "passed",
+  "review_verdict": "approve",
+  "collaboration_result": "completed",
+  "roles": [
+    {
+      "phase": "consulting",
+      "status": "succeeded",
+      "elapsed_seconds": 14.188
+    },
+    {
+      "phase": "repairing",
+      "status": "succeeded",
+      "elapsed_seconds": 13.579
+    },
+    {
+      "phase": "reviewing",
+      "status": "succeeded",
+      "elapsed_seconds": 16.859
+    },
+    {
+      "phase": "revising",
+      "status": "skipped",
+      "elapsed_seconds": null
+    },
+    {
+      "phase": "final_review",
+      "status": "skipped",
+      "elapsed_seconds": null
+    }
+  ],
+  "total_elapsed_seconds": 49.922,
+  "issue_before": 5,
+  "issue_after": 10,
+  "targeted_passed": 4,
+  "extended_suite_passed": 659,
+  "extended_suite_total": 660,
+  "retained_baseline_failure": "test_more.TimeLimitedTests.test_zero_limit",
+  "clean_patch_replay": true,
+  "new_regressions": [],
+  "usage": {
+    "attempts": 19,
+    "known_prompt_tokens": 94537,
+    "known_completion_tokens": 4676,
+    "has_unknown_usage": true,
+    "known_price_estimate_cny": 0.226482,
+    "unknown_cost_attempts": 1,
+    "unknown_placeholder_cny": 0.1,
+    "complete_cost_estimate_cny": null,
+    "logical_requests": 18,
+    "tickets": [
+      "139ed4b604d94af0bfc6da28b816c336",
+      "1f314fc738aa437bbf14405436422d0f",
+      "43d3ec157cf44a59942617615bcc11e7",
+      "515c0aa6b46f4e3fb385f98fbb5384a5",
+      "686a44104fa44e5bb599d4c768b4d331",
+      "70fda97c70fb43369e19f005fdab2799",
+      "772e741c73504c319eaf042f9fbda6b6",
+      "7ffeacc2ed704485af9563775833aa4d",
+      "842caf1c4769444fb0e166a78ff6b280",
+      "8845c01a50e94432a3b28b0ec5b55a22",
+      "8e2c44db9baa4e4ba00108778d22c033",
+      "90f52e8d293d483f8ddaed71cbee84b8",
+      "968f60a776454660b918e3b526f2deea",
+      "a86d11bb7b8c4f7a92bb19a3aefeb794",
+      "aa4438a062884eb8b4ee15711af98690",
+      "b4fb6e07fde3437983a678781cf22487",
+      "b82eb6e56d0d4ea9ab941bb9e2e0f41b",
+      "c2e4c3cd2ea74ceb95dee9a08ca844a6",
+      "f19399ebe9ab480ead822287efd07e49"
+    ],
+    "by_role": {
+      "64f28cbf307640eb89942882de49944c": {
+        "attempts": 8,
+        "known_prompt_tokens": 30687,
+        "known_completion_tokens": 919,
+        "has_unknown_usage": false,
+        "known_price_estimate_cny": 0.068726,
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0,
+        "complete_cost_estimate_cny": 0.068726,
+        "logical_requests": 8,
+        "tickets": [
+          "1f314fc738aa437bbf14405436422d0f",
+          "43d3ec157cf44a59942617615bcc11e7",
+          "515c0aa6b46f4e3fb385f98fbb5384a5",
+          "686a44104fa44e5bb599d4c768b4d331",
+          "7ffeacc2ed704485af9563775833aa4d",
+          "8845c01a50e94432a3b28b0ec5b55a22",
+          "968f60a776454660b918e3b526f2deea",
+          "f19399ebe9ab480ead822287efd07e49"
+        ]
+      },
+      "b4855e679e8f424995c5188d172c0431": {
+        "attempts": 5,
+        "known_prompt_tokens": 18427,
+        "known_completion_tokens": 1962,
+        "has_unknown_usage": true,
+        "known_price_estimate_cny": 0.05255,
+        "unknown_cost_attempts": 1,
+        "unknown_placeholder_cny": 0.1,
+        "complete_cost_estimate_cny": null,
+        "logical_requests": 4,
+        "tickets": [
+          "139ed4b604d94af0bfc6da28b816c336",
+          "70fda97c70fb43369e19f005fdab2799",
+          "842caf1c4769444fb0e166a78ff6b280",
+          "b4fb6e07fde3437983a678781cf22487",
+          "b82eb6e56d0d4ea9ab941bb9e2e0f41b"
+        ]
+      },
+      "e3eb47074f034840926344eaaa0f95b6": {
+        "attempts": 6,
+        "known_prompt_tokens": 45423,
+        "known_completion_tokens": 1795,
+        "has_unknown_usage": false,
+        "known_price_estimate_cny": 0.105206,
+        "unknown_cost_attempts": 0,
+        "unknown_placeholder_cny": 0.0,
+        "complete_cost_estimate_cny": 0.105206,
+        "logical_requests": 6,
+        "tickets": [
+          "772e741c73504c319eaf042f9fbda6b6",
+          "8e2c44db9baa4e4ba00108778d22c033",
+          "90f52e8d293d483f8ddaed71cbee84b8",
+          "a86d11bb7b8c4f7a92bb19a3aefeb794",
+          "aa4438a062884eb8b4ee15711af98690",
+          "c2e4c3cd2ea74ceb95dee9a08ca844a6"
+        ]
+      }
+    },
+    "cost_scope": "Known-price estimates plus unknown placeholders; not confirmed charges or platform balance.",
+    "available": true,
+    "providers": {
+      "bupt_gateway": {
+        "attempts": 1,
+        "settled": 0,
+        "unknown": 1
+      },
+      "deepseek_official": {
+        "attempts": 18,
+        "settled": 18,
+        "unknown": 0
+      }
+    },
+    "synthetic": false
+  },
+  "formal_runs_before": 52,
+  "formal_runs_after": 53,
+  "old_payloads_unchanged": 52,
+  "shared_requests_before": 2016,
+  "shared_requests_after": 2035,
+  "old_requests_unchanged": 2016,
+  "new_attempts": 19,
+  "optional_skills_and_mcp_registered": true,
+  "optional_skill_or_mcp_calls_in_this_live_run": 0,
+  "note": "Enabled registry does not prove model chose new tools. No real skill/MCP usage claim for this task.",
+  "browser": "Work settings disabled at this turn; actual live browser not exercised, no request cancellation or pause triggered.",
+  "fresh_machine": "excluded_by_user_20261027",
+  "all_229_frozen_inputs_match": true,
+  "no_selection_reruns": true,
+  "archive_members": {
+    "source-and-plan.zip": 240,
+    "unique-live-run.zip": 242
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "files_scanned": 482,
+    "matches": 0
+  },
+  "formal_database_and_full_shared_ledger_not_uploaded": true
+}

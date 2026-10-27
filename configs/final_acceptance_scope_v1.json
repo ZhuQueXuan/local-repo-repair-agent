@@ -27,10 +27,10 @@
   },
   "acceptance_layers": [
     {"id": "program", "question": "Does the program honor contracts and preserve results?", "status": "engineering_checked_with_six_known_adapter_differences", "criteria": ["current default regression", "adapter differences compared by name", "permission and identity rejection", "one-revision limit", "cancellation and interruption retain evidence", "formal history and shared accounting remain cumulative"]},
-    {"id": "real_integration", "question": "Does the current original-provider three-role workflow run end to end?", "status": "not_launched", "criteria": ["new final frozen identity after explicit scope confirmation", "document consultation may report unknowns", "repair checks and clean replay", "legal final approve for success", "failed/degraded results retained without automatic rerun"]},
+    {"id": "real_integration", "question": "Does the current original-provider three-role workflow run end to end?", "status": "one_known_public_issue_completed_20261027_see_stage44", "criteria": ["new final frozen identity after explicit scope confirmation", "document consultation may report unknowns", "repair checks and clean replay", "legal final approve for success", "failed/degraded results retained without automatic rerun"]},
     {"id": "browser_use", "question": "Can a person use the current page correctly?", "status": "isolated_browser_actions_verified_worker_and_live_model_pending", "criteria": ["mode switches clear unsupported options", "creation and saved profile", "task-card edit and conflict", "role-boundary pause and unique continuation", "in-flight cancellation as a separate outcome", "history and artifacts do not mix identities"]},
-    {"id": "effect", "question": "Does the complete workflow improve results over the original baseline?", "status": "not_started_requires_comparison_gate", "criteria": ["new comparable task freeze", "visible versus retained checks separated", "terminal retained scoring and batch gate", "all declared failures and costs included", "prompt/time/opportunity differences disclosed", "no broad or module-specific improvement claim from one diagnostic"]},
-    {"id": "fresh_machine", "question": "Can the repository be installed and used on a clean machine?", "status": "not_verified", "criteria": ["recursive submodules", "fresh venv and dependency sources", "local private settings only", "excluded archive limits disclosed", "no automatic old-run restoration"]}
+    {"id": "effect", "question": "Does the complete workflow improve results over the original baseline?", "status": "twelve_slots_executed_baseline3_fullpatch1_fullworkflow0_see_stage46", "criteria": ["new comparable task freeze", "visible versus retained checks separated", "terminal retained scoring and batch gate", "all declared failures and costs included", "prompt/time/opportunity differences disclosed", "no broad or module-specific improvement claim from one diagnostic"]},
+    {"id": "fresh_machine", "question": "Can the repository be installed and used on a clean machine?", "status": "excluded_by_user_20261027", "required": false, "criteria": ["recursive submodules", "fresh venv and dependency sources", "local private settings only", "excluded archive limits disclosed", "no automatic old-run restoration"]}
   ],
   "feature_review_items": [
     {"id": "defaults", "evidence_entry": "README.md", "required": "offline default, optional switches off, no account probe or task on page load"},
@@ -40,8 +40,9 @@
     {"id": "runtime", "evidence_entry": "Project/40_过程_执行后端接口与Python_Node环境声明.md", "required": "fixed explicit probes, original shell guards, environment-bound continuation, Node not generic JS support"},
     {"id": "model", "evidence_entry": "Project/41_过程_模型能力声明与角色绑定及Messages离线适配.md", "required": "same original routing/accounting, explicit role requirements, codec candidate cannot dispatch"}
   ],
-  "comparison_prerequisites_not_yet_claimed_complete": ["final terminal retained-check scoring integration", "new batch launch gate", "new baseline-versus-full-workflow input freeze"],
+  "comparison_prerequisites_not_yet_claimed_complete": [],
   "historical_freezes": "31 slots and old v7 remain historical and non-launchable; never overwrite their digests to bypass rejection",
   "engineering_evidence": "Project/43_测试_当前版本集中工程检查与收尾.md",
-  "next_step": "Current engineering checks completed; next original-route real integration needs its own concrete scope and new freeze. Comparison still requires scoring/batch gate implementation. No dispatch authorization."
+  "user_scope_20261027": "Only current original-route real-model acceptance and same-task effectiveness comparison; fresh-machine installation explicitly excluded. This scope document still cannot dispatch.",
+  "next_step": "Real integration and approved twelve-slot same-task comparison are executed. Negative comparison results require future scoped offline reliability improvements, not more automatic paid reruns. Fresh-machine testing excluded. Scope-only file cannot dispatch."
 }

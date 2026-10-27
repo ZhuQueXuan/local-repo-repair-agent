@@ -25,6 +25,8 @@ def catalog():
         data = json.loads(path.read_text(encoding="utf-8"))
         if "task_files_sha256" in data and data.get("language", "python") == "python":
             rows.append({"id": path.parent.name, "task_id": data["task_id"], "scope": data["scope"], "language": "python"})
+    from comparison_inputs import catalog_rows
+    rows.extend(catalog_rows())
     return rows
 
 

@@ -1,0 +1,29 @@
+{
+  "real_integration_passed": "31f5e27b4d3841c7a8fb3ea47c6bf570",
+  "batch_all_twelve_scored": true,
+  "baseline_patch_resolved": 3,
+  "full_patch_resolved": 1,
+  "full_collaboration_completed": 0,
+  "formal_payloads_unchanged_after_integration": 53,
+  "old_fees_unchanged": 2035,
+  "final_shared_requests": 2256,
+  "other_old_protected_files_unchanged": 5372,
+  "expected_changed_files": [
+    "data/deepseek_budget.json",
+    "data/task_service/runs.sqlite3"
+  ],
+  "post_batch_documentary_change": {
+    "runtime_sources_still_match_executed_batch": true,
+    "only_post_batch_frozen_change": [
+      "configs/final_acceptance_scope_v1.json"
+    ],
+    "reason": "scope-only status update after scored/verified/sealed result; archived frozen bytes retained, no relaunch"
+  },
+  "fresh_machine": "excluded_by_user",
+  "new_paid_reruns": 0,
+  "archive_entries": [
+    "experiments/real_harness_20261027/artifact_sha256.json",
+    "experiments/harness_comparison_20261027/artifact_sha256.json",
+    "experiments/harness_comparison_20261027/results/artifact_sha256.json"
+  ]
+}

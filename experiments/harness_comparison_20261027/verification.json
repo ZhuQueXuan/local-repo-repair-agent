@@ -1,0 +1,68 @@
+{
+  "scope": "New original-raw versus full-system 12-slot comparison preparation; no batch models launched.",
+  "plan_sha256": "4e02755a936a049384513cfa9b41007132d25135a755bf9523f919def62e612e",
+  "input_files": 923,
+  "slots": 12,
+  "tasks": 6,
+  "public_methods": 12,
+  "withheld_methods": 19,
+  "qualification_all_six_baseline_reference_passed": true,
+  "service_compatibility_tests": 23,
+  "gate_check": {
+    "scope": "Synthetic terminal records and one trusted reference patch; real independent clean replay/scoring, no Agent comparison result.",
+    "plan_verified": 12,
+    "public_check_methods": 12,
+    "withheld_check_methods": 19,
+    "gates": [
+      "public task allowlist",
+      "copied packet rejected",
+      "exact approval required before records",
+      "runtime mismatch rejected",
+      "retained scorer rejects active batch",
+      "clean reference patch public/withheld/upstream passes",
+      "11 no-candidate failures retained, denominator12"
+    ],
+    "fixture_home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\comparison_batches\\scoring-fixture-063c6ce386aa496db026b6a94018a102",
+    "copied_packet_rejection": "D:\\myDocu\\project_postg\\shixi_project\\temp\\comparison_batches\\copy-rejection-3dc6db1ffd624f099a3023c5a48f3879",
+    "external_model_calls": 0,
+    "batch_dispatched": false
+  },
+  "wire_check": {
+    "scope": "Raw existing worker and full existing scripted-demo core on a newly supported fixed comparison task; trusted reference edits, synthetic model replies/usage. Not a real comparison.",
+    "task": "boltons-addlist-iterator",
+    "raw_store": "D:\\myDocu\\project_postg\\shixi_project\\temp\\cw-035d5305de93466598b23a0c9c29852d",
+    "raw_run": "a03611c0f2c147a4b02f99f15faf6f71",
+    "raw_result": "passed",
+    "raw_calls": 1,
+    "full_store": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\0ba36d7128e7459b9e85e399ac3102b7",
+    "full_run": "fb7b28c21e8945e5b70234de84531ed2",
+    "full_result": "passed",
+    "full_verdict": "approve",
+    "full_counts": {
+      "consulting": 4,
+      "repairing": 2,
+      "reviewing": 3
+    },
+    "external_model_calls": 0
+  },
+  "archive_members": {
+    "inputs-and-source.zip": 931,
+    "preparation-and-checks.zip": 10,
+    "scripted-wires.zip": 892
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "files_scanned_including_nested": 2059,
+    "matches": 0
+  },
+  "formal_runs": 53,
+  "formal_old_payloads_unchanged": 52,
+  "shared_requests": 2035,
+  "shared_ledger_since_unique_live_unchanged": true,
+  "batch_dispatched": false,
+  "external_model_calls_this_preparation": 0,
+  "fresh_machine": "excluded_by_user",
+  "new_full_regression": false,
+  "preceding_real_integration": "experiments/real_harness_20261027/verification.json",
+  "authorization": "Pending exact user approval of this plan and twelve runs; prior approval was one real integration only."
+}
