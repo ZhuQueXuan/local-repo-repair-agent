@@ -73,9 +73,17 @@ class CollaborationCoordinator:
                     role_begin = time.monotonic()
                     context = RoleContext(self.store, role, min(deadline, role_begin + role_limit))
                     context.check()
-                    result = self.runner(context)
-                    self.checkpoint("after_role_output", role)
-                    context.check()
+                    try:
+                        result = self.runner(context)
+                        self.checkpoint("after_role_output", role)
+                        context.check()
+                    except Exception as error:
+                        recover = getattr(self.runner, "document_unavailable", None)
+                        if recover is not None and recover(context, error, claimed_revision,
+                                elapsed_seconds=round(time.monotonic() - role_begin, 6)):
+                            self.checkpoint("after_role_completion", role)
+                            continue
+                        raise
                     self.store.complete_role(role["id"], result, claimed_revision, elapsed_seconds=round(time.monotonic() - role_begin, 6))
                     self.checkpoint("after_role_completion", role)
             except CollaborationStopped:

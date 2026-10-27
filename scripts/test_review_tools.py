@@ -188,10 +188,46 @@ class ReviewToolsTests(unittest.TestCase):
         self.f.snapshot = newer
         self.f.report = ProgramReport.parse(self.f.report.model_dump(mode="json") | {"candidate_id": newer.candidate.candidate_id, "source_tree_digest": newer.candidate.source_tree_digest})
         broker = ReviewEvidenceBroker(newer, self.f.reviewer, self.f.make_handoff(), reports=(self.f.report,))
-        result = broker.dispatch(self.f.reviewer, "search_text", {"snapshot_id": newer.candidate.snapshot_id, "query": "value"})
-        self.assertEqual(len(result["hits"]), 20)
+        docs = [self.f.doc().document_id]
+        result = broker.dispatch(self.f.reviewer, "search_text", {"snapshot_id": newer.candidate.snapshot_id, "query": "value", "document_ids": docs})
+        self.assertLessEqual(len(canonical_bytes(result)), 4096)
+        self.assertGreater(len(result["hits"]), 0)
         self.assertTrue(result["truncated"])
         self.assertFalse(result["search_exhausted"])
+        lines = [h["evidence"]["start_line"] for h in result["hits"]]
+        while result["next_cursor"] is not None:
+            result = broker.dispatch(self.f.reviewer, "search_text", {"snapshot_id": newer.candidate.snapshot_id,
+                "query": "value", "cursor": result["next_cursor"], "document_ids": docs})
+            self.assertLessEqual(len(canonical_bytes(result)), 4096)
+            lines.extend(h["evidence"]["start_line"] for h in result["hits"])
+        self.assertEqual(lines, list(range(1, 31)))
+        self.assertEqual(len(broker.evidence), len(lines))
+
+    def test_unicode_and_escaping_are_bounded_with_exact_issued_spans(self):
+        raw = ('value = "中文\\\\\\\""\n' * 40).encode()
+        self.f.write(raw)
+        self.f.snapshot = self.f.seal("unicode-receipt")
+        broker = ReviewEvidenceBroker(self.f.snapshot, self.f.reviewer, self.f.make_handoff(report_ids=()))
+        doc = self.f.doc()
+        result = broker.dispatch(self.f.reviewer, "read_lines", {"snapshot_id": self.f.snapshot.candidate.snapshot_id,
+            "document_id": doc.document_id, "start": 1, "end": 40})
+        self.assertLessEqual(len(canonical_bytes(result)), 4096)
+        self.assertEqual(result["evidence"]["span_sha256"], sha256(result["content"].encode()))
+        self.assertEqual(len(broker.evidence), 1)
+
+    def test_crlf_diff_is_minimal_while_raw_snapshot_keeps_byte_hash(self):
+        original = self.f.original.replace(b"\n", b"\r\n")
+        (self.f.baseline / "pkg/main.py").write_bytes(original)
+        self.f.manifest["source_files_sha256"]["pkg/main.py"] = sha256(original)
+        self.f.write(self.f.v1)
+        snapshot = self.f.seal("mixed-newlines")
+        diff = next(d for d in snapshot.candidate.documents if d.side == "diff")
+        patch = snapshot.read(diff.document_id)
+        self.assertNotIn(b"-def total", patch)
+        self.assertIn(b"-    return sum(values) / len(values)\n", patch)
+        baseline = next(d for d in snapshot.candidate.documents if d.side == "baseline" and d.path == "pkg/main.py")
+        self.assertEqual(snapshot.read(baseline.document_id), original)
+        snapshot.verify()
 
     def test_no_newline_patch_replays_with_real_git(self):
         self.f.sources["pkg/main.py"] = b"value = 1"

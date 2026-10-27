@@ -21,6 +21,7 @@ from collaboration_protocol import (Candidate, Digest, EvidenceRef, Handoff, Ide
 ROOT = Path(__file__).resolve().parent.parent
 MAX_FILE_BYTES = 262144
 MAX_SNAPSHOT_BYTES = 16 * 1024 * 1024
+MAX_TOOL_REPLY_BYTES = 4096
 
 
 class IntegrityError(ProtocolError):
@@ -200,7 +201,11 @@ def seal_candidate(manifest: dict, baseline_root: Path, work: Path, issue: bytes
         if baseline[path] != current[path]:
             if any(raw and text_line_count(raw) == 0 for raw in (baseline[path], current[path])):
                 raise ProtocolError("binary_implementation_changes_unsupported")
-            lines = difflib.unified_diff(baseline[path].decode("utf-8").splitlines(keepends=True), current[path].decode("utf-8").splitlines(keepends=True), fromfile="a/" + path, tofile="b/" + path)
+            # Match the executable patch collector's universal-newline text
+            # view. Raw baseline/candidate objects and their byte hashes stay
+            # unchanged, so a line-ending rewrite cannot erase provenance.
+            text = lambda raw: raw.decode("utf-8").replace("\r\n", "\n").replace("\r", "\n")
+            lines = difflib.unified_diff(text(baseline[path]).splitlines(keepends=True), text(current[path]).splitlines(keepends=True), fromfile="a/" + path, tofile="b/" + path)
             for line in lines:
                 patch.append(line if line.endswith("\n") else line + "\n\\ No newline at end of file\n")
     # Inputs may contain CRLF; patch storage is explicitly LF on Windows too.
@@ -252,6 +257,7 @@ class SearchText(Message):
     query: Annotated[str, Field(min_length=1, max_length=200)]
     document_ids: Annotated[tuple[Identifier, ...], Field(max_length=200)] = ()
     case_sensitive: bool = False
+    cursor: Annotated[int, Field(ge=0)] = 0
 
 
 class ReadDiff(Message):
@@ -326,37 +332,43 @@ class ReviewEvidenceBroker:
             raise ProtocolError("document_outside_handoff_scope")
         return self._documents[document_id]
 
-    def _source_evidence(self, doc, start, end, raw):
+    def _source_evidence(self, doc, start, end, raw, *, register=True):
         fields = {"run_id": self.candidate.run_id, "candidate_id": self.candidate.candidate_id,
                   "source_tree_digest": self.candidate.source_tree_digest, "producer_role_run_id": self.reviewer.role_run_id,
                   "producer_event_seq": len(self._events), "kind": "diff" if doc.side == "diff" else "source",
                   "document_id": doc.document_id, "path": doc.path, "side": doc.side, "start_line": start,
                   "end_line": end, "file_sha256": doc.sha256, "span_sha256": sha256(raw)}
         ref = EvidenceRef(evidence_id="ev-" + sha256(canonical_bytes(fields))[:32], **fields)
-        self._evidence[ref.evidence_id] = ref
+        if register:
+            self._evidence[ref.evidence_id] = ref
         return ref
 
-    def _lines(self, doc, start, end):
+    def _lines(self, doc, start, end, *, diff=False):
         if is_opaque(doc):
             raise ProtocolError("opaque_document_has_no_text_lines")
         if end < start or end - start + 1 > 80 or end > doc.line_count:
             raise ProtocolError("invalid_line_range")
         lines = self.snapshot.read(doc.document_id).decode("utf-8").splitlines(keepends=True)
         selected = []
-        size = 0
+        def response(selected, register=False):
+            raw = "".join(selected).encode("utf-8")
+            actual_end = start + len(selected) - 1
+            ref = self._source_evidence(doc, start, actual_end, raw, register=register)
+            result = {"status": "ok", "content": raw.decode("utf-8"), "evidence": ref.model_dump(mode="json"),
+                      "truncated": actual_end < end, "next_line": actual_end + 1 if actual_end < end else None}
+            if diff:
+                result.update(next_cursor=actual_end if actual_end < doc.line_count else None,
+                    patch_sha256=self.candidate.patch_sha256, baseline_digest=self.candidate.baseline_digest,
+                    source_tree_digest=self.candidate.source_tree_digest,
+                    text_diff_policy="Universal-newline text view; raw byte snapshots remain bound independently.")
+            return result
         for line in lines[start - 1:end]:
-            encoded = line.encode("utf-8")
-            if size + len(encoded) > 4096:
+            if len(canonical_bytes(response(selected + [line]))) > MAX_TOOL_REPLY_BYTES:
                 break
             selected.append(line)
-            size += len(encoded)
         if not selected:
             return {"status": "line_too_large", "document_id": doc.document_id, "truncated": True, "evidence": None}
-        raw = "".join(selected).encode("utf-8")
-        actual_end = start + len(selected) - 1
-        ref = self._source_evidence(doc, start, actual_end, raw)
-        return {"status": "ok", "content": raw.decode("utf-8"), "evidence": ref.model_dump(mode="json"),
-                "truncated": actual_end < end, "next_line": actual_end + 1 if actual_end < end else None}
+        return response(selected, register=True)
 
     def validate_issued_evidence(self, evidence):
         """Trusted registry rejects forged spans even if their shape is valid."""
@@ -387,6 +399,8 @@ class ReviewEvidenceBroker:
             self.snapshot.verify()
             self._event("tool_started", tool=tool_name)
             result = self._execute(tool_name, request)
+            if len(canonical_bytes(result)) > MAX_TOOL_REPLY_BYTES:
+                raise ProtocolError("tool_reply_exceeds_complete_json_budget")
             self.snapshot.verify()
             if self.cancelled():
                 raise ReviewCancelled("review_cancelled")
@@ -405,14 +419,20 @@ class ReviewEvidenceBroker:
             if request.prefix:
                 relative_path(request.prefix.rstrip("/"))
             docs = [d.model_dump(mode="json") | {"content_kind": "opaque" if is_opaque(d) else "text"} for d in self.candidate.documents if d.document_id in self.allowed_documents and d.path.startswith(request.prefix)]
-            end = request.cursor + 100
-            return {"documents": docs[request.cursor:end], "next_cursor": end if end < len(docs) else None}
+            selected = []
+            for doc in docs[request.cursor:request.cursor + 100]:
+                end = request.cursor + len(selected) + 1
+                if len(canonical_bytes({"documents": selected + [doc], "next_cursor": end if end < len(docs) else None})) > MAX_TOOL_REPLY_BYTES:
+                    break
+                selected.append(doc)
+            end = request.cursor + len(selected)
+            return {"documents": selected, "next_cursor": end if end < len(docs) else None}
         if name == "read_lines":
             return self._lines(self._doc(request.document_id), request.start, request.end)
         if name == "search_text":
             ids = request.document_ids or tuple(sorted(self.allowed_documents))
             query = request.query if request.case_sensitive else request.query.casefold()
-            hits, payload_size, truncated = [], 0, False
+            hits, matched, skipped_large, truncated = [], 0, 0, False
             for document_id in ids:
                 doc = self._doc(document_id)
                 if is_opaque(doc):
@@ -420,24 +440,32 @@ class ReviewEvidenceBroker:
                 for number, line in enumerate(self.snapshot.read(document_id).decode("utf-8").splitlines(keepends=True), 1):
                     if query not in (line if request.case_sensitive else line.casefold()):
                         continue
-                    if len(hits) >= 20 or payload_size + len(line.encode("utf-8")) > 4096:
+                    matched += 1
+                    if matched <= request.cursor:
+                        continue
+                    ref = self._source_evidence(doc, number, number, line.encode("utf-8"), register=False)
+                    hit = {"content": line, "evidence": ref.model_dump(mode="json")}
+                    trial = {"hits": hits + [hit], "truncated": True, "search_exhausted": False,
+                             "next_cursor": matched, "skipped_oversized_hits": skipped_large}
+                    if len(canonical_bytes(trial)) > MAX_TOOL_REPLY_BYTES - 64 and not hits:
+                        skipped_large += 1
+                        continue
+                    if len(hits) >= 20 or len(canonical_bytes(trial)) > MAX_TOOL_REPLY_BYTES - 64:
+                        matched -= 1
                         truncated = True
                         break
-                    ref = self._source_evidence(doc, number, number, line.encode("utf-8"))
-                    hits.append({"content": line, "evidence": ref.model_dump(mode="json")})
-                    payload_size += len(line.encode("utf-8"))
+                    self._evidence[ref.evidence_id] = ref
+                    hits.append(hit)
                 if truncated:
                     break
-            return {"hits": hits, "truncated": truncated, "search_exhausted": not truncated}
+            return {"hits": hits, "truncated": truncated, "search_exhausted": not truncated,
+                    "next_cursor": matched if truncated else None, "skipped_oversized_hits": skipped_large}
         if name == "read_diff":
             doc = next(doc for doc in self.candidate.documents if doc.side == "diff")
             self._doc(doc.document_id)
             if request.cursor >= doc.line_count:
                 return {"status": "empty_or_end", "next_cursor": None, "patch_sha256": self.candidate.patch_sha256}
-            result = self._lines(doc, request.cursor + 1, min(doc.line_count, request.cursor + 80))
-            end = (result.get("evidence") or {}).get("end_line", request.cursor)
-            return result | {"next_cursor": end if end < doc.line_count else None, "patch_sha256": self.candidate.patch_sha256,
-                             "baseline_digest": self.candidate.baseline_digest, "source_tree_digest": self.candidate.source_tree_digest}
+            return self._lines(doc, request.cursor + 1, min(doc.line_count, request.cursor + 80), diff=True)
         if name == "read_report":
             if request.report_id not in self.allowed_reports:
                 return {"status": "not_available", "evidence": None}
@@ -446,9 +474,13 @@ class ReviewEvidenceBroker:
                       "producer_role_run_id": self.reviewer.role_run_id, "producer_event_seq": len(self._events),
                       "kind": report.origin, "report_id": report.report_id, "report_sha256": sha256(canonical_bytes(report))}
             ref = EvidenceRef(evidence_id="ev-" + sha256(canonical_bytes(fields))[:32], **fields)
-            self._evidence[ref.evidence_id] = ref
             content = report.model_dump(mode="json") if request.section == "all" else {request.section: getattr(report, request.section)}
-            return {"status": "ok", "report": content, "evidence": ref.model_dump(mode="json")}
+            result = {"status": "ok", "report": content, "evidence": ref.model_dump(mode="json")}
+            if len(canonical_bytes(result)) > MAX_TOOL_REPLY_BYTES:
+                return {"status": "report_section_too_large", "evidence": None, "report_id": request.report_id,
+                        "limit_bytes": MAX_TOOL_REPLY_BYTES, "hint": "Read a smaller registered section; no partial summary is presented as accepted evidence."}
+            self._evidence[ref.evidence_id] = ref
+            return result
         if name == "submit_review":
             review = request.report
             validate_review(review, self.candidate, self.reviewer, self.evidence, self.documents, self.reports, self.snapshot.requirements)

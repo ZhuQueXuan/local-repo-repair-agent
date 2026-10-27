@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "stage": 47,
+  "base_commit": "7cdd8b64a62b7d1cff1dea8dc4dff15c8248cac7",
+  "archive_members": {
+    "synthetic-local-flow.zip": 1018,
+    "checks-and-proposal.zip": 29,
+    "current-changes.zip": 19
+  },
+  "checks": {
+    "external_model_calls": 0,
+    "final_panel_checks": "19 existing checks + isolated HTTP and actual scripts in Node fake DOM; not browser clicks",
+    "final_panel_only_changes": [
+      "scripts/collaboration_panel.py",
+      "scripts/collaboration_panel.js"
+    ],
+    "formal_payloads_unchanged": 53,
+    "full_regression_passed": true,
+    "new_real_identities": 0,
+    "proposal_sha256": "fb350e3aa8c65fc344337474f03508756f512847962b05f96b36ee1e14be895c",
+    "regression": "temp/regression/20261027_140305_405c3682",
+    "shared_requests_unchanged": 2256,
+    "source_inputs_frozen": 451
+  },
+  "review_replay": {
+    "diff": {
+      "matches_exported_patch": true,
+      "new_bytes": 557,
+      "new_lines": 11,
+      "old_bytes": 231631,
+      "old_lines": 5999,
+      "raw_tree_hashes_unchanged": true
+    },
+    "hard_limit": 32768,
+    "new_api_message_bytes": 21883,
+    "old_api_message_bytes": 33950,
+    "raw_history_unchanged": true,
+    "replies": [
+      {
+        "new_bytes": 3644,
+        "old_bytes": 3547,
+        "tool": "read_diff"
+      },
+      {
+        "new_bytes": 3977,
+        "old_bytes": 3880,
+        "tool": "read_diff"
+      },
+      {
+        "new_bytes": 3971,
+        "old_bytes": 15299,
+        "tool": "search_text"
+      }
+    ],
+    "run_id": "38cee7b06f8d44d2b68fb17798954816",
+    "scope": "Same recorded calls on original immutable snapshot, tool envelopes rebuilt without model replies; not a successful real review."
+  },
+  "synthetic_flow": {
+    "child": "a56f5bc2ebd141e49b3eab2b3f955251",
+    "child_counts": {
+      "final_review": 3,
+      "reviewing": 4,
+      "revising": 2
+    },
+    "collaboration_result": "degraded",
+    "external_model_calls": 0,
+    "failed_consultation_not_repeated": true,
+    "first_counts": {
+      "repairing": 2
+    },
+    "home": "D:\\myDocu\\project_postg\\shixi_project\\temp\\document_agent_demo\\3fdf7c97ce8f46c9bfb326e835bdc39a",
+    "parent": "9b408d8619b64d0daa12a0b6929f420e",
+    "progress_restored": true,
+    "repair_result": "passed",
+    "review_verdict": "approve",
+    "scope": "Synthetic model transport only; real local shell, evaluator, patch replay and pause/unique continuation. Zero external calls.",
+    "source_parent_unchanged": true,
+    "status": "finished"
+  },
+  "external_model_calls": 0,
+  "historical_comparison_unchanged": true,
+  "first_focused_run": "Sandbox denied Bash/hardlink; one stale pagination expectation. Retained, not accepted as green.",
+  "second_focused_run": "Two new fixture mistakes corrected; final full run covers both.",
+  "final_default": "301 upstream + 412 project pass, 1 original permission skip; 5261 protected files unchanged.",
+  "final_panel_after_default": "19 existing tests + isolated HTTP + actual Node scripts, no browser click.",
+  "shared_ledger_and_formal_database_full_not_uploaded": true,
+  "credential_scan": {
+    "keys_checked": 2,
+    "nested_objects": 1066,
+    "matches": 0
+  },
+  "proposal_status": "scope_only_not_launchable; no new real run identity or authorization"
+}

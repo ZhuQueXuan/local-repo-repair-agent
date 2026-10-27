@@ -14,6 +14,22 @@ COMMANDS = {"targeted": "python -B -m pytest tests/test_code.py -q -p no:cachepr
 
 
 class ProgressTests(unittest.TestCase):
+    def test_click_commands_and_checkpoint_preserve_current_revision_validation(self):
+        commands = {"targeted": "PYTHONPATH=src python -B -m pytest tests/test_code.py -q -p no:cacheprovider",
+                    "issue": COMMANDS["issue"]}
+        progress = ExecutionProgress(revision="before", validation_commands=commands)
+        progress.observe({"sequence": 1, "command": commands["targeted"], "output_path": "temp/pass.txt"},
+            {"returncode": 0, "output": "3 passed in 0.1s"}, "after")
+        saved = json.loads(json.dumps(progress.export_state()))
+        restored = ExecutionProgress(revision="after", validation_commands=commands)
+        restored.restore_state(saved)
+        self.assertEqual(progress.facts(), restored.facts())
+        self.assertEqual(restored.facts()["current_validation"]["targeted"], "passed")
+        wrong = ExecutionProgress(revision="different", validation_commands=commands)
+        with self.assertRaises(ValueError):
+            wrong.restore_state(saved)
+        self.assertIsNone(runner_tokens("PYTHONPATH=outside python -m pytest tests"))
+
     def setUp(self):
         self.progress = ExecutionProgress(revision="initial", validation_commands=COMMANDS)
         self.sequence = 0

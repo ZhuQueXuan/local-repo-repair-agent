@@ -21,6 +21,10 @@ def runner_tokens(command):
         tokens = list(lexer)
     except ValueError:
         return None
+    # Recognize the existing Click checkout command; this only classifies an
+    # observation and never evaluates assignments or executes shell text.
+    if tokens[:1] in (["PYTHONPATH=src"], ["PYTHONPATH=."]):
+        tokens = tokens[1:]
     candidates = []
     for i, token in enumerate(tokens):
         if token not in {"python", "python3"} or (i and tokens[i - 1] not in {"&&", ";"}):
@@ -84,6 +88,25 @@ class ExecutionProgress:
         self.last_execution_failure = None
         self.plan_version = 0
         self.last_plan = None
+
+    def export_state(self):
+        return {"schema_version": 1, "commands": self.commands, "threshold": self.threshold,
+                **{key: getattr(self, key) for key in ("initial_revision", "revision", "actions", "since_progress",
+                    "first_change", "validation", "last_execution_failure", "plan_version", "last_plan")},
+                "seen_results": sorted(self.seen_results)}
+
+    def restore_state(self, value):
+        expected = self.export_state()
+        if set(value) != set(expected) or value["schema_version"] != 1 or value["threshold"] != self.threshold or {
+                k: tuple(v) for k, v in value["commands"].items()} != self.commands:
+            raise ValueError("Checkpoint progress policy mismatch")
+        if value["revision"] != self.revision:
+            raise ValueError("Checkpoint progress source revision mismatch")
+        for key in ("initial_revision", "revision", "actions", "since_progress", "first_change", "validation",
+                    "last_execution_failure", "plan_version", "last_plan"):
+            setattr(self, key, value[key])
+        self.seen_results = {(scope, revision, result, tuple(failures))
+                             for scope, revision, result, failures in value["seen_results"]}
 
     def observe(self, event, output, revision):
         self.actions += 1

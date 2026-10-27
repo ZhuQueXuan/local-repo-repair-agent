@@ -16,7 +16,7 @@ function collaborationChoices(){
   if(dual)$('profile').value='adaptive_history';
   $('collaborationHint').textContent=diagnostic?'人工提供已知缺陷候选 → 模型原会话确认 → 独立审查 → 至多一次返工 → 新版核查。额外检查公开；这是接线诊断，不代表模型发现新问题或效果提升。总时限30分钟，全部角色计费。':dual?'修复 → 独立审查 → 至多一次修订 → 必要的最终核查。总时限30分钟；全部角色均计费，北邮费用可能未知。当前仅支持上下文与任务状态策略。':'单 Agent 沿用原策略；离线重放不产生新的模型审查。';
   const documents=selectMode.value==='document_review';$('documentQuestionBox').hidden=!documents;
-  if(documents)$('collaborationHint').textContent='文档查阅者先回答一个明确问题并提供原文 → 修复者 → 独立审查 → 至多一次返工/复核。文档说明不代替测试，缺资料明确返回未知；全部角色计费。这是实验功能，实际完成情况和失败原因按各次运行展示，尚无新题效果比较结论。';
+  if(documents)$('collaborationHint').textContent='文档查阅者先回答一个明确问题并提供原文 → 修复者 → 独立审查 → 至多一次返工/复核。新建任务遇到明确的文档重复/格式错误或阶段超时，可保留查阅失败继续修复，协作仍为降级；取消、未确认请求和其他错误停止。文档说明不代替测试，缺资料返回未知；全部角色计费。已有六题比较未显示收益，新版仅经离线验证。';
   if(selfCheck)$('collaborationHint').textContent='S+：同一 Agent 保留修复和自查历史。初修 → 六个只读工具自查 → 至多一次修订 → 只读复核。时间与评分机会对齐双 Agent，实际用量分别记账。当前仅离线接线验收，尚无真实模型/新题效果证据。';
 }
 function resetCollaboration(){collaborationCandidate='';candidateDataSignature='';candidateRevision++;$('collaboration').hidden=true;$('candidateContent').textContent='请选择候选版本。';$('evidenceContent').textContent='点击证据查看原文；意见不是独立裁决。';$('candidateReviews').replaceChildren();}
@@ -76,7 +76,7 @@ async function refreshCollaboration(row,revision){
   if(value.mode.startsWith('self_review_'))text($('collaborationStatus'),'S+同一 Agent 分阶段自查 · 同一会话、分阶段权限/费用；不是独立审查。\n'+$('collaborationStatus').textContent.replace('双角色真实运行\n',''));
   if(value.mode.startsWith('document_review_'))text($('collaborationStatus'),'三角色：文档查阅 → 修复 → 审查（实验）；完成情况见各角色状态。\n'+$('collaborationStatus').textContent.replace('双角色真实运行\n',''));
   if(row.continued_from)text($('collaborationStatus'),$('collaborationStatus').textContent+'\n关联续做：已完成阶段来自 '+row.continued_from+'，并非本段重新执行。');
-  text($('consultationResults'),value.consultations?.length?JSON.stringify(value.consultations,null,2):'尚无文档查阅结果；不补造依据。');
+  text($('consultationResults'),value.document_unavailable?'文档查阅失败，未提供建议或引用；后续修复按降级流程进行。\n'+JSON.stringify(value.document_unavailable,null,2):value.consultations?.length?JSON.stringify(value.consultations,null,2):'尚无文档查阅结果；不补造依据。');
   if(value.adjudications?.length){const all=value.adjudications.flatMap(b=>b.decisions);
     text($('collaborationStatus'),$('collaborationStatus').textContent+'\n追加裁决 '+value.adjudications.length+' 批：具体检查支持 '+all.filter(d=>d.verdict==='confirmed').length+' 条，反驳 '+all.filter(d=>d.verdict==='refuted').length+' 条，无法判断 '+all.filter(d=>d.verdict==='unresolved').length+' 条。仅限已登记用例；切换历史候选查看该版本的意见。');}
   $('roles').replaceChildren();const usage=value.usage;

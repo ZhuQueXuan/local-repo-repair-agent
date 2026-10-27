@@ -88,6 +88,7 @@ def save_checkpoint(runner):
             "tool_output_events": agent.env.output_budget.events,
             "task_state": {key: getattr(agent.env.task_state,key) for key in
                 ("original_files","repeats","blocked_since_change","events","evidence","last_intent","warning")},
+            "execution_progress": agent.env.task_state.progress.export_state() if agent.env.task_state.progress else None,
             "scope": "Imported author history, not replayed actions or a resumed provider request."}
     if meta["phase"] in {"reviewing", "revising", "final_review"} and session is None:
         raise CheckpointConflict("缺少已确认提交的修复历史，不能建立续做点。")
@@ -166,7 +167,7 @@ def save_checkpoint(runner):
     payload = {"schema_version": 1, "source_run_id": run_id, "next_phase": meta["phase"], "meta": meta,
         "remaining_parent_seconds": remaining, "frozen": runner.frozen, "roles": store.roles(run_id),
         "objects": objects, "files_sha256": files, "assessments": assessments, "baseline": runner.baseline,
-        "route_state": runner.route_state, "session": session, "parent": {k: state[k] for k in ("task", "profile", "configuration", "collaboration_policy", "task_digest", "policy_digest")}}
+        "route_state": runner.route_state, "session": session, "parent": {k: state[k] for k in ("task", "profile", "configuration", "collaboration_policy", "task_digest", "policy_digest", "document_unavailable") if k in state}}
     from execution_runtime import runtime_identity
     payload["execution_identity"] = runtime_identity()
     raw = canonical_bytes(payload)
@@ -377,12 +378,19 @@ def import_objects(store, child, value, directory):
             raw=canonical_bytes(payload)
             db.execute("INSERT INTO collaboration_objects VALUES(?,?,?,?,?,?)",(run_id,kind,key,role_id,sha256(raw),raw.decode()))
         for phase,old in old_roles.items():
-            if old["status"]=="succeeded":
+            unavailable = value["parent"].get("document_unavailable")
+            inherited_failure = (phase == "consulting" and old["status"] == "failed" and unavailable
+                and unavailable["failed_role_run_id"] == old["id"]
+                and unavailable["reason_code"] == old["reason"])
+            if old["status"]=="succeeded" or inherited_failure:
                 new=new_roles[phase]
-                new.update(status="succeeded",inherited_from=value["source_run_id"],inherited_role_run_id=old["id"],
+                status = "failed" if inherited_failure else "succeeded"
+                new.update(status=status,inherited_from=value["source_run_id"],inherited_role_run_id=old["id"],
                     result=rebind(old["result"]),output_digest=sha256(canonical_bytes(rebind(old["result"]))),
-                    reason="Inherited completed output; no model/tool re-execution",elapsed_seconds=0)
-                db.execute("UPDATE role_runs SET status='succeeded',payload=? WHERE id=?",(canonical_bytes(new).decode(),new["id"]))
+                    reason=old["reason"] if inherited_failure else "Inherited completed output; no model/tool re-execution",elapsed_seconds=0)
+                db.execute("UPDATE role_runs SET status=?,payload=? WHERE id=?",(status,canonical_bytes(new).decode(),new["id"]))
+                if inherited_failure:
+                    store._parent(db, run_id, document_unavailable=rebind(unavailable), collaboration_result="degraded")
     return mapping
 
 

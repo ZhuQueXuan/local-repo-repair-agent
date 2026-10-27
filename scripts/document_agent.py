@@ -42,13 +42,15 @@ def document_rejection(error):
         result["correction"] = "Copy the exact submission_bindings from the original task. Do not reuse another run or snapshot."
     elif code == "document_advice_unissued_evidence":
         result["correction"] = "Select only evidence_ids actually returned by this document session. Paths and document IDs are not evidence IDs."
+    elif code == "invalid_document_read_range":
+        result["correction"] = "Read at most 80 lines, within the registered document's line_count. Use the returned next_line after a truncated receipt. Submit supported facts and explicit unknowns when the question is not documented."
     return result
 
 
 def validate_document_policy(policy, profile):
     mode = policy.get("document_mode")
     if mode is None:
-        if "document_question" in policy:
+        if any(k in policy for k in ("document_question", "document_failure_policy", "repair_progress_policy")):
             raise ValueError("Document question requires an explicit document mode")
         return False
     question = policy.get("document_question")
@@ -59,6 +61,8 @@ def validate_document_policy(policy, profile):
     review_bytes = policy.get("review_context_bytes", 16384)
     if type(review_bytes) is not int or review_bytes not in (16384, 32768):
         raise ValueError("Unsupported document-review request bound")
+    if policy.get("document_failure_policy") not in (None, "continue_without_document_advice_v1") or policy.get("repair_progress_policy") not in (None, "declared_checks_v1"):
+        raise ValueError("Unsupported bounded document failure/progress policy")
     return True
 
 

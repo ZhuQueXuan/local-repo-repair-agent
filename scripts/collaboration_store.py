@@ -452,6 +452,28 @@ class CollaborationStore(RunStore):
             self._parent(db, role["run_id"], stage=next_phase)
             self.emit(db, role["run_id"], "role_completed", {"role_run_id": role_id, "phase": phase, "next_phase": next_phase, "output_digest": role["output_digest"]}, role["role"])
 
+    def continue_without_document(self, role_id, reason_code, expected_revision, *, elapsed_seconds=None):
+        """Record a failed optional consultation, never invent advice or revive it."""
+        allowed = {"document_repeated_evidence_limit", "document_repeated_format_errors", "document_context_limit", "document_deadline"}
+        if reason_code not in allowed:
+            raise ProtocolError("unsupported_document_failure")
+        with self.transaction() as db:
+            role, parent, meta = self._active(db, role_id, expected_revision)
+            if role["phase"] != "consulting" or parent["collaboration_policy"].get("document_failure_policy") != "continue_without_document_advice_v1":
+                raise ProtocolError("document_fallback_not_declared")
+            if self._objects(db, role["run_id"], "consultation") or db.execute("SELECT 1 FROM logical_requests WHERE role_id=? AND state!='received'", (role_id,)).fetchone():
+                raise StateConflict("document_output_or_request_unsettled")
+            unavailable = {"status": "unavailable", "reason_code": reason_code, "failed_role_run_id": role_id,
+                "scope": "Program-recorded consultation failure; no document advice or source evidence. Repair may use only the original issue/code and existing permissions."}
+            result = {"exit_reason": reason_code, "advice_id": None}
+            role.update(status="failed", ended=now(), reason=reason_code, result=result,
+                output_digest=sha256(canonical_bytes(result)), elapsed_seconds=elapsed_seconds)
+            db.execute("UPDATE role_runs SET status='failed',payload=? WHERE id=?", (canonical_bytes(role).decode(), role_id))
+            db.execute("UPDATE collaboration_runs SET phase='repairing',active_role=NULL,revision=revision+1 WHERE run_id=?", (role["run_id"],))
+            self._parent(db, role["run_id"], stage="repairing", document_unavailable=unavailable, collaboration_result="degraded")
+            self.emit(db, role["run_id"], "document_unavailable", unavailable, "system")
+            return unavailable
+
     def finish(self, run_id):
         with self.transaction() as db:
             parent, meta = self._load(db, run_id)
@@ -476,7 +498,7 @@ class CollaborationStore(RunStore):
             if verdict == "approve" and any(value in {"unanswered", "needs_evidence"} for value in dispositions.values()):
                 verdict = "insufficient_evidence"
             result = self._parent(db, run_id, status="finished", stage="done", ended=now(), repair_result="unknown",
-                collaboration_result="completed", review_verdict=verdict, final_candidate_id=meta["candidate_id"],
+                collaboration_result="degraded" if parent.get("document_unavailable") else "completed", review_verdict=verdict, final_candidate_id=meta["candidate_id"],
                 finding_dispositions=dispositions,
                 reason="Offline orchestration completed; no production repair acceptance is inferred.",
                 **({"pause_requested": False} if parent.get("harness_pause_version") == 1 else {}))

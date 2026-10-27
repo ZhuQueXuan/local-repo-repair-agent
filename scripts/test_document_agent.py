@@ -192,6 +192,48 @@ class DocumentTests(unittest.TestCase):
 
 
 class DocumentStoreTests(unittest.TestCase):
+    def test_failed_optional_consultation_continues_but_never_counts_as_success(self):
+        from collaboration_live import LiveRunner
+        store, parent, _ = self.make_parent()
+        live = LiveRunner.__new__(LiveRunner)
+        live.store, live.run_id, live.output = store, parent["id"], store.home
+        live.parent_deadline = time.monotonic() + 120
+        fixture = StageAFixture()
+        delegate = ScriptedRunner(store)
+        class Runner:
+            document_unavailable = live.document_unavailable
+            def __call__(self, context):
+                if context.role["phase"] != "consulting":
+                    self_context = live.document_context()
+                    assert self_context["advice"] is None and not self_context["evidence"]
+                    return delegate(context)
+                live.document_snapshot = freeze_documents(fixture.manifest, fixture.baseline, fixture.issue,
+                    store.home / "failed-documents", context.identity, "What is documented?")
+                raise ProtocolError("document_repeated_evidence_limit")
+        result = CollaborationCoordinator(store, Runner()).run(parent["id"])
+        self.assertEqual(result["status"], "finished", result)
+        self.assertEqual(result["collaboration_result"], "degraded")
+        self.assertEqual(store.roles(parent["id"])[0]["status"], "failed")
+        self.assertFalse(store.records(parent["id"], "consultation"))
+        self.assertEqual(result["review_verdict"], "approve")
+
+    def test_document_fallback_never_accepts_pending_request_or_undeclared_policy(self):
+        for pending in (False, True):
+            store, parent, _ = self.make_parent()
+            store.claim_parent(parent["id"])
+            role = store.claim_role(parent["id"], "consulting", sha256(b"input"), 0)
+            revision = store.state(parent["id"])["collaboration_state"]["revision"]
+            if pending:
+                store.prepare_request(role["id"], "pending", sha256(b"pending"))
+            else:
+                with store.transaction() as db:
+                    value = store.get(parent["id"])["collaboration_policy"]
+                    value.pop("document_failure_policy")
+                    store._parent(db, parent["id"], collaboration_policy=value)
+            with self.assertRaises((StateConflict, ProtocolError)):
+                store.continue_without_document(role["id"], "document_repeated_format_errors", revision)
+            self.assertEqual(store.state(parent["id"])["collaboration_state"]["phase"], "consulting")
+
     def make_parent(self):
         store = CollaborationStore(ROOT / "temp/document_agent_tests" / uuid.uuid4().hex)
         manifest = {"source_prefix": "pkg/", "source_files_sha256": {"pkg/main.py": sha256(BASE)}}

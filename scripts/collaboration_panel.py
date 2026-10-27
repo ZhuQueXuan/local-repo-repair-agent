@@ -30,7 +30,7 @@ def checked_bytes(root, name, limit=32 * 1024 * 1024):
 def public_policy(diagnostic=False, *, self_review=False, documents=False, question=None):
     if sum((bool(diagnostic), bool(self_review), bool(documents))) > 1:
         raise ValueError("Choose one context mode")
-    name = "multi_agent_documents_v2.json" if documents else "self_review_v1.json" if self_review else "multi_agent_feedback_diagnostic_v1.json" if diagnostic else "multi_agent_v1.json"
+    name = "multi_agent_documents_v3.json" if documents else "self_review_v1.json" if self_review else "multi_agent_feedback_diagnostic_v1.json" if diagnostic else "multi_agent_v1.json"
     result = json.loads((ROOT / "configs" / name).read_text(encoding="utf-8"))
     if documents:
         result["document_question"] = question
@@ -129,6 +129,8 @@ def collaboration_view(store, run_id):
             records.setdefault("truncated_kinds", []).append(kind)
     from document_agent import consultation_context
     records["consultations"] = [consultation_context(v, store.home) for v in store.records(run_id, "consultation").values()]
+    if row.get("document_unavailable"):
+        records["document_unavailable"] = row["document_unavailable"]
     try:
         usage = usage_view(store, row)
     except (ValueError, OSError):

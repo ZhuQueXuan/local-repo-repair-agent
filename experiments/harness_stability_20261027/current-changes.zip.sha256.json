@@ -1,0 +1,21 @@
+{
+  "AGENTS.md": "b0d244730a735848c15b90cae5279c4d325a737531cf1c0b70b4756645128340",
+  "Project/00_项目现状与快速接手.md": "5d88670be9116c226c9c6705b7e81492a4c18aa55fcd954a3e929be01c747c31",
+  "Project/47_修复_文档失败降级与审查预算及修复收口.md": "6f3bdd3b1944cddd22bab17dbe2849314da8fc19f34affc38f6d4b193f9eed1e",
+  "Project/项目开发流水账.md": "500ea47799431ab2137ef0fe6b51d9deedd9faff7a3ba1b8c2455288012988cd",
+  "README.md": "2e42b1183777a4c7ff02699eba462708ed1884a2c26d2c9039987bfed1a59fa9",
+  "configs/harness_stability_revalidation_20261027.json": "fb350e3aa8c65fc344337474f03508756f512847962b05f96b36ee1e14be895c",
+  "configs/multi_agent_documents_v3.json": "2b5527e4488e9d4b7edf91feb83f8ec5c84714c840028d6f904df2ba4b305167",
+  "scripts/collaboration.py": "77c37057deb4459dbc3169d7906ea06cfbe78660176d7019626487fb9b041cd4",
+  "scripts/collaboration_live.py": "32f914b63d1feb61f1423ae2a1491e89a91ee177cea8963b54356c3f1297dce7",
+  "scripts/collaboration_panel.js": "4a1ad986719a9e26d3a20801fde83cfe29beca5c3dbf0fa47669bda4ba44b756",
+  "scripts/collaboration_panel.py": "8405b2c654619493f4611372b883ad1bfe2e586d7e72071cbbfb6b56b04492a6",
+  "scripts/collaboration_store.py": "138240be278c488e133a790e18e28b0c0f2c65bdc64c2a0e9d5f468ed63d5440",
+  "scripts/document_agent.py": "ca3b73615618c5b7777ba789120928af257981e7e50a298750b3c7133b78487f",
+  "scripts/execution_progress.py": "b86ae2b7c7a2dd6decbd8940ea7ec649074b766249cb87802a988e0ad522a65c",
+  "scripts/harness_checkpoints.py": "f7fc8574e9e8e9fb70f9b8797d77216e5705b823349523e41bf62409c78303d2",
+  "scripts/review_tools.py": "ca362294ef4918bf38cadb3060633e05b69b15f0d8fd05eb0e80c11c90945f60",
+  "scripts/test_document_agent.py": "895f24fda8335bc306fd59da16f30c85534c6f1fb794fb3abd89b32e066f35d8",
+  "scripts/test_execution_progress.py": "6d0a3696f7e112a4e1eeac0d4cb2cc7b5645594a3f2d26eb312e6b5a47f7b712",
+  "scripts/test_review_tools.py": "8bc7fbca5834b8104082a2a32dca38ca318a592f4ca1c6e34e6d5493a5e9b709"
+}
