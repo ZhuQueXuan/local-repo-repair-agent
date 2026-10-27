@@ -1,0 +1,76 @@
+{
+  "stage": 57,
+  "source_commit": "e6724feb6d3d8017e87b32365a2c15baf7e178dd",
+  "formal_payloads_unchanged": 53,
+  "shared_requests_unchanged": 2477,
+  "new_model_attempts": 0,
+  "historical_files_unchanged": 82,
+  "protected_files": 5262,
+  "changed_protected_files": [],
+  "native": {
+    "counts": {
+      "passed": 301
+    },
+    "deselected": 41,
+    "guard_violations": 0
+  },
+  "interrupted_driver": "20261027_202844_58de5350",
+  "interruption": "No remaining OS driver/pytest/unittest process; adapter log partial, project not started. Native result retained.",
+  "adapter": {
+    "directory": "temp/regression/20261027_203525_ecf4ea7c",
+    "counts": {
+      "passed": 169,
+      "failed": 6,
+      "skipped": 1
+    },
+    "failed_nodeids": [
+      "tests/environments/test_local.py::test_local_environment_custom_cwd",
+      "tests/environments/test_local.py::test_local_environment_cwd_parameter_override",
+      "tests/environments/test_local.py::test_local_environment_default_cwd",
+      "tests/environments/test_local.py::test_local_environment_env_variable_override",
+      "tests/environments/test_local.py::test_local_environment_existing_env_variables",
+      "tests/environments/test_local.py::test_local_environment_set_env_variables"
+    ],
+    "skipped_nodeids": [
+      "tests/environments/test_local.py::test_local_environment_timeout_kills_child_process"
+    ],
+    "same_failures_as_reference": true,
+    "guard_violations": 0,
+    "reference": "temp/regression/20261027_025633_062e3945/adapter/upstream_results.json"
+  },
+  "project": {
+    "scope": "project",
+    "exit_code": 0,
+    "command": [
+      "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "scripts",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "tests_run": 426,
+    "skipped": 1,
+    "directory": "temp/regression/20261027_203613_8eb41a2a",
+    "passed": 425,
+    "skipped_checks": [
+      "test_real_file_symlink_is_not_read (test_review_tools.ReviewToolsTests) ... skipped 'File symlink permission unavailable; real directory junction tested separately'"
+    ],
+    "seconds": 295.418
+  },
+  "complete": true,
+  "archive_members": 23,
+  "credential_scan": {
+    "keys_checked": 2,
+    "objects_including_nested": 47,
+    "matches": 0
+  },
+  "source_changes": 0,
+  "new_tests": 0,
+  "formal_database_and_whole_ledger_uploaded": false,
+  "scope": "Offline engineering regression only; not new real-model performance, browser or cross-machine acceptance. Six existing adapter failures retained."
+}
