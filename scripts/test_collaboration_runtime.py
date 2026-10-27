@@ -8,7 +8,7 @@ import sys
 import time
 from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 import uuid
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -44,6 +44,38 @@ def response(tool="read_diff", arguments=None, content=None):
 
 
 class RuntimeTests(unittest.TestCase):
+    def test_repair_stop_reason_survives_empty_candidate_and_retains_partial_snapshot(self):
+        # Reuse the actual runner ordering, with no model or subprocess. A valid
+        # partial candidate is still sealed, but a stopped repair never advances.
+        runner = LiveRunner.__new__(LiveRunner)
+        runner.run_id = 'synthetic-stop'
+        runner.issue = b'synthetic issue'
+        runner.store = SimpleNamespace(get=lambda _: {}, event=Mock())
+        runner.store.state = lambda _: {'collaboration_state': {'review_id': 'review'}}
+        runner.store.records = lambda _, kind: {'review': object()} if kind == 'review' else {}
+        runner.diagnostic = False
+        runner.self_review = False
+        runner.work, runner.manifest = ROOT / 'temp/read_guard_20261027', {}
+        runner.make_repair_session = Mock()
+        context = SimpleNamespace(role={'phase': 'repairing'}, check=lambda: None,
+                                  identity=SimpleNamespace(role_run_id='repair-role'))
+        with patch('collaboration_live.repair_feedback', return_value='feedback'):
+            for phase in ['repairing', 'revising']:
+                context.role['phase'] = phase
+                for status, name in [('NoProgress', 'RepairNoProgress'), ('ProviderUnavailable', 'RepairProviderUnavailable')]:
+                    result = {'exit_status': status}
+                    runner.session = SimpleNamespace(start=lambda _: result, continue_with_feedback=lambda *_: result)
+                    for error in [ProtocolError('no_nonempty_candidate'), None]:
+                        runner.seal = Mock(side_effect=error) if error else Mock(return_value=object())
+                        with self.assertRaises(RuntimeError) as caught:
+                            runner.repair(context)
+                        self.assertEqual(type(caught.exception).__name__, name)
+                        runner.seal.assert_called_once_with(context)
+                    # Integrity/provenance failures must remain visible as such.
+                    runner.seal = Mock(side_effect=ProtocolError('protected_file_changed'))
+                    with self.assertRaisesRegex(ProtocolError, 'protected_file_changed'):
+                        runner.repair(context)
+
     def setUp(self):
         self.store, self.parent = make_store()
         self.role = claim_first(self.store, self.parent)

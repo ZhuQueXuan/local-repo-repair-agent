@@ -79,7 +79,10 @@ class TaskState:
 
     def _read_key(self, command):
         body = command.removeprefix("set -o pipefail\n").strip()
-        body = re.sub(r'^cd\s+["\']?\$\(git rev-parse --show-toplevel(?:\s+2>/dev/null\s*\|\|\s*pwd)?\)["\']?\s*&&\s*', '', body)
+        # The repairer also emits this exact checkout prefix with a semicolon.
+        # Strip only the known prefix; the remaining body must still be ONE
+        # simple read. Never discard arbitrary shell chains or write actions.
+        body = re.sub(r'^cd\s+["\']?\$\(git rev-parse --show-toplevel(?:\s+2>/dev/null\s*\|\|\s*pwd)?\)["\']?\s*(?:&&|;)\s*', '', body)
         if any(char in body for char in [";", "|", ">", "<", "\n", "`", "$", "&"]):
             return None
         try:

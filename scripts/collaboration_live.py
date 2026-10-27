@@ -62,6 +62,14 @@ def verification_summary(report, baseline):
     return encoded
 
 
+class RepairNoProgress(RuntimeError):
+    """The repairer's existing repeated-read guard stopped execution."""
+
+
+class RepairProviderUnavailable(RuntimeError):
+    """The repairer's authorized provider route stopped without a response."""
+
+
 class LiveRunner:
     def __init__(self, store, run_id, *, settings, accounting=None):
         self.store, self.run_id, self.settings = store, run_id, settings
@@ -304,6 +312,8 @@ class LiveRunner:
             drafts = ()
             for attempt in range(1, 4):
                 context.check()
+                if status.get("exit_status") in {"NoProgress", "ProviderUnavailable"}:
+                    break  # Preserve the known stop below, before response parsing.
                 if status.get("exit_status") != "Submitted":
                     raise ProtocolError("revision_not_submitted")
                 path = self.work / "temp/finding_responses.json"
@@ -333,9 +343,22 @@ class LiveRunner:
             if status.get("exit_status") != "Submitted":
                 raise ProtocolError("diagnostic_candidate_not_confirmed")
             assert_confirmation_unchanged(self.work, self.manifest, self.seed_metadata)
-        snapshot = self.seal(context)
-        if status.get("exit_status") == "ProviderUnavailable":
-            raise RuntimeError("ProviderUnavailable")
+        stop_error = {"NoProgress": RepairNoProgress,
+                      "ProviderUnavailable": RepairProviderUnavailable}.get(status.get("exit_status"))
+        if stop_error:
+            self.store.event(self.run_id, "repair_stage_stopped", {
+                "role_run_id": context.identity.role_run_id,
+                "exit_status": status["exit_status"]}, "repairer")
+        try:
+            # Preserve a valid partial candidate for independent scoring even
+            # when the model stopped; a stop never advances to review.
+            snapshot = self.seal(context)
+        except ProtocolError as error:
+            if stop_error and str(error) == "no_nonempty_candidate":
+                raise stop_error() from error
+            raise  # Integrity/provenance errors keep their original type.
+        if stop_error:
+            raise stop_error()
         response_ids = []
         if context.role["phase"] == "revising":
             for draft in drafts:

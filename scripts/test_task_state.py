@@ -106,6 +106,19 @@ class StateTests(unittest.TestCase):
             command = f'set -o pipefail\ncd "$({prefix})" && sed -n "1,20p" code.py'
             self.assertIsNotNone(self.state.before_action(command))
 
+    def test_semicolon_checkout_prefix_cannot_bypass_repeat_guard(self):
+        self.repeat()
+        command = 'cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"; sed -n "1,20p" code.py'
+        self.assertEqual([self.state.before_action(command)["stop"] for _ in range(3)], [False, False, True])
+
+    def test_checkout_prefix_does_not_hide_additional_actions(self):
+        self.repeat()
+        for body in ['sed -n "1,20p" code.py; python modify.py',
+                     'cat code.py > copy.py', 'cat code.py | python modify.py']:
+            command = 'cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"; ' + body
+            self.assertIsNone(self.state.before_action(command))
+        self.assertIsNone(self.state.before_action('cd "$(printf /other)"; cat code.py'))
+
     def test_unknown_or_external_reads_not_blocked(self):
         for command in ["cat ../unrelated.txt", "sed -n '1,20p' temp/log.txt", "sed -n '1,20p' code.py; python modify.py"]:
             for _ in range(5):
