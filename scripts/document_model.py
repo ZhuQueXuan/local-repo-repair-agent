@@ -81,6 +81,14 @@ class ProtectedDocumentModel(ProtectedReviewModel):
                 while message_bytes(projected) > 12288 and note["issued_quote_prefixes"]:
                     note["issued_quote_prefixes"].pop(0)
                     projected[2] = {"role":"user","content":canonical_bytes(note).decode()}
+                # Two latest receipts plus the original task/card may already
+                # exceed the soft target. Old request/evidence indexes are also
+                # optional: do not let the archive summary trip the hard guard.
+                # Keep the complete latest group, archive hash and raw history.
+                for field in ("recent_unique_requests", "recent_issued_evidence_ids"):
+                    while message_bytes(projected) > 12288 and note[field]:
+                        note[field].pop(0)
+                        projected[2] = {"role":"user","content":canonical_bytes(note).decode()}
             if not hasattr(self, "document_projection_events"):
                 self.document_projection_events = []
             if message_bytes(projected) <= 12288 or keep == 1:

@@ -1,0 +1,22 @@
+{
+  "checks/run_once.py": "364568f0839f20404f056d05f19d634bd3e586f6523f2578486e13af56d1f235",
+  "checks/plan.json": "dd89fdcea9e9756937dcbc66cc755455711e141941bd2833cd05af2cc9585b53",
+  "checks/plan-sha256.json": "af79aebf223ee677c7fc6853f3ef4ac3e2e9512a51d12cab9dd0e9b6cc65eab3",
+  "checks/readiness.json": "5037c492eb3fddfb5c5dd499a0fa1e7c257e7bef2bee42b4f39670d08852978c",
+  "checks/consumed-authorization.json": "4bceb52f972685becefddbf39fea7b9906dc481ecdde635c93236336e23ecb5b",
+  "checks/explicit-user-approval.json": "4c8290e7eb40b28bb19d7c771c0b92dabb1b7f6d6de1ed7076b6766d0e42e23d",
+  "checks/inspect_result.py": "1125a38206632c15df14423f21389d02043fed673327a7cf49ab98895cf75f2b",
+  "checks/inspection.json": "72f8b022d7b0b0a7b546b3fc7eb5c2bded3c22bf0a84da6eb59bb88274a2b912",
+  "checks/finish.py": "ef176b2d04e1fb6c2ce9311bb2629529e4057e8dddf8beb89ddd6479835147d3",
+  "checks/protection-check.json": "7269817e24dfb939716f3ea3e3595ad3152db0a34605be4328052c0e6c263989",
+  "checks/seal.py": "0cf41dead7769610c9dca544bb8d1ecbbd05acc5640ff0936b7059b47a0625ba",
+  "checks/replay_projection.py": "06828ba0820e8fe0ef1c24c1fe0957b549cb3779076ae3e63bedd4eb652bd52a",
+  "checks/before-projection.json": "3e475cb7eb2b4d7fd78de23e90c00ad917565212c56bf8f9e9f03b74d2f6433b",
+  "checks/after-projection.json": "49ff44a1e5ddb324e0bb1598e3d111c738b0a60567d992d8144fa24996c6661a",
+  "checks/before-index-test.txt": "9e1772467a1559d4849918c4655047463fda020c591cb68d25bd58e6344e65e6",
+  "checks/after-index-test.txt": "a4c4f4b1a9056e4e4b1ae2f852933dd423b76bc5239e1785f5c93258dc469d58",
+  "checks/document-tests-final.txt": "85a36a812062e6c6e3f86d54073c0274ec19b624fb5601cddacbde5caf3a957d",
+  "checks/document-model-before.py": "977287749041b08e28eff7225e57b0fbf2913b541dcc92bed4207ba876877408",
+  "checks/source-change.patch": "bb5ae55208d5919c330556b0204413807536339636c829cdabbd2855fdb37bdc",
+  "Project/53_验收_完整三角色失败与文档上下文补修.md": "0632f758c8d971b8e79814e2f249f6c1423fcad9adc0368e4b8a91042c86b4ce"
+}

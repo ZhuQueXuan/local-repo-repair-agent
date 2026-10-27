@@ -159,6 +159,29 @@ class DocumentContextTests(unittest.TestCase):
             if m['role']=='tool':self.assertEqual(prepared[i-1]['tool_calls'][0]['id'],m['tool_call_id'])
         self.assertTrue(model.document_projection_events)
 
+    def test_optional_indexes_do_not_overflow_a_complete_two_read_group(self):
+        f,broker=self.fixture((('source '+'x'*110+'\n')*100).encode())
+        doc=broker.snapshot.grant.documents[0]
+        messages=[{'role':'system','content':'S'*720},{'role':'user','content':'ORIGINAL_TASK '+'Q'*4540}]
+        for i in range(6):
+            assistant={'role':'assistant','content':'','tool_calls':[]};outputs=[]
+            for j,start in enumerate((i+1,i+45)):
+                args={'snapshot_id':broker.snapshot.grant.snapshot_id,'document_id':doc.document_id,'start':start,'end':start+30}
+                receipt=broker.dispatch(f.identity,'read_lines',args);identity=f'bounded-group-{i}-{j}'
+                assistant['tool_calls'].append({'id':identity,'type':'function','function':{'name':'read_lines','arguments':json.dumps(args)}})
+                outputs.append({'role':'tool','tool_call_id':identity,'content':canonical_bytes(receipt).decode()})
+            messages.extend([assistant,*outputs])
+        fixture=runtime_fixture.RuntimeTests();fixture.setUp();model=fixture.model(cls=ProtectedDocumentModel)
+        card={'role':'user','content':'CURRENT_CARD '+'C'*990};model._task_card_receipt={'message':card}
+        before=canonical_bytes(messages)
+        projected=model._prepare_messages_for_api(messages)
+        self.assertLessEqual(message_bytes(projected),16384)
+        self.assertEqual(projected[:2],messages[:2]);self.assertEqual(projected[-3:-1],messages[-2:])
+        self.assertEqual(sum(m==card for m in projected),1)
+        self.assertEqual(canonical_bytes(messages),before)
+        latest=projected[-4]['tool_calls']
+        self.assertEqual([m['tool_call_id'] for m in projected[-3:-1]],[c['id'] for c in latest])
+
     def test_rotating_unchanged_queries_stop_without_a_global_request_cap(self):
         f,broker=self.fixture(('split behavior\n'*12).encode())
         doc=broker.snapshot.grant.documents[0]

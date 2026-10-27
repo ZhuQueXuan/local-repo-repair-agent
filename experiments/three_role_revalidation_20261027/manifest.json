@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "stage": 53,
+  "base_commit": "c05e623b8750ddba4a87491e0fff009c1871d08c",
+  "result": {
+    "task": "click-flag-default-map",
+    "run_id": "76a7df56932a44dda6c3af637b5c8e1d",
+    "status": "failed",
+    "resolved": false,
+    "collaboration_result": "not_completed",
+    "repair_result": "unknown",
+    "review_verdict": "unavailable",
+    "evaluation_error": "No sealed/exported final patch; retained as unresolved"
+  },
+  "audit": {
+    "complete_cost_estimate_cny": null,
+    "extra_selection_reruns": 0,
+    "formal_payloads_unchanged": 53,
+    "historical_artifacts_unchanged": 56,
+    "input_hashes_verified": 452,
+    "known_price_estimate_cny": "0.063684",
+    "new_attempts": 6,
+    "new_parent_runs": 1,
+    "old_requests_unchanged": 2402,
+    "scope": "One known Click development regression; prior failures remain. No fresh comparison or general stability claim.",
+    "shared_requests_after": 2408,
+    "unknown_placeholder_cny": "0.10"
+  },
+  "archive_members": {
+    "one-real-run.zip": 233,
+    "approval-and-checks.zip": 20
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "nested_objects": 391,
+    "matches": 0
+  },
+  "approval": "Explicit human approval for exactly this one new post-stage-52 run; previous grants not reused.",
+  "formal_database_and_whole_shared_ledger_not_uploaded": true,
+  "offline_followup": {
+    "same_record_api_bytes_before": 18402,
+    "same_record_api_bytes_after": 16333,
+    "hard_limit_unchanged": 16384,
+    "checks_passed": 44,
+    "model_calls": 0,
+    "input_hashes_452_verified_at_live_terminal_before_followup": true,
+    "old_freeze_invalidated_by_followup": true
+  },
+  "scope": "Exactly one known Click development case with current document correction and a task-specific consultation question. Previous results retained. Not a fresh benchmark, causal comparison or general-stability proof."
+}
