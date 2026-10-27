@@ -11,12 +11,15 @@ CURRENT_TASKS=('boltons-empty-record-names','boltons-bits-width')
 CURRENT_PACKET=ROOT/'evaluation/current_comparison_20261027'
 THREE_ARM_TASKS=('click-empty-default-help','boltons-isoparse-fraction')
 THREE_ARM_PACKET=ROOT/'evaluation/three_arm_20261028'
+MEDIUM_TASKS=('click-resource-exceptions','boltons-barrel-slices','boltons-jsonl-seek','boltons-table-text')
+MEDIUM_PACKET=ROOT/'evaluation/medium_comparison_20261028'
 
 def packet_for(name):
     if name in TASKS:return PACKET
     if name in FRESH_TASKS:return FRESH_PACKET
     if name in CURRENT_TASKS:return CURRENT_PACKET
     if name in THREE_ARM_TASKS:return THREE_ARM_PACKET
+    if name in MEDIUM_TASKS:return MEDIUM_PACKET
     raise ValueError('Not a declared public comparison task')
 
 def public_task(name):
@@ -30,4 +33,4 @@ def public_task(name):
 def catalog_rows():
     # UI discovery is metadata-only. Every actual use rechecks the public hashes.
     return [{'id':name,'task_id':name,'scope':'Six fixed public comparison issues; no training-contamination or SWE-bench claim. Evaluator checks are terminal-only.',
-             'language':'python'} for name in (*TASKS,*FRESH_TASKS,*CURRENT_TASKS,*THREE_ARM_TASKS) if (packet_for(name)/'public'/name/'manifest.json').is_file()]
+             'language':'python'} for name in (*TASKS,*FRESH_TASKS,*CURRENT_TASKS,*THREE_ARM_TASKS,*MEDIUM_TASKS) if (packet_for(name)/'public'/name/'manifest.json').is_file()]

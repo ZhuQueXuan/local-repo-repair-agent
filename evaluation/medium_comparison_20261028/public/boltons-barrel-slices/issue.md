@@ -1,0 +1,5 @@
+# Make BarrelList slice reads and deletions agree with list
+
+BarrelList claims slicing works across internal list borders, but clipped bounds, reverse steps, and deletion spanning barrels can return the wrong values or fail. For integer/None bounds and nonzero integer steps, slice reading and deletion should have Python list semantics regardless of how values are split across internal lists. This covers obj[slice], iter_slice(start, stop, step), del obj[slice], and del_slice(start, stop, step).
+
+Preserve order, duplicate values, length and the BarrelList type of a slice result. Support negative and out-of-range bounds, omitted endpoints, reverse and extended steps, empty ranges and full deletion. A zero step must raise ValueError without mutation. After deletion the object must remain usable for append/extend/pop and further slice reads; maintain a usable internal structure even when empty. Slicing must not mutate the source. Exact internal partition shapes and asymptotic performance are not scored. Ordinary item-index changes and slice assignment are outside this task. Modify only existing implementation files.

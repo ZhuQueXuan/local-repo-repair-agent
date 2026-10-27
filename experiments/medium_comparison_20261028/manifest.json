@@ -1,0 +1,821 @@
+{
+  "all_terminal": true,
+  "arms": {
+    "full": {
+      "attempts": 164,
+      "elapsed_seconds": 291.797,
+      "elapsed_unknown_runs": 0,
+      "known_price_estimate_cny": 1.337402,
+      "normal_submissions": 0,
+      "resolved": 0,
+      "slots": 4,
+      "unknown_placeholder_cny": 0.4
+    },
+    "improved": {
+      "attempts": 696,
+      "elapsed_seconds": 978.002,
+      "elapsed_unknown_runs": 0,
+      "known_price_estimate_cny": 4.335308,
+      "normal_submissions": 0,
+      "resolved": 0,
+      "slots": 4,
+      "unknown_placeholder_cny": 0.4
+    }
+  },
+  "balance_probed": false,
+  "billing_stop": null,
+  "complete_cost_estimate_cny": null,
+  "elapsed_scope": "Finalized worker metrics total_elapsed_seconds; preparation through finalization, excluding queued wait and later retained scoring. Not created-to-ended timestamps.",
+  "formal_payloads_unchanged": 53,
+  "frozen_inputs_verified": 684,
+  "full_complete": 0,
+  "historical_files_unchanged": 7941,
+  "known_price_estimate_cny": 5.67271,
+  "plan_sha256": "802b492eadf22ec9b241f7716e681596841b461704400dac2ea785f9e4672c85",
+  "platform_attempts": 860,
+  "platform_failures": [
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    }
+  ],
+  "qualification": {
+    "boltons-barrel-slices": {
+      "baseline": {
+        "public": {
+          "passed": 0,
+          "successful": false,
+          "tests_run": 3
+        },
+        "upstream": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "withheld": {
+          "passed": 0,
+          "successful": false,
+          "tests_run": 5
+        }
+      },
+      "reference": {
+        "public": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        },
+        "upstream": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "withheld": {
+          "passed": 5,
+          "successful": true,
+          "tests_run": 5
+        }
+      }
+    },
+    "boltons-jsonl-seek": {
+      "baseline": {
+        "public": {
+          "passed": 0,
+          "successful": false,
+          "tests_run": 3
+        },
+        "upstream": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "withheld": {
+          "passed": 1,
+          "successful": false,
+          "tests_run": 5
+        }
+      },
+      "reference": {
+        "public": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        },
+        "upstream": {
+          "passed": 2,
+          "successful": true,
+          "tests_run": 2
+        },
+        "withheld": {
+          "passed": 5,
+          "successful": true,
+          "tests_run": 5
+        }
+      }
+    },
+    "boltons-table-text": {
+      "baseline": {
+        "public": {
+          "passed": 0,
+          "successful": false,
+          "tests_run": 3
+        },
+        "upstream": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        },
+        "withheld": {
+          "passed": 0,
+          "successful": false,
+          "tests_run": 5
+        }
+      },
+      "reference": {
+        "public": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        },
+        "upstream": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        },
+        "withheld": {
+          "passed": 5,
+          "successful": true,
+          "tests_run": 5
+        }
+      }
+    },
+    "click-resource-exceptions": {
+      "baseline": {
+        "public": {
+          "passed": 0,
+          "successful": false,
+          "tests_run": 3
+        },
+        "upstream": {
+          "passed": 23,
+          "successful": true,
+          "tests_run": 23
+        },
+        "withheld": {
+          "passed": 1,
+          "successful": false,
+          "tests_run": 5
+        }
+      },
+      "reference": {
+        "public": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        },
+        "upstream": {
+          "passed": 23,
+          "successful": true,
+          "tests_run": 23
+        },
+        "withheld": {
+          "passed": 5,
+          "successful": true,
+          "tests_run": 5
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "agent_exit": "TimeExceeded",
+      "attempts": 222,
+      "candidate_selection": "exported_final_patch",
+      "collaboration_result": null,
+      "elapsed_seconds": 314.563,
+      "evaluation_error": "ValueError: Final patch cannot replay",
+      "exported_patch_bytes": 0,
+      "known_price_estimate_cny": 1.3620299999999987,
+      "limit_kind": null,
+      "normal_submission": false,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "",
+      "repair_result": "failed",
+      "resolved": false,
+      "review_verdict": null,
+      "run_id": "a6b0eeebc09d492db9d56c23bd2704ff",
+      "status": "finished",
+      "task": "click-resource-exceptions",
+      "tools_observed": [],
+      "traces": {
+        "trajectory.json": {
+          "actions": 221,
+          "bash_commands": 221,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [
+            {
+              "command": "cd \"$(pwd)\" && sed -n '465,500p' src/click/core.py; echo ----; sed -n '540,600p' src/click/core.py",
+              "count": 137
+            },
+            {
+              "command": "cd \"$(pwd)\" && sed -n '544,600p' src/click/core.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(pwd)\" && sed -n '420,520p' src/click/core.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(pwd)\" && sed -n '465,500p' src/click/core.py",
+              "count": 2
+            }
+          ],
+          "submission_commands": 0,
+          "test_commands": 0
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "improved"
+    },
+    {
+      "agent_exit": null,
+      "attempts": 73,
+      "candidate_selection": "no_sealed_candidate",
+      "collaboration_result": "not_completed",
+      "complete_three_role": false,
+      "document_citations": 3,
+      "document_handoff_bytes": 3630,
+      "document_status": "information_not_found",
+      "elapsed_seconds": 117.125,
+      "evaluation_error": "No exported or legally sealed final patch; retained in denominator",
+      "exported_patch_bytes": null,
+      "finding_responses": [],
+      "known_price_estimate_cny": 0.568276,
+      "normal_repair_submission": false,
+      "patch_sha256": null,
+      "reason": "Stage failure: RepairNoProgress",
+      "repair_result": "unknown",
+      "resolved": false,
+      "review_reports": [],
+      "review_verdict": "unavailable",
+      "roles": [
+        {
+          "phase": "consulting",
+          "reason": null,
+          "status": "succeeded"
+        },
+        {
+          "phase": "repairing",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "failed"
+        },
+        {
+          "phase": "reviewing",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        },
+        {
+          "phase": "revising",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        },
+        {
+          "phase": "final_review",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        }
+      ],
+      "run_id": "4716b187292444e3ab0ef9402aebf53a",
+      "status": "failed",
+      "task": "click-resource-exceptions",
+      "tools_observed": [
+        "read_lines",
+        "search_text",
+        "submit_consultation"
+      ],
+      "traces": {
+        "consulting-trajectory.json": {
+          "actions": 10,
+          "bash_commands": 0,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        },
+        "repairing-trajectory.json": {
+          "actions": 66,
+          "bash_commands": 66,
+          "format_corrections": 0,
+          "repair_control_rejections": 12,
+          "repeated_exact_commands": [
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; python -B -m unittest discover -s task_checks -v 2>&1 | tail -30",
+              "count": 4
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; sed -n '1,60p' task_checks/test_behavior.py",
+              "count": 4
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; sed -n '500,600p' src/click/core.py",
+              "count": 4
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; sed -n '450,505p' src/click/core.py",
+              "count": 3
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; sed -n '450,470p' src/click/core.py",
+              "count": 3
+            }
+          ],
+          "submission_commands": 0,
+          "test_commands": 5
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "full"
+    },
+    {
+      "agent_exit": null,
+      "attempts": 33,
+      "candidate_selection": "no_sealed_candidate",
+      "collaboration_result": "not_completed",
+      "complete_three_role": false,
+      "elapsed_seconds": 57.516,
+      "evaluation_error": "No exported or legally sealed final patch; retained in denominator",
+      "exported_patch_bytes": null,
+      "finding_responses": [],
+      "known_price_estimate_cny": 0.255998,
+      "normal_repair_submission": false,
+      "patch_sha256": null,
+      "reason": "Stage failure: RepairNoProgress",
+      "repair_result": "unknown",
+      "resolved": false,
+      "review_reports": [],
+      "review_verdict": "unavailable",
+      "roles": [
+        {
+          "phase": "consulting",
+          "reason": "document_repeated_evidence_limit",
+          "status": "failed"
+        },
+        {
+          "phase": "repairing",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "failed"
+        },
+        {
+          "phase": "reviewing",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        },
+        {
+          "phase": "revising",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        },
+        {
+          "phase": "final_review",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        }
+      ],
+      "run_id": "13ff9c95b170496393e74b4c3792e121",
+      "status": "failed",
+      "task": "boltons-barrel-slices",
+      "tools_observed": [
+        "read_lines",
+        "search_text"
+      ],
+      "traces": {
+        "consulting-trajectory.json": {
+          "actions": 12,
+          "bash_commands": 0,
+          "format_corrections": 1,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        },
+        "repairing-trajectory.json": {
+          "actions": 24,
+          "bash_commands": 24,
+          "format_corrections": 0,
+          "repair_control_rejections": 4,
+          "repeated_exact_commands": [
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; sed -n '200,240p' boltons/listutils.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; sed -n '240,262p' boltons/listutils.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; python -B -m unittest discover -s task_checks -v 2>&1 | tail -30",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; sed -n '170,200p' boltons/listutils.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; sed -n '160,200p' boltons/listutils.py",
+              "count": 2
+            }
+          ],
+          "submission_commands": 0,
+          "test_commands": 2
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "full"
+    },
+    {
+      "agent_exit": "TimeExceeded",
+      "attempts": 226,
+      "candidate_selection": "exported_final_patch",
+      "collaboration_result": null,
+      "elapsed_seconds": 311.907,
+      "evaluation_error": "ValueError: Final patch cannot replay",
+      "exported_patch_bytes": 0,
+      "known_price_estimate_cny": 1.414522,
+      "limit_kind": null,
+      "normal_submission": false,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "",
+      "repair_result": "failed",
+      "resolved": false,
+      "review_verdict": null,
+      "run_id": "e38b6339e6e340efb448a1ab97f48aa0",
+      "status": "finished",
+      "task": "boltons-barrel-slices",
+      "tools_observed": [],
+      "traces": {
+        "trajectory.json": {
+          "actions": 225,
+          "bash_commands": 225,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [
+            {
+              "command": "cd \"$(pwd)\" && sed -n '155,169p' boltons/listutils.py; echo ---; grep -n \"slice\\|__getitem__\\|__delitem__\\|def \" boltons/listutils.py | sed -n '1,80p'",
+              "count": 10
+            },
+            {
+              "command": "cd \"$(pwd)\" && sed -n '60,190p' boltons/listutils.py | cat -n | sed -n '76,130p' > temp/x.txt; sed -n '1,60p' temp/x.txt | cut -c1-200 | head -c 3000 > temp/y.txt; cat temp/y.txt | head -c 3000",
+              "count": 5
+            },
+            {
+              "command": "cd \"$(pwd)\" && sed -n '1,60p' boltons/listutils.py; echo ----; sed -n '111,200p' boltons/listutils.py",
+              "count": 4
+            },
+            {
+              "command": "cd \"$(pwd)\" && grep -n \"def \\|class \" boltons/listutils.py | head -60",
+              "count": 4
+            },
+            {
+              "command": "cd \"$(pwd)\" && sed -n '170,240p' boltons/listutils.py",
+              "count": 4
+            }
+          ],
+          "submission_commands": 0,
+          "test_commands": 0
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "improved"
+    },
+    {
+      "agent_exit": "TimeExceeded",
+      "attempts": 230,
+      "candidate_selection": "exported_final_patch",
+      "collaboration_result": null,
+      "elapsed_seconds": 310.813,
+      "evaluation_error": "ValueError: Final patch cannot replay",
+      "exported_patch_bytes": 0,
+      "known_price_estimate_cny": 1.4466560000000004,
+      "limit_kind": null,
+      "normal_submission": false,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "",
+      "repair_result": "failed",
+      "resolved": false,
+      "review_verdict": null,
+      "run_id": "67b49f2ce6da4fbbaa0f6bd97f93024f",
+      "status": "finished",
+      "task": "boltons-jsonl-seek",
+      "tools_observed": [],
+      "traces": {
+        "trajectory.json": {
+          "actions": 229,
+          "bash_commands": 229,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [
+            {
+              "command": "cd \"$(pwd)\" && sed -n '146,240p' boltons/jsonutils.py",
+              "count": 4
+            },
+            {
+              "command": "cd \"$(pwd)\" && sed -n '146,226p' boltons/jsonutils.py | tr -d '\\r' | cat -n",
+              "count": 3
+            },
+            {
+              "command": "cd \"$(pwd)\" && sed -n '120,215p' boltons/jsonutils.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(pwd)\" && sed -n '1,60p' temp/jl.txt",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(pwd)\" && sed -n '146,230p' boltons/jsonutils.py",
+              "count": 2
+            }
+          ],
+          "submission_commands": 0,
+          "test_commands": 0
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "improved"
+    },
+    {
+      "agent_exit": null,
+      "attempts": 29,
+      "candidate_selection": "no_sealed_candidate",
+      "collaboration_result": "not_completed",
+      "complete_three_role": false,
+      "document_citations": 2,
+      "document_handoff_bytes": 3140,
+      "document_status": "information_not_found",
+      "elapsed_seconds": 57.469,
+      "evaluation_error": "No exported or legally sealed final patch; retained in denominator",
+      "exported_patch_bytes": null,
+      "finding_responses": [],
+      "known_price_estimate_cny": 0.253402,
+      "normal_repair_submission": false,
+      "patch_sha256": null,
+      "reason": "Stage failure: RepairNoProgress",
+      "repair_result": "unknown",
+      "resolved": false,
+      "review_reports": [],
+      "review_verdict": "unavailable",
+      "roles": [
+        {
+          "phase": "consulting",
+          "reason": null,
+          "status": "succeeded"
+        },
+        {
+          "phase": "repairing",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "failed"
+        },
+        {
+          "phase": "reviewing",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        },
+        {
+          "phase": "revising",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        },
+        {
+          "phase": "final_review",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        }
+      ],
+      "run_id": "c8f6e4ff5dc440968be0011d3a14ac10",
+      "status": "failed",
+      "task": "boltons-jsonl-seek",
+      "tools_observed": [
+        "read_lines",
+        "search_text",
+        "submit_consultation"
+      ],
+      "traces": {
+        "consulting-trajectory.json": {
+          "actions": 11,
+          "bash_commands": 0,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        },
+        "repairing-trajectory.json": {
+          "actions": 22,
+          "bash_commands": 22,
+          "format_corrections": 0,
+          "repair_control_rejections": 3,
+          "repeated_exact_commands": [
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && sed -n '150,215p' boltons/jsonutils.py",
+              "count": 3
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && sed -n '160,200p' boltons/jsonutils.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && sed -n '200,215p' boltons/jsonutils.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && sed -n '215,300p' boltons/jsonutils.py",
+              "count": 2
+            }
+          ],
+          "submission_commands": 0,
+          "test_commands": 1
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "full"
+    },
+    {
+      "agent_exit": null,
+      "attempts": 29,
+      "candidate_selection": "no_sealed_candidate",
+      "collaboration_result": "not_completed",
+      "complete_three_role": false,
+      "document_citations": 4,
+      "document_handoff_bytes": 3526,
+      "document_status": "information_not_found",
+      "elapsed_seconds": 59.687,
+      "evaluation_error": "No exported or legally sealed final patch; retained in denominator",
+      "exported_patch_bytes": null,
+      "finding_responses": [],
+      "known_price_estimate_cny": 0.259726,
+      "normal_repair_submission": false,
+      "patch_sha256": null,
+      "reason": "Stage failure: RepairNoProgress",
+      "repair_result": "unknown",
+      "resolved": false,
+      "review_reports": [],
+      "review_verdict": "unavailable",
+      "roles": [
+        {
+          "phase": "consulting",
+          "reason": null,
+          "status": "succeeded"
+        },
+        {
+          "phase": "repairing",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "failed"
+        },
+        {
+          "phase": "reviewing",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        },
+        {
+          "phase": "revising",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        },
+        {
+          "phase": "final_review",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        }
+      ],
+      "run_id": "550eba9bfecc473f86853aae44213747",
+      "status": "failed",
+      "task": "boltons-table-text",
+      "tools_observed": [
+        "read_lines",
+        "search_text",
+        "submit_consultation"
+      ],
+      "traces": {
+        "consulting-trajectory.json": {
+          "actions": 10,
+          "bash_commands": 0,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        },
+        "repairing-trajectory.json": {
+          "actions": 21,
+          "bash_commands": 21,
+          "format_corrections": 0,
+          "repair_control_rejections": 3,
+          "repeated_exact_commands": [
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && sed -n '566,582p' boltons/tableutils.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && python -B -m unittest discover -s task_checks -v 2>&1 | tail -40",
+              "count": 2
+            }
+          ],
+          "submission_commands": 0,
+          "test_commands": 5
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "full"
+    },
+    {
+      "agent_exit": "LimitsExceeded",
+      "attempts": 18,
+      "candidate_selection": "exported_final_patch",
+      "collaboration_result": null,
+      "elapsed_seconds": 40.719,
+      "evaluation_error": "ValueError: Final patch cannot replay",
+      "exported_patch_bytes": 0,
+      "known_price_estimate_cny": 0.1121,
+      "limit_kind": "context_bytes",
+      "normal_submission": false,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Agent触发运行保护：context_bytes",
+      "repair_result": "failed",
+      "resolved": false,
+      "review_verdict": null,
+      "run_id": "af74fa4d8a104ee5928f73728e2cda86",
+      "status": "finished",
+      "task": "boltons-table-text",
+      "tools_observed": [],
+      "traces": {
+        "trajectory.json": {
+          "actions": 17,
+          "bash_commands": 17,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 3
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "improved"
+    }
+  ],
+  "scope": "Four unused interacting-behavior public tasks, two familiar repositories, each of two systems once; descriptive evidence only. No training-unseen, statistical or single-module causal claim.",
+  "selection_reruns": 0,
+  "shared_requests_after": 4037,
+  "shared_requests_before": 3177,
+  "slots": 8,
+  "source_base_commit": "32b6aa0918567a4038f33c15c2bc177ce77f1535",
+  "stage": 64,
+  "unknown_placeholder_cny": 0.8,
+  "archive_members": {
+    "all-eight-runs.zip": 3384,
+    "preparation-and-audit.zip": 902,
+    "public-and-scoring-inputs.zip": 490
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "objects_including_nested": 5730,
+    "matches": 0
+  },
+  "formal_database_and_whole_shared_ledger_uploaded": false,
+  "source_patch": "preparation-and-audit.zip/source-change.patch"
+}

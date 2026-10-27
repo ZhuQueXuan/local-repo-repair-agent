@@ -1,0 +1,5 @@
+# Forward exceptions to resources managed by Context
+
+A resource registered with Context.with_resource receives (None, None, None) on exit even when the command or a with-context body failed. A resource that commits on success and rolls back on failure therefore sees an incorrect success. Forward the active exception type, the original exception object and its traceback when the outermost Context scope exits.
+
+Handle both direct Context usage and nested command/group invocation. Preserve deferred cleanup for nested entry of the same Context, LIFO resource/call_on_close ordering, successful cleanup, explicit close() without an error, and reuse of a Context after cleanup. Even if resource cleanup raises, the current-context stack must be popped and its consumed cleanup stack must not run again. Keep the command's original exception propagation when cleanup itself succeeds. Changing Context's suppression behavior based on a resource's truthy __exit__ return is outside this task. Change only existing implementation files; leave tests and metadata unchanged.

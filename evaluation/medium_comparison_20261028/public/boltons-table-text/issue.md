@@ -1,0 +1,5 @@
+# Make Table.to_text handle empty and irregular tables
+
+Table.to_text crashes or formats columns incorrectly for empty tables, non-string header cells, and rows wider than the header list. Render these tables robustly while keeping all cells and existing string conversion/truncation rules.
+
+Compute each displayed column's width from that column's rendered data cells and, when included, its rendered header. Do not use the number of cells in a row as the text width. Missing header cells should be blank, and missing data cells should follow the existing None-filling behavior. Empty headers mean no header row or separator; a completely empty table renders ''. Header-only tables should render their headers and separator. with_headers=False must suppress headers without changing the data. Preserve the existing centered cells, ' | ' columns and '-|-' header separator, maxlen conversion, Unicode data, and table contents across repeated rendering. Change only existing implementation files; HTML changes and recursive tables are outside scope.
