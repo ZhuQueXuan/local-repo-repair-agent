@@ -1,0 +1,13 @@
+{
+  "checks/run_once.py": "7d45692156b7bfa7f18f38727899daf4dee210cbfad7b9ebdf8115c5473ae977",
+  "checks/plan.json": "bb6e0d7d31162831f7b1277e62058352dc9247eaa389ebd9bbfd804b0486a1bf",
+  "checks/plan-sha256.json": "231cb82550bbc401226ff768d89534684326f2dfe2638d1724aea30c64448223",
+  "checks/approval-review.json": "7b303c239971d93ad2550c65859226338b519fb9d2afc29ab95f6819b0b095c2",
+  "checks/explicit-user-approval.json": "358c11fde72e59e494d8fd9d23edd829179e6be65c9c931d40554ea234f68476",
+  "checks/inspect_result.py": "1a695cb1c06a1ec9a8c05f62c7711dd6b823b05055453263c814180d6216f6f9",
+  "checks/inspection.json": "89e35eb8b073a8a4d479028f54e91a290624b043e0a2805deca5769b8dfa3a2d",
+  "checks/finish.py": "b60fe376a741ae10207181264aedea318c7addeab565d75e67df98d8d25e733f",
+  "checks/protection-check.json": "8853700394d05170a5e88e2c6f1d71d212d1bfc0f1f6119663bd48ea20e8f0b6",
+  "checks/seal.py": "ce5b018364484f7d90e23e32c3c3400c7ac5c06f50a4a2bf61a0ef44da3ea5af",
+  "Project/49_验收_Click补修后的单题真实闭环.md": "ca1e122fbd4f0941c2d1f3ab04408de0af92f7a8808437ef54bee4c4c3fe32fa"
+}

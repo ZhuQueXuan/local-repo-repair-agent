@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "stage": 49,
+  "base_commit": "668be10ee0b4f7ecdb789d7fd3076d62db3dfec7",
+  "result": {
+    "task": "click-flag-default-map",
+    "run_id": "41fd1e05ac5b463e824b3ffe718906e0",
+    "status": "failed",
+    "resolved": false,
+    "collaboration_result": "not_completed",
+    "repair_result": "unknown",
+    "review_verdict": "unavailable",
+    "evaluation_error": "No sealed/exported final patch; retained as unresolved"
+  },
+  "audit": {
+    "complete_cost_estimate_cny": null,
+    "extra_selection_reruns": 0,
+    "formal_payloads_unchanged": 53,
+    "historical_artifacts_unchanged": 32,
+    "input_hashes_verified": 452,
+    "known_price_estimate_cny": "0.556818",
+    "new_attempts": 73,
+    "new_parent_runs": 1,
+    "old_requests_unchanged": 2287,
+    "scope": "One known Click development regression; prior failures remain. No fresh comparison or general stability claim.",
+    "shared_requests_after": 2360,
+    "unknown_placeholder_cny": "0.20"
+  },
+  "archive_members": {
+    "one-real-run.zip": 239,
+    "local-diagnostics.zip": 74,
+    "approval-and-checks.zip": 11
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "nested_objects": 462,
+    "matches": 0
+  },
+  "approval": "Initial automatic rejection before dispatch, followed by explicit human approval for this single run.",
+  "formal_database_and_whole_shared_ledger_not_uploaded": true,
+  "scope": "Exactly one known Click development case after a specific code fix. Previous results retained. Not a fresh benchmark or proof of general stability."
+}
