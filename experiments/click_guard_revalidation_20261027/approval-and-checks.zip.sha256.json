@@ -1,0 +1,14 @@
+{
+  "checks/run_once.py": "90c293f7769c0e59bd4f6580754f6349927091f3b691351ae68df7387e5deb0f",
+  "checks/plan.json": "76fe65a5e3d953a49c8b462ffc0f9902e79b747233a98c7be5513547a649a1fc",
+  "checks/plan-sha256.json": "2afd9596c97c65e48af557c5d31cb4512e925a1eb3cbf301920ccaea4826b72a",
+  "checks/readiness.json": "aeac78f2001dc81e125eecb389f3033ed9c3f8ca8810ceff729bdef89e6e52c6",
+  "checks/consumed-authorization.json": "83e35b0803f97e58e1bf1333947944946cb3c120a009e26ec7165bfee6737da7",
+  "checks/explicit-user-approval.json": "7d732bf681b03923792b44e94535fd176da957ccf76fff4849b74f52de3b0ebe",
+  "checks/inspect_result.py": "1125a38206632c15df14423f21389d02043fed673327a7cf49ab98895cf75f2b",
+  "checks/inspection.json": "6bdb5a8eb928c8348c9434f784a971993016f21b73c8dff9330b7e5c670cbab5",
+  "checks/finish.py": "915948f1d5d8768a105c01b321e12d22bc2bfe92cc22d9aedebf656f1d2a54de",
+  "checks/protection-check.json": "8a6ceae77c350954b797bb0aa4a77947de14374ae1767b299d88e139b64ff462",
+  "checks/seal.py": "da571a6053a5bd6a9cd809088615a716fac06d247cfd04eb89cd2027e37b9b5f",
+  "Project/51_验收_重复读取补修后的Click单题真实复验.md": "6b2faeae0fab32e91b0455cc71bcd2da648b4ca8bc7d42fc9685607abf07ebee"
+}

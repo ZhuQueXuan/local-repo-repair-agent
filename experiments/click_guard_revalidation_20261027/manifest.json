@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "stage": 51,
+  "base_commit": "6458e7dae30ca5b0ea4709f1ed78fdc42c3e6b19",
+  "result": {
+    "task": "click-flag-default-map",
+    "run_id": "0d9ac92ab2044ef283c476fea62a8b1f",
+    "status": "finished",
+    "resolved": true,
+    "collaboration_result": "degraded",
+    "repair_result": "passed",
+    "review_verdict": "approve",
+    "evaluation_error": null
+  },
+  "audit": {
+    "complete_cost_estimate_cny": null,
+    "extra_selection_reruns": 0,
+    "formal_payloads_unchanged": 53,
+    "historical_artifacts_unchanged": 44,
+    "input_hashes_verified": 452,
+    "known_price_estimate_cny": "0.319182",
+    "new_attempts": 42,
+    "new_parent_runs": 1,
+    "old_requests_unchanged": 2360,
+    "scope": "One known Click development regression; prior failures remain. No fresh comparison or general stability claim.",
+    "shared_requests_after": 2402,
+    "unknown_placeholder_cny": "0.10"
+  },
+  "archive_members": {
+    "one-real-run.zip": 796,
+    "local-diagnostics.zip": 37,
+    "approval-and-checks.zip": 12
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "nested_objects": 983,
+    "matches": 0
+  },
+  "approval": "Explicit human approval for exactly this one new post-stage-50 run; previous grants not reused.",
+  "formal_database_and_whole_shared_ledger_not_uploaded": true,
+  "scope": "Exactly one known Click development case after a specific code fix. Previous results retained. Not a fresh benchmark or proof of general stability."
+}
