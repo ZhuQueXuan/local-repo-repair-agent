@@ -1,0 +1,601 @@
+{
+  "stage": 59,
+  "source_base_commit": "d9396597221b391fb72d13f3865177aae8445b34",
+  "source_changed_files": [
+    "scripts/execution_progress.py",
+    "scripts/collaboration_runtime.py",
+    "scripts/collaboration_live.py",
+    "scripts/test_execution_progress.py",
+    "scripts/test_collaboration_runtime.py"
+  ],
+  "offline_tests_passed": 68,
+  "new_regressions_in_existing_files": 3,
+  "fixed_old_trace_replay": [
+    {
+      "task": "boltons-indexed-update",
+      "historical_actions": 156,
+      "first_new_rejection_action": 6,
+      "rejection": "Repair execution contract: Both declared checks have observed passes for the CURRENT implementation revision. At most one final git diff is allowed. Submit this candidate now using echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT alone. Do not rerun tests or reread source. This passes work to independent evaluation/review; it does not certify correctness.",
+      "current_validation": {
+        "targeted": "passed",
+        "issue": "passed"
+      },
+      "work": "D:\\myDocu\\project_postg\\shixi_project\\temp\\comparison_tasks\\boltons-indexed-update\\run_20261027_212357_919252\\repo",
+      "model_calls": 0,
+      "source": "Original fixed action sequence; not a new model result.",
+      "explicit_scripted_submit_has_actual_receipt": true
+    },
+    {
+      "task": "boltons-aware-relative",
+      "historical_actions": 43,
+      "first_new_rejection_action": 4,
+      "rejection": "Repair execution contract: This unchanged source range is already available at temp/tool-output/0003.txt. Varying an overlapping line range adds no evidence. Use that observation; make a concrete implementation change or reproduction, run a declared check, or request genuinely unread lines for a specific missing fact. No patch is supplied by this contract.",
+      "current_validation": {
+        "targeted": "not_run",
+        "issue": "not_run"
+      },
+      "work": "D:\\myDocu\\project_postg\\shixi_project\\temp\\comparison_tasks\\boltons-aware-relative\\run_20261027_212403_549305\\repo",
+      "model_calls": 0,
+      "source": "Original fixed action sequence; not a new model result."
+    }
+  ],
+  "new_parent_runs": 2,
+  "selection_reruns": 0,
+  "results": [
+    {
+      "task": "boltons-indexed-update",
+      "run_id": "dc554d1019e64307ad8e33358b504a43",
+      "status": "finished",
+      "resolved": true,
+      "repair_result": "passed",
+      "collaboration_result": "completed",
+      "review_verdict": "approve",
+      "candidate_selection": "exported_final_patch",
+      "evaluation_error": null,
+      "patch_sha256": "22d0fe7d3462fcafd43bdc3c84b76c374612fc92bcc6e3cc8baf0f886361aafe",
+      "complete_three_role_acceptance": true,
+      "usage": {
+        "attempts": 31,
+        "available": true,
+        "by_role": {
+          "07eea4b2e00e40deac24819ab734fd08": {
+            "attempts": 7,
+            "complete_cost_estimate_cny": 0.056602,
+            "has_unknown_usage": false,
+            "known_completion_tokens": 610,
+            "known_price_estimate_cny": 0.056602,
+            "known_prompt_tokens": 25861,
+            "logical_requests": 7,
+            "tickets": [
+              "0a3db227e7be46c6bca36f84a88e0c00",
+              "50264eaa5a5e44bab530236380803631",
+              "8678bc111553468989083de138031f75",
+              "97681e0ca21140ebb90fa947c7019eea",
+              "ad2fda92164c453ba4305b2245d957bf",
+              "b7454328591c4c9ab4a395ec4159d9e7",
+              "e8b3211718224f1080fadc019aef8383"
+            ],
+            "unknown_cost_attempts": 0,
+            "unknown_placeholder_cny": 0.0
+          },
+          "1ed254714b2b4f7998d2fcb845fd23bb": {
+            "attempts": 17,
+            "complete_cost_estimate_cny": null,
+            "has_unknown_usage": true,
+            "known_completion_tokens": 2894,
+            "known_price_estimate_cny": 0.18284,
+            "known_prompt_tokens": 79844,
+            "logical_requests": 16,
+            "tickets": [
+              "034753f8a7eb4fb6ba8e82b9146d02fd",
+              "127550be1c2b4ca59be06648c620337c",
+              "22770ad8fa2643c09e4cdc65a3e8e552",
+              "26caefbaf3924f40ac7dbf9608f07c42",
+              "2a646a82ae5544d4a389b2484e7a6d3e",
+              "3087a72717354b5e9a2f51a59b8c7511",
+              "487571f8abb045d7af6432736beb627b",
+              "51c14c30d7fe43bbaea805c570cd5eaa",
+              "5f51630de1c94962b62ed34c5a09565a",
+              "a440fa53a08a445aa5ee8a504b0bdac0",
+              "a4c6231e4d294514816217a261a73692",
+              "ab2ee6b824114bbfa321cf2b6631dd38",
+              "cf70ed0a4939476ea5e90e64f7c70889",
+              "d0e1e49a714648e68ebc36b50a33aad5",
+              "d6e2e5cfa2424f34829e6edc5e1caa73",
+              "e110a478bc2a44ce956ea11a44d793e4",
+              "ec0b06b64a034072a3e757086b5e1ae2"
+            ],
+            "unknown_cost_attempts": 1,
+            "unknown_placeholder_cny": 0.1
+          },
+          "3ad8d5ed3a864236ad41d402cbc43912": {
+            "attempts": 7,
+            "complete_cost_estimate_cny": 0.118368,
+            "has_unknown_usage": false,
+            "known_completion_tokens": 1705,
+            "known_price_estimate_cny": 0.118368,
+            "known_prompt_tokens": 52364,
+            "logical_requests": 7,
+            "tickets": [
+              "119f7f40b80444c39cbb77fa6f032e70",
+              "33644ec2763f48c58545e9b7b474947a",
+              "a67e3c7969be4da58f14a8b25b6858e1",
+              "b8b513e3aa6c4313b5c1fd9b01f91070",
+              "bb93f17921cd43cab20060dc16c6a531",
+              "c4ab932bc6614208a4981046c434c8e8",
+              "d65ef3b79c3346c8b77e8b172346aff8"
+            ],
+            "unknown_cost_attempts": 0,
+            "unknown_placeholder_cny": 0.0
+          }
+        },
+        "complete_cost_estimate_cny": null,
+        "cost_scope": "Known-price estimates plus unknown placeholders; not confirmed charges or platform balance.",
+        "has_unknown_usage": true,
+        "known_completion_tokens": 5209,
+        "known_price_estimate_cny": 0.35781,
+        "known_prompt_tokens": 158069,
+        "logical_requests": 30,
+        "providers": {
+          "bupt_gateway": {
+            "attempts": 1,
+            "settled": 0,
+            "unknown": 1
+          },
+          "deepseek_official": {
+            "attempts": 30,
+            "settled": 30,
+            "unknown": 0
+          }
+        },
+        "synthetic": false,
+        "tickets": [
+          "034753f8a7eb4fb6ba8e82b9146d02fd",
+          "0a3db227e7be46c6bca36f84a88e0c00",
+          "119f7f40b80444c39cbb77fa6f032e70",
+          "127550be1c2b4ca59be06648c620337c",
+          "22770ad8fa2643c09e4cdc65a3e8e552",
+          "26caefbaf3924f40ac7dbf9608f07c42",
+          "2a646a82ae5544d4a389b2484e7a6d3e",
+          "3087a72717354b5e9a2f51a59b8c7511",
+          "33644ec2763f48c58545e9b7b474947a",
+          "487571f8abb045d7af6432736beb627b",
+          "50264eaa5a5e44bab530236380803631",
+          "51c14c30d7fe43bbaea805c570cd5eaa",
+          "5f51630de1c94962b62ed34c5a09565a",
+          "8678bc111553468989083de138031f75",
+          "97681e0ca21140ebb90fa947c7019eea",
+          "a440fa53a08a445aa5ee8a504b0bdac0",
+          "a4c6231e4d294514816217a261a73692",
+          "a67e3c7969be4da58f14a8b25b6858e1",
+          "ab2ee6b824114bbfa321cf2b6631dd38",
+          "ad2fda92164c453ba4305b2245d957bf",
+          "b7454328591c4c9ab4a395ec4159d9e7",
+          "b8b513e3aa6c4313b5c1fd9b01f91070",
+          "bb93f17921cd43cab20060dc16c6a531",
+          "c4ab932bc6614208a4981046c434c8e8",
+          "cf70ed0a4939476ea5e90e64f7c70889",
+          "d0e1e49a714648e68ebc36b50a33aad5",
+          "d65ef3b79c3346c8b77e8b172346aff8",
+          "d6e2e5cfa2424f34829e6edc5e1caa73",
+          "e110a478bc2a44ce956ea11a44d793e4",
+          "e8b3211718224f1080fadc019aef8383",
+          "ec0b06b64a034072a3e757086b5e1ae2"
+        ],
+        "unknown_cost_attempts": 1,
+        "unknown_placeholder_cny": 0.1
+      },
+      "traces": {
+        "consulting-trajectory.json": {
+          "actions": 18,
+          "tools": [
+            "read_lines",
+            "submit_consultation"
+          ],
+          "submit_commands": 0
+        },
+        "repairing-trajectory.json": {
+          "actions": 7,
+          "tools": [],
+          "submit_commands": 1
+        },
+        "reviewing-trajectory.json": {
+          "actions": 6,
+          "tools": [
+            "read_diff",
+            "read_lines",
+            "read_report",
+            "search_text",
+            "submit_review"
+          ],
+          "submit_commands": 0
+        }
+      },
+      "checks": {
+        "public": {
+          "tests_run": 2,
+          "passed": 2,
+          "successful": true
+        },
+        "upstream": {
+          "tests_run": 5,
+          "passed": 5,
+          "successful": true
+        },
+        "withheld": {
+          "tests_run": 3,
+          "passed": 3,
+          "successful": true
+        }
+      },
+      "rejected_actions": 0,
+      "final_progress": {
+        "phase": "review_and_submit",
+        "plan_version": 4,
+        "actions_without_source_or_new_validation": 2,
+        "stagnation_feedback": false,
+        "first_source_change_sequence": 4,
+        "current_validation": {
+          "targeted": "passed",
+          "issue": "passed"
+        },
+        "validation_evidence": {
+          "targeted": {
+            "result": "passed",
+            "revision": "4c400b8fba7525137565c581e7eae33dd2c1512479bb95f73d4d25d4a7cbff81",
+            "sequence": 5,
+            "output_path": "temp/tool-output/0005.txt",
+            "failures": []
+          },
+          "issue": {
+            "result": "passed",
+            "revision": "4c400b8fba7525137565c581e7eae33dd2c1512479bb95f73d4d25d4a7cbff81",
+            "sequence": 6,
+            "output_path": "temp/tool-output/0006.txt",
+            "failures": []
+          }
+        },
+        "last_execution_failure": null,
+        "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance.",
+        "status": "program-derived advisory; no independent acceptance"
+      }
+    },
+    {
+      "task": "boltons-aware-relative",
+      "run_id": "ae0950e2d075476d86533ab85fa5475e",
+      "status": "failed",
+      "resolved": true,
+      "repair_result": "passed",
+      "collaboration_result": "degraded",
+      "review_verdict": "unavailable",
+      "candidate_selection": "exported_final_patch",
+      "evaluation_error": null,
+      "patch_sha256": "4e83c1c5e34d242c9175048722108e7faf9f315b005fa914d404dc81b2700dde",
+      "complete_three_role_acceptance": false,
+      "usage": {
+        "attempts": 36,
+        "available": true,
+        "by_role": {
+          "a62bfafa89934fa9bf0544818e4b49d2": {
+            "attempts": 16,
+            "complete_cost_estimate_cny": 0.09874,
+            "has_unknown_usage": false,
+            "known_completion_tokens": 1186,
+            "known_price_estimate_cny": 0.09874,
+            "known_prompt_tokens": 44626,
+            "logical_requests": 16,
+            "tickets": [
+              "1694aa3c0c8f4bf8bb71649bfe3fa689",
+              "1804a40aab7a46bbb9a32a62d1ddeb98",
+              "2ac7f9d2c7e54946bae9ec9d0cd336e6",
+              "2e555316e0724bffad4cf040508fe7b7",
+              "504811da7bf54578baa2225acf15b48d",
+              "508137deea2b42dd9eca51484fe58aa9",
+              "573625c82da244c79a023b78d8b921a9",
+              "57d094eb489d4417a81f911f0d544363",
+              "7b1f49770fad454ba5cd4589ee844b47",
+              "81713cf2f09449a6b802a13b21db2f92",
+              "95ec3de82db94adf9fe45543900addc0",
+              "bd6b1d014f3f42f59175d01583cee95c",
+              "bf835bea6c874b0db202800f51cb2c53",
+              "cbeedc304c2f4e8a981e0c5b6129c529",
+              "e1f7be8ea1d148ef9ac525b3e253a855",
+              "ff14abc24f9a4deeb1a1af1f0c98b7dd"
+            ],
+            "unknown_cost_attempts": 0,
+            "unknown_placeholder_cny": 0.0
+          },
+          "bffee8aa1bd14c78856d9c39b59331c1": {
+            "attempts": 14,
+            "complete_cost_estimate_cny": null,
+            "has_unknown_usage": true,
+            "known_completion_tokens": 3122,
+            "known_price_estimate_cny": 0.147618,
+            "known_prompt_tokens": 61321,
+            "logical_requests": 13,
+            "tickets": [
+              "08b60c919b804805ad37e6119eaef39d",
+              "0da4b074e47d4028b4bbeb09e9650227",
+              "263d6b1ab9a04081890adbb60b82ca02",
+              "26e8d32c47724486a19ce95fa97057df",
+              "3d35e38689de499fbe7e635b8576c63d",
+              "57357211467c452d9cb3dbf8cf2b48ee",
+              "75429b3b27c24650be1381319e5b3ae3",
+              "782c2351840048658a81a1007fc0b8eb",
+              "8681c940d1424474bb2063d780611e25",
+              "8b9f487795b54283b1afb6731b62d821",
+              "8f8684a2032c4de5bbd49d5ea6d9dd56",
+              "94dd8be7fe4d484ead5abaf943b1828c",
+              "abc0055a1f854e338dfd4842f99d5dcf",
+              "ca65723963df4c81889e0b3a156cc255"
+            ],
+            "unknown_cost_attempts": 1,
+            "unknown_placeholder_cny": 0.1
+          },
+          "f2e77fe4c337476980fef6e9473588b5": {
+            "attempts": 6,
+            "complete_cost_estimate_cny": 0.070436,
+            "has_unknown_usage": false,
+            "known_completion_tokens": 839,
+            "known_price_estimate_cny": 0.070436,
+            "known_prompt_tokens": 31862,
+            "logical_requests": 6,
+            "tickets": [
+              "0dbbda10c638463d85c8c356f772ceab",
+              "6239cb78fbd84df3b8936e4c5a5f4344",
+              "83004409ad724fae9d56a43fdc697871",
+              "a0984b3ca9d44905aef0cb90e2cc3208",
+              "b31793c60a0349e3923eaecb0bef79b9",
+              "babb4609e2da4f43aa222c49235f3030"
+            ],
+            "unknown_cost_attempts": 0,
+            "unknown_placeholder_cny": 0.0
+          }
+        },
+        "complete_cost_estimate_cny": null,
+        "cost_scope": "Known-price estimates plus unknown placeholders; not confirmed charges or platform balance.",
+        "has_unknown_usage": true,
+        "known_completion_tokens": 5147,
+        "known_price_estimate_cny": 0.316794,
+        "known_prompt_tokens": 137809,
+        "logical_requests": 35,
+        "providers": {
+          "bupt_gateway": {
+            "attempts": 1,
+            "settled": 0,
+            "unknown": 1
+          },
+          "deepseek_official": {
+            "attempts": 35,
+            "settled": 35,
+            "unknown": 0
+          }
+        },
+        "synthetic": false,
+        "tickets": [
+          "08b60c919b804805ad37e6119eaef39d",
+          "0da4b074e47d4028b4bbeb09e9650227",
+          "0dbbda10c638463d85c8c356f772ceab",
+          "1694aa3c0c8f4bf8bb71649bfe3fa689",
+          "1804a40aab7a46bbb9a32a62d1ddeb98",
+          "263d6b1ab9a04081890adbb60b82ca02",
+          "26e8d32c47724486a19ce95fa97057df",
+          "2ac7f9d2c7e54946bae9ec9d0cd336e6",
+          "2e555316e0724bffad4cf040508fe7b7",
+          "3d35e38689de499fbe7e635b8576c63d",
+          "504811da7bf54578baa2225acf15b48d",
+          "508137deea2b42dd9eca51484fe58aa9",
+          "57357211467c452d9cb3dbf8cf2b48ee",
+          "573625c82da244c79a023b78d8b921a9",
+          "57d094eb489d4417a81f911f0d544363",
+          "6239cb78fbd84df3b8936e4c5a5f4344",
+          "75429b3b27c24650be1381319e5b3ae3",
+          "782c2351840048658a81a1007fc0b8eb",
+          "7b1f49770fad454ba5cd4589ee844b47",
+          "81713cf2f09449a6b802a13b21db2f92",
+          "83004409ad724fae9d56a43fdc697871",
+          "8681c940d1424474bb2063d780611e25",
+          "8b9f487795b54283b1afb6731b62d821",
+          "8f8684a2032c4de5bbd49d5ea6d9dd56",
+          "94dd8be7fe4d484ead5abaf943b1828c",
+          "95ec3de82db94adf9fe45543900addc0",
+          "a0984b3ca9d44905aef0cb90e2cc3208",
+          "abc0055a1f854e338dfd4842f99d5dcf",
+          "b31793c60a0349e3923eaecb0bef79b9",
+          "babb4609e2da4f43aa222c49235f3030",
+          "bd6b1d014f3f42f59175d01583cee95c",
+          "bf835bea6c874b0db202800f51cb2c53",
+          "ca65723963df4c81889e0b3a156cc255",
+          "cbeedc304c2f4e8a981e0c5b6129c529",
+          "e1f7be8ea1d148ef9ac525b3e253a855",
+          "ff14abc24f9a4deeb1a1af1f0c98b7dd"
+        ],
+        "unknown_cost_attempts": 1,
+        "unknown_placeholder_cny": 0.1
+      },
+      "traces": {
+        "consulting-trajectory.json": {
+          "actions": 15,
+          "tools": [
+            "read_lines",
+            "submit_consultation"
+          ],
+          "submit_commands": 0
+        },
+        "repairing-trajectory.json": {
+          "actions": 16,
+          "tools": [],
+          "submit_commands": 1
+        },
+        "reviewing-trajectory.json": {
+          "actions": 3,
+          "tools": [
+            "read_diff",
+            "read_lines"
+          ],
+          "submit_commands": 0
+        }
+      },
+      "checks": {
+        "public": {
+          "tests_run": 2,
+          "passed": 2,
+          "successful": true
+        },
+        "upstream": {
+          "tests_run": 4,
+          "passed": 4,
+          "successful": true
+        },
+        "withheld": {
+          "tests_run": 3,
+          "passed": 3,
+          "successful": true
+        }
+      },
+      "rejected_actions": 2,
+      "final_progress": {
+        "phase": "review_and_submit",
+        "plan_version": 5,
+        "actions_without_source_or_new_validation": 2,
+        "stagnation_feedback": false,
+        "first_source_change_sequence": 13,
+        "current_validation": {
+          "targeted": "passed",
+          "issue": "passed"
+        },
+        "validation_evidence": {
+          "targeted": {
+            "result": "passed",
+            "revision": "d553464533c7de9b2641ef000c3ad45b08d4efc80fa257f406bb954614cab4d3",
+            "sequence": 14,
+            "output_path": "temp/tool-output/0014.txt",
+            "failures": []
+          },
+          "issue": {
+            "result": "passed",
+            "revision": "d553464533c7de9b2641ef000c3ad45b08d4efc80fa257f406bb954614cab4d3",
+            "sequence": 15,
+            "output_path": "temp/tool-output/0015.txt",
+            "failures": []
+          }
+        },
+        "last_execution_failure": null,
+        "next_action": "Review the diff and constraints, then submit. Observed passes are not independent repair acceptance.",
+        "status": "program-derived advisory; no independent acceptance"
+      }
+    }
+  ],
+  "resolved": 2,
+  "complete_three_role_acceptance": 1,
+  "roles": [
+    {
+      "id": "1ed254714b2b4f7998d2fcb845fd23bb",
+      "run_id": "dc554d1019e64307ad8e33358b504a43",
+      "phase": "consulting",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "07eea4b2e00e40deac24819ab734fd08",
+      "run_id": "dc554d1019e64307ad8e33358b504a43",
+      "phase": "repairing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "3ad8d5ed3a864236ad41d402cbc43912",
+      "run_id": "dc554d1019e64307ad8e33358b504a43",
+      "phase": "reviewing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "7bd0a626b7334212a7c55ade87b579d5",
+      "run_id": "dc554d1019e64307ad8e33358b504a43",
+      "phase": "revising",
+      "status": "skipped",
+      "reason": "Not required by this feedback branch"
+    },
+    {
+      "id": "f62ed86c691540c89810ff2d78931fc6",
+      "run_id": "dc554d1019e64307ad8e33358b504a43",
+      "phase": "final_review",
+      "status": "skipped",
+      "reason": "Not required by this feedback branch"
+    },
+    {
+      "id": "bffee8aa1bd14c78856d9c39b59331c1",
+      "run_id": "ae0950e2d075476d86533ab85fa5475e",
+      "phase": "consulting",
+      "status": "failed",
+      "reason": "document_repeated_format_errors"
+    },
+    {
+      "id": "a62bfafa89934fa9bf0544818e4b49d2",
+      "run_id": "ae0950e2d075476d86533ab85fa5475e",
+      "phase": "repairing",
+      "status": "succeeded",
+      "reason": null
+    },
+    {
+      "id": "f2e77fe4c337476980fef6e9473588b5",
+      "run_id": "ae0950e2d075476d86533ab85fa5475e",
+      "phase": "reviewing",
+      "status": "failed",
+      "reason": "Stage failure: ProtocolError"
+    },
+    {
+      "id": "8c30bbece8f1479fbb362f38aa1f3c51",
+      "run_id": "ae0950e2d075476d86533ab85fa5475e",
+      "phase": "revising",
+      "status": "skipped",
+      "reason": "Stage failure: ProtocolError"
+    },
+    {
+      "id": "4ca40be5d2544c0c8f9bf1e3843a5f9d",
+      "run_id": "ae0950e2d075476d86533ab85fa5475e",
+      "phase": "final_review",
+      "status": "skipped",
+      "reason": "Stage failure: ProtocolError"
+    }
+  ],
+  "controlled_action_rejections": [
+    {
+      "run_id": "ae0950e2d075476d86533ab85fa5475e",
+      "role_run_id": "a62bfafa89934fa9bf0544818e4b49d2",
+      "revision": "65fbae6c571449d4794aa5d638c22f8867635030cde62b41fde78de833d1d23a",
+      "consecutive_control_errors": 1,
+      "reason": "This unchanged source range is already available at temp/tool-output/0004.txt. Varying an overlapping line range adds no evidence. Use that observation; make a concrete implementation change or reproduction, run a declared check, or request genuinely unread lines for a specific missing fact. No patch is supplied by this contract."
+    },
+    {
+      "run_id": "ae0950e2d075476d86533ab85fa5475e",
+      "role_run_id": "a62bfafa89934fa9bf0544818e4b49d2",
+      "revision": "65fbae6c571449d4794aa5d638c22f8867635030cde62b41fde78de833d1d23a",
+      "consecutive_control_errors": 1,
+      "reason": "This unchanged source range is already available at temp/tool-output/0003.txt. Varying an overlapping line range adds no evidence. Use that observation; make a concrete implementation change or reproduction, run a declared check, or request genuinely unread lines for a specific missing fact. No patch is supplied by this contract."
+    }
+  ],
+  "frozen_inputs_verified": 429,
+  "formal_payloads_unchanged": 53,
+  "old_requests_unchanged": 2714,
+  "new_attempts": 67,
+  "shared_requests_after": 2781,
+  "known_price_estimate_cny": 0.674604,
+  "unknown_placeholder_cny": 0.2,
+  "complete_cost_estimate_cny": null,
+  "historical_files_unchanged": 7410,
+  "balance_probed": false,
+  "scope": "Two known development cases after the fix; not a new comparison, causal attribution or general success rate.",
+  "archive_members": {
+    "two-postfix-runs.zip": 1394,
+    "offline-and-source.zip": 25,
+    "local-execution-diagnostics.zip": 35
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "objects_including_nested": 1680,
+    "matches": 0
+  },
+  "formal_database_and_whole_shared_ledger_uploaded": false
+}

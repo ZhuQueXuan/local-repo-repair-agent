@@ -21,7 +21,7 @@ from litellm import ModelResponse
 from collaboration import CollaborationCoordinator, RoleContext, attributed_usage, role_identity
 from collaboration_live import LiveRunner, verification_summary
 from collaboration_protocol import ProtocolError, ReviewReport, canonical_bytes, sha256
-from collaboration_runtime import (LiveRoleBudget, ProtectedReviewModel, RepairModel, RepairSession, run_review)
+from collaboration_runtime import (LiveRoleBudget, ProtectedReviewModel, RepairModel, RepairSession, RepairEnvironment, run_review)
 from collaboration_store import CollaborationStopped, CollaborationStore
 from deepseek_budget import SharedBudget, load_budget_config
 from minisweagent.agents.default import DefaultAgent
@@ -31,6 +31,7 @@ from minisweagent.models.test_models import DeterministicToolcallModel, make_too
 from review_model import REVIEW_TOOLS
 from run_deepseek_smoke import BudgetedDeepSeekModel, GitBashEnvironment
 from task_service_store import policy
+from state_agent import NoProgress
 from test_collaboration_protocol import StageAFixture
 from test_collaboration_store import make_store, claim_first
 import test_provider_priority as priority_tests
@@ -44,6 +45,63 @@ def response(tool="read_diff", arguments=None, content=None):
 
 
 class RuntimeTests(unittest.TestCase):
+    def controlled_repair_environment(self):
+        work=ROOT/'temp/repair_contract_tests'/uuid.uuid4().hex
+        files={'pkg/__init__.py':'','pkg/code.py':'def value(): return 0\n',
+            'tests/test_code.py':'from pkg.code import value\ndef test_value(): assert value()==1\n',
+            'task_checks/test_behavior.py':'import unittest\nfrom pkg.code import value\nclass Cases(unittest.TestCase):\n def test_value(self): self.assertEqual(value(),1)\n'}
+        for name,text in files.items():
+            p=work/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text,encoding='utf-8')
+        context=SimpleNamespace(check=lambda:None,deadline=time.monotonic()+60,store=SimpleNamespace(event=Mock()),
+            identity=SimpleNamespace(run_id='contract-run',role_run_id='repair-1'))
+        from execution_runtime import bash_executable
+        env=RepairEnvironment(work,bash_executable(),context=context,source_files=list(files),max_output_bytes=4096,
+            python_import_root=work,state_policy={'guard_enabled':True,'implementation_prefix':'pkg/',
+                'progress_policy':{'stagnation_actions':8},'validation_commands':{
+                    'targeted':'python -B -m pytest tests/test_code.py -q -p no:cacheprovider',
+                    'issue':'python -B -m unittest discover -s task_checks -v'}})
+        env.model=SimpleNamespace(contains_credentials=lambda _:False)
+        return work,env,context
+
+    def test_repair_compound_checks_have_actual_exits_and_require_real_submission(self):
+        work,env,context=self.controlled_repair_environment()
+        chain='cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"; python -B -m pytest tests/test_code.py -q -p no:cacheprovider; echo "PYTEST_RC=$?"; python -B -m unittest discover -s task_checks -v; echo "UNITTEST_RC=$?"'
+        result=env.execute({'command':chain})
+        self.assertNotEqual(result['returncode'],0)
+        self.assertEqual(env.task_state.progress.facts()['current_validation'],{'targeted':'failed','issue':'failed'})
+        fix="from pathlib import Path; Path('pkg/code.py').write_text('def value(): return 1\\n')"
+        env.execute({'command':'python -B -c '+shlex.quote(fix)})
+        result=env.execute({'command':chain})
+        self.assertEqual(result['returncode'],0)
+        self.assertEqual(env.task_state.progress.facts()['phase'],'review_and_submit')
+        actions=env.task_state.progress.actions
+        blocked=env.execute({'command':chain})
+        self.assertIn('Submit this candidate now',blocked['output'])
+        self.assertEqual(env.task_state.progress.actions,actions)
+        self.assertIsNone(env.completed_submission)
+        with self.assertRaises(Submitted):env.execute({'command':'echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT'})
+        self.assertIsNotNone(env.completed_submission)
+        env.reset_repair_control()
+        self.assertEqual(env.execute({'command':'cat pkg/code.py'})['returncode'],0)
+        # A new revision phase must not inherit the old submit-only barrier.
+        context.identity.role_run_id='repair-2'
+        self.assertEqual(env.execute({'command':'cat pkg/code.py'})['returncode'],0)
+
+    def test_repair_overlapping_reads_are_bounded_but_new_lines_and_edits_remain_possible(self):
+        work,env,context=self.controlled_repair_environment()
+        (work/'pkg/code.py').write_text('\n'.join('# line '+str(i) for i in range(50)),encoding='utf-8')
+        env.execute({'command':"sed -n '1,30p' pkg/code.py"})
+        env.execute({'command':"sed -n '2,20p' pkg/code.py"})
+        for i in range(2):
+            result=env.execute({'command':"sed -n '3,15p' pkg/code.py"})
+            self.assertIn('already available',result['output'])
+        # A genuinely unread range is allowed and resets consecutive rejection.
+        self.assertEqual(env.execute({'command':"sed -n '31,40p' pkg/code.py"})['returncode'],0)
+        for i in range(2):env.execute({'command':"sed -n '3,15p' pkg/code.py"})
+        with self.assertRaises(NoProgress):env.execute({'command':"sed -n '3,15p' pkg/code.py"})
+        (work/'pkg/code.py').write_text('new implementation\n',encoding='utf-8')
+        self.assertEqual(env.execute({'command':"sed -n '1,30p' pkg/code.py"})['returncode'],0)
+
     def test_repair_stop_reason_survives_empty_candidate_and_retains_partial_snapshot(self):
         # Reuse the actual runner ordering, with no model or subprocess. A valid
         # partial candidate is still sealed, but a stopped repair never advances.

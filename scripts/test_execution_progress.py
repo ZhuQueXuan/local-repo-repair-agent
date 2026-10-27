@@ -4,7 +4,7 @@ from pathlib import Path
 import unittest
 import uuid
 
-from execution_progress import ExecutionProgress, runner_tokens
+from execution_progress import ExecutionProgress, runner_tokens, declared_test_chain
 from task_state import TaskState
 from tool_output_budget import ToolOutputBudget
 
@@ -14,6 +14,16 @@ COMMANDS = {"targeted": "python -B -m pytest tests/test_code.py -q -p no:cachepr
 
 
 class ProgressTests(unittest.TestCase):
+    def test_declared_compound_checks_require_exact_selections_not_printed_claims(self):
+        commands={k:runner_tokens(v) for k,v in COMMANDS.items()}
+        chain=COMMANDS['targeted']+'; echo "PYTEST_RC=$?"; '+COMMANDS['issue']+'; echo "UNITTEST_RC=$?"'
+        self.assertEqual(declared_test_chain('cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"; '+chain,commands),['targeted','issue'])
+        self.assertEqual(declared_test_chain(COMMANDS['targeted']+'; '+COMMANDS['issue'],commands),['targeted','issue'])
+        for bad in [chain+'; echo OK',chain.replace('$?','0'),chain.replace('test_code','other'),
+                    chain+' || true',chain.replace(COMMANDS['targeted'],'echo '+repr(COMMANDS['targeted'])),
+                    'cd /outside && '+chain,chain+'; python modify.py']:
+            with self.subTest(command=bad):self.assertIsNone(declared_test_chain(bad,commands))
+
     def test_click_commands_and_checkpoint_preserve_current_revision_validation(self):
         commands = {"targeted": "PYTHONPATH=src python -B -m pytest tests/test_code.py -q -p no:cacheprovider",
                     "issue": COMMANDS["issue"]}

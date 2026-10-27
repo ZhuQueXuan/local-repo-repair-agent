@@ -9,6 +9,43 @@ import re
 import shlex
 
 
+def checkout_body(command):
+    body = command.removeprefix("set -o pipefail\n").strip()
+    return re.sub(r'^cd\s+["\']?\$\(git rev-parse --show-toplevel(?:\s+2>/dev/null\s*\|\|\s*pwd)?\)["\']?\s*(?:&&|;)\s*', '', body)
+
+
+def declared_test_chain(command, commands):
+    """Recognize only registered runners and optional immediate $? echoes.
+
+    The caller executes each registered command separately and records its
+    actual exit code. Printed exit markers never certify a pass.
+    """
+    try:
+        lexer = shlex.shlex(checkout_body(command), posix=True, punctuation_chars=";&|<>")
+        lexer.whitespace_split, lexer.commenters = True, ""
+        parts, current = [], []
+        for token in lexer:
+            if token == ';':
+                if not current:return None
+                parts.append(current);current=[]
+            else:current.append(token)
+        if current:parts.append(current)
+        selected=[]
+        for part in parts:
+            if part[:1] == ['echo']:
+                if not selected or len(part)!=2 or not re.fullmatch(r'[A-Za-z_]\w*=\$\?',part[1]):return None
+                continue
+            if part[:1] in (['PYTHONPATH=src'],['PYTHONPATH=.']):part=part[1:]
+            if part[:1] not in (['python'],['python3']) or any(t in {'&&','||','|','>','<','>&','&'} for t in part):return None
+            tokens=runner_tokens(shlex.join(part))
+            scope=next((key for key,value in commands.items() if value==tokens),None)
+            if scope is None or scope in selected:return None
+            selected.append(scope)
+        return selected if len(selected)>1 and set(selected)==set(commands) else None
+    except ValueError:
+        return None
+
+
 def runner_tokens(command):
     """Extract one simple Python test invocation; decline ambiguous shell bodies."""
     body = command.removeprefix("set -o pipefail\n").strip()

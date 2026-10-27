@@ -2,6 +2,8 @@
 import json
 import math
 import os
+import re
+import shlex
 from pathlib import Path
 import time
 
@@ -21,6 +23,8 @@ from run_task_batch import StatefulModel, StatefulTaskEnvironment
 from context_budget import ContextBudget, message_bytes
 from collaboration_feedback import pytest_environment
 from task_cards import TaskCardModelMixin
+from execution_progress import checkout_body, declared_test_chain
+from state_agent import NoProgress
 
 
 class LiveRoleBudget(RoleBudget):
@@ -255,7 +259,94 @@ class ProtectedSelfReviewModel(ProtectedReviewModel):
 class RepairEnvironment(StatefulTaskEnvironment):
     def __init__(self, *args, context, **kwargs):
         self.context, self.completed_submission = context, None
+        self._declared_command_texts=dict(kwargs.get('state_policy',{}).get('validation_commands',{}))
         super().__init__(*args, **kwargs)
+        self._control_key = None
+        self._control_revision = None
+        self._read_spans = {}
+        self._redundant_reads = self._control_errors = 0
+        self._final_diff_read = False
+        self._phase_sequence = 0
+
+    def reset_repair_control(self):
+        # Review feedback or bounded response correction opens a new segment.
+        # Prior passes remain audit evidence, not this segment's submit gate.
+        self._control_key=None
+
+    def _sync_control(self):
+        state=self.task_state
+        state._refresh()
+        key=self.context.identity.role_run_id
+        revision=state._implementation_revision()
+        if key!=self._control_key or revision!=self._control_revision:
+            self._read_spans={}
+            self._redundant_reads=self._control_errors=0
+            self._final_diff_read=False
+            if key!=self._control_key:
+                self._phase_sequence=max([0]+[e.get('sequence',0) for e in state.events]+[
+                    r.get('sequence',0) for r in state.progress.validation.values()]) if state.progress else 0
+            self._control_key,self._control_revision=key,revision
+
+    def _read_span(self,command):
+        try:tokens=shlex.split(checkout_body(command))
+        except ValueError:return None
+        if len(tokens)==4 and tokens[:2]==['sed','-n'] and re.fullmatch(r'\d+(,\d+)?p',tokens[2]):
+            values=[int(x) for x in tokens[2][:-1].split(',')]
+            start,end=values[0],values[-1];name=tokens[3]
+        elif len(tokens)==2 and tokens[0]=='cat':
+            start,end,name=1,2**63-1,tokens[1]
+        else:return None
+        path=(Path(self.config.cwd)/name).resolve()
+        if not path.is_relative_to(Path(self.config.cwd).resolve()):return None
+        relative=path.relative_to(Path(self.config.cwd).resolve()).as_posix()
+        if relative not in self.task_state.current_files or start<1 or end<start:return None
+        return relative,start,end
+
+    def _control_rejection(self,command,text):
+        self._control_errors+=1
+        output=self.output_budget.process({'output':'Repair execution contract: '+text,'returncode':-1,
+            'exception_info':'repair_action_rejected'},command=command)
+        self.context.store.event(self.context.identity.run_id,'repair_action_rejected',{
+            'role_run_id':self.context.identity.role_run_id,'revision':self._control_revision,
+            'consecutive_control_errors':self._control_errors,'reason':text},'repairer')
+        if self._control_errors>=3:raise NoProgress(self.model_exit(output))
+        return output
+
+    def _controlled_action(self,command):
+        progress=self.task_state.progress
+        if progress is None:return None
+        self._sync_control()
+        facts=progress.facts()
+        body=checkout_body(command)
+        if body=='echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT':return None
+        current=progress.validation
+        ready=(progress.revision==self._control_revision and facts['phase']=='review_and_submit' and
+               all(current.get(k,{}).get('sequence',0)>self._phase_sequence for k in progress.commands))
+        if ready:
+            try:tokens=shlex.split(body)
+            except ValueError:tokens=[]
+            safe_diff=(tokens[:2]==['git','diff'] and all(t in {'--','--stat','--name-only'} or t in self.task_state.current_files for t in tokens[2:]))
+            if safe_diff and not self._final_diff_read:
+                self._final_diff_read=True
+                return None
+            return self._control_rejection(command,
+                'Both declared checks have observed passes for the CURRENT implementation revision. '
+                'At most one final git diff is allowed. Submit this candidate now using '
+                'echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT alone. Do not rerun tests or reread source. '
+                'This passes work to independent evaluation/review; it does not certify correctness.')
+        span=self._read_span(command)
+        if span:
+            name,start,end=span
+            previous=[entry for entry in self._read_spans.get(name,[]) if entry[0]<=start and end<=entry[1]]
+            if previous:
+                self._redundant_reads+=1
+                if self._redundant_reads>=2:
+                    return self._control_rejection(command,
+                        f'This unchanged source range is already available at {previous[-1][2]}. '
+                        'Varying an overlapping line range adds no evidence. Use that observation; '
+                        'make a concrete implementation change or reproduction, run a declared check, '
+                        'or request genuinely unread lines for a specific missing fact. No patch is supplied by this contract.')
+        return None
 
     def _configure_child_environment(self, env):
         return pytest_environment(Path(self.config.cwd), env)
@@ -264,11 +355,32 @@ class RepairEnvironment(StatefulTaskEnvironment):
         self.context.check()
         if self.model.contains_credentials(action["command"]):
             raise ProtocolError("credential_in_command")
+        rejected=self._controlled_action(action['command'])
+        if rejected is not None:return rejected
         remaining = self.context.deadline - time.monotonic()
         self.context.store.event(self.context.identity.run_id, "action_started", {"role_run_id": self.context.identity.role_run_id,
             "command": action["command"]}, "repairer")
         try:
-            result = super().execute(action, cwd, timeout=min(timeout or self.config.timeout, remaining))
+            scopes=declared_test_chain(action['command'],self.task_state.progress.commands) if self.task_state.progress and not cwd else None
+            if scopes:
+                receipts=[]
+                for scope in scopes:
+                    self.context.check()
+                    command=self._declared_command_texts[scope]
+                    part=super().execute(action|{'command':command},cwd,
+                        timeout=min(timeout or self.config.timeout,self.context.deadline-time.monotonic()))
+                    receipts.append({'scope':scope,'command':command,'returncode':part['returncode'],
+                        'output':part['output'],'archive':part.get('extra',{}).get('tool_output')})
+                result=self.output_budget.process({'output':json.dumps({'separate_declared_check_receipts':receipts},ensure_ascii=False),
+                    'returncode':next((r['returncode'] for r in receipts if r['returncode']!=0),0),
+                    'extra':{'declared_check_receipts':receipts}},command=action['command'])
+            else:
+                result = super().execute(action, cwd, timeout=min(timeout or self.config.timeout, remaining))
+            self._control_errors=0
+            span=self._read_span(action['command']) if self.task_state.progress else None
+            if span and result['returncode']==0:
+                name,start,end=span
+                self._read_spans.setdefault(name,[]).append((start,end,result.get('extra',{}).get('tool_output',{}).get('full_output_path')))
         except InterruptAgentFlow as error:
             if error.messages[-1].get("extra", {}).get("exit_status") == "Submitted":
                 self.completed_submission = {"action": dict(action), "message": error.messages[-1]}
@@ -326,6 +438,8 @@ class RepairSession:
         agent.model.context = context
         agent.env.context = context
         agent.env.completed_submission = None
+        if hasattr(agent.env,'reset_repair_control'):
+            agent.env.reset_repair_control()
         agent.config.output_path = Path(context.store.home) / "runs" / context.identity.run_id / "revising-trajectory.json"
         agent._start_time = time.time()
         agent.config.wall_time_limit_seconds = max(1, math.ceil(context.deadline - time.monotonic()))
