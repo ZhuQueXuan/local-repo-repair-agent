@@ -413,6 +413,30 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(usage["attempts"], 3)
         self.assertEqual(usage["unknown_cost_attempts"], 1)
 
+    def test_repair_projection_reserves_card_appended_after_context_compaction(self):
+        model = self.model(cls=RepairModel, context_policy=policy("adaptive_history")["context_budget"],
+            task_state=SimpleNamespace(pinned_message=lambda: {"role": "user", "content": "facts" * 50}))
+        messages = [{"role": "system", "content": "repair"}, {"role": "user", "content": "issue" * 1950}]
+        for i in range(4):
+            call = {"id": f"c-{i}", "type": "function", "function": {"name": "bash", "arguments": "{}"}}
+            messages.extend([{"role": "assistant", "content": None, "tool_calls": [call]},
+                {"role": "tool", "tool_call_id": call["id"], "content": "source" * 220,
+                 "extra": {"returncode": 0, "tool_output": {"sequence": i, "raw_bytes": 1320,
+                    "full_output_path": f"temp/tool-output/{i:04d}.txt"}}}])
+        from context_budget import message_bytes
+        card = {"role": "user", "content": "当前任务卡" * 210}
+        before = canonical_bytes(messages)
+        without_card = model._prepare_messages_for_api(messages)
+        self.assertLessEqual(message_bytes(without_card), 16384)
+        legacy = without_card + [card]
+        self.assertGreater(message_bytes(legacy), 16384)
+        model._task_card_receipt = {"message": card}
+        corrected = model._prepare_messages_for_api(messages)
+        self.assertLessEqual(message_bytes(corrected), 16384)
+        self.assertEqual(corrected[-1], card)
+        self.assertEqual(corrected.count(card), 1)
+        self.assertEqual(before, canonical_bytes(messages))
+
     def test_live_metadata_cannot_resurrect_or_rewrite_terminal_status(self):
         parent = self.store.create_collaboration("split-after-boundary", "adaptive_history", "immutable-live", {}, execution="live")
         self.store.stop(parent["id"], "failed", "offline failure")

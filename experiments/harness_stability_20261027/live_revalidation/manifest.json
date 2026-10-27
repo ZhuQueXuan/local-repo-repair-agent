@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "stage": 48,
+  "base_commit": "2e5e685b3305c14153ebf0f742244d7c70ffdbb5",
+  "real_result": {
+    "all_results_retained": true,
+    "collaboration_completed": 1,
+    "complete_cost_estimate_cny": null,
+    "extra_selection_reruns": 0,
+    "formal_payloads_unchanged": 53,
+    "input_hashes_verified": 451,
+    "known_price_estimate_cny": "0.312948",
+    "new_attempts": 31,
+    "old_requests_unchanged": 2256,
+    "resolved": 1,
+    "scope": "Two approved development regressions only; no fresh effectiveness claim.",
+    "shared_requests_after": 2287,
+    "unknown_placeholder_cny": "0.20"
+  },
+  "postfix": {
+    "real_new_attempts": 31,
+    "formal_payloads_unchanged": 53,
+    "shared_requests_after": 2287,
+    "old_proposal_verified_before_postfix": 451,
+    "postfix_changes": [
+      "scripts/collaboration_runtime.py",
+      "scripts/test_collaboration_runtime.py"
+    ],
+    "old_proposal_now_stale": true,
+    "postfix_external_model_calls": 0,
+    "new_parent_runs": 2,
+    "extra_selection_reruns": 0,
+    "postfix_targeted_tests": 38,
+    "postfix_targeted_passed": true,
+    "failed_real_result_unchanged": true,
+    "replay": {
+      "events": [
+        {
+          "after_bytes": 13813,
+          "before_bytes": 15959,
+          "mode": "completed_exchanges",
+          "replaced_outputs": [
+            {
+              "full_output_path": "temp/tool-output/0002.txt",
+              "message_index": 3
+            },
+            {
+              "full_output_path": "temp/tool-output/0003.txt",
+              "message_index": 5
+            }
+          ],
+          "reserved_bytes": 1705,
+          "target_bytes": 10583
+        },
+        {
+          "after_bytes": 13813,
+          "before_bytes": 15959,
+          "mode": "completed_exchanges",
+          "replaced_outputs": [
+            {
+              "full_output_path": "temp/tool-output/0002.txt",
+              "message_index": 3
+            },
+            {
+              "full_output_path": "temp/tool-output/0003.txt",
+              "message_index": 5
+            }
+          ],
+          "reserved_bytes": 1705,
+          "target_bytes": 10583
+        },
+        {
+          "after_bytes": 12123,
+          "before_bytes": 16546,
+          "hard_limit": 16384,
+          "keep_recent_tool_outputs": 1,
+          "mode": "collaboration_guard_projection",
+          "projection": [
+            {
+              "after_bytes": 9390,
+              "before_bytes": 15959,
+              "mode": "completed_exchanges",
+              "replaced_outputs": [
+                {
+                  "full_output_path": "temp/tool-output/0002.txt",
+                  "message_index": 3
+                },
+                {
+                  "full_output_path": "temp/tool-output/0003.txt",
+                  "message_index": 5
+                },
+                {
+                  "full_output_path": "temp/tool-output/0004.txt",
+                  "message_index": 7
+                },
+                {
+                  "full_output_path": "temp/tool-output/0005.txt",
+                  "message_index": 9
+                },
+                {
+                  "full_output_path": "temp/tool-output/0006.txt",
+                  "message_index": 11
+                }
+              ],
+              "reserved_bytes": 2735,
+              "target_bytes": 9553
+            }
+          ],
+          "raw_history_preserved": true,
+          "task_card_reserved": true
+        }
+      ],
+      "external_model_calls": 0,
+      "hard_limit": 16384,
+      "new_api_bytes": 12123,
+      "original_api_bytes": 16546,
+      "raw_history_unchanged": true,
+      "real_run_result_still_failed": true,
+      "run_id": "a92a12533eb443c9a703d4d22d6eee35",
+      "scope": "Exact saved raw trajectory, final pinned facts, and SHA-verified last human task card; API projection only, no model calls.",
+      "task_card_unchanged_and_once": true
+    }
+  },
+  "archive_members": {
+    "both-real-runs.zip": 932,
+    "postfix-and-checks.zip": 13
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "nested_objects": 1196,
+    "matches": 0
+  },
+  "real_failed_click_not_rerun": true,
+  "formal_database_and_shared_whole_ledger_not_uploaded": true,
+  "scope": "One approved pair of known development cases, 1 completed and 1 unresolved; later card budget fix has offline evidence only."
+}

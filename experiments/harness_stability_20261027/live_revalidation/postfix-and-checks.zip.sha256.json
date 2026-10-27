@@ -1,0 +1,15 @@
+{
+  "checks/execute_live.py": "ce3eabc3f209e6ac63c4013a916c234b67bb7cf1e46aea32352a12f434c7e558",
+  "checks/audit_live.py": "ab0c4be2cec6c5689d68094aa64dc0d47ee18e9f6601da430c4c5c951b5c65e7",
+  "checks/replay_card_guard.py": "c48c29f3271f58b379b07e536f5edfce9b5c7b99dbe7b51aff9a10e9fbb2254b",
+  "checks/card-guard-replay.json": "70a787f58a061b9f4e5da168a0006e86663077bc4f147a5b207866ec638a84cf",
+  "checks/card-budget-tests.log": "97c5b32dbfa399ac0ffde7efe92846d9f91d577d9c7dae1ed301fe899d36c18f",
+  "checks/card-budget-tests-final.log": "155f6e950a204dc089f0abff5f84a1056e5dbf378d711e42ef480ddf7553b226",
+  "checks/postfix-protection.json": "7653d9eeda40288bd5087a619bd71cf56e6d084d354c65fb8423e71a3ca33313",
+  "checks/finish_live.py": "5a56a54bcf420de267f006ec730b68b8a21e7d1cd37169595e2bd2a672f51f59",
+  "checks/seal_live.py": "ccb8bce77d820c1785975928d448849e7e0847c8aec392ede19bc5ae68de2317",
+  "original-approved-proposal.json": "fb350e3aa8c65fc344337474f03508756f512847962b05f96b36ee1e14be895c",
+  "Project/48_验收_两题真实稳定性复验与任务卡预算补修.md": "267c561512588fdfad7966a888e9043409f9fd52f0034c98547e576f9cd6bc63",
+  "postfix/scripts/collaboration_runtime.py": "a1c8ae1a38850003c76e82213c222cd3c0d755541e23f877968335de15f00e0f",
+  "postfix/scripts/test_collaboration_runtime.py": "22b61fdb936473af5472f32c351f3a8e8faea43e0110f49f2ee6ba7d9d37d766"
+}

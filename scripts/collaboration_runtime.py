@@ -86,7 +86,11 @@ class RoleModelHooks(TaskCardModelMixin):
 class RepairModel(RoleModelHooks, StatefulModel):
     def project_context(self, messages, prepared, pinned=None):
         projected = super().project_context(messages, prepared, pinned)
-        if message_bytes(projected) <= self.budget_config["max_messages_utf8_bytes"]:
+        # The mixin appends the current human task card AFTER this method.
+        # Reserve its complete JSON envelope before deciding a view fits.
+        receipt = getattr(self, "_task_card_receipt", None)
+        card = [receipt["message"]] if receipt else []
+        if message_bytes(projected + card) <= self.budget_config["max_messages_utf8_bytes"]:
             return projected
         # Collaboration feedback can coexist with four large recent actions.
         # Re-project only completed exchanges, retain the latest complete one,
@@ -98,11 +102,11 @@ class RepairModel(RoleModelHooks, StatefulModel):
         pinned = list(pinned or [])
         if self.repository_retrieval is not None:
             pinned.append(self.repository_retrieval.pinned_message())
-        reserved = len(json.dumps(pinned, ensure_ascii=False).encode("utf-8")) + 2 if pinned else 0
+        reserved = len(json.dumps(pinned + card, ensure_ascii=False).encode("utf-8")) + 2 if pinned or card else 0
         compact = emergency.project(messages, prepared, reserved_bytes=reserved)
         result = compact[:2] + pinned + compact[2:]
-        policy.events.append({"mode": "collaboration_guard_projection", "before_bytes": message_bytes(projected),
-            "after_bytes": message_bytes(result), "hard_limit": self.budget_config["max_messages_utf8_bytes"],
+        policy.events.append({"mode": "collaboration_guard_projection", "before_bytes": message_bytes(projected + card),
+            "after_bytes": message_bytes(result + card), "task_card_reserved": bool(card), "hard_limit": self.budget_config["max_messages_utf8_bytes"],
             "keep_recent_tool_outputs": 1, "raw_history_preserved": True, "projection": emergency.events})
         return result
 
