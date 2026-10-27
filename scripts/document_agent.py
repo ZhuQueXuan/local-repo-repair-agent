@@ -255,6 +255,7 @@ class DocumentRead(Message):
 class DocumentSearch(Message):
     snapshot_id: Identifier
     query: Annotated[str, Field(min_length=1, max_length=200)]
+    cursor: Annotated[int, Field(ge=0, description="Use returned next_cursor with the SAME query and snapshot for the next page; start at 0.")] = 0
 
 
 class DocumentSubmit(Message):
@@ -344,30 +345,51 @@ class DocumentBroker:
             self.snapshot.verify()
             if tool_name == "list_files":
                 docs = self.snapshot.grant.documents
-                end = request.cursor + 12
-                result = {"documents": [d.model_dump(mode="json") for d in docs[request.cursor:end]],
-                    "next_cursor": end if end < len(docs) else None}
+                selected = []
+                for doc in docs[request.cursor:request.cursor + 12]:
+                    end = request.cursor + len(selected) + 1
+                    trial = {"documents": selected + [doc.model_dump(mode="json")], "next_cursor": end if end < len(docs) else None}
+                    if len(canonical_bytes(trial)) > 4096:
+                        break
+                    selected.append(doc.model_dump(mode="json"))
+                end = request.cursor + len(selected)
+                result = {"documents": selected, "next_cursor": end if end < len(docs) else None}
             elif tool_name == "read_lines":
                 result = self._read_lines(request.document_id, request.start, request.end)
             elif tool_name == "search_text":
-                hits, truncated = [], False
+                hits, matched, skipped_large, truncated = [], 0, 0, False
                 for doc in self.snapshot.grant.documents:
                     for i, line in enumerate(self.snapshot.read(doc.document_id).decode().splitlines(keepends=True), 1):
                         if request.query.casefold() in line.casefold():
-                            if len(hits) >= 20:
-                                truncated = True
-                                break
+                            matched += 1
+                            if matched <= request.cursor:
+                                continue
                             old_ids = set(self._evidence)
-                            hit = self._read_lines(doc.document_id, i, i)
-                            if len(canonical_bytes({"hits": hits + [hit], "truncated": False, "search_exhausted": False})) > 4096:
+                            try:
+                                hit = self._read_lines(doc.document_id, i, i)
+                            except ProtocolError as error:
+                                if str(error) != "document_line_too_large":
+                                    raise
+                                skipped_large += 1
+                                continue
+                            trial = {"hits": hits + [hit], "truncated": True, "search_exhausted": False,
+                                     "next_cursor": matched, "skipped_oversized_hits": skipped_large}
+                            # Reserve bytes for final None/flag values and a
+                            # skipped-count that may grow after the last hit.
+                            if len(hits) >= 20 or len(canonical_bytes(trial)) > 4096 - 64:
                                 if hit["evidence"]["evidence_id"] not in old_ids:
                                     self._evidence.pop(hit["evidence"]["evidence_id"])
+                                if not hits:
+                                    skipped_large += 1
+                                    continue
+                                matched -= 1  # The unreturned match starts the next page.
                                 truncated = True
                                 break
                             hits.append(hit)
                     if truncated:
                         break
-                result = {"hits": hits, "truncated": truncated, "search_exhausted": not truncated}
+                result = {"hits": hits, "truncated": truncated, "search_exhausted": not truncated,
+                          "next_cursor": matched if truncated else None, "skipped_oversized_hits": skipped_large}
             else:
                 validate_advice(request.advice, self.snapshot.grant, self.evidence)
                 _consultation_payload(self.snapshot.grant, request.advice, self.evidence.values(), self.snapshot)

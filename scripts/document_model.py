@@ -36,6 +36,59 @@ class ProtectedDocumentModel(ProtectedReviewModel):
             actions.extend(super()._parse_actions(single))
         return actions
 
+    def _fit_current_receipts(self, prepared):
+        """Last-resort API prefixes; retain raw receipts, IDs and real rereads."""
+        if message_bytes(prepared) <= 16384:
+            return prepared
+        projected = list(prepared)
+        calls, changed = {}, []
+        for index, message in enumerate(projected):
+            if message.get('role') == 'assistant':
+                calls = {c['id']: c for c in message.get('tool_calls', [])}
+            if message.get('role') != 'tool' or message.get('tool_call_id') not in calls:
+                continue
+            raw = json.loads(message['content'])
+            if not isinstance(raw, dict) or not any(k in raw for k in ('evidence', 'hits', 'documents')):
+                continue  # Preserve errors, rejection corrections and method instructions.
+            call = calls[message['tool_call_id']]
+            view = {'document_receipt_projection': True, 'original_body_sha256': sha256(message['content'].encode()),
+                'read_again': call['function'], 'shown_spans': [], 'shown_documents': [],
+                'scope': 'API view only. Shown text is an exact prefix, not an inferred summary or the full cited span. Full original receipts remain in the raw trajectory. Use a focused registered read, or repeat this request ALONE to obtain more text. No new evidence was issued.',
+                'next_action': 'Use supported facts and explicit unknowns to submit an essential handoff. Read again only for a specific missing fact.'}
+            spans = [raw] if raw.get('evidence') else raw.get('hits', [])
+            for hit in spans:
+                item = {'evidence': hit['evidence'], 'exact_prefix': hit.get('content', '')[:80],
+                        'prefix_is_full_quote': len(hit.get('content', '')) <= 80}
+                trial = view | {'shown_spans': view['shown_spans'] + [item]}
+                if len(canonical_bytes(trial)) > 2048:
+                    break
+                view = trial
+            for doc in raw.get('documents', []):
+                trial = view | {'shown_documents': view['shown_documents'] + [doc]}
+                if len(canonical_bytes(trial)) > 2048:
+                    break
+                view = trial
+            view.update(omitted_spans=len(spans) - len(view['shown_spans']),
+                        omitted_documents=len(raw.get('documents', [])) - len(view['shown_documents']))
+            # Count the complete envelope, including omitted-count metadata.
+            while len(canonical_bytes(view)) > 2048 and (view['shown_spans'] or view['shown_documents']):
+                field = 'shown_documents' if view['shown_documents'] else 'shown_spans'
+                view[field] = view[field][:-1]
+                view['omitted_spans'] = len(spans) - len(view['shown_spans'])
+                view['omitted_documents'] = len(raw.get('documents', [])) - len(view['shown_documents'])
+            if len(canonical_bytes(view)) > 2048 or len(canonical_bytes(view)) >= len(message['content'].encode()):
+                continue
+            projected[index] = message | {'content': canonical_bytes(view).decode()}
+            changed.append({'tool_call_id': message['tool_call_id'], 'original_body_sha256': view['original_body_sha256']})
+            if message_bytes(projected) <= 12288:
+                break
+        if changed:
+            if not hasattr(self, 'document_projection_events'):
+                self.document_projection_events = []
+            self.document_projection_events.append({'mode': 'current_receipt_prefixes', 'before_bytes': message_bytes(prepared),
+                'after_bytes': message_bytes(projected), 'receipts': changed, 'raw_history_preserved': True})
+        return projected  # Irreducible original input still meets the real hard guard.
+
     def _prepare_messages_for_api(self, messages):
         prepared = super()._prepare_messages_for_api(messages)
         if message_bytes(prepared) <= 12288:
@@ -94,5 +147,5 @@ class ProtectedDocumentModel(ProtectedReviewModel):
             if message_bytes(projected) <= 12288 or keep == 1:
                 self.document_projection_events.append({"before_bytes": message_bytes(prepared), "after_bytes": message_bytes(projected),
                     "archived_pairs": len(archived), "sha256": note["archive_sha256"]})
-                return projected
-        return prepared  # The original 16KiB guard still rejects irreducible input.
+                return self._fit_current_receipts(projected)
+        return self._fit_current_receipts(prepared)  # Also covers the first two-read group.

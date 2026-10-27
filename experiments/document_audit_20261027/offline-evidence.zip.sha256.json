@@ -1,0 +1,17 @@
+{
+  "audit.py": "dca6ad4c322170426d34603c0383495f545a4ec89d85125de6af8b2d90f79747",
+  "finish.py": "fad1fdfc78b33ec9b0590b69236ebf33daf948c51a75ffa324f7576ee46858d3",
+  "audit-result.json": "f3c4f3a5f9b4c0d9b393440a1ed280e10be57af244ca5db30a535bac3a583127",
+  "audit-result-final.json": "89e277c40f45ec8335e1a5350c9f56e750814b058833d8d69b79ac2cf6033420",
+  "audit-result-before-json-margin.json": "2ddc3162e4240b1640971201d9a4c1b7b0d0e5e6c5246213634a3e302081b4ba",
+  "audit-result-verified.json": "05f927f2a13a7730893d7183d9326042f062b1168b6f1dea7482e1a3355bb64c",
+  "document-model-before.py": "a488c63035451a2a6529ad3a1d5a2a2ede1005b705b059b56ecc5d5206942dfe",
+  "before-card-test.txt": "788216e8e6696553ad8c0a5127be2a55c82d5a46489e5b0e70e63ef773bc4e8e",
+  "before-page-test.txt": "d22d8774f0466b3600151e546e28f299280a8f53c9ac8ee92aae08d0c609bab3",
+  "context-tests.txt": "7e6d5ce758c1537e3e7e4e83b4158d16cb1550f1c4eb83e1753f35881522a5df",
+  "card-test-final.txt": "017f32b563cab04071a7d708598a457db6a68d2ff4ea9e618dc94dcd31c1e990",
+  "document-tests-final.txt": "06e7daaa9812076243a5d61a3fc861f33fccf7f5d52e40907dc8f98c7a9ec1a7",
+  "document-tests-final-2.txt": "4d743cf362b6347fb45fc5ff2978918841c61a0cd2270f3c3b7daf373aa768bd",
+  "protection-check.json": "d4dec41da2d12e188d327354fc11ae442961624b5c954965229e7cb67f395fc4",
+  "source-change.patch": "6cf491d326ce4d9924a1760f813cbeb81d8bf613d59ca5238d4bb4a60c6760ea"
+}

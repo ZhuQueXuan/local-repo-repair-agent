@@ -127,6 +127,28 @@ class DocumentContextTests(unittest.TestCase):
         self.assertLess(len(result['hits']),20)
         self.assertEqual(set(broker.evidence),{h['evidence']['evidence_id'] for h in result['hits']})
 
+    def test_document_search_pages_reach_late_hits_without_gaps_or_unissued_citations(self):
+        f,broker=self.fixture((''.join(f'needle {i} '+('中文"\\'*35)+'\n' for i in range(35))).encode())
+        cursor=0;seen=[];all_ids=set();pages=0
+        while True:
+            result=broker.dispatch(f.identity,'search_text',{'snapshot_id':broker.snapshot.grant.snapshot_id,'query':'needle','cursor':cursor})
+            self.assertLessEqual(len(canonical_bytes(result)),4096)
+            seen.extend(h['evidence']['start_line'] for h in result['hits'])
+            all_ids.update(h['evidence']['evidence_id'] for h in result['hits']);pages+=1
+            self.assertEqual(set(broker.evidence),all_ids)
+            if result['next_cursor'] is None:
+                self.assertTrue(result['search_exhausted']);break
+            self.assertGreater(result['next_cursor'],cursor);cursor=result['next_cursor']
+            self.assertLess(pages,36)
+        self.assertEqual(seen,list(range(1,36)))
+        self.assertGreater(pages,1)
+        f,broker=self.fixture(('needle '+'大'*2000+'\nneedle visible\n').encode())
+        result=broker.dispatch(f.identity,'search_text',{'snapshot_id':broker.snapshot.grant.snapshot_id,'query':'needle'})
+        self.assertEqual([h['evidence']['start_line'] for h in result['hits']],[2])
+        self.assertEqual(result['skipped_oversized_hits'],1)
+        self.assertTrue(result['search_exhausted']);self.assertIsNone(result['next_cursor'])
+        self.assertEqual(set(broker.evidence),{result['hits'][0]['evidence']['evidence_id']})
+
     def test_read_accounts_for_json_escaping_and_returns_real_continuation(self):
         f,broker=self.fixture(('"\\'*600+'\n'+('more text '*10+'\n')*30).encode())
         doc=broker.snapshot.grant.documents[0]
@@ -181,6 +203,47 @@ class DocumentContextTests(unittest.TestCase):
         self.assertEqual(canonical_bytes(messages),before)
         latest=projected[-4]['tool_calls']
         self.assertEqual([m['tool_call_id'] for m in projected[-3:-1]],[c['id'] for c in latest])
+
+    def test_large_card_projects_current_receipts_as_explicit_exact_prefixes(self):
+        f,broker=self.fixture((('source '+'x'*110+'\n')*100).encode());doc=broker.snapshot.grant.documents[0]
+        messages=[{'role':'system','content':'S'*720},{'role':'user','content':'ORIGINAL_TASK '+'Q'*4540}]
+        assistant={'role':'assistant','content':'','tool_calls':[]};outputs=[]
+        for i,start in enumerate((1,45)):
+            args={'snapshot_id':broker.snapshot.grant.snapshot_id,'document_id':doc.document_id,'start':start,'end':start+30}
+            result=broker.dispatch(f.identity,'read_lines',args);identity=f'large-card-{i}'
+            assistant['tool_calls'].append({'id':identity,'type':'function','function':{'name':'read_lines','arguments':json.dumps(args)}})
+            outputs.append({'role':'tool','tool_call_id':identity,'content':canonical_bytes(result).decode()})
+        messages.extend([assistant,*outputs]);original=canonical_bytes(messages)
+        fixture=runtime_fixture.RuntimeTests();fixture.setUp();model=fixture.model(cls=ProtectedDocumentModel)
+        from task_cards import validate_card
+        seed=validate_card({'goal':'G','constraints':'C'*180,'instruction':'🙂'*400,
+            'steps':[{'id':'repair','title':'repair','status':'pending'}]})
+        card={'role':'user','content':canonical_bytes({'human_task_card':seed,'task_card_input_id':'i'*32,
+            'task_card_revision':1,'task_card_sha256':sha256(canonical_bytes(seed)),
+            'scope':'Current human plan. Frozen issue, permissions and independent verification remain authoritative. '+'S'*260}).decode()}
+        self.assertLessEqual(len(canonical_bytes(seed)),2048);self.assertLessEqual(len(canonical_bytes(card)),4096)
+        model._task_card_receipt={'message':card}
+        projected=model._prepare_messages_for_api(messages)
+        self.assertLessEqual(message_bytes(projected),16384)
+        self.assertEqual(projected[:2],messages[:2]);self.assertEqual(projected[-1],card)
+        self.assertEqual(canonical_bytes(messages),original)
+        compressed=[m for m in projected if m['role']=='tool' and json.loads(m['content']).get('document_receipt_projection')]
+        self.assertTrue(compressed)
+        for message in compressed:
+            body=json.loads(message['content']);raw=next(m['content'] for m in outputs if m['tool_call_id']==message['tool_call_id'])
+            self.assertEqual(body['original_body_sha256'],sha256(raw.encode()))
+            self.assertLessEqual(len(canonical_bytes(body)),2048)
+            for span in body['shown_spans']:
+                actual=json.loads(raw)
+                self.assertEqual(span['evidence'],actual['evidence'])
+                self.assertTrue(actual['content'].startswith(span['exact_prefix']))
+                self.assertFalse(span['prefix_is_full_quote'])
+
+    def test_irreducible_document_input_still_stops_before_transport(self):
+        fixture=runtime_fixture.RuntimeTests();fixture.setUp();model=fixture.model(cls=ProtectedDocumentModel)
+        with patch('review_model.litellm.completion') as transport,self.assertRaises(LimitsExceeded):
+            model.query([{'role':'user','content':'不可压缩'*6000}])
+        transport.assert_not_called()
 
     def test_rotating_unchanged_queries_stop_without_a_global_request_cap(self):
         f,broker=self.fixture(('split behavior\n'*12).encode())
