@@ -28,6 +28,15 @@ class DocumentHandoffTooLarge(ProtocolError):
         self.limit_bytes = MAX_HANDOFF_BYTES
 
 
+class DocumentReadRangeError(ProtocolError):
+    """Trusted target metadata and already-issued hits, never a new citation."""
+    def __init__(self, snapshot_id, document, matches):
+        super().__init__("invalid_document_read_range")
+        self.snapshot_id = snapshot_id
+        self.selected_document = {k: getattr(document, k) for k in ("document_id", "path", "line_count")}
+        self.matches = matches
+
+
 def document_rejection(error):
     """Bounded feedback for correcting a rejected tool, never exception prose."""
     import re
@@ -42,6 +51,14 @@ def document_rejection(error):
         result["correction"] = "Copy the exact submission_bindings from the original task. Do not reuse another run or snapshot."
     elif code == "document_advice_unissued_evidence":
         result["correction"] = "Select only evidence_ids actually returned by this document session. Paths and document IDs are not evidence IDs."
+    elif isinstance(error, DocumentReadRangeError):
+        result.update({"snapshot_id": error.snapshot_id, "selected_document": error.selected_document,
+            "max_lines_per_read": 80, "previously_issued_matches": error.matches,
+            "correction": "The selected document has only the reported line_count. Do not repeat this rejected range. Copy document_id and line numbers from the SAME returned search hit; line numbers from another document cannot be reused here. The listed matches are only previously issued spans overlapping your requested range, not proof of relevance. Choose a relevant hit or search/list again; then request at most 80 lines within that document. No new evidence was issued and no target was automatically changed. Submit explicit unknowns if the question is not documented."})
+        # Leave room for the coordinator's rejected-status envelope, including
+        # long Unicode paths. Never truncate JSON or the selected target.
+        while len(canonical_bytes(result)) > 4000 and result["previously_issued_matches"]:
+            result["previously_issued_matches"] = result["previously_issued_matches"][:-1]
     elif code == "invalid_document_read_range":
         result["correction"] = "Read at most 80 lines, within the registered document's line_count. Use the returned next_line after a truncated receipt. Submit supported facts and explicit unknowns when the question is not documented."
     return result
@@ -230,9 +247,9 @@ class DocumentList(Message):
 
 class DocumentRead(Message):
     snapshot_id: Identifier
-    document_id: Identifier
-    start: Annotated[int, Field(ge=1)]
-    end: Annotated[int, Field(ge=1)]
+    document_id: Annotated[Identifier, Field(description="Copy from the SAME search hit as the line numbers, or from the registered document list.")]
+    start: Annotated[int, Field(ge=1, description="One-based start within this document's line_count.")]
+    end: Annotated[int, Field(ge=1, description="Inclusive end within the SAME document; at most 80 lines per call.")]
 
 
 class DocumentSearch(Message):
@@ -263,8 +280,23 @@ class DocumentBroker:
 
     def _read_lines(self, document_id, start, end):
         doc = next((d for d in self.snapshot.grant.documents if d.document_id == document_id), None)
-        if doc is None or end < start or end > doc.line_count or end - start >= 80:
+        if doc is None:
             raise ProtocolError("invalid_document_read_range")
+        if end < start or end > doc.line_count or end - start >= 80:
+            # Show at most three OTHER document hits that this session already
+            # received. A line overlap is navigation, not inferred relevance.
+            matches, seen = [], set()
+            documents = {d.document_id: d for d in self.snapshot.grant.documents}
+            for ref in reversed(tuple(self._evidence.values())):
+                if ref.document_id == document_id or ref.document_id in seen or not start <= ref.start_line <= end:
+                    continue
+                other = documents[ref.document_id]
+                matches.append({k: getattr(other, k) for k in ("document_id", "path", "line_count")} | {
+                    "evidence_id": ref.evidence_id, "start_line": ref.start_line, "end_line": ref.end_line})
+                seen.add(ref.document_id)
+                if len(matches) == 3:
+                    break
+            raise DocumentReadRangeError(self.snapshot.grant.snapshot_id, doc, matches)
         lines, size, selected = self.snapshot.read(document_id).decode().splitlines(keepends=True), 0, []
         for line in lines[start-1:end]:
             if size + len(line.encode()) > 4096:

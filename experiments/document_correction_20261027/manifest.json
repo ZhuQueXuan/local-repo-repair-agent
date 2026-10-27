@@ -1,0 +1,145 @@
+{
+  "stage": 52,
+  "base_commit": "69cfadf287fe4b52331c31f0535cbd0955c667e2",
+  "result": "offline_correction_only_not_a_new_model_success",
+  "protection": {
+    "formal_payloads_unchanged": 53,
+    "shared_requests_unchanged": 2402,
+    "historical_files_unchanged": 52,
+    "model_calls": 0,
+    "new_live_identities": 0,
+    "checks_passed": 43,
+    "new_regression_tests": 3,
+    "old_freeze_invalidated_by": [
+      "scripts/document_agent.py",
+      "scripts/test_document_context.py"
+    ],
+    "historical_files_sha256": {
+      "experiments/harness_comparison_20261027/artifact_sha256.json": "0f033affc8345ea7f3e39c782e10437859d0833bb31aae9cba5f1bd718453e63",
+      "experiments/harness_comparison_20261027/inputs-and-source.zip": "205abdb695439f0c636a8852917821090ea9f5896595ef57f08eba12cf45c59c",
+      "experiments/harness_comparison_20261027/inputs-and-source.zip.sha256.json": "d8312d7276fb83a8f153978694cfdcfb0f2ce7ac9f11be5335768ce48cf87a74",
+      "experiments/harness_comparison_20261027/preparation-and-checks.zip": "d40ef8fcb138b233612bae0401254887abf03f637a5554e39a1f28c045b74a14",
+      "experiments/harness_comparison_20261027/preparation-and-checks.zip.sha256.json": "df713b7d5a89ebd012b049e0f72f34e8630c76e42ef9bb302a7c6150251444d1",
+      "experiments/harness_comparison_20261027/scripted-wires.zip": "cafc552d0a4b5f51ddad2770456e5f6cdd59d214139eda7f8e7553ecc7110610",
+      "experiments/harness_comparison_20261027/scripted-wires.zip.sha256.json": "40ac1185c4b2c12e848a35f5d8b73d038419ae478c85ec48a2f3e08a7388404d",
+      "experiments/harness_comparison_20261027/verification.json": "735928c97dcf35ec925df8349f0bd97fa07dcddfa3ebc1c11d860ed7a70e29a3",
+      "experiments/harness_comparison_20261027/delivery/artifact_sha256.json": "97fe37831103a59f2c5c9357da9f2487c46ac3871f3708bfb8600ef6f9fdfdeb",
+      "experiments/harness_comparison_20261027/delivery/closure.json": "a0349ec49dad03f665eede8c1da889e98eb57712b0a1bd9f88a0011396d28e7f",
+      "experiments/harness_comparison_20261027/delivery/current-documents.zip": "9e6956f572a889e847141fe746785a5b80eafeb4828845c1bad11aa9e0f4262d",
+      "experiments/harness_comparison_20261027/delivery/current-documents.zip.sha256.json": "a3f4744a649e479f5be042265833045890e80e451c7c276ce0cc7a4cc73e1da2",
+      "experiments/harness_comparison_20261027/results/all-twelve-runs.zip": "2cc82ed3e36be875269e45a040814e1fe71bcba5d69b60e32c68e28f6e3d8bee",
+      "experiments/harness_comparison_20261027/results/all-twelve-runs.zip.sha256.json": "6d14f197019d8331c84f0c9d085dfe9664c2db6b4852b9349904910ee4318144",
+      "experiments/harness_comparison_20261027/results/artifact_sha256.json": "2b0a0f44c4b4525c4ebf48d2cabf9acaf19b5cb71781d02c89db506badaa0a14",
+      "experiments/harness_comparison_20261027/results/scores-and-audit.zip": "7bf0806e4a3e3fc08d7bfbc1d18b1d8ab27b1a46fffaaf09765abfdfc63376c9",
+      "experiments/harness_comparison_20261027/results/scores-and-audit.zip.sha256.json": "7cee695e318c5c2b1bd99ed0c3c1e79f9bf48ec1ba6c0a69c4be1b9cc8c2a967",
+      "experiments/harness_comparison_20261027/results/verification.json": "7a7f4264dc17fea07dd38f8b4d00751f94343193cdbee4099ea8ab361a6de374",
+      "experiments/harness_stability_20261027/artifact_sha256.json": "1f59c0cbca77bfbaafc9601677777444909b4ba0089560f394d7a6356de3a72c",
+      "experiments/harness_stability_20261027/checks-and-proposal.zip": "b15301a1ffcf97134c3b3672ec24cde60d9045f711447c2583b0ecbaaffbc756",
+      "experiments/harness_stability_20261027/checks-and-proposal.zip.sha256.json": "9a6c33c7d364c8d836c7b6bbe1fa9aef62039bf813c90a2e6377080895f01dcb",
+      "experiments/harness_stability_20261027/current-changes.zip": "1da40f5270a607de5c3554a2c9d934a2e5e5b83bb4dee947501a0b9851e2d1ff",
+      "experiments/harness_stability_20261027/current-changes.zip.sha256.json": "cca53b0c65d5c065206e26c8f12bc55964dbb49f9ed17116e36bd20e996cdcc8",
+      "experiments/harness_stability_20261027/manifest.json": "843aefcb96fee9771d98e9836542a3997b2e815b872fd09956acf95d014f6441",
+      "experiments/harness_stability_20261027/synthetic-local-flow.zip": "e40dccaaaac942891689c12ed735faf1b8a6e4a57eac070ade0602f46a1c8421",
+      "experiments/harness_stability_20261027/synthetic-local-flow.zip.sha256.json": "c90a426ad99a777add9cfcb171ac1ca4973646e37061c237ffe93207705f4092",
+      "experiments/harness_stability_20261027/live_revalidation/artifact_sha256.json": "9bfabb2be50c2c28dbfa28925cd6a6fdd83f03f31db27f896a1ac3673301c99d",
+      "experiments/harness_stability_20261027/live_revalidation/both-real-runs.zip": "6ea50b6411e9192895d792ac7dd1e2335eafa9c5930611dd341edf93b1408a7b",
+      "experiments/harness_stability_20261027/live_revalidation/both-real-runs.zip.sha256.json": "a11235c255d5e17a49f29c6e68a79e0aa39393d6ade5594c85521aee301d6ff2",
+      "experiments/harness_stability_20261027/live_revalidation/manifest.json": "574540c17b92e7b25d87f247222e336caa44a933008020345292a2bdbeaec3a3",
+      "experiments/harness_stability_20261027/live_revalidation/postfix-and-checks.zip": "c8502034361602c3394d8aec09cf7ea98fab5a6ea400985f8fb4e8b6500b6345",
+      "experiments/harness_stability_20261027/live_revalidation/postfix-and-checks.zip.sha256.json": "917408cbaae8d1e8a7cc5da34826a894f610b8ba3aa24d84896a8abe1e8e5e40",
+      "experiments/click_closure_20261027/approval-and-checks.zip": "38555fb698b0ebad4b5273884973d29aa28d7effafd117a0540cda6c18a8d2cb",
+      "experiments/click_closure_20261027/approval-and-checks.zip.sha256.json": "bf6141790fa889c51530a56d592befd30f03ba208c3dc09bdc06c3f0b36e7b23",
+      "experiments/click_closure_20261027/artifact_sha256.json": "4778d9e28e7f9c464cf0cea4e5496bb65c5be09d0bdcf9409314a50b0d8dc599",
+      "experiments/click_closure_20261027/local-diagnostics.zip": "0decb058df57136db5014972238299a9ebc2a6782bf4d6227355f6b56ebbaf96",
+      "experiments/click_closure_20261027/local-diagnostics.zip.sha256.json": "2b0f34a4e72fea00240b582a5de73024cf43da8a82b0f9fa575e614e8c46b9cb",
+      "experiments/click_closure_20261027/manifest.json": "58a53059242c7f5b64e10716449ff3a6a91c36604fe667c55a0c365c20d0f228",
+      "experiments/click_closure_20261027/one-real-run.zip": "18fefd4dc1c19a1c71ddb9579797315d0ec07ab8aa5ca904cc9ed93626e8d2b9",
+      "experiments/click_closure_20261027/one-real-run.zip.sha256.json": "8bb5ada90302cd70ad5a2cacc605d76421e622af7d4bce610e48aa0dde2540ba",
+      "experiments/read_guard_20261027/artifact_sha256.json": "07b55e8500c79578ba01068592e89f1098e40a2a61cee8c7e25cd513887a52b4",
+      "experiments/read_guard_20261027/manifest.json": "104e5a9d8ffc0f3419b210ba082a39696431540538096f67e1b51a941c031ce5",
+      "experiments/read_guard_20261027/offline-evidence.zip": "eacc84a6ff8f563d11b492829a1d2883c675c9bb285bd19dc674e8367b89e884",
+      "experiments/read_guard_20261027/offline-evidence.zip.sha256.json": "ede54a60bf8adc36ef4ea02db88eac2073d8d0857b57bc675ddb5fad69d0d48d",
+      "experiments/click_guard_revalidation_20261027/approval-and-checks.zip": "77625685ec688a2ec27618aad0f1f7d757c9a126b126c2585793d3ed3f3d216a",
+      "experiments/click_guard_revalidation_20261027/approval-and-checks.zip.sha256.json": "3dc3dc3ff950f466ad869e4e47daef5873b1871dc6feb2a2b920ab084af36a5b",
+      "experiments/click_guard_revalidation_20261027/artifact_sha256.json": "6b58a117a141a6c46ad51b2b32d3c18e696336c1279453a3da7b3550b8db7fc7",
+      "experiments/click_guard_revalidation_20261027/local-diagnostics.zip": "935a809e5b90c6069ece03c231feb9907740d7ef9f1a35b57eeffb872db67b4f",
+      "experiments/click_guard_revalidation_20261027/local-diagnostics.zip.sha256.json": "22507d10b37ede5899cf4729641a7b28b4916b7788f794d6eb5ebdfca5aa8da7",
+      "experiments/click_guard_revalidation_20261027/manifest.json": "4fc241b80ef399d74a42b61048aa0aeef14ef22dfd5152ddf9080f552ae58d6b",
+      "experiments/click_guard_revalidation_20261027/one-real-run.zip": "2f957de522307971fb89a84068742bc5de164f81ca41e040c49c51e43928a5bc",
+      "experiments/click_guard_revalidation_20261027/one-real-run.zip.sha256.json": "f8fc078f92db0281cdefcc050a2ebf2754aef4409094c5329c8a88b304952f7e"
+    }
+  },
+  "replay": {
+    "after_feedback": {
+      "correction": "The selected document has only the reported line_count. Do not repeat this rejected range. Copy document_id and line numbers from the SAME returned search hit; line numbers from another document cannot be reused here. The listed matches are only previously issued spans overlapping your requested range, not proof of relevance. Choose a relevant hit or search/list again; then request at most 80 lines within that document. No new evidence was issued and no target was automatically changed. Submit explicit unknowns if the question is not documented.",
+      "error_type": "DocumentReadRangeError",
+      "max_lines_per_read": 80,
+      "previously_issued_matches": [
+        {
+          "document_id": "doc-fba9c5396107411c2c5a23b4e10ff6fd",
+          "end_line": 827,
+          "evidence_id": "doc-evidence-bf5dd8f20000b29401f67932f6f05d43",
+          "line_count": 935,
+          "path": "docs/options.rst",
+          "start_line": 827
+        }
+      ],
+      "reason": "invalid_document_read_range",
+      "selected_document": {
+        "document_id": "doc-f577708d64285ff141eaaff3c1affbe0",
+        "line_count": 269,
+        "path": "docs/arguments.rst"
+      },
+      "snapshot_id": "documents-1b80f9d776f0fa2d0a299060825ec4be"
+    },
+    "before_feedback": {
+      "correction": "Read at most 80 lines, within the registered document's line_count. Use the returned next_line after a truncated receipt. Submit supported facts and explicit unknowns when the question is not documented.",
+      "error_type": "ProtocolError",
+      "reason": "invalid_document_read_range",
+      "status": "rejected"
+    },
+    "consultation_status": "information_not_found",
+    "corrected_evidence": {
+      "document_id": "doc-fba9c5396107411c2c5a23b4e10ff6fd",
+      "end_line": 835,
+      "evidence_id": "doc-evidence-404e3503d23b160c91ade711efcbdba7",
+      "producer_role_run_id": "3590bee2e19a4078bc100c29afdeb50b",
+      "schema_version": 1,
+      "snapshot_id": "documents-1b80f9d776f0fa2d0a299060825ec4be",
+      "span_sha256": "e3511e29564ba3536b0e7cedf41f436b2367ca2f547f2c0e844f90ef08a06e04",
+      "start_line": 815
+    },
+    "corrected_request": {
+      "document_id": "doc-fba9c5396107411c2c5a23b4e10ff6fd",
+      "end": 835,
+      "snapshot_id": "documents-1b80f9d776f0fa2d0a299060825ec4be",
+      "start": 815
+    },
+    "document_objects_verified": 26,
+    "evidence_ids_before_failed_read": 3,
+    "failed_read_issued_evidence": false,
+    "feedback_bytes": 1090,
+    "handoff_bytes": 2380,
+    "historical_failure_unchanged": "document_repeated_format_errors",
+    "historical_run_id": "0d9ac92ab2044ef283c476fea62a8b1f",
+    "new_live_identities": 0,
+    "new_model_calls": 0,
+    "original_bad_request": {
+      "document_id": "doc-f577708d64285ff141eaaff3c1affbe0",
+      "end": 835,
+      "snapshot_id": "documents-1b80f9d776f0fa2d0a299060825ec4be",
+      "start": 815
+    },
+    "scope": "Offline scripted correction on a verified public-document copy. No model request, old worker, new live identity or repair score.",
+    "skipped_method_reads": [
+      "read_skill: method only, never source evidence"
+    ],
+    "source_archive_sha256": "2f957de522307971fb89a84068742bc5de164f81ca41e040c49c51e43928a5bc"
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "objects": 7,
+    "matches": 0
+  },
+  "formal_database_and_ledger_not_uploaded": true
+}

@@ -10,7 +10,7 @@ from types import SimpleNamespace
 
 from collaboration_protocol import canonical_bytes, sha256
 from context_budget import message_bytes
-from document_agent import DocumentBroker, freeze_documents, DocumentHandoffTooLarge, document_rejection
+from document_agent import DocumentBroker, freeze_documents, DocumentHandoffTooLarge, DocumentReadRangeError, document_rejection
 from document_model import ProtectedDocumentModel
 from collaboration_runtime import run_document_consultation, run_review
 from collaboration_protocol import ProtocolError
@@ -40,6 +40,84 @@ class DocumentContextTests(unittest.TestCase):
         manifest=deepcopy(f.f.manifest);manifest['source_files_sha256']['docs/rules.md']=sha256(raw)
         snapshot=freeze_documents(manifest,f.f.baseline,f.f.issue,f.f.root/'context-docs',f.identity,'Locate documented split boundary requirements.')
         return f,DocumentBroker(snapshot,f.identity)
+
+    def range_fixture(self):
+        f,_=self.fixture(b'short\n'*269)
+        lines=['other\n']*900;lines[822]='target-evidence\n'
+        (f.f.baseline/'docs/long.md').write_text(''.join(lines),encoding='utf-8')
+        manifest=deepcopy(f.f.manifest)
+        for name in ('docs/rules.md','docs/long.md'):
+            manifest['source_files_sha256'][name]=sha256((f.f.baseline/name).read_bytes())
+        snapshot=freeze_documents(manifest,f.f.baseline,f.f.issue,f.f.root/'range-docs',f.identity,'Locate target-evidence.')
+        return f,DocumentBroker(snapshot,f.identity)
+
+    def test_wrong_document_range_can_be_corrected_in_the_same_consultation(self):
+        f,broker=self.range_fixture();g=broker.snapshot.grant
+        wrong=next(d for d in g.documents if d.line_count==269)
+        calls=[]
+        def query(messages):
+            calls.append(deepcopy(messages))
+            if len(calls)==1:
+                actions=[('search_text',{'snapshot_id':g.snapshot_id,'query':'target-evidence'}),
+                    ('read_lines',{'snapshot_id':g.snapshot_id,'document_id':wrong.document_id,'start':815,'end':835})]
+            elif len(calls)==2:
+                rejection=json.loads(messages[-1]['content'])
+                self.assertEqual(rejection['selected_document']['line_count'],269)
+                self.assertEqual(rejection['selected_document']['path'],'docs/rules.md')
+                self.assertEqual(rejection['max_lines_per_read'],80)
+                self.assertLessEqual(len(canonical_bytes(rejection)),4096)
+                match=rejection['previously_issued_matches'][0]
+                self.assertEqual(match['path'],'docs/long.md')
+                self.assertIn(match['evidence_id'],broker.evidence)
+                self.assertEqual(len(broker.evidence),1)  # Rejection issued no citation.
+                actions=[('read_lines',{'snapshot_id':rejection['snapshot_id'],'document_id':match['document_id'],
+                    'start':match['start_line'],'end':match['end_line']})]
+            else:
+                actions=[('submit_consultation',{'advice':document_fixture.advice_for(broker).model_dump(mode='json')})]
+            message={'role':'assistant','content':'','extra':{'actions':[]},'tool_calls':[]}
+            for i,(tool,args) in enumerate(actions):
+                identity=f'range-{len(calls)}-{i}'
+                message['tool_calls'].append({'id':identity,'type':'function','function':{'name':tool,'arguments':json.dumps(args)}})
+                message['extra']['actions'].append({'tool':tool,'arguments':args,'tool_call_id':identity})
+            return message
+        model=SimpleNamespace(query=query,usage={},contains_credentials=lambda _:False)
+        model.format_observation_messages=lambda m,outputs:ReviewModel.format_observation_messages(model,m,outputs)
+        result=run_document_consultation(model,broker,SimpleNamespace(check=lambda:None,identity=f.identity),
+            f.f.root/'corrected-range.json','One question')
+        self.assertEqual(result.status,'answered');self.assertEqual(len(calls),3)
+        self.assertEqual(sum(e['kind']=='tool_rejected' for e in broker.events),1)
+
+    def test_range_feedback_without_issued_hits_does_not_expose_other_grants(self):
+        f,broker=self.range_fixture();g=broker.snapshot.grant;doc=g.documents[0]
+        args={'snapshot_id':g.snapshot_id,'document_id':doc.document_id,'start':999,'end':1000}
+        with self.assertRaises(ProtocolError) as caught:broker.dispatch(f.identity,'read_lines',args)
+        feedback=document_rejection(caught.exception)
+        self.assertEqual(feedback['previously_issued_matches'],[])
+        self.assertFalse(broker.evidence)
+        for change in ({'snapshot_id':'unknown-snapshot'},{'document_id':'unknown-document'}):
+            with self.assertRaises(ProtocolError) as caught:broker.dispatch(f.identity,'read_lines',args|change)
+            self.assertNotIn('selected_document',document_rejection(caught.exception))
+            self.assertNotIn('previously_issued_matches',document_rejection(caught.exception))
+        target=SimpleNamespace(document_id='d'*95,path='🙂'*240,line_count=269)
+        matches=[{'document_id':'m'*95,'path':'🙂'*240,'line_count':900,'evidence_id':'e'*95,'start_line':823,'end_line':823}]*3
+        bounded=document_rejection(DocumentReadRangeError('s'*95,target,matches))
+        self.assertLessEqual(len(canonical_bytes({'status':'rejected',**bounded})),4096)
+        self.assertEqual(bounded['selected_document']['path'],target.path)
+
+    def test_repeated_invalid_ranges_keep_the_existing_three_error_stop(self):
+        f,broker=self.range_fixture();g=broker.snapshot.grant;count=0
+        args={'snapshot_id':g.snapshot_id,'document_id':g.documents[0].document_id,'start':999,'end':1000}
+        def query(messages):
+            nonlocal count
+            count+=1;identity=f'bad-range-{count}'
+            return {'role':'assistant','content':'','tool_calls':[{'id':identity,'type':'function',
+                'function':{'name':'read_lines','arguments':json.dumps(args)}}],
+                'extra':{'actions':[{'tool':'read_lines','arguments':args,'tool_call_id':identity}]}}
+        model=SimpleNamespace(query=query,usage={},contains_credentials=lambda _:False)
+        model.format_observation_messages=lambda m,outputs:ReviewModel.format_observation_messages(model,m,outputs)
+        with self.assertRaisesRegex(ProtocolError,'document_repeated_format_errors'):
+            run_document_consultation(model,broker,SimpleNamespace(check=lambda:None,identity=f.identity),f.f.root/'bad-range.json','One question')
+        self.assertEqual(count,3);self.assertFalse(broker.evidence);self.assertIsNone(broker.advice)
 
     def test_search_bounds_complete_citation_envelopes_and_revokes_unreturned_ids(self):
         f,broker=self.fixture((('split_after ' + 'x'*60+'\n')*40).encode())
