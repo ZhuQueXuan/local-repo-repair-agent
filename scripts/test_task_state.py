@@ -19,6 +19,77 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 class StateTests(unittest.TestCase):
+    def test_opaque_read_cycles_stop_before_transport_but_actual_edit_resets_progress(self):
+        self.state=TaskState(self.work,['code.py'],guard_enabled=True,
+            progress_policy={'stagnation_actions':8},validation_commands={'issue':'python -B -m unittest discover -s task_checks -v'})
+        for index in range(24):
+            self.observe(command=f'python temp/opaque_reader_{index}.py',text=f'source copy {index}')
+            self.state.record_intent('different thought, no executed change')
+        class NeverTransport:
+            def format_message(self,**kwargs):return kwargs
+            def query(self,*args):raise AssertionError('No paid call after stagnation')
+            def get_template_vars(self):return {}
+            def serialize(self):return {}
+        env=SimpleNamespace(task_state=self.state,get_template_vars=lambda:{},serialize=lambda:{})
+        agent=StatefulAgent(NeverTransport(),env,system_template='system',instance_template='{{task}}')
+        result=agent.run('original issue')
+        self.assertEqual(result['exit_status'],'NoProgress')
+        self.assertEqual(agent.n_calls,0)
+        self.assertIn('24 executed actions',result['reason'])
+        (self.work/'code.py').write_text('actual implementation change\n',encoding='utf-8')
+        self.observe(command='python temp/edit.py',text='edit applied')
+        self.assertIsNone(self.state.stagnation_reason())
+        self.assertEqual(self.state.progress.since_progress,0)
+
+    def test_pwd_compound_reads_share_identity_but_mixed_edits_stay_open(self):
+        command='cd "$(pwd)" && sed -n "1,20p" code.py; echo ----; cat code.py'
+        for _ in range(3):self.observe(command=command)
+        equivalent=command.replace('----','other separator')
+        self.assertIsNotNone(self.state.before_action(equivalent))
+        self.assertIsNone(self.state.before_action(command+'; python edit.py'))
+        self.assertIsNone(self.state.before_action('cd "$(printf /elsewhere)"; cat code.py'))
+        self.assertIsNone(self.state.before_action('cat code.py > copy.py'))
+
+    def test_stateful_failed_edit_stops_before_later_success_and_pages_source(self):
+        from execution_runtime import bash_executable
+        env=StatefulTaskEnvironment(self.work,bash_executable(),source_files=['code.py'],
+            state_policy={'guard_enabled':True,'progress_policy':{'stagnation_actions':8},
+                'validation_commands':{'issue':'python -B -m unittest discover -s task_checks -v'}},max_output_bytes=1024)
+        result=env.execute({'command':"python -c 'assert False'; echo MASKED_SUCCESS"})
+        self.assertNotEqual(result['returncode'],0)
+        self.assertNotIn('MASKED_SUCCESS',result['output'])
+        self.assertEqual(env.task_state.progress.facts()['first_source_change_sequence'],None)
+        (self.work/'code.py').write_text(''.join(f'# row {i} '+('x'*60)+'\n' for i in range(1,61)),encoding='utf-8')
+        page=env.execute({'command':"cd \"$(pwd)\" && sed -n '1,60p' code.py"})
+        record=page['extra']['tool_output']
+        self.assertTrue(record['truncated'])
+        self.assertLessEqual(len(page['output'].encode()),1024)
+        end=record['delivered_source_span'][2]
+        self.assertIn(f"Next: sed -n '{end+1},60p' code.py",page['output'])
+        self.assertEqual((self.work/record['full_output_path']).read_text(encoding='utf-8'),(self.work/'code.py').read_text(encoding='utf-8'))
+
+    def test_single_context_overflow_archives_whole_edit_and_keeps_protocol(self):
+        model=StatefulModel.__new__(StatefulModel)
+        model.repository_retrieval=None;model.task_state=self.state
+        model.context_budget=ContextBudget(target_bytes=12288,keep_recent_tool_outputs=4,
+            compact_completed_exchanges=True,retained_audit_entries=3,compact_to_target=True)
+        model.context_budget.enable_assistant_archives(self.work)
+        model.config=LitellmModelConfig(model_name='deepseek/deepseek-flash')
+        raw=self.output.process({'output':'AssertionError: file unchanged','returncode':1},command='edit '+('x'*18000))
+        messages=[{'role':'system','content':'system'},{'role':'user','content':'exact original issue'},
+            {'role':'assistant','content':'unverified thought','tool_calls':[{'id':'large-edit','type':'function',
+                'function':{'name':'bash','arguments':json.dumps({'command':'edit '+('x'*18000)})}}]},
+            {'role':'tool','tool_call_id':'large-edit','content':raw['output'],'extra':raw['extra']|{'returncode':1}}]
+        before=json.dumps(messages)
+        view=model._prepare_messages_for_api(messages)
+        self.assertLessEqual(message_bytes(view),16384)
+        self.assertEqual(view[:2],messages[:2])
+        self.assertFalse(any(m.get('role')=='tool' for m in view))
+        self.assertIn('"returncode": 1',''.join(m.get('content') or '' for m in view))
+        self.assertEqual(json.dumps(messages),before)
+        self.assertEqual((self.work/'temp/context-history/0002.txt').read_text(),'unverified thought')
+        self.assertEqual(model.context_budget.events[-1]['keep_recent_tool_outputs'],0)
+
     def test_cooperative_stop_exits_the_loop_before_any_model_request(self):
         self.assertIsNone(self.state.cancellation_reason())
         (self.state.directory/'stop.json').write_text(json.dumps({'reason':'No progress; stop supervised trial.'}),encoding='utf-8')

@@ -260,7 +260,11 @@ def run_one(store, run_id):
             hooks = {"service_store": store, "service_run_id": run_id}
             configuration = record["configuration"]
             if configuration:
-                env = ServiceStatefulEnvironment(work, bash, source_files=list(manifest["source_files_sha256"]), state_policy=configuration["task_state"], python_import_root=import_root, **configuration["tool_output_budget"], **hooks)
+                commands = {'targeted': manifest['agent_test_command'],
+                    'issue': manifest.get('agent_issue_command', 'python -B -m unittest discover -s task_checks -v')}
+                state_policy = configuration['task_state'] | {'implementation_prefix': manifest['source_prefix'],
+                    'progress_policy': {'stagnation_actions': 8}, 'validation_commands': commands}
+                env = ServiceStatefulEnvironment(work, bash, source_files=list(manifest["source_files_sha256"]), state_policy=state_policy, python_import_root=import_root, **configuration["tool_output_budget"], **hooks)
             else:
                 env = ServiceRawEnvironment(work, bash, python_import_root=import_root, **hooks)
             task_source, _ = load_task(record["task"])
@@ -279,6 +283,12 @@ def run_one(store, run_id):
                 "\nWhen finished, run echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT by itself.")
             if configuration:
                 instruction += "\nA bounded program-recorded state is provided. Model notes are unverified. When your diagnosis changes, write string fields hypothesis and next_action to temp/task-state/notes.json. Use evidence to proceed to concrete reproduction, repair and validation."
+                instruction += ("\nExecution loop: run the declared issue check early to locate the failing behavior. "
+                    "Source PAGE replies contain original line numbers and an exact Next command; follow it for missing lines, "
+                    "do not repeat the wide request. Keep edit and validation in separate bash calls. Stateful commands use set -e: "
+                    "an assertion or failed edit stops that call. Check the program's implementation_changed/current_validation facts; "
+                    "a successful shell or a printed exit marker never proves a file changed. After an edit rerun both declared checks "
+                    "for that revision, inspect the diff once and submit alone. Do not keep rereading after sufficient evidence.")
             agent_class = StatefulAgent if configuration else DefaultAgent
             agent = agent_class(model, env, system_template="You are a helpful software engineering assistant. Use exactly one bash tool call per response.", instance_template=instruction,
                                 step_limit=0, cost_limit=model.budget.agent_cost_limit, wall_time_limit_seconds=300, output_path=output / "trajectory.json")

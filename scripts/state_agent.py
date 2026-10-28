@@ -13,6 +13,10 @@ class StatefulAgent(DefaultAgent):
         if reason:
             raise InterruptAgentFlow({'role':'exit','content':'ExperimentStopped',
                 'extra':{'exit_status':'ExperimentStopped','submission':'','reason':reason}})
+        reason = self.env.task_state.stagnation_reason()
+        if reason:
+            raise NoProgress({'role':'exit','content':'NoProgress',
+                'extra':{'exit_status':'NoProgress','submission':'','reason':reason}})
         return super().query()
 
     def execute_actions(self, message):

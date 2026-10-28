@@ -1,0 +1,221 @@
+{
+  "all_terminal": true,
+  "arms": {
+    "full": {
+      "attempts": 42,
+      "elapsed_seconds": 77.89,
+      "elapsed_unknown_runs": 0,
+      "known_price_estimate_cny": 0.34548,
+      "normal_submissions": 0,
+      "resolved": 0,
+      "slots": 1,
+      "unknown_placeholder_cny": 0.1
+    },
+    "improved": {
+      "attempts": 25,
+      "elapsed_seconds": 42.782,
+      "elapsed_unknown_runs": 0,
+      "known_price_estimate_cny": 0.154734,
+      "normal_submissions": 0,
+      "resolved": 0,
+      "slots": 1,
+      "unknown_placeholder_cny": 0.1
+    }
+  },
+  "balance_probed": false,
+  "billing_stop": null,
+  "complete_cost_estimate_cny": null,
+  "elapsed_scope": "Finalized worker metrics total_elapsed_seconds; preparation through finalization, excluding queued wait and later retained scoring. Not created-to-ended timestamps.",
+  "formal_payloads_unchanged": 53,
+  "frozen_inputs_verified": 422,
+  "full_complete": 0,
+  "historical_files_unchanged": 8439,
+  "known_price_estimate_cny": 0.500214,
+  "plan_sha256": "bc9d3ccf9042f0b35570d2995949ddd5d555caee8655382bb0fa85cfb10a4124",
+  "platform_attempts": 67,
+  "platform_failures": [
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    },
+    {
+      "kind": "request_failed",
+      "provider": "bupt_gateway",
+      "status_code": 500
+    }
+  ],
+  "results": [
+    {
+      "agent_exit": "NoProgress",
+      "attempts": 25,
+      "candidate_selection": "exported_final_patch",
+      "collaboration_result": null,
+      "elapsed_seconds": 42.782,
+      "evaluation_error": "ValueError: Final patch cannot replay",
+      "exported_patch_bytes": 0,
+      "known_price_estimate_cny": 0.154734,
+      "limit_kind": null,
+      "normal_submission": false,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Agent因持续重复读取停止；修复成绩由独立检查另行判断。",
+      "repair_result": "failed",
+      "resolved": false,
+      "review_verdict": null,
+      "run_id": "b1feb3ab1d45414883672cbafc05d4bb",
+      "status": "finished",
+      "task": "click-resource-exceptions",
+      "tools_observed": [],
+      "traces": {
+        "trajectory.json": {
+          "actions": 24,
+          "bash_commands": 24,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "improved"
+    },
+    {
+      "agent_exit": null,
+      "attempts": 42,
+      "candidate_selection": "exported_final_patch",
+      "checks": {
+        "public": {
+          "passed": 2,
+          "successful": false,
+          "tests_run": 3
+        },
+        "upstream": {
+          "passed": 3,
+          "successful": true,
+          "tests_run": 3
+        },
+        "withheld": {
+          "passed": 5,
+          "successful": true,
+          "tests_run": 5
+        }
+      },
+      "collaboration_result": "degraded",
+      "complete_three_role": false,
+      "document_citations": 3,
+      "document_handoff_bytes": 3589,
+      "document_status": "information_not_found",
+      "elapsed_seconds": 77.89,
+      "evaluation_error": null,
+      "exported_patch_bytes": 1426,
+      "finding_responses": [],
+      "known_price_estimate_cny": 0.34548,
+      "normal_repair_submission": false,
+      "patch_sha256": "f648bbae134a08725ea940e29287834cdd4da9d9bda6e7a4919a7f0395312550",
+      "reason": "Stage failure: RepairNoProgress; previous legal candidate and its actual independent assessment are retained.",
+      "repair_result": "failed",
+      "resolved": false,
+      "review_reports": [],
+      "review_verdict": "unavailable",
+      "roles": [
+        {
+          "phase": "consulting",
+          "reason": null,
+          "status": "succeeded"
+        },
+        {
+          "phase": "repairing",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "failed"
+        },
+        {
+          "phase": "reviewing",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        },
+        {
+          "phase": "revising",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        },
+        {
+          "phase": "final_review",
+          "reason": "Stage failure: RepairNoProgress",
+          "status": "skipped"
+        }
+      ],
+      "run_id": "3fac0d0f1a8947779a909f1d500c8446",
+      "status": "failed",
+      "task": "boltons-table-text",
+      "tools_observed": [
+        "read_lines",
+        "search_text",
+        "submit_consultation"
+      ],
+      "traces": {
+        "consulting-trajectory.json": {
+          "actions": 5,
+          "bash_commands": 0,
+          "format_corrections": 0,
+          "repair_control_rejections": 0,
+          "repeated_exact_commands": [],
+          "submission_commands": 0,
+          "test_commands": 0
+        },
+        "repairing-trajectory.json": {
+          "actions": 38,
+          "bash_commands": 38,
+          "format_corrections": 0,
+          "repair_control_rejections": 5,
+          "repeated_exact_commands": [
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && python -B -m unittest discover -s task_checks -v 2>&1 | tail -40",
+              "count": 3
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && sed -n '576,600p' boltons/tableutils.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && sed -n '555,600p' boltons/tableutils.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && sed -n '574,600p' boltons/tableutils.py",
+              "count": 2
+            },
+            {
+              "command": "cd \"$(git rev-parse --show-toplevel)\" && python -B -m unittest discover -s task_checks -v 2>&1 | tail -30",
+              "count": 2
+            }
+          ],
+          "submission_commands": 0,
+          "test_commands": 8
+        }
+      },
+      "unknown_placeholder_cny": 0.1,
+      "variant": "full"
+    }
+  ],
+  "scope": "Two known-task development acceptances, one single Click and one full table. Not a matched comparison, new benchmark, statistical rate or mechanism-causal effect.",
+  "selection_reruns": 0,
+  "shared_requests_after": 4104,
+  "shared_requests_before": 4037,
+  "slots": 2,
+  "source_base_commit": "f59732904385d53019ff900ebdcefe5625142d21",
+  "stage": 65,
+  "unknown_placeholder_cny": 0.2,
+  "archive_members": {
+    "two-development-runs.zip": 916,
+    "preparation-and-audit.zip": 102,
+    "offline-regression.zip": 35
+  },
+  "credential_scan": {
+    "keys_checked": 2,
+    "objects_including_nested": 1304,
+    "matches": 0
+  },
+  "formal_database_and_whole_shared_ledger_uploaded": false,
+  "source_patch": "preparation-and-audit.zip/source-change.patch"
+}

@@ -138,13 +138,17 @@ class RuntimeTests(unittest.TestCase):
         wide="sed -n '1,90p' pkg/code.py"
         output=env.execute({'command':wide})
         self.assertTrue(output['extra']['tool_output']['truncated'])
-        self.assertNotIn('pkg/code.py',env._read_spans)
+        # Only the complete contiguous PAGE is delivered; the rest is missing.
+        delivered=output['extra']['tool_output']['delivered_source_span']
+        self.assertEqual(delivered[:2],['pkg/code.py',1])
+        self.assertLess(delivered[2],40)
+        self.assertIsNone(env._covered_read(('pkg/code.py',40,44)))
         # These middle lines were absent from HEAD/TAIL; they must not be blocked.
         narrow=env.execute({'command':"sed -n '40,44p' pkg/code.py"})
         self.assertEqual(narrow['returncode'],0)
         self.assertFalse(narrow['extra']['tool_output']['truncated'])
         self.assertIn('# 41 ',narrow['output'])
-        self.assertEqual(env._read_spans['pkg/code.py'][0][:2],(40,44))
+        self.assertEqual(env._read_spans['pkg/code.py'][-1][:2],(40,44))
         env.execute({'command':wide})
         rejected=env.execute({'command':wide})
         self.assertIn('truncated output does NOT mean',rejected['output'])

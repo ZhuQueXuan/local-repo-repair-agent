@@ -29,7 +29,7 @@ class ContextBudget:
         self.history_directory = self.work / "temp" / "context-history"
         self.history_directory.mkdir(parents=True, exist_ok=True)
 
-    def _compact_completed(self, messages, prepared, target_bytes=None):
+    def _compact_completed(self, messages, prepared, target_bytes=None, *, keep_recent=None):
         groups = []
         for index, message in enumerate(prepared):
             calls = message.get("tool_calls") or []
@@ -44,7 +44,8 @@ class ContextBudget:
                        for i, call in zip(indices, calls)):
                 continue
             groups.append((index, indices, calls))
-        older = groups[:-self.keep_recent]
+        keep = self.keep_recent if keep_recent is None else keep_recent
+        older = groups[:-keep] if keep else groups
         if not older:
             return prepared, []
         removed, entries, selected = set(), [], []

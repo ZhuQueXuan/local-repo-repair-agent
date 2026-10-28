@@ -24,6 +24,7 @@ from context_budget import ContextBudget, message_bytes
 from collaboration_feedback import pytest_environment
 from task_cards import TaskCardModelMixin
 from execution_progress import checkout_body, declared_test_chain
+from source_reads import read_plan
 from state_agent import NoProgress
 
 
@@ -88,32 +89,6 @@ class RoleModelHooks(TaskCardModelMixin):
 
 
 class RepairModel(RoleModelHooks, StatefulModel):
-    def project_context(self, messages, prepared, pinned=None):
-        projected = super().project_context(messages, prepared, pinned)
-        # The mixin appends the current human task card AFTER this method.
-        # Reserve its complete JSON envelope before deciding a view fits.
-        receipt = getattr(self, "_task_card_receipt", None)
-        card = [receipt["message"]] if receipt else []
-        if message_bytes(projected + card) <= self.budget_config["max_messages_utf8_bytes"]:
-            return projected
-        # Collaboration feedback can coexist with four large recent actions.
-        # Re-project only completed exchanges, retain the latest complete one,
-        # and leave raw history, task, feedback and hard stop untouched.
-        policy = self.context_budget
-        emergency = ContextBudget(target_bytes=policy.target_bytes, keep_recent_tool_outputs=1,
-            compact_completed_exchanges=True, retained_audit_entries=policy.audit_entries, compact_to_target=True)
-        emergency.work, emergency.history_directory = policy.work, policy.history_directory
-        pinned = list(pinned or [])
-        if self.repository_retrieval is not None:
-            pinned.append(self.repository_retrieval.pinned_message())
-        reserved = len(json.dumps(pinned + card, ensure_ascii=False).encode("utf-8")) + 2 if pinned or card else 0
-        compact = emergency.project(messages, prepared, reserved_bytes=reserved)
-        result = compact[:2] + pinned + compact[2:]
-        policy.events.append({"mode": "collaboration_guard_projection", "before_bytes": message_bytes(projected + card),
-            "after_bytes": message_bytes(result + card), "task_card_reserved": bool(card), "hard_limit": self.budget_config["max_messages_utf8_bytes"],
-            "keep_recent_tool_outputs": 1, "raw_history_preserved": True, "projection": emergency.events})
-        return result
-
     def _parse_actions(self, response):
         actions = super()._parse_actions(response)
         if len(actions) != 1:
@@ -292,77 +267,8 @@ class RepairEnvironment(StatefulTaskEnvironment):
             self._control_key,self._control_revision=key,revision
 
     def _read_plan(self,command):
-        """Classify a small literal read-only shell grammar, never evaluate it.
-
-        Writes, substitutions, redirects and unknown tools decline classification.
-        Classification does not execute/split the command or authorize a test pass.
-        """
-        body=checkout_body(command)
-        if any(c in body for c in ('$', '`', '\n', '\r')):return None
-        try:
-            lexer=shlex.shlex(body,posix=True,punctuation_chars=';&|<>')
-            lexer.whitespace_split=True;lexer.commenters=''
-            parts=[];part=[];pipe=False
-            for token in lexer:
-                if token in {'&&',';','|'}:
-                    if not part:return None
-                    parts.append((part,pipe));part=[];pipe=token=='|'
-                elif token in {'&','||','>','>>','<','<<','>&'}:return None
-                else:part.append(token)
-            if not part:return None
-            parts.append((part,pipe))
-        except ValueError:return None
-        root=Path(self.config.cwd).resolve();spans=[];identity=[];dependencies={}
-        archives={e['full_output_path']:e['sha256'] for e in self.output_budget.events}
-
-        def filename(name,*,directory=False):
-            path=(root/name).resolve()
-            if not path.is_relative_to(root):return None
-            relative=path.relative_to(root).as_posix()
-            if relative in self.task_state.current_files:
-                dependencies[relative]=self.task_state.current_files[relative]
-            elif relative in archives and path.is_file():
-                if sha256(path.read_bytes())!=archives[relative]:return None
-                dependencies[relative]=archives[relative]
-            elif directory and path.is_dir() and any(n.startswith(relative+'/') for n in self.task_state.current_files):
-                dependencies[relative]=self.task_state.revision
-            else:return None
-            return relative
-
-        for tokens,piped in parts:
-            if tokens[0]=='echo' and not piped:continue
-            span=None
-            if not piped and len(tokens)==4 and tokens[:2]==['sed','-n'] and re.fullmatch(r'\d+(,\d+)?p',tokens[2]):
-                values=[int(x) for x in tokens[2][:-1].split(',')]
-                name=filename(tokens[3]);start,end=values[0],values[-1]
-                if name is None or start<1 or end<start:return None
-                span=(name,start,end);tokens=['sed','-n',f'{start},{end}p',name]
-            elif not piped and len(tokens)==2 and tokens[0]=='cat':
-                name=filename(tokens[1])
-                if name is None:return None
-                span=(name,1,2**63-1);tokens=['cat',name]
-            elif not piped and tokens[0]=='grep':
-                offset=1
-                while offset<len(tokens) and tokens[offset] in {'-n','-r','-rn','-nr','-i','-in','-E','-F','-nE'}:offset+=1
-                if offset+1>=len(tokens) or tokens[offset].startswith('-'):return None
-                names=[filename(n,directory=True) for n in tokens[offset+1:]]
-                if not all(names):return None
-                tokens=tokens[:offset+1]+names
-            elif piped and tokens[0] in {'head','tail'} and (
-                    len(tokens)==2 and re.fullmatch(r'-\d+',tokens[1]) or
-                    len(tokens)==3 and tokens[1]=='-n' and tokens[2].isdigit()):pass
-            elif not piped and len(tokens)==3 and tokens[:2]==['wc','-l']:
-                name=filename(tokens[2])
-                if name is None:return None
-                tokens=tokens[:2]+[name]
-            else:return None
-            identity.append(tokens)
-            if span:spans.append(span)
-        if not identity:return None
-        # A pipe filters its source; it cannot certify full source coverage.
-        if any(piped for _,piped in parts):spans=[]
-        key=sha256(canonical_bytes({'commands':identity,'inputs':dependencies}))
-        return {'key':key,'spans':spans,'single_span':len(identity)==1 and len(spans)==1}
+        return read_plan(command, self.config.cwd, self.task_state.current_files,
+            {e['full_output_path']:e['sha256'] for e in self.output_budget.events})
 
     def _covered_read(self,span):
         name,start,end=span
@@ -379,6 +285,23 @@ class RepairEnvironment(StatefulTaskEnvironment):
         # archive pathname is not genuinely missing evidence on every iteration.
         if name.startswith('temp/tool-output/') and self._visible_read_outputs.get(sha256(raw),0)>=2:return False
         return bool(raw) and len(raw)<=self.output_budget.max_output_bytes
+
+    def _missing_read_hint(self,plan):
+        # Give a real, bounded next source range, never a patch or automatic read.
+        if not plan:return ''
+        for name,start,end in plan['spans']:
+            path=Path(self.config.cwd)/name
+            if not path.is_file():continue
+            lines=path.read_bytes().splitlines(keepends=True)
+            for index in range(start,min(end,len(lines))+1):
+                if self._covered_read((name,index,index)):continue
+                last=index;size=0
+                for candidate in range(index,min(end,len(lines),index+9)+1):
+                    size+=len(lines[candidate-1])+16
+                    if size>self.output_budget.max_output_bytes-300:break
+                    last=candidate
+                return f" Next missing evidence: sed -n '{index},{last}p' {shlex.quote(name)}. Run this single read, then repair/validate."
+        return ''
 
     def _control_rejection(self,command,text):
         self._control_errors+=1
@@ -413,6 +336,7 @@ class RepairEnvironment(StatefulTaskEnvironment):
                 'echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT alone. Do not rerun tests or reread source. '
                 'This passes work to independent evaluation/review; it does not certify correctness.')
         plan=self._read_plan(command)
+        hint=self._missing_read_hint(plan)
         if plan:
             previous=self._read_requests.get(plan['key'])
             covered=plan['spans'] and all(self._covered_read(s) for s in plan['spans'])
@@ -422,7 +346,7 @@ class RepairEnvironment(StatefulTaskEnvironment):
                     'A truncated output does NOT mean all requested source lines were delivered. '
                     'Read ONE missing source/output slice small enough to fit the output budget (try 5-10 lines), '
                     'or run the declared issue check/reproduction, edit implementation, or submit. '
-                    'Changing echo separators, quoting, or rereading old output does not advance the repair.')
+                    'Changing echo separators, quoting, or rereading old output does not advance the repair.'+hint)
             if covered:
                 self._redundant_reads+=1
                 if self._redundant_reads>=2:
@@ -438,7 +362,7 @@ class RepairEnvironment(StatefulTaskEnvironment):
                     'Alternatively make a concrete reproduction/edit, submit, or read ONE genuinely missing '
                     'source/output slice that fits the output budget (try 5-10 lines). '
                     'Broad searches, compound reads and repeated old output are closed in this state; '
-                    'truncated middle lines are not marked as seen. No repair is generated by this contract.')
+                    'truncated middle lines are not marked as seen. No repair is generated by this contract.'+hint)
         return None
 
     def _configure_child_environment(self, env):
@@ -483,6 +407,10 @@ class RepairEnvironment(StatefulTaskEnvironment):
                     if not previous:self._control_errors=0
                     for name,start,end in plan['spans']:
                         self._read_spans.setdefault(name,[]).append((start,end,archive.get('full_output_path')))
+                elif result['returncode']==0 and archive.get('delivered_source_span'):
+                    name,start,end=archive['delivered_source_span']
+                    self._read_spans.setdefault(name,[]).append((start,end,archive.get('full_output_path')))
+                    if not previous:self._control_errors=0
             else:
                 if (self.task_state._implementation_revision()!=self._control_revision or
                         self.task_state.progress and self.task_state.progress.since_progress==0):

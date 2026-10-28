@@ -39,7 +39,10 @@ class FeedbackTests(unittest.TestCase):
         original = canonical_bytes(messages)
         filtered = [m for m in messages if m["role"] != "exit"]
         prepared = RecordedModel._prepare_messages_for_api(model, filtered)
-        previous = ContextManagedModel.project_context(model, filtered, prepared, [pin])
+        # Reproduce the historical projection before the shared hard-guard
+        # fallback; ContextManagedModel now includes that fallback itself.
+        view = model.context_budget.project(filtered, prepared, reserved_bytes=message_bytes([pin])+2)
+        previous = view[:2]+[pin]+view[2:]
         self.assertEqual(message_bytes(previous), 16807)
         projected = model._prepare_messages_for_api(messages)
         self.assertLessEqual(message_bytes(projected), 16384)
@@ -49,7 +52,7 @@ class FeedbackTests(unittest.TestCase):
         feedback = next(m for m in filtered if m["role"] == "user" and "Continue this same repair session" in m.get("content", ""))
         self.assertTrue(any(m.get("content") == feedback["content"] for m in projected))
         self.assertEqual(projected[-2:], prepared[-2:])
-        self.assertTrue(any(e["mode"] == "collaboration_guard_projection" for e in model.context_budget.events))
+        self.assertTrue(any(e.get("mode") == "hard_guard_completed_projection" for e in model.context_budget.events))
         with patch("litellm.completion", return_value=runtime.response("bash", {"command": "echo offline"})) as transport:
             model.query(messages)
         self.assertEqual(transport.call_count, 1)

@@ -1,6 +1,7 @@
 """Advisory next actions derived from source revisions and observed test runs.
 
-No model calls, repair answers, submission acceptance, or additional stop limit.
+No model calls, repair answers or submission acceptance. StatefulAgent can stop
+after three advisory windows without implementation or new validation progress.
 Only declared test selections with recognizable runner summaries earn a status.
 """
 import hashlib
@@ -10,8 +11,12 @@ import shlex
 
 
 def checkout_body(command):
-    body = command.removeprefix("set -o pipefail\n").strip()
-    return re.sub(r'^cd\s+["\']?\$\(git rev-parse --show-toplevel(?:\s+2>/dev/null\s*\|\|\s*pwd)?\)["\']?\s*(?:&&|;)\s*', '', body)
+    body = command.strip()
+    for prefix in ('set -o pipefail\n', 'set -e\n'):
+        body = body.removeprefix(prefix).strip()
+    # These two exact substitutions only identify the current checkout. Never
+    # evaluate shell text or discard an arbitrary cd/command before a write.
+    return re.sub(r'^cd\s+["\']?\$\((?:pwd|git rev-parse --show-toplevel(?:\s+2>/dev/null\s*\|\|\s*pwd)?)\)["\']?\s*(?:&&|;)\s*', '', body)
 
 
 def declared_test_chain(command, commands):
@@ -48,7 +53,7 @@ def declared_test_chain(command, commands):
 
 def runner_tokens(command):
     """Extract one simple Python test invocation; decline ambiguous shell bodies."""
-    body = command.removeprefix("set -o pipefail\n").strip()
+    body = checkout_body(command)
     if "<<" in body or "`" in body:
         return None
     try:
@@ -191,6 +196,7 @@ class ExecutionProgress:
         stalled = self.since_progress >= self.threshold
         if stalled:
             next_action += " Progress has stalled: stop broad rereading. Take the next concrete action or name the specific missing evidence and obtain only that evidence."
+            next_action += f" The guarded agent stops after {self.threshold*3} executed actions without implementation or new validation progress."
         return {"phase": phase, "plan_version": self.plan_version,
                 "actions_without_source_or_new_validation": self.since_progress,
                 "stagnation_feedback": stalled, "first_source_change_sequence": self.first_change,

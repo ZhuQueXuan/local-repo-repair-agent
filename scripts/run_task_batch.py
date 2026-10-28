@@ -25,8 +25,11 @@ from execution_runtime import bash_executable
 
 
 class TaskEnvironment(GitBashEnvironment):
+    def shell_command(self, command):
+        return "set -o pipefail\n" + command
+
     def execute(self, action, cwd="", *, timeout=None):
-        return super().execute(action | {"command": "set -o pipefail\n" + action["command"]}, cwd, timeout=timeout)
+        return super().execute(action | {"command": self.shell_command(action["command"])}, cwd, timeout=timeout)
 
 
 class BoundedTaskEnvironment(TaskEnvironment):
@@ -84,10 +87,37 @@ class ContextManagedModel(RecordedModel):
             pinned.append(self.repository_retrieval.pinned_message())
         reserved = len(json.dumps(pinned, ensure_ascii=False).encode("utf-8")) + 2 if pinned else 0
         projected = self.context_budget.project(messages, prepared, reserved_bytes=reserved)
-        return projected[:2] + pinned + projected[2:]
+        result = projected[:2] + pinned + projected[2:]
+        # A large completed edit can exceed the hard guard even with only four
+        # recent exchanges. Archive whole completed pairs, never split tool IDs
+        # or shorten the original task. The task-card mixin appends its card.
+        from context_budget import message_bytes
+        receipt = getattr(self, '_task_card_receipt', None)
+        card = [receipt['message']] if receipt else []
+        hard = getattr(self, 'budget_config', {}).get('max_messages_utf8_bytes', 16384)
+        if message_bytes(result + card) > hard:
+            policy = self.context_budget
+            for keep in (1, 0):
+                emergency = ContextBudget(target_bytes=policy.target_bytes, keep_recent_tool_outputs=max(1, keep),
+                    compact_completed_exchanges=True, retained_audit_entries=policy.audit_entries, compact_to_target=True)
+                emergency.work, emergency.history_directory = policy.work, policy.history_directory
+                # Zero is used only here, after the ordinary projection fails.
+                reserved = message_bytes(pinned + card) + 2 if pinned or card else 0
+                compact, replaced = emergency._compact_completed(messages, [dict(m) for m in prepared],
+                    max(512, policy.target_bytes-reserved), keep_recent=keep)
+                result = compact[:2] + pinned + compact[2:]
+                policy.events.append({'mode': 'hard_guard_completed_projection', 'keep_recent_tool_outputs': keep,
+                    'after_bytes': message_bytes(result + card), 'hard_limit': hard,
+                    'task_card_reserved': bool(card), 'replaced_outputs': replaced, 'raw_history_preserved': True})
+                if message_bytes(result + card) <= hard:
+                    break
+        return result
 
 
 class StatefulTaskEnvironment(BoundedTaskEnvironment):
+    def shell_command(self, command):
+        return "set -o pipefail\nset -e\n" + command
+
     def __init__(self, work, bash, *, source_files, state_policy, **kwargs):
         super().__init__(work, bash, **kwargs)
         self.task_state = TaskState(Path(work), source_files, **state_policy)
@@ -107,7 +137,9 @@ class StatefulTaskEnvironment(BoundedTaskEnvironment):
             "exit_status": "NoProgress", "submission": "", "reason": output["output"]}}
 
     def _process_output(self, output, *, command):
-        result = super()._process_output(output, command=command)
+        plan = self.task_state.read_plan(command)
+        span = plan['spans'][0] if plan and plan['single_span'] and output['returncode'] == 0 else None
+        result = self.output_budget.process(output, command=command, read_span=span)
         self.task_state.observe(command, output, result["extra"]["tool_output"])
         return result
 

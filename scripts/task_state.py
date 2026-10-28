@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 import shlex
 from execution_progress import ExecutionProgress
+from source_reads import read_plan
 
 
 def clipped(text: str, limit: int) -> str:
@@ -78,26 +79,11 @@ class TaskState:
         return changed
 
     def _read_key(self, command):
-        body = command.removeprefix("set -o pipefail\n").strip()
-        # The repairer also emits this exact checkout prefix with a semicolon.
-        # Strip only the known prefix; the remaining body must still be ONE
-        # simple read. Never discard arbitrary shell chains or write actions.
-        body = re.sub(r'^cd\s+["\']?\$\(git rev-parse --show-toplevel(?:\s+2>/dev/null\s*\|\|\s*pwd)?\)["\']?\s*(?:&&|;)\s*', '', body)
-        if any(char in body for char in [";", "|", ">", "<", "\n", "`", "$", "&"]):
-            return None
-        try:
-            tokens = shlex.split(body)
-        except ValueError:
-            return None
-        if len(tokens) == 4 and tokens[:2] == ["sed", "-n"] and re.fullmatch(r"\d+(,\d+)?p", tokens[2]):
-            path = (self.work / tokens[3]).resolve()
-            if path.is_relative_to(self.work) and path.relative_to(self.work).as_posix() in self.current_files:
-                return shlex.join(tokens)
-        if len(tokens) == 2 and tokens[0] == "cat":
-            path = (self.work / tokens[1]).resolve()
-            if path.is_relative_to(self.work) and path.relative_to(self.work).as_posix() in self.current_files:
-                return shlex.join(tokens)
-        return None
+        plan = self.read_plan(command)
+        return plan['key'] if plan else None
+
+    def read_plan(self, command):
+        return read_plan(command, self.work, self.current_files)
 
     def before_action(self, command):
         self._refresh()
@@ -166,6 +152,21 @@ class TaskState:
             except (ValueError,UnicodeError):
                 pass
         self._record({'kind':'operator_stop','reason':reason,'revision':self.revision})
+        self._save()
+        return reason
+
+    def stagnation_reason(self):
+        if not self.guard_enabled or self.progress is None:
+            return None
+        facts = self.progress.facts()
+        maximum = self.progress.threshold * 3
+        if self.progress.since_progress < maximum:
+            return None
+        reason = (f'No implementation change or new declared validation result in {maximum} executed actions. '
+                  'Reads, temporary files, notes, and repeated identical check results do not reset progress. '
+                  'Stopping this identity; no submission or successful repair is inferred.')
+        self._record({'kind': 'stagnation_stop', 'reason': reason, 'revision': self.revision,
+                      'execution_progress': facts})
         self._save()
         return reason
 
