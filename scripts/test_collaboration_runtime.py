@@ -86,12 +86,46 @@ class RuntimeTests(unittest.TestCase):
         from execution_runtime import bash_executable
         env=RepairEnvironment(work,bash_executable(),context=context,source_files=list(files),max_output_bytes=4096,
             python_import_root=work,state_policy={'guard_enabled':True,'implementation_prefix':'pkg/',
-                **({'decision_policy':{'mode':'evidence_to_edit_v1'}} if decision else {}),
+                **({'decision_policy':{'mode':'simple_diagnostic_v1' if decision=='simple' else 'evidence_to_edit_v1'}} if decision else {}),
                 'progress_policy':{'stagnation_actions':8},'validation_commands':{
                     'targeted':'python -B -m pytest tests/test_code.py -q -p no:cacheprovider',
                     'issue':'python -B -m unittest discover -s task_checks -v'}})
         env.model=SimpleNamespace(contains_credentials=lambda _:False)
+        if decision=='simple':env.task_state.guard_enabled=False
         return work,env,context
+
+    def test_simple_diagnostic_stable_tools_pages_recovery_edit_validate_and_submit(self):
+        work,env,context=self.controlled_repair_environment(decision='simple')
+        state=env.task_state;env.initial_issue_check()
+        from edit_decision import api_tools
+        self.assertIn('bash',{t['function']['name'] for t in api_tools(simple=True)})
+        self.assertEqual(state.decision.active(),'open')
+        # Three bad requests must be correctable, not terminate this identity.
+        bad={'source_revision':state.revision,'path':'pkg/code.py','start':100,'end':110,'question':'Find body'}
+        for _ in range(3):self.assertNotEqual(env.execute({'command':'repair_need_evidence '+json.dumps(bad)})['returncode'],0)
+        p=work/'pkg/code.py';p.write_text('def value(): return 0\n'+'# exact source pagination\n'*45,encoding='utf-8')
+        state._refresh();raw=p.read_bytes().decode();chunks=[];start=1
+        while start:
+            value=bad|{'source_revision':state.revision,'start':start,'end':999}
+            receipt=env.execute({'command':'repair_need_evidence '+json.dumps(value)})
+            page=json.loads(receipt['output']);chunks.append(page['content']);start=page['next_start']
+            self.assertLessEqual(len(page['content'].encode()),512)
+            self.assertTrue(page['requested_end_beyond_file'])
+        self.assertEqual(''.join(chunks),raw)
+        self.assertGreater(len(state.decision.events('evidence')),2)
+        env.execute({'command':'python -B -c "print(123)"'})
+        proposal={'source_revision':state.revision,'path':'pkg/code.py','old':'return 0','new':'return 2','hypothesis':'Deliberately failing synthetic proposal.'}
+        self.assertNotEqual(env.execute({'command':'repair_edit '+json.dumps(proposal)})['returncode'],0)
+        # Failed edits do not close inspection or further editing.
+        located=env.execute({'command':'repair_locate '+json.dumps({'source_revision':state.revision,
+            'path':'pkg/code.py','symbol':'def value','question':'Locate the failed implementation.'})})
+        self.assertEqual(json.loads(located['output'])['matches'][0]['line'],1)
+        self.assertFalse(state.decision.allow_shell('echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT'))
+        proposal.update(source_revision=state.revision,old='return 2',new='return 1',hypothesis='Correct synthetic fixture to one.')
+        self.assertEqual(env.execute({'command':'repair_edit '+json.dumps(proposal)})['returncode'],0)
+        self.assertEqual(state.progress.facts()['current_validation'],{'targeted':'passed','issue':'passed'})
+        self.assertIsNone(env.completed_submission)
+        with self.assertRaises(Submitted):env.execute({'command':'echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT'})
 
     def test_decision_gate_closes_opaque_reads_and_executes_model_edit_checks_submit(self):
         work,env,context=self.controlled_repair_environment(decision=True)

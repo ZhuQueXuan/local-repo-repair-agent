@@ -214,7 +214,7 @@ class TaskState:
             facts["execution_progress"] = self.progress.facts()
         if self.decision is not None:
             facts['edit_decision'] = {'phase':self.decision.active(),
-                'evidence_requests_remaining':max(0,2-len(self.decision.events('evidence'))),
+                'evidence_requests_remaining':None if self.decision.simple else max(0,2-len(self.decision.events('evidence'))),
                 'scope':'Model must choose an edit, bounded missing evidence or explicit abandonment; no generated answer.'}
         return facts
 

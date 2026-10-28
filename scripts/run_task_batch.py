@@ -170,7 +170,7 @@ class StatefulTaskEnvironment(BoundedTaskEnvironment):
                 decision.record('rejected', reason=str(error))
                 output=self.output_budget.process({'output':'Edit decision rejected: '+str(error)+'. CURRENT source_revision='+self.task_state.revision,
                     'returncode':1,'exception_info':'edit_decision_rejected'},command=action['command'])
-                if len(decision.events())>=3 and all(e['decision_event']=='rejected' for e in decision.events()[-3:]):
+                if not decision.simple and len(decision.events())>=3 and all(e['decision_event']=='rejected' for e in decision.events()[-3:]):
                     raise NoProgress(self.model_exit(output))
                 return output
         cached = self.cached_read(action['command']) if not cwd else None
@@ -320,7 +320,7 @@ class StatefulModel(ContextManagedModel):
 
     def _perform_completion(self,messages,provider):
         decision=getattr(self.task_state,'decision',None)
-        if decision is None or decision.active()!='decide':
+        if decision is None or (not decision.simple and decision.active()!='decide'):
             return super()._perform_completion(messages,provider)
         # All shared provider/accounting/deadline guards have already executed.
         # Narrow the actual API tool set, rather than asking bash to print a plan.
@@ -329,7 +329,7 @@ class StatefulModel(ContextManagedModel):
         self.request_check()
         remaining=self.request_deadline()-time.monotonic() if self.request_deadline else 45
         if remaining<=0:raise TimeoutError('No edit-decision request time remaining')
-        request=self.protocol_adapter.prepare(messages,api_tools(),model=self.config.model_name,
+        request=self.protocol_adapter.prepare(messages,api_tools(simple=decision.simple),model=self.config.model_name,
             api_key=self._api_key,**dict(self.config.model_kwargs,timeout=min(45,remaining)))
         return litellm.completion(**request)
 

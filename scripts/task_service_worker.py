@@ -198,7 +198,10 @@ def collect_patch(task, work, output, manifest):
     return changed
 
 
-def run_one(store, run_id):
+def run_one(store, run_id, *, diagnostic_variant=None):
+    if diagnostic_variant is not None:
+        if diagnostic_variant!='simple' or not Path(store.home).resolve().is_relative_to((ROOT/'temp/comparison_batches').resolve()):
+            raise ValueError('Diagnostic mode is restricted to owned isolated batches')
     record = store.update(run_id, expected={"queued"}, event="worker_claimed", status="running", stage="preparing", started=now(), worker_pid=os.getpid())
     if record is None:
         return
@@ -266,6 +269,8 @@ def run_one(store, run_id):
                 state_policy = configuration['task_state'] | {'implementation_prefix': manifest['source_prefix'],
                     'progress_policy': {'stagnation_actions': 8}, 'validation_commands': commands,
                     'decision_policy': {'mode':'evidence_to_edit_v1'}}
+                if diagnostic_variant=='simple':
+                    state_policy.update(guard_enabled=False,decision_policy={'mode':'simple_diagnostic_v1'})
                 env = ServiceStatefulEnvironment(work, bash, source_files=list(manifest["source_files_sha256"]), state_policy=state_policy, python_import_root=import_root, **configuration["tool_output_budget"], **hooks)
             else:
                 env = ServiceRawEnvironment(work, bash, python_import_root=import_root, **hooks)
@@ -285,7 +290,7 @@ def run_one(store, run_id):
                 "\nWhen finished, run echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT by itself.")
             if configuration:
                 from edit_decision import instructions
-                instruction += instructions()
+                instruction += instructions(simple=diagnostic_variant=='simple')
             agent_class = StatefulAgent if configuration else DefaultAgent
             system=("You are a helpful software engineering assistant. Use exactly one registered tool call per response. "
                 "Use bash during diagnosis/submission and the actual decision tools when available; printing JSON is not editing."
@@ -376,7 +381,9 @@ def main():
     parser.add_argument("--home", type=Path, default=DEFAULT_HOME)
     parser.add_argument("--collaboration", action="store_true", help="Explicit stage-C worker; temp store only, no panel default change")
     parser.add_argument("--panel-store", action="store_true", help="Explicit access to the standard panel collaboration database")
+    parser.add_argument('--diagnostic-variant',choices=['simple'],default=None,help='Isolated single-agent usability diagnostic only')
     args = parser.parse_args()
+    if args.diagnostic_variant and args.collaboration:parser.error('Diagnostic variant uses single-agent only')
     if args.collaboration:
         from collaboration_store import CollaborationStore
         store = CollaborationStore(args.home, allow_production=args.panel_store)
@@ -393,7 +400,7 @@ def main():
                 if result["status"] != "finished":
                     raise SystemExit(1)
             else:
-                run_one(store, args.run_id)
+                run_one(store, args.run_id,diagnostic_variant=args.diagnostic_variant)
         except Exception as error:
             store.update(args.run_id, event="worker_error", status="failed", stage="failed", ended=now(), repair_result="unknown", reason="执行进程处理失败：" + type(error).__name__ + "；保留现有文件，不自动重试。")
             raise SystemExit(1)
