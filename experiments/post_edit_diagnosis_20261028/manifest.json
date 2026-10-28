@@ -1,0 +1,14 @@
+{
+  "scope": "Bounded offline diagnosis only; stop, no implementation tuning",
+  "source_commit": "80927b44cbebc3b24fa85f627721c23cba5abdb8",
+  "files_sha256": {
+    "analysis.json": "33c43d377b78d7d8e9890628ecb540d0769c700947a9ac410f89044f0be6e08e",
+    "analyze.py": "b772d13841cfcf417ab6d710acc5c3f1e7a0bed28e97d698cc8cbee9fe096ae5"
+  },
+  "model_calls": 0,
+  "new_tests": 0,
+  "source_files_unchanged": 219,
+  "formal_payloads_unchanged": 53,
+  "shared_requests_unchanged": 4415,
+  "old_files_unchanged": 8469
+}
