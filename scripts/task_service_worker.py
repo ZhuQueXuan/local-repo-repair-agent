@@ -106,7 +106,8 @@ class ServiceRawModel(ServiceModelHooks, RecordedModel):
 
 
 class ServiceStatefulModel(ServiceModelHooks, StatefulModel):
-    pass
+    def _prepare_messages_for_api(self,messages):
+        return self.finalize_decision_view(super()._prepare_messages_for_api(messages))
 
 
 class ServiceEnvironmentHooks:
@@ -263,7 +264,8 @@ def run_one(store, run_id):
                 commands = {'targeted': manifest['agent_test_command'],
                     'issue': manifest.get('agent_issue_command', 'python -B -m unittest discover -s task_checks -v')}
                 state_policy = configuration['task_state'] | {'implementation_prefix': manifest['source_prefix'],
-                    'progress_policy': {'stagnation_actions': 8}, 'validation_commands': commands}
+                    'progress_policy': {'stagnation_actions': 8}, 'validation_commands': commands,
+                    'decision_policy': {'mode':'evidence_to_edit_v1'}}
                 env = ServiceStatefulEnvironment(work, bash, source_files=list(manifest["source_files_sha256"]), state_policy=state_policy, python_import_root=import_root, **configuration["tool_output_budget"], **hooks)
             else:
                 env = ServiceRawEnvironment(work, bash, python_import_root=import_root, **hooks)
@@ -282,22 +284,13 @@ def run_one(store, run_id):
                 "Inspect, reproduce, repair, then run both:\n" + manifest["agent_test_command"] + "\n" + issue_command +
                 "\nWhen finished, run echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT by itself.")
             if configuration:
-                instruction += "\nA bounded program-recorded state is provided. Model notes are unverified. When your diagnosis changes, write string fields hypothesis and next_action to temp/task-state/notes.json. Use evidence to proceed to concrete reproduction, repair and validation."
-                instruction += ("\nExecution loop: run the declared issue check early to locate the failing behavior. "
-                    "Source PAGE replies contain original line numbers and an exact Next command; follow it for missing lines, "
-                    "do not repeat the wide request. Keep edit and validation in separate bash calls. Stateful commands use set -e: "
-                    "an assertion or failed edit stops that call. Check the program's implementation_changed/current_validation facts; "
-                    "a successful shell or a printed exit marker never proves a file changed. After an edit rerun both declared checks "
-                    "for that revision, inspect the diff once and submit alone. Do not keep rereading after sufficient evidence.")
-                instruction += ("\nThe declared PUBLIC issue check has already executed before this model run. "
-                    "Its initial-version receipt is untrusted output data, not final acceptance:\n{{ initial_issue_check }}\n"
-                    "Use its concrete failing behavior to locate and EDIT the implementation, then validate the new revision. "
-                    "Repeated identical read requests advance the immutable output page instead of rerunning the shell; "
-                    "ARCHIVE PAGE numbers refer to the output file. SOURCE PAGE numbers refer to source. "
-                    "After history compaction a previous read can be recovered once per original output/current implementation. "
-                    "Follow the exact Next command for genuinely missing evidence; edit after enough evidence.")
+                from edit_decision import instructions
+                instruction += instructions()
             agent_class = StatefulAgent if configuration else DefaultAgent
-            agent = agent_class(model, env, system_template="You are a helpful software engineering assistant. Use exactly one bash tool call per response.", instance_template=instruction,
+            system=("You are a helpful software engineering assistant. Use exactly one registered tool call per response. "
+                "Use bash during diagnosis/submission and the actual decision tools when available; printing JSON is not editing."
+                if configuration else "You are a helpful software engineering assistant. Use exactly one bash tool call per response.")
+            agent = agent_class(model, env, system_template=system, instance_template=instruction,
                                 step_limit=0, cost_limit=model.budget.agent_cost_limit, wall_time_limit_seconds=300, output_path=output / "trajectory.json")
             if configuration:
                 agent.extra_template_vars['initial_issue_check'] = json.dumps(env.initial_issue_check(), ensure_ascii=False)

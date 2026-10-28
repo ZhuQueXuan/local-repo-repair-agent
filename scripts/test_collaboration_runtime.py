@@ -74,7 +74,7 @@ class RuntimeTests(unittest.TestCase):
         from review_tools import review_rejection
         self.assertNotIn('selected_document',review_rejection(ProtocolError('document_outside_handoff_scope')))
 
-    def controlled_repair_environment(self):
+    def controlled_repair_environment(self, decision=False):
         work=ROOT/'temp/repair_contract_tests'/uuid.uuid4().hex
         files={'pkg/__init__.py':'','pkg/code.py':'def value(): return 0\n',
             'tests/test_code.py':'from pkg.code import value\ndef test_value(): assert value()==1\n',
@@ -86,11 +86,158 @@ class RuntimeTests(unittest.TestCase):
         from execution_runtime import bash_executable
         env=RepairEnvironment(work,bash_executable(),context=context,source_files=list(files),max_output_bytes=4096,
             python_import_root=work,state_policy={'guard_enabled':True,'implementation_prefix':'pkg/',
+                **({'decision_policy':{'mode':'evidence_to_edit_v1'}} if decision else {}),
                 'progress_policy':{'stagnation_actions':8},'validation_commands':{
                     'targeted':'python -B -m pytest tests/test_code.py -q -p no:cacheprovider',
                     'issue':'python -B -m unittest discover -s task_checks -v'}})
         env.model=SimpleNamespace(contains_credentials=lambda _:False)
         return work,env,context
+
+    def test_decision_gate_closes_opaque_reads_and_executes_model_edit_checks_submit(self):
+        work,env,context=self.controlled_repair_environment(decision=True)
+        env.execute({'command':"printf 'COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT\\n'"})
+        self.assertIsNone(env.completed_submission)
+        env.initial_issue_check()
+        for i in range(8):env.execute({'command':f'python -B -c "print({i})"'})
+        self.assertEqual(env.task_state.decision.active(),'decide')
+        opaque='cd "$(python -B -c \'import os;print(os.getcwd())\')" && cat pkg/code.py'
+        with patch.object(env.backend,'run_shell') as shell:
+            rejected=env.execute({'command':opaque})
+            shell.assert_not_called()
+        self.assertIn('repair_edit',rejected['output'])
+        value={'source_revision':env.task_state.revision,'path':'pkg/code.py','start':1,'end':1,
+               'question':'What exact function body is currently present?'}
+        read=env.execute({'command':'repair_need_evidence '+json.dumps(value)})
+        self.assertIn('return 0',read['output'])
+        proposal={'source_revision':env.task_state.revision,'path':'pkg/code.py','old':'def value(): return 0',
+                  'new':'def value(): return 1','hypothesis':'The public fixture requires one rather than zero.'}
+        with patch.object(env.backend,'run_shell',wraps=env.backend.run_shell) as shell:
+            result=env.execute({'command':'repair_edit '+json.dumps(proposal)})
+            self.assertEqual(shell.call_count,2)  # Both actual registered checks, no edit shell.
+        self.assertEqual(result['returncode'],0)
+        receipt=json.loads(result['output']);self.assertEqual(receipt['next_phase'],'submit')
+        self.assertEqual([r['result'] for r in receipt['checks']],['passed','passed'])
+        self.assertEqual((work/'pkg/code.py').read_text(),'def value(): return 1\n')
+        self.assertIsNone(env.completed_submission)
+        self.assertNotEqual(env.execute({'command':'cat pkg/code.py'})['returncode'],0)
+        with self.assertRaises(Submitted):env.execute({'command':'echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT'})
+        self.assertIsNotNone(env.completed_submission)
+
+    def test_edit_decision_conflicts_syntax_scope_and_failed_validation_remain_real(self):
+        work,env,context=self.controlled_repair_environment(decision=True)
+        original=(work/'pkg/code.py').read_bytes()
+        proposal={'source_revision':env.task_state.revision,'path':'pkg/code.py','old':'def value(): return 0',
+                  'new':'def value(: return 1','hypothesis':'Synthetic syntax rejection check.'}
+        first=env.execute({'command':'repair_edit '+json.dumps(proposal)})
+        self.assertIn('syntax error',first['output']);self.assertEqual((work/'pkg/code.py').read_bytes(),original)
+        for path in ['tests/test_code.py','../outside.py']:
+            # Fresh valid evidence separates bounded invalid proposals.
+            env.task_state.decision.record('evidence',content_sha256='fixture-reset')
+            bad=proposal|{'path':path,'new':'def value(): return 1'}
+            self.assertNotEqual(env.execute({'command':'repair_edit '+json.dumps(bad)})['returncode'],0)
+        env.task_state.decision.record('evidence',content_sha256='fixture-reset')
+        bad=proposal|{'source_revision':'0'*64,'new':'def value(): return 1'}
+        self.assertIn('source_revision mismatch',env.execute({'command':'repair_edit '+json.dumps(bad)})['output'])
+        env.task_state.decision.record('evidence',content_sha256='fixture-reset')
+        result=env.execute({'command':'repair_edit '+json.dumps(proposal|{'new':'def value(): return 2'})})
+        self.assertNotEqual(result['returncode'],0)
+        self.assertEqual(env.task_state.progress.facts()['current_validation'],{'targeted':'failed','issue':'failed'})
+        self.assertEqual(env.task_state.decision.active(),'decide')
+        self.assertIsNone(env.completed_submission)
+
+    def test_decision_message_is_last_after_card_bounded_and_raw_history_unchanged(self):
+        work,env,context=self.controlled_repair_environment(decision=True)
+        env.initial_issue_check();env.task_state.progress.since_progress=8
+        from task_service_worker import ServiceStatefulModel
+        from context_budget import ContextBudget,message_bytes
+        from minisweagent.models.litellm_model import LitellmModelConfig
+        model=ServiceStatefulModel.__new__(ServiceStatefulModel);model.task_state=env.task_state
+        model.repository_retrieval=None;model.config=LitellmModelConfig(model_name='deepseek/deepseek-flash')
+        model.context_budget=ContextBudget(target_bytes=12288,keep_recent_tool_outputs=1,
+            compact_completed_exchanges=True,compact_to_target=True)
+        card={'role':'user','content':'Current human task card: repair and verify.'}
+        model._task_card_receipt={'message':card}
+        messages=[{'role':'system','content':'system'},{'role':'user','content':'original frozen issue'}]
+        original=canonical_bytes(messages)
+        projected=model._prepare_messages_for_api(messages)
+        self.assertEqual(projected[:2],messages)
+        self.assertEqual(canonical_bytes(messages),original)
+        self.assertEqual(projected[-2],card)
+        self.assertTrue(json.loads(projected[-1]['content'])['program_edit_decision_v1'])
+        self.assertEqual(sum('"program_edit_decision_v1":true' in m.get('content','') for m in projected),1)
+        self.assertLessEqual(message_bytes(projected),16384)
+        # Run the real model observation formatter on a virtual rejection too.
+        result=env.execute({'command':'cat pkg/code.py'})
+        call={'extra':{'actions':[{'command':'cat pkg/code.py','tool_call_id':'gate-rejection'}]}}
+        wire=model.format_observation_messages(call,[result],{})
+        self.assertEqual(wire[0]['tool_call_id'],'gate-rejection')
+
+    def test_decision_evidence_quota_duplicate_json_and_explicit_abandonment(self):
+        work,env,context=self.controlled_repair_environment(decision=True)
+        env.task_state.progress.since_progress=8
+        current=env.task_state.revision
+        value={'source_revision':current,'path':'pkg/code.py','start':1,'end':1,'question':'Exact current function?'}
+        self.assertEqual(env.execute({'command':'repair_need_evidence '+json.dumps(value)})['returncode'],0)
+        self.assertNotEqual(env.execute({'command':'repair_need_evidence '+json.dumps(value)})['returncode'],0)
+        second=value|{'path':'tests/test_code.py','question':'How does the public upstream test invoke it?'}
+        self.assertEqual(env.execute({'command':'repair_need_evidence '+json.dumps(second)})['returncode'],0)
+        self.assertEqual(len(env.task_state.decision.events('evidence')),2)
+        self.assertIn('already used',env.execute({'command':'repair_need_evidence '+json.dumps(value)})['output'])
+        from edit_decision import parse_command,DecisionRejected
+        with self.assertRaises(DecisionRejected):parse_command('repair_edit {"path":"a","path":"b"}')
+        with self.assertRaises(NoProgress) as stopped:
+            env.execute({'command':'repair_abandon '+json.dumps({'reason':'Synthetic uncertainty remains; preserve failure.'})})
+        self.assertEqual(stopped.exception.messages[-1]['extra']['submission'],'')
+
+    def test_actual_decision_tool_wire_cannot_replace_edit_with_printed_json(self):
+        work,env,context=self.controlled_repair_environment(decision=True)
+        env.initial_issue_check();env.task_state.progress.since_progress=8
+        from run_task_batch import StatefulModel
+        from model_protocols import LegacyChatAdapter
+        model=StatefulModel.__new__(StatefulModel);model.task_state=env.task_state
+        model.request_check=lambda:None;model.request_deadline=None
+        from minisweagent.models.litellm_model import LitellmModelConfig
+        model.config=LitellmModelConfig(model_name='offline-fixture',model_kwargs={})
+        model.protocol_adapter=LegacyChatAdapter();model._api_key='offline-key'
+        with patch('litellm.completion',return_value=object()) as call:
+            model._perform_completion([{'role':'user','content':'fixture'}],None)
+        tools={t['function']['name'] for t in call.call_args.kwargs['tools']}
+        self.assertEqual(tools,{'repair_edit','repair_locate','repair_need_evidence','repair_abandon'})
+        self.assertNotIn('bash',tools)
+        # Actual third-run failure: oversize/out-of-range requests require a
+        # concrete legal correction, without fabricating or spending evidence.
+        path=work/'pkg/code.py';path.write_text(('def value(): return 0\n'+'# bounded fixture source\n'*40),encoding='utf-8')
+        env.task_state._refresh()
+        over={'source_revision':env.task_state.revision,'path':'pkg/code.py','start':1,'end':70,
+              'question':'Which exact lines can be legally supplied?'}
+        rejected=env.execute({'command':'repair_need_evidence '+json.dumps(over)})
+        correction=json.loads(rejected['output'].split('; ',1)[1].rsplit('. CURRENT source_revision=',1)[0])
+        self.assertTrue(correction['source_was_not_issued']);self.assertFalse(correction['evidence_quota_consumed'])
+        self.assertEqual(len(env.task_state.decision.events('evidence')),0)
+        legal=correction['legal_request_example']
+        self.assertLessEqual(legal['end'],41)
+        accepted=env.execute({'command':'repair_need_evidence '+json.dumps(legal)})
+        content=json.loads(accepted['output'])['content']
+        self.assertLessEqual(len(content.encode()),512)
+        self.assertEqual(content,''.join(path.read_bytes().decode('utf-8').splitlines(keepends=True)[legal['start']-1:legal['end']]))
+        too_many=env.execute({'command':'repair_need_evidence '+json.dumps(over|{'end':41})})
+        self.assertIn('legal_request_example',too_many['output'])
+        self.assertEqual(len(env.task_state.decision.events('evidence')),1)
+        def response(name,value):return ModelResponse(choices=[{'message':{'role':'assistant','content':None,
+            'tool_calls':[{'id':'actual-edit','type':'function','function':{'name':name,'arguments':json.dumps(value)}}]}}])
+        located=model._parse_actions(response('repair_locate',{'source_revision':env.task_state.revision,
+            'path':'pkg/code.py','symbol':'def value','question':'Where is the exact definition?'}))[0]
+        actual=json.loads(env.execute(located)['output']);self.assertEqual(actual['matches'][0]['line'],1)
+        self.assertEqual(actual['matches'][0]['exact_prefix'],'def value(): return 0')
+        proposal={'source_revision':env.task_state.revision,'path':'pkg/code.py','old':'def value(): return 0',
+            'new':'def value(): return 1','hypothesis':'The public synthetic fixture expects one.'}
+        action=model._parse_actions(response('repair_edit',proposal))[0]
+        self.assertEqual(action['tool'],'repair_edit');self.assertEqual(action['tool_call_id'],'actual-edit')
+        checked=env.execute(action);self.assertEqual(checked['returncode'],0)
+        wire=model.format_observation_messages({'extra':{'actions':[action]}},[checked],{})
+        self.assertEqual(wire[0]['tool_call_id'],'actual-edit')
+        self.assertIsNone(env.completed_submission)
+        self.assertIsNone(env.completed_submission)
 
     def test_repair_compound_checks_have_actual_exits_and_require_real_submission(self):
         work,env,context=self.controlled_repair_environment()

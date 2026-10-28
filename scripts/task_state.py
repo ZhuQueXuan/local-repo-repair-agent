@@ -6,6 +6,7 @@ import re
 import shlex
 from execution_progress import ExecutionProgress
 from source_reads import read_plan
+from edit_decision import EditDecision
 
 
 def clipped(text: str, limit: int) -> str:
@@ -17,7 +18,7 @@ class TaskState:
     def __init__(self, work: Path, source_files: list[str], *, guard_enabled=False,
                  repeated_read_threshold=3, blocked_read_threshold=3,
                  include_previews_in_requests=True, progress_policy=None,
-                 implementation_prefix=None, validation_commands=None):
+                 implementation_prefix=None, validation_commands=None, decision_policy=None):
         if repeated_read_threshold < 2 or blocked_read_threshold < 1:
             raise ValueError("Expected conservative positive repetition thresholds.")
         self.work = work.resolve()
@@ -46,6 +47,7 @@ class TaskState:
         # Recomputed after compaction and checkpoint import; never persisted as
         # source progress or used to authorize a test/submit.
         self.visible_outputs = None
+        self.decision = EditDecision(self, decision_policy) if decision_policy is not None else None
         self._save()
 
     def _snapshot(self):
@@ -210,6 +212,10 @@ class TaskState:
                 "validation": "Command exit codes are observations; independent repair acceptance occurs outside the Agent."}
         if self.progress is not None:
             facts["execution_progress"] = self.progress.facts()
+        if self.decision is not None:
+            facts['edit_decision'] = {'phase':self.decision.active(),
+                'evidence_requests_remaining':max(0,2-len(self.decision.events('evidence'))),
+                'scope':'Model must choose an edit, bounded missing evidence or explicit abandonment; no generated answer.'}
         return facts
 
     def _save(self):

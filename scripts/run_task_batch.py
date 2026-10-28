@@ -22,6 +22,7 @@ from state_agent import StatefulAgent, NoProgress
 from evaluation_freeze import verify_freeze
 from repository_retrieval import RepositoryRetrieval
 from execution_runtime import bash_executable
+from edit_decision import DecisionRejected, parse_command, PREFIXES
 
 
 class TaskEnvironment(GitBashEnvironment):
@@ -64,6 +65,12 @@ class RecordedModel(BudgetedDeepSeekModel):
             return response
         finally:
             measurement["http_attempted"] = self.requests > before
+            state = getattr(self, 'task_state', None)
+            if state is not None and getattr(state, 'decision', None) is not None and messages:
+                last = messages[-1]
+                if last.get('role') == 'user' and '"program_edit_decision_v1":true' in last.get('content',''):
+                    with (state.directory/'decision-requests.jsonl').open('a',encoding='utf-8') as stream:
+                        stream.write(json.dumps(measurement|{'last_program_message':last},ensure_ascii=False)+'\n')
 
     def _calculate_cost(self, response):
         result = super()._calculate_cost(response)
@@ -115,6 +122,14 @@ class ContextManagedModel(RecordedModel):
 
 
 class StatefulTaskEnvironment(BoundedTaskEnvironment):
+    def _check_finished(self,output):
+        if self.task_state.decision is not None:
+            from execution_progress import checkout_body
+            command=output.get('extra',{}).get('tool_output',{}).get('command','')
+            if checkout_body(command) != 'echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT':
+                return  # Printed markers in checks/source are never a model submit.
+        return super()._check_finished(output)
+
     def initial_issue_check(self):
         """Execute the declared PUBLIC reproduction once before model reads.
 
@@ -141,6 +156,23 @@ class StatefulTaskEnvironment(BoundedTaskEnvironment):
         self.task_state = TaskState(Path(work), source_files, **state_policy)
 
     def execute(self, action, cwd="", *, timeout=None):
+        decision = self.task_state.decision
+        if decision is not None and not getattr(self,'_decision_validating',False):
+            self.task_state._refresh()
+            try:
+                parsed = parse_command(action['command'])
+                if parsed is not None:
+                    if decision.active() == 'submit':raise DecisionRejected('Current checks passed; submit this candidate now')
+                    return self._execute_decision(action,parsed)
+                if not decision.allow_shell(action['command']):
+                    raise DecisionRejected('Current decision phase requires repair_edit, repair_need_evidence or repair_abandon; after current checks pass, submit alone or read one final git diff')
+            except DecisionRejected as error:
+                decision.record('rejected', reason=str(error))
+                output=self.output_budget.process({'output':'Edit decision rejected: '+str(error)+'. CURRENT source_revision='+self.task_state.revision,
+                    'returncode':1,'exception_info':'edit_decision_rejected'},command=action['command'])
+                if len(decision.events())>=3 and all(e['decision_event']=='rejected' for e in decision.events()[-3:]):
+                    raise NoProgress(self.model_exit(output))
+                return output
         cached = self.cached_read(action['command']) if not cwd else None
         if cached is not None:
             return self._process_output(cached, command=action['command'])
@@ -150,7 +182,57 @@ class StatefulTaskEnvironment(BoundedTaskEnvironment):
             if decision["stop"]:
                 raise NoProgress(self.model_exit(output))
             return output
-        return super().execute(action, cwd, timeout=timeout)
+        before=self.task_state._implementation_revision()
+        result=super().execute(action, cwd, timeout=timeout)
+        controller=self.task_state.decision
+        if (controller is not None and not getattr(self,'_decision_validating',False)
+                and self.task_state._implementation_revision()!=before):
+            changed=[n for n in self.task_state.events[-1].get('changed_files_this_action',[])
+                     if n.startswith(self.task_state.implementation_prefix)]
+            controller.record('manual_edit_observed',changed_implementation_files=changed,
+                note='Actual shell-authored source change; no hypothesis was inferred by the program.')
+            return self._validate_decision_edit(action,result,', '.join(changed[:4]))
+        return result
+
+    def _execute_decision(self, action, parsed):
+        name,value=parsed;decision=self.task_state.decision
+        if name == 'repair_abandon':
+            reason=value['reason']
+            if not isinstance(reason,str) or not reason.strip() or len(reason.encode())>768:
+                raise DecisionRejected('Supply a brief nonempty reason')
+            decision.record('abandoned',reason=reason)
+            raise NoProgress({'role':'exit','content':'RepairAbandoned','extra':{
+                'exit_status':'NoProgress','submission':'','reason':'Model explicitly abandoned: '+reason}})
+        if name in {'repair_need_evidence','repair_locate'}:
+            result=decision.locate(value) if name=='repair_locate' else decision.evidence(value)
+            return self._process_output({'output':json.dumps(result,ensure_ascii=False,separators=(',',':')),
+                'returncode':0,'exception_info':'','extra':{'execution_kind':'decision_evidence'}},command=action['command'])
+        result=decision.edit(value)
+        edited=self._process_output({'output':json.dumps(result,ensure_ascii=False,separators=(',',':')),
+            'returncode':0,'exception_info':'','extra':{'execution_kind':'structured_edit'}},command=action['command'])
+        return self._validate_decision_edit(action,edited,result['path'])
+
+    def _validate_decision_edit(self,action,edited,path):
+        decision=self.task_state.decision
+        receipts=[]
+        self._decision_validating=True
+        try:
+            for scope,command in self._validation_commands.items():
+                check=self.execute({'command':command},timeout=self.config.timeout)
+                record=self.task_state.progress.validation.get(scope,{})
+                receipts.append({'scope':scope,'returncode':check['returncode'],'result':record.get('result','unknown'),
+                    'output':check['extra']['tool_output']['full_output_path'],'failures':record.get('failures',[])[:2]})
+        finally:self._decision_validating=False
+        body={'edit':{'status':'changed','path':path,'output':edited['extra']['tool_output']['full_output_path']},
+            'source_revision':self.task_state.revision,'checks':receipts,'next_phase':decision.active(),
+            'note':'Actual checks; independent acceptance and standalone model submission still required.'}
+        while len(json.dumps(body,ensure_ascii=False,separators=(',',':')).encode())>self.output_budget.max_output_bytes:
+            longest=max(receipts,key=lambda r:sum(len(t) for t in r['failures']))
+            if not longest['failures']:break
+            longest['failures'].pop();longest['details_omitted_see_output']=True
+        return self.output_budget.process({'output':json.dumps(body,ensure_ascii=False,separators=(',',':')),
+            'returncode':next((r['returncode'] for r in receipts if r['returncode']!=0),0),'exception_info':'',
+            'extra':{'execution_kind':'edit_validation_receipt'}},command=action['command'])
 
     def cached_read(self, command):
         """Advance an immutable read, or recover one archived observation.
@@ -236,6 +318,51 @@ class StatefulModel(ContextManagedModel):
         super().__init__(*args, **kwargs)
         self.task_state = task_state
 
+    def _perform_completion(self,messages,provider):
+        decision=getattr(self.task_state,'decision',None)
+        if decision is None or decision.active()!='decide':
+            return super()._perform_completion(messages,provider)
+        # All shared provider/accounting/deadline guards have already executed.
+        # Narrow the actual API tool set, rather than asking bash to print a plan.
+        import litellm
+        from edit_decision import api_tools
+        self.request_check()
+        remaining=self.request_deadline()-time.monotonic() if self.request_deadline else 45
+        if remaining<=0:raise TimeoutError('No edit-decision request time remaining')
+        request=self.protocol_adapter.prepare(messages,api_tools(),model=self.config.model_name,
+            api_key=self._api_key,**dict(self.config.model_kwargs,timeout=min(45,remaining)))
+        return litellm.completion(**request)
+
+    def _parse_actions(self,response):
+        calls=response.choices[0].message.tool_calls or []
+        if any(c.function.name in PREFIXES for c in calls):
+            from minisweagent.exceptions import FormatError
+            try:
+                if self.task_state.decision is None or len(calls)!=1 or not calls[0].id:
+                    raise DecisionRejected('Use one registered decision tool in the initial repair only')
+                call=calls[0]
+                if call.function.name not in PREFIXES:raise DecisionRejected('Unregistered decision tool')
+                command=call.function.name+' '+call.function.arguments
+                parse_command(command)  # Same strict JSON and size contract; no argument repair.
+            except (ValueError,TypeError) as error:
+                raise FormatError({'role':'user','content':'Invalid edit tool: '+str(error),
+                    'extra':{'interrupt_type':'FormatError'}}) from None
+            return [{'command':command,'tool':call.function.name,'tool_call_id':call.id}]
+        return super()._parse_actions(response)
+
+    def project_context(self, messages, prepared, pinned=None):
+        pinned=list(pinned or [])
+        decision=getattr(self.task_state,'decision',None)
+        message=decision.message() if decision is not None else None
+        if message:pinned.append(message)
+        return super().project_context(messages,prepared,pinned)
+
+    def finalize_decision_view(self, view):
+        decision=getattr(self.task_state,'decision',None)
+        message=decision.message() if decision is not None else None
+        if message:return [m for m in view if m != message]+[message]
+        return view
+
     def _prepare_messages_for_api(self, messages):
         prepared = RecordedModel._prepare_messages_for_api(self, messages)
         state = self.task_state.pinned_message()
@@ -247,7 +374,7 @@ class StatefulModel(ContextManagedModel):
         self.task_state.visible_outputs = {m['extra']['tool_output']['full_output_path'] for m in messages
             if m.get('role') == 'tool' and m.get('tool_call_id') in visible_ids
             and m.get('extra', {}).get('tool_output')}
-        return projected
+        return self.finalize_decision_view(projected)
 
 
 def evaluate(name: str, work: Path, output: Path) -> dict:

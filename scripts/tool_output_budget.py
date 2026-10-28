@@ -85,6 +85,8 @@ class ToolOutputBudget:
                  "exception_info": output.get("exception_info", ""), "raw_bytes": len(raw),
                  "visible_bytes": len(visible.encode("utf-8")), "truncated": truncated,
                  "full_output_path": relative, "sha256": hashlib.sha256(raw).hexdigest()}
+        if output.get('extra',{}).get('execution_kind'):
+            event['execution_kind'] = output['extra']['execution_kind']
         if delivered:
             event['delivered_source_span'] = delivered
         if metadata:

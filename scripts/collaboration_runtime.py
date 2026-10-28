@@ -25,6 +25,7 @@ from collaboration_feedback import pytest_environment
 from task_cards import TaskCardModelMixin
 from execution_progress import checkout_body, declared_test_chain
 from source_reads import read_plan
+from edit_decision import PREFIXES
 from state_agent import NoProgress
 
 
@@ -89,6 +90,9 @@ class RoleModelHooks(TaskCardModelMixin):
 
 
 class RepairModel(RoleModelHooks, StatefulModel):
+    def _prepare_messages_for_api(self,messages):
+        return self.finalize_decision_view(super()._prepare_messages_for_api(messages))
+
     def _parse_actions(self, response):
         actions = super()._parse_actions(response)
         if len(actions) != 1:
@@ -319,6 +323,10 @@ class RepairEnvironment(StatefulTaskEnvironment):
         progress=self.task_state.progress
         if progress is None:return None
         self._sync_control()
+        if self.task_state.decision is not None and (self.task_state.decision.active()
+                or command.strip().split(None,1)[0:1] in [[name] for name in PREFIXES]
+                or getattr(self,'_decision_validating',False)):
+            return None  # Shared decision gate owns edit/validate/submit here.
         facts=progress.facts()
         body=checkout_body(command)
         if body=='echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT':return None
@@ -475,11 +483,19 @@ class RepairSession:
 
     def _continue(self, context, feedback):
         agent = self.agent
+        if getattr(getattr(agent.env,'task_state',None),'decision',None) is not None:
+            feedback=('The INITIAL evidence-to-edit controller is now suspended. Its repair_edit/repair_need_evidence/'
+                'repair_abandon virtual commands are not active in this review revision. Use ordinary bash and the existing '
+                'finding-response/validation/submission protocol in the following feedback. Old passes are not current revision proof.\n'+feedback)
         agent.add_messages({"role": "user", "content": feedback})
         self.context = context
         agent.model.context = context
         agent.env.context = context
         agent.env.completed_submission = None
+        # This experiment changes the initial evidence-to-edit transition only.
+        # Revision feedback/response files keep the existing bounded protocol;
+        # old passes must not create a new initial submit-only gate there.
+        if hasattr(agent.env,'task_state'):agent.env.task_state.decision = None
         if hasattr(agent.env,'reset_repair_control'):
             agent.env.reset_repair_control()
         agent.config.output_path = Path(context.store.home) / "runs" / context.identity.run_id / "revising-trajectory.json"
