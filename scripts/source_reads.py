@@ -53,20 +53,33 @@ def read_plan(command, work, files, archives=None):
             name=filename(tokens[3]);start,end=values[0],values[-1]
             if name is None or start<1 or end<start:return None
             span=(name,start,end);tokens=['sed','-n',f'{start},{end}p',name]
-        elif not piped and len(tokens)==2 and tokens[0]=='cat':
-            name=filename(tokens[1])
-            if name is None:return None
-            span=(name,1,2**63-1);tokens=['cat',name]
-        elif not piped and tokens[0]=='grep':
-            offset=1
-            while offset<len(tokens) and tokens[offset] in {'-n','-r','-rn','-nr','-i','-in','-E','-F','-nE'}:offset+=1
-            if offset+1>=len(tokens) or tokens[offset].startswith('-'):return None
-            names=[filename(n,directory=True) for n in tokens[offset+1:]]
+        elif not piped and len(tokens)>=2 and tokens[0]=='cat':
+            names=[filename(n) for n in tokens[1:]]
             if not all(names):return None
-            tokens=tokens[:offset+1]+names
+            spans.extend((n,1,2**63-1) for n in names[:-1])
+            span=(names[-1],1,2**63-1);tokens=['cat']+names
+        elif not piped and tokens[0]=='grep':
+            flags=[];positional=[];index=1
+            while index<len(tokens):
+                token=tokens[index]
+                if token in {'-n','-r','-rn','-nr','-i','-in','-E','-F','-nE'}:flags.append(token)
+                elif token in {'-A','-B','-C'}:
+                    index+=1
+                    if index>=len(tokens) or not tokens[index].isdigit():return None
+                    flags.extend([token,tokens[index]])
+                elif re.fullmatch(r'-[ABC]\d+',token):flags.append(token)
+                elif token.startswith('-'):return None
+                else:positional.append(token)
+                index+=1
+            if len(positional)<2:return None
+            names=[filename(n,directory=True) for n in positional[1:]]
+            if not all(names):return None
+            tokens=['grep']+flags+[positional[0]]+names
         elif piped and tokens[0] in {'head','tail'} and (
                 len(tokens)==2 and re.fullmatch(r'-\d+',tokens[1]) or
                 len(tokens)==3 and tokens[1]=='-n' and tokens[2].isdigit()):pass
+        elif piped and tokens[0]=='cut' and (len(tokens)==2 and re.fullmatch(r'-c\d+(-\d+)?',tokens[1])
+                or len(tokens)==3 and tokens[1]=='-c' and re.fullmatch(r'\d+(-\d+)?',tokens[2])):pass
         elif not piped and len(tokens)==3 and tokens[:2]==['wc','-l']:
             name=filename(tokens[2])
             if name is None:return None

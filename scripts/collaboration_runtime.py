@@ -272,7 +272,9 @@ class RepairEnvironment(StatefulTaskEnvironment):
 
     def _covered_read(self,span):
         name,start,end=span
-        return next((entry for entry in self._read_spans.get(name,[]) if entry[0]<=start and end<=entry[1]),None)
+        visible=self.task_state.visible_outputs
+        return next((entry for entry in self._read_spans.get(name,[]) if entry[0]<=start and end<=entry[1]
+                     and (visible is None or entry[2] in visible)),None)
 
     def _small_missing_read(self,plan):
         if not plan['single_span'] or self._covered_read(plan['spans'][0]):return False
@@ -335,6 +337,9 @@ class RepairEnvironment(StatefulTaskEnvironment):
                 'At most one final git diff is allowed. Submit this candidate now using '
                 'echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT alone. Do not rerun tests or reread source. '
                 'This passes work to independent evaluation/review; it does not certify correctness.')
+        # Continuation/recovery is an immutable output view, not a new shell
+        # exploration or permission to bypass the CURRENT pass/submit gate.
+        if self.cached_read(command) is not None:return None
         plan=self._read_plan(command)
         hint=self._missing_read_hint(plan)
         if plan:
@@ -404,13 +409,16 @@ class RepairEnvironment(StatefulTaskEnvironment):
                 if result['returncode']==0 and not archive.get('truncated',True) and result['output'].strip():
                     digest=archive['sha256']
                     self._visible_read_outputs[digest]=self._visible_read_outputs.get(digest,0)+1
+                if result['returncode']==0 and archive.get('delivered_source_span'):
+                    name,start,end=archive['delivered_source_span']
+                    self._read_spans.setdefault(name,[]).append((start,end,archive.get('full_output_path')))
+                    if not previous or archive.get('execution_kind') in {'archive_continuation','archived_recovery'}:
+                        self._control_errors=0
+                elif (result['returncode']==0 and not archive.get('truncated',True) and result['output'].strip()
+                      and archive.get('execution_kind','shell')=='shell'):
                     if not previous:self._control_errors=0
                     for name,start,end in plan['spans']:
                         self._read_spans.setdefault(name,[]).append((start,end,archive.get('full_output_path')))
-                elif result['returncode']==0 and archive.get('delivered_source_span'):
-                    name,start,end=archive['delivered_source_span']
-                    self._read_spans.setdefault(name,[]).append((start,end,archive.get('full_output_path')))
-                    if not previous:self._control_errors=0
             else:
                 if (self.task_state._implementation_revision()!=self._control_revision or
                         self.task_state.progress and self.task_state.progress.since_progress==0):

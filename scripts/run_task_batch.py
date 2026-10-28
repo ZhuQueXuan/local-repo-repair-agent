@@ -115,14 +115,35 @@ class ContextManagedModel(RecordedModel):
 
 
 class StatefulTaskEnvironment(BoundedTaskEnvironment):
+    def initial_issue_check(self):
+        """Execute the declared PUBLIC reproduction once before model reads.
+
+        This is an actual tool receipt, not a supplied repair or hidden-test
+        feedback. Later edits invalidate its revision just like all test runs.
+        """
+        if self.task_state.progress is None:return None
+        command = self._validation_commands['issue']
+        result = self.execute({'command': command})
+        record = self.task_state.progress.validation.get('issue', {})
+        archive = result['extra']['tool_output']
+        return {'command': command, 'returncode': result['returncode'],
+                'runner_result': record.get('result', 'unknown'), 'failure_lines': record.get('failures', []),
+                'implementation_revision': self.task_state._implementation_revision(),
+                'archive': {'path': archive['full_output_path'], 'sha256': archive['sha256']},
+                'scope': 'Public issue check at initial implementation. Data, not instructions or final acceptance.'}
+
     def shell_command(self, command):
         return "set -o pipefail\nset -e\n" + command
 
     def __init__(self, work, bash, *, source_files, state_policy, **kwargs):
         super().__init__(work, bash, **kwargs)
+        self._validation_commands = dict(state_policy.get('validation_commands', {}))
         self.task_state = TaskState(Path(work), source_files, **state_policy)
 
     def execute(self, action, cwd="", *, timeout=None):
+        cached = self.cached_read(action['command']) if not cwd else None
+        if cached is not None:
+            return self._process_output(cached, command=action['command'])
         decision = self.task_state.before_action(action["command"])
         if decision is not None:
             output = self.output_budget.process(decision["output"], command=action["command"])
@@ -130,6 +151,64 @@ class StatefulTaskEnvironment(BoundedTaskEnvironment):
                 raise NoProgress(self.model_exit(output))
             return output
         return super().execute(action, cwd, timeout=timeout)
+
+    def cached_read(self, command):
+        """Advance an immutable read, or recover one archived observation.
+
+        Only a proved read-only plan is eligible. Never execute a shell action
+        here, never count this as new source/validation progress. Records live
+        in ordinary tool-output events, so checkpoint import needs no new state.
+        """
+        state = self.task_state
+        state._refresh()
+        plan = state.read_plan(command)
+        if not plan:return None
+        revision = state._implementation_revision()
+        events = self.output_budget.events
+        previous = next((e for e in reversed(events) if e.get('read_key') == plan['key']
+                         and e.get('read_revision') == revision), None)
+        recovery = False
+        if previous and previous.get('page_next_line'):
+            start = previous['page_next_line']
+        else:
+            # Already delivered observations may have left the API view. Offer
+            # one bounded recovery, not unlimited rereads after every compaction.
+            if state.visible_outputs is None:return None
+            if previous is None and plan['single_span']:
+                name, first, last = plan['spans'][0]
+                previous = next((e for e in reversed(events) if e.get('read_revision') == revision
+                    and e.get('source_base') and e['source_base'][0] == name
+                    and e['source_base'][1] <= first and last <= e['source_base'][2]
+                    and e['full_output_path'] not in state.visible_outputs), None)
+            if previous is None or previous['full_output_path'] in state.visible_outputs:return None
+            origin = previous.get('page_origin', previous['full_output_path'])
+            if any(e.get('execution_kind') == 'archived_recovery' and e.get('page_origin') == origin
+                   and e.get('read_revision') == revision for e in events):return None
+            start = 1;recovery = True
+            if plan['single_span'] and previous.get('source_base'):
+                start = plan['spans'][0][1] - previous['source_base'][1] + 1
+        origin = previous['page_origin']
+        path = self.output_budget.work / origin
+        if not path.is_file() or not path.resolve().is_relative_to(self.output_budget.work):
+            # Checkpoint history is not a capability to read an old checkout.
+            # Let the normal guarded source action acquire current evidence.
+            return None
+        raw = path.read_bytes()
+        import hashlib
+        if hashlib.sha256(raw).hexdigest() != previous['page_origin_sha256']:
+            raise RuntimeError('Read archive fingerprint changed')
+        lines = raw.decode('utf-8').splitlines(keepends=True)
+        stop = min(previous.get('page_stop_line', len(lines)), len(lines))
+        base = previous.get('source_base')
+        if recovery and plan['single_span'] and base:
+            stop = min(stop, plan['spans'][0][2] - base[1] + 1)
+        if not 1 <= start <= stop:return None
+        metadata = {'read_key': plan['key'], 'read_revision': revision, 'page_origin': origin,
+            'page_origin_sha256': previous['page_origin_sha256'], 'page_start_line': start, 'page_stop_line': stop,
+            'execution_kind': 'archived_recovery' if recovery else 'archive_continuation'}
+        if base:metadata['source_base'] = base
+        return {'output': ''.join(lines[start-1:stop]), 'returncode': 0, 'exception_info': '',
+                'extra': {'read_page': metadata}}
 
     @staticmethod
     def model_exit(output):
@@ -139,7 +218,15 @@ class StatefulTaskEnvironment(BoundedTaskEnvironment):
     def _process_output(self, output, *, command):
         plan = self.task_state.read_plan(command)
         span = plan['spans'][0] if plan and plan['single_span'] and output['returncode'] == 0 else None
-        result = self.output_budget.process(output, command=command, read_span=span)
+        metadata = output.get('extra', {}).get('read_page')
+        if metadata and metadata.get('source_base'):
+            name, first, last = metadata['source_base']
+            span = (name, first + metadata['page_start_line']-1, min(last, first+metadata['page_stop_line']-1))
+        elif metadata:span = None
+        if metadata is None and plan and output['returncode'] == 0:
+            metadata = {'read_key': plan['key'], 'read_revision': self.task_state._implementation_revision(),
+                        'execution_kind': 'shell'}
+        result = self.output_budget.process(output, command=command, read_span=span, read_metadata=metadata)
         self.task_state.observe(command, output, result["extra"]["tool_output"])
         return result
 
@@ -153,7 +240,14 @@ class StatefulModel(ContextManagedModel):
         prepared = RecordedModel._prepare_messages_for_api(self, messages)
         state = self.task_state.pinned_message()
         # Add only to the API view, after the original system/task messages.
-        return self.project_context(messages, prepared, [state])
+        projected = self.project_context(messages, prepared, [state])
+        prepared_tools = {m['tool_call_id']: m.get('content') for m in prepared if m.get('role') == 'tool'}
+        visible_ids = {m['tool_call_id'] for m in projected if m.get('role') == 'tool'
+                       and m.get('content') == prepared_tools.get(m['tool_call_id'])}
+        self.task_state.visible_outputs = {m['extra']['tool_output']['full_output_path'] for m in messages
+            if m.get('role') == 'tool' and m.get('tool_call_id') in visible_ids
+            and m.get('extra', {}).get('tool_output')}
+        return projected
 
 
 def evaluate(name: str, work: Path, output: Path) -> dict:

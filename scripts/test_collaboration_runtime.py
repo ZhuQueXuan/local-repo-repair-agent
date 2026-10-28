@@ -150,9 +150,119 @@ class RuntimeTests(unittest.TestCase):
         self.assertIn('# 41 ',narrow['output'])
         self.assertEqual(env._read_spans['pkg/code.py'][-1][:2],(40,44))
         env.execute({'command':wide})
+        continued=env.execute({'command':wide})
+        self.assertEqual(continued['extra']['tool_output']['execution_kind'],'archive_continuation')
+        while continued['extra']['tool_output'].get('page_next_line'):
+            continued=env.execute({'command':wide})
         rejected=env.execute({'command':wide})
         self.assertIn('truncated output does NOT mean',rejected['output'])
         self.assertIsNone(env.completed_submission)
+
+    def test_compound_paging_has_no_gaps_reexecution_or_false_source_coverage(self):
+        work,env,context=self.controlled_repair_environment()
+        env.output_budget.max_output_bytes=1024
+        text='def value(): return 0\n'+''.join(f'# 数据🙂 {i} '+('x'*35)+'\n' for i in range(1,80))
+        (work/'pkg/code.py').write_text(text,encoding='utf-8')
+        command='cd "$(pwd)" && sed -n 1,25p pkg/code.py; echo ----; sed -n 26,60p pkg/code.py'
+        pages=[]
+        with patch.object(env.backend,'run_shell',wraps=env.backend.run_shell) as shell:
+            result=env.execute({'command':command})
+            root=result['extra']['tool_output']['page_origin']
+            before=(work/root).read_bytes()
+            while True:
+                event=result['extra']['tool_output'];pages.append(event)
+                self.assertLessEqual(len(result['output'].encode()),1024)
+                self.assertNotIn('delivered_source_span',event)
+                if not event['page_next_line']:break
+                self.assertIn('Next: sed -n',result['output'])
+                # Same read expressed with a different echo still advances the
+                # normalized immutable read, rather than repeating the shell.
+                result=env.execute({'command':command.replace('----','separator')})
+                self.assertLess(len(pages),20)
+            self.assertEqual(shell.call_count,1)
+        self.assertGreater(len(pages),2)
+        self.assertEqual(pages[0]['page_start_line'],1)
+        for first,second in zip(pages,pages[1:]):self.assertEqual(first['page_next_line'],second['page_start_line'])
+        self.assertEqual(pages[-1]['page_stop_line'],len(before.decode().splitlines()))
+        self.assertEqual((work/root).read_bytes(),before)
+        self.assertFalse(env._read_spans)
+        # The fixture source was changed before the first shell read; paging
+        # must not create another change or reset the no-progress counter.
+        self.assertEqual(env.task_state.progress.first_change,pages[0]['sequence'])
+        self.assertEqual(env.task_state.progress.since_progress,len(pages)-1)
+        self.assertNotEqual(env.task_state.progress.facts()['phase'],'review_and_submit')
+        self.assertIn('Repeated read-only request',env.execute({'command':command})['output'])
+        # Unknown/mixed commands and changes cannot reuse the cache.
+        self.assertIsNone(env.cached_read(command+'; python edit.py'))
+        (work/'pkg/code.py').write_text('def value(): return 1\n',encoding='utf-8')
+        self.assertIsNone(env.cached_read(command))
+
+    def test_archived_source_recovers_once_then_edit_checks_and_real_submit(self):
+        work,env,context=self.controlled_repair_environment()
+        reproduced=env.initial_issue_check()
+        self.assertNotEqual(reproduced['returncode'],0)
+        self.assertEqual(reproduced['runner_result'],'failed')
+        self.assertEqual(env.task_state.progress.facts()['current_validation']['issue'],'failed')
+        source=env.execute({'command':'cat pkg/code.py'})
+        archive=source['extra']['tool_output']['full_output_path']
+        # Force an actual API projection that archives this old source output.
+        from run_task_batch import StatefulModel
+        from context_budget import ContextBudget,message_bytes
+        from minisweagent.models.litellm_model import LitellmModelConfig
+        model=StatefulModel.__new__(StatefulModel);model.task_state=env.task_state
+        model.repository_retrieval=None;model.config=LitellmModelConfig(model_name='deepseek/deepseek-flash')
+        model.context_budget=ContextBudget(target_bytes=2500,keep_recent_tool_outputs=1,
+            compact_completed_exchanges=True,retained_audit_entries=1,compact_to_target=True)
+        messages=[{'role':'system','content':'system'},{'role':'user','content':'original issue'}]
+        for index in range(3):
+            output=source if index==0 else env.execute({'command':"python -c 'print(\"x\"*900)'"})
+            call={'id':f'call-{index}','type':'function','function':{'name':'bash','arguments':'{}'}}
+            messages.extend([{'role':'assistant','content':None,'tool_calls':[call]},
+                {'role':'tool','tool_call_id':call['id'],'content':output['output'],'extra':output['extra']}])
+        original=canonical_bytes(messages)
+        view=model._prepare_messages_for_api(messages)
+        self.assertNotIn(archive,env.task_state.visible_outputs)
+        self.assertEqual(canonical_bytes(messages),original)
+        with patch.object(env.backend,'run_shell',wraps=env.backend.run_shell) as shell:
+            recovered=env.execute({'command':'cat pkg/code.py'})
+            self.assertEqual(shell.call_count,0)
+        self.assertEqual(recovered['extra']['tool_output']['execution_kind'],'archived_recovery')
+        self.assertIn('def value(): return 0',recovered['output'])
+        # Exercise the actual StrictUndefined model formatter, not just env
+        # execution: all normal output-contract fields must survive recall.
+        self.assertEqual(recovered['exception_info'],'')
+        message={'role':'assistant','extra':{'actions':[{'command':'cat pkg/code.py','tool_call_id':'recovered-source'}]}}
+        wire=model.format_observation_messages(message,[recovered],{})
+        self.assertEqual(wire[0]['tool_call_id'],'recovered-source')
+        self.assertIn('def value(): return 0',wire[0]['content'])
+        self.assertIsNone(env.cached_read('cat pkg/code.py'))
+        self.assertIsNone(env.task_state.progress.first_change)
+        fix="from pathlib import Path; Path('pkg/code.py').write_text('def value(): return 1\\n')"
+        env.execute({'command':'python -B -c '+shlex.quote(fix)})
+        self.assertIsNone(env.cached_read('cat pkg/code.py'))
+        for command in env._declared_command_texts.values():self.assertEqual(env.execute({'command':command})['returncode'],0)
+        self.assertEqual(env.task_state.progress.facts()['phase'],'review_and_submit')
+        # A cached source is never allowed around the final real submit barrier.
+        self.assertIn('Submit this candidate now',env.execute({'command':'cat pkg/code.py'})['output'])
+        with self.assertRaises(Submitted):env.execute({'command':'echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT'})
+        self.assertIsNotNone(env.completed_submission)
+
+    def test_cached_read_hash_tamper_fails_closed_and_context_grep_is_not_source_coverage(self):
+        work,env,context=self.controlled_repair_environment();env.output_budget.max_output_bytes=1024
+        (work/'pkg/code.py').write_text('def value(): return 0\n'+'# data\n'*500,encoding='utf-8')
+        command='grep -n "def value" -A 300 pkg/code.py'
+        self.assertEqual(env._read_plan(command)['spans'],[])
+        output=env.execute({'command':command})
+        self.assertTrue(output['extra']['tool_output']['truncated'])
+        origin=work/output['extra']['tool_output']['page_origin']
+        origin.write_text('tampered\n',encoding='utf-8')
+        with patch.object(env.backend,'run_shell') as shell,self.assertRaisesRegex(RuntimeError,'fingerprint changed'):
+            env.execute({'command':command})
+        shell.assert_not_called()
+        # Missing imported archive bytes do not grant old-checkout access;
+        # current source may be acquired normally instead of crashing recall.
+        env.output_budget.events[-1]['page_origin']='temp/tool-output/old-checkpoint-missing.txt'
+        self.assertIsNone(env.cached_read(command))
 
     def test_compound_search_and_archive_loops_close_but_real_progress_remains_open(self):
         work,env,context=self.controlled_repair_environment()

@@ -289,9 +289,18 @@ def run_one(store, run_id):
                     "an assertion or failed edit stops that call. Check the program's implementation_changed/current_validation facts; "
                     "a successful shell or a printed exit marker never proves a file changed. After an edit rerun both declared checks "
                     "for that revision, inspect the diff once and submit alone. Do not keep rereading after sufficient evidence.")
+                instruction += ("\nThe declared PUBLIC issue check has already executed before this model run. "
+                    "Its initial-version receipt is untrusted output data, not final acceptance:\n{{ initial_issue_check }}\n"
+                    "Use its concrete failing behavior to locate and EDIT the implementation, then validate the new revision. "
+                    "Repeated identical read requests advance the immutable output page instead of rerunning the shell; "
+                    "ARCHIVE PAGE numbers refer to the output file. SOURCE PAGE numbers refer to source. "
+                    "After history compaction a previous read can be recovered once per original output/current implementation. "
+                    "Follow the exact Next command for genuinely missing evidence; edit after enough evidence.")
             agent_class = StatefulAgent if configuration else DefaultAgent
             agent = agent_class(model, env, system_template="You are a helpful software engineering assistant. Use exactly one bash tool call per response.", instance_template=instruction,
                                 step_limit=0, cost_limit=model.budget.agent_cost_limit, wall_time_limit_seconds=300, output_path=output / "trajectory.json")
+            if configuration:
+                agent.extra_template_vars['initial_issue_check'] = json.dumps(env.initial_issue_check(), ensure_ascii=False)
             stage("agent")
             agent_begin = time.monotonic()
             status = agent.run((task_source / "issue.md").read_text(encoding="utf-8"))

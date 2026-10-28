@@ -42,6 +42,10 @@ class TaskState:
         self.last_intent = ""
         self.warning = ""
         self.pinned_requests = []
+        # Current API view, not an assertion that the model understood it.
+        # Recomputed after compaction and checkpoint import; never persisted as
+        # source progress or used to authorize a test/submit.
+        self.visible_outputs = None
         self._save()
 
     def _snapshot(self):
@@ -83,12 +87,15 @@ class TaskState:
         return plan['key'] if plan else None
 
     def read_plan(self, command):
-        return read_plan(command, self.work, self.current_files)
+        return read_plan(command, self.work, self.current_files,
+            {e['output_path']: e['output_sha256'] for e in self.events if e['kind'] == 'executed'})
 
     def before_action(self, command):
         self._refresh()
         key = self._read_key(command)
         previous = self.repeats.get(key)
+        if previous and not (self.work / previous['output_path']).is_file():
+            previous = None  # Imported history cannot replace missing local evidence.
         if not self.guard_enabled or not previous or previous["count"] < self.repeat_threshold:
             return None
         self.blocked_since_change += 1
@@ -111,6 +118,7 @@ class TaskState:
                  "returncode": output["returncode"], "exception_info": output.get("exception_info", ""),
                  "output_path": archive["full_output_path"], "output_sha256": archive["sha256"],
                  "revision": self.revision, "changed_files_this_action": changed}
+        event['execution_kind'] = archive.get('execution_kind', 'shell')
         self._record(event)
         if self.progress is not None:
             feedback = self.progress.observe(event, output, self._implementation_revision())
@@ -120,6 +128,10 @@ class TaskState:
             identity = (archive["sha256"], output["returncode"], self.revision)
             previous = self.repeats.get(key, {})
             count = previous.get("count", 0) + 1 if previous.get("identity") == identity else 1
+            if archive.get('execution_kind') in {'archive_continuation','archived_recovery'} and archive.get('page_next_line') is None:
+                # Finishing an immutable read cannot reopen its first page as
+                # a fresh shell action merely because page hashes differ.
+                count = max(count, self.repeat_threshold)
             self.repeats[key] = {"identity": identity, "count": count, "output_path": archive["full_output_path"]}
             if self.guard_enabled and count >= self.repeat_threshold:
                 self.warning = f"No new output from repeated source read ({count} identical results). Next repeat will be blocked. Change the action."

@@ -1,0 +1,9 @@
+{
+  "three-development-runs.zip": "4813b94440ee450182fb985d12aade0de65b557cbf0789f7c0388dd29093ad1e",
+  "three-development-runs.zip.sha256.json": "b81bf525a45a533b9861cca25e48328ab54225fa7f7f8e6239efb373b5d83d8f",
+  "preparation-and-audit.zip": "ccd8552fc4e539479ee8f9b9ed2f932c5b46503e62125ec990144eae8ea6790c",
+  "preparation-and-audit.zip.sha256.json": "a72947506076855c6693cad4e45378d892c7e84065bafc53dd9ed16faa2b07ea",
+  "offline-regression.zip": "39315165a69ad40a3420633e74706803954361e9f45205f4e81c06edf12000ac",
+  "offline-regression.zip.sha256.json": "9077958a92d0941b53aad29c1477f4eba8fc1efa0f6e037d418aed7003542884",
+  "manifest.json": "fc5efe31f05fcb54a66530c1eb664ef5bdf18616ebe18d4769617d6a3cdf2cdb"
+}
