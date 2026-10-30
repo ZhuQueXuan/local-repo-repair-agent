@@ -9,14 +9,16 @@ import subprocess
 import sys
 import threading
 import time
-from urllib.parse import parse_qs, unquote, urlparse
+from urllib.parse import parse_qs, quote, unquote, urlparse
 import webbrowser
 
 sys.dont_write_bytecode = True
 for stream in (sys.stdout, sys.stderr):
     if hasattr(stream, "reconfigure"):
         stream.reconfigure(encoding="utf-8")
-from task_service_store import ROOT, DEFAULT_HOME, RunStore, PROFILES, catalog, import_history, worker_lock
+from task_service_store import ROOT, DEFAULT_HOME, RunStore, PROFILES, catalog, import_history, worker_lock, now
+from release_info import release_identity
+from execution_backend import terminate_owned_process
 from collaboration_panel import create_panel_run, collaboration_view, candidate_view, evidence_view, registered_artifact, import_sealed_collaboration
 from collaboration_store import CollaborationStore, StateConflict
 from task_cards import card_view, update_card, TaskCardConflict
@@ -27,13 +29,72 @@ class Supervisor:
     def __init__(self, store):
         self.store, self.stop = store, threading.Event()
         self.process, self.log = None, None
+        self.process_run_id = None
+        self.process_started = self.stage_started = self.cancel_started = None
+        self.observed_stage = None
+
+    def watchdog_reason(self, row):
+        current = time.monotonic()
+        if row.get("cancel_requested"):
+            if self.cancel_started is None:
+                self.cancel_started = current
+            if current - self.cancel_started >= 50:
+                return "取消等待超过50秒，已停止本面板拥有的执行器；在途请求结果未知，费用占位和现有文件保留，不自动重发。"
+        if row["stage"] != self.observed_stage:
+            self.observed_stage, self.stage_started = row["stage"], current
+        collaboration = row.get("collaboration_policy", {})
+        total_limit = collaboration.get("parent_seconds", 1140) + 60
+        limits = {"queued": 300, "preparing": 90, "baseline": 250, "preflight": 90,
+                  "agent": 345, "replaying_patch": 45, "verification": 250, "patch_verification": 250}
+        limits.update({phase: seconds + 45 for phase, seconds in collaboration.get("role_seconds", {}).items()})
+        stage_limit = limits.get(row["stage"])
+        if (self.process_started is not None and current - self.process_started > total_limit
+                or stage_limit is not None and current - self.stage_started > stage_limit):
+            return "执行器超过独立等待上限，已停止该进程；当前结果未知，现有文件及费用记录保留，不自动重发。"
+        return None
+
+    def stop_owned_worker(self, row, reason):
+        terminate_owned_process(self.process)
+        self.store.event(row["id"], "worker_watchdog_stopped", {"reason": reason})
+        if row["kind"] == "collaboration_live":
+            self.store.stop(row["id"], "cancelled" if row["cancel_requested"] else "failed", reason)
+        else:
+            self.store.update(row["id"], expected={"queued", "running", "cancel_requested"},
+                status="cancelled" if row["cancel_requested"] else "failed", stage="done", ended=now(),
+                repair_result="unknown", reason=reason)
+
+    def failed_before_claim(self, run_id, reason):
+        row = self.store.get(run_id)
+        if row["status"] != "queued":
+            return
+        if row["kind"] == "collaboration_live":
+            with self.store.transaction() as db:
+                parent, _ = self.store._load(db, run_id)
+                if parent["status"] == "queued":
+                    self.store._stop(db, run_id, "failed", reason)
+                    self.store.emit(db, run_id, "worker_start_failed", {"reason": reason})
+        else:
+            self.store.update(run_id, expected={"queued"}, event="worker_start_failed",
+                status="failed", stage="failed", ended=now(), reason=reason)
 
     def tick(self):
         if self.process is not None:
             if self.process.poll() is None:
+                if self.process_run_id is not None:
+                    row = self.store.get(self.process_run_id)
+                    reason = self.watchdog_reason(row)
+                    if reason:
+                        self.stop_owned_worker(row, reason)
                 return
+            exit_code = self.process.returncode
             self.log.close()
+            if self.process_run_id is not None:
+                self.failed_before_claim(self.process_run_id,
+                    "执行器在接手任务前退出（退出码 " + str(exit_code) + "）；未自动重试，请查看启动日志或另建任务。")
             self.process = self.log = None
+            self.process_run_id = None
+            self.process_started = self.stage_started = self.cancel_started = None
+            self.observed_stage = None
         with worker_lock(self.store.home) as acquired:
             if not acquired:
                 return  # A worker from an earlier server process still owns its work.
@@ -50,9 +111,15 @@ class Supervisor:
                 command += ["--collaboration", "--panel-store"]
             elif row["kind"] not in {"live", "replay"}:
                 return  # Never dispatch historical/mock fixture records as live work.
-            self.process = subprocess.Popen(command,
-                                            cwd=ROOT, stdout=self.log, stderr=subprocess.STDOUT,
-                                            creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0)
+            try:
+                self.process = subprocess.Popen(command, cwd=ROOT, stdout=self.log, stderr=subprocess.STDOUT,
+                    creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0)
+                self.process_run_id = row["id"]
+                self.process_started = time.monotonic()
+            except OSError as error:
+                self.log.close()
+                self.log = None
+                self.failed_before_claim(row["id"], "无法启动执行器：" + type(error).__name__ + "。未调用模型，请检查项目环境后另建任务。")
 
     def run(self):
         while not self.stop.is_set():
@@ -65,6 +132,7 @@ class Supervisor:
 
 
 def make_handler(store, token, port):
+    release = release_identity()
     operations = threading.Lock()
     closing = False
     last_execution_report = None
@@ -77,17 +145,20 @@ def make_handler(store, token, port):
         def log_message(self, *args):
             pass
 
-        def send(self, status, value, content_type="application/json; charset=utf-8"):
+        def send(self, status, value, content_type="application/json; charset=utf-8", *, headers=None):
             body = value if isinstance(value, bytes) else json.dumps(value, ensure_ascii=False).encode("utf-8")
             if any(secret.encode() in body for secret in sensitive):
                 status, content_type = 409, "application/json; charset=utf-8"
                 body = json.dumps({"error": "内容凭据检查未通过，预览已阻断。"}, ensure_ascii=False).encode()
+                headers = None
             self.send_response(status)
             self.send_header("Content-Type", content_type)
             self.send_header("Content-Length", str(len(body)))
             self.send_header("Cache-Control", "no-store")
             self.send_header("X-Content-Type-Options", "nosniff")
             self.send_header("Referrer-Policy", "no-referrer")
+            for name, value in (headers or {}).items():
+                self.send_header(name, value)
             self.send_header("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'")
             self.end_headers()
             self.wfile.write(body)
@@ -111,7 +182,7 @@ def make_handler(store, token, port):
                 return
             try:
                 if route.path == "/":
-                    html = (ROOT / "scripts/task_panel.html").read_text(encoding="utf-8").replace("__TASK_TOKEN__", token)
+                    html = (ROOT / "scripts/task_panel.html").read_text(encoding="utf-8").replace("__TASK_TOKEN__", token).replace("__RELEASE_VERSION__", release["version"])
                     self.send(200, html.encode("utf-8"), "text/html; charset=utf-8")
                 elif route.path == "/collaboration-panel.js":
                     self.send(200, (ROOT / "scripts/collaboration_panel.js").read_bytes(), "text/javascript; charset=utf-8")
@@ -132,7 +203,7 @@ def make_handler(store, token, port):
                     from execution_runtime import runtime_report
                     self.send(200, last_execution_report or runtime_report())
                 elif route.path == "/api/health":
-                    self.send(200, {"product": "mini-swe-task-panel", "status": "ready"})
+                    self.send(200, {"product": "mini-swe-task-panel", "status": "ready", **release})
                 elif route.path == "/api/catalog":
                     self.send(200, {"tasks": catalog(), "profiles": PROFILES, "collaboration_available": isinstance(store, CollaborationStore), "collaboration_policy_version": 1})
                 elif route.path == "/api/runs":
@@ -162,7 +233,13 @@ def make_handler(store, token, port):
                     elif parts[4] == "artifacts" and len(parts) == 6:
                         name = unquote(parts[5])
                         raw = registered_artifact(store, row, name)
-                        self.send(200, raw[:256000] + (b"\n[preview truncated]" if len(raw) > 256000 else b""), "text/plain; charset=utf-8")
+                        if parse_qs(route.query).get("download") == ["1"]:
+                            import hashlib
+                            self.send(200, raw, "application/octet-stream", headers={
+                                "Content-Disposition": "attachment; filename*=UTF-8''" + quote(Path(name).name, safe=""),
+                                "X-Content-SHA256": hashlib.sha256(raw).hexdigest()})
+                        else:
+                            self.send(200, raw[:256000] + (b"\n[preview truncated; use full download]" if len(raw) > 256000 else b""), "text/plain; charset=utf-8")
                     else:
                         self.send(404, {"error": "Unknown route"})
                 else:

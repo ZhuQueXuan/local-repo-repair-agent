@@ -253,6 +253,45 @@ class ApiTests(unittest.TestCase):
             self.request("/api/runs/" + row["id"] + "/artifacts/blocked")
         self.assertEqual(error.exception.code, 400)
 
+    def test_full_download_preserves_bytes_and_rejects_tampering_and_credentials(self):
+        row = self.store.create("barrel-sort", "raw", "live", uuid.uuid4().hex)
+        root = self.store.home / "runs" / row["id"]
+        root.mkdir(parents=True)
+        raw = ("完整补丁\r\n" * 30000).encode("utf-8")
+        path = root / "repair.diff"
+        path.write_bytes(raw)
+        manifest = root / "artifact_sha256.json"
+        manifest.write_text(json.dumps({"repair.diff": hashlib.sha256(raw).hexdigest()}), encoding="utf-8")
+        self.store.update(row["id"], artifacts={"repair.diff": str(path)})
+        route = "/api/runs/" + row["id"] + "/artifacts/repair.diff"
+        with self.request(route) as response:
+            self.assertIn(b"preview truncated", response.read())
+        with self.request(route + "?download=1") as response:
+            self.assertEqual(response.read(), raw)
+            self.assertEqual(response.headers["X-Content-SHA256"], hashlib.sha256(raw).hexdigest())
+            self.assertIn("attachment", response.headers["Content-Disposition"])
+        with self.assertRaises(urllib.error.HTTPError) as error:
+            self.request(route + "?download=1", headers={"X-Task-Token": "wrong"})
+        self.assertEqual(error.exception.code, 403)
+        path.write_bytes(raw + b"tampered")
+        with self.assertRaises(urllib.error.HTTPError) as error:
+            self.request(route + "?download=1")
+        self.assertEqual(error.exception.code, 400)
+        secret = "fixture-only-credential-20261030"
+        path.write_text(secret, encoding="utf-8")
+        manifest.write_text(json.dumps({"repair.diff": hashlib.sha256(secret.encode()).hexdigest()}), encoding="utf-8")
+        original = self.server.RequestHandlerClass
+        try:
+            with patch("dotenv.dotenv_values", return_value={"FIXTURE_KEY": secret}):
+                self.server.RequestHandlerClass = make_handler(self.store, "offline-test-token", self.port)
+            with self.assertRaises(urllib.error.HTTPError) as error:
+                self.request(route + "?download=1")
+            self.assertEqual(error.exception.code, 409)
+            self.assertIsNone(error.exception.headers.get("Content-Disposition"))
+            self.assertNotIn(secret.encode(), error.exception.read())
+        finally:
+            self.server.RequestHandlerClass = original
+
     def test_z_shutdown_refuses_pending_work_and_can_stop_when_idle(self):
         row = self.store.create("barrel-sort", "raw", "live", uuid.uuid4().hex)
         with self.assertRaises(urllib.error.HTTPError) as error:

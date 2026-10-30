@@ -147,6 +147,7 @@ def model_metrics(model):
 def freeze_inputs(task, output):
     source, manifest = load_task(task)
     paths = set((ROOT / "scripts").glob("*.py"))
+    paths.add(ROOT / "VERSION")
     paths.update((ROOT / "configs").glob("*-requirements.txt"))
     paths.update(ROOT / "configs" / name for name in ("deepseek_budget.json", "provider_priority.json", "retrieval_delivery_trial_20261015.json", "adjudication_bindings_v1.json"))
     paths.update((ROOT / "mini-swe-agent/src/minisweagent").rglob("*.py"))
@@ -336,7 +337,11 @@ def run_one(store, run_id, *, diagnostic_variant=None):
             from provider_priority import redact
             diagnostic = redact(diagnostic, model.providers)
         (scratch / "diagnostic.txt").write_text(diagnostic, encoding="utf-8")
+        (output / "diagnostic.txt").write_text(diagnostic, encoding="utf-8")
+        artifacts["diagnostic.txt"] = str(output / "diagnostic.txt")
     finally:
+        if (output / "request_error.json").is_file():
+            artifacts["request_error.json"] = str(output / "request_error.json")
         if work is not None and manifest is not None and not (output / "repair.diff").exists():
             try:
                 result["changed_files"] = collect_patch(record["task"], work, output, manifest)

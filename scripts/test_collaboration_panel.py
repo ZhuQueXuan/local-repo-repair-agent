@@ -156,6 +156,75 @@ class PanelTests(unittest.TestCase):
         self.assertEqual(view["review_verdict"], "approve")
         self.assertIn(b"remainder", registered_artifact(self.store, row, "repair.diff"))
 
+    def test_worker_start_failure_ends_parent_and_pending_roles_without_redispatch(self):
+        parent = create_panel_run(self.store, self.body())
+        supervisor = Supervisor(self.store)
+        with patch("task_service.subprocess.Popen", side_effect=FileNotFoundError("fixture missing interpreter")) as process:
+            supervisor.tick()
+            supervisor.tick()
+        self.assertEqual(process.call_count, 1)
+        self.assertEqual(self.store.get(parent["id"])["status"], "failed")
+        self.assertTrue(all(role["status"] == "skipped" for role in self.store.roles(parent["id"])))
+        self.assertNotIn("model_request", [event["kind"] for event in self.store.events(parent["id"])])
+
+    def test_worker_exiting_before_claim_is_terminal_but_cancel_is_not_overwritten(self):
+        supervisor = Supervisor(self.store)
+        parent = self.store.create("barrel-sort", "raw", "live", uuid.uuid4().hex)
+        with patch("task_service.subprocess.Popen") as process:
+            process.return_value.poll.return_value = None
+            supervisor.tick()
+            process.return_value.poll.return_value = 7
+            process.return_value.returncode = 7
+            supervisor.tick()
+            supervisor.tick()
+            self.assertEqual(process.call_count, 1)
+        self.assertEqual(self.store.get(parent["id"])["status"], "failed")
+        cancelled = self.store.create("barrel-sort", "raw", "live", uuid.uuid4().hex)
+        self.store.cancel(cancelled["id"])
+        supervisor.failed_before_claim(cancelled["id"], "late worker exit")
+        self.assertEqual(self.store.get(cancelled["id"])["status"], "cancelled")
+
+    def test_watchdog_keeps_short_calls_then_stops_stalled_owned_worker_without_retry(self):
+        row = self.store.create("barrel-sort", "raw", "live", uuid.uuid4().hex)
+        supervisor = Supervisor(self.store)
+        with patch("task_service.subprocess.Popen") as process, patch("task_service.time.monotonic", return_value=1000) as clock, patch("task_service.terminate_owned_process") as stop:
+            process.return_value.poll.return_value = None
+            supervisor.tick()
+            self.store.update(row["id"], status="running", stage="agent")
+            supervisor.tick()
+            clock.return_value = 1345
+            supervisor.tick()
+            stop.assert_not_called()
+            clock.return_value = 1346
+            supervisor.tick()
+            stop.assert_called_once_with(process.return_value)
+            process.return_value.poll.return_value = 1
+            supervisor.tick()
+            supervisor.tick()
+            self.assertEqual(process.call_count, 1)
+        self.assertEqual(self.store.get(row["id"])["status"], "failed")
+        self.assertEqual(self.store.get(row["id"])["repair_result"], "unknown")
+
+    def test_cancel_watchdog_does_not_reset_with_usage_updates(self):
+        row = self.store.create("barrel-sort", "raw", "live", uuid.uuid4().hex)
+        supervisor = Supervisor(self.store)
+        with patch("task_service.subprocess.Popen") as process, patch("task_service.time.monotonic", return_value=1000) as clock, patch("task_service.terminate_owned_process") as stop:
+            process.return_value.poll.return_value = None
+            supervisor.tick()
+            self.store.update(row["id"], status="running", stage="agent")
+            self.store.cancel(row["id"])
+            supervisor.tick()
+            clock.return_value = 1049
+            self.store.update(row["id"], metrics={"requests": 1})
+            supervisor.tick()
+            stop.assert_not_called()
+            clock.return_value = 1050
+            supervisor.tick()
+            stop.assert_called_once_with(process.return_value)
+        self.assertEqual(self.store.get(row["id"])["status"], "cancelled")
+        self.assertIn("结果未知", self.store.get(row["id"])["reason"])
+        supervisor.log.close()
+
     def test_artifacts_require_registration_integrity_and_plain_single_link(self):
         parent = create_panel_run(self.store, self.body())
         root = self.home / "runs" / parent["id"]
