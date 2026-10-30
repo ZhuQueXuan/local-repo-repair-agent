@@ -45,8 +45,10 @@ class Supervisor:
             self.observed_stage, self.stage_started = row["stage"], current
         collaboration = row.get("collaboration_policy", {})
         total_limit = collaboration.get("parent_seconds", 1140) + 60
+        if row.get('kind') == 'analysis':
+            total_limit = (480 if row.get('analysis_mode') == 'analysis_review' else 300) + 60
         limits = {"queued": 300, "preparing": 90, "baseline": 250, "preflight": 90,
-                  "agent": 345, "analysing": 345, "replaying_patch": 45, "verification": 250, "patch_verification": 250}
+                  "agent": 345, "analysing": 345, "reviewing_analysis": 225, "replaying_patch": 45, "verification": 250, "patch_verification": 250}
         limits.update({phase: seconds + 45 for phase, seconds in collaboration.get("role_seconds", {}).items()})
         stage_limit = limits.get(row["stage"])
         if (self.process_started is not None and current - self.process_started > total_limit
@@ -60,9 +62,13 @@ class Supervisor:
         if row["kind"] == "collaboration_live":
             self.store.stop(row["id"], "cancelled" if row["cancel_requested"] else "failed", reason)
         else:
+            fields = {}
+            if row['kind'] == 'analysis':
+                from analysis_runtime import interrupted_analysis_fields
+                fields = interrupted_analysis_fields(row, 'cancelled' if row['cancel_requested'] else 'failed')
             self.store.update(row["id"], expected={"queued", "running", "cancel_requested"},
                 status="cancelled" if row["cancel_requested"] else "failed", stage="done", ended=now(),
-                repair_result="unknown", reason=reason)
+                repair_result="unknown", reason=reason, **fields)
 
     def failed_before_claim(self, run_id, reason):
         row = self.store.get(run_id)

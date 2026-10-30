@@ -263,6 +263,14 @@ class AnalysisHttpTests(unittest.TestCase):
         with self.request('/api/analysis', body) as response: row = json.load(response)
         with self.request('/api/analysis', body) as response: self.assertEqual(json.load(response)['id'], row['id'])
         with self.request('/api/runs/' + row['id'] + '/cancel', {}) as response: self.assertEqual(json.load(response)['status'], 'cancelled')
+        reviewed_body = body | {'analysis_mode': 'analysis_review', 'request_key': uuid.uuid4().hex}
+        with self.request('/api/analysis', reviewed_body) as response: reviewed = json.load(response)
+        self.assertEqual(reviewed['analysis_mode'], 'analysis_review')
+        self.assertEqual(reviewed['analysis_policy']['parent_seconds'], 480)
+        with self.request('/api/analysis', reviewed_body) as response: self.assertEqual(json.load(response)['id'], reviewed['id'])
+        with self.assertRaises(urllib.error.HTTPError) as error: self.request('/api/analysis', reviewed_body | {'analysis_mode': 'single'})
+        self.assertEqual(error.exception.code, 400)
+        with self.request('/api/runs/' + reviewed['id'] + '/cancel', {}) as response: self.assertEqual(json.load(response)['status'], 'cancelled')
 
 
 if __name__ == '__main__':

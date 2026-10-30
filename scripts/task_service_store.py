@@ -193,7 +193,11 @@ class RunStore:
         """Call only while holding worker_lock. Do not resume or repeat paid work."""
         for row in self.list():
             if row["kind"] != "history" and row["status"] in {"running", "cancel_requested"}:
-                self.update(row["id"], event="worker_interrupted", status="interrupted", stage="interrupted", ended=now(), reason="执行进程已退出；保留证据，不自动续跑或重发请求。", repair_result="unknown")
+                fields = {}
+                if row['kind'] == 'analysis':
+                    from analysis_runtime import interrupted_analysis_fields
+                    fields = interrupted_analysis_fields(row, 'interrupted')
+                self.update(row["id"], event="worker_interrupted", status="interrupted", stage="interrupted", ended=now(), reason="执行进程已退出；保留证据，不自动续跑或重发请求。", repair_result="unknown", **fields)
 
 
 def history_record(path):
