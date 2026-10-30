@@ -11,6 +11,7 @@ import threading
 import time
 from urllib.parse import parse_qs, quote, unquote, urlparse
 import webbrowser
+import zipfile
 
 sys.dont_write_bytecode = True
 for stream in (sys.stdout, sys.stderr):
@@ -45,7 +46,7 @@ class Supervisor:
         collaboration = row.get("collaboration_policy", {})
         total_limit = collaboration.get("parent_seconds", 1140) + 60
         limits = {"queued": 300, "preparing": 90, "baseline": 250, "preflight": 90,
-                  "agent": 345, "replaying_patch": 45, "verification": 250, "patch_verification": 250}
+                  "agent": 345, "analysing": 345, "replaying_patch": 45, "verification": 250, "patch_verification": 250}
         limits.update({phase: seconds + 45 for phase, seconds in collaboration.get("role_seconds", {}).items()})
         stage_limit = limits.get(row["stage"])
         if (self.process_started is not None and current - self.process_started > total_limit
@@ -99,7 +100,7 @@ class Supervisor:
             if not acquired:
                 return  # A worker from an earlier server process still owns its work.
             self.store.reconcile()
-            queued = [row for row in self.store.list() if row["status"] == "queued" and row["kind"] in {"live", "replay", "collaboration_live"}]
+            queued = [row for row in self.store.list() if row["status"] == "queued" and row["kind"] in {"live", "replay", "collaboration_live", "analysis"}]
             if not queued:
                 return
             row = min(queued, key=lambda r: r["created"])
@@ -109,6 +110,8 @@ class Supervisor:
             command = [str(ROOT / ".venv/Scripts/python.exe"), "-B", str(ROOT / "scripts/task_service_worker.py"), "--run-id", row["id"], "--home", str(self.store.home)]
             if row["kind"] == "collaboration_live":
                 command += ["--collaboration", "--panel-store"]
+            elif row["kind"] == "analysis":
+                command += ["--analysis"]
             elif row["kind"] not in {"live", "replay"}:
                 return  # Never dispatch historical/mock fixture records as live work.
             try:
@@ -178,12 +181,33 @@ def make_handler(store, token, port):
 
         def do_GET(self):
             route = urlparse(self.path)
-            if not self.allowed(api=route.path not in {"/", "/api/health", "/collaboration-panel.js", "/task-card-panel.js", "/checkpoint-panel.js", "/capability-panel.js", "/execution-panel.js", "/model-profile-panel.js"}):
+            if not self.allowed(api=route.path not in {"/", "/experiments", "/analysis-panel.js", "/api/health", "/collaboration-panel.js", "/task-card-panel.js", "/checkpoint-panel.js", "/capability-panel.js", "/execution-panel.js", "/model-profile-panel.js"}):
                 return
             try:
                 if route.path == "/":
+                    html = (ROOT / "scripts/analysis_panel.html").read_text(encoding="utf-8").replace("__TASK_TOKEN__", token).replace("__RELEASE_VERSION__", release["version"])
+                    self.send(200, html.encode("utf-8"), "text/html; charset=utf-8")
+                elif route.path == "/experiments":
                     html = (ROOT / "scripts/task_panel.html").read_text(encoding="utf-8").replace("__TASK_TOKEN__", token).replace("__RELEASE_VERSION__", release["version"])
                     self.send(200, html.encode("utf-8"), "text/html; charset=utf-8")
+                elif route.path == "/analysis-panel.js":
+                    self.send(200, (ROOT / "scripts/analysis_panel.js").read_bytes(), "text/javascript; charset=utf-8")
+                elif route.path.startswith('/api/sources/'):
+                    from analysis_sources import load_source, source_bytes
+                    source_id = route.path.split('/')[-1]
+                    source = load_source(store.home, source_id)
+                    query = parse_qs(route.query)
+                    if 'path' in query:
+                        path = query['path'][0]
+                        lines = source_bytes(store.home, source, path).decode('utf-8-sig').splitlines()
+                        start = max(1, int(query.get('start', ['1'])[0]))
+                        end = min(len(lines), start + 79)
+                        content = '\n'.join(lines[start-1:end])
+                        if len(content.encode()) > 16000:
+                            raise ValueError('预览行段过长，请选择较短源码文件。')
+                        self.send(200, {'path': path, 'start': start, 'end': end, 'content': content, 'file': source['files'][path]})
+                    else:
+                        self.send(200, source)
                 elif route.path == "/collaboration-panel.js":
                     self.send(200, (ROOT / "scripts/collaboration_panel.js").read_bytes(), "text/javascript; charset=utf-8")
                 elif route.path == "/task-card-panel.js":
@@ -254,15 +278,31 @@ def make_handler(store, token, port):
             if not self.allowed():
                 return
             try:
+                route = urlparse(self.path).path
+                if route == '/api/sources/upload':
+                    from analysis_sources import MAX_UPLOAD, import_source
+                    size = int(self.headers.get('Content-Length', '0'))
+                    if not 0 < size <= MAX_UPLOAD:
+                        raise ValueError('上传内容为空或超过20MiB。')
+                    name = parse_qs(urlparse(self.path).query).get('name', [''])[0]
+                    self.connection.settimeout(30)
+                    raw = self.rfile.read(size)
+                    if len(raw) != size:
+                        raise ValueError('上传未完成，请重新选择文件。')
+                    with operations:
+                        if closing:
+                            self.send(503, {'error': '服务正在停止，请重开后导入。'})
+                        else:
+                            self.send(201, import_source(store.home, name, raw, secrets=sensitive))
+                    return
                 size = int(self.headers.get("Content-Length", "0"))
-                if not 0 < size <= 8192:
+                if not 0 < size <= (262144 if route == '/api/analysis' else 8192):
                     raise ValueError("Request is empty or too large")
                 body = json.loads(self.rfile.read(size))
                 if not isinstance(body, dict):
                     raise ValueError("Expected a JSON object")
                 if any(secret in json.dumps(body, ensure_ascii=False) for secret in sensitive):
                     raise ValueError("请求中含有已配置的凭据，未保存或执行。")
-                route = urlparse(self.path).path
                 with operations:
                     if closing:
                         self.send(503, {"error": "面板服务正在停止，请重新启动后操作。"})
@@ -278,6 +318,14 @@ def make_handler(store, token, port):
                         from execution_runtime import runtime_report
                         last_execution_report = runtime_report(probe=True)
                         self.send(200, last_execution_report)
+                    elif route == '/api/sources/github':
+                        if set(body) - {'url', 'ref'}:
+                            raise ValueError('仓库导入字段不正确。')
+                        from analysis_sources import fetch_github
+                        self.send(201, fetch_github(store.home, body.get('url'), body.get('ref', ''), secrets=sensitive))
+                    elif route == '/api/analysis':
+                        from analysis_runtime import create_analysis
+                        self.send(201, create_analysis(store, body))
                     elif route == "/api/runs":
                         self.send(201, create_panel_run(store, body))
                     elif route.startswith("/api/runs/") and route.endswith("/cancel") and len(route.split("/")) == 5:
@@ -298,6 +346,8 @@ def make_handler(store, token, port):
                 self.send(409, {"error": "请求身份与已有内容冲突；请刷新查看原任务，不自动重发。"})
             except (KeyError, TypeError, ValueError) as error:
                 self.send(400, {"error": str(error)[:300]})
+            except (OSError, zipfile.BadZipFile):
+                self.send(400, {'error': '导入或读取失败，请检查文件、网络和本机目录权限。'})
 
     return Handler
 

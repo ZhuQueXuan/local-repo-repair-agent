@@ -15,4 +15,4 @@ def release_identity():
     for path in sorted(files):
         digest.update(path.relative_to(ROOT).as_posix().encode("utf-8") + b"\0")
         digest.update(hashlib.sha256(path.read_bytes()).digest())
-    return {"version": version, "code_sha256": digest.hexdigest(), "scope": "本机固定Python任务；实验协作不保证修复成功"}
+    return {"version": version, "code_sha256": digest.hexdigest(), "scope": "用户源码只读分析；保留固定Python修复实验，模型结论需核实"}

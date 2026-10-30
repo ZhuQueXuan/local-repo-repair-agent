@@ -387,7 +387,10 @@ def main():
     parser.add_argument("--collaboration", action="store_true", help="Explicit stage-C worker; temp store only, no panel default change")
     parser.add_argument("--panel-store", action="store_true", help="Explicit access to the standard panel collaboration database")
     parser.add_argument('--diagnostic-variant',choices=['simple'],default=None,help='Isolated single-agent usability diagnostic only')
+    parser.add_argument('--analysis', action='store_true', help='Read-only user source analysis; no task command environment')
     args = parser.parse_args()
+    if args.analysis and (args.collaboration or args.diagnostic_variant):
+        parser.error('Read-only analysis has its own task kind')
     if args.diagnostic_variant and args.collaboration:parser.error('Diagnostic variant uses single-agent only')
     if args.collaboration:
         from collaboration_store import CollaborationStore
@@ -399,7 +402,12 @@ def main():
             return
         try:
             lifetime = attach_process_lifetime()
-            if args.collaboration:
+            if args.analysis:
+                from analysis_runtime import run_analysis
+                if store.get(args.run_id)['kind'] != 'analysis':
+                    raise ValueError('Expected an analysis task')
+                run_analysis(store, args.run_id)
+            elif args.collaboration:
                 from collaboration_live import run_live_worker
                 result = run_live_worker(store, args.run_id)
                 if result["status"] != "finished":

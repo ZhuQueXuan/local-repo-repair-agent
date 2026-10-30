@@ -207,7 +207,7 @@ def registered_artifact(store, row, name):
                 hashes = json.loads(_read(archive, "artifact_sha256.json"))
                 if not path.is_relative_to(archive) or hashes.get(path.relative_to(archive).as_posix()) != sha256(raw):
                     raise ProtocolError("archived_artifact_hash_mismatch")
-            elif row["kind"] in {"live", "replay"}:
+            elif row["kind"] in {"live", "replay", "analysis"}:
                 result_root = store.home / "runs" / row["id"]
                 manifest = result_root / "artifact_sha256.json"
                 if manifest.exists() and path != manifest:
