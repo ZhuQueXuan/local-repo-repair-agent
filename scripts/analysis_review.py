@@ -227,11 +227,23 @@ def reviewed_report(draft, review):
     if sha256(canonical_bytes(draft)) != review['draft_sha256']:
         raise ValueError('复核与初稿版本不一致。')
     assessments = {value['finding_id']: value for value in review['assessments']}
-    if len(assessments) != len(review['assessments']) or set(assessments) != {item['finding_id'] for item in draft['findings']}:
+    expected = {item['finding_id'] for item in draft['findings']}
+    is_v2 = review.get('protocol') == 'readonly_analysis_review_v2'
+    if len(assessments) != len(review['assessments']) or (not set(assessments) <= expected if is_v2 else set(assessments) != expected):
         raise ValueError('复核问题集合不一致。')
+    cases = {}
+    if is_v2:
+        cases = {item['finding_id']: item for item in review['case_results']}
+        if len(cases) != len(review['case_results']) or set(cases) != (expected or {'OVERVIEW'}):
+            raise ValueError('逐条执行状态集合不一致。')
+        if any((item['execution_status'] == 'submitted') != (key in assessments or key == 'OVERVIEW' and review.get('overview_review') is not None)
+               for key, item in cases.items()):
+            raise ValueError('执行状态不能伪造模型复核意见。')
     evidence = draft['evidence'] | review['evidence']
-    return draft | {'findings': [item | {'review': assessments[item['finding_id']]} for item in draft['findings']],
+    return draft | {'findings': [item | ({'review': assessments[item['finding_id']]} if item['finding_id'] in assessments else {}) |
+                                ({'review_execution': cases[item['finding_id']]} if is_v2 else {}) for item in draft['findings']],
         'evidence': evidence, 'review': review, 'review_sha256': sha256(canonical_bytes(review)),
         'coverage': {'allowed_files': draft['coverage']['allowed_files'],
                      'quoted_files': len({ref['path'] for ref in evidence.values()}), 'quoted_spans': len(evidence), 'all_files_read': False},
-        'note': '分析与另一会话复核均已提交；支持/驳回/待验证分别保留。只读模型判断，未执行项目/测试，未修改代码。'}
+        'note': ('分析初稿已提交；逐条复核状态与模型意见分别展示，未完成项没有模型结论。' if is_v2 and review['status'] != 'completed' else
+                 '分析与另一会话复核均已提交；支持/驳回/待验证分别保留。') + '只读模型判断，未执行项目/测试，未修改代码。'}

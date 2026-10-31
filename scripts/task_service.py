@@ -47,9 +47,13 @@ class Supervisor:
         total_limit = collaboration.get("parent_seconds", 1140) + 60
         if row.get('kind') == 'analysis':
             total_limit = (480 if row.get('analysis_mode') == 'analysis_review' else 300) + 60
+        elif row.get('kind') == 'source_repair':
+            total_limit = row['repair_policy']['parent_seconds'] + 60
         limits = {"queued": 300, "preparing": 90, "baseline": 250, "preflight": 90,
                   "agent": 345, "analysing": 345, "reviewing_analysis": 225, "replaying_patch": 45, "verification": 250, "patch_verification": 250}
         limits.update({phase: seconds + 45 for phase, seconds in collaboration.get("role_seconds", {}).items()})
+        if row.get('kind') == 'source_repair':
+            limits.update(repair_planning=135, repairing_source=195, checking_source=105, reviewing_source=105)
         stage_limit = limits.get(row["stage"])
         if (self.process_started is not None and current - self.process_started > total_limit
                 or stage_limit is not None and current - self.stage_started > stage_limit):
@@ -63,9 +67,9 @@ class Supervisor:
             self.store.stop(row["id"], "cancelled" if row["cancel_requested"] else "failed", reason)
         else:
             fields = {}
-            if row['kind'] == 'analysis':
+            if row['kind'] in {'analysis', 'source_repair'}:
                 from analysis_runtime import interrupted_analysis_fields
-                fields = interrupted_analysis_fields(row, 'cancelled' if row['cancel_requested'] else 'failed')
+                fields = interrupted_analysis_fields(row | {'kind': 'analysis'}, 'cancelled' if row['cancel_requested'] else 'failed')
             self.store.update(row["id"], expected={"queued", "running", "cancel_requested"},
                 status="cancelled" if row["cancel_requested"] else "failed", stage="done", ended=now(),
                 repair_result="unknown", reason=reason, **fields)
@@ -106,7 +110,7 @@ class Supervisor:
             if not acquired:
                 return  # A worker from an earlier server process still owns its work.
             self.store.reconcile()
-            queued = [row for row in self.store.list() if row["status"] == "queued" and row["kind"] in {"live", "replay", "collaboration_live", "analysis"}]
+            queued = [row for row in self.store.list() if row["status"] == "queued" and row["kind"] in {"live", "replay", "collaboration_live", "analysis", "source_repair"}]
             if not queued:
                 return
             row = min(queued, key=lambda r: r["created"])
@@ -118,6 +122,8 @@ class Supervisor:
                 command += ["--collaboration", "--panel-store"]
             elif row["kind"] == "analysis":
                 command += ["--analysis"]
+            elif row['kind'] == 'source_repair':
+                command += ['--source-repair']
             elif row["kind"] not in {"live", "replay"}:
                 return  # Never dispatch historical/mock fixture records as live work.
             try:
@@ -187,7 +193,7 @@ def make_handler(store, token, port):
 
         def do_GET(self):
             route = urlparse(self.path)
-            if not self.allowed(api=route.path not in {"/", "/experiments", "/analysis-panel.js", "/api/health", "/collaboration-panel.js", "/task-card-panel.js", "/checkpoint-panel.js", "/capability-panel.js", "/execution-panel.js", "/model-profile-panel.js"}):
+            if not self.allowed(api=route.path not in {"/", "/experiments", "/analysis-panel.js", "/source-workflow-panel.js", "/api/health", "/collaboration-panel.js", "/task-card-panel.js", "/checkpoint-panel.js", "/capability-panel.js", "/execution-panel.js", "/model-profile-panel.js"}):
                 return
             try:
                 if route.path == "/":
@@ -198,6 +204,14 @@ def make_handler(store, token, port):
                     self.send(200, html.encode("utf-8"), "text/html; charset=utf-8")
                 elif route.path == "/analysis-panel.js":
                     self.send(200, (ROOT / "scripts/analysis_panel.js").read_bytes(), "text/javascript; charset=utf-8")
+                elif route.path == '/source-workflow-panel.js':
+                    self.send(200, (ROOT / 'scripts/source_workflow_panel.js').read_bytes(), 'text/javascript; charset=utf-8')
+                elif route.path == '/api/source-repair-runtime':
+                    path = store.home / 'source-runtime-preparation.json'
+                    value = json.loads(path.read_bytes()) if path.exists() else {'status': 'unchecked', 'notice': '尚未检查隔离运行环境。'}
+                    if value.get('status') == 'preparing' and value.get('owner_pid') != os.getpid():
+                        value = {'status': 'interrupted', 'notice': '上次环境准备已中断；可手动重新准备，不会自动重发。'}
+                    self.send(200, value)
                 elif route.path.startswith('/api/sources/'):
                     from analysis_sources import load_source, source_bytes
                     source_id = route.path.split('/')[-1]
@@ -332,6 +346,19 @@ def make_handler(store, token, port):
                     elif route == '/api/analysis':
                         from analysis_runtime import create_analysis
                         self.send(201, create_analysis(store, body))
+                    elif route == '/api/source-repair':
+                        from source_repair import create_source_repair
+                        self.send(201, create_source_repair(store, body))
+                    elif route == '/api/source-repair-runtime/inspect':
+                        if body: raise ValueError('运行环境检查不接受自定义命令或路径。')
+                        from source_checks import runtime_status
+                        self.send(200, runtime_status())
+                    elif route == '/api/source-repair-runtime/prepare':
+                        if body: raise ValueError('运行环境准备不接受自定义镜像、命令或路径。')
+                        if any(row['status'] in {'queued', 'running', 'cancel_requested'} for row in store.list()):
+                            raise ValueError('请先等当前任务结束，再准备检查环境。')
+                        from source_checks import start_preparation
+                        self.send(202, start_preparation(store.home))
                     elif route == "/api/runs":
                         self.send(201, create_panel_run(store, body))
                     elif route.startswith("/api/runs/") and route.endswith("/cancel") and len(route.split("/")) == 5:

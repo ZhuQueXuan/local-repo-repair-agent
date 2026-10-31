@@ -1,0 +1,20 @@
+{
+  "release": {
+    "version": "1.3.0",
+    "code_sha256": "cc69c70a2c907ae8c31489c95339f830f068afe363054402f91b8404d652137b",
+    "scope": "用户代码分析、独立复核与有限修复循环；公开小项目真实全流程通过，复杂依赖和大型项目仍需验收"
+  },
+  "tested": {
+    "version": "1.3.0-rc3",
+    "code_sha256": "5bcebc37e64aef167af92ff9aa73690d2880bf619b0e52c48a14bbd2275a0dde",
+    "scope": "用户代码分析、按需查资料与有限修复循环候选；已完成小项目真实闭环，其他项目仍需验收"
+  },
+  "promotion_changes_only": [
+    "VERSION",
+    "scripts/analysis_panel.html",
+    "scripts/analysis_panel.js",
+    "scripts/release_info.py"
+  ],
+  "other_runtime_files_unchanged": 190,
+  "health_verified": true
+}

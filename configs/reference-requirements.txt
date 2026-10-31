@@ -1,0 +1,4 @@
+# Public reference lookup; install with --no-deps --require-hashes. Existing click comes from the model environment.
+ddgs==9.16.0 --hash=sha256:175d9198c958a263f51a06a54368ba0b41294942c0cd29f4aa71be03dbcd5f4a
+lxml==6.1.3 --hash=sha256:18a4db52b5a7b53a3540b0b0f4123319334621ee8083d496de314d0bf06ff59a
+primp==2.0.1 --hash=sha256:0e27f3e233cf34cae6cbc8158af58b93fb0a87ceb1802b4611c7a14a2d822cdc

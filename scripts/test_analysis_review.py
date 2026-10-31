@@ -36,7 +36,9 @@ class ReviewTests(unittest.TestCase):
     scripted_run = analysis_tests.AnalysisTests.scripted_run
 
     def row(self, **overrides):
-        return create_analysis(self.store, self.body(analysis_mode='analysis_review', **overrides))
+        # Retain executable v1 compatibility coverage for saved/queued old rows.
+        row = create_analysis(self.store, self.body(analysis_mode='analysis_review', **overrides))
+        return self.store.update(row['id'], profile='readonly_analysis_review_v1')
 
     def broker(self, count=1, long=False):
         row = self.row()

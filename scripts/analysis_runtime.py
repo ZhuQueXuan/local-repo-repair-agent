@@ -51,12 +51,15 @@ SCHEMAS = {'list_source_files': ListSourceFiles, 'read_source': ReadSource,
 
 def create_analysis(store, body):
     required = {'source_id', 'source_sha256', 'paths', 'focus', 'request_key', 'external_processing_ack'}
-    if (not isinstance(body, dict) or not required <= set(body) or set(body) - required - {'analysis_mode'}
+    if (not isinstance(body, dict) or not required <= set(body) or set(body) - required - {'analysis_mode', 'reference_mode', 'reference_ack'}
             or body['external_processing_ack'] is not True):
         raise ValueError('请确认分析范围及模型外发说明后开始。')
     mode = body.get('analysis_mode', 'single')  # Preserve v1.1 clients and old idempotency keys.
     if mode not in ('single', 'analysis_review'):
         raise ValueError('请选择仅分析或分析后独立复核。')
+    reference_mode = body.get('reference_mode', 'off')
+    if reference_mode not in {'off', 'project', 'web'} or reference_mode == 'web' and body.get('reference_ack') is not True:
+        raise ValueError('请确认资料范围；公开检索会把简短关键词发送给搜索服务。')
     source = load_source(store.home, body['source_id'], body['source_sha256'])
     paths, focus, key = body['paths'], body['focus'], body['request_key']
     if (not isinstance(paths, list) or not paths or len(paths) > 1000
@@ -66,11 +69,12 @@ def create_analysis(store, body):
     if not isinstance(focus, str) or len(focus) > 1000 or not isinstance(key, str) or not 1 <= len(key) <= 120:
         raise ValueError('关注问题过长或请求身份无效。')
     fields = {'source_id': source['id'], 'source_sha256': source['manifest_sha256'], 'paths': sorted(paths), 'focus': focus.strip()}
-    request_sha = sha256(canonical_bytes(fields | ({'analysis_mode': mode} if mode != 'single' else {})))
+    request_sha = sha256(canonical_bytes(fields | ({'analysis_mode': mode} if mode != 'single' else {}) |
+                                       ({'reference_mode': reference_mode} if reference_mode != 'off' else {})))
     from release_info import release_identity
     identity = release_identity()
     row = {'id': uuid.uuid4().hex, 'kind': 'analysis', 'task': source['name'],
-           'profile': 'readonly_analysis_review_v1' if mode == 'analysis_review' else 'readonly_analysis_v1',
+           'profile': 'readonly_analysis_review_v2' if mode == 'analysis_review' else 'readonly_analysis_v1',
            'analysis_mode': mode, 'review_status': 'pending' if mode == 'analysis_review' else 'not_requested',
            'analysis_policy': {'analyst_seconds': 300, 'reviewer_seconds': 180 if mode == 'analysis_review' else 0,
                                'parent_seconds': 480 if mode == 'analysis_review' else 300},
@@ -78,6 +82,9 @@ def create_analysis(store, body):
            'agent_exit': None, 'repair_result': 'not_run', 'metrics': {}, 'artifacts': {}, 'reason': '',
            'scope': '只读代码分析，未运行测试或自动修复；代码依据不等于运行证实。',
            'runtime_identity': identity, 'request_sha256': request_sha, **fields}
+    if reference_mode != 'off':
+        row.update(reference_mode=reference_mode,
+                   profile='readonly_analysis_review_v3' if mode == 'analysis_review' else 'readonly_analysis_v2')
     with store.connect() as db:
         db.execute('BEGIN IMMEDIATE')
         found = db.execute('SELECT payload FROM runs WHERE request_key=?', (key,)).fetchone()
@@ -183,6 +190,11 @@ def interrupted_analysis_fields(row, status):
         return {}
     roles = {key: dict(value) for key, value in row.get('analysis_roles', {}).items()}
     for role in roles.values():
+        if 'cases' in role:
+            role['cases'] = [dict(item) for item in role['cases']]
+            for item in role['cases']:
+                if item.get('status') == 'running':
+                    item.update(status=status, ended=now())
         if role.get('status') == 'running':
             role.update(status=status, ended=now())
     fields = {'analysis_roles': roles}
@@ -196,6 +208,8 @@ def report_text(report):
     review = report.get('review')
     if review:
         lines = ['分析＋独立会话复核（同一模型路由，未运行测试）', review['summary'], review['overview_assessment'], ''] + lines
+        if review.get('overview_review'):
+            lines.insert(3, '概览复核结论：' + {'supported': '支持', 'rejected': '不支持', 'needs_verification': '待验证'}[review['overview_review']['verdict']])
     for finding in report['findings']:
         lines += ['', finding['severity'] + ' · ' + finding['title']]
         for title, key in [('触发条件', 'trigger'), ('影响', 'impact'), ('依据', 'reasoning'), ('建议', 'suggestion')]:
@@ -213,11 +227,21 @@ def report_text(report):
             for evidence_id in assessment['evidence_ids']:
                 ref = report['evidence'][evidence_id]
                 lines.append(f"复核原文 {ref['path']}:{ref['start']}—{ref['end']}")
+        if finding.get('review_execution'):
+            execution = finding['review_execution']
+            from review_cases import EXECUTION_NAMES
+            lines.append('本条执行状态：' + EXECUTION_NAMES.get(execution['execution_status'], execution['execution_status']))
+            lines.append(execution['reason'])
     if not report['findings']:
         lines.append('本次没有提交具体缺陷；不代表整个项目没有问题。')
     lines += ['', '未知与待验证项', *report['unknowns']]
     if review:
         lines += ['', '复核后的未知项', *review['unknowns'], review['note']]
+    for record in report.get('reference_consultations', []):
+        lines += ['', '资料查阅：' + record['question'], record['status'] + '：' + record['answer'], *record['unknowns']]
+        for source in record['sources']:
+            if source['source_ref'] in record['source_refs']:
+                lines.append(source.get('url', source.get('path', '')) + ' · ' + source['read_kind'])
     lines += ['', report['note'], '允许文件数：' + str(report['coverage']['allowed_files']), '', '实际读取的源码片段']
     for ref in report['evidence'].values():
         lines += [f"{ref['path']}:{ref['start']}—{ref['end']}", ref['content'], '']

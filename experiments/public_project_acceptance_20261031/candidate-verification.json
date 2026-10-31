@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "repair_id": "e041d3994dc54fb68198065bd9ef1fef",
+  "rounds": 1,
+  "candidate_sha256": "06c1ec075c16d72d78cdbb143d2fb87efa6dee574eac05cf1dcbe8f3ce71a0b4",
+  "http_download_matches_snapshot": true,
+  "changed_files": [
+    "inflection.py"
+  ],
+  "original_tests_unchanged": true,
+  "license_unchanged": true,
+  "original_test_count": 450,
+  "independent_extra_tests": 8,
+  "program_reports": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "syntax_errors": [],
+      "tests": 458
+    }
+  ],
+  "independent_reports": [
+    {
+      "tests": 458,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "syntax_errors": []
+    }
+  ],
+  "final_review": {
+    "blockers": [],
+    "limitations": [
+      "未在本地执行代码，结论基于源码审阅与程序提供的 docker 运行报告（458 passed）。",
+      "F001/F002 的其余边界（如其他非 ASCII 词、大小写变体 Passerby）未在冻结验收中覆盖，但不在用户目标范围内。"
+    ],
+    "reason": "当前代码已满足全部冻结标准：titleize 正则改为 r\"\\b('?[^\\W\\d_])\" 并配合 capitalize，可大写非 ASCII 词首（如 Í），故 titleize(\"Ana Índia\") 返回 \"Ana Índia\"；模块末尾新增 _irregular('passerby', 'passersby')，使 pluralize(\"passerby\")→\"passersby\"、singularize(\"passersby\")→\"passerby\"。程序在 docker 无网络环境实际运行 458 个测试全部通过（0 失败/错误），覆盖冻结验收与原测试，公开接口行为未变。",
+    "schema_version": 1,
+    "unknowns": [],
+    "verdict": "satisfied"
+  }
+}

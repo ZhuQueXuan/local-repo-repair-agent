@@ -25,8 +25,13 @@ from task_cards import TaskCardModelMixin, export_card
 
 
 class RunBudget(SharedBudget):
-    def __init__(self, store, run_id):
-        super().__init__(load_budget_config())
+    def __init__(self, store, run_id, *, source_context=False):
+        config = load_budget_config()
+        if source_context:
+            if store.get(run_id).get('kind') != 'source_repair':
+                raise ValueError('Large source accounting belongs to a source repair task.')
+            config = config | {'reservation_per_attempt_cny': '0.20'}
+        super().__init__(config)
         self.store, self.run_id = store, run_id
 
     def reserve(self, *, provider=None):
@@ -388,7 +393,10 @@ def main():
     parser.add_argument("--panel-store", action="store_true", help="Explicit access to the standard panel collaboration database")
     parser.add_argument('--diagnostic-variant',choices=['simple'],default=None,help='Isolated single-agent usability diagnostic only')
     parser.add_argument('--analysis', action='store_true', help='Read-only user source analysis; no task command environment')
+    parser.add_argument('--source-repair', action='store_true', help='Goal-driven isolated repair of a selected source snapshot')
     args = parser.parse_args()
+    if args.source_repair and (args.analysis or args.collaboration or args.diagnostic_variant):
+        parser.error('User-source repair has its own task kind')
     if args.analysis and (args.collaboration or args.diagnostic_variant):
         parser.error('Read-only analysis has its own task kind')
     if args.diagnostic_variant and args.collaboration:parser.error('Diagnostic variant uses single-agent only')
@@ -407,6 +415,10 @@ def main():
                 if store.get(args.run_id)['kind'] != 'analysis':
                     raise ValueError('Expected an analysis task')
                 run_analysis(store, args.run_id)
+            elif args.source_repair:
+                from source_repair_execution import execute_source_repair
+                if store.get(args.run_id).get('kind') != 'source_repair': raise ValueError('Not a user-source repair task')
+                execute_source_repair(store, args.run_id)
             elif args.collaboration:
                 from collaboration_live import run_live_worker
                 result = run_live_worker(store, args.run_id)

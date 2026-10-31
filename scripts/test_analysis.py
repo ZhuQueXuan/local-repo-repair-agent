@@ -188,13 +188,50 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(row['status'], 'finished')
         self.assertEqual(row['metrics']['requests'], 2)
         self.assertEqual(len(json.loads(budget.path.read_bytes())['requests']), 2)
-        self.assertEqual({t['function']['name'] for t in calls[0]['tools']}, {'list_source_files', 'read_source', 'search_source', 'submit_analysis'})
+        self.assertEqual({t['function']['name'] for t in calls[0]['tools']}, {'read_source', 'search_source', 'submit_analysis'})
         result = json.loads(registered_artifact(self.store, row, 'report.json'))
         self.assertEqual(len(result['findings']), 1)
         self.assertIn('未执行', registered_artifact(self.store, row, 'report.txt').decode())
         self.assertEqual(source_bytes(self.store.home, self.source, 'app.py'), self.raw)
         Path(row['artifacts']['report.json']).write_bytes(b'tamper')
         with self.assertRaises(ValueError): registered_artifact(self.store, row, 'report.json')
+
+    def test_long_source_chunks_remain_together_until_report_submission(self):
+        raw = b''.join(('# source context line %03d; shared evidence for the whole module\n' % i).encode() for i in range(240))
+        self.source = import_source(self.store.home, 'app.py', raw)
+        seen = []
+        def complete(kwargs):
+            if len(seen) < 6:
+                start = len(seen) * 40 + 1
+                seen.append(start)
+                return tool_response('read_source', {'path': 'app.py', 'start': start, 'end': start + 39})
+            content = json.dumps(kwargs['messages'])
+            self.assertIn('source context line 000', content)
+            self.assertIn('source context line 239', content)
+            self.assertNotIn('read_source', {tool['function']['name'] for tool in kwargs['tools']})
+            ref = json.loads(kwargs['messages'][-1]['content'])['evidence_id']
+            return tool_response('submit_analysis', report(ref))
+        ended, calls, _ = self.scripted_run(self.row(), complete)
+        self.assertEqual(ended['status'], 'finished', ended['reason'])
+        self.assertEqual(len(calls), 7)
+
+    def test_analyst_repeated_same_source_stops_on_no_new_coverage(self):
+        def repeat(kwargs): return tool_response('read_source', {'path': 'app.py', 'start': 1, 'end': 2})
+        ended, calls, _ = self.scripted_run(self.row(), repeat)
+        self.assertEqual(ended['status'], 'failed')
+        self.assertIn('连续8次', registered_artifact(self.store, ended, 'diagnostic.txt').decode())
+        self.assertEqual(len(calls), 9)
+
+    def test_analysis_material_identifies_missing_lines_between_reads(self):
+        from analysis_material import analyst_material
+        self.source = import_source(self.store.home, 'app.py', b'# line\n' * 200)
+        broker = AnalysisBroker(self.store.home, self.row())
+        broker.span('app.py', 1, 80)
+        broker.span('app.py', 85, 160)
+        broker.span('app.py', 161, 200)
+        packet = analyst_material(broker)
+        self.assertEqual(packet['missing_ranges'], [{'path': 'app.py', 'start': 81, 'end': 84}])
+        self.assertEqual(packet['missing_range_count'], 1)
 
     def test_cancellation_after_response_keeps_usage_and_withholds_report(self):
         row = self.row()

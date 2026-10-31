@@ -197,6 +197,9 @@ class RunStore:
                 if row['kind'] == 'analysis':
                     from analysis_runtime import interrupted_analysis_fields
                     fields = interrupted_analysis_fields(row, 'interrupted')
+                elif row['kind'] == 'source_repair':
+                    from analysis_runtime import interrupted_analysis_fields
+                    fields = interrupted_analysis_fields(row | {'kind': 'analysis'}, 'interrupted')
                 self.update(row["id"], event="worker_interrupted", status="interrupted", stage="interrupted", ended=now(), reason="执行进程已退出；保留证据，不自动续跑或重发请求。", repair_result="unknown", **fields)
 
 

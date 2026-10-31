@@ -94,15 +94,22 @@ class BudgetedDeepSeekModel(LitellmModel):
         self.budget_config = load_budget_config()
         if request_limits is not None:
             # Trusted caller-only limits, never model-provided request kwargs.
-            if request_limits != {"max_messages_utf8_bytes": 32768, "max_prompt_tokens": 40960} or any(type(v) is not int for v in request_limits.values()):
+            if request_limits not in ({"max_messages_utf8_bytes": 32768, "max_prompt_tokens": 40960},
+                                      {"max_messages_utf8_bytes": 65536, "max_prompt_tokens": 73728}) or any(type(v) is not int for v in request_limits.values()):
                 raise ValueError("Unsupported scoped request limits")
             self.budget_config = self.budget_config | request_limits
+            if request_limits['max_messages_utf8_bytes'] == 65536:
+                if model_role not in {'repairer', 'reviewer'}:
+                    raise ValueError('Large source context is registered only for source repair/review.')
+                self.budget_config = self.budget_config | {'reservation_per_attempt_cny': '0.20'}
         maximum_call_cost = (Decimal(self.budget_config["max_prompt_tokens"]) * Decimal(self.budget_config["conservative_input_cny_per_million"])
                              + Decimal(self.budget_config["max_output_tokens"]) * Decimal(self.budget_config["conservative_output_cny_per_million"])) / Decimal(1_000_000)
         if (maximum_call_cost > Decimal(self.budget_config["reservation_per_attempt_cny"])
                 or self.budget_config["max_messages_utf8_bytes"] + 8192 > self.budget_config["max_prompt_tokens"]):
             raise ValueError("Request token bounds exceed the monetary reservation.")
         self.budget = budget if budget is not None else SharedBudget(self.budget_config)
+        if self.budget.reservation < maximum_call_cost:
+            raise ValueError('The shared ledger reservation cannot cover this scoped request.')
         self._reservation = None
         self.providers = load_providers(settings)
         if any(not provider.official_pricing for provider in self.providers) and self.budget.limit is not None:

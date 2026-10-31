@@ -10,9 +10,10 @@ def release_identity():
     files = [ROOT / "VERSION", ROOT / "启动任务面板.cmd"]
     files += [p for p in (ROOT / "scripts").iterdir() if p.suffix in {".py", ".pyw", ".js", ".html", ".ps1"} and not p.name.startswith("test_")]
     files += list((ROOT / "configs").glob("*.json"))
+    files += list((ROOT / 'configs').glob('*requirements.txt'))
     files += list((ROOT / "mini-swe-agent/src/minisweagent").rglob("*.py"))
     digest = hashlib.sha256()
     for path in sorted(files):
         digest.update(path.relative_to(ROOT).as_posix().encode("utf-8") + b"\0")
         digest.update(hashlib.sha256(path.read_bytes()).digest())
-    return {"version": version, "code_sha256": digest.hexdigest(), "scope": "用户源码只读分析；保留固定Python修复实验，模型结论需核实"}
+    return {"version": version, "code_sha256": digest.hexdigest(), "scope": "用户代码分析、独立复核与有限修复循环；公开小项目真实全流程通过，复杂依赖和大型项目仍需验收"}

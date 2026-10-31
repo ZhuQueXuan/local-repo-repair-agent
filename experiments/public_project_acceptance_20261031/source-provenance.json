@@ -1,0 +1,120 @@
+{
+  "approval": "User explicitly requested online project import, real full workflow, release if passed, and GitHub push; prior no fixed call or spending quota remains.",
+  "commit": "663982efaa1a99f677e20c342a7a75dd9c041c8d",
+  "excluded": [
+    {
+      "path": ".gitignore",
+      "reason": "非支持的源码/文字格式"
+    },
+    {
+      "path": "MANIFEST.in",
+      "reason": "非支持的源码/文字格式"
+    }
+  ],
+  "fixed_money_cap": null,
+  "focus": "核对 titleize 对带重音的非ASCII词首的处理，以及 passerby/passersby 的单复数转换，给出可复现行为、代码依据和兼容性风险；不要把风格建议列为功能错误。",
+  "goal": "让这个固定版本在 titleize(\"Ana Índia\") 时得到 \"Ana Índia\"，passerby 的复数为 passersby、passersby 的单数为 passerby；保留其余公开接口和原有测试行为，修到冻结验收和原测试均通过。",
+  "license": "MIT",
+  "model_call_cap": null,
+  "original_zip_sha256": "153064ab3e8f39169671e3aba2d67837e111f18570c3e9836db5d088c69994e9",
+  "private_tests_sha256": "66248560899e22e397253efb3769f77c17383925487c9df7b4c1958cabc77cd0",
+  "project": "jpvanhal/inflection",
+  "reference_sources": [
+    "https://github.com/jpvanhal/inflection/issues/33",
+    "https://github.com/jpvanhal/inflection/pull/40"
+  ],
+  "repair_rounds": 3,
+  "repair_seconds": 900,
+  "runtime": {
+    "version": "1.3.0-rc3",
+    "code_sha256": "5bcebc37e64aef167af92ff9aa73690d2880bf619b0e52c48a14bbd2275a0dde",
+    "scope": "用户代码分析、按需查资料与有限修复循环候选；已完成小项目真实闭环，其他项目仍需验收"
+  },
+  "selection_note": "Real historical upstream revision with publicly reported bugs, no injected defects. Known-case engineering acceptance, not a blind benchmark. Complete supported repository files selected, original tests immutable.",
+  "source_files": {
+    ".travis.yml": {
+      "bytes": 166,
+      "lines": 11,
+      "sha256": "7c41a4e7c66989c467af19d6c6c8d5e48008b2838d6764113a7f9c8be57ae4bf"
+    },
+    "CHANGES.rst": {
+      "bytes": 881,
+      "lines": 42,
+      "sha256": "f491851ce35c71cc203908141a94a4572392a9c8f047d7518b7749e84a696232"
+    },
+    "LICENSE": {
+      "bytes": 1062,
+      "lines": 19,
+      "sha256": "4a3f52ac1012a90db398e4c55f1d1bea501dddafef8a4b3adb7533b1d820e148"
+    },
+    "README.rst": {
+      "bytes": 853,
+      "lines": 24,
+      "sha256": "2d9e2490144458cccb8eb66c4bc3a7fb1d74eed709a8c103d0494356146b7e5b"
+    },
+    "docs/Makefile": {
+      "bytes": 5580,
+      "lines": 153,
+      "sha256": "bda46b9bf49ebbde00485891036a07c5bee063c075db0ade1b4e6055c5d0f963"
+    },
+    "docs/conf.py": {
+      "bytes": 7973,
+      "lines": 246,
+      "sha256": "da6b382a0a45b77ef5f283dfa12930ddbc94103255b30756d044d4eb74febbac"
+    },
+    "docs/index.rst": {
+      "bytes": 1149,
+      "lines": 54,
+      "sha256": "468590ddd59de7281de63fe1147596c9a130f7e0bdb1fe744e63473052f5b503"
+    },
+    "inflection.py": {
+      "bytes": 11082,
+      "lines": 423,
+      "sha256": "4fc8aeb6b4bf12f418de5ba0233c31f0ebd7cb438eef917dee3aa43510ec2307"
+    },
+    "requirements.txt": {
+      "bytes": 20,
+      "lines": 3,
+      "sha256": "3e07bb9af84e0883d95ff568abc44fa3d501f606f7293aeb534d0c0b6e94438e"
+    },
+    "setup.cfg": {
+      "bytes": 48,
+      "lines": 5,
+      "sha256": "107136aca3c6ced452ffd6d0e68eaa1c1e9857b7b904df664e8187d12cfbb595"
+    },
+    "setup.py": {
+      "bytes": 1127,
+      "lines": 36,
+      "sha256": "36ce8ee34bddcab490bdd25368a8993f1f32f43f265c84f83ffd05b0f88aa985"
+    },
+    "test_inflection.py": {
+      "bytes": 11921,
+      "lines": 428,
+      "sha256": "e51684829e647084e9a79dbbd7c745df31c951547a4afc4335ceca56459a5814"
+    },
+    "tox.ini": {
+      "bytes": 109,
+      "lines": 6,
+      "sha256": "54e9e3eebb88fa1e2b014f2cab6bfbde175d712c0c30fc0ddfae781140873d41"
+    }
+  },
+  "stagnant_rounds": 2,
+  "tag": "0.3.1",
+  "previous_attempt": {
+    "analysis_id": "7e0f7ca2f3c74b71ab497c178740bf8c",
+    "status": "cancelled_no_new_source_coverage",
+    "result_preserved": true
+  },
+  "previous_attempts": [
+    "7e0f7ca2f3c74b71ab497c178740bf8c",
+    "35465ef2f30a4e5295b3bb8425634e80",
+    "e251825f11914907bce5cf6626edfe4f",
+    "7230c04eb8bd4b7e97038d3bcb8f0235"
+  ],
+  "material_replay": "Both real case packets fit with complete findings/citations: 13746 and 14325 bytes; 22 offline review checks passed.",
+  "fix": "Preserve merged evidence; enumerate exact missing source ranges in packet and tool schema; repeated fully covered reads are acknowledged without rereading and count as no progress. 18 analysis offline checks passed.",
+  "repair_context_bytes": 65536,
+  "repair_unknown_request_placeholder_cny": "0.20",
+  "offline_regression": "temp/regression/20261031_164419_0c31cf99/summary.json",
+  "project_regression": "temp/regression/20261031_171530_e8fd5c99/summary.json"
+}

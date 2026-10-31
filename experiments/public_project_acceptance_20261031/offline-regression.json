@@ -1,0 +1,32 @@
+{
+  "project_tests": {
+    "scope": "project",
+    "exit_code": 0,
+    "command": [
+      "D:\\myDocu\\project_postg\\shixi_project\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "scripts",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "tests_run": 556,
+    "skipped": 1
+  },
+  "protected_files": 5825,
+  "expected_mutations_only": [
+    "data/deepseek_budget.json",
+    "data/task_service/runs.sqlite3"
+  ],
+  "old_69_tasks_unchanged": 69,
+  "prior_ledger_entries_unchanged": 5239,
+  "runtime_under_test": {
+    "version": "1.3.0-rc3",
+    "code_sha256": "5bcebc37e64aef167af92ff9aa73690d2880bf619b0e52c48a14bbd2275a0dde",
+    "scope": "用户代码分析、按需查资料与有限修复循环候选；已完成小项目真实闭环，其他项目仍需验收"
+  }
+}

@@ -29,8 +29,10 @@ class LegacyChatAdapter:
             raise ModelConfigurationError('Model name is not the declared provider capability')
         if not isinstance(messages,list) or not messages or any(not isinstance(m,dict) or m.get('role') not in {'system','user','assistant','tool'} for m in messages):
             raise ModelConfigurationError('Only the registered text/tool message roles are supported')
-        if limits['max_output_tokens']!=2048 or limits['max_messages_utf8_bytes'] not in {16384,32768}:
+        if limits['max_output_tokens']!=2048 or limits['max_messages_utf8_bytes'] not in {16384,32768,65536}:
             raise ModelConfigurationError('Unsupported scoped request limits')
+        if limits['max_messages_utf8_bytes']==65536 and role not in {'repairer','reviewer'}:
+            raise ModelConfigurationError('Large source context is not registered for this role')
         if any(m.get('reasoning_content') for m in messages):
             raise ModelConfigurationError('Thinking history is not supported by this non-thinking adapter')
 

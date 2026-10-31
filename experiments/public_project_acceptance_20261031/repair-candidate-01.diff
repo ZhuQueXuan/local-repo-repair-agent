@@ -1,0 +1,16 @@
+--- a/inflection.py
++++ b/inflection.py
+@@ -367,7 +367,7 @@
+ 
+     """
+     return re.sub(
+-        r"\b('?[a-z])",
++        r"\b('?[^\W\d_])",
+         lambda match: match.group(1).capitalize(),
+         humanize(underscore(word))
+     )
+@@ -421,3 +421,4 @@
+ _irregular('move', 'moves')
+ _irregular('cow', 'kine')
+ _irregular('zombie', 'zombies')
++_irregular('passerby', 'passersby')

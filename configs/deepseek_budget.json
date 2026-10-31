@@ -9,5 +9,5 @@
   "conservative_output_cny_per_million": "8",
   "ledger_path": "data/deepseek_budget.json",
   "pricing_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
-  "notes": "On 2026-10-10 the user removed the project monetary cap and authorized normal task-related API usage until the provider balance or service is unavailable. Keep cumulative usage and unknown-request accounting; notify the user on provider failures. No request-count or Agent step cap. Time, context, and stagnation protections remain."
+  "notes": "On 2026-10-10 and again on 2026-10-31 the user removed fixed monetary and model-request-count caps for normal requested work, including future tasks. Do not ask for a new per-test spending quota. Keep cumulative usage and unknown-request accounting and stop/report balance, authentication or service failures. Repair ends when the goal is verified, after 3 repair/check/review rounds, after 900 seconds, or after 2 stagnant rounds. Time, context, cancellation and repeated-no-progress protections remain; model request totals are reporting only."
 }
